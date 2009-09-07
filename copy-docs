@@ -1,7 +1,7 @@
-rm -rf sphinx-doc
-cp -r _build/html/ sphinx-doc
+rm -rf book
+cp -r _build/html/ book
 #cp -r doc/_build/latex/mhd-hermes.pdf sphinx-doc/
-cd sphinx-doc
+cd book
 sphinx-to-github .
 cd ..
-git add sphinx-doc
+git add book
