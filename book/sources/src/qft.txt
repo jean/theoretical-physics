@@ -668,11 +668,12 @@ where
 
 This is called the LSZ formula. Now we use the Wick contraction, get some terms like $D_{23}D_{34}$ integrate things out, this will give the delta function and $\tilde D(p)$'s and that's it.
 
-Let's see how it goes for $\L=-{\lambda\over4}\phi^4$ for the process $k_1+k_2\to p_1+p_2$: 
+Let's see how it goes for $\L=-{\lambda\over4}\phi^4$ for the process
+$k_1+k_2\to p_1+p_2$:
 
 .. math::
 
-    \braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{-i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
+    \braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
 
 
 
@@ -684,7 +685,7 @@ Let's see how it goes for $\L=-{\lambda\over4}\phi^4$ for the process $k_1+k_2\t
 
 .. math::
 
-    = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{-i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
+    = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
 
 
 
@@ -887,43 +888,500 @@ For the last two equations, not all possibilities of the connected graphs are li
 
 .. index:: fermions, vector bosons
 
-Fermions and Vector Bosons
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagators for Scalar Bosons, Fermions and Vector Bosons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For fermions: 
+The only nonzero contractions that can occur are the propagators below. All
+other contractions are zero.
+
+Propagator for a scalar boson is:
+
+.. math::
+
+    \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
+
+For fermions (Feynman propagator):
 
 .. math::
 
     \braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}
 
 
-with 
+with
 
 .. math::
 
     \tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
 
 
-For vector bosons: 
+For vector bosons:
 
 .. math::
 
     \braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}
 
 
-with 
+with
 
 .. math::
 
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}
 
 
-For massless bosons: 
+For massless bosons:
 
 .. math::
 
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
 
+Field Operators
+~~~~~~~~~~~~~~~
+
+The free (non-interacting) fields in the interaction picture are expressed
+using the creation and anihilation operators below, also the corresponding
+non-interacting Hamiltonian is shown.
+
+The general idea behind the machinery is that the field operator
+$\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k$ is constructed as a sum (or
+an integral, depending on if the index $k$ is discrete or continuous) of
+single-particle wave functions (i.e. solutions of the noninteracting equation
+of motion) multiplied by the creation/anihilation operators ($c_k$ or
+$c_k^\dag$) that create/destroy
+the particle in the given single-particle state. Note that the noninteracting
+equation of motion usually means that we set all potentials (interactions) as
+zero, but in principle it can be any equation that we can solve exactly.
+
+The coefficients $\psi_k({\bf x})$ don't depend on time (so neither the field
+operators in the Schrödinger picture), but we work in the interaction picture,
+where the creation/anihilation operators depend on time, and the time
+dependence is put into the exponentials below (but the integration is still
+done over the spatial components of $p$ only).
+
+Scalar bosons:
+
+.. math::
+
+    \phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+    \pi_I(x) = {\partial_t}\phi_I(x)
+        = \int {\d^3 p\over (2\pi)^3}(-i) {\sqrt{E_{\bf p}\over2}}
+        \left(a_{\bf p} e^{-ip\cdot x} - a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+where:
+
+.. math::
+
+    \left[a_{\bf p}, a_{\bf q}^{\dag}\right] =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})
+
+(all other commutators are equal to zero).
+The equal-time commutation relations for $\phi$ and $\pi$ are then:
+
+.. math::
+
+    \left[\phi({\bf x}), \pi({\bf y})\right] =
+        i\delta^{(3)}({\bf x} - {\bf y})
+
+(all other commutators are equal to zero).
+
+The Hamiltonian is
+
+.. math::
+
+    H = \int{\d^3p\over(2\pi)^3} E_{\bf p}
+        a_{\bf p}^\dag a_{\bf p}
+
+Fermions:
+
+.. math::
+
+    \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{s=1}^2
+        \left(a_{\bf p}^s u^s(p) e^{-ip\cdot x}
+        + b_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
+
+    \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
+    \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{s=1}^2
+        \left(b_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
+        + a_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
+
+where
+
+.. math::
+
+    u^s(p) = \mat{\sqrt{p\cdot\sigma}\xi^s\cr
+        \sqrt{p\cdot\bar\sigma}\xi^s\cr}
+
+    v^s(p) = \mat{\sqrt{p\cdot\sigma}\eta^s\cr
+        -\sqrt{p\cdot\bar\sigma}\eta^s\cr}
+
+    \sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
+
+    \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
+
+    \left\{a_{\bf p}^r, a_{\bf q}^{s\dag}\right\} =
+    \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+(all other anticommutators are equal to zero).
+The equal-time anticommutation relations for $\psi$ and $\psi^\dag$ are then:
+
+.. math::
+
+    \left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+
+    \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
+    \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
+    0
+
+The Hamiltonian is
+
+.. math::
+
+    H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
+        \left(a_{\bf p}^{s\dag}a_{\bf p}^{s}
+        +b_{\bf p}^{s\dag}b_{\bf p}^{s}\right)
+
+
+Vector bosons:
+
+.. math::
+
+    A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{r=0}^3
+        \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
+        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
+
+where
+
+.. math::
+
+    \left[a_{\bf p}^r, a_{\bf q}^{s\dag}\right] =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+The equal-time commutation relations for $A_\mu$ are then:
+
+.. math::
+
+    \left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}
+
+Nonrelativistic Field Operators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One difference in nonrelativistic quantum mechanics is that the noninteracting
+solutions to the equation of motion (Schrödinger equation in this case) can be
+numbered using a discrete index, so for example the momentum $\bf q$ is not
+continuous, thus the (anti)commutation relations for creation and anihilation
+operators contain the Kronecker delta (instead of a delta function) and
+integrals over the index are replaced by sums. The reason for that is that we
+usually employ boundary conditions (like a lattice, or one particle potential
+due to nuclei, etc.) that make the spectrum discrete.
+
+
+For bosons the field operators are given by:
+
+.. math::
+
+    \hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k
+
+    \hat\psi^\dag({\bf x}) = \sum_k \psi_k^*({\bf x}) c_k^\dag
+
+where the coefficients are the single-particle wave functions.
+
+..  math::
+
+    [c_k, c_l^\dag] = \delta_{kl}
+
+    [c_k, c_l] = [c_k^\dag, c_l^\dag] = 0
+
+so the commutation relations for $\hat\psi$ and $\hat\psi^\dag$ are:
+
+.. math::
+
+    [\hat\psi({\bf x}), \hat\psi^\dag({\bf y})] = \delta^{(3)}({\bf x}-{\bf y})
+
+    [\hat\psi({\bf x}), \hat\psi({\bf y})] =
+    [\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})] = 0
+
+For fermions:
+
+.. math::
+
+    \hat\psi({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^s({\bf x}) c_k
+
+    \hat\psi^\dag({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^{s*}({\bf x}) c_k^\dag
+
+where
+
+..  math::
+
+    \{c_k, c_l^\dag\} = \delta_{kl}
+
+    \{c_k, c_l\} = \{c_k^\dag, c_l^\dag\} = 0
+
+so the commutation relations for $\hat\psi$ and $\hat\psi^\dag$ are:
+
+.. math::
+
+    \{\hat\psi({\bf x}), \hat\psi^\dag({\bf y})\} =\delta^{(3)}({\bf x}-{\bf y})
+
+    \{\hat\psi({\bf x}), \hat\psi({\bf y})\} =
+    \{\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})\} = 0
+
+The (interacting) Hamiltonian for both bosons and fermions is
+
+.. math::
+
+    i\hbar\partial_t\ket{\Psi(t)} = \hat H\ket{\Psi(t)}
+
+    \hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
+        \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k
+
+Note the ordering of the final two destruction operators $c_l c_k$, which is
+opposite that of the last two single-particle wave functions in the matrix
+elements of the potential $\braket{ij|V|kl}$ (for bosons it doesn't matter, for
+fermions it changes a sign).
+
+
+Nonrelativistic Propagator
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nonrelativistic limits of the propagators are obtained by assuming $|{\bf p}|/m
+\ll 1$ (we substitute $\omega=p_0-m$):
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
+    = {i\over p_0^2-{\bf p}^2-m^2+i\epsilon}
+    = {i\over \left(p_0-\sqrt{{\bf p}^2+m^2}\right)\left(p_0
+        +\sqrt{{\bf p}^2+m^2}\right)+i\epsilon}
+    \approx
+
+    \approx
+    {i\over \left(p_0-m-{{\bf p}^2\over 2m}\right)
+        \left(p_0+m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    =
+    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+
+the behavior of the propagator in the vicinity of its positive frequency pole
+$\omega\approx{{\bf p}^2\over 2m}$ is (remember $\omega \to 0$ in the
+nonrelativistic limit):
+
+.. math::
+
+    \tilde D(p) \approx
+    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    \approx
+    {i\over \left(\omega-{{\bf p}^2\over 2m}\right) 2m + i\epsilon}
+    =
+    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
+
+Similarly for fermions:
+
+.. math::
+
+    \tilde S(p) = {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
+    = {i(p^0\gamma_0 - p^j\gamma_j+m)\over p^2-m^2+i\epsilon}
+    \approx
+    {1\over2m}{i(p^0\gamma_0 - p^j\gamma_j+m)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+    =
+
+    = {1\over2m}{i((\omega+m)\gamma_0 - p^j\gamma_j+m)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+    \approx
+    {1\over2m}{i(m\gamma_0 - p^j\gamma_j+m)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+    =
+
+.. math::
+    :label: fermion-propagator-approx
+
+    =
+    {i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+
+The first term
+
+.. math::
+
+    \half(\gamma_0+1) = \mat{
+        1 & 0 & 0 & 0\cr
+        0 & 1 & 0 & 0\cr
+        0 & 0 & 0 & 0\cr
+        0 & 0 & 0 & 0\cr
+        }
+
+selects the two upper components of a given bispinor. The second term
+
+.. math::
+
+    - {p^j\gamma_j\over2m} = \mat{
+        0 & -{p^j\sigma_j\over2m} \cr
+        {p^j\sigma_j\over2m} & 0 \cr
+        }
+
+mixes the upper and lower components of the bispinor and the contribution of
+this term is quadratic in ${\bf p}\over m$ so it can be neglected. The
+numerator of :eq:`fermion-propagator-approx` reduces to a unit matrix (in spin
+space):
+
+.. math::
+
+    \tilde S(p) \approx
+    {i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon}
+    \approx
+    {i\one\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+    =\one G_0^+({\bf p}, \omega)
+
+where $G_0^+({\bf p}, \omega)$ is the nonrelativistic retarded propagator
+defined by:
+
+.. math::
+
+    G_0^+(x-y) =
+    i \int {\d^3 p\over (2\pi)^3}
+    \int {\d \omega\over 2\pi}
+    G_0^+({\bf p}, \omega)
+        e^{i{\bf p}\cdot({\bf x-y})}
+        e^{-i\omega(t_x - t_y)}
+
+(For the other pole $p_0 = -\sqrt{{\bf p}^2+m^2}$, we define $\omega=-p_0-m$ and
+we would see that the antiparticles' propagator reduces to the advanced
+Green's function in the nonrelativistic limit.)
+
+As shown above, the nonrelativistic free propagator is defined by:
+
+.. math::
+
+    G_0^+(x-y) =
+    i \int {\d^3 p\over (2\pi)^3}
+    \int {\d \omega\over 2\pi}
+    G_0^+({\bf p}, \omega)
+        e^{i{\bf p}\cdot({\bf x-y})}
+        e^{-i\omega(t_x - t_y)}
+
+
+with:
+
+.. math::
+
+    G_0^+({\bf p}, \omega)=
+    {i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+
+If we use the energies of the nonineracting particles
+$E_k \equiv \epsilon_k = {\hbar^2k^2\over 2m} = {k^2\over 2m}$, we can write it
+as:
+
+.. math::
+
+    G_0^+({\bf p}, \omega)=
+    {i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+    =
+    {i\over \omega-E_k + i\epsilon}
+
+so
+
+.. math::
+
+    G_0^+(k, \omega) = {i\over \omega-E_k + i\epsilon}
+
+using $E = \hbar\omega$ we can also write:
+
+.. math::
+
+    G_0^+(k, E) = {i\over E-E_k + i\epsilon}
+
+Other equivalent ways of representing the propagator:
+
+.. math::
+
+    G_0^+(x-y)
+    =
+    G_0^+({\bf x}, t_x, {\bf y}, t_y)
+    =
+    i \int {\d^3 p\d E\over (2\pi\hbar)^4}
+    G_0^+({\bf p}, E)
+        e^{{i\over\hbar}{\bf p}\cdot({\bf x-y})}
+        e^{-{i\over\hbar}E(t_x - t_y)}
+    =
+
+    =
+    i \int {\d^3 k\d \omega\over (2\pi)^4}
+    G_0^+(k, \omega)
+        e^{i {\bf k}\cdot({\bf x-y})}
+        e^{-i\omega(t_x - t_y)}
+
+Sometimes it's useful to calculate the mixed representation $G_0^+(k, t)$:
+
+.. math::
+
+    G_0^+(k, t) = \int {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+    = \int {\d\omega\over2\pi}e^{-i\omega t}
+    {i\over \omega-E_k + i\epsilon}
+    =
+    \cdots
+    =\theta_t e^{-i (E_k-i\epsilon)t}
+
+(The "$\cdots$" means to use the Residue Theorem and distinguish two cases $t <
+0$ and $t > 0$, thus getting the Heaviside step function $\theta_t$ in the
+result.)
+
+Very often, in practice, one just needs to work with $G_0^+(k, t)$ and
+$G_0^+(k, \omega)$, here is how to convert between those:
+
+.. math::
+
+    G_0^+(k, t) = \int_{-\infty}^\infty
+        {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+
+    G_0^+(k, \omega) = \int_{-\infty}^\infty \d t\, e^{i\omega t}G_0^+(k, t)
+
+The relation to the contraction of operators is:
+
+.. math::
+
+    G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+        c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
+
+where $\ket{\Psi_0}$ is the ground state wavefunction and:
+
+.. math::
+
+    c_{\bf k}(t) = e^{i H_0 t} c_{\bf k} e^{-i H_0 t}
+
+so to understand the meaning of $G_0^+({\bf k}, t_2 - t_1)$, we write it as:
+
+.. math::
+
+    G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+        c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
+    = -i \theta_{t_2-t_1} \braket{\Psi_0|e^{i H_0 t_2}
+        c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}|\Psi_0}
+    =
+
+    = -i \theta_{t_2-t_1} \left(e^{-i H_0 t_2}\ket{\Psi_0}\right)^\dag
+        \left(
+        c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}\ket{\Psi_0}
+        \right)
+
+which describes the probability amplitude of adding a bare particle at time
+$t_1$, removing at time $t_2$ and regaining the original many-body system (that
+in the meantime evolved into $e^{-i H_0 t_2}\ket{\Psi_0}$).
 
 .. index:: Feynman rules
 
@@ -946,7 +1404,8 @@ Let's calculate the $\L_{ZZH}=\lambda Z_\mu Z^\mu H$ interaction in the SM, wher
 
 .. math::
 
-    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)\}|0} =
+    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)
+    \exp\left({i\over\hbar}\int\d^4 x \L_{ZZH}(x) \right)\}|0} =
 
 
 
@@ -2235,16 +2694,28 @@ In general, the covariant and contravariant vectors and tensors work just like i
     A^\mu=\left({\phi\over c}, {\bf A}\right) = (A^0, A^1, A^2, A^3)
 
 
-where $\phi$ is the electrostatic potential. Whenever we write $\bf A$, the components of it are given by the upper indices, e.g. ${\bf A}=(A^1, A^2, A^3)$. The components with lower indices can be calculated using the metric tensor, so it depends on the signature convention: 
+where $\phi$ is the electrostatic potential. Whenever we write $\bf A$, the
+components of it are given by the upper indices, e.g. ${\bf A}=(A^1, A^2,
+A^3)$. The components with lower indices can be calculated using the metric
+tensor, so it depends on the signature convention:
 
 .. math::
 
     A_\mu=g_{\mu\nu}A^\nu=(A^0, -{\bf A}) = (A^0, -A^1, -A^2, -A^3)
 
 
-In our case we got $A_0=A^0$ and $A_i = -A^i$ (if we used the other signature convention, then the sign of $A_0$ would differ and $A_i$ would stay the same).
+In our case we got $A_0=A^0$ and $A_i = -A^i$ (if we used the other signature
+convention, then the sign of $A_0$ would differ and $A_i$ would stay the same).
+The length (squared) of the vector is:
 
-Gradient is defined as: 
+.. math::
+
+    A^2 = A_\mu A^\mu = \left(A^0\right)^2 - \left| {\bf A} \right|^2
+    = \left(A^0\right)^2 - {\bf A}^2
+
+where ${\bf A}^2 \equiv |{\bf A}|^2 = (A^1)^2+(A^2)^2+(A^3)^2$.
+
+Gradient is defined as:
 
 .. math::
 
@@ -2278,6 +2749,27 @@ Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t
 
     p_\mu = g_{\mu\nu}p^\nu = i\hbar\left(\partial^0,-\partial^j\right) = i\hbar\left(\partial_0,\partial_j\right) = i\hbar\partial_\mu
 
+For $p^2$ we get:
+
+.. math::
+
+    p^2 = p_\mu p^\mu = (p^0)^2 - {\bf p}^2 = (p_0)^2 - {\bf p}^2
+    = {E^2\over c^2} - {\bf p}^2
+
+Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
+where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
+
+.. math::
+
+    E^2 = p^2c^2 + {\bf p}^2c^2 = m^2c^4 + {\bf p}^2c^2
+
+    E = \sqrt{m^2c^4 + {\bf p}^2c^2}
+    = mc^2\sqrt{1 + {{\bf p}^2\over m^2c^2}}
+    = mc^2\left(1 + {{\bf p}^2\over 2m^2c^2} + O\left({p^4\over m^4c^4}\right)
+        \right)
+    =
+
+    = mc^2 + {{\bf p}^2\over 2m} + O\left(p^4\over m^3c^2\right)
 
 Note: for the signature +2, we would get $p^\mu=-i\hbar\partial^\mu$ and $p_\mu=-i\hbar\partial_\mu$.
 

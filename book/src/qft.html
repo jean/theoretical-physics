@@ -300,13 +300,14 @@
 </div><div class="math">
 <p><img src="../images/math/acd8924569d1e30fa6a75e62200c652b6df94888.png" alt="{\braket{0|T\{\phi_I(x_1)\cdots\phi_I(x_n)\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)\}|0} \over \braket{0|T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)|0} }" /></p>
 </div><p>This is called the LSZ formula. Now we use the Wick contraction, get some terms like <img class="math" src="../images/math/6ef92327e88c5a18fd17b8bfd06d1cabb5781dd5.png" alt="D_{23}D_{34}"/> integrate things out, this will give the delta function and <img class="math" src="../images/math/4c37e8d20aa702ae85f0783d912f369e15b10168.png" alt="\tilde D(p)"/>&#8216;s and that&#8217;s it.</p>
-<p>Let&#8217;s see how it goes for <img class="math" src="../images/math/b4795f0f3ec255896eeda445bbb49f96d661af4a.png" alt="\L=-{\lambda\over4}\phi^4"/> for the process <img class="math" src="../images/math/ce3d63097f23c899da2ed4d69f8af67a71def782.png" alt="k_1+k_2\to p_1+p_2"/>:</p>
+<p>Let&#8217;s see how it goes for <img class="math" src="../images/math/b4795f0f3ec255896eeda445bbb49f96d661af4a.png" alt="\L=-{\lambda\over4}\phi^4"/> for the process
+<img class="math" src="../images/math/ce3d63097f23c899da2ed4d69f8af67a71def782.png" alt="k_1+k_2\to p_1+p_2"/>:</p>
 <div class="math">
-<p><img src="../images/math/b169783dab6158964f9682df40ea7905d58aeed3.png" alt="\braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{-i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
+<p><img src="../images/math/cc9185750049d2bfd4c6b5d16d4f5c504d1174f2.png" alt="\braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
 </div><div class="math">
 <p><img src="../images/math/bdb44bc5b0f68fdcacc096e14e451b87226e2dde.png" alt="{\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(y_1)\phi_I(y_2)\exp\left( -{i\lambda\over4\hbar} \int\d^4 x \phi_I^4(x) \right)\}|0} \over \braket{0|T\exp\left(-{i\lambda\over4\hbar}\int\d^4 x \phi_I^4(x) \right)|0} }=" /></p>
 </div><div class="math">
-<p><img src="../images/math/edf1a610d6755d8a4debb85dcccf9ac0032b9145.png" alt="= {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{-i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
+<p><img src="../images/math/8597fdc2bcbd1857dfffd4955bc625cd6289e1b5.png" alt="= {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
 </div><div class="math">
 <p><img src="../images/math/0b1f187d31fdd6526f0726ac6f3ff639f79f34ff.png" alt="\left[ { \braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(y_1)\phi_I(y_2)\}|0} \over \braket{0|T\exp\left(-{i\lambda\over4\hbar}\int\d^4 x \phi_I^4(x) \right)|0} }\right. +" /></p>
 </div><div class="math">
@@ -381,9 +382,17 @@
 <p><img src="../images/math/6984465c0e67371b9865d878ff7d9508b8946b5e.png" alt="=D(x_1-x)D(x_2-x)D(x-y)D(x-y)D(x_3-y)D(x_4-y) + \hbox{disconnected}" /></p>
 </div><p>For the last two equations, not all possibilities of the connected graphs are listed (and also the combinatorial factor is omitted).</p>
 </div>
-<div class="section" id="fermions-and-vector-bosons">
-<span id="index-51"></span><h4>Fermions and Vector Bosons<a class="headerlink" href="#fermions-and-vector-bosons" title="Permalink to this headline">¶</a></h4>
-<p>For fermions:</p>
+<div class="section" id="propagators-for-scalar-bosons-fermions-and-vector-bosons">
+<span id="index-51"></span><h4>Propagators for Scalar Bosons, Fermions and Vector Bosons<a class="headerlink" href="#propagators-for-scalar-bosons-fermions-and-vector-bosons" title="Permalink to this headline">¶</a></h4>
+<p>The only nonzero contractions that can occur are the propagators below. All
+other contractions are zero.</p>
+<p>Propagator for a scalar boson is:</p>
+<div class="math">
+<p><img src="../images/math/f92ca70d5b457c5d5329622b01198e6830e3c58a.png" alt="\braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../images/math/6f771d7a5cccb2ad024a69482f4a21da8e64dd9f.png" alt="\tilde D(p) = {i\over p^2-m^2+i\epsilon}" /></p>
+</div><p>For fermions (Feynman propagator):</p>
 <div class="math">
 <p><img src="../images/math/7e91be87d2f93fb34185f25c2f85c5815796f169.png" alt="\braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}" /></p>
 </div><p>with</p>
@@ -399,6 +408,324 @@
 <div class="math">
 <p><img src="../images/math/429f1c0f5316ae42238fcae1aabc987dd67f847d.png" alt="\tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}" /></p>
 </div></div>
+<div class="section" id="field-operators">
+<h4>Field Operators<a class="headerlink" href="#field-operators" title="Permalink to this headline">¶</a></h4>
+<p>The free (non-interacting) fields in the interaction picture are expressed
+using the creation and anihilation operators below, also the corresponding
+non-interacting Hamiltonian is shown.</p>
+<p>The general idea behind the machinery is that the field operator
+<img class="math" src="../images/math/43190d5e1634a00b6637c399dd1a49c6d3248b83.png" alt="\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k"/> is constructed as a sum (or
+an integral, depending on if the index <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> is discrete or continuous) of
+single-particle wave functions (i.e. solutions of the noninteracting equation
+of motion) multiplied by the creation/anihilation operators (<img class="math" src="../images/math/3bd87559f4e4c9af40246a0fdbafe6feab507414.png" alt="c_k"/> or
+<img class="math" src="../images/math/17312301048051daa44cf92c45fb3499e2ac2ec3.png" alt="c_k^\dag"/>) that create/destroy
+the particle in the given single-particle state. Note that the noninteracting
+equation of motion usually means that we set all potentials (interactions) as
+zero, but in principle it can be any equation that we can solve exactly.</p>
+<p>The coefficients <img class="math" src="../images/math/80cb14c42e41f5351259d4666aab325f8ecb7e71.png" alt="\psi_k({\bf x})"/> don&#8217;t depend on time (so neither the field
+operators in the Schrödinger picture), but we work in the interaction picture,
+where the creation/anihilation operators depend on time, and the time
+dependence is put into the exponentials below (but the integration is still
+done over the spatial components of <img class="math" src="../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> only).</p>
+<p>Scalar bosons:</p>
+<div class="math">
+<p><img src="../images/math/e20e97ef75db46a43fa1478b62d54ef455bcaa30.png" alt="\phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+\pi_I(x) = {\partial_t}\phi_I(x)
+    = \int {\d^3 p\over (2\pi)^3}(-i) {\sqrt{E_{\bf p}\over2}}
+    \left(a_{\bf p} e^{-ip\cdot x} - a_{\bf p}^\dag e^{ip\cdot x}\right)" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../images/math/43e9b9082d9fee9ef7e996153815ae6acaa4c3c8.png" alt="\left[a_{\bf p}, a_{\bf q}^{\dag}\right] =
+    (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})" /></p>
+</div><p>(all other commutators are equal to zero).
+The equal-time commutation relations for <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> and <img class="math" src="../images/math/f2ca003a7da0de4994b4733e203b74ff52d42553.png" alt="\pi"/> are then:</p>
+<div class="math">
+<p><img src="../images/math/aea53e366502fd30fed361893ffcaad0d8a8f547.png" alt="\left[\phi({\bf x}), \pi({\bf y})\right] =
+    i\delta^{(3)}({\bf x} - {\bf y})" /></p>
+</div><p>(all other commutators are equal to zero).</p>
+<p>The Hamiltonian is</p>
+<div class="math">
+<p><img src="../images/math/f89b4dc5220728f2c7dfd625fce83e6a4e6cdaa7.png" alt="H = \int{\d^3p\over(2\pi)^3} E_{\bf p}
+    a_{\bf p}^\dag a_{\bf p}" /></p>
+</div><p>Fermions:</p>
+<div class="math">
+<p><img src="../images/math/1fac68af02db865b0687e9260b9172e6bbf82321.png" alt="\psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \sum_{s=1}^2
+    \left(a_{\bf p}^s u^s(p) e^{-ip\cdot x}
+    + b_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
+
+\bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
+\int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \sum_{s=1}^2
+    \left(b_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
+    + a_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../images/math/1480c7f443b7b50393c121512b74d25b446c6866.png" alt="u^s(p) = \mat{\sqrt{p\cdot\sigma}\xi^s\cr
+    \sqrt{p\cdot\bar\sigma}\xi^s\cr}
+
+v^s(p) = \mat{\sqrt{p\cdot\sigma}\eta^s\cr
+    -\sqrt{p\cdot\bar\sigma}\eta^s\cr}
+
+\sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
+
+\sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
+
+\left\{a_{\bf p}^r, a_{\bf q}^{s\dag}\right\} =
+\left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+    (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}" /></p>
+</div><p>(all other anticommutators are equal to zero).
+The equal-time anticommutation relations for <img class="math" src="../images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/> and <img class="math" src="../images/math/c2b707ed9d197d1ffb289de31ea937e49152e1f0.png" alt="\psi^\dag"/> are then:</p>
+<div class="math">
+<p><img src="../images/math/6bcf90e6126e12011c296aa9da29c1a722e9245b.png" alt="\left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
+    \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+
+\left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
+\left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
+0" /></p>
+</div><p>The Hamiltonian is</p>
+<div class="math">
+<p><img src="../images/math/00109cfb49f2d45c082721d8a09fbbb4bd862fa8.png" alt="H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
+    \left(a_{\bf p}^{s\dag}a_{\bf p}^{s}
+    +b_{\bf p}^{s\dag}b_{\bf p}^{s}\right)" /></p>
+</div><p>Vector bosons:</p>
+<div class="math">
+<p><img src="../images/math/eee9fb7c7fdff5359051d14723bdf58462c230ce.png" alt="A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \sum_{r=0}^3
+    \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
+    + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../images/math/9c851836c9f476f03ff359dd9778c8ca85151e9d.png" alt="\left[a_{\bf p}^r, a_{\bf q}^{s\dag}\right] =
+    (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}" /></p>
+</div><p>The equal-time commutation relations for <img class="math" src="../images/math/8c9906d93411ec8026702bde26b7f12612fdb54f.png" alt="A_\mu"/> are then:</p>
+<div class="math">
+<p><img src="../images/math/763f5145f329f00e9f6ab94a3f1e5cc2fb05a160.png" alt="\left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
+    \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}" /></p>
+</div></div>
+<div class="section" id="nonrelativistic-field-operators">
+<h4>Nonrelativistic Field Operators<a class="headerlink" href="#nonrelativistic-field-operators" title="Permalink to this headline">¶</a></h4>
+<p>One difference in nonrelativistic quantum mechanics is that the noninteracting
+solutions to the equation of motion (Schrödinger equation in this case) can be
+numbered using a discrete index, so for example the momentum <img class="math" src="../images/math/869ee25a97311754fac81b9d932fc29bef39ba08.png" alt="\bf q"/> is not
+continuous, thus the (anti)commutation relations for creation and anihilation
+operators contain the Kronecker delta (instead of a delta function) and
+integrals over the index are replaced by sums. The reason for that is that we
+usually employ boundary conditions (like a lattice, or one particle potential
+due to nuclei, etc.) that make the spectrum discrete.</p>
+<p>For bosons the field operators are given by:</p>
+<div class="math">
+<p><img src="../images/math/d7107297b7ed892d7812fcc1e8d9b610eb6fe6d5.png" alt="\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k
+
+\hat\psi^\dag({\bf x}) = \sum_k \psi_k^*({\bf x}) c_k^\dag" /></p>
+</div><p>where the coefficients are the single-particle wave functions.</p>
+<div class="math">
+<p><img src="../images/math/b6779e367178f2f302bb1a8cca8829f57b83fa7f.png" alt="[c_k, c_l^\dag] = \delta_{kl}
+
+[c_k, c_l] = [c_k^\dag, c_l^\dag] = 0" /></p>
+</div><p>so the commutation relations for <img class="math" src="../images/math/b05b06272aea6a94638c3308318f14b1d0f9e55c.png" alt="\hat\psi"/> and <img class="math" src="../images/math/9754d54ba26a4dccc53d0eb66343b7d47175423c.png" alt="\hat\psi^\dag"/> are:</p>
+<div class="math">
+<p><img src="../images/math/18e58d6b17c6a16e8c849f86e0e90deb4f1dcfc1.png" alt="[\hat\psi({\bf x}), \hat\psi^\dag({\bf y})] = \delta^{(3)}({\bf x}-{\bf y})
+
+[\hat\psi({\bf x}), \hat\psi({\bf y})] =
+[\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})] = 0" /></p>
+</div><p>For fermions:</p>
+<div class="math">
+<p><img src="../images/math/58b36b56037d63577a814abffc662312fb35eaf4.png" alt="\hat\psi({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^s({\bf x}) c_k
+
+\hat\psi^\dag({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^{s*}({\bf x}) c_k^\dag" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../images/math/a4a99dc66f133a49f533799fba3c7781beec2062.png" alt="\{c_k, c_l^\dag\} = \delta_{kl}
+
+\{c_k, c_l\} = \{c_k^\dag, c_l^\dag\} = 0" /></p>
+</div><p>so the commutation relations for <img class="math" src="../images/math/b05b06272aea6a94638c3308318f14b1d0f9e55c.png" alt="\hat\psi"/> and <img class="math" src="../images/math/9754d54ba26a4dccc53d0eb66343b7d47175423c.png" alt="\hat\psi^\dag"/> are:</p>
+<div class="math">
+<p><img src="../images/math/7d87b20fa57bf70f0378af0ddadbfcd9514e3c13.png" alt="\{\hat\psi({\bf x}), \hat\psi^\dag({\bf y})\} =\delta^{(3)}({\bf x}-{\bf y})
+
+\{\hat\psi({\bf x}), \hat\psi({\bf y})\} =
+\{\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})\} = 0" /></p>
+</div><p>The (interacting) Hamiltonian for both bosons and fermions is</p>
+<div class="math">
+<p><img src="../images/math/eb749ec01c1ec41d6a9cae52c70704d38a764254.png" alt="i\hbar\partial_t\ket{\Psi(t)} = \hat H\ket{\Psi(t)}
+
+\hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
+    \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k" /></p>
+</div><p>Note the ordering of the final two destruction operators <img class="math" src="../images/math/40240ae7d006daeef0b9d81aff314ff9076cb477.png" alt="c_l c_k"/>, which is
+opposite that of the last two single-particle wave functions in the matrix
+elements of the potential <img class="math" src="../images/math/f5fcbda321ad03821c1f03a6e3a65a30a7fa5612.png" alt="\braket{ij|V|kl}"/> (for bosons it doesn&#8217;t matter, for
+fermions it changes a sign).</p>
+</div>
+<div class="section" id="nonrelativistic-propagator">
+<h4>Nonrelativistic Propagator<a class="headerlink" href="#nonrelativistic-propagator" title="Permalink to this headline">¶</a></h4>
+<p>Nonrelativistic limits of the propagators are obtained by assuming <img class="math" src="../images/math/13b5bfd24ec78ae336a2f7f84c29575fcdcb64a7.png" alt="|{\bf p}|/m
+\ll 1"/> (we substitute <img class="math" src="../images/math/bbb402a3f830bed447157864a7db74e559fa9c86.png" alt="\omega=p_0-m"/>):</p>
+<div class="math">
+<p><img src="../images/math/572a44d3508c7db93a057cdc2e52125422a0585e.png" alt="\tilde D(p) = {i\over p^2-m^2+i\epsilon}
+= {i\over p_0^2-{\bf p}^2-m^2+i\epsilon}
+= {i\over \left(p_0-\sqrt{{\bf p}^2+m^2}\right)\left(p_0
+    +\sqrt{{\bf p}^2+m^2}\right)+i\epsilon}
+\approx
+
+\approx
+{i\over \left(p_0-m-{{\bf p}^2\over 2m}\right)
+    \left(p_0+m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+=
+{i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+    \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}" /></p>
+</div><p>the behavior of the propagator in the vicinity of its positive frequency pole
+<img class="math" src="../images/math/7c981951d53010347ca35b894217d2c5442d2e77.png" alt="\omega\approx{{\bf p}^2\over 2m}"/> is (remember <img class="math" src="../images/math/4c62ff09a515d51089d69e33fc40a776bc1a9bf5.png" alt="\omega \to 0"/> in the
+nonrelativistic limit):</p>
+<div class="math">
+<p><img src="../images/math/f1b90baf0c8276e2a10de42a8151d3382b283a72.png" alt="\tilde D(p) \approx
+{i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+    \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+\approx
+{i\over \left(\omega-{{\bf p}^2\over 2m}\right) 2m + i\epsilon}
+=
+{1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}" /></p>
+</div><p>Similarly for fermions:</p>
+<div class="math">
+<p><img src="../images/math/186a0c4f92ac67b351fe245db17f612e43571fcc.png" alt="\tilde S(p) = {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
+= {i(p^0\gamma_0 - p^j\gamma_j+m)\over p^2-m^2+i\epsilon}
+\approx
+{1\over2m}{i(p^0\gamma_0 - p^j\gamma_j+m)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+=
+
+= {1\over2m}{i((\omega+m)\gamma_0 - p^j\gamma_j+m)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+\approx
+{1\over2m}{i(m\gamma_0 - p^j\gamma_j+m)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+=" /></p>
+</div><div class="math" id="equation-fermion-propagator-approx">
+<p><span class="eqno">(1)</span><img src="../images/math/3c78724d6230adb86d6925e5d359889bd1e7a0db.png" alt="=
+{i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}" /></p>
+</div><p>The first term</p>
+<div class="math">
+<p><img src="../images/math/1f442bcfea8e0954ba8b4246d4721f84a42d6199.png" alt="\half(\gamma_0+1) = \mat{
+    1 &amp; 0 &amp; 0 &amp; 0\cr
+    0 &amp; 1 &amp; 0 &amp; 0\cr
+    0 &amp; 0 &amp; 0 &amp; 0\cr
+    0 &amp; 0 &amp; 0 &amp; 0\cr
+    }" /></p>
+</div><p>selects the two upper components of a given bispinor. The second term</p>
+<div class="math">
+<p><img src="../images/math/fdde7f23208cbc58fbc53170bc98afe36c877f62.png" alt="- {p^j\gamma_j\over2m} = \mat{
+    0 &amp; -{p^j\sigma_j\over2m} \cr
+    {p^j\sigma_j\over2m} &amp; 0 \cr
+    }" /></p>
+</div><p>mixes the upper and lower components of the bispinor and the contribution of
+this term is quadratic in <img class="math" src="../images/math/fd5c868762caf473502faee60cc3df8c0e161257.png" alt="{\bf p}\over m"/> so it can be neglected. The
+numerator of <a href="#equation-fermion-propagator-approx">(1)</a> reduces to a unit matrix (in spin
+space):</p>
+<div class="math">
+<p><img src="../images/math/484ac824cc00ff4e469c03f40eacdf3fae0cb44f.png" alt="\tilde S(p) \approx
+{i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon}
+\approx
+{i\one\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+=\one G_0^+({\bf p}, \omega)" /></p>
+</div><p>where <img class="math" src="../images/math/3d8aaa4e5f7d24cc021922cb667eeb7afc548d9f.png" alt="G_0^+({\bf p}, \omega)"/> is the nonrelativistic retarded propagator
+defined by:</p>
+<div class="math">
+<p><img src="../images/math/ebd83918ba20e0cd38eb7bdf8a60980779ade54c.png" alt="G_0^+(x-y) =
+i \int {\d^3 p\over (2\pi)^3}
+\int {\d \omega\over 2\pi}
+G_0^+({\bf p}, \omega)
+    e^{i{\bf p}\cdot({\bf x-y})}
+    e^{-i\omega(t_x - t_y)}" /></p>
+</div><p>(For the other pole <img class="math" src="../images/math/d9114c2a122675b296c5de2d6ea5e8c21e230901.png" alt="p_0 = -\sqrt{{\bf p}^2+m^2}"/>, we define <img class="math" src="../images/math/18eaa56ffeb49f62d2fb0eb3dcf2789f628abe00.png" alt="\omega=-p_0-m"/> and
+we would see that the antiparticles&#8217; propagator reduces to the advanced
+Green&#8217;s function in the nonrelativistic limit.)</p>
+<p>As shown above, the nonrelativistic free propagator is defined by:</p>
+<div class="math">
+<p><img src="../images/math/ebd83918ba20e0cd38eb7bdf8a60980779ade54c.png" alt="G_0^+(x-y) =
+i \int {\d^3 p\over (2\pi)^3}
+\int {\d \omega\over 2\pi}
+G_0^+({\bf p}, \omega)
+    e^{i{\bf p}\cdot({\bf x-y})}
+    e^{-i\omega(t_x - t_y)}" /></p>
+</div><p>with:</p>
+<div class="math">
+<p><img src="../images/math/63f6c6aa44e61a3f4511b63f49e36722f5f92cd6.png" alt="G_0^+({\bf p}, \omega)=
+{i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}" /></p>
+</div><p>If we use the energies of the nonineracting particles
+<img class="math" src="../images/math/0dde017afa3ddfdb6b6c70c89f2eb931f81a3e1f.png" alt="E_k \equiv \epsilon_k = {\hbar^2k^2\over 2m} = {k^2\over 2m}"/>, we can write it
+as:</p>
+<div class="math">
+<p><img src="../images/math/b81c7b1a493e2c3b07e0312beb4b4c0543cbd611.png" alt="G_0^+({\bf p}, \omega)=
+{i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+=
+{i\over \omega-E_k + i\epsilon}" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../images/math/2f43b09a142dd6410a385c5fc2f8194f8998ec2b.png" alt="G_0^+(k, \omega) = {i\over \omega-E_k + i\epsilon}" /></p>
+</div><p>using <img class="math" src="../images/math/363d47cf098f01ae1d797e996ebce6dcaa91b38a.png" alt="E = \hbar\omega"/> we can also write:</p>
+<div class="math">
+<p><img src="../images/math/e5fd91d62e6181a36e64d7df00e7658feb07e336.png" alt="G_0^+(k, E) = {i\over E-E_k + i\epsilon}" /></p>
+</div><p>Other equivalent ways of representing the propagator:</p>
+<div class="math">
+<p><img src="../images/math/37deabbf4de5e27bb07201ed51b2a9b2a2c0e0f5.png" alt="G_0^+(x-y)
+=
+G_0^+({\bf x}, t_x, {\bf y}, t_y)
+=
+i \int {\d^3 p\d E\over (2\pi\hbar)^4}
+G_0^+({\bf p}, E)
+    e^{{i\over\hbar}{\bf p}\cdot({\bf x-y})}
+    e^{-{i\over\hbar}E(t_x - t_y)}
+=
+
+=
+i \int {\d^3 k\d \omega\over (2\pi)^4}
+G_0^+(k, \omega)
+    e^{i {\bf k}\cdot({\bf x-y})}
+    e^{-i\omega(t_x - t_y)}" /></p>
+</div><p>Sometimes it&#8217;s useful to calculate the mixed representation <img class="math" src="../images/math/d60d13f221f274836e252319654c23302bccedf0.png" alt="G_0^+(k, t)"/>:</p>
+<div class="math">
+<p><img src="../images/math/ee1733358ec4138396f24777c163a427a7c9bd8e.png" alt="G_0^+(k, t) = \int {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+= \int {\d\omega\over2\pi}e^{-i\omega t}
+{i\over \omega-E_k + i\epsilon}
+=
+\cdots
+=\theta_t e^{-i (E_k-i\epsilon)t}" /></p>
+</div><p>(The &#8220;<img class="math" src="../images/math/087594ea26fa196b8e61bc20a36228270dc695f8.png" alt="\cdots"/>&#8221; means to use the Residue Theorem and distinguish two cases <img class="math" src="../images/math/b55115d5a845eca2547765e5b1f7bc58fbd07229.png" alt="t &lt;
+0"/> and <img class="math" src="../images/math/d968aec052b8a8f2736faf02fd8fb120489b7cff.png" alt="t &gt; 0"/>, thus getting the Heaviside step function <img class="math" src="../images/math/096330ee02ca23affd776c49940e69ec22c46e21.png" alt="\theta_t"/> in the
+result.)</p>
+<p>Very often, in practice, one just needs to work with <img class="math" src="../images/math/d60d13f221f274836e252319654c23302bccedf0.png" alt="G_0^+(k, t)"/> and
+<img class="math" src="../images/math/7fa748141af6c2ec5bef323938dedd64b35424b2.png" alt="G_0^+(k, \omega)"/>, here is how to convert between those:</p>
+<div class="math">
+<p><img src="../images/math/410fbfd3608f36a9a0447a5bf701498159d4a342.png" alt="G_0^+(k, t) = \int_{-\infty}^\infty
+    {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+
+G_0^+(k, \omega) = \int_{-\infty}^\infty \d t\, e^{i\omega t}G_0^+(k, t)" /></p>
+</div><p>The relation to the contraction of operators is:</p>
+<div class="math">
+<p><img src="../images/math/5827d842bec1274265eeef414296c6acd9aa6f4c.png" alt="G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+    c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}" /></p>
+</div><p>where <img class="math" src="../images/math/809d81bc366fe8cd680ea9a7e70d38ea75d0b155.png" alt="\ket{\Psi_0}"/> is the ground state wavefunction and:</p>
+<div class="math">
+<p><img src="../images/math/ebd7dbfc794615d913aeaa4da140848629132938.png" alt="c_{\bf k}(t) = e^{i H_0 t} c_{\bf k} e^{-i H_0 t}" /></p>
+</div><p>so to understand the meaning of <img class="math" src="../images/math/53c49ddd3f7daca6dd1653addbae61710322d261.png" alt="G_0^+({\bf k}, t_2 - t_1)"/>, we write it as:</p>
+<div class="math">
+<p><img src="../images/math/afb63b2f79c781050748451f7c858ff98cd131e5.png" alt="G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+    c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
+= -i \theta_{t_2-t_1} \braket{\Psi_0|e^{i H_0 t_2}
+    c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}|\Psi_0}
+=
+
+= -i \theta_{t_2-t_1} \left(e^{-i H_0 t_2}\ket{\Psi_0}\right)^\dag
+    \left(
+    c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}\ket{\Psi_0}
+    \right)" /></p>
+</div><p>which describes the probability amplitude of adding a bare particle at time
+<img class="math" src="../images/math/8b91b7245b0dd42b4f5585b97e323a8cfaa064a8.png" alt="t_1"/>, removing at time <img class="math" src="../images/math/a40dccc3bb61d55c03b7dafe15707eeef43885ab.png" alt="t_2"/> and regaining the original many-body system (that
+in the meantime evolved into <img class="math" src="../images/math/6c5d547980a961d61296e0d4a4fe9ee216ba7573.png" alt="e^{-i H_0 t_2}\ket{\Psi_0}"/>).</p>
+</div>
 <div class="section" id="feynman-rules">
 <span id="index-52"></span><h4>Feynman Rules<a class="headerlink" href="#feynman-rules" title="Permalink to this headline">¶</a></h4>
 <p>We can deduce a set of rules, so that one doesn&#8217;t have to repeat the whole calculation each time. For a scalar field we derived the rules above, for fermion and vector boson fields it&#8217;s more difficult.</p>
@@ -409,7 +736,8 @@
 <div class="math">
 <p><img src="../images/math/6aba2cdcd71f9d671f019ec302ccb8b6efb51a58.png" alt="\braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}= {\varepsilon_\alpha(k)\varepsilon^\alpha(l)\over\tilde D_{\mu\nu}(k)\tilde D^{\mu\nu}(l)} {1\over\tilde D(p)}" /></p>
 </div><div class="math">
-<p><img src="../images/math/f98bb84fd98f8eef09a7db845a3e0bbacf5fb939.png" alt="\int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)\}|0} =" /></p>
+<p><img src="../images/math/0a4372598eb299d3349a5deee25d7484bbeecb6f.png" alt="\int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)
+\exp\left({i\over\hbar}\int\d^4 x \L_{ZZH}(x) \right)\}|0} =" /></p>
 </div><div class="math">
 <p><img src="../images/math/696ae7358217330276adfcbc1e2461ac4d5d63dc.png" alt="= {\varepsilon_\alpha(k)\varepsilon^\alpha(l)\over\tilde D_{\mu\nu}(k)\tilde D^{\mu\nu}(l)} {1\over\tilde D(p)}" /></p>
 </div><div class="math">
@@ -654,14 +982,14 @@
 <span id="index-57"></span><h3>Perturbation Theory<a class="headerlink" href="#perturbation-theory" title="Permalink to this headline">¶</a></h3>
 <p>We want to solve the equation:</p>
 <div class="math" id="equation-schroed">
-<p><span class="eqno">(1)</span><img src="../images/math/2e0b294ef94b6a6eb38641709428d28d81ccfa9b.png" alt="i\hbar{\d \over\d t}\ket{\psi(t)}=H(t)\ket{\psi(t)}" /></p>
+<p><span class="eqno">(2)</span><img src="../images/math/2e0b294ef94b6a6eb38641709428d28d81ccfa9b.png" alt="i\hbar{\d \over\d t}\ket{\psi(t)}=H(t)\ket{\psi(t)}" /></p>
 </div><p>with <img class="math" src="../images/math/c71cbbf2e0346c0408b10af53fbc4411be988838.png" alt="H(t) = H^0 + H^1(t)"/>, where <img class="math" src="../images/math/6db5be18adce7bd3e69b5ab1bae64339dfb827e3.png" alt="H^0"/> is time-independent part whose eigenvalue problem has been solved:</p>
 <div class="math">
 <p><img src="../images/math/5a11020a780173817b917e72c576b8113fa1f7fc.png" alt="H^0\ket{n^0}=E^0_n\ket{n^0}" /></p>
 </div><p>and <img class="math" src="../images/math/3e8865a49f6ec45c1e6e40649a9659cc2c76c69d.png" alt="H^1(t)"/> is a small time-dependent perturbation. <img class="math" src="../images/math/a6868d5d5354804a821b059707d8b923b439c7b8.png" alt="\ket{n^0}"/> form a complete basis, so we can express <img class="math" src="../images/math/2f34c7d88c221aa95f708963f977e06648ff2af1.png" alt="\ket{\psi(t)}"/> in this basis:</p>
 <div class="math" id="equation-psi">
-<p><span class="eqno">(2)</span><img src="../images/math/582b31c192fe5dc25b85ce1a2bc3073c5c73a5e9.png" alt="\ket{\psi(t)} = \sum_n d_n(t)e^{-{i\over\hbar}E^0_n t}\ket{n^0}" /></p>
-</div><p>Substituting this into <a href="#equation-schroed">(1)</a>, we get:</p>
+<p><span class="eqno">(3)</span><img src="../images/math/582b31c192fe5dc25b85ce1a2bc3073c5c73a5e9.png" alt="\ket{\psi(t)} = \sum_n d_n(t)e^{-{i\over\hbar}E^0_n t}\ket{n^0}" /></p>
+</div><p>Substituting this into <a href="#equation-schroed">(2)</a>, we get:</p>
 <div class="math">
 <p><img src="../images/math/4e7127baa86f2f4636409da94bcccfea2f73557d.png" alt="\sum_n\left( i\hbar{\d\over\d t} d_n(t)+E^0_n d_n(t) \right)e^{-{i\over\hbar}E^0_n t}\ket{n^0} =\sum_n\left( E^0_n d_n(t) +H^1 d_n(t) \right)e^{-{i\over\hbar}E^0_n t}\ket{n^0}" /></p>
 </div><p>so:</p>
@@ -678,15 +1006,15 @@
 <p><img src="../images/math/ca18d54b023742e9cd7102220b7e77327a4bb3e8.png" alt="i\hbar\left((d_f(t)-d_f(t_1)\right) =\sum_n\int_{t_1}^t d_n(t') e^{i w_{fn} t'}\braket{f^0|H^1(t')|n^0} \d t'" /></p>
 </div><p>Let the initial wavefunction at time <img class="math" src="../images/math/8b91b7245b0dd42b4f5585b97e323a8cfaa064a8.png" alt="t_1"/> be some particular state <img class="math" src="../images/math/a21ca45e76a5348f99cbf27d5b480ed4a8c7978a.png" alt="\ket{\psi(t_1)}=\ket{i^0}"/> of the unperturbed Hamiltonian, then <img class="math" src="../images/math/71c3e82283b4a12bd47a958ae9a8f4db08f55037.png" alt="d_n(t_1)=\delta_{ni}"/> and we get:</p>
 <div class="math" id="equation-perturb0">
-<p><span class="eqno">(3)</span><img src="../images/math/ae00a8973865c2f3e13ae7a511e2c1e9f980cb53.png" alt="d_f(t) =\delta_{fi}-{i\over\hbar}\sum_n\int_{t_1}^t d_n(t') e^{i w_{fn} t'}\braket{f^0|H^1(t')|n^0} \d t'" /></p>
+<p><span class="eqno">(4)</span><img src="../images/math/ae00a8973865c2f3e13ae7a511e2c1e9f980cb53.png" alt="d_f(t) =\delta_{fi}-{i\over\hbar}\sum_n\int_{t_1}^t d_n(t') e^{i w_{fn} t'}\braket{f^0|H^1(t')|n^0} \d t'" /></p>
 </div><p>This is the equation that we will use for the perturbation theory.</p>
 <p>In the zeroth order of the perturbation theory, we set <img class="math" src="../images/math/757ebbd282690bd2b5ae3462b241a59bc396965b.png" alt="H^1(t)=0"/> and we get:</p>
 <div class="math">
 <p><img src="../images/math/a9064bd2fec7fe25b736e1a8fa229a97f6f1cc59.png" alt="d_f(t)=\delta_{fi}" /></p>
-</div><p>In the first order of the perturbation theory, we take the solution <img class="math" src="../images/math/63a0fb89bf50edddadc76c3073b5982b7a8fa248.png" alt="d_n(t)=\delta_{ni}"/> obtained in the zeroth order and substitute into the right hand side of <a href="#equation-perturb0">(3)</a>:</p>
+</div><p>In the first order of the perturbation theory, we take the solution <img class="math" src="../images/math/63a0fb89bf50edddadc76c3073b5982b7a8fa248.png" alt="d_n(t)=\delta_{ni}"/> obtained in the zeroth order and substitute into the right hand side of <a href="#equation-perturb0">(4)</a>:</p>
 <div class="math">
 <p><img src="../images/math/58f1a7b8ca271021a18c4e45ed7bc55a91d58d33.png" alt="d_f(t) = \delta_{fi} -{i\over\hbar}\int_{t_1}^{t} e^{i w_{fi} t'}\braket{f^0|H^1(t')|i^0}\d t'" /></p>
-</div><p>In the second order, we take the last solution, substitute into the right hand side of <a href="#equation-perturb0">(3)</a> again:</p>
+</div><p>In the second order, we take the last solution, substitute into the right hand side of <a href="#equation-perturb0">(4)</a> again:</p>
 <div class="math">
 <p><img src="../images/math/b9e8922ca5e244507dbfa2f76a62c78c071e4f7f.png" alt="d_f(t) = \delta_{fi}+ \left(-{i\over\hbar}\right)\int_{t_1}^{t} e^{i w_{fi} t'}\braket{f^0|H^1(t')|i^0}\d t' +" /></p>
 </div><div class="math">
@@ -716,7 +1044,7 @@
 <p><img src="../images/math/ab8906123ad4be329c11f1bac4816e24bf3c5086.png" alt="= \delta_{fi}- {\braket{f^0|H^1|i^0}\over E_f^0-E_i^0} +" /></p>
 </div><div class="math">
 <p><img src="../images/math/de8f6fb31330c967e78dd5131d8abc122b9c6292.png" alt="+ \sum_n { \braket{f^0|H^1|n^0} \braket{n^0|H^1|i^0} \over (E_n^0-E_i^0)(E_f^0-E_i^0) }" /></p>
-</div><p>Substituting this into <a href="#equation-psi">(2)</a> evaluated for <img class="math" src="../images/math/5a607fd61885c014512c949fee18869690330407.png" alt="t=0"/>:</p>
+</div><p>Substituting this into <a href="#equation-psi">(3)</a> evaluated for <img class="math" src="../images/math/5a607fd61885c014512c949fee18869690330407.png" alt="t=0"/>:</p>
 <div class="math">
 <p><img src="../images/math/9ce4ba381d095c7717dfb07328fd5c1044ebf63c.png" alt="\ket{\psi(0)}=\sum_n d_n(0) \ket{n^0}=" /></p>
 </div><div class="math">
@@ -918,10 +1246,19 @@
 <p>In general, the covariant and contravariant vectors and tensors work just like in general relativity. We use the metric <img class="math" src="../images/math/eb38733ee0d83bf04184fbdd0a7f289e376cc3fa.png" alt="g_{\mu\nu}={\rm diag}(1, -1, -1, -1)"/> (e.g. signature -2, but it&#8217;s possible to also use the metric with signature +2). The four potential <img class="math" src="../images/math/806aa7b68a2b78ed6ae1adb79b77c8f5f4297ee2.png" alt="A^\mu"/> is given by:</p>
 <div class="math">
 <p><img src="../images/math/8ffd7005d797fe4c488520c5b812e6a9e22b64a3.png" alt="A^\mu=\left({\phi\over c}, {\bf A}\right) = (A^0, A^1, A^2, A^3)" /></p>
-</div><p>where <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> is the electrostatic potential. Whenever we write <img class="math" src="../images/math/c8d06bc6c8cdf894e04e23bbdbe62ebbca401eac.png" alt="\bf A"/>, the components of it are given by the upper indices, e.g. <img class="math" src="../images/math/a8658b9b30f75ba4c8adc1de6670f71e2cf4d32d.png" alt="{\bf A}=(A^1, A^2, A^3)"/>. The components with lower indices can be calculated using the metric tensor, so it depends on the signature convention:</p>
+</div><p>where <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> is the electrostatic potential. Whenever we write <img class="math" src="../images/math/c8d06bc6c8cdf894e04e23bbdbe62ebbca401eac.png" alt="\bf A"/>, the
+components of it are given by the upper indices, e.g. <img class="math" src="../images/math/0e39bb7f8a0ff6a1651313f3c3ee880cced6f8a9.png" alt="{\bf A}=(A^1, A^2,
+A^3)"/>. The components with lower indices can be calculated using the metric
+tensor, so it depends on the signature convention:</p>
 <div class="math">
 <p><img src="../images/math/d628e5c75d89a27ce42bd67efe1072b30dc77fbe.png" alt="A_\mu=g_{\mu\nu}A^\nu=(A^0, -{\bf A}) = (A^0, -A^1, -A^2, -A^3)" /></p>
-</div><p>In our case we got <img class="math" src="../images/math/bda52e01cd68f8c9a0bc08a585075d95fe18861b.png" alt="A_0=A^0"/> and <img class="math" src="../images/math/fdfbc894df0470970178d84a03fbb2e92d97b670.png" alt="A_i = -A^i"/> (if we used the other signature convention, then the sign of <img class="math" src="../images/math/7cce761941ab4b57ae903d05b8fa0568ebbdd98f.png" alt="A_0"/> would differ and <img class="math" src="../images/math/2744600189f7f1df31756f2022b2d5212ef1c767.png" alt="A_i"/> would stay the same).</p>
+</div><p>In our case we got <img class="math" src="../images/math/bda52e01cd68f8c9a0bc08a585075d95fe18861b.png" alt="A_0=A^0"/> and <img class="math" src="../images/math/fdfbc894df0470970178d84a03fbb2e92d97b670.png" alt="A_i = -A^i"/> (if we used the other signature
+convention, then the sign of <img class="math" src="../images/math/7cce761941ab4b57ae903d05b8fa0568ebbdd98f.png" alt="A_0"/> would differ and <img class="math" src="../images/math/2744600189f7f1df31756f2022b2d5212ef1c767.png" alt="A_i"/> would stay the same).
+The length (squared) of the vector is:</p>
+<div class="math">
+<p><img src="../images/math/e747bc3d5b3a76a5bc3a30ae4858ba8c218a5b36.png" alt="A^2 = A_\mu A^\mu = \left(A^0\right)^2 - \left| {\bf A} \right|^2
+= \left(A^0\right)^2 - {\bf A}^2" /></p>
+</div><p>where <img class="math" src="../images/math/2c36169d59375b4419c14c2447f3f7ead2861abe.png" alt="{\bf A}^2 \equiv |{\bf A}|^2 = (A^1)^2+(A^2)^2+(A^3)^2"/>.</p>
 <p>Gradient is defined as:</p>
 <div class="math">
 <p><img src="../images/math/20d9008c96dec124b65ecf17293281960bb2374f.png" alt="\partial_\mu = (\partial_0, \partial_1, \partial_2, \partial_3)= \left({1\over c}{\partial\over\partial t},{\partial\over\partial x},{\partial\over\partial y},{\partial\over\partial z}\right)" /></p>
@@ -936,6 +1273,22 @@
 <p><img src="../images/math/c512a4d981a4f7319121c9d2df0f7fe52ee68f89.png" alt="p^\mu = \left({E\over c},{\bf p}\right) = i\hbar\left({1\over c}{\partial\over\partial t},-\nabla\right) = i\hbar\left(\partial_0,-\partial_j\right) = i\hbar\left(\partial^0,\partial^j\right) = i\hbar\partial^\mu" /></p>
 </div><div class="math">
 <p><img src="../images/math/ee129d334967c3e39fe8336f1576818973bb0e3e.png" alt="p_\mu = g_{\mu\nu}p^\nu = i\hbar\left(\partial^0,-\partial^j\right) = i\hbar\left(\partial_0,\partial_j\right) = i\hbar\partial_\mu" /></p>
+</div><p>For <img class="math" src="../images/math/591f689f950feb4a9cff58ff3166d915f916a405.png" alt="p^2"/> we get:</p>
+<div class="math">
+<p><img src="../images/math/f22b2d9d03bed3c05c8348011e044900d6265ed4.png" alt="p^2 = p_\mu p^\mu = (p^0)^2 - {\bf p}^2 = (p_0)^2 - {\bf p}^2
+= {E^2\over c^2} - {\bf p}^2" /></p>
+</div><p>Now if the particle is not moving (<img class="math" src="../images/math/617ed5786122aff5b614d28687560c6ebc33da2e.png" alt="{\bf p} = 0"/>), then it&#8217;s energy <img class="math" src="../images/math/5deef7227832e15504840639eba1be87f752f9fd.png" alt="E=mc^2"/>,
+where <img class="math" src="../images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> is the rest mass, so <img class="math" src="../images/math/da199b51afa88618657968b8a7336bee8198816d.png" alt="|p| = {E\over c}= mc"/>, from which:</p>
+<div class="math">
+<p><img src="../images/math/a1f5e229aa3e99e1d883fd9ca15d10fa280c6eec.png" alt="E^2 = p^2c^2 + {\bf p}^2c^2 = m^2c^4 + {\bf p}^2c^2
+
+E = \sqrt{m^2c^4 + {\bf p}^2c^2}
+= mc^2\sqrt{1 + {{\bf p}^2\over m^2c^2}}
+= mc^2\left(1 + {{\bf p}^2\over 2m^2c^2} + O\left({p^4\over m^4c^4}\right)
+    \right)
+=
+
+= mc^2 + {{\bf p}^2\over 2m} + O\left(p^4\over m^3c^2\right)" /></p>
 </div><p>Note: for the signature +2, we would get <img class="math" src="../images/math/67992582d72421656c316c3da5bf41a5c600933d.png" alt="p^\mu=-i\hbar\partial^\mu"/> and <img class="math" src="../images/math/0d4d249330631e0b37761e891ea5f693d1ef8d5a.png" alt="p_\mu=-i\hbar\partial_\mu"/>.</p>
 <p>For the minimal coupling <img class="math" src="../images/math/3f7b87a233ca61cc5a1ed1ce2769c4ac02ec4a81.png" alt="D_\mu = \partial_\mu + {i\over\hbar}e A_\mu"/> we get:</p>
 <div class="math">
@@ -996,7 +1349,10 @@
 <li><a class="reference external" href="#qft">QFT</a><ul>
 <li><a class="reference external" href="#evolution-operator-s-matrix-elements">Evolution Operator, S-Matrix Elements</a></li>
 <li><a class="reference external" href="#wick-theorem">Wick Theorem</a></li>
-<li><a class="reference external" href="#fermions-and-vector-bosons">Fermions and Vector Bosons</a></li>
+<li><a class="reference external" href="#propagators-for-scalar-bosons-fermions-and-vector-bosons">Propagators for Scalar Bosons, Fermions and Vector Bosons</a></li>
+<li><a class="reference external" href="#field-operators">Field Operators</a></li>
+<li><a class="reference external" href="#nonrelativistic-field-operators">Nonrelativistic Field Operators</a></li>
+<li><a class="reference external" href="#nonrelativistic-propagator">Nonrelativistic Propagator</a></li>
 <li><a class="reference external" href="#feynman-rules">Feynman Rules</a></li>
 <li><a class="reference external" href="#zzh-interaction">ZZH interaction</a></li>
 <li><a class="reference external" href="#eeh-interaction">eeH interaction</a></li>
