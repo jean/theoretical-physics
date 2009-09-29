@@ -1,6 +1,6 @@
 rm -rf book
 cp -r _build/html/ book
-#cp -r doc/_build/latex/mhd-hermes.pdf sphinx-doc/
+cp -r _build/latex/theoretical-physics.pdf book/
 cd book
 sphinx-to-github .
 cd ..
