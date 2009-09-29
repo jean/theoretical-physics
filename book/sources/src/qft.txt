@@ -740,34 +740,72 @@ that they can be replaced by:
 .. math::
 
     a^\dag_{\bf k}\,{}_\text{in} \to
-        i\int\d^4 x e^{ikx}\left(-\partial^2+m^2\right)\phi(x)
+        i\int\d^4 x e^{ikx}\left(\partial^2+m^2\right)\phi(x)
+        ={k^2-m^2\over i}\tilde\phi(-k)
+        ={1\over\tilde D(k)}\tilde\phi(-k)
 
     a_{\bf k}\,{}_\text{out} \to
-        i\int\d^4 x e^{-ikx}\left(-\partial^2+m^2\right)\phi(x)
+        i\int\d^4 x e^{-ikx}\left(\partial^2+m^2\right)\phi(x)
+        ={k^2-m^2\over i}\tilde\phi(k)
+        ={1\over\tilde D(k)}\tilde\phi(k)
 
     b^{s\dag}_{\bf k}\,{}_\text{in} \to
         i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)u^s({\bf k})e^{ikx}
+        =\tilde{\bar\psi}(-k){-\fslash k - m\over i}u^s({\bf k})
+        =\tilde{\bar\psi}(-k){1\over\tilde S(-k)}u^s({\bf k})
 
     b^s_{\bf k}\,{}_\text{out} \to
         i\int\d^4 x e^{-ikx}\bar u^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+        =\bar u^s({\bf k}){\fslash k - m\over i}\psi(k)
+        =\bar u^s({\bf k}){1\over\tilde S(k)}\psi(k)
 
     d^{s\dag}_{\bf k}\,{}_\text{in} \to
         -i\int\d^4 x e^{ikx}\bar v^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+        =-\bar v^s({\bf k}){\fslash k - m\over i}\psi(-k)
+        =-\bar v^s({\bf k}){1\over\tilde S(k)}\psi(-k)
 
     d^s_{\bf k}\,{}_\text{out} \to
         -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
+        =-\tilde{\bar\psi}(k){-\fslash k - m\over i}v^s({\bf k})
+        =-\tilde{\bar\psi}(k){1\over\tilde S(-k)}v^s({\bf k})
 
     a^{r\dag}_{\bf k}\,{}_\text{in} \to
         i\epsilon_\mu^{r*}({\bf k})
-            \int\d^4 x e^{ikx}\left(-\partial^2\right) A^\mu(x)
+            \int\d^4 x e^{ikx} \partial^2 A^\mu(x)
+        =
+        \epsilon_\mu^{r*}({\bf k}){k^2\over i}
+            \tilde A^\mu(-k)
 
     a^r_{\bf k}\,{}_\text{out} \to
         i\epsilon_\mu^r({\bf k})
-            \int\d^4 x e^{-ikx}\left(-\partial^2\right) A^\mu(x)
+            \int\d^4 x e^{-ikx} \partial^2 A^\mu(x)
+        =
+        \epsilon_\mu^r({\bf k}){k^2\over i}
+            \tilde A^\mu(k)
 
 where the "in" is the operator for $t\to -\infty$ and "out" for $t\to\infty$.
 The fields $\phi(x)$, $\psi(x)$, $\bar\psi(x)$ and $A^\mu(x)$ have to be time
-ordered. For our example we get:
+ordered. On the left hand side is a position space representation, the two
+expressions on the right hand side are the momentum representation (the last
+expression is written using the propagators), e.g. a Fourier transform, which
+is essentially just the following substitutions:
+
+.. math::
+
+    \partial^2\to -k^2
+
+    i\fslash\partial\to\fslash k
+
+    e^{\pm ikx}\phi(x) \to \tilde\phi(\mp k)
+
+    {k^2 - m^2\over i} \to {1\over\tilde D(k)}
+
+    {\pm\fslash k - m\over i} \to {1\over\tilde S(\pm k)}
+
+both representations are of course equivalent (but the momentum one is easier
+to use, since the formulas are shorter).
+
+For our example we get in the position space:
 
 .. math::
 
@@ -838,19 +876,66 @@ then the scattering amplitude becomes (resuming the previous calculation):
         i^4
 
     \left[\bar u^{s_{1'}}({\bf k}_{1'})
-        \left(-i\fslash p_{1'} +m\right)\right]_{\alpha_{1'}}
+        \left(-\fslash p_{1'} +m\right)\right]_{\alpha_{1'}}
 
     \left[\bar u^{s_{2'}}({\bf k}_{2'})
-        \left(-i\fslash p_{2'} +m\right)\right]_{\alpha_{2'}}
+        \left(-\fslash p_{2'} +m\right)\right]_{\alpha_{2'}}
 
     \tilde G^{(4)}_{\alpha_{1'} \alpha_{2'} \alpha_1 \alpha_2}
         (p_{1'}, p_{2'}, -p_1, -p_2)
 
-    \left[\left(i{\fslash p_1}+m\right)
+    \left[\left({\fslash p_1}+m\right)
         u^s({\bf p}_1)\right]_{\alpha_1}
 
-    \left[\left(i{\fslash p_2}+m\right)
+    \left[\left({\fslash p_2}+m\right)
         u^s({\bf p}_2)\right]_{\alpha_2}
+
+We can get the same result much faster if we use the momentum space from the
+beginning:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        b_{{\bf p}_{2'}}
+        b_{{\bf p}_{1'}}
+        b_{{\bf p}_{1}}^\dag
+        b_{{\bf p}_{2}}^\dag
+        |\Omega}
+    = \braket{\Omega|T\,
+        b_{{\bf p}_{2'}}
+        b_{{\bf p}_{1'}}
+        b_{{\bf p}_{1}}^\dag
+        b_{{\bf p}_{2}}^\dag
+        |\Omega}=
+
+    = \braket{\Omega|T\,
+        \bar u^s({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+                \tilde\psi({\bf p}_{2'})
+        \bar u^s({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+                \tilde\psi({\bf p}_{1'})
+        \tilde{\bar\psi}(-{\bf p}_1){1\over\tilde S(-{\bf p}_1)}
+                u^s({\bf p}_1)
+        \tilde{\bar\psi}(-{\bf p}_2){1\over\tilde S(-{\bf p}_2)}
+                u^s({\bf p}_2)
+        |\Omega}=
+
+        =
+        \left[\bar u^s({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+            \right]_{\alpha_{2'}}
+        \left[\bar u^s({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+            \right]_{\alpha_{1'}}
+
+        \braket{\Omega|T\,
+            \tilde\psi_{\alpha_{2'}}({\bf p}_{2'})
+            \tilde\psi_{\alpha_{1'}}({\bf p}_{1'})
+            \tilde{\bar\psi}_{\alpha_1}(-{\bf p}_1)
+            \tilde{\bar\psi}_{\alpha_2}(-{\bf p}_2)
+        |\Omega}
+
+        \left[{1\over\tilde S(-{\bf p}_1)} u^s({\bf p}_1)
+            \right]_{\alpha_1}
+        \left[{1\over\tilde S(-{\bf p}_2)} u^s({\bf p}_2)
+            \right]_{\alpha_1}
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
 obtains similar expressions for other fields as well (if there were different
@@ -1631,49 +1716,63 @@ We can deduce a set of rules, so that one doesn't have to repeat the whole calcu
 ZZH interaction
 ~~~~~~~~~~~~~~~
 
-Let's calculate the $\L_{ZZH}=\lambda Z_\mu Z^\mu H$ interaction in the SM, where $\lambda={g^2\over4\cos\theta_W}$. Consider $H(p)\to Z(k)+Z(l)$: 
+Let's calculate the $\L_{ZZH}=\lambda Z_\mu Z^\mu H$ interaction in the SM,
+where $\lambda={g^2\over4\cos\theta_W}$. Consider $H(p)\to Z(k)+Z(l)$:
 
 .. math::
 
-    \braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}= {\varepsilon_\alpha(k)\varepsilon^\alpha(l)\over\tilde D_{\mu\nu}(k)\tilde D^{\mu\nu}(l)} {1\over\tilde D(p)}
+    \braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}=
+    \braket{\Omega|a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+    \braket{\Omega|T a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
 
+    =
+    \braket{\Omega|T
+        \epsilon^{r*}_\mu({\bf k}){k^2\over i} \tilde A^\mu(k)
+        \epsilon^{s*}_\nu({\bf l}){l^2\over i} \tilde A^\nu(l)
+        {1\over\tilde D(p)}\tilde\phi(-p)
+        |\Omega} =
 
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+        \tilde D^{\nu\alpha}(l)\tilde D(p)
+
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    i\lambda (2\pi)^4 \delta(k+l-p)
+        {-ig^\mu{}_\alpha\over k^2}
+        {-ig^{\nu\alpha}\over l^2}
+        \tilde D(p)
+
+    = \epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    i\lambda (2\pi)^4 \delta(k+l-p)
+        g^\mu{}_\alpha
+        g^{\nu\alpha}
+
+    = \epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    i\lambda (2\pi)^4 \delta(k+l-p) g^{\mu\nu}
+
+    = i\lambda (2\pi)^4 \delta(k+l-p)
+        \epsilon^{r*}_\mu({\bf k})\epsilon^{s\mu*}({\bf l})
+
+where we used the fact, that the first order contribution of the $\lambda Z_\mu
+Z^\mu H$ interaction to the interacting Green function is:
 
 .. math::
 
-    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)
-    \exp\left({i\over\hbar}\int\d^4 x \L_{ZZH}(x) \right)\}|0} =
-
-
-
-.. math::
-
-    = {\varepsilon_\alpha(k)\varepsilon^\alpha(l)\over\tilde D_{\mu\nu}(k)\tilde D^{\mu\nu}(l)} {1\over\tilde D(p)}
-
-
-
-.. math::
-
-    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)}\int\d^4 x i\lambda D_{\alpha\mu}(y_1-x)D^{\alpha\mu}(y_2-x)D(x_1-x) =
-
-
-
-.. math::
-
-    =i\lambda(2\pi)^4\delta^{(4)}(p-k-l)\varepsilon_\alpha(k)\varepsilon^\alpha(l)
-
-
-where we used the fact, that the only nonzero element of the Green function is 
-
-.. math::
-
-    \int\d^4 x \braket{0|T\{Z_\alpha(y_1) Z^\alpha(y_2) H(x_1)Z_\mu(x)Z^\mu(x) H(x)\}|0}
-
-
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+    =i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+        \tilde D^{\nu\alpha}(l)\tilde D(p)
 
 
 eeH interaction
 ~~~~~~~~~~~~~~~
+
+This is only approximate, it will be fixed soon.
 
 Let's calculate the $\L_{eeH}=-\lambda \bar ee H$ interaction in the SM, where $\lambda={h_e\over\sqrt2}$. Consider $H(p)\to e^-(k)+e^+(l)$: 
 
@@ -1717,6 +1816,8 @@ where we used the fact, that the only nonzero element of the Green function is
 
 ee gamma interaction
 ~~~~~~~~~~~~~~~~~~~~
+
+This is only approximate, it will be fixed soon.
 
 Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interaction in the SM, where $\lambda=g\sin\theta_W$. Consider $\gamma(p)\to e^-(k)+e^+(l)$: 
 
@@ -1767,54 +1868,101 @@ where we used the fact, that the only nonzero element of the Green function is
 eeee interaction
 ~~~~~~~~~~~~~~~~
 
-Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interaction in the SM, where $\lambda=g\sin\theta_W$. Consider $e^-(p_1)+e^+(p_2)\to\gamma(q)\to e^-(k_1)+e^+(k_2)$: 
+Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$
+interaction in the SM, where $\lambda=g\sin\theta_W$. Consider
+$e^-(p_1)+e^+(p_2)\to\gamma(q)\to e^-(k_1)+e^+(k_2)$:
 
 .. math::
 
-    \braket{f|S|i}= \braket{f|iT|i}= \braket{k_1 k_2|iT|p_1p_2}= {\bar u(k_1) v(k_2)\over\tilde S(k_1)\tilde S(k_2)} {\bar v(p_2) u(p_1)\over\tilde S(p_2)\tilde S(p_1)}
+    \braket{f|S|i}= \braket{f|iT|i}= \braket{k_1 k_2|iT|p_1p_2}=
+    \braket{\Omega|
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\tilde \psi(k_1)\right]
+        \left[-\tilde{\bar\psi}(k_2){1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+        \left[\tilde{\bar\psi}(-p_1){1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+        \left[-\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\tilde \psi(-p_2)\right]
+        |\Omega} =
+
+    =
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+    \left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+    \braket{\Omega|T
+        \tilde \psi(k_1)
+        \tilde{\bar\psi}(k_2)
+        \tilde{\bar\psi}(-p_1)
+        \tilde \psi(-p_2)
+        |\Omega}
+
+    \left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+    =
+
+    =
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+    \left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+    (-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+        D_{\mu\nu}(k_1+k_2)
+        \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+        +\right.
+
+        \left. +
+        \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+        D_{\mu\nu}(k_1-p_1)
+        \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
+
+    \left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+    =
+
+    =
+    -\lambda^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \bar u^r({\bf k}_1)\gamma^\mu v^s({\bf k}_2)
+        {1\over (k_1+k_2)^2}
+        \bar v^u({\bf p}_2)\gamma_\mu u^t({\bf p}_1)
+        +\right.
+
+        \left. +
+        \bar u^r({\bf k}_1)\gamma^\mu u^t({\bf p}_1)
+        {1\over (k_1-p_1)^2}
+        \bar v^u({\bf p}_2)\gamma_\mu v^s({\bf k}_2)
+        \right]
 
 
+where we used the fact, that the interacting Green function is in the lowest
+nonzero order equal to:
 
 .. math::
 
-    \int\d^4 x_1\d^4 x_2 e^{-i (p_1x_1 + p_2x_2)} \int\d^4 y_1\d^4 y_2 e^{+i (k_1y_1 + k_2y_2)} \braket{0|T\{\bar e(y_1) e(y_2) \bar e(x_1) e(x_2)\}|0} =
+    \braket{\Omega|T\tilde\psi(k_1)\tilde{\bar\psi}(k_2)\tilde{\bar\psi}(-p_1)
+        \tilde\psi(-p_2) |\Omega}
+    =
 
+    =(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+        D_{\mu\nu}(k_1+k_2)
+        \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+        +\right.
 
-
-.. math::
-
-    = {\bar u(k_1) v(k_2)\over\tilde S(k_1)\tilde S(k_2)} {\bar v(p_2) u(p_1)\over\tilde S(p_2)\tilde S(p_1)}
-
-
-
-.. math::
-
-    \int\d^4 x_1\d^4 x_2 e^{-i (p_1x_1 + p_2x_2)} \int\d^4 y_1\d^4 y_2 e^{+i (k_1y_1 + k_2y_2)} \int\d^4 x \int\d^4 y
-
-
-
-.. math::
-
-    (-i\lambda)^2 S(x_1-x)\gamma^\mu S(x_2-x) D_{\mu\nu}(x-y)S(y_1-y)\gamma^\nu S(y_2-y) =
-
-
-
-.. math::
-
-    =(2\pi)^4\delta^{(4)}(p_1+p_2-k_1-k_2)\bar v(p_2)(-i\lambda)\gamma^\mu u(p_1)\tilde D_{\mu\nu}(q=p_1+p_2=k_1+k_2) \bar u(k_1)(-i\lambda)\gamma^\nu v(k_2)
-
-
-where we used the fact, that the only nonzero element of the Green function is 
-
-.. math::
-
-    \int\d^4 x \int\d^4 y \braket{0|T\{\bar e(y_1) e(y_2) \bar e(x_1) e(x_2) \bar e(x)\gamma^\mu e(x) A_\mu(x) \bar e(y)\gamma^\nu e(y) A_\nu(y) \}|0} =
-
-
-
-.. math::
-
-    =\pm S(x_1-x) \gamma^\mu S(x_2-x)D_{\mu\nu}(x-y)S(y_1-y)\gamma^\nu S(y_2-y)
+        \left. +
+        \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+        D_{\mu\nu}(k_1-p_1)
+        \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
 
 
 .. index:: low energy theories
@@ -3081,6 +3229,11 @@ and +2:
 
     \partial^\mu = (\partial^0, \partial^1, \partial^2, \partial^3)= \left(-{1\over c}{\partial\over\partial t},{\partial\over\partial x},{\partial\over\partial y},{\partial\over\partial z}\right)
 
+The d'Alembert operator is:
+
+.. math::
+
+    \partial^2 \equiv \partial_\mu \partial^\mu
 
 
 Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t}$) is combined into 4-momentum as 
@@ -3089,11 +3242,10 @@ Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t
 
     p^\mu = \left({E\over c},{\bf p}\right) = i\hbar\left({1\over c}{\partial\over\partial t},-\nabla\right) = i\hbar\left(\partial_0,-\partial_j\right) = i\hbar\left(\partial^0,\partial^j\right) = i\hbar\partial^\mu
 
+    p_\mu = g_{\mu\nu}p^\nu = i\hbar g_{\mu\nu}\partial^\nu = i\hbar\partial_\mu
 
-
-.. math::
-
-    p_\mu = g_{\mu\nu}p^\nu = i\hbar\left(\partial^0,-\partial^j\right) = i\hbar\left(\partial_0,\partial_j\right) = i\hbar\partial_\mu
+For the signature $+2$ we get $p^\mu = -i\hbar\partial^\mu$ and $p_\mu =
+-i\hbar\partial_\mu$.
 
 For $p^2$ we get:
 
@@ -3114,6 +3266,38 @@ the following relations are also useful:
 
     = -\hbar^2\left({1\over c^2}{\partial^2\over\partial t^2} - \nabla^2\right)
     = -{\hbar^2\over c^2}{\partial^2\over\partial t^2} + \hbar^2\nabla^2
+
+For the signature $+2$ we get:
+
+.. math::
+
+    p^2 = p_\mu p^\mu = -\hbar^2\partial_\mu \partial^\mu \equiv
+    -\hbar^2\partial^2
+    = -\hbar^2\left(\partial_0\partial^0 + \partial_i\partial^i\right)
+    = -\hbar^2\left(-\partial_0\partial_0 + \partial_i\partial_i\right)
+    =
+
+    = -\hbar^2\left(-{1\over c^2}{\partial^2\over\partial t^2} + \nabla^2\right)
+    = {\hbar^2\over c^2}{\partial^2\over\partial t^2} - \hbar^2\nabla^2
+
+So for example the Klein-Gordon equation:
+
+.. math::
+
+    \left({\hbar^2\over c^2}{\partial^2\over\partial t^2} - \hbar^2\nabla^2
+    +m^2c^2\right)\psi = 0
+
+can be for signature $-2$ written as:
+
+.. math::
+
+    (+\hbar^2\partial^2 + m^2 c^2)\psi = (-p^2 + m^2c^2)\psi = 0
+
+and for $+2$ as:
+
+.. math::
+
+    (-\hbar^2\partial^2 + m^2 c^2)\psi = (p^2 + m^2c^2)\psi = 0
 
 Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
 where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
