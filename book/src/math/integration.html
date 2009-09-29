@@ -1,7 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
@@ -39,12 +37,12 @@
         <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
-
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body">
             
+  
   <div class="section" id="integration">
 <span id="index-22"></span><h1>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h1>
 <p>This chapter doesn&#8217;t assume any knowledge about differential geometry. The most
@@ -60,12 +58,12 @@ as:</p>
     \varphi_2(t_1, t_2, \dots, t_k)\cr
     \vdots \cr
     \varphi_n(t_1, t_2, \dots, t_k)\cr
-}" /></p>
-</div><p>then the integral of <img class="math" src="../../images/math/503728b47daf13610fcee386d9596af1eca39e97.png" alt="f(x_1, x_2, \dots, x_n)"/> over <img class="math" src="../../images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> is:</p>
+}" />
+</div></p><p>then the integral of <img class="math" src="../../images/math/503728b47daf13610fcee386d9596af1eca39e97.png" alt="f(x_1, x_2, \dots, x_n)"/> over <img class="math" src="../../images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> is:</p>
 <div class="math">
 <p><img src="../../images/math/570ea37a7211d7b21fe98c4acb233bf4d051402e.png" alt="\int_M f(x_1, x_2, \dots, x_n)\,\d S = \int_{\R^n} f(\mathbf{\varphi}(t_1,
-t_2, \dots, t_k))\sqrt{\det{\bf G}}\,\d t_1\d t_2\cdots\d t_k" /></p>
-</div><p>where <img class="math" src="../../images/math/716c649fcc570e4ec644a64b6746649c118f0bc2.png" alt="{\bf G}"/> is called a Gram matrix and <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is a Jacobian:</p>
+t_2, \dots, t_k))\sqrt{\det{\bf G}}\,\d t_1\d t_2\cdots\d t_k" />
+</div></p><p>where <img class="math" src="../../images/math/716c649fcc570e4ec644a64b6746649c118f0bc2.png" alt="{\bf G}"/> is called a Gram matrix and <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is a Jacobian:</p>
 <div class="math">
 <p><img src="../../images/math/5ead551abca855ed2548698fd00b7d1673a8ab68.png" alt="({\bf G})_{ij} = ({\bf J}^T{\bf J})_{ij} = J_{ik}J_{kj} =
 {\partial\varphi_k\over\partial t_i} {\partial\varphi_k\over\partial t_j}
@@ -78,15 +76,15 @@ t_2, \dots, t_k))\sqrt{\det{\bf G}}\,\d t_1\d t_2\cdots\d t_k" /></p>
     \vdots &amp; \vdots &amp; \vdots &amp; \vdots \cr
     \vdots &amp; \vdots &amp; \vdots &amp; \vdots \cr
     \vdots &amp; \vdots &amp; \vdots &amp; \vdots \cr
-}" /></p>
-</div><p>The idea behind this comes from the fact that the volume of the <img class="math" src="../../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>-dimensional
+}" />
+</div></p><p>The idea behind this comes from the fact that the volume of the <img class="math" src="../../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>-dimensional
 parallelepiped spanned by the vectors</p>
 <div class="math">
-<p><img src="../../images/math/750e5fe8e311d2a8f4dce25e0e1ee2e3ad4ccf16.png" alt="{\partial\mathbf{\varphi}\over\partial t_1}, \dots, {\partial\mathbf{\varphi}\over\partial t_k}" /></p>
-</div><p>is given by</p>
+<p><img src="../../images/math/750e5fe8e311d2a8f4dce25e0e1ee2e3ad4ccf16.png" alt="{\partial\mathbf{\varphi}\over\partial t_1}, \dots, {\partial\mathbf{\varphi}\over\partial t_k}" />
+</div></p><p>is given by</p>
 <div class="math">
-<p><img src="../../images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}" /></p>
-</div><p>where <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is an <img class="math" src="../../images/math/fa58979ec0dfb0484cbc233a89bf9d79eebbc24b.png" alt="n\times k"/> matrix having those vectors as its column
+<p><img src="../../images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}" />
+</div></p><p>where <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is an <img class="math" src="../../images/math/fa58979ec0dfb0484cbc233a89bf9d79eebbc24b.png" alt="n\times k"/> matrix having those vectors as its column
 vectors.</p>
 <div class="section" id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
@@ -129,15 +127,15 @@ r\sin\theta\sin\phi, r\cos\theta)\, r^2\sin\theta\,\d\theta\,\d\phi
 =
 
 = \int_0^\pi\d\theta \int_0^{2\pi}\d\phi\, f(r\sin\theta\cos\phi,
-r\sin\theta\sin\phi, r\cos\theta)\, r^2\sin\theta" /></p>
-</div><p>Let&#8217;s say we want to calculate the surface area of a sphere, so we set <img class="math" src="../../images/math/f041d065f40f9b71e34599f1337d96be02008940.png" alt="f(x, y,
+r\sin\theta\sin\phi, r\cos\theta)\, r^2\sin\theta" />
+</div></p><p>Let&#8217;s say we want to calculate the surface area of a sphere, so we set <img class="math" src="../../images/math/f041d065f40f9b71e34599f1337d96be02008940.png" alt="f(x, y,
 z) = 1"/> and get:</p>
 <div class="math">
 <p><img src="../../images/math/7a0a4c7be6b7ce577a64d8ee819c2a3eabe4d2c9.png" alt="\int_M \d S
 = \int_0^\pi\d\theta \int_0^{2\pi}\d\phi\, r^2\sin\theta
 = 2\pi r^2\int_0^\pi\d\theta \sin\theta
-= 4\pi r^2" /></p>
-</div></div>
+= 4\pi r^2" />
+</div></p></div>
 </div>
 <div class="section" id="special-cases">
 <h2>Special Cases<a class="headerlink" href="#special-cases" title="Permalink to this headline">¶</a></h2>
@@ -146,8 +144,8 @@ z) = 1"/> and get:</p>
 <div class="math">
 <p><img src="../../images/math/617b47c5719641cab5a4f21ce82ec721e21e5a14.png" alt="\det{\bf G} = \det {\bf J}^R{\bf J} = (\det {\bf J})^2
 
-\d S = |\det {\bf J}|\,\d t_1\,\d t_2\cdots\d t_k" /></p>
-</div></div>
+\d S = |\det {\bf J}|\,\d t_1\,\d t_2\cdots\d t_k" />
+</div></p></div>
 <div class="section" id="k-1">
 <span id="index-24"></span><h3>k = 1<a class="headerlink" href="#k-1" title="Permalink to this headline">¶</a></h3>
 <div class="math">
@@ -158,8 +156,8 @@ z) = 1"/> and get:</p>
     \right)
 = \left|{\d\mathbf{\varphi}\over\d t}\right|^2
 
-\d S = \left|{\d\mathbf{\varphi}\over\d t}\right|\,\d t" /></p>
-</div></div>
+\d S = \left|{\d\mathbf{\varphi}\over\d t}\right|\,\d t" />
+</div></p></div>
 <div class="section" id="k-n-1">
 <span id="index-25"></span><h3>k = n - 1<a class="headerlink" href="#k-n-1" title="Permalink to this headline">¶</a></h3>
 <div class="math">
@@ -178,8 +176,8 @@ z) = 1"/> and get:</p>
     \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; {\bf e}_n \cr
 }\right|^2 \equiv |\omega_\varphi|^2
 
-\d S = |\omega_\varphi|\,\d t_1\,\d t_2\cdots\d t_k" /></p>
-</div><p><img class="math" src="../../images/math/996ea44dbdf7256e20d35ae37be061da5f58e8b3.png" alt="\omega_\varphi"/> is a generalization of a vector cross product. The
+\d S = |\omega_\varphi|\,\d t_1\,\d t_2\cdots\d t_k" />
+</div></p><p><img class="math" src="../../images/math/996ea44dbdf7256e20d35ae37be061da5f58e8b3.png" alt="\omega_\varphi"/> is a generalization of a vector cross product. The
 <img class="math" src="../../images/math/1a44cf37e7594954a62080e15a99fe575ef50007.png" alt="\det(\cdots)"/> symbol means a determinant of a matrix with one row removed
 (first term in the sum has first row removed, second term has second row
 removed, etc.).</p>
@@ -191,8 +189,8 @@ removed, etc.).</p>
 {\partial\mathbf{\varphi}\over\partial t_2}\right|^2
 
 \d S = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
-{\partial\mathbf{\varphi}\over\partial t_2}\right|\,\d t_1\,\d t_2" /></p>
-</div></div>
+{\partial\mathbf{\varphi}\over\partial t_2}\right|\,\d t_1\,\d t_2" />
+</div></p></div>
 <div class="section" id="y-f-x-z">
 <h3>y = f(x, z)<a class="headerlink" href="#y-f-x-z" title="Permalink to this headline">¶</a></h3>
 <div class="math">
@@ -203,8 +201,8 @@ removed, etc.).</p>
 \d S = \sqrt{1
 +\left({\partial f\over\partial x}\right)^2
 +\left({\partial f\over\partial z}\right)^2
-}\,\d x\,\d z" /></p>
-</div><p>in general for <img class="math" src="../../images/math/fec7486909f405fb73ac0b809c27fd5079fc5e2a.png" alt="x_j = f(x_1, x_2, \dots, x_n)"/> we get:</p>
+}\,\d x\,\d z" />
+</div></p><p>in general for <img class="math" src="../../images/math/fec7486909f405fb73ac0b809c27fd5079fc5e2a.png" alt="x_j = f(x_1, x_2, \dots, x_n)"/> we get:</p>
 <div class="math">
 <p><img src="../../images/math/438e3b9d7a7dc0df6ea471784e9dd28d1413647a.png" alt="\det{\bf G} = 1
 +\left({\partial f\over\partial x_1}\right)^2
@@ -215,35 +213,48 @@ removed, etc.).</p>
 +\left({\partial f\over\partial x_1}\right)^2
 +\left({\partial f\over\partial x_2}\right)^2
 +\cdots
-}\,\d x_1\,\d x_2\cdots\d x_n" /></p>
-</div><p>The &#8220;<img class="math" src="../../images/math/ac0e6fa105993ce976db0dc241d59ab8e68e6efc.png" alt="x_j"/>&#8221; term is missing in the sums above.</p>
+}\,\d x_1\,\d x_2\cdots\d x_n" />
+</div></p><p>The &#8220;<img class="math" src="../../images/math/ac0e6fa105993ce976db0dc241d59ab8e68e6efc.png" alt="x_j"/>&#8221; term is missing in the sums above.</p>
 </div>
 <div class="section" id="implicit-surface">
 <span id="index-27"></span><h3>Implicit Surface<a class="headerlink" href="#implicit-surface" title="Permalink to this headline">¶</a></h3>
 <p>For a surface given explicitly by</p>
 <div class="math">
-<p><img src="../../images/math/0c636634de06a2a1918c54b6398667403e642517.png" alt="F(x_1, x_2, ..., x_n) = 0" /></p>
-</div><p>we get:</p>
+<p><img src="../../images/math/0c636634de06a2a1918c54b6398667403e642517.png" alt="F(x_1, x_2, ..., x_n) = 0" />
+</div></p><p>we get:</p>
 <div class="math">
 <p><img src="../../images/math/7bfa25a576c205d99b3932dfa82b003d8c718182.png" alt="\d S = |\nabla F| \left|{\partial F\over\partial x_n}\right|\,\d
-x_1\cdots\d x_{n-1}" /></p>
-</div></div>
+x_1\cdots\d x_{n-1}" />
+</div></p></div>
 <div class="section" id="orthogonal-coordinates">
 <span id="index-28"></span><h3>Orthogonal Coordinates<a class="headerlink" href="#orthogonal-coordinates" title="Permalink to this headline">¶</a></h3>
 <p>If the coordinate vectors are orthogonal to each other:</p>
 <div class="math">
 <p><img src="../../images/math/ce0abca946ddf552cae5d828fb86639262ab863f.png" alt="{\partial\mathbf{\varphi}\over\partial t_i} \cdot
 {\partial\mathbf{\varphi}\over\partial t_i} = 0
-\quad\text{for $i\neq j$}" /></p>
-</div><p>we get:</p>
+\quad\text{for $i\neq j$}" />
+</div></p><p>we get:</p>
 <div class="math">
 <p><img src="../../images/math/530b94e3617c01711dd64756273254137296f68d.png" alt="\d S =
 \left|{\partial\mathbf{\varphi}\over\partial t_1}\right|
 \left|{\partial\mathbf{\varphi}\over\partial t_2}\right|
 \cdots
 \left|{\partial\mathbf{\varphi}\over\partial t_k}\right|
-\d t_1\cdots\d t_k" /></p>
-</div></div>
+\d t_1\cdots\d t_k" />
+</div></p></div>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Let the <img class="math" src="../../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>-dimensional parallelepiped P be spanned by the vectors</p>
+<div class="math">
+<p><img src="../../images/math/ea5050c80c0a4b9e55667a9a167f3a543aa8e85c.png" alt="{\partial\mathbf{\varphi}\over t_1}, \dots,
+{\partial\mathbf{\varphi}\over t_k}" />
+</div></p><p>and let <img class="math" src="../../images/math/bf588c2fc196815c50c0812ee0f68ba1b408a372.png" alt="\mathbf{J}"/> is <img class="math" src="../../images/math/fa58979ec0dfb0484cbc233a89bf9d79eebbc24b.png" alt="n\times k"/> matrix having these vectors as its column
+vectors. Then the area of P is</p>
+<div class="math">
+<p><img src="../../images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}" />
+</div></p><p>so the definition of the integral over a manifold is just approximating the
+surface by infinitesimal parallelepipeds and integrating over them.</p>
 </div>
 </div>
 
@@ -270,34 +281,25 @@ x_1\cdots\d x_{n-1}" /></p>
 <li><a class="reference external" href="#orthogonal-coordinates">Orthogonal Coordinates</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#motivation">Motivation</a></li>
 </ul>
 </li>
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="../../index.html"
-                                  title="previous chapter">Theoretical Physics Reference</a></p>
+            <p class="topless"><a href="../../index.html" title="previous chapter">Theoretical Physics Reference</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="residue.html"
-                                  title="next chapter">Residue Theorem</a></p>
+            <p class="topless"><a href="residue.html" title="next chapter">Residue Theorem</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="../../sources/src/math/integration.txt"
-                     rel="nofollow">Show Source</a></li>
+              <li><a href="../../sources/src/math/integration.txt">Show Source</a></li>
             </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+          <h3>Quick search</h3>
+            <form class="search" action="../../search.html" method="get">
+              <input type="text" name="q" size="18" /> <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
         </div>
       </div>
       <div class="clearer"></div>
@@ -307,19 +309,19 @@ x_1\cdots\d x_{n-1}" /></p>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
-             >index</a></li>
+             accesskey="I">index</a></li>
         <li class="right" >
           <a href="residue.html" title="Residue Theorem"
-             >next</a> |</li>
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../../index.html" title="Theoretical Physics Reference"
-             >previous</a> |</li>
+             accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2009, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.5.2.
     </div>
   </body>
 </html>

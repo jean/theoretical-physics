@@ -699,8 +699,8 @@ Vector bosons:
 
     A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \sum_{r=0}^3
-        \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
-        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
+        \left(a_{\bf p}^r\epsilon_\mu^r({\bf p}) e^{-ip\cdot x}
+        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*}({\bf p}) e^{ip\cdot x}\right)
 
 where
 
@@ -757,9 +757,17 @@ that they can be replaced by:
     d^s_{\bf k}\,{}_\text{out} \to
         -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
 
+    a^{r\dag}_{\bf k}\,{}_\text{in} \to
+        i\epsilon_\mu^{r*}({\bf k})
+            \int\d^4 x e^{ikx}\left(-\partial^2\right) A^\mu(x)
+
+    a^r_{\bf k}\,{}_\text{out} \to
+        i\epsilon_\mu^r({\bf k})
+            \int\d^4 x e^{-ikx}\left(-\partial^2\right) A^\mu(x)
+
 where the "in" is the operator for $t\to -\infty$ and "out" for $t\to\infty$.
-The fields $\phi(x)$, $\psi(x)$ and $\bar\psi(x)$ have to be time ordered. For
-our example we get:
+The fields $\phi(x)$, $\psi(x)$, $\bar\psi(x)$ and $A^\mu(x)$ have to be time
+ordered. For our example we get:
 
 .. math::
 
@@ -863,7 +871,16 @@ The interacting Green functions can be evaluated using the formula:
     ={\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) S|0}\over
     \braket{0|S|0}}
 
-where $S=U(\infty, -\infty)$, $\phi_H$ is a field in the Heisenberg picture
+where
+
+.. math::
+
+    S=U_I(\infty, -\infty) =
+    T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}H_1(t)\d t \right) =
+    T\exp\left(-{i\over\hbar}\int\d^4 x \H_1(x) \right)
+
+
+$\phi_H$ is a field in the Heisenberg picture
 ($\phi({\bf x}, t)=e^{iHt}\phi({\bf x}, 0)e^{-iHt}$) and $\phi_I$ is a field in
 the interaction picture ($\phi({\bf x}, t)=e^{iH_0t}\phi({\bf x},
 0)e^{-iH_0t}$), where the Hamiltonian is $H=H_0 + H_1$ and the vacua (ground
@@ -3084,6 +3101,19 @@ For $p^2$ we get:
 
     p^2 = p_\mu p^\mu = (p^0)^2 - {\bf p}^2 = (p_0)^2 - {\bf p}^2
     = {E^2\over c^2} - {\bf p}^2
+
+the following relations are also useful:
+
+.. math::
+
+    p^2 = p_\mu p^\mu = -\hbar^2\partial_\mu \partial^\mu \equiv
+    -\hbar^2\partial^2
+    = -\hbar^2\left(\partial_0\partial^0 + \partial_i\partial^i\right)
+    = -\hbar^2\left(\partial_0\partial_0 - \partial_i\partial_i\right)
+    =
+
+    = -\hbar^2\left({1\over c^2}{\partial^2\over\partial t^2} - \nabla^2\right)
+    = -{\hbar^2\over c^2}{\partial^2\over\partial t^2} + \hbar^2\nabla^2
 
 Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
 where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
