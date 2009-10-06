@@ -5,13 +5,294 @@
 Compressible Euler Equations
 ============================
 
+The compressible Euler equations are:
+
+.. math::
+
+    {\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
+
+    {\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+        + \nabla p - {\bf f} = 0
+
+    {\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p)) = 0
+
+where
+
+.. math::
+
+    E = \rho e + \half \rho u^2
+
+is the total energy per unit volume ($\half \rho u^2$ is the kinetic energy per
+unit volume), $e$ is the internal energy per unit mass ($e={U\over nM}$)
+and we use the ideal gas equations, so:
+
+.. math::
+
+    e = T c_v
+
+    p = {n\over V} \bar RT =
+    {n M\over V} {\bar R\over M}T =
+    \rho RT = \rho R {e\over c_v} =
+        {R\over c_v} (E-\half \rho u^2)
+
+where
+$n$ is the number of moles of gas,
+$M$ is the molar mass of the gas (e.g. a mass of one mole of the gas),
+$\rho={n M\over V}$ is the density of the gas,
+$\bar R$ is the ideal gas constant,
+$R={\bar R\over M}$ is the specific ideal gas constant,
+$c_v$ is the specific heat capacity at constant volume (e.g. a heat capacity
+per unit volume),
+$V$ is the volume
+and $T$ is the temperature of the gas.
+Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
+functions of $(t, x, y, z)$.
+
+We use the substitution:
+
+.. math::
+
+    {\bf U} = \rho {\bf u}
+
+    p = {R\over c_v} (E-\half \rho u^2) =
+        {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
+
+and we get:
+
+.. math::
+
+    {\partial\rho\over\partial t} + \nabla\cdot{\bf U} = 0
+
+    {\partial{\bf U}\over\partial t}
+        + \nabla\cdot\left({{\bf U}{\bf U}^T\over\rho}+p\one\right)
+        - {\bf f} = 0
+
+    {\partial E\over\partial t}
+        + \nabla\cdot\left({{\bf U}\over\rho}(E+p)\right) = 0
+
+Now we write ${\bf U} = (U, V, W)$ and we get:
+
+.. math::
+
+       \frac{\partial}{\partial t} \left( \begin{array}{c}
+           \varrho\\ U\\ V\\ W\\ E
+       \end{array} \right)
+       + \frac{\partial}{\partial x} \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           \frac{UV}{\varrho}\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial y} \left( \begin{array}{c}
+           V\\
+           \frac{VU}{\varrho}\\
+           \frac{V^2}{\varrho} + p\\
+           \frac{VW}{\varrho}\\
+           \frac{V}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial z} \left( \begin{array}{c}
+           W\\
+           \frac{WU}{\varrho}\\
+           \frac{WV}{\varrho}\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right) + \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           -f_z\\
+           0\\
+       \end{array} \right) =
+       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+    p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
+
+We solve for the unknowns $\rho$, $U$, $V$, $W$ and $E$ as functions of $(t,
+x, y, z)$, the rest ($R$, $c_v$, $f_x$, $f_y$, $f_z$) are either constants or
+depend on the unknowns.
+
+After introducing:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ U\\ V\\ W\\ E
+       \end{array} \right)
+
+    {\bf f}_x =
+       \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           \frac{UV}{\varrho}\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+
+    {\bf f}_y =
+       \left( \begin{array}{c}
+           V\\
+           \frac{VU}{\varrho}\\
+           \frac{V^2}{\varrho} + p\\
+           \frac{VW}{\varrho}\\
+           \frac{V}{\varrho}(E+p)
+       \end{array} \right)
+
+    {\bf f}_z =
+       \left( \begin{array}{c}
+           W\\
+           \frac{WU}{\varrho}\\
+           \frac{WV}{\varrho}\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right)
+
+    {\bf g} =
+       \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           -f_z\\
+           0\\
+       \end{array} \right)
+
+we can then write the equations as:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+Now we write the spatial derivatives using the so called flux Jacobians
+${\bf J}_x$,
+${\bf J}_y$
+and
+${\bf J}_z$:
+
+.. math::
+
+    {\partial{\bf f}_x\over \partial x} =
+    {\partial{\bf f}_x\over \partial {\bf w}}
+    {\partial{\bf w}\over \partial x} \equiv
+    {\bf J}_x
+    {\partial{\bf w}\over \partial x}
+
+    {\bf J}_x={\bf J}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
+
+Similarly for $y$ and $z$, so we get:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\bf J}_x
+    {\partial{\bf w}\over \partial x} +
+    {\bf J}_y
+    {\partial{\bf w}\over \partial y} +
+    {\bf J}_z
+    {\partial{\bf w}\over \partial z} +
+    {\bf g}= 0
+
+to calculate the Jacobians, we'll need:
+
+.. math::
+
+    {\partial p\over \partial {\bf w}}=
+        {R\over c_v}
+        \left( \begin{array}{ccccc}
+            {U^2+V^2+W^2\over 2\rho^2} & -{U\over\rho} & -{V\over\rho}
+                & -{W\over\rho} & 1\\
+        \end{array} \right)
+
+then we can calculate the Jacobians (and we substitute for $p$):
+
+.. math::
+
+    {\bf J}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 1 & 0 & 0 & 0\\
+            -{U^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
+                {2U\over\rho}-{R\over c_v}{U\over\rho} &
+                -{R\over c_v}{U\over\rho} &
+                -{R\over c_v}{V\over\rho} &
+                {R\over c_v}\\
+            -{UV\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
+            -{UW\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
+                -{UE\over\rho^2}-{U\over\rho^2}{R\over c_v}
+                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
+                    +{U\over\rho}{R\over c_v}{U^2+V^2+W^2\over 2\rho} &
+                {E\over\rho}+{1\over\rho}{R\over c_v}
+                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
+                    -{R\over c_v}{U^2\over\rho^2} &
+                -{R\over c_v}{UV\over\rho^2} &
+                -{R\over c_v}{UW\over\rho^2} &
+                {U\over\rho}-{R\over c_v}{U\over\rho} \\
+       \end{array} \right)
+
 Sea Breeze Modeling
 -------------------
+
+In our model we make the following assumptions:
+
+.. math::
+
+    f_x = 0
+
+    f_y = 0
+
+    f_z = -\rho g
+
+    V = 0
+
+    {\partial U\over\partial y}
+    ={\partial V\over\partial y}
+    ={\partial W\over\partial y}
+    ={\partial E\over\partial y}=0
+
+so we get:
+
+.. math::
+
+       \frac{\partial}{\partial t} \left( \begin{array}{c}
+           \varrho\\ U\\ 0\\ W\\ E
+       \end{array} \right)
+       + \frac{\partial}{\partial x} \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           0\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial z} \left( \begin{array}{c}
+           W\\
+           \frac{WU}{\varrho}\\
+           0\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right) + \left( \begin{array}{c}
+           0\\
+           0\\
+           0\\
+           \rho g\\
+           0\\
+       \end{array} \right) =
+       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+    p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)
+
+where we prescribe $R$, $c_v$, $g$ and solve for $\rho$, $U$, $W$ and $E$ as
+functions of $(t, x, z)$.
+
+Older notes
+-----------
 
 Author: Pavel Solin
 
 Governing Equations and Boundary Conditions
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. math::
     :label: one
@@ -47,7 +328,7 @@ Initial conditions have the form
 
 
 Discretization and the Newton's Method
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 We will use the implicit Euler method in time, i.e., 

@@ -1,7 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
@@ -41,20 +39,255 @@
           <li><a href="main.html" accesskey="U">Fluid Dynamics</a> &raquo;</li> 
       </ul>
     </div>  
-
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body">
             
+  
   <div class="section" id="compressible-euler-equations">
 <span id="index-22"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sea-breeze-modeling">
+<p>The compressible Euler equations are:</p>
+<div class="math">
+<p><img src="../../images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
+
+{\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+    + \nabla p - {\bf f} = 0
+
+{\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p)) = 0" />
+</div></p><p>where</p>
+<div class="math">
+<p><img src="../../images/math/1d4a88147849c8ecec3d242d4936a262f9a07e85.png" alt="E = \rho e + \half \rho u^2" />
+</div></p><p>is the total energy per unit volume (<img class="math" src="../../images/math/f8ad6e28ee44455107fd5b1fed09336bef89c843.png" alt="\half \rho u^2"/> is the kinetic energy per
+unit volume), <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> is the internal energy per unit mass (<img class="math" src="../../images/math/6fa3044d505bf62a6173112f964b9723d2d8a0a2.png" alt="e={U\over nM}"/>)
+and we use the ideal gas equations, so:</p>
+<div class="math">
+<p><img src="../../images/math/01d4141f5e4d6834a69915c7869c4c630d579098.png" alt="e = T c_v
+
+p = {n\over V} \bar RT =
+{n M\over V} {\bar R\over M}T =
+\rho RT = \rho R {e\over c_v} =
+    {R\over c_v} (E-\half \rho u^2)" />
+</div></p><p>where
+<img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> is the number of moles of gas,
+<img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/> is the molar mass of the gas (e.g. a mass of one mole of the gas),
+<img class="math" src="../../images/math/9c3b49dcc81ad85b2e07f7a8d302be685d605491.png" alt="\rho={n M\over V}"/> is the density of the gas,
+<img class="math" src="../../images/math/22344a41e47985033825ea337522a64e707f85ef.png" alt="\bar R"/> is the ideal gas constant,
+<img class="math" src="../../images/math/9b9121ebb1fdd07af1274d199583f2c0e80b81be.png" alt="R={\bar R\over M}"/> is the specific ideal gas constant,
+<img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/> is the specific heat capacity at constant volume (e.g. a heat capacity
+per unit volume),
+<img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> is the volume
+and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is the temperature of the gas.
+Of those, <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/>, <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/22344a41e47985033825ea337522a64e707f85ef.png" alt="\bar R"/> are constants, <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/>, <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> are
+functions of <img class="math" src="../../images/math/7bff5231ba7fa776f904320431eabfc7a8253860.png" alt="(t, x, y, z)"/>.</p>
+<p>We use the substitution:</p>
+<div class="math">
+<p><img src="../../images/math/fd5a50ad30aa134c0d71258f9984d54fae760be2.png" alt="{\bf U} = \rho {\bf u}
+
+p = {R\over c_v} (E-\half \rho u^2) =
+    {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)" />
+</div></p><p>and we get:</p>
+<div class="math">
+<p><img src="../../images/math/854896046b4ab096f052afc5eb0e84e80a36567d.png" alt="{\partial\rho\over\partial t} + \nabla\cdot{\bf U} = 0
+
+{\partial{\bf U}\over\partial t}
+    + \nabla\cdot\left({{\bf U}{\bf U}^T\over\rho}+p\one\right)
+    - {\bf f} = 0
+
+{\partial E\over\partial t}
+    + \nabla\cdot\left({{\bf U}\over\rho}(E+p)\right) = 0" />
+</div></p><p>Now we write <img class="math" src="../../images/math/6469d09cbc05e257dedf1752400e040c3d1cae03.png" alt="{\bf U} = (U, V, W)"/> and we get:</p>
+<div class="math">
+<p><img src="../../images/math/0cf92093463953430ff0acd6c75eff77a9b82bd8.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c}
+       \varrho\\ U\\ V\\ W\\ E
+   \end{array} \right)
+   + \frac{\partial}{\partial x} \left( \begin{array}{c}
+       U\\
+       \frac{U^2}{\varrho} + p\\
+       \frac{UV}{\varrho}\\
+       \frac{UW}{\varrho}\\
+       \frac{U}{\varrho}(E+p)
+   \end{array} \right)
+   + \frac{\partial}{\partial y} \left( \begin{array}{c}
+       V\\
+       \frac{VU}{\varrho}\\
+       \frac{V^2}{\varrho} + p\\
+       \frac{VW}{\varrho}\\
+       \frac{V}{\varrho}(E+p)
+   \end{array} \right)
+   + \frac{\partial}{\partial z} \left( \begin{array}{c}
+       W\\
+       \frac{WU}{\varrho}\\
+       \frac{WV}{\varrho}\\
+       \frac{W^2}{\varrho} + p\\
+       \frac{W}{\varrho}(E+p)
+   \end{array} \right) + \left( \begin{array}{c}
+       0\\
+       -f_x\\
+       -f_y\\
+       -f_z\\
+       0\\
+   \end{array} \right) =
+   \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)" />
+</div></p><p>We solve for the unknowns <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/>, <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, <img class="math" src="../../images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> as functions of <img class="math" src="../../images/math/c3dfd00e808ace22fbadde43e7eb7967b8c72fa0.png" alt="(t,
+x, y, z)"/>, the rest (<img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/>, <img class="math" src="../../images/math/77e2657b57cae321de481018d6dc74dd9920abc6.png" alt="f_x"/>, <img class="math" src="../../images/math/f4e24d769d1159c51257a0aef9390c2ef290a2c6.png" alt="f_y"/>, <img class="math" src="../../images/math/dbbdd66231f90d86cd4154819a47260c378b7ebe.png" alt="f_z"/>) are either constants or
+depend on the unknowns.</p>
+<p>After introducing:</p>
+<div class="math">
+<p><img src="../../images/math/804cbec6922ad09f8b58b8961d3f412d45e2251f.png" alt="{\bf w} =
+   \left( \begin{array}{c}
+       \varrho\\ U\\ V\\ W\\ E
+   \end{array} \right)
+
+{\bf f}_x =
+   \left( \begin{array}{c}
+       U\\
+       \frac{U^2}{\varrho} + p\\
+       \frac{UV}{\varrho}\\
+       \frac{UW}{\varrho}\\
+       \frac{U}{\varrho}(E+p)
+   \end{array} \right)
+
+{\bf f}_y =
+   \left( \begin{array}{c}
+       V\\
+       \frac{VU}{\varrho}\\
+       \frac{V^2}{\varrho} + p\\
+       \frac{VW}{\varrho}\\
+       \frac{V}{\varrho}(E+p)
+   \end{array} \right)
+
+{\bf f}_z =
+   \left( \begin{array}{c}
+       W\\
+       \frac{WU}{\varrho}\\
+       \frac{WV}{\varrho}\\
+       \frac{W^2}{\varrho} + p\\
+       \frac{W}{\varrho}(E+p)
+   \end{array} \right)
+
+{\bf g} =
+   \left( \begin{array}{c}
+       0\\
+       -f_x\\
+       -f_y\\
+       -f_z\\
+       0\\
+   \end{array} \right)" />
+</div></p><p>we can then write the equations as:</p>
+<div class="math">
+<p><img src="../../images/math/64496c86e0a6387b7128880337db87b8d33c3019.png" alt="{\partial{\bf w}\over \partial t} +
+{\partial{\bf f}_x\over \partial x} +
+{\partial{\bf f}_y\over \partial y} +
+{\partial{\bf f}_z\over \partial z} +
+{\bf g}= 0" />
+</div></p><p>Now we write the spatial derivatives using the so called flux Jacobians
+<img class="math" src="../../images/math/ea47d5c097695ccec804be4a248196dd00529d6f.png" alt="{\bf J}_x"/>,
+<img class="math" src="../../images/math/b213573346b9dcb940e66ce15cfecc1c8f2aff22.png" alt="{\bf J}_y"/>
+and
+<img class="math" src="../../images/math/31076fe0e2ec56ccb97e24b9c829213d0dfc1438.png" alt="{\bf J}_z"/>:</p>
+<div class="math">
+<p><img src="../../images/math/c9986919f98071ff430cc785a4ff9f1766fb38ce.png" alt="{\partial{\bf f}_x\over \partial x} =
+{\partial{\bf f}_x\over \partial {\bf w}}
+{\partial{\bf w}\over \partial x} \equiv
+{\bf J}_x
+{\partial{\bf w}\over \partial x}
+
+{\bf J}_x={\bf J}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}" />
+</div></p><p>Similarly for <img class="math" src="../../images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> and <img class="math" src="../../images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>, so we get:</p>
+<div class="math">
+<p><img src="../../images/math/fcfae6180817e1111cad33819303e981fec3064d.png" alt="{\partial{\bf w}\over \partial t} +
+{\bf J}_x
+{\partial{\bf w}\over \partial x} +
+{\bf J}_y
+{\partial{\bf w}\over \partial y} +
+{\bf J}_z
+{\partial{\bf w}\over \partial z} +
+{\bf g}= 0" />
+</div></p><p>to calculate the Jacobians, we&#8217;ll need:</p>
+<div class="math">
+<p><img src="../../images/math/2226c1fac346a605f6bc5bdc5c631490d73689c5.png" alt="{\partial p\over \partial {\bf w}}=
+    {R\over c_v}
+    \left( \begin{array}{ccccc}
+        {U^2+V^2+W^2\over 2\rho^2} &amp; -{U\over\rho} &amp; -{V\over\rho}
+            &amp; -{W\over\rho} &amp; 1\\
+    \end{array} \right)" />
+</div></p><p>then we can calculate the Jacobians (and we substitute for <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>):</p>
+<div class="math">
+<p><img src="../../images/math/cb83856f1fb322ad480174c934a392027ad909e3.png" alt="{\bf J}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+    \left( \begin{array}{ccccc}
+        0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\
+        -{U^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &amp;
+            {2U\over\rho}-{R\over c_v}{U\over\rho} &amp;
+            -{R\over c_v}{U\over\rho} &amp;
+            -{R\over c_v}{V\over\rho} &amp;
+            {R\over c_v}\\
+        -{UV\over\rho^2} &amp; {V\over\rho} &amp; {U\over\rho} &amp; 0 &amp; 0\\
+        -{UW\over\rho^2} &amp; {W\over\rho} &amp; 0 &amp; {U\over\rho} &amp; 0 \\
+            -{UE\over\rho^2}-{U\over\rho^2}{R\over c_v}
+                \left(E-{U^2+V^2+W^2\over 2\rho}\right)
+                +{U\over\rho}{R\over c_v}{U^2+V^2+W^2\over 2\rho} &amp;
+            {E\over\rho}+{1\over\rho}{R\over c_v}
+                \left(E-{U^2+V^2+W^2\over 2\rho}\right)
+                -{R\over c_v}{U^2\over\rho^2} &amp;
+            -{R\over c_v}{UV\over\rho^2} &amp;
+            -{R\over c_v}{UW\over\rho^2} &amp;
+            {U\over\rho}-{R\over c_v}{U\over\rho} \\
+   \end{array} \right)" />
+</div></p><div class="section" id="sea-breeze-modeling">
 <h2>Sea Breeze Modeling<a class="headerlink" href="#sea-breeze-modeling" title="Permalink to this headline">¶</a></h2>
-<p>Author: Pavel Solin</p>
+<p>In our model we make the following assumptions:</p>
+<div class="math">
+<p><img src="../../images/math/146d5706bc7187e2e2cde782c963b8a5e6799846.png" alt="f_x = 0
+
+f_y = 0
+
+f_z = -\rho g
+
+V = 0
+
+{\partial U\over\partial y}
+={\partial V\over\partial y}
+={\partial W\over\partial y}
+={\partial E\over\partial y}=0" />
+</div></p><p>so we get:</p>
+<div class="math">
+<p><img src="../../images/math/affd3a9d0402c406663e783b3bf50b6aecff5b2c.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c}
+       \varrho\\ U\\ 0\\ W\\ E
+   \end{array} \right)
+   + \frac{\partial}{\partial x} \left( \begin{array}{c}
+       U\\
+       \frac{U^2}{\varrho} + p\\
+       0\\
+       \frac{UW}{\varrho}\\
+       \frac{U}{\varrho}(E+p)
+   \end{array} \right)
+   + \frac{\partial}{\partial z} \left( \begin{array}{c}
+       W\\
+       \frac{WU}{\varrho}\\
+       0\\
+       \frac{W^2}{\varrho} + p\\
+       \frac{W}{\varrho}(E+p)
+   \end{array} \right) + \left( \begin{array}{c}
+       0\\
+       0\\
+       0\\
+       \rho g\\
+       0\\
+   \end{array} \right) =
+   \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)" />
+</div></p><p>where we prescribe <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/>, <img class="math" src="../../images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> and solve for <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/>, <img class="math" src="../../images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> as
+functions of <img class="math" src="../../images/math/d7a523c5e13d7478aeb5661332a7e61e8aef496b.png" alt="(t, x, z)"/>.</p>
 </div>
+<div class="section" id="older-notes">
+<h2>Older notes<a class="headerlink" href="#older-notes" title="Permalink to this headline">¶</a></h2>
+<p>Author: Pavel Solin</p>
 <div class="section" id="governing-equations-and-boundary-conditions">
-<h2>Governing Equations and Boundary Conditions<a class="headerlink" href="#governing-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<h3>Governing Equations and Boundary Conditions<a class="headerlink" href="#governing-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <div class="math" id="equation-one">
 <p><span class="eqno">(1)</span><img src="../../images/math/84910087e1617188944538f5d757c90d81fc5785.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c} \varrho\\ U\\ W\\
    \theta \end{array} \right) + \frac{\partial}{\partial x} \left(
@@ -64,8 +297,8 @@
    \frac{UW}{\varrho}\\ \frac{W^2}{\varrho} + R\theta\\ \frac{\theta
    W}{\varrho} \end{array} \right) + \left( \begin{array}{c} 0\\ 0\\
    \varrho g\\ \frac{R\theta}{c_v}\mbox{div}{\bf v} \end{array} \right) =
-   \left( \begin{array}{c} 0\\ 0\\ 0\\ 0 \end{array} \right)," /></p>
-</div><p>where <img class="math" src="../../images/math/e7fe4fc87a1b38d0b6f1f34da3c84a3fd3cb64c6.png" alt="\varrho"/> is the air density, <img class="math" src="../../images/math/87fa0e09e02d0d3cc96225398eb8850c3f1c7fd6.png" alt="{\bf v} = (u,w)"/> is the velocity, <img class="math" src="../../images/math/61674d0577c296d0ed7f1cc23e172a57edf53359.png" alt="U =
+   \left( \begin{array}{c} 0\\ 0\\ 0\\ 0 \end{array} \right)," />
+</div></p><p>where <img class="math" src="../../images/math/e7fe4fc87a1b38d0b6f1f34da3c84a3fd3cb64c6.png" alt="\varrho"/> is the air density, <img class="math" src="../../images/math/87fa0e09e02d0d3cc96225398eb8850c3f1c7fd6.png" alt="{\bf v} = (u,w)"/> is the velocity, <img class="math" src="../../images/math/61674d0577c296d0ed7f1cc23e172a57edf53359.png" alt="U =
 \varrho u"/>, <img class="math" src="../../images/math/55a73be8b9941ee57f23caef9446c140de378265.png" alt="W = \varrho w"/>, <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is the temperature, <img class="math" src="../../images/math/99a3bc63af573497d219fecea2ca37f2e3a20aa0.png" alt="\theta = \varrho T"/>, and
 <img class="math" src="../../images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is the gravitational acceleration constant.  We use the perfect gas state
 equation <img class="math" src="../../images/math/006343386334ce6bcdfad73d55ae1b3a60cf0ccd.png" alt="p = \varrho R T = R \theta"/> for the pressure.</p>
@@ -77,26 +310,26 @@ equation <img class="math" src="../../images/math/006343386334ce6bcdfad73d55ae1b
 </ul>
 <p>Initial conditions have the form</p>
 <div class="math">
-<p><img src="../../images/math/241829fb9bf6b59f3dc315f268f4614dd7ae021d.png" alt="\begin{eqnarray*} p(z) &amp;=&amp; p_0 - 11476\frac{z}{1000}  + 529.54 \left(\frac{z}{1000} \right)^2 - 9.38 \left(\frac{z}{1000} \right)^3,\\ T(z) &amp;=&amp; T_0 - 8.3194 \frac{z}{1000} + 0.2932 \left(\frac{z}{1000} \right)^2 - 0.0109 \left(\frac{z}{1000} \right)^3,\\ \varrho(z) &amp;=&amp; \frac{p(z)}{R T(z)},\\ \theta(z) &amp;=&amp; \varrho(z)T(z),\\ U(z) &amp;=&amp; 0, \\  W(z) &amp;=&amp; 0. \end{eqnarray*}" /></p>
-</div></div>
+<p><img src="../../images/math/241829fb9bf6b59f3dc315f268f4614dd7ae021d.png" alt="\begin{eqnarray*} p(z) &amp;=&amp; p_0 - 11476\frac{z}{1000}  + 529.54 \left(\frac{z}{1000} \right)^2 - 9.38 \left(\frac{z}{1000} \right)^3,\\ T(z) &amp;=&amp; T_0 - 8.3194 \frac{z}{1000} + 0.2932 \left(\frac{z}{1000} \right)^2 - 0.0109 \left(\frac{z}{1000} \right)^3,\\ \varrho(z) &amp;=&amp; \frac{p(z)}{R T(z)},\\ \theta(z) &amp;=&amp; \varrho(z)T(z),\\ U(z) &amp;=&amp; 0, \\  W(z) &amp;=&amp; 0. \end{eqnarray*}" />
+</div></p></div>
 <div class="section" id="discretization-and-the-newton-s-method">
-<h2>Discretization and the Newton&#8217;s Method<a class="headerlink" href="#discretization-and-the-newton-s-method" title="Permalink to this headline">¶</a></h2>
+<h3>Discretization and the Newton&#8217;s Method<a class="headerlink" href="#discretization-and-the-newton-s-method" title="Permalink to this headline">¶</a></h3>
 <p>We will use the implicit Euler method in time, i.e.,</p>
 <div class="math">
-<p><img src="../../images/math/9f8c7a43f132f7cc976ddc8438fa584d4d4f835b.png" alt="\frac{\partial \varrho}{\partial t} \approx \frac{\varrho^{n+1} - \varrho^n}{\tau}" /></p>
-</div><p>etc. Let&#8217;s discuss one equation of <a href="#equation-one">(1)</a> at a time:</p>
+<p><img src="../../images/math/9f8c7a43f132f7cc976ddc8438fa584d4d4f835b.png" alt="\frac{\partial \varrho}{\partial t} \approx \frac{\varrho^{n+1} - \varrho^n}{\tau}" />
+</div></p><p>etc. Let&#8217;s discuss one equation of <a href="#equation-one">(1)</a> at a time:</p>
 <p><cite>Continuity equation</cite>:
 The weak formulation of</p>
 <div class="math">
-<p><img src="../../images/math/4707dce66688218c2d2a9b0fbea231d7ab2f1eec.png" alt="\frac{\varrho^{n+1} - \varrho^n}{\tau} + \frac{\partial U^{n+1}}{\partial x} + \frac{\partial W^{n+1}}{\partial z} = 0" /></p>
-</div><p>reads</p>
+<p><img src="../../images/math/4707dce66688218c2d2a9b0fbea231d7ab2f1eec.png" alt="\frac{\varrho^{n+1} - \varrho^n}{\tau} + \frac{\partial U^{n+1}}{\partial x} + \frac{\partial W^{n+1}}{\partial z} = 0" />
+</div></p><p>reads</p>
 <div class="math" id="equation-cont">
 <p><span class="eqno">(2)</span><img src="../../images/math/a6fd7af7049ddc562ff0e4f62334625f2448d15b.png" alt="F_i^{\varrho}(Y^{n+1}) = \int_{\Omega} \frac{\varrho^{n+1}}{\tau}
 \varphi^{\varrho}_i
 - \int_{\Omega} \frac{\varrho^{n}}{\tau} \varphi^{\varrho}_i
   + \int_{\Omega} \frac{\partial U^{n+1}}{\partial x} \varphi^{\varrho}_i
-    + \int_{\Omega} \frac{\partial W^{n+1}}{\partial z} \varphi^{\varrho}_i = 0" /></p>
-</div><p>The global coefficient vector <img class="math" src="../../images/math/56261d82e783c9407fd48363dc4b78473da85b99.png" alt="Y^{n+1}"/> consists of four parts <img class="math" src="../../images/math/eb7db6f57badbdb64fb8fc4a7e2c020fc87a17d2.png" alt="Y^{\varrho}"/>, <img class="math" src="../../images/math/87ab5595e0f587c4dfdd5e50ff2de4c7cfbf6fae.png" alt="Y^{U}"/>, <img class="math" src="../../images/math/33e3570558a112c849285e6b6e85765b1ec95995.png" alt="Y^{W}"/>
+    + \int_{\Omega} \frac{\partial W^{n+1}}{\partial z} \varphi^{\varrho}_i = 0" />
+</div></p><p>The global coefficient vector <img class="math" src="../../images/math/56261d82e783c9407fd48363dc4b78473da85b99.png" alt="Y^{n+1}"/> consists of four parts <img class="math" src="../../images/math/eb7db6f57badbdb64fb8fc4a7e2c020fc87a17d2.png" alt="Y^{\varrho}"/>, <img class="math" src="../../images/math/87ab5595e0f587c4dfdd5e50ff2de4c7cfbf6fae.png" alt="Y^{U}"/>, <img class="math" src="../../images/math/33e3570558a112c849285e6b6e85765b1ec95995.png" alt="Y^{W}"/>
 and <img class="math" src="../../images/math/a291318ca6b35df3736f2d34893d4c83d27c59bd.png" alt="Y^{\theta}"/> corresponding to the fields <img class="math" src="../../images/math/e7fe4fc87a1b38d0b6f1f34da3c84a3fd3cb64c6.png" alt="\varrho"/>, <img class="math" src="../../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/>, <img class="math" src="../../images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and <img class="math" src="../../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/>, respectively.
 The same holds for the vector function <img class="math" src="../../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/> which consists of four parts <img class="math" src="../../images/math/fca9492caabae6de933463451e1cd5d4cd1838de.png" alt="F^{\varrho}"/>, <img class="math" src="../../images/math/323b03c4e39800cc407cc8ad31cf288cd0603940.png" alt="F^{U}"/>, <img class="math" src="../../images/math/0652fc66a530ad4d7b2b44d75fd7ff1d9184a5f7.png" alt="F^{W}"/>
 and <img class="math" src="../../images/math/f87ec54913ce4edb6b0705a8a9e4c75b43f6fed0.png" alt="F^{\theta}"/>. Thus the global Jacobi matrix will have a four-by-four block structure. We
@@ -106,87 +339,88 @@ denote</p>
 \
 U^{n+1} = \sum_{k=1}^{N^{U}} y^{U}_k \varphi^{U}_k, \ \ \
 W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
-\theta^{n+1} = \sum_{k=1}^{N^{\theta}} y^{\theta}_k \varphi^{\theta}_k." /></p>
-</div><p>It follows from <a href="#equation-cont">(2)</a> and <a href="#equation-two">(3)</a> that</p>
+\theta^{n+1} = \sum_{k=1}^{N^{\theta}} y^{\theta}_k \varphi^{\theta}_k." />
+</div></p><p>It follows from <a href="#equation-cont">(2)</a> and <a href="#equation-two">(3)</a> that</p>
 <div class="math">
-<p><img src="../../images/math/20b6654c05d4f49c306e032dcccb520c23a2a18f.png" alt="\frac{\partial F^{\varrho}_i}{\partial y^{\varrho}_j} = \int_{\Omega} \frac{\varphi^{\varrho}_j}{\tau} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{U}_j} = \int_{\Omega} \frac{\partial \varphi^{U}_j}{\partial x} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = \int_{\Omega} \frac{\partial \varphi^{W}_j}{\partial z} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = 0." /></p>
-</div><p><cite>First momentum equation</cite>: The second equation of <a href="#equation-one">(1)</a> has the form</p>
+<p><img src="../../images/math/20b6654c05d4f49c306e032dcccb520c23a2a18f.png" alt="\frac{\partial F^{\varrho}_i}{\partial y^{\varrho}_j} = \int_{\Omega} \frac{\varphi^{\varrho}_j}{\tau} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{U}_j} = \int_{\Omega} \frac{\partial \varphi^{U}_j}{\partial x} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = \int_{\Omega} \frac{\partial \varphi^{W}_j}{\partial z} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = 0." />
+</div></p><p><cite>First momentum equation</cite>: The second equation of <a href="#equation-one">(1)</a> has the form</p>
 <div class="math">
-<p><img src="../../images/math/33cb83966ed9529e8a35af88ad3a01f90044dc3c.png" alt="\frac{\partial U}{\partial t} + \frac{2U}{\varrho}\frac{\partial U}{\partial x}  - \frac{U^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial x} + \frac{W}{\varrho}\frac{\partial U}{\partial z} + \frac{U}{\varrho}\frac{\partial W}{\partial z} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0." /></p>
-</div><p>After applying the implicit Euler method, we obtain</p>
+<p><img src="../../images/math/33cb83966ed9529e8a35af88ad3a01f90044dc3c.png" alt="\frac{\partial U}{\partial t} + \frac{2U}{\varrho}\frac{\partial U}{\partial x}  - \frac{U^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial x} + \frac{W}{\varrho}\frac{\partial U}{\partial z} + \frac{U}{\varrho}\frac{\partial W}{\partial z} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0." />
+</div></p><p>After applying the implicit Euler method, we obtain</p>
 <div class="math">
-<p><img src="../../images/math/06c77e692cd600a13ed2975f611bfcb341ad0e42.png" alt="\frac{\partial U^{n+1}}{\tau} - \frac{\partial U^{n}}{\tau} + \frac{2U^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial x}  - \frac{(U^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial x}" /></p>
-</div><div class="math">
-<p><img src="../../images/math/ba015ce6c73b09d41c420a7f117fa92e77eb2166.png" alt="+ \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial z} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} = 0." /></p>
-</div><p>Thus we obtain</p>
+<p><img src="../../images/math/06c77e692cd600a13ed2975f611bfcb341ad0e42.png" alt="\frac{\partial U^{n+1}}{\tau} - \frac{\partial U^{n}}{\tau} + \frac{2U^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial x}  - \frac{(U^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial x}" />
+</div></p><div class="math">
+<p><img src="../../images/math/ba015ce6c73b09d41c420a7f117fa92e77eb2166.png" alt="+ \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial z} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} = 0." />
+</div></p><p>Thus we obtain</p>
 <div class="math">
-<p><img src="../../images/math/5d90d16e21dfbf3a6741ef8ef79e4f97a0869b2e.png" alt="\frac{\partial F^{U}_i}{\partial y^{\varrho}_j} =  - \int_{\Omega}\frac{2U}{\varrho^2}\frac{\partial U}{\partial x} \varphi^{\varrho}_j \varphi^{U}_i  -  \int_{\Omega} U^2 \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial x} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial x}\right] \varphi^U_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/05ee7307d6b8ab4999e104ea8d7708a17dbcaa1b.png" alt="+ \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial U}{\partial z}(-1)\varphi^{\varrho}_j \varphi^U_i + \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial W}{\partial z}(-1)\varphi^{\varrho}_j \varphi^U_i - \int_{\Omega} UW \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial z} \varphi^{\varrho}_j + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial z} \right] \varphi^{U}_i." /></p>
-</div><p>Analogously,</p>
+<p><img src="../../images/math/5d90d16e21dfbf3a6741ef8ef79e4f97a0869b2e.png" alt="\frac{\partial F^{U}_i}{\partial y^{\varrho}_j} =  - \int_{\Omega}\frac{2U}{\varrho^2}\frac{\partial U}{\partial x} \varphi^{\varrho}_j \varphi^{U}_i  -  \int_{\Omega} U^2 \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial x} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial x}\right] \varphi^U_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/05ee7307d6b8ab4999e104ea8d7708a17dbcaa1b.png" alt="+ \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial U}{\partial z}(-1)\varphi^{\varrho}_j \varphi^U_i + \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial W}{\partial z}(-1)\varphi^{\varrho}_j \varphi^U_i - \int_{\Omega} UW \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial z} \varphi^{\varrho}_j + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial z} \right] \varphi^{U}_i." />
+</div></p><p>Analogously,</p>
 <div class="math">
-<p><img src="../../images/math/b8699582395cf5566bcf10c9e90bfb7f12b9a61a.png" alt="\frac{\partial F^{U}_i}{\partial y^{U}_j} =  \int_{\Omega}\frac{\varphi^U_j}{\tau}\varphi^U_i + \int_{\Omega}\frac{2}{\varrho} \left[ \frac{\partial U}{\partial x}\varphi^U_j + U \frac{\partial \varphi^U_j}{\partial x} \right] \varphi^U_i - \int_{\Omega} \frac{2U}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^U_j \varphi^U_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/57045db9d573d34f04bb5301bc3dcfaf50feb759.png" alt="+ \int_{\Omega} \frac{W}{\varrho}\frac{\partial \varphi^U_j}{\partial z} \varphi^U_i  + \int_{\Omega} \frac{1}{\varrho}\frac{\partial W}{\partial z} \varphi^U_j \varphi^U_i  - \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^U_j \varphi^U_i," /></p>
-</div><div class="math">
-<p><img src="../../images/math/cc8b01a1baae61f322f7fcf422514171aee7b023.png" alt="\frac{\partial F^{U}_i}{\partial y^{W}_j} =  \int_{\Omega} \frac{1}{\varrho}\frac{\partial U}{\partial z} \varphi^W_j \varphi^U_i + \int_{\Omega} \frac{U}{\varrho}\frac{\partial \varphi^W_j}{\partial z} \varphi^U_i - \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^W_j \varphi^U_i," /></p>
-</div><div class="math">
-<p><img src="../../images/math/c1626ae12542c0fd5103c4029b83b93d85818995.png" alt="\frac{\partial F^{U}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial x} \varphi^U_i." /></p>
-</div><p><cite>Second momentum equation</cite>: The third equation of <a href="#equation-one">(1)</a> reads</p>
+<p><img src="../../images/math/b8699582395cf5566bcf10c9e90bfb7f12b9a61a.png" alt="\frac{\partial F^{U}_i}{\partial y^{U}_j} =  \int_{\Omega}\frac{\varphi^U_j}{\tau}\varphi^U_i + \int_{\Omega}\frac{2}{\varrho} \left[ \frac{\partial U}{\partial x}\varphi^U_j + U \frac{\partial \varphi^U_j}{\partial x} \right] \varphi^U_i - \int_{\Omega} \frac{2U}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^U_j \varphi^U_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/57045db9d573d34f04bb5301bc3dcfaf50feb759.png" alt="+ \int_{\Omega} \frac{W}{\varrho}\frac{\partial \varphi^U_j}{\partial z} \varphi^U_i  + \int_{\Omega} \frac{1}{\varrho}\frac{\partial W}{\partial z} \varphi^U_j \varphi^U_i  - \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^U_j \varphi^U_i," />
+</div></p><div class="math">
+<p><img src="../../images/math/cc8b01a1baae61f322f7fcf422514171aee7b023.png" alt="\frac{\partial F^{U}_i}{\partial y^{W}_j} =  \int_{\Omega} \frac{1}{\varrho}\frac{\partial U}{\partial z} \varphi^W_j \varphi^U_i + \int_{\Omega} \frac{U}{\varrho}\frac{\partial \varphi^W_j}{\partial z} \varphi^U_i - \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^W_j \varphi^U_i," />
+</div></p><div class="math">
+<p><img src="../../images/math/c1626ae12542c0fd5103c4029b83b93d85818995.png" alt="\frac{\partial F^{U}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial x} \varphi^U_i." />
+</div></p><p><cite>Second momentum equation</cite>: The third equation of <a href="#equation-one">(1)</a> reads</p>
 <div class="math">
-<p><img src="../../images/math/7da88d263f3b665872ad66e10e2cb66586fd84d6.png" alt="\frac{\partial W}{\partial t}  + \frac{W}{\varrho}\frac{\partial U}{\partial x} + \frac{U}{\varrho}\frac{\partial W}{\partial x} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial x}  + \frac{2W}{\varrho}\frac{\partial W}{\partial z}  - \frac{W^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial z} + \varrho g= 0." /></p>
-</div><p>After applying the implicit Euler method, we obtain</p>
+<p><img src="../../images/math/7da88d263f3b665872ad66e10e2cb66586fd84d6.png" alt="\frac{\partial W}{\partial t}  + \frac{W}{\varrho}\frac{\partial U}{\partial x} + \frac{U}{\varrho}\frac{\partial W}{\partial x} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial x}  + \frac{2W}{\varrho}\frac{\partial W}{\partial z}  - \frac{W^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial z} + \varrho g= 0." />
+</div></p><p>After applying the implicit Euler method, we obtain</p>
 <div class="math">
-<p><img src="../../images/math/307aaf82ac6672ce67d39601300c382aa9466d58.png" alt="\frac{\partial W^{n+1}}{\tau} - \frac{\partial W^{n}}{\tau}  + \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial x} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial x} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial x}" /></p>
-</div><div class="math">
-<p><img src="../../images/math/1fa73e8b0beb2660782fe6124e1a3e37af00e616.png" alt="+ \frac{2W^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z}  - \frac{(W^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial z} + \varrho^{n+1} g= 0." /></p>
-</div><p>Thus we obtain</p>
+<p><img src="../../images/math/307aaf82ac6672ce67d39601300c382aa9466d58.png" alt="\frac{\partial W^{n+1}}{\tau} - \frac{\partial W^{n}}{\tau}  + \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial x} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial x} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial x}" />
+</div></p><div class="math">
+<p><img src="../../images/math/1fa73e8b0beb2660782fe6124e1a3e37af00e616.png" alt="+ \frac{2W^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z}  - \frac{(W^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial z} + \varrho^{n+1} g= 0." />
+</div></p><p>Thus we obtain</p>
 <div class="math">
-<p><img src="../../images/math/c534b798c6789f9cabc77da40d12b4e17e181366.png" alt="\frac{\partial F^{W}_i}{\partial y^{\varrho}_j} =  + \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial U}{\partial x}(-1)\varphi^{\varrho}_j \varphi^W_i + \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial W}{\partial x}(-1)\varphi^{\varrho}_j \varphi^W_i - \int_{\Omega}\frac{2W}{\varrho^2}\frac{\partial W}{\partial x} \varphi^{\varrho}_j \varphi^{W}_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/ccaea5d0d618e61561383df8afc48884925cf459.png" alt="- \int_{\Omega} UW \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial x} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial x} \right] \varphi^{W}_i -  \int_{\Omega} W^2 \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial z} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial z}\right] \varphi^W_i  + \int_{\Omega}g \varphi^{\varrho}_j \varphi^{W}_i." /></p>
-</div><p>Analogously,</p>
+<p><img src="../../images/math/c534b798c6789f9cabc77da40d12b4e17e181366.png" alt="\frac{\partial F^{W}_i}{\partial y^{\varrho}_j} =  + \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial U}{\partial x}(-1)\varphi^{\varrho}_j \varphi^W_i + \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial W}{\partial x}(-1)\varphi^{\varrho}_j \varphi^W_i - \int_{\Omega}\frac{2W}{\varrho^2}\frac{\partial W}{\partial x} \varphi^{\varrho}_j \varphi^{W}_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/ccaea5d0d618e61561383df8afc48884925cf459.png" alt="- \int_{\Omega} UW \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial x} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial x} \right] \varphi^{W}_i -  \int_{\Omega} W^2 \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial z} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial z}\right] \varphi^W_i  + \int_{\Omega}g \varphi^{\varrho}_j \varphi^{W}_i." />
+</div></p><p>Analogously,</p>
 <div class="math">
-<p><img src="../../images/math/a4d7facaea588881e37d9c27707a3d11ed8fe4bf.png" alt="\frac{\partial F^{W}_i}{\partial y^{U}_j} =  \int_{\Omega} \frac{W}{\varrho}\frac{\partial \varphi^U_j}{\partial x} \varphi^W_i + \int_{\Omega} \frac{1}{\varrho}\frac{\partial W}{\partial x} \varphi^U_j \varphi^W_i - \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^U_j \varphi^W_i," /></p>
-</div><div class="math">
-<p><img src="../../images/math/36da6e4eb2af16d5cd8a95f1cdb76b043e449e2d.png" alt="\frac{\partial F^{W}_i}{\partial y^{W}_j} =  \int_{\Omega}\frac{\varphi^W_j}{\tau}\varphi^W_i + \int_{\Omega} \frac{1}{\varrho}\frac{\partial U}{\partial x} \varphi^W_j \varphi^W_i  + \int_{\Omega} \frac{U}{\varrho}\frac{\partial \varphi^W_j}{\partial x} \varphi^W_i  - \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^W_j \varphi^W_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/3ac10c20dfc5194ca78cb17fa77188cac386acda.png" alt="+ \int_{\Omega}\frac{2}{\varrho} \left[ \frac{\partial W}{\partial z}\varphi^W_j + W \frac{\partial \varphi^W_j}{\partial z} \right] \varphi^W_i  - \int_{\Omega} \frac{2W}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^W_j \varphi^W_i," /></p>
-</div><div class="math">
-<p><img src="../../images/math/9777eca4c3eb7b92fd3c6007614e7ee4ef92d9b1.png" alt="\frac{\partial F^{W}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial z} \varphi^W_i." /></p>
-</div><p><cite>Internal energy equation</cite>: The last equation of <a href="#equation-one">(1)</a> has the form</p>
+<p><img src="../../images/math/a4d7facaea588881e37d9c27707a3d11ed8fe4bf.png" alt="\frac{\partial F^{W}_i}{\partial y^{U}_j} =  \int_{\Omega} \frac{W}{\varrho}\frac{\partial \varphi^U_j}{\partial x} \varphi^W_i + \int_{\Omega} \frac{1}{\varrho}\frac{\partial W}{\partial x} \varphi^U_j \varphi^W_i - \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^U_j \varphi^W_i," />
+</div></p><div class="math">
+<p><img src="../../images/math/36da6e4eb2af16d5cd8a95f1cdb76b043e449e2d.png" alt="\frac{\partial F^{W}_i}{\partial y^{W}_j} =  \int_{\Omega}\frac{\varphi^W_j}{\tau}\varphi^W_i + \int_{\Omega} \frac{1}{\varrho}\frac{\partial U}{\partial x} \varphi^W_j \varphi^W_i  + \int_{\Omega} \frac{U}{\varrho}\frac{\partial \varphi^W_j}{\partial x} \varphi^W_i  - \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^W_j \varphi^W_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/3ac10c20dfc5194ca78cb17fa77188cac386acda.png" alt="+ \int_{\Omega}\frac{2}{\varrho} \left[ \frac{\partial W}{\partial z}\varphi^W_j + W \frac{\partial \varphi^W_j}{\partial z} \right] \varphi^W_i  - \int_{\Omega} \frac{2W}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^W_j \varphi^W_i," />
+</div></p><div class="math">
+<p><img src="../../images/math/9777eca4c3eb7b92fd3c6007614e7ee4ef92d9b1.png" alt="\frac{\partial F^{W}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial z} \varphi^W_i." />
+</div></p><p><cite>Internal energy equation</cite>: The last equation of <a href="#equation-one">(1)</a> has the form</p>
 <div class="math">
 <p><img src="../../images/math/9cbd5a3ad1a9ca17ad3233b7728ed5acc91798e4.png" alt="\frac{\partial \theta}{\partial t} + \mbox{div}(\theta {\bf v}) + \frac{R
-\theta}{c_v} \mbox{div}{\bf v} = 0" /></p>
-</div><p>where <img class="math" src="../../images/math/99a3bc63af573497d219fecea2ca37f2e3a20aa0.png" alt="\theta = \varrho T"/>. This can be written equivalently as</p>
+\theta}{c_v} \mbox{div}{\bf v} = 0" />
+</div></p><p>where <img class="math" src="../../images/math/99a3bc63af573497d219fecea2ca37f2e3a20aa0.png" alt="\theta = \varrho T"/>. This can be written equivalently as</p>
 <div class="math">
 <p><img src="../../images/math/68a611fafdc16eb74de89499dd4b31c66c157e15.png" alt="\frac{\partial \theta}{\partial t} + \nabla \theta \cdot {\bf v} + \gamma
-\theta \mbox{div} {\bf v} = 0." /></p>
-</div><p>Written in terms of single derivatives, this is</p>
+\theta \mbox{div} {\bf v} = 0." />
+</div></p><p>Written in terms of single derivatives, this is</p>
 <div class="math">
-<p><img src="../../images/math/8a72905cd1cf1e4ebaba9e4d35fed3cb364172e9.png" alt="\frac{\partial \theta}{\partial t} + \frac{\partial \theta}{\partial x} \frac{U}{\varrho} + \frac{\partial \theta}{\partial z} \frac{W}{\varrho}  + \gamma \theta \frac{\partial}{\partial x}\left(\frac{U}{\varrho}  \right) + \gamma \theta \frac{\partial}{\partial z}\left(\frac{W}{\varrho}  \right) = 0," /></p>
-</div><p>i.e.,</p>
+<p><img src="../../images/math/8a72905cd1cf1e4ebaba9e4d35fed3cb364172e9.png" alt="\frac{\partial \theta}{\partial t} + \frac{\partial \theta}{\partial x} \frac{U}{\varrho} + \frac{\partial \theta}{\partial z} \frac{W}{\varrho}  + \gamma \theta \frac{\partial}{\partial x}\left(\frac{U}{\varrho}  \right) + \gamma \theta \frac{\partial}{\partial z}\left(\frac{W}{\varrho}  \right) = 0," />
+</div></p><p>i.e.,</p>
 <div class="math">
-<p><img src="../../images/math/35345c221685f7861a71c3e9d0a71d9ce9322c26.png" alt="\frac{\partial \theta}{\partial t}  + \frac{\partial \theta}{\partial x} \frac{U}{\varrho} + \frac{\partial \theta}{\partial z} \frac{W}{\varrho}  + \gamma \frac{\theta}{\varrho} \frac{\partial U}{\partial x} - \gamma \frac{\theta U}{\varrho^2}\frac{\partial \varrho}{\partial x} + \gamma \frac{\theta}{\varrho} \frac{\partial W}{\partial z} - \gamma \frac{\theta W}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0." /></p>
-</div><p><cite>Weak formulation</cite>:</p>
+<p><img src="../../images/math/35345c221685f7861a71c3e9d0a71d9ce9322c26.png" alt="\frac{\partial \theta}{\partial t}  + \frac{\partial \theta}{\partial x} \frac{U}{\varrho} + \frac{\partial \theta}{\partial z} \frac{W}{\varrho}  + \gamma \frac{\theta}{\varrho} \frac{\partial U}{\partial x} - \gamma \frac{\theta U}{\varrho^2}\frac{\partial \varrho}{\partial x} + \gamma \frac{\theta}{\varrho} \frac{\partial W}{\partial z} - \gamma \frac{\theta W}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0." />
+</div></p><p><cite>Weak formulation</cite>:</p>
 <div class="math">
-<p><img src="../../images/math/a1d46ecdf154632b674ef5f6e9b1377fcd0ac820.png" alt="F^{\theta}_i(Y) =  \int_{\Omega} \frac{\theta^{n+1}}{\tau} \varphi^{\theta}_i - \int_{\Omega} \frac{\theta^{n}}{\tau} \varphi^{\theta}_i + \int_{\Omega} \frac{\partial \theta^{n+1}}{\partial x} \frac{U^{n+1}}{\varrho^{n+1}}\varphi^{\theta}_i + \int_{\Omega} \frac{\partial \theta^{n+1}}{\partial z} \frac{W^{n+1}}{\varrho^{n+1}} \varphi^{\theta}_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/e586303277cfa7728aba8595befbcdc4d48c4d29.png" alt="+ \int_{\Omega} \gamma \frac{\theta^{n+1}}{\varrho^{n+1}} \frac{\partial U^{n+1}}{\partial x}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta^{n+1} U^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial x}\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta^{n+1}}{\varrho^{n+1}} \frac{\partial W^{n+1}}{\partial z}\varphi^{\theta}_i -\int_{\Omega}  \gamma \frac{\theta^{n+1} W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} \varphi^{\theta}_i= 0." /></p>
-</div><p>For the derivatives of the weak form we obtain:</p>
+<p><img src="../../images/math/a1d46ecdf154632b674ef5f6e9b1377fcd0ac820.png" alt="F^{\theta}_i(Y) =  \int_{\Omega} \frac{\theta^{n+1}}{\tau} \varphi^{\theta}_i - \int_{\Omega} \frac{\theta^{n}}{\tau} \varphi^{\theta}_i + \int_{\Omega} \frac{\partial \theta^{n+1}}{\partial x} \frac{U^{n+1}}{\varrho^{n+1}}\varphi^{\theta}_i + \int_{\Omega} \frac{\partial \theta^{n+1}}{\partial z} \frac{W^{n+1}}{\varrho^{n+1}} \varphi^{\theta}_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/e586303277cfa7728aba8595befbcdc4d48c4d29.png" alt="+ \int_{\Omega} \gamma \frac{\theta^{n+1}}{\varrho^{n+1}} \frac{\partial U^{n+1}}{\partial x}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta^{n+1} U^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial x}\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta^{n+1}}{\varrho^{n+1}} \frac{\partial W^{n+1}}{\partial z}\varphi^{\theta}_i -\int_{\Omega}  \gamma \frac{\theta^{n+1} W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} \varphi^{\theta}_i= 0." />
+</div></p><p>For the derivatives of the weak form we obtain:</p>
 <div class="math">
-<p><img src="../../images/math/7588d3eaaa984152f77d474fce78b3142154fea1.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{\varrho}_j} =  - \int_{\Omega} \frac{\partial \theta}{\partial x} \frac{U}{\varrho^2}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\partial \theta}{\partial z} \frac{W}{\varrho^2}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2} \frac{\partial U}{\partial x}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2} \frac{\partial W}{\partial z}\varphi^{\varrho}_j\varphi^{\theta}_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/068e40fd96502bc810e45763ad1c3ab98a34ae5a.png" alt="+ \int_{\Omega} 2\gamma \frac{\theta U}{\varrho^3}\frac{\partial \varrho}{\partial x}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta U}{\varrho^2}\frac{\varphi^{\varrho}_j}{\partial x}\varphi^{\theta}_i + \int_{\Omega} 2\gamma \frac{\theta W}{\varrho^3}\frac{\partial \varrho}{\partial z}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta W}{\varrho^2}\frac{\varphi^{\varrho}_j}{\partial z}\varphi^{\theta}_i." /></p>
-</div><div class="math">
-<p><img src="../../images/math/ad4b4e4b96bf5be1fd987e1df488f86ef1389de5.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{U}_j} =  \int_{\Omega} \frac{\partial \theta}{\partial x} \frac{1}{\varrho} \varphi^{U}_j\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta}{\varrho}\frac{\varphi^{U}_j}{\partial x}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2}\frac{\partial \varrho}{\partial x}\varphi^{U}_j\varphi^{\theta}_i." /></p>
-</div><div class="math">
-<p><img src="../../images/math/c0a39203e69ec3706c7e32795f21e62418dd42b7.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{W}_j} =  \int_{\Omega} \frac{\partial \theta}{\partial z} \frac{1}{\varrho} \varphi^{W}_j\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta}{\varrho}\frac{\varphi^{W}_j}{\partial z}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2}\frac{\partial \varrho}{\partial z}\varphi^{W}_j\varphi^{\theta}_i." /></p>
-</div><div class="math">
-<p><img src="../../images/math/6d4dd9f4fd2bbd38d45aace759dd9c4cf2954b81.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{\theta}_j} =  \int_{\Omega} \frac{1}{\tau} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{U}{\varrho}\frac{\varphi^{\theta}_j}{\partial x}\varphi^{\theta}_i + \int_{\Omega} \frac{W}{\varrho}\frac{\varphi^{\theta}_j}{\partial z}\varphi^{\theta}_i" /></p>
-</div><div class="math">
-<p><img src="../../images/math/83c8e7530ae6007d591294f6bb9e5d6639571876.png" alt="+ \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial U}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial W}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma U}{\varrho^2} \frac{\partial \varrho}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma W}{\varrho^2} \frac{\partial \varrho}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i." /></p>
-</div></div>
+<p><img src="../../images/math/7588d3eaaa984152f77d474fce78b3142154fea1.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{\varrho}_j} =  - \int_{\Omega} \frac{\partial \theta}{\partial x} \frac{U}{\varrho^2}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\partial \theta}{\partial z} \frac{W}{\varrho^2}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2} \frac{\partial U}{\partial x}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2} \frac{\partial W}{\partial z}\varphi^{\varrho}_j\varphi^{\theta}_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/068e40fd96502bc810e45763ad1c3ab98a34ae5a.png" alt="+ \int_{\Omega} 2\gamma \frac{\theta U}{\varrho^3}\frac{\partial \varrho}{\partial x}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta U}{\varrho^2}\frac{\varphi^{\varrho}_j}{\partial x}\varphi^{\theta}_i + \int_{\Omega} 2\gamma \frac{\theta W}{\varrho^3}\frac{\partial \varrho}{\partial z}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta W}{\varrho^2}\frac{\varphi^{\varrho}_j}{\partial z}\varphi^{\theta}_i." />
+</div></p><div class="math">
+<p><img src="../../images/math/ad4b4e4b96bf5be1fd987e1df488f86ef1389de5.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{U}_j} =  \int_{\Omega} \frac{\partial \theta}{\partial x} \frac{1}{\varrho} \varphi^{U}_j\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta}{\varrho}\frac{\varphi^{U}_j}{\partial x}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2}\frac{\partial \varrho}{\partial x}\varphi^{U}_j\varphi^{\theta}_i." />
+</div></p><div class="math">
+<p><img src="../../images/math/c0a39203e69ec3706c7e32795f21e62418dd42b7.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{W}_j} =  \int_{\Omega} \frac{\partial \theta}{\partial z} \frac{1}{\varrho} \varphi^{W}_j\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta}{\varrho}\frac{\varphi^{W}_j}{\partial z}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2}\frac{\partial \varrho}{\partial z}\varphi^{W}_j\varphi^{\theta}_i." />
+</div></p><div class="math">
+<p><img src="../../images/math/6d4dd9f4fd2bbd38d45aace759dd9c4cf2954b81.png" alt="\frac{\partial F^{\theta}_i}{\partial y^{\theta}_j} =  \int_{\Omega} \frac{1}{\tau} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{U}{\varrho}\frac{\varphi^{\theta}_j}{\partial x}\varphi^{\theta}_i + \int_{\Omega} \frac{W}{\varrho}\frac{\varphi^{\theta}_j}{\partial z}\varphi^{\theta}_i" />
+</div></p><div class="math">
+<p><img src="../../images/math/83c8e7530ae6007d591294f6bb9e5d6639571876.png" alt="+ \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial U}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial W}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma U}{\varrho^2} \frac{\partial \varrho}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma W}{\varrho^2} \frac{\partial \varrho}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i." />
+</div></p></div>
+</div>
 </div>
 
 
@@ -199,36 +433,29 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
             <ul>
 <li><a class="reference external" href="">Compressible Euler Equations</a><ul>
 <li><a class="reference external" href="#sea-breeze-modeling">Sea Breeze Modeling</a></li>
+<li><a class="reference external" href="#older-notes">Older notes</a><ul>
 <li><a class="reference external" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
 <li><a class="reference external" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="mhd.html"
-                                  title="previous chapter">MHD Equations</a></p>
+            <p class="topless"><a href="mhd.html" title="previous chapter">MHD Equations</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="../qft.html"
-                                  title="next chapter">Quantum Field Theory and Quantum Mechanics</a></p>
+            <p class="topless"><a href="../qft.html" title="next chapter">Quantum Field Theory and Quantum Mechanics</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="../../sources/src/fluid-dynamics/euler.txt"
-                     rel="nofollow">Show Source</a></li>
+              <li><a href="../../sources/src/fluid-dynamics/euler.txt">Show Source</a></li>
             </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+          <h3>Quick search</h3>
+            <form class="search" action="../../search.html" method="get">
+              <input type="text" name="q" size="18" /> <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
         </div>
       </div>
       <div class="clearer"></div>
@@ -238,20 +465,20 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
-             >index</a></li>
+             accesskey="I">index</a></li>
         <li class="right" >
           <a href="../qft.html" title="Quantum Field Theory and Quantum Mechanics"
-             >next</a> |</li>
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="mhd.html" title="MHD Equations"
-             >previous</a> |</li>
+             accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
-          <li><a href="main.html" >Fluid Dynamics</a> &raquo;</li> 
+          <li><a href="main.html" accesskey="U">Fluid Dynamics</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2009, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.5.2.
     </div>
   </body>
 </html>
