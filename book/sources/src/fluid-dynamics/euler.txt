@@ -120,6 +120,14 @@ After introducing:
        \left( \begin{array}{c}
            \varrho\\ U\\ V\\ W\\ E
        \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_1 \\
+           w_2 \\
+           w_3 \\
+           w_4 \\
+           w_5 \\
+       \end{array} \right)
 
     {\bf f}_x =
        \left( \begin{array}{c}
@@ -128,6 +136,14 @@ After introducing:
            \frac{UV}{\varrho}\\
            \frac{UW}{\varrho}\\
            \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_2\\
+           \frac{w_2^2}{w_1} + p\\
+           \frac{w_2w_3}{w_1}\\
+           \frac{w_2w_4}{w_1}\\
+           \frac{w_2}{w_1}(w_5+p)
        \end{array} \right)
 
     {\bf f}_y =
@@ -138,6 +154,14 @@ After introducing:
            \frac{VW}{\varrho}\\
            \frac{V}{\varrho}(E+p)
        \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_3\\
+           \frac{w_3w_2}{w_1}\\
+           \frac{w_3^2}{w_1} + p\\
+           \frac{w_3w_4}{w_1}\\
+           \frac{w_3}{w_1}(w_5+p)
+       \end{array} \right)
 
     {\bf f}_z =
        \left( \begin{array}{c}
@@ -146,6 +170,14 @@ After introducing:
            \frac{WV}{\varrho}\\
            \frac{W^2}{\varrho} + p\\
            \frac{W}{\varrho}(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_4\\
+           \frac{w_4w_2}{w_1}\\
+           \frac{w_4w_3}{w_1}\\
+           \frac{w_4^2}{w_1} + p\\
+           \frac{w_4}{w_1}(w_5+p)
        \end{array} \right)
 
     {\bf g} =
@@ -157,6 +189,9 @@ After introducing:
            0\\
        \end{array} \right)
 
+    p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
+    = {R\over c_v} \left(w_5-{w_2^2+w_3^2+w_4^2\over2w_1}\right)
+
 we can then write the equations as:
 
 .. math::
@@ -167,44 +202,74 @@ we can then write the equations as:
     {\partial{\bf f}_z\over \partial z} +
     {\bf g}= 0
 
-Now we write the spatial derivatives using the so called flux Jacobians
-${\bf J}_x$,
-${\bf J}_y$
+Now we write the spatial derivatives using so called flux Jacobians
+${\bf A}_x$,
+${\bf A}_y$
 and
-${\bf J}_z$:
+${\bf A}_z$:
 
 .. math::
 
     {\partial{\bf f}_x\over \partial x} =
     {\partial{\bf f}_x\over \partial {\bf w}}
     {\partial{\bf w}\over \partial x} \equiv
-    {\bf J}_x
+    {\bf A}_x
     {\partial{\bf w}\over \partial x}
 
-    {\bf J}_x={\bf J}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
+    {\bf A}_x={\bf A}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
 
 Similarly for $y$ and $z$, so we get:
 
 .. math::
 
     {\partial{\bf w}\over \partial t} +
-    {\bf J}_x
+    {\bf A}_x
     {\partial{\bf w}\over \partial x} +
-    {\bf J}_y
+    {\bf A}_y
     {\partial{\bf w}\over \partial y} +
-    {\bf J}_z
+    {\bf A}_z
     {\partial{\bf w}\over \partial z} +
     {\bf g}= 0
 
-to calculate the Jacobians, we'll need:
+One nice thing about these particular
+${\bf f}_x$,
+${\bf f}_y$ and
+${\bf f}_z$ functions is that they are homogeneous of degree 1:
+
+.. math::
+
+    {\bf f}_x(\lambda{\bf w})
+    =\lambda\,{\bf f}_x({\bf w})
+
+so the Euler equation/formula for the homogeneous function is:
+
+.. math::
+
+    {\bf w}\cdot {\partial {\bf f}_x({\bf w})\over\partial {\bf w}}
+    ={\bf f}_x({\bf w})
+
+    {\bf w}\cdot {\bf A}_x ={\bf f}_x({\bf w})
+
+So both the ${\bf f}_x$ and it's derivative can be nicely factored out using
+the flux Jacobian:
+
+.. math::
+
+    {\bf f}_x = {\bf A}_x\, {\bf w}
+
+    {\partial{\bf f}_x\over \partial x} =
+        {\bf A}_x {\partial{\bf w}\over \partial x}
+
+similarly for $y$ and $z$.
+To calculate the Jacobians, we'll need:
 
 .. math::
 
     {\partial p\over \partial {\bf w}}=
         {R\over c_v}
         \left( \begin{array}{ccccc}
-            {U^2+V^2+W^2\over 2\rho^2} & -{U\over\rho} & -{V\over\rho}
-                & -{W\over\rho} & 1\\
+            {w_2^2+w_3^2+w_4^2\over 2w_1^2} & -{w_2\over w_1} & -{w_3\over w_1}
+                & -{w_4\over w_1} & 1\\
         \end{array} \right)
 
 then we can calculate the Jacobians (and we substitute for $p$):
@@ -214,22 +279,48 @@ then we can calculate the Jacobians (and we substitute for $p$):
     {\bf J}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 1 & 0 & 0 & 0\\
-            -{U^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
-                {2U\over\rho}-{R\over c_v}{U\over\rho} &
-                -{R\over c_v}{U\over\rho} &
-                -{R\over c_v}{V\over\rho} &
+            -{w_2^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
+                {2w_2\over w_1}-{R\over c_v}{w_2\over w_1} &
+                -{R\over c_v}{w_3\over w_1} &
+                -{R\over c_v}{w_4\over w_1} &
                 {R\over c_v}\\
-            -{UV\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
-            -{UW\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
-                -{UE\over\rho^2}-{U\over\rho^2}{R\over c_v}
-                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
-                    +{U\over\rho}{R\over c_v}{U^2+V^2+W^2\over 2\rho} &
-                {E\over\rho}+{1\over\rho}{R\over c_v}
-                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
-                    -{R\over c_v}{U^2\over\rho^2} &
-                -{R\over c_v}{UV\over\rho^2} &
-                -{R\over c_v}{UW\over\rho^2} &
-                {U\over\rho}-{R\over c_v}{U\over\rho} \\
+            -{w_2w_3\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
+            -{w_2w_4\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
+                -{w_2w_5\over w_1^2}-{w_2\over w_1^2}{R\over c_v}
+                    \left(w_5-{w_2^2+w_3^2+w_4^2\over 2 w_1}\right)
+                    +{w_2\over w_1}{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1} &
+                {w_5\over w_1}+{1\over w_1}{R\over c_v}
+                    \left(w_5-{w_2^2+w_3^2+w_4^2\over 2 w_1}\right)
+                    -{R\over c_v}{w_2^2\over w_1^2} &
+                -{R\over c_v}{w_2w_3\over w_1^2} &
+                -{R\over c_v}{w_2w_4\over w_1^2} &
+                {w_2\over w_1}-{R\over c_v}{w_2\over w_1} \\
+       \end{array} \right)
+
+    {\bf J}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 1 & 0 & 0\\
+            -{w_3w_2\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
+            -{w_3^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
+                -{R\over c_v}{w_2\over w_1} &
+                {2w_3\over w_1}-{R\over c_v}{w_3\over w_1} &
+                -{R\over c_v}{w_4\over w_1} &
+                {R\over c_v}\\
+            -{w_3w_4\over w_1^2} & 0 & {w_4\over w_1} & {w_3\over w_1} & 0 \\
+            \cdot & \cdot & \cdot & \cdot & \cdot \\
+       \end{array} \right)
+
+    {\bf J}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 0 & 1 & 0\\
+            -{w_4w_2\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
+            -{w_4w_3\over w_1^2} & 0 & {w_4\over w_1} & {w_3\over w_1} & 0 \\
+            -{w_4^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
+                -{R\over c_v}{w_2\over w_1} &
+                -{R\over c_v}{w_3\over w_1} &
+                {2w_4\over w_1} -{R\over c_v}{w_4\over w_1} &
+                {R\over c_v}\\
+            \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
 Sea Breeze Modeling
