@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-64"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <p>The compressible Euler equations are:</p>
 <div class="math">
 <p><img src="../../images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
@@ -475,11 +475,11 @@ it):</p>
 <h2>Sea Breeze Modeling<a class="headerlink" href="#sea-breeze-modeling" title="Permalink to this headline">¶</a></h2>
 <p>In our model we make the following assumptions:</p>
 <div class="math">
-<p><img src="../../images/math/146d5706bc7187e2e2cde782c963b8a5e6799846.png" alt="f_x = 0
+<p><img src="../../images/math/b53f3937156cbc3b18807df7bb52b40e99d1a855.png" alt="f_x = 0
 
 f_y = 0
 
-f_z = -\rho g
+f_z = -\rho g = -w_0 g
 
 V = 0
 
@@ -579,10 +579,10 @@ anyway and introduce:</p>
 \int_{\Omega} {w_i^n\over\tau}\varphi^i
     - g_i \varphi^i
     \ \d^2 x" /></p>
-</div><p>In the boundary (line) integral we prescribe <img class="math" src="../../images/math/7b2ba053f273ace50cc580e8659f163acd22464d.png" alt="w_5^{n+1}"/> using a Dirichlet
+</div><p>In the boundary (line) integral we prescribe <img class="math" src="../../images/math/ae00070d200230a6436b15a83d721acd675e9ed6.png" alt="w_4^{n+1}"/> using a Dirichlet
 condition and calculate it at each iteration using:</p>
 <div class="math">
-<p><img src="../../images/math/7d032e0b5ae1c6523a7a346ee8e9ec23d7ca5b57.png" alt="w_5^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
+<p><img src="../../images/math/8e3da0501d6b7177d5a1664116599ffa4ce482ae.png" alt="w_4^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
     {w_1^2+w_3^2\over 2w_0}" /></p>
 </div><p>where <img class="math" src="../../images/math/03495b3b1b09ec4c6247d56444917a48b790936c.png" alt="T(t)"/> is a known function of time (it changes with the day and night)
 and also prescribe <img class="math" src="../../images/math/581fa65e732777ecfda03d46ec11288dbe036f72.png" alt="w_1^{n+1}=0"/> on the left and right end of the domain and
@@ -603,14 +603,14 @@ B_{40}(w_0, \varphi^4) + B_{41}(w_1, \varphi^4) +
     B_{43}(w_3, \varphi^4)+ B_{44}(w_4, \varphi^4) = l_4(\varphi^4)" /></p>
 </div><p>where the forms are (we write <img class="math" src="../../images/math/535b2bfbb0a587e261a0d0af9b7b53e42629b14d.png" alt="w_i"/> instead of <img class="math" src="../../images/math/9881757570bbbc448cfa593b5b536968fe73748e.png" alt="w_i^{n+1}"/>):</p>
 <div class="math">
-<p><img src="../../images/math/1d1bcd321ccb5284a38ab0ff83b215f078a83f40.png" alt="l_0(\varphi^0) = \int_\Omega {w_0\varphi^0\over\tau} \,\d^2 x
+<p><img src="../../images/math/c5df7e9c738dfec7d35298283849e59974280eca.png" alt="l_0(\varphi^0) = \int_\Omega {w_0^n\varphi^0\over\tau} \,\d^2 x
 
-l_1(\varphi^1) = \int_\Omega {w_1\varphi^1\over\tau} \,\d^2 x
+l_1(\varphi^1) = \int_\Omega {w_1^n\varphi^1\over\tau} \,\d^2 x
 
-l_3(\varphi^3) = \int_\Omega {w_3\varphi^3\over\tau} + \rho g \varphi^3
+l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} + \rho g \varphi^3
     \,\d^2 x
 
-l_4(\varphi^4) = \int_\Omega {w_4\varphi^4\over\tau} \,\d^2 x
+l_4(\varphi^4) = \int_\Omega {w_4^n\varphi^4\over\tau} \,\d^2 x
 
 B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
     \delta_{ij}
