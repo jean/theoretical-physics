@@ -302,7 +302,7 @@ To calculate the Jacobians, we&#8217;ll need:</p>
     \end{array} \right)" /></p>
 </div><p>then we can calculate the Jacobians (and we substitute for <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>):</p>
 <div class="math">
-<p><img src="../../images/math/f513770076ae9f66437623ecbabfa4ee48617570.png" alt="{\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+<p><img src="../../images/math/15303b51ff9464fb2cbb9098b3ef1976546d4d70.png" alt="{\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
     \left( \begin{array}{ccccc}
         0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\
         -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &amp;
@@ -314,13 +314,13 @@ To calculate the Jacobians, we&#8217;ll need:</p>
         -{w_1w_3\over w_0^2} &amp; {w_3\over w_0} &amp; 0 &amp; {w_1\over w_0} &amp; 0 \\
             -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
                 \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0} &amp;
+                +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&amp;
             {w_4\over w_0}+{1\over w_0}{R\over c_v}
                 \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
                 -{R\over c_v}{w_1^2\over w_0^2} &amp;
             -{R\over c_v}{w_1w_2\over w_0^2} &amp;
             -{R\over c_v}{w_1w_3\over w_0^2} &amp;
-            {w_1\over w_0}-{R\over c_v}{w_1\over w_0} \\
+            {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
    \end{array} \right)
 
 {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
@@ -346,7 +346,15 @@ To calculate the Jacobians, we&#8217;ll need:</p>
             -{R\over c_v}{w_2\over w_0} &amp;
             {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &amp;
             {R\over c_v}\\
-        \cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp; \cdot \\
+            -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
+                \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                +{w_3\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&amp;
+            -{R\over c_v}{w_3w_1\over w_0^2} &amp;
+            -{R\over c_v}{w_3w_2\over w_0^2} &amp;
+            {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                -{R\over c_v}{w_3^2\over w_0^2} &amp;
+            {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
    \end{array} \right)" /></p>
 </div><div class="section" id="fem-formulation">
 <h2>FEM formulation<a class="headerlink" href="#fem-formulation" title="Permalink to this headline">¶</a></h2>
@@ -531,7 +539,7 @@ anyway and introduce:</p>
        w_4 \\
    \end{array} \right)" /></p>
 </div><div class="math">
-<p><img src="../../images/math/b97f7ef4efdad232f49814cbc26556d967c20f9c.png" alt="{\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+<p><img src="../../images/math/2b41722067a077eb3af96b7e3b51924948cdb759.png" alt="{\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
     \left( \begin{array}{cccc}
         0 &amp; 1 &amp; 0 &amp; 0\\
         -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &amp;
@@ -541,12 +549,12 @@ anyway and introduce:</p>
         -{w_1w_3\over w_0^2} &amp; {w_3\over w_0} &amp; {w_1\over w_0} &amp; 0 \\
             -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
                 \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0} &amp;
+                +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &amp;
             {w_4\over w_0}+{1\over w_0}{R\over c_v}
                 \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
                 -{R\over c_v}{w_1^2\over w_0^2} &amp;
             -{R\over c_v}{w_1w_3\over w_0^2} &amp;
-            {w_1\over w_0}-{R\over c_v}{w_1\over w_0} \\
+            {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
    \end{array} \right)
 
 {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
@@ -557,7 +565,14 @@ anyway and introduce:</p>
             -{R\over c_v}{w_1\over w_0} &amp;
             {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &amp;
             {R\over c_v}\\
-        \cdot &amp; \cdot &amp; \cdot &amp; \cdot \\
+        -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
+                \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                +{w_3\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2}&amp;
+            -{R\over c_v}{w_3w_1\over w_0^2} &amp;
+            {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                -{R\over c_v}{w_3^2\over w_0^2} &amp;
+            {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
    \end{array} \right)" /></p>
 </div><p>The weak formulation in 2D is (here <img class="math" src="../../images/math/ba477ea6059b5239cdcc20f505b5bfd2ba8da2b2.png" alt="i = 0, 1, 3, 4"/>):</p>
 <div class="math">
