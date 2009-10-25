@@ -58,8 +58,51 @@
 </div><p>Note: this meaning of <img class="math" src="../../images/math/977460ae4c3a462a8f1ea3975e6d2d8b3218b20c.png" alt="(\theta,\phi)"/> is mostly used in the USA and in many
 books. In Europe people usually use different symbols, like <img class="math" src="../../images/math/08f120ef1f9b5ffca7c41f2d3d626d5015602182.png" alt="(\phi,\theta)"/>, <img class="math" src="../../images/math/5b72e7d02f6fc8bdf33dbbd0b3d35f2a5e0cf501.png" alt="(\vartheta,\varphi)"/> and others.</p>
 </div>
+<div class="section" id="argument-function-atan2">
+<span id="index-29"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<p>Argument function <img class="math" src="../../images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
+<div class="math">
+<p><img src="../../images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
+</div><p>Obviously <img class="math" src="../../images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is unique up to any integer multiple of <img class="math" src="../../images/math/709acef3551b886e6754de72d59a88f00660f0d3.png" alt="2\pi"/>. By taking
+the principal value of the <img class="math" src="../../images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> function, e.g. fixing <img class="math" src="../../images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> to the
+interval <img class="math" src="../../images/math/e520a7aeab7e3c5078aebf7d07340c9485d2a110.png" alt="(-\pi, \pi]"/>, we get the <img class="math" src="../../images/math/ac04fddbd2727efa331c066e1d11c950ae8c1c21.png" alt="\Arg(z)"/> function:</p>
+<div class="math">
+<p><img src="../../images/math/ac7924a2bb40f53ee9ff1f85c230562c422cc692.png" alt="-\pi &lt; \Arg z \le \pi" /></p>
+</div><p>then <img class="math" src="../../images/math/b0b9e3e705ff5748913d10bbf3668fe4c612593d.png" alt="\arg z = \Arg z + 2\pi n"/>, where <img class="math" src="../../images/math/08ff5493a77264faebd1288e3dc3b8255facb66e.png" alt="n=0, \pm 1, \pm 2, \dots"/>. We can then
+use the following formula to easily calculate <img class="math" src="../../images/math/572146525ff4f2cbe7da7da892634ea6f93e6c98.png" alt="\Arg z"/> for any <img class="math" src="../../images/math/2a514d19359869e53b6e4be1413344d26ff908ff.png" alt="z=x+iy"/>:</p>
+<div class="math">
+<p><img src="../../images/math/ee18b83dfebd12344b4d1cf51888f352fd9d7a01.png" alt="\Arg(x+iy) =\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}" /></p>
+</div><p>Finally we define <img class="math" src="../../images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/> as:</p>
+<div class="math">
+<p><img src="../../images/math/45057e1b1ad03278e338c2251eed27ff20581942.png" alt="\atan2(y, x) = \Arg(x+iy)" /></p>
+</div><p>Some properties:</p>
+<div class="math">
+<p><img src="../../images/math/71690e36bbe3e5e17eb8f0228493a7fa0d051326.png" alt="\tan\atan2(y, x) = {y\over x}
+
+\sin\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+
+\cos\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+
+\atan2(ky, kx) = \Arg(kx + iky) = \Arg(x+iy) = \atan2(y, x)" /></p>
+</div><p>An example of an application:</p>
+<div class="math">
+<p><img src="../../images/math/9ac6e020d27b2d43ca97348676425e2647262e88.png" alt="A\sin x + B\cos x = \sqrt{A^2+B^2}\left(
+    {A\over\sqrt{A^2+B^2}}\sin x + {B\over\sqrt{A^2+B^2}}\cos x\right)
+=
+
+= \sqrt{A^2+B^2}\left( \cos\delta\sin x + \sin\delta\cos x\right)
+= \sqrt{A^2+B^2}\sin(x+\delta)
+=
+
+= \sqrt{A^2+B^2}\sin(x+\atan2(B, A))" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../images/math/b0e5f9a6399fb46f25c3f6ddd9f06d7f699a203a.png" alt="\delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
+=\atan2(B, A)" /></p>
+</div></div>
 <div class="section" id="delta-function">
-<span id="index-29"></span><h1>Delta Function<a class="headerlink" href="#delta-function" title="Permalink to this headline">¶</a></h1>
+<h1>Delta Function<a class="headerlink" href="#delta-function" title="Permalink to this headline">¶</a></h1>
 <p>Delta function <img class="math" src="../../images/math/06999c5a62eadb46890f6f92bba26bb075f5ac84.png" alt="\delta(x)"/> is defined such that this relation holds:</p>
 <div class="math" id="equation-deltadef">
 <p><span class="eqno">(1)</span><img src="../../images/math/88e07c667fc82b957c41499d14a8d339d7c42bca.png" alt="\int f(x)\delta(x-t)\d x=f(t)" /></p>
@@ -449,6 +492,7 @@ z\left(-{xy\over z^2}\right)
             <h3><a href="../../index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference external" href="">Polar and Spherical Coordinates</a></li>
+<li><a class="reference external" href="#argument-function-atan2">Argument function, atan2</a></li>
 <li><a class="reference external" href="#delta-function">Delta Function</a></li>
 <li><a class="reference external" href="#distributions">Distributions</a></li>
 <li><a class="reference external" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a></li>

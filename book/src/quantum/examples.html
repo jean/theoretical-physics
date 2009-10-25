@@ -322,6 +322,60 @@ our both weak formulations to get a symmetric weak formulation:</p>
 section. First there were lots of technical difficulties and second the final
 result is wrong, since it doesn&#8217;t correspond to the 3D Schrödinger equation.</p>
 </div>
+<div class="section" id="scattering-in-radial-potential">
+<h3>Scattering in radial potential<a class="headerlink" href="#scattering-in-radial-potential" title="Permalink to this headline">¶</a></h3>
+<p>If <img class="math" src="../../images/math/c16a277f21eab912af3b32d23e641e18398a6477.png" alt="V=0"/>, the radial equation is:</p>
+<div class="math">
+<p><img src="../../images/math/8d4b27b504ea151a042271eda5b97df11fa17317.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+{l(l+1)\over2r^2} R(r)=ER(r)" /></p>
+</div><p>The general solution is a linear combination of the spherical Bessel functions
+<img class="math" src="../../images/math/ac9305860d2b8bcf7c26a97395f47874fc8d8052.png" alt="j_l(kr)"/> and <img class="math" src="../../images/math/7a23588aee20988e52ab3f97047e3b70cc9e61c1.png" alt="n_l(kr)"/>, whose asymptotic expansion for <img class="math" src="../../images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> is:</p>
+<div class="math">
+<p><img src="../../images/math/756afa9acb92822a887eb824423a97869ffc9da8.png" alt="j_l(kr)\to{1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+
+n_l(kr)\to{1\over kr}\cos\left(kr-{l\pi\over 2}\right)" /></p>
+</div><p>so we get for large <img class="math" src="../../images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>:</p>
+<div class="math">
+<p><img src="../../images/math/b28c1cb44be451d16f295aede858d6310e0518a2.png" alt="R_l(kr) = A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+    + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
+
+= \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
+= C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../images/math/1430744b8393bbcf90b831609baa6fa29e9af8a3.png" alt="\delta_l = \atan2(B_l, A_l)
+
+C_l = \sqrt{A_l^2 + B_l^2}" /></p>
+</div><p>We can then compare this to <img class="math" src="../../images/math/a234d128ca652ba34fb3857f8296b39f6c08d56e.png" alt="\phi \approx e^{ikz} + f(\theta, \phi)
+{e^{ikr}\over r}"/>, by expanding <img class="math" src="../../images/math/2b95b34ccbfbf178baf85e95aa62c502533803a5.png" alt="e^{ikz} = e^{ikr\cos\theta}=
+\sum (2l+1) i^l j_l(kr)P_l(\cos\theta)"/>:</p>
+<div class="math">
+<p><img src="../../images/math/cc158e18f4545e5e7b95aa40e43d8d50505e3040.png" alt="C_l = {e^{i\delta_l}\over k}
+
+f(\theta, \phi) = {1\over 2ik} \sum (2l+1)(e^{2i\delta_l}-1)P_l(\cos\theta)" /></p>
+</div><p>Since <img class="math" src="../../images/math/97c26ede8c2d616787aa5e6c5a74322c36417542.png" alt="\sigma(\theta) = |f(\theta)|^2"/> and integrating over <img class="math" src="../../images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> we get the
+total cross section:</p>
+<div class="math">
+<p><img src="../../images/math/acf86b18e5b2731a6be439b8efa7e57f7ce73b29.png" alt="\sigma = {4\pi\over k}\sum (2l+1)\sin^2\delta_l" /></p>
+</div><p>In order to find the phase shifts <img class="math" src="../../images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/>, we solve the radial equation for
+the full potential</p>
+<div class="math">
+<p><img src="../../images/math/c908f4552dbe43655d97fe3719d516de3ff1bd74.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)" /></p>
+</div><p>and then fit it to the above asymptotic solution for V=0. We require that the
+value and the slope must be continuous. In particular, we take the logarithmic
+derivative (<img class="math" src="../../images/math/e4044014c380157ef0a37f66ab407974a07a167a.png" alt="(\log u)'={u'\over u}"/>) at the point <img class="math" src="../../images/math/0d29ba05fb7937308e298672ed6a611d46835e44.png" alt="r=a"/>:</p>
+<div class="math">
+<p><img src="../../images/math/c724fe6c3d8cf555d890f7e58db62c6cd0539e11.png" alt="\gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a} =
+\left.{\d\over\d r} \log R_l(kr)\right|_{r=a}" /></p>
+</div><p>expressing <img class="math" src="../../images/math/89fe326bc3164420d0f8d0273d99ff6bda5b56d4.png" alt="R_l(kr)"/> using <img class="math" src="../../images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> and solving for it we get:</p>
+<div class="math">
+<p><img src="../../images/math/281404456c38ba10980cd795116915e67df8c5c2.png" alt="\tan\delta_l = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l
+    n_l(ka)}" /></p>
+</div><p>Now we can use these <img class="math" src="../../images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section.</p>
+<p>The problem can now be formulated in two ways. Either to solve the radial
+equation for a potential with finite reach and then &#8220;measure&#8221; those phase
+shifts in the solution. Or by prescribing those phase shifts and we now need to
+calculate the solutions (e.g. the energies) from the radial equation.</p>
+</div>
 </div>
 </div>
 
@@ -339,6 +393,7 @@ result is wrong, since it doesn&#8217;t correspond to the 3D Schrödinger equati
 <li><a class="reference external" href="#radial-schr-dinger-equation">Radial Schrödinger Equation</a><ul>
 <li><a class="reference external" href="#another-approach">Another approach</a></li>
 <li><a class="reference external" href="#how-not-to-derive-the-weak-formulation">How Not To Derive The Weak Formulation</a></li>
+<li><a class="reference external" href="#scattering-in-radial-potential">Scattering in radial potential</a></li>
 </ul>
 </li>
 </ul>
