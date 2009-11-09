@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
     <link rel="up" title="Mathematics" href="main.html" />
-    <link rel="next" title="Polar and Spherical Coordinates" href="other.html" />
+    <link rel="next" title="Fourier Transform" href="transforms.html" />
     <link rel="prev" title="Integration" href="integration.html" /> 
   </head>
   <body>
@@ -32,7 +32,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="other.html" title="Polar and Spherical Coordinates"
+          <a href="transforms.html" title="Fourier Transform"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="integration.html" title="Integration"
@@ -180,6 +180,25 @@ e^{i\varphi} \d \varphi
 = i\alpha \res_{z = z_0}f(z)" /></p>
 </div></div>
 </div>
+<div class="section" id="complex-substitution">
+<h2>Complex Substitution<a class="headerlink" href="#complex-substitution" title="Permalink to this headline">¶</a></h2>
+<p>When substituting in integrals, as long as we just substitute for real
+functions, we use the regular substitution theorem, e.g. <img class="math" src="../../images/math/f764becaa307de9e6536ed38ada323fa843561b8.png" alt="x = y+1"/> (<img class="math" src="../../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> can
+be a complex function):</p>
+<div class="math">
+<p><img src="../../images/math/dfa572ca3916c104e3a7ad21240da6cc18954828.png" alt="\int_{-\infty}^\infty f(x) \d x = \int_{-\infty}^\infty f(y+1) \d y" /></p>
+</div><p>if, on the other hand, we substitute for complex functions, e.g. <img class="math" src="../../images/math/7e4e78c3b67c89761f95d025e63f0cb164cfa323.png" alt="x = iy"/>:</p>
+<div class="math">
+<p><img src="../../images/math/ac7432fc9c32296efaa766ea8900bc9376c8ae45.png" alt="\int_{-\infty}^\infty f(x) \d x = \int_{i\infty}^{-i\infty} f(iy) i\d y
+\to \int_{\infty}^{-\infty} f(iy) i\d y" /></p>
+</div><p>then the first two integrals in the left hand side are equal, however the
+integral on the right hand side is over a different integration path and we
+need to use the Residue Theorem to relate those integrals, e.g. in general the
+two integrals on the LHS and the integral on the RHS are not equal. However the
+idea is that the integral after the substitution (and changing the limits, e.g.
+the integration path) is easier to evaluate, so the substitution guides us
+which integration path to choose for the Residue Theorem.</p>
+</div>
 </div>
 
 
@@ -197,6 +216,7 @@ e^{i\varphi} \d \varphi
 <li><a class="reference external" href="#other">Other</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#complex-substitution">Complex Substitution</a></li>
 </ul>
 </li>
 </ul>
@@ -205,8 +225,8 @@ e^{i\varphi} \d \varphi
             <p class="topless"><a href="integration.html"
                                   title="previous chapter">Integration</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="other.html"
-                                  title="next chapter">Polar and Spherical Coordinates</a></p>
+            <p class="topless"><a href="transforms.html"
+                                  title="next chapter">Fourier Transform</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="../../sources/src/math/residue.txt"
@@ -236,7 +256,7 @@ e^{i\varphi} \d \varphi
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="other.html" title="Polar and Spherical Coordinates"
+          <a href="transforms.html" title="Fourier Transform"
              >next</a> |</li>
         <li class="right" >
           <a href="integration.html" title="Integration"
