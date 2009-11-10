@@ -77,7 +77,14 @@ F^{-1}[\tilde f(\omega)] = f(x)
 </div></div>
 <div class="section" id="laplace-transform">
 <h1>Laplace Transform<a class="headerlink" href="#laplace-transform" title="Permalink to this headline">¶</a></h1>
-<p>Laplace transform of <img class="math" src="../../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> can be derived from the Fourier transform by
+<p>Laplace transform of <img class="math" src="../../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> is:</p>
+<div class="math">
+<p><img src="../../images/math/34a90984bb87c9a34d8705772d98de5d3260931b.png" alt="L[f(x)] = \int_0^{\infty} f(x) e^{-s x}\,\d x
+
+L^{-1}[\bar f(s)]
+= {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
+    \bar f(s) e^{s x}\,\d s" /></p>
+</div><p>and it can be derived from the Fourier transform by
 transforming a function <img class="math" src="../../images/math/073f69367cee601cff7c1b8684c1453c6dd75e27.png" alt="U(x)"/>:</p>
 <div class="math">
 <p><img src="../../images/math/5f197daf6c9926eae698592b2172aa92b08eadf5.png" alt="U(x) = \begin{cases}
@@ -106,7 +113,28 @@ means the Fourier transform.  The contour integration is over the vertical line
 <img class="math" src="../../images/math/267f5facc7e76cd98b5358ab98ee1f92466c67cf.png" alt="\sigma+i\omega"/> and <img class="math" src="../../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> is chosen large enough so that all residues are
 to the left of the line (otherwise the integral in the Laplace transform may
 not converge).  It can be shown that the integral over the left semicircle goes
-to zero, so the complex integral is equal to the sum of all residues of <img class="math" src="../../images/math/f86714ee986f85607ef56c935a30f8290860a757.png" alt="\bar
+to zero:</p>
+<div class="math">
+<p><img src="../../images/math/4a8097935cc530eeef3a35998c76507853f9e7c9.png" alt="\left|\int_\Omega e^{sx}g(s) \d s \right|
+=\left|\int_{\pi\over2}^{3\pi\over2} e^{(\sigma + Re^{i\varphi})x}
+g(\sigma+Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
+\le
+
+\le R \max_\Omega |g(z)| e^{\sigma x}
+    \int_{\pi\over2}^{3\pi\over2}\left| e^{xRe^{i\varphi}}
+    \right|\d\varphi
+=
+
+= R \max_\Omega |g(z)| e^{\sigma x}
+    \int_{\pi\over2}^{3\pi\over2}e^{xR \cos \varphi} \d\varphi
+=
+
+= R \max_\Omega |g(z)| e^{\sigma x}
+    \int_0^{\pi}e^{-xR \sin \varphi} \d\varphi
+=
+
+&lt; {\pi e^{\sigma x}\over x} \max_\Omega |g(z)|" /></p>
+</div><p>so the complex integral is equal to the sum of all residues of <img class="math" src="../../images/math/f86714ee986f85607ef56c935a30f8290860a757.png" alt="\bar
 f(s)e^{sx}"/> in the complex plane.</p>
 <p>Since we derived the Laplace transform from the Fourier transform, it&#8217;s clear
 that it has to work, but for educational purposes we can also show it
