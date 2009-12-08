@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-64"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <p>The compressible Euler equations are:</p>
 <div class="math">
 <p><img src="../../images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
@@ -356,8 +356,59 @@ To calculate the Jacobians, we&#8217;ll need:</p>
                 -{R\over c_v}{w_3^2\over w_0^2} &amp;
             {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
    \end{array} \right)" /></p>
+</div><div class="section" id="dimensionless-euler-equations">
+<h2>Dimensionless Euler Equations<a class="headerlink" href="#dimensionless-euler-equations" title="Permalink to this headline">¶</a></h2>
+<p>We choose 3 constants <img class="math" src="../../images/math/9fbaf37cdf312a79feacdd0d22f1424ed81248d8.png" alt="l_r"/>, <img class="math" src="../../images/math/59ca6d8c556ddbab115d04ad997cc7ded5fa478c.png" alt="u_r"/> and <img class="math" src="../../images/math/108c8543e4b443a0d96fa829fe99d46ef44cef53.png" alt="\rho_r"/> - characteristic length of the
+domain, velocity and density. Now we multiply the Euler equations with proper
+combinations of these constants as follows:</p>
+<div class="math">
+<p><img src="../../images/math/d4df14877602100161929030f93c71856f41cf6e.png" alt="\left[{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u})\right]
+{l_r\over\rho_r u_r}
+= 0
+
+\left[{\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+    + \nabla p - {\bf f}\right]
+{l_r\over\rho_r u_r^2}
+= 0
+
+\left[{\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p))\right]
+{l_r\over\rho_r u_r^3}
+= 0" /></p>
+</div><p>This is equal to:</p>
+<div class="math">
+<p><img src="../../images/math/1b7391c22906d326139ce0412b309b4778d3bb0b.png" alt="{\partial\tilde\rho\over\partial \tilde t} + \tilde\nabla\cdot(\tilde\rho
+\tilde{\bf u}) = 0
+
+{\partial(\tilde \rho\tilde{\bf u})\over\partial \tilde t} +
+    \tilde\nabla\cdot(\tilde\rho\tilde{\bf u}\tilde{\bf u}^T)
+    + \tilde\nabla\tilde p - \tilde{\bf f} = 0
+
+{\partial\tilde E\over\partial\tilde t} + \tilde\nabla\cdot(
+\tilde{\bf u}(\tilde E+\tilde p)) = 0" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../images/math/2c1160ce117720f7968f8bed24275c443c4063d3.png" alt="t_r = {l_r\over u_r}
+
+\tilde t = {t\over t_r}
+
+\tilde \rho = {\rho\over\rho_r}
+
+\tilde{\bf u} = {{\bf u}\over u_r}
+
+\tilde\nabla = l_r\nabla
+
+\tilde E = {E\over \rho_r u^2_r}
+
+\tilde p = {p\over \rho_r u^2_r}
+
+\tilde {\bf f} = {\bf f}{l_r\over\rho_r u^2_r}" /></p>
+</div><p>In particular, if <img class="math" src="../../images/math/732af79eefc078ee68704a18a7ececdfab120dc1.png" alt="{\bf f}=(0, 0, -\rho g)"/>, then</p>
+<div class="math">
+<p><img src="../../images/math/87770216979ff0e800d28c56d938a17760353409.png" alt="\tilde{\bf f}=(0, 0, -\tilde\rho \tilde g)
+
+\tilde g = g{l_r\over u^2_r} = g{t_r^2\over l_r}" /></p>
 </div><div class="section" id="fem-formulation">
-<h2>FEM formulation<a class="headerlink" href="#fem-formulation" title="Permalink to this headline">¶</a></h2>
+<h3>FEM Formulation<a class="headerlink" href="#fem-formulation" title="Permalink to this headline">¶</a></h3>
 <p>The Euler equations:</p>
 <div class="math">
 <p><img src="../../images/math/9078d8cb93e9838a446248bbb5b274cc20c4c9d1.png" alt="{\partial{\bf w}\over \partial t} +
@@ -480,7 +531,7 @@ it):</p>
     \ \d^3 x" /></p>
 </div></div>
 <div class="section" id="sea-breeze-modeling">
-<h2>Sea Breeze Modeling<a class="headerlink" href="#sea-breeze-modeling" title="Permalink to this headline">¶</a></h2>
+<h3>Sea Breeze Modeling<a class="headerlink" href="#sea-breeze-modeling" title="Permalink to this headline">¶</a></h3>
 <p>In our model we make the following assumptions:</p>
 <div class="math">
 <p><img src="../../images/math/b53f3937156cbc3b18807df7bb52b40e99d1a855.png" alt="f_x = 0
@@ -594,15 +645,7 @@ anyway and introduce:</p>
 \int_{\Omega} {w_i^n\over\tau}\varphi^i
     - g_i \varphi^i
     \ \d^2 x" /></p>
-</div><p>In the boundary (line) integral we prescribe <img class="math" src="../../images/math/ae00070d200230a6436b15a83d721acd675e9ed6.png" alt="w_4^{n+1}"/> using a Dirichlet
-condition and calculate it at each iteration using:</p>
-<div class="math">
-<p><img src="../../images/math/8e3da0501d6b7177d5a1664116599ffa4ce482ae.png" alt="w_4^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
-    {w_1^2+w_3^2\over 2w_0}" /></p>
-</div><p>where <img class="math" src="../../images/math/03495b3b1b09ec4c6247d56444917a48b790936c.png" alt="T(t)"/> is a known function of time (it changes with the day and night)
-and also prescribe <img class="math" src="../../images/math/581fa65e732777ecfda03d46ec11288dbe036f72.png" alt="w_1^{n+1}=0"/> on the left and right end of the domain and
-<img class="math" src="../../images/math/1c53b972e09d391c406908b53fe1e3f2bac2f311.png" alt="w_3^{n+1}=0"/> at the top and bottom.</p>
-<p>In order to specify the input forms for Hermes, we&#8217;ll write the weak
+</div><p>In order to specify the input forms for Hermes, we&#8217;ll write the weak
 formulation as:</p>
 <div class="math">
 <p><img src="../../images/math/6aeab354ed92be6b35a047e039a3c43727ddf5d6.png" alt="B_{00}(w_0, \varphi^0) + B_{01}(w_1, \varphi^0) +
@@ -695,11 +738,114 @@ B_{11}(w_1, \varphi^1) = \int_{\Omega} {w_1\over\tau}\varphi^1
 
 \cdots" /></p>
 </div></div>
+</div>
+<div class="section" id="boundary-conditions">
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<p>In the boundary (line) integral we prescribe <img class="math" src="../../images/math/ae00070d200230a6436b15a83d721acd675e9ed6.png" alt="w_4^{n+1}"/> using a Dirichlet
+condition and calculate it at each iteration using:</p>
+<div class="math">
+<p><img src="../../images/math/8e3da0501d6b7177d5a1664116599ffa4ce482ae.png" alt="w_4^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
+    {w_1^2+w_3^2\over 2w_0}" /></p>
+</div><p>where <img class="math" src="../../images/math/03495b3b1b09ec4c6247d56444917a48b790936c.png" alt="T(t)"/> is a known function of time (it changes with the day and night)
+and also prescribe <img class="math" src="../../images/math/581fa65e732777ecfda03d46ec11288dbe036f72.png" alt="w_1^{n+1}=0"/> on the left and right end of the domain and
+<img class="math" src="../../images/math/1c53b972e09d391c406908b53fe1e3f2bac2f311.png" alt="w_3^{n+1}=0"/> at the top and bottom.</p>
+<p>All the surface integrals turn out to be zero. On the top and bottom edges we
+have <img class="math" src="../../images/math/0088eaa7c6a2477e4d029fc69a3a5417732a3515.png" alt="{\bf n} = (n_x, n_z) = (0, \pm 1)"/> respectively and we prescribe <img class="math" src="../../images/math/420029ad605dbaa8f7ce8411f891e77a71bf2dd9.png" alt="w_3=0"/>,
+so we get (remember we do not sum over <img class="math" src="../../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>):</p>
+<div class="math">
+<p><img src="../../images/math/04c751e5f6fa48e76034ff2374fffa31a2e4bf2c.png" alt="\int_{\partial\Omega}
+\left({\bf A}_x({\bf w}^n)\right)_{ij}w_j
+    \varphi^i\, n_x
++ \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j
+    \varphi^i\, n_z
+\ \d x
+=
+
+=
+\int_{\partial\Omega}
+\left({\bf f}_x({\bf w}^n)\right)_i
+    \varphi^i\, n_x
++ \left({\bf f}_z({\bf w}^n)\right)_i
+    \varphi^i\, n_z
+\ \d x
+=
+
+=
+\pm\int_{\partial\Omega}
+\left({\bf f}_z({\bf w}^n)\right)_i
+    \varphi^i
+\ \d x" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../images/math/194c294f5b96a903298ba2f1b7db5b6cf2ad6c24.png" alt="{\bf f}_z =
+   \left( \begin{array}{c}
+       w_3\\
+       \frac{w_3w_1}{w_0}\\
+       \frac{w_3^2}{w_0} + p\\
+       \frac{w_3}{w_0}(w_4+p)
+   \end{array} \right)
+   =
+   \left( \begin{array}{c}
+       0\\
+       0\\
+       p\\
+       0
+   \end{array} \right)" /></p>
+</div><p>So all the components <img class="math" src="../../images/math/ac2672e1a8c8ecccb025d7840b91c293baa618f1.png" alt="i\neq 3"/> of the surface integral are zero, and for <img class="math" src="../../images/math/a4566e11dab22bafa7c82220f54e440ef4437ff3.png" alt="i=3"/>
+the test function <img class="math" src="../../images/math/2934a49b0a0783f5c9d10777cb991b3715934e8d.png" alt="\varphi^3"/> is not there, because we prescribe the Dirichlet
+BC <img class="math" src="../../images/math/f77f46122a46795b6d010537b8f797ac319f46b2.png" alt="w^3=0"/>, so the surface integral vanishes for all <img class="math" src="../../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>.</p>
+<p>Similarly on the left and right edges we
+have <img class="math" src="../../images/math/39ab6de4922010a27dcdd8a9319263d5acf91da6.png" alt="{\bf n} = (n_x, n_z) = (\pm1, 0)"/> respectively and we prescribe <img class="math" src="../../images/math/b83c811471a225edd7c39a99941731be34f6dfc6.png" alt="w_1=0"/>,
+so we get (remember we do not sum over <img class="math" src="../../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>):</p>
+<div class="math">
+<p><img src="../../images/math/6951e7957be73f10617808c39a18f6518dd865b5.png" alt="\int_{\partial\Omega}
+\left({\bf A}_x({\bf w}^n)\right)_{ij}w_j
+    \varphi^i\, n_x
++ \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j
+    \varphi^i\, n_z
+\ \d x
+=
+
+=
+\int_{\partial\Omega}
+\left({\bf f}_x({\bf w}^n)\right)_i
+    \varphi^i\, n_x
++ \left({\bf f}_z({\bf w}^n)\right)_i
+    \varphi^i\, n_z
+\ \d x
+=
+
+=
+\pm\int_{\partial\Omega}
+\left({\bf f}_x({\bf w}^n)\right)_i
+    \varphi^i
+\ \d x" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../images/math/6268351fd21d14de846bfff433372cc5d690f80f.png" alt="{\bf f}_x =
+   \left( \begin{array}{c}
+       w_1\\
+       \frac{w_1^2}{w_0} + p\\
+       \frac{w_1w_3}{w_0}\\
+       \frac{w_1}{w_0}(w_4+p)
+   \end{array} \right)
+   =
+   \left( \begin{array}{c}
+       0\\
+       p\\
+       0\\
+       0
+   \end{array} \right)" /></p>
+</div><p>So all the components <img class="math" src="../../images/math/16ab72a216b4eca45191b1e7ce387106054a50e8.png" alt="i\neq 1"/> of the surface integral are zero, and for <img class="math" src="../../images/math/50ed4b89a6aeb4814026a2be01bde8bd7d264b71.png" alt="i=1"/>
+the test function <img class="math" src="../../images/math/1e96a4ba79a4820a81ebde8c109ba0ea3aba296a.png" alt="\varphi^1"/> is not there, because we prescribe the Dirichlet
+BC <img class="math" src="../../images/math/a1465f1b6e0f5aaf7e71db9e688b7a465b0491db.png" alt="w^1=0"/>, so the surface integral vanishes for all <img class="math" src="../../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>.</p>
 <div class="section" id="older-notes">
-<h2>Older notes<a class="headerlink" href="#older-notes" title="Permalink to this headline">¶</a></h2>
+<h3>Older notes<a class="headerlink" href="#older-notes" title="Permalink to this headline">¶</a></h3>
 <p>Author: Pavel Solin</p>
+</div>
+</div>
 <div class="section" id="governing-equations-and-boundary-conditions">
-<h3>Governing Equations and Boundary Conditions<a class="headerlink" href="#governing-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h2>Governing Equations and Boundary Conditions<a class="headerlink" href="#governing-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <div class="math" id="equation-one">
 <p><span class="eqno">(1)</span><img src="../../images/math/84910087e1617188944538f5d757c90d81fc5785.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c} \varrho\\ U\\ W\\
    \theta \end{array} \right) + \frac{\partial}{\partial x} \left(
@@ -725,7 +871,7 @@ equation <img class="math" src="../../images/math/006343386334ce6bcdfad73d55ae1b
 <p><img src="../../images/math/241829fb9bf6b59f3dc315f268f4614dd7ae021d.png" alt="\begin{eqnarray*} p(z) &amp;=&amp; p_0 - 11476\frac{z}{1000}  + 529.54 \left(\frac{z}{1000} \right)^2 - 9.38 \left(\frac{z}{1000} \right)^3,\\ T(z) &amp;=&amp; T_0 - 8.3194 \frac{z}{1000} + 0.2932 \left(\frac{z}{1000} \right)^2 - 0.0109 \left(\frac{z}{1000} \right)^3,\\ \varrho(z) &amp;=&amp; \frac{p(z)}{R T(z)},\\ \theta(z) &amp;=&amp; \varrho(z)T(z),\\ U(z) &amp;=&amp; 0, \\  W(z) &amp;=&amp; 0. \end{eqnarray*}" /></p>
 </div></div>
 <div class="section" id="discretization-and-the-newton-s-method">
-<h3>Discretization and the Newton&#8217;s Method<a class="headerlink" href="#discretization-and-the-newton-s-method" title="Permalink to this headline">¶</a></h3>
+<h2>Discretization and the Newton&#8217;s Method<a class="headerlink" href="#discretization-and-the-newton-s-method" title="Permalink to this headline">¶</a></h2>
 <p>We will use the implicit Euler method in time, i.e.,</p>
 <div class="math">
 <p><img src="../../images/math/9f8c7a43f132f7cc976ddc8438fa584d4d4f835b.png" alt="\frac{\partial \varrho}{\partial t} \approx \frac{\varrho^{n+1} - \varrho^n}{\tau}" /></p>
@@ -833,7 +979,6 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
 <p><img src="../../images/math/83c8e7530ae6007d591294f6bb9e5d6639571876.png" alt="+ \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial U}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial W}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma U}{\varrho^2} \frac{\partial \varrho}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma W}{\varrho^2} \frac{\partial \varrho}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i." /></p>
 </div></div>
 </div>
-</div>
 
 
           </div>
@@ -844,13 +989,17 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
             <h3><a href="../../index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference external" href="">Compressible Euler Equations</a><ul>
-<li><a class="reference external" href="#fem-formulation">FEM formulation</a></li>
+<li><a class="reference external" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a><ul>
+<li><a class="reference external" href="#fem-formulation">FEM Formulation</a></li>
 <li><a class="reference external" href="#sea-breeze-modeling">Sea Breeze Modeling</a></li>
-<li><a class="reference external" href="#older-notes">Older notes</a><ul>
-<li><a class="reference external" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
-<li><a class="reference external" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a><ul>
+<li><a class="reference external" href="#older-notes">Older notes</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
+<li><a class="reference external" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
 </ul>
 </li>
 </ul>
