@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-0"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-153"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <p>The compressible Euler equations are:</p>
 <div class="math">
 <p><img src="../../images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
@@ -72,12 +72,23 @@ p = {n\over V} \bar RT =
     {R\over c_v} (E-\half \rho u^2)" /></p>
 </div><p>where
 <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> is the number of moles of gas,
-<img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/> is the molar mass of the gas (e.g. a mass of one mole of the gas),
-<img class="math" src="../../images/math/9c3b49dcc81ad85b2e07f7a8d302be685d605491.png" alt="\rho={n M\over V}"/> is the density of the gas,
-<img class="math" src="../../images/math/22344a41e47985033825ea337522a64e707f85ef.png" alt="\bar R"/> is the ideal gas constant,
-<img class="math" src="../../images/math/9b9121ebb1fdd07af1274d199583f2c0e80b81be.png" alt="R={\bar R\over M}"/> is the specific ideal gas constant,
-<img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/> is the specific heat capacity at constant volume (e.g. a heat capacity
-per unit volume),
+<img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/> is the molar mass of the gas (i.e. a mass of one mole of the gas, e.g. for
+dry air we get <img class="math" src="../../images/math/acfe7e7adc55536d7378c1c937167527363013ba.png" alt="M=28.956\rm\,g/mol"/>, as it is mainly composed of 20% of oxygen
+with atomic mass 16 and 78% of nitrogen with atomic mass <img class="math" src="../../images/math/820a20de2847dfdc1bc5cffc8d904933150032bd.png" alt="14"/>, both form
+diatomic molecules, so the molecular mass is twice the atomic mass
+giving the total of <img class="math" src="../../images/math/1b8e4ff49812494e41ff1d302c574a282eadfe91.png" alt="0.2\cdot2\cdot16+0.78\cdot2\cdot14 = 28.24"/>, the rest is
+given by the other components and one also has to average over all isotopes),
+<img class="math" src="../../images/math/802d91184522bb9c75169bd8b19458edb9700ca1.png" alt="\bar R=N_A k_B\doteq8.3145\rm\,{J\over K\, mol}"/> is the ideal gas constant
+(<img class="math" src="../../images/math/05f91f30ed1f9b369d5d43b8d6d682567c18459b.png" alt="N_A"/> is the Avogadro constant and <img class="math" src="../../images/math/8ea5849a7b9b2cefcb791dbea7983bea372995d1.png" alt="k_B"/> is the Boltzmann constant),
+<img class="math" src="../../images/math/9b9121ebb1fdd07af1274d199583f2c0e80b81be.png" alt="R={\bar R\over M}"/> is the specific ideal gas constant (e.g. for dry air we get
+<img class="math" src="../../images/math/854b038c464865aec42ff91749fd9526c8ab1d52.png" alt="R = {8.3145\over 28.956}\rm\,{J\over g\,K}\doteq 287.14\rm\,{J\over kg\,K}"/>),
+<img class="math" src="../../images/math/5619e7fd47503bef49fa30cb3f1ce8cdca16e63b.png" alt="\rho={n M\over V}={p\over RT}"/> is the density of the gas (e.g. for dry air at
+the pressure <img class="math" src="../../images/math/77c9cef599eb3a95449aae83b570663d07454841.png" alt="10^5\rm\,Pa"/> and temperature <img class="math" src="../../images/math/9b84279901fdd5758d3fb3686ae190fedd7056b9.png" alt="22\rm\,^\circ C"/> we get
+<img class="math" src="../../images/math/31e284b5fc1e4f1c8200cf02bb1861c16180c168.png" alt="\rho = {10^5\over 287.14 \cdot (22+273.15)}\rm\,{kg\over m^3}
+=1.18\,{kg\over m^3}"/>),
+<img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/> is the specific heat capacity at constant volume (i.e. the amount of
+energy needed to heat one kg by one Kelvin at constant volume, e.g. for dry air
+the experimental value is about <img class="math" src="../../images/math/5a7856bf4c23056758b0b458bc65a43632fb98a8.png" alt="c_v = 717.5\rm\,{J\over kg\,K}"/>),
 <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> is the volume
 and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is the temperature of the gas.
 Of those, <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/>, <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/22344a41e47985033825ea337522a64e707f85ef.png" alt="\bar R"/> are constants, <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/>, <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> are
@@ -407,8 +418,11 @@ combinations of these constants as follows:</p>
 <p><img src="../../images/math/87770216979ff0e800d28c56d938a17760353409.png" alt="\tilde{\bf f}=(0, 0, -\tilde\rho \tilde g)
 
 \tilde g = g{l_r\over u^2_r} = g{t_r^2\over l_r}" /></p>
-</div><div class="section" id="fem-formulation">
-<h3>FEM Formulation<a class="headerlink" href="#fem-formulation" title="Permalink to this headline">¶</a></h3>
+</div><p>So the dimensionless Euler equations look exactly the same as the original
+ones, we just need to rescale all the quantities using the relations above.</p>
+</div>
+<div class="section" id="fem-formulation">
+<h2>FEM Formulation<a class="headerlink" href="#fem-formulation" title="Permalink to this headline">¶</a></h2>
 <p>The Euler equations:</p>
 <div class="math">
 <p><img src="../../images/math/9078d8cb93e9838a446248bbb5b274cc20c4c9d1.png" alt="{\partial{\bf w}\over \partial t} +
@@ -531,7 +545,7 @@ it):</p>
     \ \d^3 x" /></p>
 </div></div>
 <div class="section" id="sea-breeze-modeling">
-<h3>Sea Breeze Modeling<a class="headerlink" href="#sea-breeze-modeling" title="Permalink to this headline">¶</a></h3>
+<h2>Sea Breeze Modeling<a class="headerlink" href="#sea-breeze-modeling" title="Permalink to this headline">¶</a></h2>
 <p>In our model we make the following assumptions:</p>
 <div class="math">
 <p><img src="../../images/math/b53f3937156cbc3b18807df7bb52b40e99d1a855.png" alt="f_x = 0
@@ -737,10 +751,8 @@ B_{11}(w_1, \varphi^1) = \int_{\Omega} {w_1\over\tau}\varphi^1
     \ \d^2 x
 
 \cdots" /></p>
-</div></div>
-</div>
-<div class="section" id="boundary-conditions">
-<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
+</div><div class="section" id="boundary-conditions">
+<h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>In the boundary (line) integral we prescribe <img class="math" src="../../images/math/ae00070d200230a6436b15a83d721acd675e9ed6.png" alt="w_4^{n+1}"/> using a Dirichlet
 condition and calculate it at each iteration using:</p>
 <div class="math">
@@ -839,13 +851,13 @@ so we get (remember we do not sum over <img class="math" src="../../images/math/
 </div><p>So all the components <img class="math" src="../../images/math/16ab72a216b4eca45191b1e7ce387106054a50e8.png" alt="i\neq 1"/> of the surface integral are zero, and for <img class="math" src="../../images/math/50ed4b89a6aeb4814026a2be01bde8bd7d264b71.png" alt="i=1"/>
 the test function <img class="math" src="../../images/math/1e96a4ba79a4820a81ebde8c109ba0ea3aba296a.png" alt="\varphi^1"/> is not there, because we prescribe the Dirichlet
 BC <img class="math" src="../../images/math/a1465f1b6e0f5aaf7e71db9e688b7a465b0491db.png" alt="w^1=0"/>, so the surface integral vanishes for all <img class="math" src="../../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>.</p>
+</div>
+</div>
 <div class="section" id="older-notes">
-<h3>Older notes<a class="headerlink" href="#older-notes" title="Permalink to this headline">¶</a></h3>
+<h2>Older notes<a class="headerlink" href="#older-notes" title="Permalink to this headline">¶</a></h2>
 <p>Author: Pavel Solin</p>
-</div>
-</div>
 <div class="section" id="governing-equations-and-boundary-conditions">
-<h2>Governing Equations and Boundary Conditions<a class="headerlink" href="#governing-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<h3>Governing Equations and Boundary Conditions<a class="headerlink" href="#governing-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <div class="math" id="equation-one">
 <p><span class="eqno">(1)</span><img src="../../images/math/84910087e1617188944538f5d757c90d81fc5785.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c} \varrho\\ U\\ W\\
    \theta \end{array} \right) + \frac{\partial}{\partial x} \left(
@@ -871,7 +883,7 @@ equation <img class="math" src="../../images/math/006343386334ce6bcdfad73d55ae1b
 <p><img src="../../images/math/241829fb9bf6b59f3dc315f268f4614dd7ae021d.png" alt="\begin{eqnarray*} p(z) &amp;=&amp; p_0 - 11476\frac{z}{1000}  + 529.54 \left(\frac{z}{1000} \right)^2 - 9.38 \left(\frac{z}{1000} \right)^3,\\ T(z) &amp;=&amp; T_0 - 8.3194 \frac{z}{1000} + 0.2932 \left(\frac{z}{1000} \right)^2 - 0.0109 \left(\frac{z}{1000} \right)^3,\\ \varrho(z) &amp;=&amp; \frac{p(z)}{R T(z)},\\ \theta(z) &amp;=&amp; \varrho(z)T(z),\\ U(z) &amp;=&amp; 0, \\  W(z) &amp;=&amp; 0. \end{eqnarray*}" /></p>
 </div></div>
 <div class="section" id="discretization-and-the-newton-s-method">
-<h2>Discretization and the Newton&#8217;s Method<a class="headerlink" href="#discretization-and-the-newton-s-method" title="Permalink to this headline">¶</a></h2>
+<h3>Discretization and the Newton&#8217;s Method<a class="headerlink" href="#discretization-and-the-newton-s-method" title="Permalink to this headline">¶</a></h3>
 <p>We will use the implicit Euler method in time, i.e.,</p>
 <div class="math">
 <p><img src="../../images/math/9f8c7a43f132f7cc976ddc8438fa584d4d4f835b.png" alt="\frac{\partial \varrho}{\partial t} \approx \frac{\varrho^{n+1} - \varrho^n}{\tau}" /></p>
@@ -979,6 +991,7 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
 <p><img src="../../images/math/83c8e7530ae6007d591294f6bb9e5d6639571876.png" alt="+ \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial U}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial W}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma U}{\varrho^2} \frac{\partial \varrho}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma W}{\varrho^2} \frac{\partial \varrho}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i." /></p>
 </div></div>
 </div>
+</div>
 
 
           </div>
@@ -989,17 +1002,17 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
             <h3><a href="../../index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference external" href="">Compressible Euler Equations</a><ul>
-<li><a class="reference external" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a><ul>
+<li><a class="reference external" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a></li>
 <li><a class="reference external" href="#fem-formulation">FEM Formulation</a></li>
-<li><a class="reference external" href="#sea-breeze-modeling">Sea Breeze Modeling</a></li>
+<li><a class="reference external" href="#sea-breeze-modeling">Sea Breeze Modeling</a><ul>
+<li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a><ul>
-<li><a class="reference external" href="#older-notes">Older notes</a></li>
-</ul>
-</li>
+<li><a class="reference external" href="#older-notes">Older notes</a><ul>
 <li><a class="reference external" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
 <li><a class="reference external" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
