@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-128"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-189"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <p>The compressible Euler equations are:</p>
 <div class="math">
 <p><img src="../../images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
@@ -313,7 +313,7 @@ To calculate the Jacobians, we&#8217;ll need:</p>
     \end{array} \right)" /></p>
 </div><p>then we can calculate the Jacobians (and we substitute for <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>):</p>
 <div class="math">
-<p><img src="../../images/math/15303b51ff9464fb2cbb9098b3ef1976546d4d70.png" alt="{\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+<p><img src="../../images/math/e070a869882e91736b9b5578e143bef8afc6e8d4.png" alt="{\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
     \left( \begin{array}{ccccc}
         0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\
         -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &amp;
@@ -344,7 +344,15 @@ To calculate the Jacobians, we&#8217;ll need:</p>
             -{R\over c_v}{w_3\over w_0} &amp;
             {R\over c_v}\\
         -{w_2w_3\over w_0^2} &amp; 0 &amp; {w_3\over w_0} &amp; {w_2\over w_0} &amp; 0 \\
-        \cdot &amp; \cdot &amp; \cdot &amp; \cdot &amp; \cdot \\
+            -{w_2w_4\over w_0^2}-{w_2\over w_0^2}{R\over c_v}
+                \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                +{w_2\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&amp;
+            -{R\over c_v}{w_2w_1\over w_0^2} &amp;
+            {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                -{R\over c_v}{w_2^2\over w_0^2} &amp;
+            -{R\over c_v}{w_2w_3\over w_0^2} &amp;
+            {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
    \end{array} \right)
 
 {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
