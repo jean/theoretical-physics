@@ -48,19 +48,58 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-155"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-186"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-156"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-187"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. The Navier-Stokes equations can be derived from the
 conservation law:</p>
 <div class="math">
 <p><img src="../../images/math/7b54cb49b70a5e0fa09961d4b619e33d02048c6c.png" alt="\partial_\nu T^{\mu\nu} + f^\mu = 0" /></p>
-</div></div>
+</div><div class="section" id="perfect-fluids">
+<h3>Perfect Fluids<a class="headerlink" href="#perfect-fluids" title="Permalink to this headline">¶</a></h3>
+<p>Perfect fluids have no heat conduction (<img class="math" src="../../images/math/9fdef3ebe8c96dbe81bc688352b54bd598e04fb2.png" alt="T^{i0} = T^{0i} = 0"/>) and no
+viscosity (<img class="math" src="../../images/math/a85470ac36bf63d0d0a95c0f06bb1da24fb8cd9e.png" alt="T^{ij} = p\one"/>), so in the MCRF:</p>
+<div class="math">
+<p><img src="../../images/math/00a61226b46c597257f547bc31b54eea20a4ed7e.png" alt="T^{\alpha\beta} = \diag(\rho, p, p, p) =
+(\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
+</div><p>where in MCRF we have <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>, <img class="math" src="../../images/math/404cbab5c49eb0c673b45a73053a4f4cff4f56f0.png" alt="u^0=1"/> and <img class="math" src="../../images/math/2cbcd1a277412664b207cbb8e687d639213df995.png" alt="u^i=0"/>,
+but <img class="math" src="../../images/math/6987c0f0c13625edae29d1165f37b497dcf538e0.png" alt="\partial_\alpha U^i\neq0"/>. The last equation is a tensor equation so it
+holds in any frame. The nonrelativistic limit of this stress energy tensor is:</p>
+<div class="math">
+<p><img src="../../images/math/8229e51025b07c8912c3c77c9fa7f9b00da2bd20.png" alt="T^{00} = (\rho+p)u^0u^0 - p \approx \rho
+
+T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
+
+T^{jk} = (\rho+p)u^ju^k + p \delta^{jk} \approx \rho u^j u^k + p
+    \delta^{jk}" /></p>
+</div><p>Substituting this into the conversation law <img class="math" src="../../images/math/599e3be9827da3311472e0669c7c8daef9beb8a2.png" alt="\partial_\beta
+T^{\alpha\beta}=0"/> we get for <img class="math" src="../../images/math/11e9c9370965f44fe5bd812e80c12fccbeec1a17.png" alt="\alpha=0"/>:</p>
+<div class="math">
+<p><img src="../../images/math/90fedd4049937e2ad107abf010576ed00e63897f.png" alt="\partial_\beta T^{0\beta} = 0
+
+\partial_0 T^{00} + \partial_i T^{0i} = 0
+
+\partial_0 \rho + \partial_i (\rho u^i) = 0
+
+{\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0" /></p>
+</div><p>This is the continuity equation. For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
+<div class="math">
+<p><img src="../../images/math/8992ec6e25b1ceaf88007882b3b9f35c2fe25682.png" alt="\partial_\beta T^{i\beta} = 0
+
+\partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+\partial_0 (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+
+{\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
+    (\rho {\bf u}{\bf u}^T) + \nabla p = 0" /></p>
+</div><p>Which are the Euler equations.</p>
+</div>
+</div>
 <div class="section" id="navier-stokes-equations">
 <h2>Navier-Stokes Equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">¶</a></h2>
-<p>When we write the above conservation law in a nonrelativistic limit, we get the
-Cauchy momentum equation:</p>
+<p>When we write the relativistic conservation law in a nonrelativistic limit (for
+a general fluid), we get the Cauchy momentum equation:</p>
 <div class="math">
 <p><img src="../../images/math/119550a59cc84e3e2f38eeacc94e0a75f0454b72.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = \nabla \cdot \mathds{\sigma} + {\bf f}" /></p>
 </div><p>where the stress tensor <img class="math" src="../../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> can be written as:</p>
@@ -82,17 +121,19 @@ to write the tensor under these conditions is:</p>
 </div><p>The divergence of the tensor is:</p>
 <div class="math">
 <p><img src="../../images/math/baaf871080f845d2074fe2365f5da388da5c0723.png" alt="\partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}" /></p>
-</div><p>or in vector form:</p>
+</div><p>or in vector form (these are usually called the compressible Navier-Stokes
+equations):</p>
 <div class="math">
 <p><img src="../../images/math/f9d4888a652d89175aee1eecaf9add246d6d9cc0.png" alt="\nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}" /></p>
-</div><p>For incompressible fluid we have <img class="math" src="../../images/math/0d64ba0239e1d10290a71c763f0d91eef491e60a.png" alt="\nabla\cdot\bf v=0"/>, so we get:</p>
+</div><p>For incompressible fluid we have <img class="math" src="../../images/math/0d64ba0239e1d10290a71c763f0d91eef491e60a.png" alt="\nabla\cdot\bf v=0"/>, so we get the
+incompressible Navier-Stokes equations:</p>
 <div class="math">
 <p><img src="../../images/math/029c55c5b93b2da8da53f154b9776a281ad8768f.png" alt="\nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}" /></p>
-</div><p>and for a perfect fluid we have no viscosity, e.g. <img class="math" src="../../images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/>, so:</p>
+</div><p>and for a perfect fluid we have no viscosity, e.g. <img class="math" src="../../images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/>, then we get the
+Euler equations (for perfect fluid):</p>
 <div class="math">
 <p><img src="../../images/math/95726c37fa3d33c2ab8b4989be5a79e56f3f46fa.png" alt="\nabla \cdot \mathds{T}=0" /></p>
-</div><p>and the equations are then called Euler equations (for perfect fluid).</p>
-</div>
+</div></div>
 <div class="section" id="bernoulli-s-principle">
 <h2>Bernoulli&#8217;s Principle<a class="headerlink" href="#bernoulli-s-principle" title="Permalink to this headline">¶</a></h2>
 <p>Bernoulli&#8217;s principle works for a perfect fluid, so we take the Euler equations:</p>
@@ -127,7 +168,9 @@ If the fluid is not moving, we set <img class="math" src="../../images/math/c259
 immediately get:</p>
 <div class="math">
 <p><img src="../../images/math/855c6b64752e3b7029374b7c4a0df89d818193ec.png" alt="{v^2\over 2} + gz + {p\over\rho}={\rm const.}" /></p>
-</div><div class="section" id="hydrostatic-pressure">
+</div><p>The last equation then holds everywhere in the (nonmoving) fluid (as opposed to
+the previous equation that only holds along the streamline).</p>
+<div class="section" id="hydrostatic-pressure">
 <h3>Hydrostatic Pressure<a class="headerlink" href="#hydrostatic-pressure" title="Permalink to this headline">¶</a></h3>
 <p>Let <img class="math" src="../../images/math/e01486dcc7cb25518b89692706b17389dc67c92b.png" alt="p_1"/> be the pressure on the water surface and <img class="math" src="../../images/math/a2e8bc2235f5b0094bc37f2ef74f7dc647f0a406.png" alt="p_2"/> the pressure <img class="math" src="../../images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>
 meters below the surface. From the Bernoulli&#8217;s principle:</p>
@@ -172,7 +215,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-157"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-188"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
@@ -219,7 +262,10 @@ Hagen-Poiseuille law.</p>
             <h3><a href="../../index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference external" href="">Fluid Dynamics</a><ul>
-<li><a class="reference external" href="#stress-energy-tensor">Stress-Energy Tensor</a></li>
+<li><a class="reference external" href="#stress-energy-tensor">Stress-Energy Tensor</a><ul>
+<li><a class="reference external" href="#perfect-fluids">Perfect Fluids</a></li>
+</ul>
+</li>
 <li><a class="reference external" href="#navier-stokes-equations">Navier-Stokes Equations</a></li>
 <li><a class="reference external" href="#bernoulli-s-principle">Bernoulli&#8217;s Principle</a><ul>
 <li><a class="reference external" href="#hydrostatic-pressure">Hydrostatic Pressure</a></li>

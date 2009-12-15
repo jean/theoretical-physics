@@ -18,12 +18,65 @@ conservation law:
 
     \partial_\nu T^{\mu\nu} + f^\mu = 0
 
+Perfect Fluids
+~~~~~~~~~~~~~~
+
+Perfect fluids have no heat conduction ($T^{i0} = T^{0i} = 0$) and no
+viscosity ($T^{ij} = p\one$), so in the MCRF:
+
+.. math::
+
+    T^{\alpha\beta} = \diag(\rho, p, p, p) =
+    (\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}
+
+where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=1$ and $u^i=0$,
+but $\partial_\alpha U^i\neq0$. The last equation is a tensor equation so it
+holds in any frame. The nonrelativistic limit of this stress energy tensor is:
+
+.. math::
+
+    T^{00} = (\rho+p)u^0u^0 - p \approx \rho
+
+    T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
+
+    T^{jk} = (\rho+p)u^ju^k + p \delta^{jk} \approx \rho u^j u^k + p
+        \delta^{jk}
+
+
+Substituting this into the conversation law $\partial_\beta
+T^{\alpha\beta}=0$ we get for $\alpha=0$:
+
+.. math::
+
+    \partial_\beta T^{0\beta} = 0
+
+    \partial_0 T^{00} + \partial_i T^{0i} = 0
+
+    \partial_0 \rho + \partial_i (\rho u^i) = 0
+
+    {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
+
+This is the continuity equation. For $\alpha=i$ we get:
+
+.. math::
+
+    \partial_\beta T^{i\beta} = 0
+
+    \partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+    \partial_0 (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+
+    {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
+        (\rho {\bf u}{\bf u}^T) + \nabla p = 0
+
+Which are the Euler equations.
+
 
 Navier-Stokes Equations
 -----------------------
 
-When we write the above conservation law in a nonrelativistic limit, we get the
-Cauchy momentum equation:
+When we write the relativistic conservation law in a nonrelativistic limit (for
+a general fluid), we get the Cauchy momentum equation:
 
 .. math::
 
@@ -64,25 +117,26 @@ The divergence of the tensor is:
 
     \partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}
 
-or in vector form:
+or in vector form (these are usually called the compressible Navier-Stokes
+equations):
 
 .. math::
 
     \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}
 
-For incompressible fluid we have $\nabla\cdot\bf v=0$, so we get:
+For incompressible fluid we have $\nabla\cdot\bf v=0$, so we get the
+incompressible Navier-Stokes equations:
 
 .. math::
 
     \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}
 
-and for a perfect fluid we have no viscosity, e.g. $\mu=0$, so:
+and for a perfect fluid we have no viscosity, e.g. $\mu=0$, then we get the
+Euler equations (for perfect fluid):
 
 .. math::
 
     \nabla \cdot \mathds{T}=0
-
-and the equations are then called Euler equations (for perfect fluid).
 
 Bernoulli's Principle
 ---------------------
@@ -143,6 +197,9 @@ immediately get:
 .. math::
 
     {v^2\over 2} + gz + {p\over\rho}={\rm const.}
+
+The last equation then holds everywhere in the (nonmoving) fluid (as opposed to
+the previous equation that only holds along the streamline).
 
 
 Hydrostatic Pressure
