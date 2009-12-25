@@ -48,11 +48,23 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-190"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-191"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
-surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. The Navier-Stokes equations can be derived from the
+surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
+density, momentum density and stress as measured by any observer of the event.</p>
+<p>Imagine a (small) box in the spacetime. Then the observer with a 4-velocity
+<img class="math" src="../../images/math/f7ff6ac55d4a23ec13c71a44b56565e3247e73de.png" alt="u^\mu"/> measures the density of 4-momentum <img class="math" src="../../images/math/868f63dc70cfad571153bbd697e82bdf107400f9.png" alt="\d p^\alpha\over\d V"/>
+in his frame as:</p>
+<div class="math">
+<p><img src="../../images/math/bff14b16ecd0f642dc65a84ed4da776473997447.png" alt="{\d p^\alpha\over\d V} = -T^\alpha{}_\beta u^\beta" /></p>
+</div><p>and the energy density that he measures is:</p>
+<div class="math">
+<p><img src="../../images/math/81ebf5053094549931e6a3f43ea99d7af521f287.png" alt="\rho = {E\over V} = -{u^\alpha p_\alpha \over V}
+= - u^\alpha {\d p_\alpha\over\d V}
+= u^\alpha T_{\alpha\beta} u^\beta" /></p>
+</div><p>The Navier-Stokes equations can be derived from the
 conservation law:</p>
 <div class="math">
 <p><img src="../../images/math/7b54cb49b70a5e0fa09961d4b619e33d02048c6c.png" alt="\partial_\nu T^{\mu\nu} + f^\mu = 0" /></p>
@@ -63,11 +75,11 @@ viscosity (<img class="math" src="../../images/math/a85470ac36bf63d0d0a95c0f06bb
 <div class="math">
 <p><img src="../../images/math/00a61226b46c597257f547bc31b54eea20a4ed7e.png" alt="T^{\alpha\beta} = \diag(\rho, p, p, p) =
 (\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
-</div><p>where in MCRF we have <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>, <img class="math" src="../../images/math/404cbab5c49eb0c673b45a73053a4f4cff4f56f0.png" alt="u^0=1"/> and <img class="math" src="../../images/math/2cbcd1a277412664b207cbb8e687d639213df995.png" alt="u^i=0"/>,
+</div><p>where in MCRF we have <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>, <img class="math" src="../../images/math/bfb4fda47c22ddea6ca6b3009a9dade393390caa.png" alt="u^0=c"/> and <img class="math" src="../../images/math/2cbcd1a277412664b207cbb8e687d639213df995.png" alt="u^i=0"/>,
 but <img class="math" src="../../images/math/6987c0f0c13625edae29d1165f37b497dcf538e0.png" alt="\partial_\alpha U^i\neq0"/>. The last equation is a tensor equation so it
 holds in any frame. The nonrelativistic limit of this stress energy tensor is:</p>
 <div class="math">
-<p><img src="../../images/math/8229e51025b07c8912c3c77c9fa7f9b00da2bd20.png" alt="T^{00} = (\rho+p)u^0u^0 - p \approx \rho
+<p><img src="../../images/math/87b230f13bac83589a5cd84287a50cc3131abd53.png" alt="T^{00} = (\rho+p)u^0u^0 - p \approx \rho c
 
 T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
 
@@ -76,14 +88,15 @@ T^{jk} = (\rho+p)u^ju^k + p \delta^{jk} \approx \rho u^j u^k + p
 </div><p>Substituting this into the conversation law <img class="math" src="../../images/math/599e3be9827da3311472e0669c7c8daef9beb8a2.png" alt="\partial_\beta
 T^{\alpha\beta}=0"/> we get for <img class="math" src="../../images/math/11e9c9370965f44fe5bd812e80c12fccbeec1a17.png" alt="\alpha=0"/>:</p>
 <div class="math">
-<p><img src="../../images/math/90fedd4049937e2ad107abf010576ed00e63897f.png" alt="\partial_\beta T^{0\beta} = 0
+<p><img src="../../images/math/0c98f82567af1df849f732600a470357c7160821.png" alt="\partial_\beta T^{0\beta} = 0
 
 \partial_0 T^{00} + \partial_i T^{0i} = 0
 
-\partial_0 \rho + \partial_i (\rho u^i) = 0
+\partial_0 (\rho c) + \partial_i (\rho u^i) = 0
 
 {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0" /></p>
-</div><p>This is the continuity equation. For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
+</div><p>This is the continuity equation for the energy (<img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> here is the energy
+density). For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
 <div class="math">
 <p><img src="../../images/math/8992ec6e25b1ceaf88007882b3b9f35c2fe25682.png" alt="\partial_\beta T^{i\beta} = 0
 
@@ -93,8 +106,22 @@ T^{\alpha\beta}=0"/> we get for <img class="math" src="../../images/math/11e9c93
 
 {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
     (\rho {\bf u}{\bf u}^T) + \nabla p = 0" /></p>
-</div><p>Which are the Euler equations.</p>
-</div>
+</div><p>Which are the Euler equations. The equation of continuity follows from the
+conservation of the baryon number &#8212; the volume <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> that contains certain
+number of baryons can change, but the total number of baryons <img class="math" src="../../images/math/b73bae695c92a9d27cae2b724348a9357ef6774a.png" alt="nV"/> must remain
+constant:</p>
+<div class="math">
+<p><img src="../../images/math/f34585c89cb4e6e6a2fc08e90d6f90fc9409dd90.png" alt="{\d (nV)\over\d\tau} = 0
+
+{\d n\over\d\tau}V + n{\d V\over\d\tau} = 0
+
+u^\alpha (\partial_\alpha n)V + n(\partial_\alpha u^\alpha) V = 0
+
+\partial_\alpha (n u^\alpha) = 0" /></p>
+</div><p>and in the limit <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>:</p>
+<div class="math">
+<p><img src="../../images/math/ce6638180c9d34948fc8654e78dadd9bd1c13650.png" alt="{\partial n\over \partial t} + \nabla\cdot(n{\bf v}) = 0" /></p>
+</div></div>
 </div>
 <div class="section" id="navier-stokes-equations">
 <h2>Navier-Stokes Equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">¶</a></h2>
@@ -215,7 +242,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-192"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
