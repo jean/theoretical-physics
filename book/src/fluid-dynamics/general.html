@@ -48,9 +48,9 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-65"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-662"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-66"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-663"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
 density, momentum density and stress as measured by any observer of the event.</p>
@@ -64,6 +64,61 @@ in his frame as:</p>
 <p><img src="../../images/math/81ebf5053094549931e6a3f43ea99d7af521f287.png" alt="\rho = {E\over V} = -{u^\alpha p_\alpha \over V}
 = - u^\alpha {\d p_\alpha\over\d V}
 = u^\alpha T_{\alpha\beta} u^\beta" /></p>
+</div><p>One can also obtain the stress energy tensor from the Lagrangian
+<img class="math" src="../../images/math/5dde232e7d98a7e226092bf4cc8886441e4f0a26.png" alt="\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)"/> by combining the
+Euler-Lagrange equations</p>
+<div class="math">
+<p><img src="../../images/math/7d73af829a4272c20d3939ce81c3070d73782afd.png" alt="{ \partial \L\over\partial \eta_\rho}
+    -
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \right)
+=0" /></p>
+</div><p>with the total derivative <img class="math" src="../../images/math/86c74727c1364e3c2bee9429cc7e82e127940a36.png" alt="{\d \L\over \d x^\mu}"/>:</p>
+<div class="math">
+<p><img src="../../images/math/cba9e5e539e0fd54c7fa70def2082965767e1bbe.png" alt="{\d \L\over \d x^\mu} = {\partial\L\over\partial\eta_\rho}
+    \partial_\mu \eta_\rho
+    +
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \partial_\mu\partial_\nu\eta_\rho + \partial_\mu\L
+=
+
+=
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \right)
+    \partial_\mu \eta_\rho
+    +
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \partial_\nu\partial_\mu\eta_\rho + \partial_\mu\L
+=
+
+=
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \partial_\mu \eta_\rho
+    \right)
+    + \partial_\mu\L" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../images/math/56db3e95c06721e962f220763e3c8240cf581d9b.png" alt="\partial_\nu\left(
+{ \partial \L\over\partial (\partial_\nu \eta_\rho)}
+\partial_\mu \eta_\rho
+-\L \delta_\mu{}^\nu
+\right)
++ \partial_\mu\L
+  =0" /></p>
+</div><p>This can be written as:</p>
+<div class="math">
+<p><img src="../../images/math/25924a13d64ec93ec8b4413ca736eae56c577887.png" alt="\partial_\nu T_\mu{}^\nu + f_\mu = 0" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../images/math/cf80c8cececd6a7edc5cb91edd8a9179ecc02ed4.png" alt="T_\mu{}^\nu =
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \partial_\mu \eta_\rho
+    -\L \delta_\mu{}^\nu
+
+f_\mu = \partial_\mu\L" /></p>
 </div><p>The Navier-Stokes equations can be derived from the
 conservation law:</p>
 <div class="math">
@@ -242,7 +297,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-67"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-664"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">

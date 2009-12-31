@@ -59,7 +59,7 @@
 books. In Europe people usually use different symbols, like <img class="math" src="../../images/math/08f120ef1f9b5ffca7c41f2d3d626d5015602182.png" alt="(\phi,\theta)"/>, <img class="math" src="../../images/math/5b72e7d02f6fc8bdf33dbbd0b3d35f2a5e0cf501.png" alt="(\vartheta,\varphi)"/> and others.</p>
 </div>
 <div class="section" id="argument-function-atan2">
-<span id="index-93"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<span id="index-618"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
 <p>Argument function <img class="math" src="../../images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
 <div class="math">
 <p><img src="../../images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
@@ -117,8 +117,8 @@ use the following formula to easily calculate <img class="math" src="../../image
 <p><img src="../../images/math/985953302d003ceba1d8875c342e5f0e91a23d5e.png" alt="\delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)" /></p>
 </div><p>It&#8217;s clear that <a href="#equation-deltaprec">(3)</a> holds for any well behaved function <img class="math" src="../../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>.
 Some mathematicians like to say that it&#8217;s incorrect to use such a notation when
-in fact the integral <a href="#equation-deltadef">(1)</a> doesn&#8217;t &#8220;exist&#8221;, but that&#8217;s a wrong
-approach to things, because it is not important if something &#8220;exist&#8221; or not,
+in fact the integral <a href="#equation-deltadef">(1)</a> doesn&#8217;t &#8220;exist&#8221;, but we will not follow
+their approach, because it is not important if something &#8220;exists&#8221; or not,
 but rather if it is clear what we mean by our notation: <a href="#equation-deltadef">(1)</a> is a
 shorthand for <a href="#equation-deltaprec">(3)</a> and <a href="#equation-deltalim">(2)</a> gets a mathematically rigorous
 meaning when you integrate both sides and use <a href="#equation-deltadef">(1)</a> to arrive at
@@ -237,7 +237,7 @@ c}\right)\d x
 \int {\delta(x)\over |c|}\varphi(x)\d x" /></p>
 </div></div>
 <div class="section" id="variations-and-functional-derivatives">
-<span id="index-94"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
+<span id="index-619"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
 <p>Functional derivatives are a common source of confusion and especially the
 notation. The reason is similar to the delta function &#8212; the definition is
 operational, i.e. it tells you what operations you need to do to get a
@@ -285,7 +285,12 @@ may not like it.</p>
 </div><p>thus we write <img class="math" src="../../images/math/241ec7abd4e85fd8418aab4de16cef4b9edd49ae.png" alt="h=\delta f"/> and</p>
 <div class="math">
 <p><img src="../../images/math/fa073632306ec146fbbaab3afd4d93610653f6e3.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x" /></p>
-</div><p>so <img class="math" src="../../images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> have two meanings &#8212; it&#8217;s either <img class="math" src="../../images/math/50a036b0a0323926bd92b26644862976f3168c34.png" alt="h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x)) \right|_{\varepsilon=0}"/> (a finite change in the function <img class="math" src="../../images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>) or a variation of a functional, depending on the context. Mathematicians never write <img class="math" src="../../images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> in the meaning of <img class="math" src="../../images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)"/>, they always write the latter, but it&#8217;s ridiculous, because it is completely analogous to <img class="math" src="../../images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/>.</p>
+</div><p>so <img class="math" src="../../images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> have two meanings &#8212; it&#8217;s either
+<img class="math" src="../../images/math/d7f9a2f06922cdbc376c69a53a356b660a89d134.png" alt="h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x))
+\right|_{\varepsilon=0}"/> (a finite change in the function <img class="math" src="../../images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>) or a variation
+of a functional, depending on the context. Some mathematicians don&#8217;t like to
+write <img class="math" src="../../images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> in the meaning of <img class="math" src="../../images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)"/>, they prefer to write the latter, but
+it is in fact perfectly fine to use <img class="math" src="../../images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/>, because it is completely analogous to <img class="math" src="../../images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/>.</p>
 <p>The correspondence between the finite and infinite dimensional case can be summarized as:</p>
 <div class="math">
 <p><img src="../../images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}" /></p>
@@ -312,11 +317,57 @@ may not like it.</p>
 </div><div class="math">
 <p><img src="../../images/math/8357125b34ce9cacedbeb896051c04f1359a5f20.png" alt="=\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)" /></p>
 </div><p>The last equality follows from <img class="math" src="../../images/math/254200367124546e9177667d1eef5980bf070b09.png" alt="K(t_1,t_2)=K(t_2,t_1)"/> (any antisymmetrical part of a <img class="math" src="../../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> would not contribute to the symmetrical integration).</p>
+<p>Another example is the derivation of Euler-Lagrange equations for the
+Lagrangian density <img class="math" src="../../images/math/5dde232e7d98a7e226092bf4cc8886441e4f0a26.png" alt="\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)"/>:</p>
+<div class="math">
+<p><img src="../../images/math/ca3df7ea8ec0fdf676a58b601e6200e37f07ab31.png" alt="0 = \delta I = \delta \int \L \,\d^4x^\mu
+= \int \partial \L \,\d^4x^\mu
+= \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+    +
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \delta(\partial_\nu\eta_\rho)
+    \,\d^4x^\mu
+=
+
+= \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+    +
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \partial_\nu(\delta\eta_\rho)
+    \,\d^4x^\mu
+=
+
+= \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+    -
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \right)
+    \delta\eta_\rho
+    \,\d^4x^\mu
+    +\int \partial_\nu \left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \delta\eta_\rho
+    \right)
+    \,\d^4x^\mu
+=
+
+= \int \left[{ \partial \L\over\partial \eta_\rho}
+    -
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \right)
+    \right]
+    \delta\eta_\rho
+    \,\d^4x^\mu" /></p>
+</div><p>Another example:</p>
 <div class="math">
 <p><img src="../../images/math/7fda5810cd5b225833196609574ddeff17492eb1.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}=" /></p>
 </div><div class="math">
 <p><img src="../../images/math/577aa4fdba4bbdbfbfb835af2096c522859d5ab7.png" alt="=\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)" /></p>
-</div><p>Some mathematicians would say the above calculation is incorrect, because <img class="math" src="../../images/math/c955fcd1c55ca1e65d9cf198d394293ad902f46c.png" alt="\delta^2(x-t)"/> is undefined. But that&#8217;s not true, because in case of such problems the above notation automatically implies working with some sequence <img class="math" src="../../images/math/58584a8e48185211c80bb921f144dca3e5c08f31.png" alt="\delta_\alpha(x) \to \delta(x)"/> (for example <img class="math" src="../../images/math/8941866bd55f5b6ca54683a357d89a338a0bf649.png" alt="\delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)"/>) and taking the limit <img class="math" src="../../images/math/67d0ab153257a7d8933eaa2870be9bb2aeb55ff6.png" alt="\alpha\to\infty"/>:</p>
+</div><p>Some mathematicians would say the above calculation is incorrect, because
+<img class="math" src="../../images/math/c955fcd1c55ca1e65d9cf198d394293ad902f46c.png" alt="\delta^2(x-t)"/> is undefined. But that&#8217;s not exactly true, because in case of
+such problems the above notation automatically implies working with some
+sequence <img class="math" src="../../images/math/58584a8e48185211c80bb921f144dca3e5c08f31.png" alt="\delta_\alpha(x) \to \delta(x)"/> (for example <img class="math" src="../../images/math/766e2be522002f4a969d89a59aa611633242b363.png" alt="\delta_\alpha(x) =
+{1\over\pi x}\sin(\alpha x)"/>) and taking the limit <img class="math" src="../../images/math/67d0ab153257a7d8933eaa2870be9bb2aeb55ff6.png" alt="\alpha\to\infty"/>:</p>
 <div class="math">
 <p><img src="../../images/math/806767d1dc2d63de5be19a2e41aa3846748b2b0a.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.\lim_{\alpha\to\infty}{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta_\alpha(x-t))^3\d x \right|_{\varepsilon=0}=" /></p>
 </div><div class="math">
@@ -326,7 +377,7 @@ may not like it.</p>
 </div><p>As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That&#8217;s why such obvious manipulations with <img class="math" src="../../images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
 </div>
 <div class="section" id="spherical-harmonics">
-<span id="index-95"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
+<span id="index-620"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
 <p>Are defined by</p>
 <div class="math">
 <p><img src="../../images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
@@ -355,7 +406,7 @@ may not like it.</p>
 <p><img src="../../images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
 </div></div>
 <div class="section" id="dirac-notation">
-<span id="index-96"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
+<span id="index-621"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
 <p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
 <p>Let&#8217;s have a function <img class="math" src="../../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. We define</p>
 <div class="math">
@@ -369,7 +420,18 @@ may not like it.</p>
 </div><p>and thus we can interpret <img class="math" src="../../images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> as a vector, <img class="math" src="../../images/math/72ee4347616aaecffcaa9580998be2662d0783a9.png" alt="\ket{x}"/> as a basis and <img class="math" src="../../images/math/439e8ac0e147fdd7f1b9ed6f1435792713c15834.png" alt="\braket{x|f}"/> as the coefficients in the basis expansion:</p>
 <div class="math">
 <p><img src="../../images/math/8fbb4a9da264260bddb4f0c55c213a1f3c8deb93.png" alt="\ket{f}=\one\ket{f}=\int\ket{x}\bra{x}\d x\ket{f}= \int\ket{x}\braket{x|f}\d x" /></p>
-</div><p>That&#8217;s all there is to it. Take the above rules as the operational definition of the Dirac notation. It&#8217;s like with the delta function - written alone it doesn&#8217;t have any meaning, but there are clear and non-ambiguous rules to convert any expression with <img class="math" src="../../images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> to an expression which even mathematicians understand (i.e. integrating, applying test functions and using other relations to get rid of all <img class="math" src="../../images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> symbols in the expression &#8211; but the result is usually much more complicated than the original formula). It&#8217;s the same with the ket <img class="math" src="../../images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/>: written alone it doesn&#8217;t have any meaning, but you can always use the above rules to get an expression that make sense to everyone (i.e. attaching any bra to the left and rewriting all brackets <img class="math" src="../../images/math/4492b4c345f392d6eb9e5a2ad3f73a47bb435ee6.png" alt="\braket{a|b}"/> with their equivalent expressions) &#8211; but it will be more complex and harder to remember and &#8211; that is important &#8211; less general.</p>
+</div><p>That&#8217;s all there is to it. Take the above rules as the operational definition
+of the Dirac notation. It&#8217;s like with the delta function - written alone it
+doesn&#8217;t have any meaning, but there are clear and non-ambiguous rules to
+convert any expression with <img class="math" src="../../images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> to an expression which even mathematicians
+understand (i.e. integrating, applying test functions and using other relations
+to get rid of all <img class="math" src="../../images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> symbols in the expression &#8211; but the result is
+usually much more complicated than the original formula). It&#8217;s the same with
+the ket <img class="math" src="../../images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/>: written alone it doesn&#8217;t have any meaning, but you can
+always use the above rules to get an expression that make sense to everyone
+(i.e. attaching any bra to the left and rewriting all brackets <img class="math" src="../../images/math/4492b4c345f392d6eb9e5a2ad3f73a47bb435ee6.png" alt="\braket{a|b}"/>
+with their equivalent expressions) &#8211; but it will be more complex and harder to
+remember and &#8211; that is important &#8211; less general.</p>
 <p>Now, let&#8217;s look at the spherical harmonics:</p>
 <div class="math">
 <p><img src="../../images/math/771a6f4775e528c8e3ce75bda7bf22a396304fc0.png" alt="Y_{lm}({\bf\hat r})\equiv\braket{{\bf\hat r}|lm}" /></p>
@@ -445,7 +507,7 @@ may not like it.</p>
 <p><span class="eqno">(12)</span><img src="../../images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})" /></p>
 </div></div>
 <div class="section" id="homogeneous-functions">
-<span id="index-97"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-622"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
 <p>A function of several variables <img class="math" src="../../images/math/83d951deadedf7bc68666c3abe5d13125b1841ca.png" alt="f(x_1, x_2, \dots) \equiv f(x_i)"/> is
 homogeneous of degree <img class="math" src="../../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> if</p>
 <div class="math">
