@@ -48,9 +48,9 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-662"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-789"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-663"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-790"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
 density, momentum density and stress as measured by any observer of the event.</p>
@@ -123,41 +123,59 @@ f_\mu = \partial_\mu\L" /></p>
 conservation law:</p>
 <div class="math">
 <p><img src="../../images/math/7b54cb49b70a5e0fa09961d4b619e33d02048c6c.png" alt="\partial_\nu T^{\mu\nu} + f^\mu = 0" /></p>
-</div><div class="section" id="perfect-fluids">
+</div><p>To obtain some Lagrangian (and action) for the perfect fluid, so that we can
+derive the stress energy tensor <img class="math" src="../../images/math/d9fc8ac3ad36a143e6dc1f9865d53f230e9f3341.png" alt="T^{\mu\nu}"/> from that, is not trivial, see for
+example <a class="reference external" href="http://arxiv.org/abs/gr-qc/9304026">arXiv:gr-qc/9304026</a>. One has to
+take into account the equation of state and incorporate the particle number
+conservation <img class="math" src="../../images/math/722bce455e1e4fd7f21bce165c592992d70b8f09.png" alt="\nabla_\mu(nu^\mu)=0"/> and no entropy exchange
+<img class="math" src="../../images/math/610cdc25eeea2b695fc9c6b699d2374bd92d90f0.png" alt="\nabla_\mu(nsu^\mu)=0"/> constraints.</p>
+<div class="section" id="perfect-fluids">
 <h3>Perfect Fluids<a class="headerlink" href="#perfect-fluids" title="Permalink to this headline">¶</a></h3>
 <p>Perfect fluids have no heat conduction (<img class="math" src="../../images/math/9fdef3ebe8c96dbe81bc688352b54bd598e04fb2.png" alt="T^{i0} = T^{0i} = 0"/>) and no
 viscosity (<img class="math" src="../../images/math/a85470ac36bf63d0d0a95c0f06bb1da24fb8cd9e.png" alt="T^{ij} = p\one"/>), so in the MCRF:</p>
 <div class="math">
-<p><img src="../../images/math/00a61226b46c597257f547bc31b54eea20a4ed7e.png" alt="T^{\alpha\beta} = \diag(\rho, p, p, p) =
-(\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
+<p><img src="../../images/math/cf9bcf31176c79bcc8b6ed61a808b758fccc929b.png" alt="T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+\left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
 </div><p>where in MCRF we have <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>, <img class="math" src="../../images/math/bfb4fda47c22ddea6ca6b3009a9dade393390caa.png" alt="u^0=c"/> and <img class="math" src="../../images/math/2cbcd1a277412664b207cbb8e687d639213df995.png" alt="u^i=0"/>,
-but <img class="math" src="../../images/math/6987c0f0c13625edae29d1165f37b497dcf538e0.png" alt="\partial_\alpha U^i\neq0"/>. The last equation is a tensor equation so it
-holds in any frame. The nonrelativistic limit of this stress energy tensor is:</p>
+but <img class="math" src="../../images/math/6987c0f0c13625edae29d1165f37b497dcf538e0.png" alt="\partial_\alpha U^i\neq0"/>. <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> is the pressure with units
+<img class="math" src="../../images/math/38538eb1bee3ecd3de4b08d6fdf7e28585065ceb.png" alt="[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}"/> (then
+<img class="math" src="../../images/math/425bf23372113448c8ac1d14f2baabb8a740fe88.png" alt="[{p\over c^2}] =\rm kg\,m^{-3}"/>), <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> is the mass density with units
+<img class="math" src="../../images/math/bd6ffca970962deb42030ae9049645062780249f.png" alt="[\rho] =\rm kg\,m^{-3}"/>, and <img class="math" src="../../images/math/a6808187ecada5e6a132351c3af09d5b3fdc638a.png" alt="\rho c^2"/> is the energy density with units
+<img class="math" src="../../images/math/900a45e031d50d973868ee812a015c84cc4bb3ae.png" alt="[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}"/>.</p>
+<p>The last equation is a tensor equation so it
+holds in any frame. The nonrelativistic limit of this stress energy tensor is
+obtained by approximating <img class="math" src="../../images/math/70777be572c24ae6f1a0fa96ad9da7048021714e.png" alt="u^0\approx c"/> and <img class="math" src="../../images/math/f65bbb8ee7ce1e09c5b87b9c31eca5940368f36f.png" alt="u^j"/> by the nonrelativistic
+velocity (and we can also neglect <img class="math" src="../../images/math/da48c7f332198705a38cbe8ac67b5c72a51838b4.png" alt="{p\over c^2}"/> compared to <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>):</p>
 <div class="math">
-<p><img src="../../images/math/87b230f13bac83589a5cd84287a50cc3131abd53.png" alt="T^{00} = (\rho+p)u^0u^0 - p \approx \rho c
+<p><img src="../../images/math/1d8da453979e7c5c781ac76f9fdc9d13b157e0f8.png" alt="T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2+p
+    \approx \rho c^2
 
-T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
+T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx
+    \left(\rho + {p\over c^2}\right) c u^j
+    \approx
+    \rho c u^j
 
-T^{jk} = (\rho+p)u^ju^k + p \delta^{jk} \approx \rho u^j u^k + p
-    \delta^{jk}" /></p>
+T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
+    \approx \left(\rho + {p\over c^2}\right) u^j u^k + p \delta^{jk}
+    \approx \rho u^j u^k + p \delta^{jk}" /></p>
 </div><p>Substituting this into the conversation law <img class="math" src="../../images/math/599e3be9827da3311472e0669c7c8daef9beb8a2.png" alt="\partial_\beta
 T^{\alpha\beta}=0"/> we get for <img class="math" src="../../images/math/11e9c9370965f44fe5bd812e80c12fccbeec1a17.png" alt="\alpha=0"/>:</p>
 <div class="math">
-<p><img src="../../images/math/0c98f82567af1df849f732600a470357c7160821.png" alt="\partial_\beta T^{0\beta} = 0
+<p><img src="../../images/math/0ab80aba3bced2ab0c9a4d0e551f92a34bd03ff2.png" alt="\partial_\beta T^{0\beta} = 0
 
 \partial_0 T^{00} + \partial_i T^{0i} = 0
 
-\partial_0 (\rho c) + \partial_i (\rho u^i) = 0
+\partial_0 (\rho c^2) + \partial_i (\rho c u^i) = 0
 
 {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0" /></p>
 </div><p>This is the continuity equation for the energy (<img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> here is the energy
 density). For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
 <div class="math">
-<p><img src="../../images/math/8992ec6e25b1ceaf88007882b3b9f35c2fe25682.png" alt="\partial_\beta T^{i\beta} = 0
+<p><img src="../../images/math/fd79cf55bcaea4d8e4b33b1cd18efc6a4c054aef.png" alt="\partial_\beta T^{i\beta} = 0
 
 \partial_0 T^{i0} + \partial_j T^{ij} = 0
 
-\partial_0 (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+\partial_0 (\rho c u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
 
 {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
     (\rho {\bf u}{\bf u}^T) + \nabla p = 0" /></p>
@@ -297,7 +315,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-664"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-791"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
