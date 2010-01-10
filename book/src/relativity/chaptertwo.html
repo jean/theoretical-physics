@@ -48,7 +48,89 @@
           <div class="body">
             
   <div class="section" id="newtonian-physics">
-<span id="index-725"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
+<span id="index-60"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-why-tensors">
+<h2>Introduction: Why Tensors<a class="headerlink" href="#introduction-why-tensors" title="Permalink to this headline">¶</a></h2>
+<p>This section gives a brief introduction, and in the next sections we derive
+everything in detail. The Newton law is:</p>
+<div class="math">
+<p><img src="../../images/math/804ef9077b2454ee7bd1791194c1dc1ec4f69c04.png" alt="m {\d^2 {\bf x}\over\d t^2} = {\bf F}" /></p>
+</div><p>and using a potential for <img class="math" src="../../images/math/cc09df8f8309f44eb202cea5f25919220401e438.png" alt="{\bf F}"/>, we get:</p>
+<div class="math">
+<p><img src="../../images/math/d1a13d62e79c4ce3a8b7ab18fdadde07862d0041.png" alt="{\d^2 {\bf x}\over\d t^2} = -\nabla \phi
+
+{\d^2 x^i\over\d t^2} = -\partial^i \phi" /></p>
+</div><p>the last two equations are two different equivalent ways to write a tensor
+equation in 3D, which means that this equation has the exact same form (is
+valid) in any (spatial) coordinate system (rotated, translated, in cartesian
+coordinates, spherical coordinates, ...). Each coordinate system has a
+different metric, but we can always locally transform into
+<img class="math" src="../../images/math/578f7c2acbe0d0bffe492e93a2ff61c6be26644b.png" alt="g_{ij}=\diag(1, 1, 1)"/>.</p>
+<p>However, if our coordinate transformation depends on time (e.g. a rotating
+disk), then the above tensor equation changes (e.g. for the rotating disk, we
+get the Coriolis acceleration term), that&#8217;s because time is treated as a
+parameter, not as a coordinate.</p>
+<p>To fix this, we need to work in 4D and treat time as a coordinate, so we
+introduce <img class="math" src="../../images/math/38972decef7deba9de15b58afe1049ad8e9fa9f0.png" alt="x^0 = ct"/> where <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is any constant speed (it can be any speed,
+doesn&#8217;t have to be the speed of light). Then in 4D, the above equations are not
+tensor equations anymore, because the operator <img class="math" src="../../images/math/95113aef12b2e714e2230b1e1f01e2dbc02d02ab.png" alt="{\d\over \d t} = c \partial_0"/>
+is not a tensor. The 4D tensor formulation happens to be the geodesic equation:</p>
+<div class="math">
+<p><img src="../../images/math/7766d9ebbd87879eaf4ba74379ae52e665a7edd5.png" alt="{\d x^\beta\over\d\lambda}\nabla_\beta {\d x^\alpha\over\d\lambda} = 0
+
+R_{00} = 4\pi G\rho
+
+R_{ij} = 0" /></p>
+</div><p>Which (given that we know how to calculate the Ricci tensor in our coordinates)
+is valid in any coordinates, not only rotated, translated, cartesian,
+spherical, ..., but also with arbitrary time dependence, e.g. a rotating disk,
+accelerating disk, ...</p>
+<p>After suitable local coordinate transformation, we can only get two possible
+metrics (that connect the time and spatial coordinates): <img class="math" src="../../images/math/bc075bb2c35e291fec83ae96fe363655c597b95f.png" alt="\diag(-1, 1, 1, 1)"/>
+and <img class="math" src="../../images/math/3a55575f4b7efaf0b450587d92f37612c71347f3.png" alt="\diag(1, 1, 1, 1)"/>. Inertial systems have no fictitious forces, so the
+metrics is one of the two above (possibly with <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>). Transformation
+between inertial systems is such a coordinate transformation that leaves the
+metric intact, e.g.:</p>
+<div class="math">
+<p><img src="../../images/math/1c6cfd2378ff8babc9859c8c51a87c3fe07543fb.png" alt="g' = \Lambda^T g \Lambda" /></p>
+</div><p>There is no coordinate transformation that turns the metric <img class="math" src="../../images/math/29c45dbcf9f4386d3beb05e43722a343d993f0d9.png" alt="\diag(-1, 1, 1,
+1)"/> into <img class="math" src="../../images/math/3a55575f4b7efaf0b450587d92f37612c71347f3.png" alt="\diag(1, 1, 1, 1)"/>, so we need to choose either one to describe one
+inertial system and then all other inertial systems will automatically have a
+metric with the same signature.</p>
+<p>The Newton law is valid for small speeds compared to the speed of light, so
+when we want to extend the theory for all speeds, we only have 4 options: O(3,
+1) with either <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> or <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> finite and O(4) with either <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> or
+<img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> finite. If <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is finite, it has to be large enough, so that we still
+recover the Newton law for small speeds with the given experimental precision.
+All 4 cases give the correct Newton law, but give different predictions for
+large speeds. All we need to do to decide which one is correct is to perform
+such large speeds (relativistic) experiments. It turns out that all such
+relativistic experiments are in agreement with the O(3, 1) case where <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is
+the (finite) speed of light and with disagreement with the 3 other cases. For
+small speeds however (i.e. Newtonean physics), all 4 cases will work, as long
+as <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is chosen large enough.</p>
+<p>Given a tensor equation, we can easily determine, if it transforms correctly
+under the Galilean (<img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>) or Lorentz transformations (<img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is finite).
+All we have to do is to perform the limit <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>. For example the Newton
+second law is recovered if we do the <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> limit, but Maxwell equations
+are only recovered if we choose <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> to be exactly the speed of light in the
+Maxwell equations.</p>
+<p>The reason why we write equations as tensor equations in 4D is that we can then
+use any coordinates (including any time dependence), i.e. any observer, and the
+equations still have the exact same form. So specifying the metrics is enough
+to define the coordinates (observer) and since the equations has only one form,
+that is all we need. If we write equations only as tensors in 3D, we not only
+need to specify the (3D) metrics, but also how the observer accelerates with
+respect to some (usually inertial) frame where the equations (let&#8217;s say Newton
+law) is defined and we then need to transform all the time derivatives
+correctly. By using tensors in 4D, all those transformations are taken care of
+by the standard tensor machinery and all we need to care about is exactly one
+observer, defined by its metric tensor.</p>
+<p>By choosing the correct metrics and <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> (i.e. <img class="math" src="../../images/math/bc075bb2c35e291fec83ae96fe363655c597b95f.png" alt="\diag(-1, 1, 1, 1)"/> and <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> the
+speed of light), all equations are then automatically Lorentz invariant. If we
+choose <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> (and any metric), we automatically get all equations
+Galilean invariant.</p>
+</div>
 <div class="section" id="high-school-formulation">
 <h2>High School Formulation<a class="headerlink" href="#high-school-formulation" title="Permalink to this headline">¶</a></h2>
 <p>The usual (high school) formulation is the second Newton&#8217;s law:</p>
@@ -558,7 +640,7 @@ matrix and let&#8217;s assume this particular form:</p>
 </div><p>(e.g. this covers almost all possible Newtonian metrics tensors).</p>
 </div>
 <div class="section" id="lorentz-group">
-<span id="index-726"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-61"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
 <p>The Lorentz group is O(3,1), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho">
 <p><span class="eqno">(3)</span><img src="../../images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
@@ -761,7 +843,7 @@ substitution <img class="math" src="../../images/math/db1406080e883dec5d0f64bc4b
 <p><img src="../../images/math/84ef1f03fee421e7a1ec6af7f75bfce949591c43.png" alt="w = {u+v\over1+{uv\over c^2}}" /></p>
 </div></div>
 <div class="section" id="o-4-group">
-<span id="index-727"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-62"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
 <p>The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho2">
 <p><span class="eqno">(4)</span><img src="../../images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
@@ -828,7 +910,7 @@ structure of SO(4), because one can get from <img class="math" src="../../images
 concerned about, we are fine.</p>
 </div>
 <div class="section" id="proper-time">
-<span id="index-728"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
+<span id="index-63"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
 <p>Proper time <img class="math" src="../../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is a time elapsed by (physical) clocks along some (4D)
 trajectory.  Coordinate time <img class="math" src="../../images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is just some time coordinate assigned to each
 point in the space and usually one can find some real clocks, that would
@@ -1071,16 +1153,20 @@ limit <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8
 <p>What is the role of the different metrics, that generate the same Christoffel
 symbols in the limit (<img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>)? Can one inertial frame be given with one
 and another frame with a different form of the metrics (e.g. one with
-<img class="math" src="../../images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/> and the other one with <img class="math" src="../../images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/>?)</p>
+<img class="math" src="../../images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/> and the other one with <img class="math" src="../../images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/>?) Possible answer: there is
+no transformation to convert a metrics with signature +4 to signature +2, so
+one has to choose one and then all other inertial frames have the same one.</p>
 <p>What are all the allowed transformations between intertial frames? If we assume
 that the inertial frames are given with one given metrics (see the previous
 question), then the answer is: representation of the O(3, 1) group if
 <img class="math" src="../../images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/> or O(4) group if <img class="math" src="../../images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/>. But if one frame is <img class="math" src="../../images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/>
 and we transform to another frame with <img class="math" src="../../images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/>, then it is not clear what
-happens.</p>
+happens. Possible answer: one has to choose some signature and stick to it,
+see also the previous question.</p>
 <p>What is the real difference between Newtonian physics and general relativity?
 Given our formulation of Newtonian physics using the differential geometry, I
-want to know what the physical differences are between all the three theories.</p>
+want to know what the physical differences are between all the three theories
+are.</p>
 </div>
 </div>
 
@@ -1093,6 +1179,7 @@ want to know what the physical differences are between all the three theories.</
             <h3><a href="../../index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference external" href="">Newtonian Physics</a><ul>
+<li><a class="reference external" href="#introduction-why-tensors">Introduction: Why Tensors</a></li>
 <li><a class="reference external" href="#high-school-formulation">High School Formulation</a></li>
 <li><a class="reference external" href="#college-formulation">College Formulation</a></li>
 <li><a class="reference external" href="#differential-geometry-formulation">Differential Geometry Formulation</a></li>

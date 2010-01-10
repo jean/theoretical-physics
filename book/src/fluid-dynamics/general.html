@@ -48,9 +48,9 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-789"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-790"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
 density, momentum density and stress as measured by any observer of the event.</p>
@@ -161,25 +161,33 @@ T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
 </div><p>Substituting this into the conversation law <img class="math" src="../../images/math/599e3be9827da3311472e0669c7c8daef9beb8a2.png" alt="\partial_\beta
 T^{\alpha\beta}=0"/> we get for <img class="math" src="../../images/math/11e9c9370965f44fe5bd812e80c12fccbeec1a17.png" alt="\alpha=0"/>:</p>
 <div class="math">
-<p><img src="../../images/math/0ab80aba3bced2ab0c9a4d0e551f92a34bd03ff2.png" alt="\partial_\beta T^{0\beta} = 0
+<p><img src="../../images/math/b1652d53e18c8c57b302d373b89cf327ee3fc53b.png" alt="\partial_\beta T^{0\beta} = 0
 
 \partial_0 T^{00} + \partial_i T^{0i} = 0
 
 \partial_0 (\rho c^2) + \partial_i (\rho c u^i) = 0
 
+\partial_t\rho + \partial_i(\rho u^i) = 0
+
 {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0" /></p>
 </div><p>This is the continuity equation for the energy (<img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> here is the energy
 density). For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
 <div class="math">
-<p><img src="../../images/math/fd79cf55bcaea4d8e4b33b1cd18efc6a4c054aef.png" alt="\partial_\beta T^{i\beta} = 0
+<p><img src="../../images/math/1930b9bf98d3e75a2be71aef62241702fdf80305.png" alt="\partial_\beta T^{i\beta} = 0
 
 \partial_0 T^{i0} + \partial_j T^{ij} = 0
 
 \partial_0 (\rho c u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
 
+\partial_t (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+
 {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
     (\rho {\bf u}{\bf u}^T) + \nabla p = 0" /></p>
-</div><p>Which are the Euler equations. The equation of continuity follows from the
+</div><p>Which are the Euler equations, sometimes also written as (using the continuity
+equation):</p>
+<div class="math">
+<p><img src="../../images/math/a2b0053e4711e0afc2276cba5c140e77c9bdd94e.png" alt="\rho\partial_t u^i + \rho u^j\partial_j u^i + \delta^{ij}\partial_j p = 0" /></p>
+</div><p>The equation of continuity follows from the
 conservation of the baryon number &#8212; the volume <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> that contains certain
 number of baryons can change, but the total number of baryons <img class="math" src="../../images/math/b73bae695c92a9d27cae2b724348a9357ef6774a.png" alt="nV"/> must remain
 constant:</p>
@@ -233,7 +241,97 @@ incompressible Navier-Stokes equations:</p>
 Euler equations (for perfect fluid):</p>
 <div class="math">
 <p><img src="../../images/math/95726c37fa3d33c2ab8b4989be5a79e56f3f46fa.png" alt="\nabla \cdot \mathds{T}=0" /></p>
+</div><div class="section" id="energy-equation">
+<h3>Energy Equation<a class="headerlink" href="#energy-equation" title="Permalink to this headline">¶</a></h3>
+<p>We have the following two Euler equations:</p>
+<div class="math">
+<p><img src="../../images/math/6ec0acd7de5df1197b33718511cb13c82b863269.png" alt="\partial_t\rho + \partial_i(\rho u^i) = 0
+
+\rho\partial_t u^i + \rho u^j\partial_j u^i + \delta^{ij}\partial_j p = 0" /></p>
+</div><p>We&#8217;ll need the following formulas:</p>
+<div class="math">
+<p><img src="../../images/math/a91562b898340209ea21caef92fedd6e96c40af1.png" alt="\partial_t (u_i u^i) = (\partial_t u_i) u^i + u_i \partial_t u^i =
+(\partial_t u_i)\delta^{ij} u_j + u_i \partial_t u^i =
+
+= (\partial_t u_i\delta^{ij}) u_j + u_i \partial_t u^i =
+(\partial_t u^j) u_j + u_i \partial_t u^i =
+2 u_i \partial_t u^i
+
+\partial_j (u_i u^i) = 2 u_i \partial_j u^i
+
+\partial_t\rho =- \partial_i(\rho u^i)
+
+\partial_t u^i =- u^j\partial_j u^i - {\delta^{ij}\over\rho}\partial_j p
+
+- u^j\partial_j p + \partial_t(\rho U) =
+
+  = - {\d p \over\d t} +\partial_t p + \partial_t(\rho U) =
+
+  = - {\d p \over\d t} +\partial_t (\rho U + p) =
+
+  = - {\d p \over\d t} +{\d\over\d t} (\rho U + p)
+    -u^j\partial_j (\rho U + p)=
+
+  = - {\d p \over\d t} +{\d\rho\over\d t} \left(U + {p\over\rho}\right)
+    +\rho{\d\over\d t} \left(U + {p\over\rho}\right)
+    -u^j\partial_j (\rho U + p)=
+
+  = - {\d p \over\d t} +{\d\rho\over\d t} \left(U + {p\over\rho}\right)
+    +\rho{\d\over\d t} \left(U + {p\over\rho}\right)
+    + (\rho U + p)\partial_j u^j
+    -\partial_j (\rho U u^j + p u^j) =
+
+  = \left[\rho {\d\over\d t}\left(U + {p\over\rho}\right) - {\d p\over\d t}
+    \right]
+    +
+    \left(U + {p\over\rho}\right)\left[ {\d\rho\over\d t} + \rho
+        \partial_j u^j \right]
+    -\partial_j (\rho U u^j + p u^j) =
+
+  = - \partial_j(\rho U u^j + p u^j)
+
+  0 = \d Q = T\d S = \d U + p\d V = \d (U + pV) - V\d p
+    = \d\left(U+{p\over\rho}\right) - {1\over \rho}\d p
+    = \d H - {1\over \rho}\d p" /></p>
+</div><p>where <img class="math" src="../../images/math/5b49efcafe0623bfb9d63be49a160efbd5fdebeb.png" alt="V = {1\over\rho}"/> is the specific volume and
+<img class="math" src="../../images/math/e9f54ad6175ce0edb272ed40770fd5897504dddb.png" alt="H = U+{p\over\rho}"/> is entalphy (heat content).</p>
+<p>Then:</p>
+<div class="math">
+<p><img src="../../images/math/be0f6049e593ecc9ed2051bb8950faace293b04f.png" alt="\partial_t E =
+
+= \partial_t (\half \rho u_i u^i + \rho U) =
+
+= \half u_i u^i \partial_t \rho
+    +\half\rho\partial_t(u_i u^i) + \partial_t(\rho U) =
+
+= -\half u_i u^i \partial_j(\rho u^j)
+    +\rho u_i\partial_t u^i + \partial_t(\rho U) =
+
+= -\half u_i u^i \partial_j(\rho u^j)
+    - \rho u_i u^j\partial_j u^i - u_i\delta^{ij}\partial_j p
+    + \partial_t(\rho U) =
+
+= -\half u_i u^i \partial_j(\rho u^j)
+    - \half\rho u^j\partial_j (u_i u^i) - u_i\delta^{ij}\partial_j p
+    + \partial_t(\rho U) =
+
+= -\half\partial_j(\rho u_i u^i u^j)
+    - u^j\partial_j p + \partial_t(\rho U) =
+
+= -\half\partial_j(\rho u_i u^i u^j)
+    - \partial_j(\rho U u^j + p u^j) =
+
+= -\partial_j\left(u^j\left(\half\rho u_i u^i+\rho U + p \right)\right) =
+
+= -\partial_j\left(u^j\left(E + p \right)\right)" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../images/math/29bd543ff6712fb32da51fd21590b8c099142408.png" alt="\partial_t E + \partial_j\left(u^j\left(E + p \right)\right) = 0
+
+{\partial E\over\partial t}
+    + \nabla\cdot\left({\bf u}\left(E + p \right)\right) = 0" /></p>
 </div></div>
+</div>
 <div class="section" id="bernoulli-s-principle">
 <h2>Bernoulli&#8217;s Principle<a class="headerlink" href="#bernoulli-s-principle" title="Permalink to this headline">¶</a></h2>
 <p>Bernoulli&#8217;s principle works for a perfect fluid, so we take the Euler equations:</p>
@@ -315,7 +413,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-791"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
@@ -366,7 +464,10 @@ Hagen-Poiseuille law.</p>
 <li><a class="reference external" href="#perfect-fluids">Perfect Fluids</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#navier-stokes-equations">Navier-Stokes Equations</a></li>
+<li><a class="reference external" href="#navier-stokes-equations">Navier-Stokes Equations</a><ul>
+<li><a class="reference external" href="#energy-equation">Energy Equation</a></li>
+</ul>
+</li>
 <li><a class="reference external" href="#bernoulli-s-principle">Bernoulli&#8217;s Principle</a><ul>
 <li><a class="reference external" href="#hydrostatic-pressure">Hydrostatic Pressure</a></li>
 <li><a class="reference external" href="#torricelli-s-law">Torricelli&#8217;s Law</a></li>
