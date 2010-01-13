@@ -48,9 +48,9 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-109"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-110"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
 density, momentum density and stress as measured by any observer of the event.</p>
@@ -198,6 +198,8 @@ constant:</p>
 u^\alpha (\partial_\alpha n)V + n(\partial_\alpha u^\alpha) V = 0
 
 \partial_\alpha (n u^\alpha) = 0" /></p>
+</div><div class="math" id="equation-baryon1">
+<p><span class="eqno">(1)</span><img src="../../images/math/84ef58f67f1179c027f0e3ba29db2b71016339e1.png" alt="\partial_t (n \gamma) + \partial_i(n v^i \gamma) = 0" /></p>
 </div><p>and in the limit <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>:</p>
 <div class="math">
 <p><img src="../../images/math/ce6638180c9d34948fc8654e78dadd9bd1c13650.png" alt="{\partial n\over \partial t} + \nabla\cdot(n{\bf v}) = 0" /></p>
@@ -376,7 +378,7 @@ T^{jk} =
     + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
       \gamma^2 \right) = 0" /></p>
 </div><div class="math" id="equation-euler5">
-<p><span class="eqno">(1)</span><img src="../../images/math/8d5cd73b377a4d233ca4c66c86cb66b47d47a5d9.png" alt="\partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma^2) +
+<p><span class="eqno">(2)</span><img src="../../images/math/8d5cd73b377a4d233ca4c66c86cb66b47d47a5d9.png" alt="\partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma^2) +
 \partial_t (\rho U \gamma^2 + p\gamma^2 - p) +
 \partial_i \left((\rho U + p) v^i\gamma^2\right)
 = 0" /></p>
@@ -403,7 +405,7 @@ the <img class="math" src="../../images/math/a42677369237e9a7b40527101ab82771771
 = 0
 
 \partial_t E + \partial_i \left((E + p) v^i\right) = 0" /></p>
-</div><p>We can also write the equation <a href="#equation-euler5">(1)</a> as (here we use <img class="math" src="../../images/math/511877cc753d1c0f76b8f4377dc495ca515a5d38.png" alt="T=
+</div><p>We can also write the equation <a href="#equation-euler5">(2)</a> as (here we use <img class="math" src="../../images/math/511877cc753d1c0f76b8f4377dc495ca515a5d38.png" alt="T=
 \diag(\rho c^2, p, p, p)"/>:</p>
 <div class="math">
 <p><img src="../../images/math/ab45bda96f2494bf583f392354b9a8ad22225cbd.png" alt="\partial_t \left(\left(\rho c^2 + p\left(1-{1\over\gamma^2}
@@ -424,7 +426,7 @@ the <img class="math" src="../../images/math/a42677369237e9a7b40527101ab82771771
 =0" /></p>
 </div><p>and that can be interpreted either as <img class="math" src="../../images/math/2e40160ff31264af038111af1ce1829b7f535650.png" alt="E=\rho c^2"/>:</p>
 <div class="math" id="equation-euler8">
-<p><span class="eqno">(2)</span><img src="../../images/math/cd295ec9430bc485642c4ea62da39b81870e7832.png" alt="\partial_t E
+<p><span class="eqno">(3)</span><img src="../../images/math/cd295ec9430bc485642c4ea62da39b81870e7832.png" alt="\partial_t E
 +
 \partial_i\left(\left(E + p\right)v^i\right)
 =0" /></p>
@@ -436,14 +438,14 @@ the <img class="math" src="../../images/math/a42677369237e9a7b40527101ab82771771
 =0" /></p>
 </div><p>which reduces to:</p>
 <div class="math" id="equation-euler9">
-<p><span class="eqno">(3)</span><img src="../../images/math/f9f30e11772702dcb58e030f86b88d0d7718db96.png" alt="\partial_t \rho
+<p><span class="eqno">(4)</span><img src="../../images/math/f9f30e11772702dcb58e030f86b88d0d7718db96.png" alt="\partial_t \rho
 +
 \partial_i\left(\rho v^i\right)
 =0" /></p>
-</div><p>But both equations <a href="#equation-euler8">(2)</a> and <a href="#equation-euler9">(3)</a> are equivalent, because <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> is
-much larger than <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> in <a href="#equation-euler8">(2)</a>, so <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> can be negleted. In order to get
+</div><p>But both equations <a href="#equation-euler8">(3)</a> and <a href="#equation-euler9">(4)</a> are equivalent, because <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> is
+much larger than <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> in <a href="#equation-euler8">(3)</a>, so <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> can be negleted. In order to get
 the equation we want, we need to get rid of the rest mass <img class="math" src="../../images/math/9602b2c689a5e0bc36b80e1808d902953d0bf5ab.png" alt="mc^2"/> energy first
-(as we roughly did in the treatment in <a href="#equation-euler5">(1)</a>),
+(as we roughly did in the treatment in <a href="#equation-euler5">(2)</a>),
 and only the rest is comparable with <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>.</p>
 <p>For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
 <div class="math">
@@ -536,7 +538,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-111"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
