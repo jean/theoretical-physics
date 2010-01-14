@@ -48,9 +48,9 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-257"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-258"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
 density, momentum density and stress as measured by any observer of the event.</p>
@@ -187,18 +187,18 @@ the number of particles:</p>
 <p><span class="eqno">(4)</span><img src="../../images/math/cddc8ab5a9eccd1ace1ce63b83c88220b78aa3e2.png" alt="\partial_t (n m c^2\gamma) + \partial_i(n m c^2 v^i \gamma) = 0" /></p>
 </div><p>The equation <a href="#equation-conv1">(1)</a> gives for <img class="math" src="../../images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/>:</p>
 <div class="math">
-<p><img src="../../images/math/b13ca3c0065f3c88172241d8b91d1146df99cd19.png" alt="\partial_\nu T^{0\nu} = 0
+<p><img src="../../images/math/1fcf4794e8dcbe40d377f6f442d222aa809bae4c.png" alt="\partial_\nu T^{0\nu} = 0
 
 \partial_0 T^{00} + \partial_i T^{0i} = 0
 
 \partial_t\left({1\over c}\left(\rho c^2 + p {v^2\over c^2}\right)
     \gamma^2\right) + \partial_i\left({1\over c}\left(\rho c^2 + p\right)
-    v^i \gamma^2\right) = 0
-
-\partial_t\left(\left(\rho c^2 + p {v^2\over c^2}\right)
+    v^i \gamma^2\right) = 0" /></p>
+</div><div class="math" id="equation-energy-relat2">
+<p><span class="eqno">(5)</span><img src="../../images/math/022a0378808035d2c06acdc2d1bd19374c24eb57.png" alt="\partial_t\left(\left(\rho c^2 + p {v^2\over c^2}\right)
     \gamma^2\right) + \partial_i\left(\left(\rho c^2 + p\right)
     v^i \gamma^2\right) = 0" /></p>
-</div><p>We now substract from it the equation <a href="#equation-continuity1">(4)</a>:</p>
+</div><p>We now substract the equation <a href="#equation-continuity1">(4)</a> from <a href="#equation-energy-relat2">(5)</a>:</p>
 <div class="math">
 <p><img src="../../images/math/beb809efafa9f53c2a12e1eed1f1739a269523e2.png" alt="\partial_t\left(\left(\rho c^2\gamma - n m c^2 + p {v^2\over c^2}
     \gamma\right)
@@ -209,15 +209,23 @@ the number of particles:</p>
 <div class="math">
 <p><img src="../../images/math/2ac4013637f76928b63b2dfefcfd1e06e6f83759.png" alt="E = \rho c^2\gamma -n m c^2 = \half \rho v^2 + (\rho - nm)c^2 +
     O\left(v^4\over c^2\right)" /></p>
-</div><p>so it contains the kinetic plus internal energies. We substitute back:</p>
+</div><p>so it contains the kinetic plus internal energies. We substitute back
+into <a href="#equation-energy-relat2">(5)</a>:</p>
 <div class="math" id="equation-energy-relat">
-<p><span class="eqno">(5)</span><img src="../../images/math/6459bf0958400440fa264d6fded7fcd0b69a6b54.png" alt="\partial_t\left(\left(E + p {v^2\over c^2}
+<p><span class="eqno">(6)</span><img src="../../images/math/6459bf0958400440fa264d6fded7fcd0b69a6b54.png" alt="\partial_t\left(\left(E + p {v^2\over c^2}
     \gamma\right)
     \gamma\right) + \partial_i\left(\left(E + p
     \gamma\right)
     v^i \gamma\right) = 0" /></p>
-</div><p>This is the relativistic equation for the energy.
-For <img class="math" src="../../images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> we get:</p>
+</div><p>This is the relativistic equation for the energy. Substituting
+<img class="math" src="../../images/math/d0eaab1d5c8a220b508d331f19970899103dbb47.png" alt="nm = \rho\gamma - {E\over c^2}"/> into
+<a href="#equation-continuity-relat">(3)</a>:</p>
+<div class="math" id="equation-continuity-relat3">
+<p><span class="eqno">(7)</span><img src="../../images/math/d856a73c513cee18486dc23f39baf59add55fb03.png" alt="\partial_t\left(\rho\gamma^2 - {E\gamma\over c^2}\right) +
+    \partial_i\left(\left(\rho\gamma^2 - {E\gamma\over c^2}\right)
+    v^i
+    \right) = 0" /></p>
+</div><p>For <img class="math" src="../../images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> we get:</p>
 <div class="math">
 <p><img src="../../images/math/1b1e9c2e6d19d9d0c9923f905bd8bc1fb021d6aa.png" alt="\partial_\nu T^{i\nu} = 0
 
@@ -228,17 +236,19 @@ For <img class="math" src="../../images/math/73c5be5c6faff9bbe4adf4cda7ef956737a
     \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
     \right) = 0" /></p>
 </div><div class="math" id="equation-momentum-relat">
-<p><span class="eqno">(6)</span><img src="../../images/math/84007342586eed22e1e0657e9863f8313912dc12.png" alt="\partial_t \left(\left(\rho + {p\over c^2} \right) v^i\gamma^2\right)
+<p><span class="eqno">(8)</span><img src="../../images/math/84007342586eed22e1e0657e9863f8313912dc12.png" alt="\partial_t \left(\left(\rho + {p\over c^2} \right) v^i\gamma^2\right)
     + \partial_j \left(
     \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
     \right) = 0" /></p>
-</div><p>This is the momentum equation. The equations <a href="#equation-continuity-relat">(3)</a>,
-<a href="#equation-momentum-relat">(6)</a>
+</div><p>This is the momentum equation. The equations <a href="#equation-continuity-relat3">(7)</a>,
+<a href="#equation-momentum-relat">(8)</a>
 and
-<a href="#equation-energy-relat">(5)</a> are the correct relativistic equations for the perfect fluid
-(no approximations were done). Their Newtonian limit is:</p>
+<a href="#equation-energy-relat">(6)</a> are the correct relativistic equations for the perfect fluid
+(no approximations were done). We can take either <a href="#equation-continuity-relat3">(7)</a> or
+<a href="#equation-energy-relat2">(5)</a> as the equation of continuity (both give the same
+nonrelativistic equation of continuity).  Their Newtonian limit is:</p>
 <div class="math">
-<p><img src="../../images/math/c813f1944d04f0115e9592f386039388113e1808.png" alt="\partial_t (n m) + \partial_i(n m v^i) = 0
+<p><img src="../../images/math/8f218084edc10a33e7ee67f69b34f44e467471de.png" alt="\partial_t \rho + \partial_i(\rho v^i) = 0
 
 \partial_t \left(\rho v^i\right)
     + \partial_j \left(
@@ -248,7 +258,7 @@ and
 \partial_t E + \partial_j\left(v^j\left(E + p \right)\right) = 0" /></p>
 </div><p>those are the Euler equations, also sometimes written as:</p>
 <div class="math">
-<p><img src="../../images/math/f2108a9a2ce09b4735a921bbddfb9da16fda447f.png" alt="{\partial (nm)\over \partial t} + \nabla\cdot(nm{\bf v}) = 0
+<p><img src="../../images/math/9d73d9110e778ffd2db3ef287d71b64f3db30020.png" alt="{\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v}) = 0
 
 {\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
     (\rho {\bf v}{\bf v}^T) + \nabla p = 0
@@ -468,7 +478,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-259"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
