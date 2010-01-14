@@ -48,9 +48,9 @@
           <div class="body">
             
   <div class="section" id="fluid-dynamics">
-<span id="index-1"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<span id="index-257"></span><h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="stress-energy-tensor">
-<span id="index-2"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
+<span id="index-258"></span><h2>Stress-Energy Tensor<a class="headerlink" href="#stress-energy-tensor" title="Permalink to this headline">¶</a></h2>
 <p>In general, the stress energy tensor is the flux of momentum <img class="math" src="../../images/math/d81339a6f8c60a44df88efa1b74565287a5e7171.png" alt="p^\mu"/> over the
 surface <img class="math" src="../../images/math/b7f6e134a3c7b0ee61f61bac7f4d08f51a25d2a9.png" alt="x^\nu"/>. It is a machine that contains a knowledge of the energy
 density, momentum density and stress as measured by any observer of the event.</p>
@@ -129,64 +129,7 @@ example <a class="reference external" href="http://arxiv.org/abs/gr-qc/9304026">
 take into account the equation of state and incorporate the particle number
 conservation <img class="math" src="../../images/math/722bce455e1e4fd7f21bce165c592992d70b8f09.png" alt="\nabla_\mu(nu^\mu)=0"/> and no entropy exchange
 <img class="math" src="../../images/math/610cdc25eeea2b695fc9c6b699d2374bd92d90f0.png" alt="\nabla_\mu(nsu^\mu)=0"/> constraints.</p>
-<div class="section" id="perfect-fluids">
-<h3>Perfect Fluids<a class="headerlink" href="#perfect-fluids" title="Permalink to this headline">¶</a></h3>
-<p>Perfect fluids have no heat conduction (<img class="math" src="../../images/math/9fdef3ebe8c96dbe81bc688352b54bd598e04fb2.png" alt="T^{i0} = T^{0i} = 0"/>) and no
-viscosity (<img class="math" src="../../images/math/a85470ac36bf63d0d0a95c0f06bb1da24fb8cd9e.png" alt="T^{ij} = p\one"/>), so in the MCRF:</p>
-<div class="math">
-<p><img src="../../images/math/cf9bcf31176c79bcc8b6ed61a808b758fccc929b.png" alt="T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
-\left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
-</div><p>where in MCRF we have <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>, <img class="math" src="../../images/math/bfb4fda47c22ddea6ca6b3009a9dade393390caa.png" alt="u^0=c"/> and <img class="math" src="../../images/math/2cbcd1a277412664b207cbb8e687d639213df995.png" alt="u^i=0"/>,
-but <img class="math" src="../../images/math/6987c0f0c13625edae29d1165f37b497dcf538e0.png" alt="\partial_\alpha U^i\neq0"/>. <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> is the pressure with units
-<img class="math" src="../../images/math/38538eb1bee3ecd3de4b08d6fdf7e28585065ceb.png" alt="[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}"/> (then
-<img class="math" src="../../images/math/425bf23372113448c8ac1d14f2baabb8a740fe88.png" alt="[{p\over c^2}] =\rm kg\,m^{-3}"/>), <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> is the rest mass density with units
-<img class="math" src="../../images/math/bd6ffca970962deb42030ae9049645062780249f.png" alt="[\rho] =\rm kg\,m^{-3}"/>, and <img class="math" src="../../images/math/a6808187ecada5e6a132351c3af09d5b3fdc638a.png" alt="\rho c^2"/> is the energy density with units
-<img class="math" src="../../images/math/900a45e031d50d973868ee812a015c84cc4bb3ae.png" alt="[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}"/>.</p>
-<p>The last equation is a tensor equation so it
-holds in any frame. The nonrelativistic limit of this stress energy tensor is
-obtained by approximating <img class="math" src="../../images/math/70777be572c24ae6f1a0fa96ad9da7048021714e.png" alt="u^0\approx c"/> and <img class="math" src="../../images/math/f65bbb8ee7ce1e09c5b87b9c31eca5940368f36f.png" alt="u^j"/> by the nonrelativistic
-velocity (and we can also neglect <img class="math" src="../../images/math/da48c7f332198705a38cbe8ac67b5c72a51838b4.png" alt="{p\over c^2}"/> compared to <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>):</p>
-<div class="math">
-<p><img src="../../images/math/baf5a0266841d3cdb66d513ea555e3f7233fe57a.png" alt="T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2+p-p
-    \approx \rho c^2
-
-T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx
-    \left(\rho + {p\over c^2}\right) c u^j
-    \approx
-    \rho c u^j
-
-T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
-    \approx \rho u^j u^k + p \delta^{jk}" /></p>
-</div><p>Substituting this into the conversation law <img class="math" src="../../images/math/599e3be9827da3311472e0669c7c8daef9beb8a2.png" alt="\partial_\beta
-T^{\alpha\beta}=0"/> we get for <img class="math" src="../../images/math/11e9c9370965f44fe5bd812e80c12fccbeec1a17.png" alt="\alpha=0"/>:</p>
-<div class="math">
-<p><img src="../../images/math/b1652d53e18c8c57b302d373b89cf327ee3fc53b.png" alt="\partial_\beta T^{0\beta} = 0
-
-\partial_0 T^{00} + \partial_i T^{0i} = 0
-
-\partial_0 (\rho c^2) + \partial_i (\rho c u^i) = 0
-
-\partial_t\rho + \partial_i(\rho u^i) = 0
-
-{\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0" /></p>
-</div><p>This is the continuity equation for the energy (<img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> here is the energy
-density). For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
-<div class="math">
-<p><img src="../../images/math/1930b9bf98d3e75a2be71aef62241702fdf80305.png" alt="\partial_\beta T^{i\beta} = 0
-
-\partial_0 T^{i0} + \partial_j T^{ij} = 0
-
-\partial_0 (\rho c u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
-
-\partial_t (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
-
-{\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
-    (\rho {\bf u}{\bf u}^T) + \nabla p = 0" /></p>
-</div><p>Which are the Euler equations, sometimes also written as (using the continuity
-equation):</p>
-<div class="math">
-<p><img src="../../images/math/a2b0053e4711e0afc2276cba5c140e77c9bdd94e.png" alt="\rho\partial_t u^i + \rho u^j\partial_j u^i + \delta^{ij}\partial_j p = 0" /></p>
-</div><p>The equation of continuity follows from the
+<p>The equation of continuity follows from the
 conservation of the baryon number &#8212; the volume <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> that contains certain
 number of baryons can change, but the total number of baryons <img class="math" src="../../images/math/b73bae695c92a9d27cae2b724348a9357ef6774a.png" alt="nV"/> must remain
 constant:</p>
@@ -198,53 +141,126 @@ constant:</p>
 u^\alpha (\partial_\alpha n)V + n(\partial_\alpha u^\alpha) V = 0
 
 \partial_\alpha (n u^\alpha) = 0" /></p>
-</div><div class="math" id="equation-baryon1">
-<p><span class="eqno">(1)</span><img src="../../images/math/84ef58f67f1179c027f0e3ba29db2b71016339e1.png" alt="\partial_t (n \gamma) + \partial_i(n v^i \gamma) = 0" /></p>
-</div><p>and in the limit <img class="math" src="../../images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>:</p>
+</div><div class="section" id="perfect-fluids">
+<h3>Perfect Fluids<a class="headerlink" href="#perfect-fluids" title="Permalink to this headline">¶</a></h3>
+<p>Perfect fluids have no heat conduction (<img class="math" src="../../images/math/9fdef3ebe8c96dbe81bc688352b54bd598e04fb2.png" alt="T^{i0} = T^{0i} = 0"/>) and no
+viscosity (<img class="math" src="../../images/math/a85470ac36bf63d0d0a95c0f06bb1da24fb8cd9e.png" alt="T^{ij} = p\one"/>), so in the comoving frame:</p>
 <div class="math">
-<p><img src="../../images/math/ce6638180c9d34948fc8654e78dadd9bd1c13650.png" alt="{\partial n\over \partial t} + \nabla\cdot(n{\bf v}) = 0" /></p>
+<p><img src="../../images/math/cf9bcf31176c79bcc8b6ed61a808b758fccc929b.png" alt="T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+\left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
+</div><p>where in the comoving frame we have <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>, <img class="math" src="../../images/math/bfb4fda47c22ddea6ca6b3009a9dade393390caa.png" alt="u^0=c"/>
+and <img class="math" src="../../images/math/2cbcd1a277412664b207cbb8e687d639213df995.png" alt="u^i=0"/>,
+but <img class="math" src="../../images/math/6987c0f0c13625edae29d1165f37b497dcf538e0.png" alt="\partial_\alpha U^i\neq0"/>. <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> is the pressure with units
+<img class="math" src="../../images/math/38538eb1bee3ecd3de4b08d6fdf7e28585065ceb.png" alt="[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}"/> (then
+<img class="math" src="../../images/math/425bf23372113448c8ac1d14f2baabb8a740fe88.png" alt="[{p\over c^2}] =\rm kg\,m^{-3}"/>), <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> is the rest mass density with units
+<img class="math" src="../../images/math/bd6ffca970962deb42030ae9049645062780249f.png" alt="[\rho] =\rm kg\,m^{-3}"/>, and <img class="math" src="../../images/math/a6808187ecada5e6a132351c3af09d5b3fdc638a.png" alt="\rho c^2"/> is the energy density with units
+<img class="math" src="../../images/math/900a45e031d50d973868ee812a015c84cc4bb3ae.png" alt="[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}"/>.</p>
+<p>The last equation is a tensor equation so it
+holds in any frame. Let&#8217;s write the components explicitly:</p>
+<div class="math">
+<p><img src="../../images/math/36dbedb2b263441e2660c12e2fba0590717abf38.png" alt="T^{00}
+    = \left(\rho+{p\over c^2}\right)u^0u^0 - p
+    = \left(\rho+{p\over c^2}\right)c^2 \gamma^2 - p
+    = \left(\rho c^2+p\left(1-{1\over\gamma^2}\right)\right) \gamma^2
+    = \left(\rho c^2+p {v^2\over c^2}\right) \gamma^2
+
+T^{0i} = T^{i0}
+    = \left(\rho+{p\over c^2}\right)u^0u^i
+    = \left(\rho+{p\over c^2}\right) c v^i \gamma^2
+    = {1\over c}\left(\rho c^2+p\right) v^i \gamma^2
+
+T^{ij}
+    = \left(\rho+{p\over c^2}\right) u^iu^j + p \delta^{ij}
+    = \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}" /></p>
+</div><p>We now use the conservation of the stress energy tensor and the conservation of
+the number of particles:</p>
+<div class="math" id="equation-conv1">
+<p><span class="eqno">(1)</span><img src="../../images/math/7505d21c280d8cbc113e5e1635c773de6d3a9aab.png" alt="\partial_\nu T^{\mu\nu} = 0" /></p>
+</div><div class="math" id="equation-conv2">
+<p><span class="eqno">(2)</span><img src="../../images/math/1ea947596c42274ff0165f460f12ad2dd8c99806.png" alt="\partial_\mu(nu^\mu) = 0" /></p>
+</div><p>The equation <a href="#equation-conv2">(2)</a> gives:</p>
+<div class="math">
+<p><img src="../../images/math/feb1bf0f4bd1b89d0fc273815eb025e435f5169b.png" alt="\partial_t (n\gamma) + \partial_i(n v^i \gamma) = 0" /></p>
+</div><div class="math" id="equation-continuity-relat">
+<p><span class="eqno">(3)</span><img src="../../images/math/1c0e4cda01e96b729ca7fb5eb7bf4563f3ff4e3f.png" alt="\partial_t (n m\gamma) + \partial_i(n m v^i \gamma) = 0" /></p>
+</div><div class="math" id="equation-continuity1">
+<p><span class="eqno">(4)</span><img src="../../images/math/cddc8ab5a9eccd1ace1ce63b83c88220b78aa3e2.png" alt="\partial_t (n m c^2\gamma) + \partial_i(n m c^2 v^i \gamma) = 0" /></p>
+</div><p>The equation <a href="#equation-conv1">(1)</a> gives for <img class="math" src="../../images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/>:</p>
+<div class="math">
+<p><img src="../../images/math/b13ca3c0065f3c88172241d8b91d1146df99cd19.png" alt="\partial_\nu T^{0\nu} = 0
+
+\partial_0 T^{00} + \partial_i T^{0i} = 0
+
+\partial_t\left({1\over c}\left(\rho c^2 + p {v^2\over c^2}\right)
+    \gamma^2\right) + \partial_i\left({1\over c}\left(\rho c^2 + p\right)
+    v^i \gamma^2\right) = 0
+
+\partial_t\left(\left(\rho c^2 + p {v^2\over c^2}\right)
+    \gamma^2\right) + \partial_i\left(\left(\rho c^2 + p\right)
+    v^i \gamma^2\right) = 0" /></p>
+</div><p>We now substract from it the equation <a href="#equation-continuity1">(4)</a>:</p>
+<div class="math">
+<p><img src="../../images/math/beb809efafa9f53c2a12e1eed1f1739a269523e2.png" alt="\partial_t\left(\left(\rho c^2\gamma - n m c^2 + p {v^2\over c^2}
+    \gamma\right)
+    \gamma\right) + \partial_i\left(\left(\rho c^2\gamma -n m c^2 + p
+    \gamma\right)
+    v^i \gamma\right) = 0" /></p>
+</div><p>We define the nonrelativistic energy as:</p>
+<div class="math">
+<p><img src="../../images/math/2ac4013637f76928b63b2dfefcfd1e06e6f83759.png" alt="E = \rho c^2\gamma -n m c^2 = \half \rho v^2 + (\rho - nm)c^2 +
+    O\left(v^4\over c^2\right)" /></p>
+</div><p>so it contains the kinetic plus internal energies. We substitute back:</p>
+<div class="math" id="equation-energy-relat">
+<p><span class="eqno">(5)</span><img src="../../images/math/6459bf0958400440fa264d6fded7fcd0b69a6b54.png" alt="\partial_t\left(\left(E + p {v^2\over c^2}
+    \gamma\right)
+    \gamma\right) + \partial_i\left(\left(E + p
+    \gamma\right)
+    v^i \gamma\right) = 0" /></p>
+</div><p>This is the relativistic equation for the energy.
+For <img class="math" src="../../images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> we get:</p>
+<div class="math">
+<p><img src="../../images/math/1b1e9c2e6d19d9d0c9923f905bd8bc1fb021d6aa.png" alt="\partial_\nu T^{i\nu} = 0
+
+\partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+\partial_t \left({1\over c^2}\left(\rho c^2 + p \right) v^i\gamma^2\right)
+    + \partial_j \left(
+    \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
+    \right) = 0" /></p>
+</div><div class="math" id="equation-momentum-relat">
+<p><span class="eqno">(6)</span><img src="../../images/math/84007342586eed22e1e0657e9863f8313912dc12.png" alt="\partial_t \left(\left(\rho + {p\over c^2} \right) v^i\gamma^2\right)
+    + \partial_j \left(
+    \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
+    \right) = 0" /></p>
+</div><p>This is the momentum equation. The equations <a href="#equation-continuity-relat">(3)</a>,
+<a href="#equation-momentum-relat">(6)</a>
+and
+<a href="#equation-energy-relat">(5)</a> are the correct relativistic equations for the perfect fluid
+(no approximations were done). Their Newtonian limit is:</p>
+<div class="math">
+<p><img src="../../images/math/c813f1944d04f0115e9592f386039388113e1808.png" alt="\partial_t (n m) + \partial_i(n m v^i) = 0
+
+\partial_t \left(\rho v^i\right)
+    + \partial_j \left(
+    \rho v^iv^j + p \delta^{ij}
+    \right) = 0
+
+\partial_t E + \partial_j\left(v^j\left(E + p \right)\right) = 0" /></p>
+</div><p>those are the Euler equations, also sometimes written as:</p>
+<div class="math">
+<p><img src="../../images/math/f2108a9a2ce09b4735a921bbddfb9da16fda447f.png" alt="{\partial (nm)\over \partial t} + \nabla\cdot(nm{\bf v}) = 0
+
+{\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
+    (\rho {\bf v}{\bf v}^T) + \nabla p = 0
+
+{\partial E\over\partial t}
+    + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0" /></p>
 </div></div>
-</div>
-<div class="section" id="navier-stokes-equations">
-<h2>Navier-Stokes Equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">¶</a></h2>
-<p>When we write the relativistic conservation law in a nonrelativistic limit (for
-a general fluid), we get the Cauchy momentum equation:</p>
-<div class="math">
-<p><img src="../../images/math/119550a59cc84e3e2f38eeacc94e0a75f0454b72.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = \nabla \cdot \mathds{\sigma} + {\bf f}" /></p>
-</div><p>where the stress tensor <img class="math" src="../../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> can be written as:</p>
-<div class="math">
-<p><img src="../../images/math/e612241c4a8bf7c770cba2692fb0b5d8091474d0.png" alt="\sigma=-p\mathds{1} + \mathds{T}" /></p>
-</div><p>and we get the Navier-Stokes equations:</p>
-<div class="math">
-<p><img src="../../images/math/2ae3c88354e1745859bc332d10cb50a37df2f407.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p + \nabla \cdot \mathds{T} + {\bf f}" /></p>
-</div><p>Those are the most general equations. If we assume some more things about the
-fluid, they can be further simplified.</p>
-<p>For Newtonean fluids, we want <img class="math" src="../../images/math/4576a14f9aac382d8d9d781b7df05bc91062581d.png" alt="\mathds{T}"/> to be isotropic, linear in strain
-rates and it&#8217;s divergence zero for fluid at rest. It follows that the only way
-to write the tensor under these conditions is:</p>
-<div class="math">
-<p><img src="../../images/math/1e2a077b1e3e3beb1f910273861ad18b689c5e02.png" alt="T_{ij} = 2\mu\epsilon_{ij} + \delta_{ij} \lambda \nabla\cdot{\bf v}" /></p>
-</div><p>where the strain rate is:</p>
-<div class="math">
-<p><img src="../../images/math/431be86047dd07481b80752748a12f06f27ad434.png" alt="\epsilon_{ij}={1\over 2}\left(\partial_j v_i+\partial_i v_j\right)" /></p>
-</div><p>The divergence of the tensor is:</p>
-<div class="math">
-<p><img src="../../images/math/baaf871080f845d2074fe2365f5da388da5c0723.png" alt="\partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}" /></p>
-</div><p>or in vector form (these are usually called the compressible Navier-Stokes
-equations):</p>
-<div class="math">
-<p><img src="../../images/math/f9d4888a652d89175aee1eecaf9add246d6d9cc0.png" alt="\nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}" /></p>
-</div><p>For incompressible fluid we have <img class="math" src="../../images/math/0d64ba0239e1d10290a71c763f0d91eef491e60a.png" alt="\nabla\cdot\bf v=0"/>, so we get the
-incompressible Navier-Stokes equations:</p>
-<div class="math">
-<p><img src="../../images/math/029c55c5b93b2da8da53f154b9776a281ad8768f.png" alt="\nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}" /></p>
-</div><p>and for a perfect fluid we have no viscosity, e.g. <img class="math" src="../../images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/>, then we get the
-Euler equations (for perfect fluid):</p>
-<div class="math">
-<p><img src="../../images/math/95726c37fa3d33c2ab8b4989be5a79e56f3f46fa.png" alt="\nabla \cdot \mathds{T}=0" /></p>
-</div><div class="section" id="energy-equation">
+<div class="section" id="energy-equation">
 <h3>Energy Equation<a class="headerlink" href="#energy-equation" title="Permalink to this headline">¶</a></h3>
-<p>We have the following two Euler equations:</p>
+<p>The energy equation can also be derived from thermodynamic and the other two
+Euler equations.
+We have the following two Euler equations:</p>
 <div class="math">
 <p><img src="../../images/math/6ec0acd7de5df1197b33718511cb13c82b863269.png" alt="\partial_t\rho + \partial_i(\rho u^i) = 0
 
@@ -332,131 +348,45 @@ Euler equations (for perfect fluid):</p>
 {\partial E\over\partial t}
     + \nabla\cdot\left({\bf u}\left(E + p \right)\right) = 0" /></p>
 </div></div>
-<div class="section" id="relativistic-derivation-of-the-energy-equation">
-<h3>Relativistic Derivation of the Energy Equation<a class="headerlink" href="#relativistic-derivation-of-the-energy-equation" title="Permalink to this headline">¶</a></h3>
-<p>This section is only approximate, it roughly gets the right equations, but some
-small things still have to be improved.</p>
-<p>We have to write <img class="math" src="../../images/math/6a16e4c3f4510a90e7be2ab3ba71e1390fe1f665.png" alt="T = \diag(\rho c^2 + \rho U, p, p, p)"/>, where <img class="math" src="../../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/> is the
-classical internal energy per unit mass and <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> is the rest
-mass density (so <img class="math" src="../../images/math/a6808187ecada5e6a132351c3af09d5b3fdc638a.png" alt="\rho c^2"/> is the energy density, excluding the internal
-energy, that is taken care of by the <img class="math" src="../../images/math/50f4256af4b59a3304944129c435724b0e5925e8.png" alt="\rho U"/> term):</p>
-<div class="math">
-<p><img src="../../images/math/b8f391bcb34d43f7881af0755257e2b3959ec07e.png" alt="T^{\alpha\beta} = \diag(\rho c^2 +\rho U, p, p, p) =
-\left(\rho+{\rho U + p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
-</div><p>Then we write things explicitly using <img class="math" src="../../images/math/e2ee64b2247928e0f5c7466eafd1adddedb461a4.png" alt="u^0=\gamma c"/> and <img class="math" src="../../images/math/b9080dc663fc0b41514999ecdd9a68b103e67864.png" alt="u^i = \gamma v^i"/>:</p>
-<div class="math">
-<p><img src="../../images/math/f9f61326aabe53a96518f80e81b3e5550a344638.png" alt="T^{00} =
-\left(\rho+{\rho U +p\over c^2}\right)u^0u^0 - p
-=
-\left(\rho+{\rho U +p\over c^2}\right)\gamma^2 c^2 - p
-=
-\rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p
-
-T^{0j} = T^{j0} =
-    \left(\rho+{\rho U +p\over c^2}\right)u^0u^j =
-    \left(\rho+{\rho U +p\over c^2}\right)\gamma^2 c v^j =
-    \rho c v^j \gamma^2 + {1\over c} (\rho U + p) v^j \gamma^2
-
-T^{jk} =
-    \left(\rho+{\rho U +p\over c^2}\right) u^ju^k + p \delta^{jk} =
-    \left(\rho+{\rho U +p\over c^2}\right) \gamma^2 v^jv^k
-        + p \delta^{jk} =
-    \rho v^j v^k \gamma^2 + {1\over c^2}(\rho U +p) \gamma^2 v^jv^k
-        + p \delta^{jk}" /></p>
-</div><p>And we write for <img class="math" src="../../images/math/11e9c9370965f44fe5bd812e80c12fccbeec1a17.png" alt="\alpha=0"/>:</p>
-<div class="math">
-<p><img src="../../images/math/67bd0ddbbc0ef61d54edde8160e03191aacd0fbf.png" alt="\partial_\beta T^{0\beta} = 0
-
-\partial_0 T^{00} + \partial_i T^{0i} = 0
-
-\partial_0 \left(\rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p\right)
-    + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
-      \gamma^2 \right) = 0
-
-\partial_t \left(\rho c \gamma^2 +{1\over c}(\rho U +p)\gamma^2 -
-    {1\over c}p\right)
-    + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
-      \gamma^2 \right) = 0" /></p>
-</div><div class="math" id="equation-euler5">
-<p><span class="eqno">(2)</span><img src="../../images/math/8d5cd73b377a4d233ca4c66c86cb66b47d47a5d9.png" alt="\partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma^2) +
-\partial_t (\rho U \gamma^2 + p\gamma^2 - p) +
-\partial_i \left((\rho U + p) v^i\gamma^2\right)
-= 0" /></p>
-</div><p>Now we use the approximation <img class="math" src="../../images/math/0c5ca753bd7818357766a4b3071442e7f77a88ac.png" alt="c^2\gamma^2\approx c^2 + v^2"/> and
-<img class="math" src="../../images/math/c34dc0842e20440e2a8116a83f964f2d63c8b343.png" alt="\gamma\approx1"/>:</p>
-<div class="math">
-<p><img src="../../images/math/539376cf26bf576955bdc99034704f1aa020b931.png" alt="\partial_t \left(\rho c^2 +\rho v^2 \right) + \partial_i \left(
-    (\rho c^2 +\rho v^2) v^i\right) +
-\partial_t (\rho U) +
-\partial_i \left((\rho U + p) v^i\right)
-= 0
-
-c^2 \left[\partial_t \rho + \partial_i \left( \rho v^i\right) \right]
-+
-\partial_t (\rho v^2+\rho U) +
-\partial_i \left((\rho v^2+\rho U + p) v^i\right)
-= 0" /></p>
-</div><p>The first term vanishes (it is the continuity equation) and thus we get the
-equation for the energy <img class="math" src="../../images/math/6cc136890210368efe97f06f4e8f15cd3b0cd6b9.png" alt="E =\half\rho v^2+\rho U"/>, except that we don&#8217;t have
-the <img class="math" src="../../images/math/a42677369237e9a7b40527101ab82771771b046b.png" alt="\half"/> in there.</p>
-<div class="math">
-<p><img src="../../images/math/577d6b8a984da568b77df07a071008cae811d605.png" alt="\partial_t (\half\rho v^2+\rho U) +
-\partial_i \left((\half\rho v^2+\rho U + p) v^i\right)
-= 0
-
-\partial_t E + \partial_i \left((E + p) v^i\right) = 0" /></p>
-</div><p>We can also write the equation <a href="#equation-euler5">(2)</a> as (here we use <img class="math" src="../../images/math/511877cc753d1c0f76b8f4377dc495ca515a5d38.png" alt="T=
-\diag(\rho c^2, p, p, p)"/>):</p>
-<div class="math">
-<p><img src="../../images/math/ab45bda96f2494bf583f392354b9a8ad22225cbd.png" alt="\partial_t \left(\left(\rho c^2 + p\left(1-{1\over\gamma^2}
-    \right)\right)\gamma^2\right)
-+
-\partial_i\left(\left(\rho c^2 + p\right)v^i \gamma^2\right)
-=0
-
-\partial_t \left(\left(\rho c^2 + p{v^2\over c^2}\right)\gamma^2\right)
-+
-\partial_i\left(\left(\rho c^2 + p\right)v^i \gamma^2\right)
-=0" /></p>
-</div><p>which becomes for large <img class="math" src="../../images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>:</p>
-<div class="math">
-<p><img src="../../images/math/e389cf36717b47608190034e82b85cfa9057f36d.png" alt="\partial_t \left(\rho c^2\right)
-+
-\partial_i\left(\left(\rho c^2 + p\right)v^i\right)
-=0" /></p>
-</div><p>and that can be interpreted either as <img class="math" src="../../images/math/2e40160ff31264af038111af1ce1829b7f535650.png" alt="E=\rho c^2"/>:</p>
-<div class="math" id="equation-euler8">
-<p><span class="eqno">(3)</span><img src="../../images/math/cd295ec9430bc485642c4ea62da39b81870e7832.png" alt="\partial_t E
-+
-\partial_i\left(\left(E + p\right)v^i\right)
-=0" /></p>
-</div><p>or as:</p>
-<div class="math">
-<p><img src="../../images/math/414786b61d619a60bd4fdf5dad57cd2db462dfe3.png" alt="\partial_t \rho
-+
-\partial_i\left(\left(\rho + {p\over c^2}\right)v^i\right)
-=0" /></p>
-</div><p>which reduces to:</p>
-<div class="math" id="equation-euler9">
-<p><span class="eqno">(4)</span><img src="../../images/math/f9f30e11772702dcb58e030f86b88d0d7718db96.png" alt="\partial_t \rho
-+
-\partial_i\left(\rho v^i\right)
-=0" /></p>
-</div><p>But both equations <a href="#equation-euler8">(3)</a> and <a href="#equation-euler9">(4)</a> are equivalent, because <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> is
-much larger than <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> in <a href="#equation-euler8">(3)</a>, so <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> can be negleted. In order to get
-the equation we want, we need to get rid of the rest mass <img class="math" src="../../images/math/9602b2c689a5e0bc36b80e1808d902953d0bf5ab.png" alt="mc^2"/> energy first
-(as we roughly did in the treatment in <a href="#equation-euler5">(2)</a>),
-and only the rest is comparable with <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>.</p>
-<p>For <img class="math" src="../../images/math/c1411d367c938d505403c2c3b38d17d79140f12d.png" alt="\alpha=i"/> we get:</p>
-<div class="math">
-<p><img src="../../images/math/472cabc295ec21a0c6951457bb64468df92fec4e.png" alt="\partial_\beta T^{i\beta} = 0
-
-\partial_0 T^{i0} + \partial_j T^{ij} = 0
-
-\cdots" /></p>
-</div><p>and those are the Euler equations in the limit.</p>
 </div>
-</div>
+<div class="section" id="navier-stokes-equations">
+<h2>Navier-Stokes Equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">¶</a></h2>
+<p>When we write the relativistic conservation law in a nonrelativistic limit (for
+a general fluid), we get the Cauchy momentum equation:</p>
+<div class="math">
+<p><img src="../../images/math/119550a59cc84e3e2f38eeacc94e0a75f0454b72.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = \nabla \cdot \mathds{\sigma} + {\bf f}" /></p>
+</div><p>where the stress tensor <img class="math" src="../../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> can be written as:</p>
+<div class="math">
+<p><img src="../../images/math/e612241c4a8bf7c770cba2692fb0b5d8091474d0.png" alt="\sigma=-p\mathds{1} + \mathds{T}" /></p>
+</div><p>and we get the Navier-Stokes equations:</p>
+<div class="math">
+<p><img src="../../images/math/2ae3c88354e1745859bc332d10cb50a37df2f407.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p + \nabla \cdot \mathds{T} + {\bf f}" /></p>
+</div><p>Those are the most general equations. If we assume some more things about the
+fluid, they can be further simplified.</p>
+<p>For Newtonean fluids, we want <img class="math" src="../../images/math/4576a14f9aac382d8d9d781b7df05bc91062581d.png" alt="\mathds{T}"/> to be isotropic, linear in strain
+rates and it&#8217;s divergence zero for fluid at rest. It follows that the only way
+to write the tensor under these conditions is:</p>
+<div class="math">
+<p><img src="../../images/math/1e2a077b1e3e3beb1f910273861ad18b689c5e02.png" alt="T_{ij} = 2\mu\epsilon_{ij} + \delta_{ij} \lambda \nabla\cdot{\bf v}" /></p>
+</div><p>where the strain rate is:</p>
+<div class="math">
+<p><img src="../../images/math/431be86047dd07481b80752748a12f06f27ad434.png" alt="\epsilon_{ij}={1\over 2}\left(\partial_j v_i+\partial_i v_j\right)" /></p>
+</div><p>The divergence of the tensor is:</p>
+<div class="math">
+<p><img src="../../images/math/baaf871080f845d2074fe2365f5da388da5c0723.png" alt="\partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}" /></p>
+</div><p>or in vector form (these are usually called the compressible Navier-Stokes
+equations):</p>
+<div class="math">
+<p><img src="../../images/math/f9d4888a652d89175aee1eecaf9add246d6d9cc0.png" alt="\nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}" /></p>
+</div><p>For incompressible fluid we have <img class="math" src="../../images/math/0d64ba0239e1d10290a71c763f0d91eef491e60a.png" alt="\nabla\cdot\bf v=0"/>, so we get the
+incompressible Navier-Stokes equations:</p>
+<div class="math">
+<p><img src="../../images/math/029c55c5b93b2da8da53f154b9776a281ad8768f.png" alt="\nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}" /></p>
+</div><p>and for a perfect fluid we have no viscosity, e.g. <img class="math" src="../../images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/>, then we get the
+Euler equations (for perfect fluid):</p>
+<div class="math">
+<p><img src="../../images/math/95726c37fa3d33c2ab8b4989be5a79e56f3f46fa.png" alt="\nabla \cdot \mathds{T}=0" /></p>
+</div></div>
 <div class="section" id="bernoulli-s-principle">
 <h2>Bernoulli&#8217;s Principle<a class="headerlink" href="#bernoulli-s-principle" title="Permalink to this headline">¶</a></h2>
 <p>Bernoulli&#8217;s principle works for a perfect fluid, so we take the Euler equations:</p>
@@ -538,7 +468,7 @@ get:</p>
 <p><img src="../../images/math/113d942aff8872040269fe9952cc2d54be855a85.png" alt="v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}" /></p>
 </div></div>
 <div class="section" id="hagen-poiseuille-law">
-<span id="index-3"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
+<span id="index-259"></span><h3>Hagen-Poiseuille Law<a class="headerlink" href="#hagen-poiseuille-law" title="Permalink to this headline">¶</a></h3>
 <p>We assume incompressible (but viscuous) Newtonean fluid (in no external force
 field):</p>
 <div class="math">
@@ -587,13 +517,10 @@ Hagen-Poiseuille law.</p>
 <li><a class="reference external" href="">Fluid Dynamics</a><ul>
 <li><a class="reference external" href="#stress-energy-tensor">Stress-Energy Tensor</a><ul>
 <li><a class="reference external" href="#perfect-fluids">Perfect Fluids</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#navier-stokes-equations">Navier-Stokes Equations</a><ul>
 <li><a class="reference external" href="#energy-equation">Energy Equation</a></li>
-<li><a class="reference external" href="#relativistic-derivation-of-the-energy-equation">Relativistic Derivation of the Energy Equation</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#navier-stokes-equations">Navier-Stokes Equations</a></li>
 <li><a class="reference external" href="#bernoulli-s-principle">Bernoulli&#8217;s Principle</a><ul>
 <li><a class="reference external" href="#hydrostatic-pressure">Hydrostatic Pressure</a></li>
 <li><a class="reference external" href="#torricelli-s-law">Torricelli&#8217;s Law</a></li>
