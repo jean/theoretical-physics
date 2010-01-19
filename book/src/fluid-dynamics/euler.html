@@ -48,10 +48,24 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-0"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-88"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>The compressible Euler equations are:</p>
+<p>The compressible Euler equations are equations for perfect fluid.
+Perfect fluids have no heat conduction (<img class="math" src="../../images/math/9fdef3ebe8c96dbe81bc688352b54bd598e04fb2.png" alt="T^{i0} = T^{0i} = 0"/>) and no
+viscosity (<img class="math" src="../../images/math/a85470ac36bf63d0d0a95c0f06bb1da24fb8cd9e.png" alt="T^{ij} = p\one"/>), so in the comoving frame the stress energy tensor
+is:</p>
+<div class="math">
+<p><img src="../../images/math/cf9bcf31176c79bcc8b6ed61a808b758fccc929b.png" alt="T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+\left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}" /></p>
+</div><p>(we use <img class="math" src="../../images/math/1d90982367d8bb46f3556a064f578d0c7cf68966.png" alt="g^{\mu\nu} = \diag(-1, 1, 1, 1)"/>). Relativistic Euler equations are
+given by the conservation of the stress energy tensor and the particle number
+conservation:</p>
+<div class="math">
+<p><img src="../../images/math/1d2e4bb447ab5f65677ef0420617acf3b9b622cb.png" alt="\partial_\nu T^{\mu\nu} = 0
+
+\partial_\mu(nu^\mu) = 0" /></p>
+</div><p>By doing the nonrelativistic limit, we get the following Euler equations:</p>
 <div class="math">
 <p><img src="../../images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
 
@@ -62,9 +76,13 @@
 </div><p>where</p>
 <div class="math">
 <p><img src="../../images/math/1d4a88147849c8ecec3d242d4936a262f9a07e85.png" alt="E = \rho e + \half \rho u^2" /></p>
-</div><p>is the total energy per unit volume (<img class="math" src="../../images/math/f8ad6e28ee44455107fd5b1fed09336bef89c843.png" alt="\half \rho u^2"/> is the kinetic energy per
-unit volume), <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> is the internal energy per unit mass (<img class="math" src="../../images/math/6fa3044d505bf62a6173112f964b9723d2d8a0a2.png" alt="e={U\over nM}"/>)
-and we use the ideal gas equations, so:</p>
+</div><p>is the total energy per unit volume, composed of the kinetic energy per unit
+volume (<img class="math" src="../../images/math/f8ad6e28ee44455107fd5b1fed09336bef89c843.png" alt="\half \rho u^2"/>) and the internal energy per unit volume (<img class="math" src="../../images/math/3266e9fbba69cf6f58fdc0025852e3eb26e7f056.png" alt="\rho e"/>),
+where <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> is the internal energy per unit mass (<img class="math" src="../../images/math/6fa3044d505bf62a6173112f964b9723d2d8a0a2.png" alt="e={U\over nM}"/>). The energy
+<img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> doesn&#8217;t contain the rest mass energy, but all other energies are hidden in
+the internal energy.</p>
+<p>We use the
+ideal gas equations, so:</p>
 <div class="math">
 <p><img src="../../images/math/01d4141f5e4d6834a69915c7869c4c630d579098.png" alt="e = T c_v
 
@@ -95,67 +113,19 @@ the experimental value is about <img class="math" src="../../images/math/5a7856b
 and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is the temperature of the gas.
 Of those, <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/>, <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/22344a41e47985033825ea337522a64e707f85ef.png" alt="\bar R"/> are constants, <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/>, <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> are
 functions of <img class="math" src="../../images/math/7bff5231ba7fa776f904320431eabfc7a8253860.png" alt="(t, x, y, z)"/>.</p>
-<p>We use the substitution:</p>
+</div>
+<div class="section" id="euler-equations">
+<h2>Euler Equations<a class="headerlink" href="#euler-equations" title="Permalink to this headline">¶</a></h2>
+<p>We can write the Euler equations as:</p>
 <div class="math">
-<p><img src="../../images/math/fd5a50ad30aa134c0d71258f9984d54fae760be2.png" alt="{\bf U} = \rho {\bf u}
-
-p = {R\over c_v} (E-\half \rho u^2) =
-    {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)" /></p>
-</div><p>and we get:</p>
+<p><img src="../../images/math/64496c86e0a6387b7128880337db87b8d33c3019.png" alt="{\partial{\bf w}\over \partial t} +
+{\partial{\bf f}_x\over \partial x} +
+{\partial{\bf f}_y\over \partial y} +
+{\partial{\bf f}_z\over \partial z} +
+{\bf g}= 0" /></p>
+</div><p>where:</p>
 <div class="math">
-<p><img src="../../images/math/854896046b4ab096f052afc5eb0e84e80a36567d.png" alt="{\partial\rho\over\partial t} + \nabla\cdot{\bf U} = 0
-
-{\partial{\bf U}\over\partial t}
-    + \nabla\cdot\left({{\bf U}{\bf U}^T\over\rho}+p\one\right)
-    - {\bf f} = 0
-
-{\partial E\over\partial t}
-    + \nabla\cdot\left({{\bf U}\over\rho}(E+p)\right) = 0" /></p>
-</div><p>Now we write <img class="math" src="../../images/math/6469d09cbc05e257dedf1752400e040c3d1cae03.png" alt="{\bf U} = (U, V, W)"/> and we get:</p>
-<div class="math">
-<p><img src="../../images/math/0cf92093463953430ff0acd6c75eff77a9b82bd8.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c}
-       \varrho\\ U\\ V\\ W\\ E
-   \end{array} \right)
-   + \frac{\partial}{\partial x} \left( \begin{array}{c}
-       U\\
-       \frac{U^2}{\varrho} + p\\
-       \frac{UV}{\varrho}\\
-       \frac{UW}{\varrho}\\
-       \frac{U}{\varrho}(E+p)
-   \end{array} \right)
-   + \frac{\partial}{\partial y} \left( \begin{array}{c}
-       V\\
-       \frac{VU}{\varrho}\\
-       \frac{V^2}{\varrho} + p\\
-       \frac{VW}{\varrho}\\
-       \frac{V}{\varrho}(E+p)
-   \end{array} \right)
-   + \frac{\partial}{\partial z} \left( \begin{array}{c}
-       W\\
-       \frac{WU}{\varrho}\\
-       \frac{WV}{\varrho}\\
-       \frac{W^2}{\varrho} + p\\
-       \frac{W}{\varrho}(E+p)
-   \end{array} \right) + \left( \begin{array}{c}
-       0\\
-       -f_x\\
-       -f_y\\
-       -f_z\\
-       0\\
-   \end{array} \right) =
-   \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
-
-p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)" /></p>
-</div><p>We solve for the unknowns <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/>, <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, <img class="math" src="../../images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> as functions of <img class="math" src="../../images/math/c3dfd00e808ace22fbadde43e7eb7967b8c72fa0.png" alt="(t,
-x, y, z)"/>, the rest (<img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/>, <img class="math" src="../../images/math/77e2657b57cae321de481018d6dc74dd9920abc6.png" alt="f_x"/>, <img class="math" src="../../images/math/f4e24d769d1159c51257a0aef9390c2ef290a2c6.png" alt="f_y"/>, <img class="math" src="../../images/math/dbbdd66231f90d86cd4154819a47260c378b7ebe.png" alt="f_z"/>) are either constants or
-depend on the unknowns.</p>
-<p>After introducing:</p>
-<div class="math">
-<p><img src="../../images/math/67885b5de1eb3ce2cc9e6045c771403e57110cd9.png" alt="{\bf w} =
-   \left( \begin{array}{c}
-       \varrho\\ U\\ V\\ W\\ E
-   \end{array} \right)
-   =
+<p><img src="../../images/math/fab0c3c35cd4edb24a98ee3d4f2dd9adc1c38c8b.png" alt="{\bf w} =
    \left( \begin{array}{c}
        \varrho\\ \rho u_1\\ \rho u_2\\ \rho u_3\\ E
    \end{array} \right)
@@ -170,11 +140,11 @@ depend on the unknowns.</p>
 
 {\bf f}_x =
    \left( \begin{array}{c}
-       U\\
-       \frac{U^2}{\varrho} + p\\
-       \frac{UV}{\varrho}\\
-       \frac{UW}{\varrho}\\
-       \frac{U}{\varrho}(E+p)
+       \rho u_1\\
+       \rho u_1^2 + p\\
+       \rho u_1 u_2\\
+       \rho u_1 u_3\\
+       u_1(E+p)
    \end{array} \right)
    =
    \left( \begin{array}{c}
@@ -187,11 +157,11 @@ depend on the unknowns.</p>
 
 {\bf f}_y =
    \left( \begin{array}{c}
-       V\\
-       \frac{VU}{\varrho}\\
-       \frac{V^2}{\varrho} + p\\
-       \frac{VW}{\varrho}\\
-       \frac{V}{\varrho}(E+p)
+       \rho u_2\\
+       \rho u_2 u_1\\
+       \rho u_2^2 + p\\
+       \rho u_2 u_3\\
+       u_2(E+p)
    \end{array} \right)
    =
    \left( \begin{array}{c}
@@ -204,11 +174,11 @@ depend on the unknowns.</p>
 
 {\bf f}_z =
    \left( \begin{array}{c}
-       W\\
-       \frac{WU}{\varrho}\\
-       \frac{WV}{\varrho}\\
-       \frac{W^2}{\varrho} + p\\
-       \frac{W}{\varrho}(E+p)
+       \rho u_3\\
+       \rho u_3 u_1\\
+       \rho u_3 u_2\\
+       \rho u_3^2 + p\\
+       u_3(E+p)
    \end{array} \right)
    =
    \left( \begin{array}{c}
@@ -228,16 +198,36 @@ depend on the unknowns.</p>
        0\\
    \end{array} \right)
 
-p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
+p = {R\over c_v} \left(E-\half \rho\left(u_1^2 + u_2^2 + u_3^3\right)\right)
 = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)" /></p>
-</div><p>we can then write the equations as:</p>
+</div><p>We solve for the unknowns <img class="math" src="../../images/math/eb37b8f84b267a3318413dcd963c9a5872051634.png" alt="w_0"/>, <img class="math" src="../../images/math/3c352e9db5a7134ca93f9fecce8fe99b0d4e5889.png" alt="w_1"/>, <img class="math" src="../../images/math/0ce0501dff8a93818a4e5d9ecc570d8ab6472e5b.png" alt="w_2"/>, <img class="math" src="../../images/math/fae1e827dd08b4d5f16edf752cce814e62a106b4.png" alt="w_3"/> and <img class="math" src="../../images/math/7f2f75262e3b0f6d95c24064c98fe6e02ce5b265.png" alt="w_4"/> as functions of
+<img class="math" src="../../images/math/7bff5231ba7fa776f904320431eabfc7a8253860.png" alt="(t, x, y, z)"/>, the rest (<img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/2f3f2daddf38c751bff3c7b6040d1beb8bde6178.png" alt="c_v"/>, <img class="math" src="../../images/math/77e2657b57cae321de481018d6dc74dd9920abc6.png" alt="f_x"/>, <img class="math" src="../../images/math/f4e24d769d1159c51257a0aef9390c2ef290a2c6.png" alt="f_y"/>, <img class="math" src="../../images/math/dbbdd66231f90d86cd4154819a47260c378b7ebe.png" alt="f_z"/>) are either constants
+or depend on the unknowns. In order to convert from the physical quantities
+<img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/0559ffc8c62a08ff533f3fcd1a5c1713a520755d.png" alt="u_1"/>, <img class="math" src="../../images/math/0725e2d5475070ba690e43acfb1adb66de9051fc.png" alt="u_2"/>, <img class="math" src="../../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3"/>, <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> and <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> to <img class="math" src="../../images/math/eb37b8f84b267a3318413dcd963c9a5872051634.png" alt="w_0"/>, ..., <img class="math" src="../../images/math/7f2f75262e3b0f6d95c24064c98fe6e02ce5b265.png" alt="w_4"/>, we use:</p>
 <div class="math">
-<p><img src="../../images/math/64496c86e0a6387b7128880337db87b8d33c3019.png" alt="{\partial{\bf w}\over \partial t} +
-{\partial{\bf f}_x\over \partial x} +
-{\partial{\bf f}_y\over \partial y} +
-{\partial{\bf f}_z\over \partial z} +
-{\bf g}= 0" /></p>
-</div><p>Note: <img class="math" src="../../images/math/96a3f06f5875f4560cf6d3150df2b910253d25c4.png" alt="{\bf U}\equiv{\bf j}"/>, where <img class="math" src="../../images/math/2f03ee335cd302ac22c46cb21d5f9c5ddaf9090b.png" alt="{\bf j}"/> is the fluid density current
+<p><img src="../../images/math/b3ee266676118ea74512906217f65582740e0186.png" alt="w_0 = \rho
+
+w_1 = \rho u_1
+
+w_2 = \rho u_2
+
+w_3 = \rho u_3
+
+w_4 = E = p {c_v \over R} + \half \rho \left(u_1^2 + u_2^2 + u_3^2\right)" /></p>
+</div><p>the opposite conversion is:</p>
+<div class="math">
+<p><img src="../../images/math/6004291841fff169f1f2bead7379d0da1d09040f.png" alt="\rho = w_0
+
+u_1 = {w_1\over w_0}
+
+u_2 = {w_2\over w_0}
+
+u_3 = {w_3\over w_0}
+
+E = w_4
+
+p = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)" /></p>
+</div><p>Note: <img class="math" src="../../images/math/e3007122968932795480d9e021764aae578a5721.png" alt="\rho {\bf u}\equiv{\bf j}"/>, where <img class="math" src="../../images/math/2f03ee335cd302ac22c46cb21d5f9c5ddaf9090b.png" alt="{\bf j}"/> is the fluid density current
 (it&#8217;s a 3-vector) and also <img class="math" src="../../images/math/a18ae5344d251543ce240b4553702821b8f7031b.png" alt="w^\mu \equiv j^\mu"/> (here <img class="math" src="../../images/math/9fbf92107df2b38bd92147dfa4610a1ca3226b82.png" alt="w^\mu"/> is the same as
 <img class="math" src="../../images/math/98bf8a59ca1556a6af9b5bd2a1a447dc7246a133.png" alt="w_\mu"/>, e.g. we are a bit sloppy about the notation), where <img class="math" src="../../images/math/2ce8c0411ae2c21e0a52190831491721e983a2ab.png" alt="j^\mu"/> is the
 density 4-current (e.g. the first 4 components of <img class="math" src="../../images/math/617e8d9a63e644648e5c0ea450662ac513a01982.png" alt="{\bf w}"/> are exactly the
@@ -258,7 +248,10 @@ and the remaining <img class="math" src="../../images/math/3372c1cb6d68cf97c2d23
 so it will not be present in the final equations (that involve terms like
 <img class="math" src="../../images/math/0e35888fdeaf118cf2494e17958e6b1d31c6f2af.png" alt="\partial_\mu j^\mu"/>). We can also just set <img class="math" src="../../images/math/0e4cc644ec8a1c3623c13ed3d14904096a0d87b9.png" alt="c=1"/> as usual in relativistic
 physics.</p>
-<p>Now we write the spatial derivatives using so called flux Jacobians
+</div>
+<div class="section" id="flux-jacobians">
+<h2>Flux Jacobians<a class="headerlink" href="#flux-jacobians" title="Permalink to this headline">¶</a></h2>
+<p>Now we write the spatial derivatives using the so called flux Jacobians
 <img class="math" src="../../images/math/7cd2e4892212a8a5b973e2add40bc4dc5aef0eec.png" alt="{\bf A}_x"/>,
 <img class="math" src="../../images/math/6a55da3074a4683c7d927c5286f49f00100be9c9.png" alt="{\bf A}_y"/>
 and
@@ -569,7 +562,7 @@ it):</p>
 <p>We rewrite the boundary integral by rotating coordinates, so that
 the flow is only in the <img class="math" src="../../images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> direction (thus we only have <img class="math" src="../../images/math/d195085ac6d735eff88a6561b7c7b41173b64150.png" alt="{\bf f}_x"/>):</p>
 <div class="math">
-<p><img src="../../images/math/fdf10cb3dfbb843bfb8d99a8b8835d612c86cf7d.png" alt="\int_{\partial\Omega}
+<p><img src="../../images/math/4e0ac78d42e160e718f00680153c054a077d0b5c.png" alt="\int_{\partial\Omega}
 \left({\bf f}_x({\bf w})\right)_i
     \varphi^i\, n_x
 + \left({\bf f}_y({\bf w})\right)_i
@@ -581,11 +574,8 @@ the flow is only in the <img class="math" src="../../images/math/26eeb5258ca5099
 
 =
 \int_{\partial\Omega}
-T^{-1} {\bf f}_x(T {\bf w})
-\ \d^2 x
-\approx
-\Delta S\,
-T^{-1} {\bf f}_x(T {\bf w})" /></p>
+T^{-1} {\bf f}_x(T {\bf w}) \varphi^i
+\ \d^2 x" /></p>
 </div><p>Now we need to approximate <img class="math" src="../../images/math/a119a1f4461f5f95b8e5998af8828cddc0f0fe7e.png" alt="{\bf f}_x(T {\bf w})"/> somehow.
 We do that by solving the following 1D problem (Riemann problem):</p>
 <div class="math">
@@ -713,7 +703,7 @@ prescribed, for example at the bottom it could be:</p>
 \end{array} \right)" /></p>
 </div><p>Now we need to calculate <img class="math" src="../../images/math/137aa4d85fa78681be420bc6012483d02e62c060.png" alt="{\bf A}^-"/>. First we write:</p>
 <div class="math">
-<p><img src="../../images/math/f0e18bb6c38c6506e6df1722146724ac18ed9332.png" alt="{\bf A}_x = {\bf R}{\bf D}_x{\bf R}^{-1}
+<p><img src="../../images/math/02dfdfa577d01e38596570b0e628473756140bf2.png" alt="{\bf A}_x = {\bf R}{\bf D}_x{\bf R}^{-1}
 
 {\bf A}_x^- = {\bf R}{\bf D}_x^-{\bf R}^{-1}
 
@@ -731,8 +721,25 @@ prescribed, for example at the bottom it could be:</p>
 {\bf D}_x({\bf w})^- =\begin{cases}
 \diag({w_1\over w_0}-c, {w_1\over w_0}, {w_1\over w_0}, {w_1\over w_0}, 0)
     &amp; w_1 &lt; 0\cr
-\diag(-c, 0, 0, 0, 0) &amp; w_1 &gt; 0\cr
+\diag({w_1\over w_0}-c, 0, 0, 0, 0) &amp; w_1 &gt; 0\cr
 \end{cases}" /></p>
+</div><p>Below we use:</p>
+<div class="math">
+<p><img src="../../images/math/54b907ddb8f470e998079c631bc16e6db41a17ad.png" alt="\rho = w_0
+
+u = {w_1\over w_0}
+
+v = {w_2\over w_0}
+
+w = {w_3\over w_0}
+
+E = w_4
+
+\kappa = 1 + {R\over c_v}
+
+p = (\kappa - 1)(E - \half\rho (u^2 + v^2 + w^2))
+
+c = \sqrt{\kappa {p \over \rho}}" /></p>
 </div><p>Explicit forms of the matrices:</p>
 <div class="math">
 <p><img src="../../images/math/77e8417c82cbff47b6d42538f85772b06ceb7638.png" alt="{\bf R} = \left(\begin{smallmatrix}1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\\u - c &amp; u &amp; u &amp; u &amp; c + u\\v &amp; v &amp; v - c &amp; v &amp; v\\w &amp; w &amp; w &amp; w - c &amp; w\\- c u - \frac{c^{2}}{1 - \kappa} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; - c v + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; - c w + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; c u - \frac{c^{2}}{1 - \kappa} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2}\end{smallmatrix}\right)
@@ -1213,6 +1220,8 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
             <ul>
 <li><a class="reference external" href="">Compressible Euler Equations</a><ul>
 <li><a class="reference external" href="#introduction">Introduction</a></li>
+<li><a class="reference external" href="#euler-equations">Euler Equations</a></li>
+<li><a class="reference external" href="#flux-jacobians">Flux Jacobians</a></li>
 <li><a class="reference external" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a></li>
 <li><a class="reference external" href="#fem-formulation">FEM Formulation</a><ul>
 <li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a></li>
