@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-159"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-225"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The compressible Euler equations are equations for perfect fluid.
@@ -114,7 +114,13 @@ the experimental value is about <img class="math" src="../../images/math/5a7856b
 and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is the temperature of the gas.
 Of those, <img class="math" src="../../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/>, <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, <img class="math" src="../../images/math/22344a41e47985033825ea337522a64e707f85ef.png" alt="\bar R"/> are constants, <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/>, <img class="math" src="../../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> and <img class="math" src="../../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> are
 functions of <img class="math" src="../../images/math/7bff5231ba7fa776f904320431eabfc7a8253860.png" alt="(t, x, y, z)"/>.</p>
-</div>
+<p>In order to calculate <img class="math" src="../../images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>, we use <img class="math" src="../../images/math/121ea9b1d87f0d15d038734cd02544b89c89e297.png" alt="R=c_p-c_v"/>:</p>
+<div class="math">
+<p><img src="../../images/math/aed828229d8431648565af4f44511d94fa01958f.png" alt="\kappa = {c_p\over c_v} = {c_v+R\over c_v} = 1 + {R\over c_v}" /></p>
+</div><p>and the speed of sound is:</p>
+<div class="math">
+<p><img src="../../images/math/d17a24a1599f3742da700b66fa85deb21ffb3f57.png" alt="c = \sqrt{\kappa {p \over \rho}}" /></p>
+</div></div>
 <div class="section" id="euler-equations">
 <h2>Euler Equations<a class="headerlink" href="#euler-equations" title="Permalink to this headline">¶</a></h2>
 <p>We can write the Euler equations as:</p>
@@ -228,7 +234,8 @@ u_3 = {w_3\over w_0}
 E = w_4
 
 p = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)" /></p>
-</div><p>Note: <img class="math" src="../../images/math/e3007122968932795480d9e021764aae578a5721.png" alt="\rho {\bf u}\equiv{\bf j}"/>, where <img class="math" src="../../images/math/2f03ee335cd302ac22c46cb21d5f9c5ddaf9090b.png" alt="{\bf j}"/> is the fluid density current
+</div><p>Sometimes people also use <img class="math" src="../../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u"/>, <img class="math" src="../../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/> and <img class="math" src="../../images/math/9ee4b825a2e36ae093ed7be5e4851ef453b34914.png" alt="w"/> instead of <img class="math" src="../../images/math/0559ffc8c62a08ff533f3fcd1a5c1713a520755d.png" alt="u_1"/>, <img class="math" src="../../images/math/0725e2d5475070ba690e43acfb1adb66de9051fc.png" alt="u_2"/> and <img class="math" src="../../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3"/>.</p>
+<p>Note: <img class="math" src="../../images/math/e3007122968932795480d9e021764aae578a5721.png" alt="\rho {\bf u}\equiv{\bf j}"/>, where <img class="math" src="../../images/math/2f03ee335cd302ac22c46cb21d5f9c5ddaf9090b.png" alt="{\bf j}"/> is the fluid density current
 (it&#8217;s a 3-vector) and also <img class="math" src="../../images/math/a18ae5344d251543ce240b4553702821b8f7031b.png" alt="w^\mu \equiv j^\mu"/> (here <img class="math" src="../../images/math/9fbf92107df2b38bd92147dfa4610a1ca3226b82.png" alt="w^\mu"/> is the same as
 <img class="math" src="../../images/math/98bf8a59ca1556a6af9b5bd2a1a447dc7246a133.png" alt="w_\mu"/>, e.g. we are a bit sloppy about the notation), where <img class="math" src="../../images/math/2ce8c0411ae2c21e0a52190831491721e983a2ab.png" alt="j^\mu"/> is the
 density 4-current (e.g. the first 4 components of <img class="math" src="../../images/math/617e8d9a63e644648e5c0ea450662ac513a01982.png" alt="{\bf w}"/> are exactly the
@@ -724,23 +731,6 @@ prescribed, for example at the bottom it could be:</p>
     &amp; w_1 &lt; 0\cr
 \diag({w_1\over w_0}-c, 0, 0, 0, 0) &amp; w_1 &gt; 0\cr
 \end{cases}" /></p>
-</div><p>Below we use:</p>
-<div class="math">
-<p><img src="../../images/math/54b907ddb8f470e998079c631bc16e6db41a17ad.png" alt="\rho = w_0
-
-u = {w_1\over w_0}
-
-v = {w_2\over w_0}
-
-w = {w_3\over w_0}
-
-E = w_4
-
-\kappa = 1 + {R\over c_v}
-
-p = (\kappa - 1)(E - \half\rho (u^2 + v^2 + w^2))
-
-c = \sqrt{\kappa {p \over \rho}}" /></p>
 </div><p>Explicit forms of the matrices:</p>
 <div class="math">
 <p><img src="../../images/math/77e8417c82cbff47b6d42538f85772b06ceb7638.png" alt="{\bf R} = \left(\begin{smallmatrix}1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\\u - c &amp; u &amp; u &amp; u &amp; c + u\\v &amp; v &amp; v - c &amp; v &amp; v\\w &amp; w &amp; w &amp; w - c &amp; w\\- c u - \frac{c^{2}}{1 - \kappa} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; - c v + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; - c w + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} &amp; c u - \frac{c^{2}}{1 - \kappa} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2}\end{smallmatrix}\right)
