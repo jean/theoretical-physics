@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-0"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-142"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The compressible Euler equations are equations for perfect fluid.
@@ -455,8 +455,8 @@ combinations of these constants as follows:</p>
 </div><p>So the dimensionless Euler equations look exactly the same as the original
 ones, we just need to rescale all the quantities using the relations above.</p>
 </div>
-<div class="section" id="fem-formulation">
-<h2>FEM Formulation<a class="headerlink" href="#fem-formulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="weak-formulation">
+<h2>Weak Formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this headline">¶</a></h2>
 <p>The Euler equations:</p>
 <div class="math">
 <p><img src="../../images/math/64496c86e0a6387b7128880337db87b8d33c3019.png" alt="{\partial{\bf w}\over \partial t} +
@@ -464,27 +464,16 @@ ones, we just need to rescale all the quantities using the relations above.</p>
 {\partial{\bf f}_y\over \partial y} +
 {\partial{\bf f}_z\over \partial z} +
 {\bf g}= 0" /></p>
-</div><p>or:</p>
+</div><p>are nonlinear. The time-derivative is approximated using the implicit Euler
+method</p>
 <div class="math">
-<p><img src="../../images/math/9078d8cb93e9838a446248bbb5b274cc20c4c9d1.png" alt="{\partial{\bf w}\over \partial t} +
-{\bf A}_x({\bf w})
-{\partial{\bf w}\over \partial x} +
-{\bf A}_y({\bf w})
-{\partial{\bf w}\over \partial y} +
-{\bf A}_z({\bf w})
-{\partial{\bf w}\over \partial z} +
+<p><img src="../../images/math/936006e1e15fb6bfec7e5670a21e2dfa55cafbc2.png" alt="{{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+{\partial{\bf f}_x({\bf w}^{n+1})\over \partial x} +
+{\partial{\bf f}_y({\bf w}^{n+1})\over \partial y} +
+{\partial{\bf f}_z({\bf w}^{n+1})\over \partial z} +
 {\bf g}= 0" /></p>
-</div><p>are nonlinear. We first linearize the time derivative:</p>
-<div class="math">
-<p><img src="../../images/math/ddbe2bccd4e603179f7419e5fcf594aed49489db.png" alt="{{\bf w}^{n+1}-{\bf w}^n\over \tau} +
-{\bf A}_x({\bf w}^{n+1})
-{\partial{\bf w}^{n+1}\over \partial x} +
-{\bf A}_y({\bf w}^{n+1})
-{\partial{\bf w}^{n+1}\over \partial y} +
-{\bf A}_z({\bf w}^{n+1})
-{\partial{\bf w}^{n+1}\over \partial z} +
-{\bf g}= 0" /></p>
-</div><p>Then we multiply by the test functions (one by one):</p>
+</div><p>The vector-valued test functions for the above system of equations have the
+form:</p>
 <div class="math">
 <p><img src="../../images/math/3340312bcde8c04c7c4bbc7e1d7d66d9bd30aff1.png" alt="\left( \begin{array}{c}
     \varphi^0 \\
@@ -521,59 +510,54 @@ ones, we just need to rescale all the quantities using the relations above.</p>
     0 \\
     \varphi^4 \\
 \end{array} \right)" /></p>
-</div><p>and integrate over the 3D domain <img class="math" src="../../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/>, so we get (here the index
-<img class="math" src="../../images/math/a859cf4d934ceb063567af10283152e529a1c7d6.png" alt="i=0, 1, 2, 3, 4"/> is numbering the 5 equations, so we are <em>not</em> summing over
-it):</p>
+</div><p>After multiplying the equation system with the test functions and integrating
+over the domain <img class="math" src="../../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/>, we obtain (here the index <img class="math" src="../../images/math/a859cf4d934ceb063567af10283152e529a1c7d6.png" alt="i=0, 1, 2, 3, 4"/> is
+numbering the 5 equations, so we are <em>not</em> summing over it):</p>
 <div class="math">
-<p><img src="../../images/math/fc58a3937f5e1449f95e1d69e3a298d1c6d5f05c.png" alt="\int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
-    + \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
-      {\partial w_j^{n+1}\over\partial x} \varphi^i
-    + \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
-      {\partial w_j^{n+1}\over\partial y} \varphi^i
-    + \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
-      {\partial w_j^{n+1}\over\partial z} \varphi^i
+<p><img src="../../images/math/432aed4f2da63e31777b0b90f98bc15e7d37b528.png" alt="\int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+    +{\partial\left({\bf f}_x({\bf w}^{n+1})\right)_i\over \partial x}\varphi^i
+    +{\partial\left({\bf f}_y({\bf w}^{n+1})\right)_i\over \partial y}\varphi^i
+    +{\partial\left({\bf f}_z({\bf w}^{n+1})\right)_i\over \partial z}\varphi^i
     + g_i \varphi^i
     \ \d^3 x
     =0" /></p>
-</div><p>Now we integrate by parts and use the homogeneity property (
-<img class="math" src="../../images/math/1e2e2e8061e3e09e81794f1b56d81c146de9a523.png" alt="w_j {\partial\left({\bf A}_z({\bf w}^n)\right)_{ij}\over\partial x}
-\varphi^i = 0"/>):</p>
+</div><p>Now we integrate by parts:</p>
 <div class="math">
-<p><img src="../../images/math/f9c238bef92ceb20935dc918b9ae19756b37ee74.png" alt="\int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
-    - \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
-      w_j^{n+1} {\partial \varphi^i\over\partial x}
-    - \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
-      w_j^{n+1} {\partial \varphi^i\over\partial y}
-    - \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
-      w_j^{n+1} {\partial \varphi^i\over\partial z}
+<p><img src="../../images/math/5f27b0deee80b6c9d7a029c2b06566aa39d6fc39.png" alt="\int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+    - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+      {\partial \varphi^i\over\partial x}
+    - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+      {\partial \varphi^i\over\partial y}
+    - \left({\bf f}_z({\bf w}^{n+1})\right)_i
+      {\partial \varphi^i\over\partial z}
     + g_i \varphi^i
     \ \d^3 x
     +
 
 +\int_{\partial\Omega}
-\left({\bf A}_x({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
+    \left({\bf f}_x({\bf w}^{n+1})\right)_i
     \varphi^i\, n_x
-+ \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
++ \left({\bf f}_y({\bf w}^{n+1})\right)_i
     \varphi^i\, n_y
-+ \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
++ \left({\bf f}_z({\bf w}^{n+1})\right)_i
     \varphi^i\, n_z
 \ \d^2 x
 =0" /></p>
 </div><p>where <img class="math" src="../../images/math/7f2d58d6348e91be0cd7b230edffcdd273170454.png" alt="{\bf n} = (n_x, n_y, n_z)"/> is the outward surface normal to
 <img class="math" src="../../images/math/6720af89712e36d5af405fb7adf80ec1f04b211a.png" alt="\partial\Omega"/>. Rearranging:</p>
 <div class="math">
-<p><img src="../../images/math/8a4bca2a6bed3d888478f2e981e771cb577805f4.png" alt="\int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
-    - \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
-      w_j^{n+1} {\partial \varphi^i\over\partial x}
-    - \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
-      w_j^{n+1} {\partial \varphi^i\over\partial y}
-    - \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
-      w_j^{n+1} {\partial \varphi^i\over\partial z}
+<p><img src="../../images/math/09ff711307a154629ebfbc05c3fe81dacbe48529.png" alt="\int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+    - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+      {\partial \varphi^i\over\partial x}
+    - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+      {\partial \varphi^i\over\partial y}
+    - \left({\bf f}_z({\bf w}^{n+1})\right)_i
+      {\partial \varphi^i\over\partial z}
     \ \d^3 x
     +
 
 +\int_{\partial\Omega}
-\left({\bf f}_x({\bf w}^{n+1})\right)_i
+    \left({\bf f}_x({\bf w}^{n+1})\right)_i
     \varphi^i\, n_x
 + \left({\bf f}_y({\bf w}^{n+1})\right)_i
     \varphi^i\, n_y
@@ -582,11 +566,20 @@ it):</p>
 \ \d^2 x
 =
 \int_{\Omega} {w_i^n\over\tau}\varphi^i
-    - g_i \varphi^i
+    - g_i\varphi^i
     \ \d^3 x" /></p>
 </div><p>We can then linearize this for example by taking the flux jacobians
 <img class="math" src="../../images/math/908dc44dda04ec1205cb439ddd1a25c511151f5c.png" alt="{\bf A}_x({\bf w}^{n+1})"/> on the previous time level
 <img class="math" src="../../images/math/92347ed7f899fe6d57b3efefb6b9b03d875ec86a.png" alt="{\bf A}_x({\bf w}^n)"/>.</p>
+<p>The finite element formulation is obtained from here by replacing in the
+standard way the unknown solution <img class="math" src="../../images/math/bc590591e4a3de0ffd202cc3b919af17a55c1d3a.png" alt="w^{n+1}"/> by a piecewise-polynomial unknown
+function</p>
+<div class="math">
+<p><img src="../../images/math/cb23d5ee09425fc36be8929b644a4892946ed282.png" alt="w_h^{n+1} = \sum_{k=1}^N y_k \psi_k," /></p>
+</div><p>where <img class="math" src="../../images/math/2deaf2ac13e64fefa38f4757390941118ae088cf.png" alt="\psi_k"/> are the basis functions of the piecewise-polynomial finite
+element space.  This turns the above weak formulation into a finite number of
+nonlinear algebraic equations of the form <img class="math" src="../../images/math/861ece295ea0fc7a11bc8fe2dbdc99becd8c8aeb.png" alt="F(Y) = 0"/> that will be solved using
+the Newton&#8217;s method.</p>
 <div class="section" id="boundary-conditions">
 <h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>We rewrite the boundary integral by rotating coordinates, so that
@@ -1236,7 +1229,7 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
 <li><a class="reference external" href="#euler-equations">Euler Equations</a></li>
 <li><a class="reference external" href="#flux-jacobians">Flux Jacobians</a></li>
 <li><a class="reference external" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a></li>
-<li><a class="reference external" href="#fem-formulation">FEM Formulation</a><ul>
+<li><a class="reference external" href="#weak-formulation">Weak Formulation</a><ul>
 <li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a></li>
 </ul>
 </li>
