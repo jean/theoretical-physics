@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="compressible-euler-equations">
-<span id="index-142"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
+<span id="index-230"></span><h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The compressible Euler equations are equations for perfect fluid.
@@ -783,6 +783,12 @@ V = 0
 ={\partial V\over\partial y}
 ={\partial W\over\partial y}
 ={\partial E\over\partial y}=0" /></p>
+</div><p>and the boundary condition is as follows:</p>
+<div class="math">
+<p><img src="../../images/math/739dca6def8a32adf089292158681bdf968a46ea.png" alt="T'(x, t) = \left(A\over2\right) \sin \left(\pi (t-t_0)\over 24\right)
+    \left(1+\tanh\left(S(x)\over L\right)\right)
+
+T(x) = T_0 + T'(x, t)" /></p>
 </div><p>so we get a 2D model:</p>
 <div class="math">
 <p><img src="../../images/math/affd3a9d0402c406663e783b3bf50b6aecff5b2c.png" alt="\frac{\partial}{\partial t} \left( \begin{array}{c}
@@ -1076,6 +1082,45 @@ the test function <img class="math" src="../../images/math/1e96a4ba79a4820a81ebd
 BC <img class="math" src="../../images/math/a1465f1b6e0f5aaf7e71db9e688b7a465b0491db.png" alt="w^1=0"/>, so the surface integral vanishes for all <img class="math" src="../../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>.</p>
 </div>
 </div>
+<div class="section" id="newton-method">
+<h2>Newton Method<a class="headerlink" href="#newton-method" title="Permalink to this headline">¶</a></h2>
+<p>The residual is:</p>
+<div class="math">
+<p><img src="../../images/math/5db82e5802a7ffd30f5ac98cc5b8307369f39b53.png" alt="F_{i,m}(Y^{n+1}) = \int_\Omega {w_{i,m}(y_m^{n+1}) - w_{i,m}(y^n)\over\tau}
+    \varphi_{i, m}
+    -f_{x,m}(w(y^n)){\partial \varphi_{i, m}\over\partial x}
+    -f_{y,m}(w(y^n)){\partial \varphi_{i, m}\over\partial y}
+    +\delta_{3, m} g \varphi_{i, m} \,\d x\, \d y
+    +
+
+- \int_{\partial\Omega}
+    f_{x,m}(w(y^n))\varphi_{i, m}\nu_x
+    +f_{y,m}(w(y^n))\varphi_{i, m}\nu_y
+    \,
+    \d S = 0" /></p>
+</div><p>where <img class="math" src="../../images/math/131ee29d8a0a2c11b5c024f942ad9778abb9ad3f.png" alt="m = 0, 1, 2, 4"/> numbers the equations, <img class="math" src="../../images/math/ef63f5c08c018266f9743332483de7145e5827a2.png" alt="i = 1, 2, ..., M"/> numbers the
+finite element basis functions, <img class="math" src="../../images/math/51ee78bf1aed1abd2ed03f955783a7e2da63e00d.png" alt="N = 4M"/>,
+<img class="math" src="../../images/math/1abdf7c42f62575b2a8c042b97ef7ba61250b7f6.png" alt="Y = (y_0^1, y_1^1, y_2^1, y_3^1, y_0^2, y_1^2, ...)"/>.
+The Jacobian is:</p>
+<div class="math">
+<p><img src="../../images/math/baff1e844f164dbbc7c1dd473b9e65d7536317c8.png" alt="J(Y^n) = {\partial F_{i, m}\over\partial y_{r, s}} (Y^n) =
+    \int_\Omega {\varphi_{r, s}\over\tau} \varphi_{i, m}
+    -A_{x, m, s}(w(y^n)) \varphi_{r, s} {\partial\varphi_{i,
+    m}\over\partial x}
+    -A_{y, m, s}(w(y^n)) \varphi_{r, s} {\partial\varphi_{i,
+    m}\over\partial y}
+    \,\d x\,\d y
+
+    +
+    \int_{\partial\Omega}
+    A_{x, m, s}(w(y^n)) \varphi_{r, s} \varphi_{i, m}\nu_x
+    +
+    A_{y, m, s}(w(y^n)) \varphi_{r, s} \varphi_{i, m}\nu_y
+    \,\d S" /></p>
+</div><p>And the Newton method then is:</p>
+<div class="math">
+<p><img src="../../images/math/c18e6abad3aefd253c5ac07b89f851d30dd8494b.png" alt="J(Y^n) \delta Y^{n+1} = -F(Y^n)" /></p>
+</div></div>
 <div class="section" id="older-notes">
 <h2>Older notes<a class="headerlink" href="#older-notes" title="Permalink to this headline">¶</a></h2>
 <p>Author: Pavel Solin</p>
@@ -1237,6 +1282,7 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
 <li><a class="reference external" href="#id1">Boundary Conditions</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#newton-method">Newton Method</a></li>
 <li><a class="reference external" href="#older-notes">Older notes</a><ul>
 <li><a class="reference external" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
 <li><a class="reference external" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
