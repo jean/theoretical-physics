@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Maxwell’s Equations &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Classical Electromagnetism" href="main.html" />
+    <link rel="next" title="Fluid Dynamics" href="../fluid-dynamics/main.html" />
+    <link rel="prev" title="Classical Electromagnetism" href="main.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../fluid-dynamics/main.html" title="Fluid Dynamics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Classical Electromagnetism"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Classical Electromagnetism</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="maxwell-s-equations">
+<h1>Maxwell&#8217;s Equations<a class="headerlink" href="#maxwell-s-equations" title="Permalink to this headline">¶</a></h1>
+<p>The Maxwell&#8217;s equations are:</p>
+<div class="math">
+<p><img src="../../images/math/f3ec399f9cec39aa9eb46d4c9886ed6d74648ad7.png" alt="\partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
+
+\epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0" /></p>
+</div><p>and the Lorentz force is:</p>
+<div class="math">
+<p><img src="../../images/math/ac401652becff255adccf4526961cfa94688a34b.png" alt="{\d p_\alpha\over\d \tau} = q F_{\alpha\beta} u^\beta" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../images/math/92e9984a94f2dbb770945482d91007b008c80dc2.png" alt="j^\alpha = (c\rho, {\bf j})
+
+F_{\alpha\beta} = \left(\begin{array}{cccc}
+0 &amp; {E_1\over c} &amp; {E_2\over c} &amp; {E_3\over c} \\
+-{E_1\over c} &amp; 0 &amp; -B_3 &amp; B_2 \\
+-{E_2\over c} &amp; B_3 &amp; 0 &amp; -B_1 \\
+-{E_3\over c} &amp; -B_2 &amp; B_1 &amp; 0 \\
+\end{array}\right)" /></p>
+</div><p>This corresponds to:</p>
+<div class="math">
+<p><img src="../../images/math/2d8197dbd960003b4a3ca48f94bf82a8b9d0f244.png" alt="\nabla\cdot{\bf E} = c^2\mu_0 \rho
+
+\nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
+    \over \partial t}
+
+\nabla\cdot{\bf B} = 0
+
+\nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}" /></p>
+</div><div class="section" id="four-potential">
+<h2>Four Potential<a class="headerlink" href="#four-potential" title="Permalink to this headline">¶</a></h2>
+<p>The four potential is defined by:</p>
+<div class="math">
+<p><img src="../../images/math/3f67b2d0414aa2f928b77ccb30d3ca10f9239032.png" alt="A^\alpha = \left({\phi\over c}, {\bf A}\right)
+
+F_{\alpha\beta} = \partial_\alpha A_\beta - \partial_\beta A_\alpha" /></p>
+</div><p>this corresponds to:</p>
+<div class="math">
+<p><img src="../../images/math/f51b144f52b73e76943519893131a91c028f1939.png" alt="{\bf E} = -\nabla\phi - {\partial {\bf A}\over\partial t}
+
+{\bf B} = \nabla\times{\bf A}" /></p>
+</div><p>The Maxwell&#8217;s equations can then be written as (note that the two eq. without
+sources are automatically satisfied by the four potential):</p>
+<div class="math">
+<p><img src="../../images/math/108cd46e1e6d1dfea131d9db546cd53cf93d797d.png" alt="\partial_\alpha F^{\beta\alpha} =
+    \partial_\alpha (\partial^\beta A^\alpha - \partial^\alpha A^\beta) =
+    -\partial_\alpha \partial^\alpha A^\beta =
+    \mu_0 j^\beta" /></p>
+</div><p>where we have employed the Lorentz gauge <img class="math" src="../../images/math/d22f57954759e85307b53cb9f4b60f8a87d8f3bb.png" alt="\partial_\alpha A^\alpha=0"/>.</p>
+</div>
+</div>
+<div class="section" id="semiconductor-device-physics">
+<h1>Semiconductor Device Physics<a class="headerlink" href="#semiconductor-device-physics" title="Permalink to this headline">¶</a></h1>
+<p>In general, the task is to find the five quantities:</p>
+<div class="math">
+<p><img src="../../images/math/4a2a14fb18c033eb3f812aa74f9da4d577e28b2b.png" alt="n({\bf x}, t),
+p({\bf x}, t),
+{\bf J}_n({\bf x}, t),
+{\bf J}_h({\bf x}, t),
+{\bf E}({\bf x}, t)" /></p>
+</div><p>where <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> (<img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>) is the electron (hole) concentration, <img class="math" src="../../images/math/dfc37721ca1fb86dfad01ec9bfeb15e12d266af3.png" alt="{\bf J}_n"/>
+(<img class="math" src="../../images/math/b3605fb0c264d6cd98414a4dc452ba67f5fabe99.png" alt="{\bf J}_p"/>) is the electron (hole) current density, <img class="math" src="../../images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/> is the
+electric field.</p>
+<p>And we have five equations that relate them. We start with the continuity
+equation:</p>
+<div class="math">
+<p><img src="../../images/math/043883a5e84b7cb6121bb93e01ac48a8d1981e19.png" alt="\nabla\cdot{\bf J} +{\partial\rho\over\partial t} = 0" /></p>
+</div><p>where the current density <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is composed of electron and hole current
+densities:</p>
+<div class="math">
+<p><img src="../../images/math/fd3be05579e25e099d6b937fc5a3d84560d8ee99.png" alt="{\bf J} = {\bf J}_n + {\bf J}_p" /></p>
+</div><p>and the charge density <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> is composed of mobile (electrons and holes) and
+fixed charges (ionized donors and acceptors):</p>
+<div class="math">
+<p><img src="../../images/math/6e6c38348e4e2e95cfeaaa29821aa621d66a3907.png" alt="\rho = q(p-n+C)" /></p>
+</div><p>where <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> is the electron and hole concetration, <img class="math" src="../../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> is the net
+doping concetration and <img class="math" src="../../images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/> is the electron charge (positive). We get:</p>
+<div class="math">
+<p><img src="../../images/math/bdde760f1ccc7e548dac124f605b29d45cded885.png" alt="\nabla\cdot{\bf J}_n + \nabla\cdot{\bf J}_p + q\left(
+    {\partial p\over\partial t}
+    -{\partial n\over\partial t}
+    +{\partial C\over\partial t}
+    \right) = 0" /></p>
+</div><p>Assuming the fixed charges <img class="math" src="../../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> are time invariant, we get:</p>
+<div class="math">
+<p><img src="../../images/math/5a56e0a0c20a4e9fb7ab2017d04c8b7fafaf0830.png" alt="\nabla\cdot{\bf J}_n - q {\partial n\over\partial t} =
+    -\left( \nabla\cdot{\bf J}_p + q{\partial p\over\partial t}
+    \right) \equiv qR" /></p>
+</div><p>where <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> is the net recombination rate for electrons and holes (a positive
+value means recombination, a negative value generation of carriers). We get the
+carrier continuity equations:</p>
+<div class="math" id="equation-continuity">
+<p><span class="eqno">(1)</span><img src="../../images/math/f553859214c7ec09ce9847bc163cd1e124820db6.png" alt="{\partial n\over\partial t} = -R + {1\over q} \nabla\cdot {\bf J}_n
+
+{\partial p\over\partial t} = -R - {1\over q} \nabla\cdot {\bf J}_p" /></p>
+</div><p>Then we need material relations that express how the current <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is
+generated using <img class="math" src="../../images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/> and <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>. A general model gives the
+current density relations:</p>
+<div class="math" id="equation-drift">
+<p><span class="eqno">(2)</span><img src="../../images/math/3f1097a5331fe909142714459235ff054a0d38aa.png" alt="{\bf J}_n = q\mu_n n {\bf E} + q D_n \nabla n
+
+{\bf J}_p = q\mu_p p {\bf E} - q D_p \nabla p" /></p>
+</div><p>where <img class="math" src="../../images/math/70edeef563162fc6212acb107a10dc7d81e7a99f.png" alt="\mu_n"/>, <img class="math" src="../../images/math/cd3a37106c43d8f0931ee8a4da3f0aa455492221.png" alt="\mu_p"/>, <img class="math" src="../../images/math/2eacbcb991af87d495f8689ac0e952b51317dbaa.png" alt="D_n"/>, <img class="math" src="../../images/math/9fd0e5c87aa97864dbc938e52116649e1eef006a.png" alt="D_p"/> are the carrier mobilities and
+diffusivities.</p>
+<p>Final equation is the Gauss&#8217;s law:</p>
+<div class="math">
+<p><img src="../../images/math/7d99fddf9ea6d5b1473e223bda36515ef7456e2d.png" alt="\nabla\cdot (\varepsilon{\bf E}) = \rho" /></p>
+</div><div class="math" id="equation-gauss">
+<p><span class="eqno">(3)</span><img src="../../images/math/04adf9877fe301cf89fd671262ed40ec3a97765e.png" alt="\nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)" /></p>
+</div><div class="section" id="equations">
+<h2>Equations<a class="headerlink" href="#equations" title="Permalink to this headline">¶</a></h2>
+<p>Combining <a href="#equation-drift">(2)</a> and <a href="#equation-continuity">(1)</a> we get the following three
+equations for three unknowns <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> and <img class="math" src="../../images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/>:</p>
+<div class="math">
+<p><img src="../../images/math/7c8ac0f9b30a814af0b3f6c01264efcb591c3172.png" alt="{\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E}
+    +D_n \nabla n)
+
+{\partial p\over\partial t} = -R - \nabla\cdot (\mu_p p {\bf E}
+    -D_p \nabla p)
+
+\nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)" /></p>
+</div><div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p>We can substract the first two
+equations and we get:</p>
+<div class="math">
+<p><img src="../../images/math/1a46ec347dda9060d3a7522a7da45214712f7c7e.png" alt="{\partial q(p-n)\over\partial t} = - \nabla\cdot (q(\mu_p p+\mu_n n) {\bf E}
+    -q\nabla (D_p p-D_n n))
+
+\nabla\cdot(\varepsilon {\bf E}) = q(p-n)" /></p>
+</div><p>and using <img class="math" src="../../images/math/88a2d7f4738f5a1d20e57794530a2ba6f6e936fc.png" alt="\rho=q(p-n)"/> and <img class="math" src="../../images/math/de40a452ae427196077aa82b86b388ac6182cda6.png" alt="\sigma=q(\mu_p p+\mu_n n)"/>, we get:</p>
+<div class="math">
+<p><img src="../../images/math/557735e64664a402816318fcb048f36cc761530b.png" alt="{\partial \rho\over\partial t} = - \nabla\cdot (\sigma {\bf E}
+    -q\nabla (D_p p-D_n n))
+
+\nabla\cdot(\varepsilon {\bf E}) = \rho" /></p>
+</div><p>Assuming <img class="math" src="../../images/math/2e2741199b5cc1dec8e8980be27d09890b481451.png" alt="\nabla (D_p p-D_n n)=0"/> and that <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> doesn&#8217;t depend on time, we
+get:</p>
+<div class="math">
+<p><img src="../../images/math/5ac1475ee968fb530657169d2bf82a4031b5f8cb.png" alt="\nabla\cdot (\sigma {\bf E}) = 0
+
+\nabla\cdot(\varepsilon {\bf E}) = \rho" /></p>
+</div></div>
+<div class="section" id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<p>As a simple model, assume <img class="math" src="../../images/math/2eacbcb991af87d495f8689ac0e952b51317dbaa.png" alt="D_n"/>, <img class="math" src="../../images/math/9fd0e5c87aa97864dbc938e52116649e1eef006a.png" alt="D_p"/>, <img class="math" src="../../images/math/70edeef563162fc6212acb107a10dc7d81e7a99f.png" alt="\mu_n"/>, <img class="math" src="../../images/math/cd3a37106c43d8f0931ee8a4da3f0aa455492221.png" alt="\mu_p"/> and <img class="math" src="../../images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon"/>
+are position independent and <img class="math" src="../../images/math/7296755ef63523ef0ed2e997caae100445bbb44d.png" alt="C=0"/>, <img class="math" src="../../images/math/7cabdac25e931867e38c2efc2e553e258984119e.png" alt="R=0"/>:</p>
+<div class="math">
+<p><img src="../../images/math/62097ba5588b27d61ad5db1b364c1acf6f6185bc.png" alt="{\partial n\over\partial t} =
+    +\mu_n n \nabla\cdot {\bf E}
+    +\mu_n {\bf E}\cdot\nabla n
+    +D_n \nabla^2 n
+
+{\partial p\over\partial t} =
+    -\mu_p p \nabla\cdot {\bf E}
+    -\mu_p {\bf E}\cdot\nabla p
+    +D_p \nabla^2 p
+
+\varepsilon\nabla\cdot {\bf E} = q(p-n)" /></p>
+</div><p>Using <img class="math" src="../../images/math/7e40335fd1d57c16b5b03cceec53d04825cafacf.png" alt="{\bf E} = -\nabla \phi"/> we get:</p>
+<div class="math">
+<p><img src="../../images/math/ec7487fa252d96f1d3ee9e1b1838f5b0fd5c4ca6.png" alt="{\partial n\over\partial t} =
+    -\mu_n n \nabla^2\phi
+    -\mu_n \nabla\phi\cdot\nabla n
+    +D_n \nabla^2 n
+
+{\partial p\over\partial t} =
+    +\mu_p p \nabla^2\phi
+    +\mu_p \nabla\phi\cdot\nabla p
+    +D_p \nabla^2 p
+
+\varepsilon\nabla^2\phi = -q(p-n)" /></p>
+</div></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Maxwell&#8217;s Equations</a><ul>
+<li><a class="reference external" href="#four-potential">Four Potential</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#semiconductor-device-physics">Semiconductor Device Physics</a><ul>
+<li><a class="reference external" href="#equations">Equations</a><ul>
+<li><a class="reference external" href="#example-1">Example 1</a></li>
+<li><a class="reference external" href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="main.html"
+                                  title="previous chapter">Classical Electromagnetism</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../fluid-dynamics/main.html"
+                                  title="next chapter">Fluid Dynamics</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../sources/src/elmag/elmag.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../fluid-dynamics/main.html" title="Fluid Dynamics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Classical Electromagnetism"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Classical Electromagnetism</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>
