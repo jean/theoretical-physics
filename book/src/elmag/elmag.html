@@ -146,8 +146,9 @@ carrier continuity equations:</p>
 
 {\partial p\over\partial t} = -R - {1\over q} \nabla\cdot {\bf J}_p" /></p>
 </div><p>Then we need material relations that express how the current <img class="math" src="../../images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is
-generated using <img class="math" src="../../images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/> and <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>. A general model gives the
-current density relations:</p>
+generated using <img class="math" src="../../images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/> and <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>. A drift-diffusion model is to assume
+a drift current (<img class="math" src="../../images/math/c100f968ad3c74575dfc8b204a4938bec1d479c1.png" alt="q\mu_n n {\bf E}"/>) and a diffusion (<img class="math" src="../../images/math/a956eceaad82dd620cffae9fe68fad353f4cb0bb.png" alt="q D_n \nabla n"/>),
+which gives:</p>
 <div class="math" id="equation-drift">
 <p><span class="eqno">(2)</span><img src="../../images/math/3f1097a5331fe909142714459235ff054a0d38aa.png" alt="{\bf J}_n = q\mu_n n {\bf E} + q D_n \nabla n
 
@@ -164,30 +165,57 @@ diffusivities.</p>
 <p>Combining <a href="#equation-drift">(2)</a> and <a href="#equation-continuity">(1)</a> we get the following three
 equations for three unknowns <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> and <img class="math" src="../../images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/>:</p>
 <div class="math">
-<p><img src="../../images/math/7c8ac0f9b30a814af0b3f6c01264efcb591c3172.png" alt="{\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E}
-    +D_n \nabla n)
+<p><img src="../../images/math/79f5ec3a2fbed650c1648b344f5e59a1310275ba.png" alt="{\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E})
+    +\nabla\cdot (D_n \nabla n)
 
-{\partial p\over\partial t} = -R - \nabla\cdot (\mu_p p {\bf E}
-    -D_p \nabla p)
+{\partial p\over\partial t} = -R - \nabla\cdot (\mu_p p {\bf E})
+    +\nabla\cdot (D_p \nabla p)
 
 \nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)" /></p>
-</div><div class="section" id="example-1">
+</div><p>And it is usually assumed that the magnetic field is time independent, so
+<img class="math" src="../../images/math/900a8e6f92c82b3ba02a3e6dfb65fe8ac9b7a168.png" alt="{\bf E}=-\nabla\phi"/> and we get:</p>
+<div class="math" id="equation-semicond-eq">
+<p><span class="eqno">(4)</span><img src="../../images/math/caebfdf789e84cce77efdce81cf5e84789203e82.png" alt="{\partial n\over\partial t} = -R - \nabla\cdot (\mu_n n \nabla\phi)
+    +\nabla\cdot (D_n \nabla n)
+
+{\partial p\over\partial t} = -R + \nabla\cdot (\mu_p p \nabla\phi)
+    +\nabla\cdot (D_p \nabla p)
+
+\nabla\cdot(\varepsilon \nabla\phi) = -q(p-n + C)" /></p>
+</div><p>These are three nonlinear (due to the terms <img class="math" src="../../images/math/cf35b4253f77e68e286f0a6da51ba85974aeed4f.png" alt="\mu_n n \nabla\phi"/> and
+<img class="math" src="../../images/math/ff21d082f8aa611fc6a394d8c67fe38615a54db0.png" alt="\mu_p p \nabla\phi"/>) equations for three unknown functions <img class="math" src="../../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> and <img class="math" src="../../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>.</p>
+<div class="section" id="example-1">
 <h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
 <p>We can substract the first two
 equations and we get:</p>
 <div class="math">
-<p><img src="../../images/math/1a46ec347dda9060d3a7522a7da45214712f7c7e.png" alt="{\partial q(p-n)\over\partial t} = - \nabla\cdot (q(\mu_p p+\mu_n n) {\bf E}
-    -q\nabla (D_p p-D_n n))
+<p><img src="../../images/math/bb54c0cae1dbe20f6510efc7ffcdbc7feaf3c8ec.png" alt="{\partial q(p-n)\over\partial t} = - q\nabla\cdot ((\mu_p p+\mu_n n){\bf E})
+    +q\nabla\cdot(D_p \nabla p-D_n\nabla n)
 
-\nabla\cdot(\varepsilon {\bf E}) = q(p-n)" /></p>
-</div><p>and using <img class="math" src="../../images/math/88a2d7f4738f5a1d20e57794530a2ba6f6e936fc.png" alt="\rho=q(p-n)"/> and <img class="math" src="../../images/math/de40a452ae427196077aa82b86b388ac6182cda6.png" alt="\sigma=q(\mu_p p+\mu_n n)"/>, we get:</p>
+\nabla\cdot(\varepsilon {\bf E}) = q(p-n+C)" /></p>
+</div><p>and using <img class="math" src="../../images/math/bdb3d7983385b6d0bb7de3a53f1be6c9db64c73a.png" alt="\rho=q(p-n+C)"/> and <img class="math" src="../../images/math/de40a452ae427196077aa82b86b388ac6182cda6.png" alt="\sigma=q(\mu_p p+\mu_n n)"/>, we get:</p>
 <div class="math">
-<p><img src="../../images/math/557735e64664a402816318fcb048f36cc761530b.png" alt="{\partial \rho\over\partial t} = - \nabla\cdot (\sigma {\bf E}
-    -q\nabla (D_p p-D_n n))
+<p><img src="../../images/math/21afe86505b0a7e7cfd8bd05102000857d6404ed.png" alt="{\partial \rho\over\partial t} -q{\partial C\over\partial t} =
+    - \nabla\cdot (\sigma {\bf E})
+    +q\nabla\cdot(D_p \nabla p-D_n\nabla n)
 
 \nabla\cdot(\varepsilon {\bf E}) = \rho" /></p>
-</div><p>Assuming <img class="math" src="../../images/math/2e2741199b5cc1dec8e8980be27d09890b481451.png" alt="\nabla (D_p p-D_n n)=0"/> and that <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> doesn&#8217;t depend on time, we
-get:</p>
+</div><p>So far we didn&#8217;t make any assumptions. Most of the times the net doping
+concetration <img class="math" src="../../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> is time independent, which gives:</p>
+<div class="math">
+<p><img src="../../images/math/35032595db7b7722b15bd8b5d3f319debd7feb05.png" alt="{\partial \rho\over\partial t} =
+    - \nabla\cdot (\sigma {\bf E})
+    +q\nabla\cdot(D_p \nabla p-D_n\nabla n)
+
+\nabla\cdot(\varepsilon {\bf E}) = \rho" /></p>
+</div><p>Assuming further <img class="math" src="../../images/math/0f90d98d377b5e285fedad96ee50b7e2a1d9d140.png" alt="D_p \nabla p-D_n\nabla n=0"/>, we just get the equation of
+continuity and the Gauss law:</p>
+<div class="math">
+<p><img src="../../images/math/da6a1966e9134ec6ac3645418e15fb286ecff013.png" alt="{\partial \rho\over\partial t} + \nabla\cdot (\sigma {\bf E}) = 0
+
+\nabla\cdot(\varepsilon {\bf E}) = \rho" /></p>
+</div><p>Finally, assuming also that that <img class="math" src="../../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> doesn&#8217;t depend on
+time, we get:</p>
 <div class="math">
 <p><img src="../../images/math/5ac1475ee968fb530657169d2bf82a4031b5f8cb.png" alt="\nabla\cdot (\sigma {\bf E}) = 0
 
