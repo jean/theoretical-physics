@@ -35,7 +35,6 @@ where $l=e,\mu,\tau$ and $a=1,2$, $l_{L,R} = \half (1\mp\gamma_5)l$ and
 
 
 Local $SU(2)\times U(1)$ symmetry:
-
 This consists of two things. First changing the partial derivatives to covariant ones:
 
 .. math::
@@ -491,7 +490,8 @@ Plugging everything together we get the GWS Lagrangian:
 
 
 
-The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$, $h_\tau$.
+The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$,
+$h_\tau$.
 
 .. index:: particle mass
 
@@ -518,26 +518,73 @@ we get
 
     m_W = \half g v
 
-
-
-.. math::
-
     m_Z = {gv\over2\cos\theta_W}={m_W\over\cos\theta_W}
-
-
-
-.. math::
 
     m_H = v\sqrt{2\lambda}
 
-
-
-.. math::
-
     m_e = {1\over\sqrt2}h_ev
+
+    m_\mu = {1\over\sqrt2}h_\mu v
+
+    m_\tau = {1\over\sqrt2}h_\tau v
+
+Note that those are the bare masses (e.g. in order to obtain the real mesaured
+masses of the particles, one has to renormalize them by calculating the higher
+order corrections given by the loop diagrams).
 
 
 .. index:: quarks
+
+Parameters of the Standard Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The free parameters are $g$, $\theta_W$, $v$, $\lambda$, then three masses of
+the charged leptons $h_e$, $h_\mu$, $h_\tau$, six quark masses and four
+parameters of the CKM mixing matrix, which gives 4 + 3 + 6 + 4 = 17 free
+parameters (if one allows for three neutrino masses and the corresponding four
+mixings parameters, one gets 17 + 3 + 4 = 24 free parameters).
+
+They can be traded for other physical parameters (see below), but
+their numerical values are not predicted by the theory, so they have to be
+measured and their experimental values are approximately:
+
+.. math::
+
+    g = 0.631
+
+    \theta_W = 28.67^\circ
+
+    v = 246.218 {\rm\,GeV}
+
+    0.2 < \lambda < 4.0
+
+    h_e = 2.929 {\rm\,KeV}
+
+    h_\tau = 0.6065 {\rm\,MeV}
+
+All the parameters have been measured quite exactly, except $\lambda$.
+
+Other physical constants can then be calculated using the formulas:
+
+.. math::
+
+    m_W = \half g v = 77.7 {\rm\, GeV}
+
+    m_Z = {m_W\over\cos\theta_W} = 88.6 {\rm\, GeV}
+
+    m_H = v\sqrt{2\lambda} = \mbox{from }150 {\rm\,GeV}\mbox{ to }700 {\rm\,GeV}
+
+    m_e = {1\over\sqrt2}h_ev = 510{\rm\,KeV}
+
+    m_\mu= {1\over\sqrt2}h_\mu v = 105.6{\rm\,MeV}
+
+    G_F = {1\over\sqrt{2} v^2} = (1.16639 \pm 0.00001) \times 10^{-5}
+        {\rm\, GeV^{-2}}
+
+    e = g \sin\theta_W = 0.3
+
+    \alpha = {1\over 4\pi} g^2 \sin^2 \theta_W \doteq {1\over 137}
+
 
 Quarks
 ~~~~~~
@@ -831,10 +878,10 @@ For our example we get in the position space:
         |\Omega}
 
     \left[\left(i\overleftarrow{\fslash\partial_1}+m\right)
-        u^s({\bf p}_1)\right]_{\alpha_1} \,e^{ip_1x_1}
+        u^{s_1}({\bf p}_1)\right]_{\alpha_1} \,e^{ip_1x_1}
 
     \left[\left(i\overleftarrow{\fslash\partial_2}+m\right)
-        u^s({\bf p}_2)\right]_{\alpha_2} \,e^{ip_2x_2}
+        u^{s_2}({\bf p}_2)\right]_{\alpha_2} \,e^{ip_2x_2}
 
 where the $\alpha_1$, $\alpha_2$, $\alpha_{1'}$ and $\alpha_{2'}$ spinor
 indices were introduced to show how the matrices should be multiplied.
@@ -878,10 +925,10 @@ then the scattering amplitude becomes (resuming the previous calculation):
         (p_{1'}, p_{2'}, -p_1, -p_2)
 
     \left[\left({\fslash p_1}+m\right)
-        u^s({\bf p}_1)\right]_{\alpha_1}
+        u^{s_1}({\bf p}_1)\right]_{\alpha_1}
 
     \left[\left({\fslash p_2}+m\right)
-        u^s({\bf p}_2)\right]_{\alpha_2}
+        u^{s_2}({\bf p}_2)\right]_{\alpha_2}
 
 We can get the same result much faster if we use the momentum space from the
 beginning:
@@ -902,20 +949,20 @@ beginning:
         |\Omega}=
 
     = \braket{\Omega|T\,
-        \bar u^s({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+        \bar u^{s_{2'}}({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
                 \tilde\psi({\bf p}_{2'})
-        \bar u^s({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+        \bar u^{s_{1'}}({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
                 \tilde\psi({\bf p}_{1'})
         \tilde{\bar\psi}(-{\bf p}_1){1\over\tilde S(-{\bf p}_1)}
-                u^s({\bf p}_1)
+                u^{s_1}({\bf p}_1)
         \tilde{\bar\psi}(-{\bf p}_2){1\over\tilde S(-{\bf p}_2)}
-                u^s({\bf p}_2)
+                u^{s_2}({\bf p}_2)
         |\Omega}=
 
         =
-        \left[\bar u^s({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+        \left[\bar u^{s_{2'}}({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
             \right]_{\alpha_{2'}}
-        \left[\bar u^s({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+        \left[\bar u^{s_{1'}}({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
             \right]_{\alpha_{1'}}
 
         \braket{\Omega|T\,
@@ -925,15 +972,288 @@ beginning:
             \tilde{\bar\psi}_{\alpha_2}(-{\bf p}_2)
         |\Omega}
 
-        \left[{1\over\tilde S(-{\bf p}_1)} u^s({\bf p}_1)
+        \left[{1\over\tilde S(-{\bf p}_1)} u^{s_1}({\bf p}_1)
             \right]_{\alpha_1}
-        \left[{1\over\tilde S(-{\bf p}_2)} u^s({\bf p}_2)
+        \left[{1\over\tilde S(-{\bf p}_2)} u^{s_2}({\bf p}_2)
             \right]_{\alpha_1}
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
 obtains similar expressions for other fields as well (if there were different
-creation operators between the initial and final states). We now need to
-calculate the interacting Green functions.
+creation operators between the initial and final states). All that remains is
+to calculate the interacting Green functions (for which we need to know the
+interaction Lagrangian). But first couple more examples:
+
+Example 1
+^^^^^^^^^
+
+$\nu_e$ - $e$ elastic scattering:
+
+.. math::
+
+    \nu_e(k) + e(p) \to \nu_e(k') + e(p')
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = b_{\bf k}^\dag b_{\bf p}^\dag\ket{\Omega}
+
+    \ket{f} = b_{\bf k'}^\dag b_{\bf p'}^\dag\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        b_{{\bf p'}}
+        b_{{\bf k'}}
+        b_{{\bf k}}^\dag
+        b_{{\bf p}}^\dag
+        |\Omega}
+    =\braket{\Omega|T\,
+        b_{\bf p'}
+        b_{\bf k'}
+        b_{\bf k}^\dag
+        b_{\bf p}^\dag
+        |\Omega}=
+
+    =
+    \left[\bar u({\bf p'}){1\over\tilde S({\bf p'})}
+        \right]
+    \left[\bar u({\bf k'}){1\over\tilde S({\bf k'})}
+        \right]
+
+    \braket{\Omega|T\,
+        \tilde\psi({\bf p'})
+        \tilde\psi({\bf k'})
+        \tilde{\bar\psi}(-{\bf k})
+        \tilde{\bar\psi}(-{\bf p})
+    |\Omega}
+
+    \left[{1\over\tilde S(-{\bf k})} u({\bf k})
+        \right]
+    \left[{1\over\tilde S(-{\bf p})} u({\bf p})
+        \right]
+
+We only multiply the matrices with the same momentum, i.e.
+$\left[\bar u^s({\bf p'}){1\over\tilde S({\bf p'})}\right]$ with
+$\tilde\psi({\bf p'})$,
+$\left[\bar u^s({\bf k'}){1\over\tilde S({\bf k'})}\right]$ with
+$\tilde\psi({\bf k'})$ and so on. Also we don't write the spin anymore, e.g.
+$u({\bf k})$ should in fact be $u^{s_k}({\bf k})$ and so on.
+
+Example 2
+^^^^^^^^^
+
+Muon decay:
+
+.. math::
+
+    \mu(P) \to e(p) + \bar\nu_e(k') + \nu_\mu(k)
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = b_{\bf P}^\dag\ket{\Omega}
+
+    \ket{f} = b_{\bf p}^\dag d_{\bf k'}^\dag b_{\bf k}^\dag\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        b_{{\bf k}}
+        d_{{\bf k'}}
+        b_{{\bf p}}
+        b_{{\bf P}}^\dag
+        |\Omega}
+
+    =
+    \left[\bar u({\bf k}){1\over\tilde S({\bf k})} \right]
+    \left[\bar u({\bf p}){1\over\tilde S({\bf p})} \right]
+
+    \braket{\Omega|T\,
+        \tilde\psi({\bf k})
+        \tilde\psi({\bf p})
+        \tilde{\bar\psi}({\bf k'})
+        \tilde{\bar\psi}(-{\bf P})
+    |\Omega}
+
+    \left[-{1\over\tilde S(-{\bf k'})} v({\bf k'}) \right]
+    \left[{1\over\tilde S(-{\bf P})} u({\bf P}) \right]
+
+Example 3
+^^^^^^^^^
+
+$e^+ + e^-$ scattering:
+
+.. math::
+
+    e^-(p_1)+e^+(p_2) \to e^-(k_1)+e^+(k_2)
+
+Initial and final states:
+
+.. math::
+
+    \ket{i} = b_{{\bf p}_1}^{t\dag} d_{{\bf p}_2}^{u\dag}\ket{\Omega}
+
+    \ket{f} = b_{{\bf k}_1}^{r\dag} d_{{\bf k}_2}^{s\dag}\ket{\Omega}
+
+
+And we get:
+
+.. math::
+
+    \braket{f|i}=
+    \braket{\Omega|
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\tilde \psi(k_1)\right]
+        \left[-\tilde{\bar\psi}(k_2){1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+        \left[\tilde{\bar\psi}(-p_1){1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+        \left[-\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\tilde \psi(-p_2)\right]
+        |\Omega} =
+
+    =
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+    \left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+    \braket{\Omega|T
+        \tilde \psi(k_1)
+        \tilde{\bar\psi}(k_2)
+        \tilde{\bar\psi}(-p_1)
+        \tilde \psi(-p_2)
+        |\Omega}
+
+    \left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+
+
+Example 4
+^^^^^^^^^
+
+$H(p)\to Z(k)+Z(l)$ decay. Initial and final states:
+
+.. math::
+
+    \ket{i} = a^\dag_{\bf p}\ket{\Omega}
+
+    \ket{f} = a^{r\dag}_{\bf k}a^{s\dag}_{\bf l}\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i}=
+    \braket{\Omega|a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+    \braket{\Omega|T a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+
+    =
+    \braket{\Omega|T
+        \epsilon^{r*}_\mu({\bf k}){k^2\over i} \tilde A^\mu(k)
+        \epsilon^{s*}_\nu({\bf l}){l^2\over i} \tilde A^\nu(l)
+        {1\over\tilde D(p)}\tilde\phi(-p)
+        |\Omega} =
+
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+
+Example 5
+^^^^^^^^^
+
+$e^+ e^- \to W^+ W^-$ scattering:
+
+.. math::
+
+    e^-(k) + e^+(-l) \to W^-(p) + W^+(r)
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = b_{\bf k}^\dag d_{-{\bf l}}^\dag\ket{\Omega}
+
+    \ket{f} = a_{\bf p}^{\lambda \dag} a_{\bf r}^{\mu \dag}\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        a_{\bf r}^\mu
+        a_{\bf p}^\lambda
+        b_{\bf k}^\dag d_{-{\bf l}}^\dag
+        |\Omega}
+
+    =
+    \epsilon^\mu_\alpha({\bf r}) {r^2\over i}
+    \epsilon^\lambda_\beta({\bf p}) {p^2\over i}
+    \left[-\bar v(-{\bf l}){1\over\tilde S(-{\bf l})} \right]
+
+    \braket{\Omega|T\,
+        \tilde A^\alpha({\bf r})
+        \tilde A^\beta({\bf p})
+        \tilde{\bar\psi}(-{\bf k})
+        \tilde\psi({\bf l})
+    |\Omega}
+
+    \left[{1\over\tilde S(-{\bf k})} u({\bf k}) \right]
+
+Example 6
+^^^^^^^^^
+
+$W^+ W^- \to W^+ W^-$ scattering:
+
+.. math::
+
+    W^-(k) + W^+(p) \to W^-(r) + W^+(l)
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = a_{\bf k}^{\mu \dag} a_{\bf p}^{\nu \dag}\ket{\Omega}
+
+    \ket{f} = a_{\bf r}^{\alpha \dag} a_{\bf l}^{\beta \dag}\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        a_{\bf l}^\beta
+        a_{\bf r}^\alpha
+        a_{\bf k}^{\mu \dag} a_{\bf p}^{\nu \dag}
+        |\Omega}
+
+    =
+    \epsilon^{\mu*}_\rho({\bf k}) {k^2\over i}
+    \epsilon^{\nu*}_\sigma({\bf p}) {p^2\over i}
+    \braket{\Omega|T\,
+        \tilde A^\kappa({\bf r})
+        \tilde A^\lambda({\bf l})
+        \tilde A^\sigma(-{\bf p})
+        \tilde A^\rho(-{\bf k})
+    |\Omega}
+    \epsilon^\alpha_\kappa({\bf r}) {r^2\over i}
+    \epsilon^\beta_\lambda({\bf l}) {l^2\over i}
+
+
 
 Evaluation of the Interacting Green Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1700,11 +2020,133 @@ in the meantime evolved into $e^{-i H_0 t_2}\ket{\Psi_0}$).
 
 .. index:: Feynman rules
 
-Feynman Rules
-~~~~~~~~~~~~~
+Evaluating the Interacting Green Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We can deduce a set of rules, so that one doesn't have to repeat the whole calculation each time. For a scalar field we derived the rules above, for fermion and vector boson fields it's more difficult.
+The Green functions below can either be evaluated using the Wick theorem, or
+using Feynman diagrams and the corresponding Feynman rules.
 
+
+Example 1
+^^^^^^^^^
+
+$\L_{ZZH} = \lambda Z_\mu Z^\mu H$, in the first order:
+
+.. math::
+
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+    =i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+        \tilde D^{\nu\alpha}(l)\tilde D(p)
+
+Example 2
+^^^^^^^^^
+
+$\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$, in the second order:
+
+.. math::
+
+    \braket{\Omega|T\tilde\psi(k_1)\tilde{\bar\psi}(k_2)\tilde{\bar\psi}(-p_1)
+        \tilde\psi(-p_2) |\Omega}
+    =
+
+    =(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+        D_{\mu\nu}(k_1+k_2)
+        \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+        +\right.
+
+        \left. +
+        \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+        D_{\mu\nu}(k_1-p_1)
+        \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
+
+Example 3
+^^^^^^^^^
+
+$\L_{\rm int}={g\over 2 \sqrt 2} \bar\nu_e \gamma^\mu (1-\gamma_5) e
+W_\mu^+ + \hbox{h.c.}$, in the second order:
+
+.. math::
+
+    \braket{\Omega|T\tilde A^\alpha(r) \tilde A^\beta(p)
+        \tilde{\bar\psi}(-k)\tilde{\psi}(-l)
+        |\Omega}
+        =
+
+    =\int \d^4x\,\d^4 y
+    \bra{0}T\tilde A^\alpha(r) \tilde A^\beta(p)
+        \tilde{\bar\psi}(-k)\tilde{\psi}(-l)
+
+        i{g\over 2 \sqrt 2}\bar\nu_e(x) \gamma^\mu (1-\gamma_5) e(x) W_\mu^+(x)
+
+        i{g\over 2 \sqrt 2}\bar\nu_e(y) \gamma^\nu (1-\gamma_5) e(y) W_\nu^+(y)
+
+        \ket{0}
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+    e^{i(\hat rr + \hat pp - \hat kk - \hat ll)}
+
+    \bra{0}T A^\alpha(\hat r) A^\beta(\hat p)
+        {\bar\psi}(\hat k){\psi}(\hat l)
+
+        \bar\nu_e(x) \gamma^\mu (1-\gamma_5) e(x) W_\mu^+(x)
+
+        \bar\nu_e(y) \gamma^\nu (1-\gamma_5) e(y) W_\nu^+(y)
+
+        \ket{0}
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+    e^{i(\hat rr + \hat pp - \hat kk - \hat ll)}
+
+    D^\alpha{}_\mu(\hat r - x) D^\mu{}_\nu(\hat p - y)
+    S(\hat l - x) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+    S(\hat k - y)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+    e^{i((\hat r+x)r + (\hat p+y)p - (\hat k+y)k - (\hat l+x)l)}
+
+    D^\alpha{}_\mu(\hat r) D^\mu{}_\nu(\hat p)
+    S(\hat l) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+    S(\hat k)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,
+    e^{i(xr + yp - yk - xl)}
+
+    \tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+    \tilde S(l) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+    \tilde S(k)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,
+    e^{i((x+y)r + yp - yk - (x+y)l)}
+
+    \tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+    \tilde S(l) \gamma^\mu (1-\gamma_5)S(x)\gamma^\nu(1-\gamma_5)
+    \tilde S(k)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4 y \,
+    e^{i(yr + yp - yk - yl)}
+
+    \tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+    \tilde S(l) \gamma^\mu (1-\gamma_5)\tilde S(r-l)\gamma^\nu(1-\gamma_5)
+    \tilde S(k)
+        =
+
+    = \left(i{g\over 2 \sqrt 2}\right)^2
+        (2\pi)^4\delta(r+p-k-l)
+        \tilde D^\alpha{}_\mu(r) \tilde D^\beta{}_\nu(p)\tilde S(l)
+        \gamma^\mu(1-\gamma_5) \tilde S(r-l) \gamma^\nu(1-\gamma_5)\tilde S(k)
 
 ZZH interaction
 ~~~~~~~~~~~~~~~
@@ -1958,6 +2400,7 @@ nonzero order equal to:
         \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
 
 
+
 .. index:: low energy theories
 
 Low energy theories
@@ -1995,7 +2438,7 @@ which when the momentum transfer $q$ is much less than $m_w$ becomes
     iM = -i{g^2\over8m_W^2}[\bar u\gamma^\mu (1-\gamma_5) u] [\bar u\gamma_\mu (1-\gamma_5) v]
 
 
-but this element can be derived directly from the Lagrangian:
+but this matrix element can be derived directly from the Lagrangian:
 
 .. math::
 
@@ -2009,7 +2452,17 @@ with
     {G_\mu\over\sqrt2} = {g^2\over8m_W^2}
 
 
-This is the universal V-A theory Lagrangian (after adding the h.c. term).
+This is the universal V-A theory Lagrangian (after adding the h.c. term). Note
+that the Fermi constant $G_F$ is equal to $G_\mu$.
+
+For the beta decay we get:
+
+.. math::
+
+    \L = -{G_\beta\over\sqrt2} [\bar \psi_p\gamma^\mu (1-f\gamma_5) \psi_n] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]
+
+where $G_\beta = G_F \cos\theta_C$, $\theta_C=13^\circ$ is the Cabibbo
+angle and $f\doteq 1.26$.
 
 .. index:: quantum mechanics
 
