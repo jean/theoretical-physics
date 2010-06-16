@@ -215,7 +215,21 @@ corresponds to zero Dirichlet condition for <img class="math" src="../../images/
 R(\rho')
 =
     {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R" /></p>
-</div></div>
+</div><p>The weak formulation is:</p>
+<div class="math">
+<p><img src="../../images/math/8efd3572fd8a0bfd75f4412fa4afd3bd72a3b432.png" alt="\braket{v|H|R} = E\braket{v|R}" /></p>
+</div><p>and we obtain the FE formulation by expanding <img class="math" src="../../images/math/05925298173fdc213b2408fe2cd306815c311152.png" alt="\ket{R} =\sum_j R_j \ket{j}"/>
+(note that the basis <img class="math" src="../../images/math/99c55d53dd40342bc9ec3f8b7db188b299a4a682.png" alt="\ket{j}"/> is not orthogonal, so in particular <img class="math" src="../../images/math/b49a670b187c03e94c975c72b681feb3dcd24b49.png" alt="\sum_j
+\ket{j}\bra{j} \neq 1"/>):</p>
+<div class="math">
+<p><img src="../../images/math/608f958dbce29bc0699e366bb0cdf409fc7fd1d6.png" alt="\sum_j\braket{i|H|j}R_j = E\sum_j\braket{i|j}R_j" /></p>
+</div><p>This is a generalized eigenvalue problem.
+In the special case of an orthonormal basis, <img class="math" src="../../images/math/4d2f0be0becced525df6ebe6b1054830f852dc03.png" alt="\braket{i|j} = \delta_{ij}"/>
+(which FE is not), we get:</p>
+<div class="math">
+<p><img src="../../images/math/1d9938b14215685d956a6b42e61f463c4c435ba1.png" alt="\sum_j\braket{i|H|j}R_j = R_i" /></p>
+</div><p>Which is an eigenvalue problem.</p>
+</div>
 </div>
 <div class="section" id="variational-formulation-of-the-dirac-equation">
 <h2>Variational Formulation of the Dirac equation<a class="headerlink" href="#variational-formulation-of-the-dirac-equation" title="Permalink to this headline">¶</a></h2>
