@@ -475,12 +475,25 @@ completeness relation, which is different to the radial Schrödinger equation):<
     V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
     \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
     \end{array}\right)" /></p>
-</div><p>From this we get the finite element formulation using the standard procedure
-&#8212; we insert the complete basis set <img class="math" src="../../images/math/8d28c3d8704971b77aa09b33514925769d2426bc.png" alt="\one=\sum_j \ket{l}\bra{l}"/> and multiply
-by <img class="math" src="../../images/math/79c0989f041dbb95914d9a519eb746e74c6076c5.png" alt="\bra{k}"/> from the left:</p>
+</div><p>The weak formulation is:</p>
 <div class="math">
-<p><img src="../../images/math/79f449f22e2e5d8c799b7b1b3908bd2a09e5de3f.png" alt="\sum_l \braket{k|\hat H|l}\braket{l|P, Q} =
-    \epsilon \braket{k|P, Q}" /></p>
+<p><img src="../../images/math/e22d84ab648a4a0ec9a61ac9e538be40049ec576.png" alt="\braket{v|\hat H|P, Q} =
+    \epsilon \braket{v|P, Q}" /></p>
+</div><p>where the test function <img class="math" src="../../images/math/8f8349fbe2590ef7d06bc8710640b0200cf5effc.png" alt="\ket{v}"/> is one of:</p>
+<div class="highlight-python"><pre>.. math::</pre>
+</div>
+<blockquote>
+<dl class="docutils">
+<dt>ket{v} = begin{cases}</dt>
+<dd>ket{v_1}left(begin{array}{c}1\0\end{array}right) cr
+ket{v_2}left(begin{array}{c}0\1\end{array}right) cr
+end{cases}</dd>
+</dl>
+</blockquote>
+<p>The FE formulation is then obtained by expanding <img class="math" src="../../images/math/249b20ffb164f50d639ba5ae70825c4eb6c96515.png" alt="\ket{P, Q} = \sum_k q_k \ket{k}"/>:</p>
+<div class="math">
+<p><img src="../../images/math/6893ccffd312f7814c738d515d995a0323d92be4.png" alt="\sum_l \braket{k|\hat H|l}q_l =
+    \epsilon \sum_l\braket{k|l}q_l" /></p>
 </div><p>The basis <img class="math" src="../../images/math/e887edec7a4633a122d23577eeea9f7bf89300e5.png" alt="\ket{k}"/> can be for example the FE basis, some spline basis set, or
 gaussians. The basis has actually <img class="math" src="../../images/math/f93f5c51ea4b04b4992b003b39479f29018f6bda.png" alt="2n"/> base functions and it enumerates each
 equation like this:</p>
@@ -497,8 +510,14 @@ equation like this:</p>
     \braket{i|V(r)|j} &amp; \hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} \\
     \hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} &amp; \braket{i|V(r) - 2mc^2|j} \\
     \end{array}\right)" /></p>
-</div><p>The matrix is <img class="math" src="../../images/math/12fc2c579d6302d826e12b8b996f27c03480e07b.png" alt="2n \times 2n"/>, composed of those 4 matrices <img class="math" src="../../images/math/c3d38f82f48ef9e81c04d49354293305b0067afc.png" alt="n \times n"/>.</p>
-</div>
+</div><p>The matrix is <img class="math" src="../../images/math/12fc2c579d6302d826e12b8b996f27c03480e07b.png" alt="2n \times 2n"/>, composed of those 4 matrices <img class="math" src="../../images/math/c3d38f82f48ef9e81c04d49354293305b0067afc.png" alt="n \times n"/>. The
+<img class="math" src="../../images/math/369c5c2a91858fb147df64c88551e505b97d1e69.png" alt="\braket{k|l}"/> matrix looks like this:</p>
+<div class="math">
+<p><img src="../../images/math/2008de1cc1db44f5d93a483de09b1fba83f924d5.png" alt="\braket{k|l} = \left(\begin{array}{cc}
+    \braket{i|j} &amp; 0 \\
+    0            &amp; \braket{i|j} \\
+    \end{array}\right)" /></p>
+</div></div>
 </div>
 </div>
 
