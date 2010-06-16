@@ -385,7 +385,21 @@ the radial equations in the following form:</p>
 </div><p>the operator <img class="math" src="../../images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> is Hermitean (<img class="math" src="../../images/math/e5237b942cf710284a4dde70c861b1be8d290262.png" alt="\hat H^\dag = \hat H"/>), because
 <img class="math" src="../../images/math/4f537de82af06aa8dadf4b4a83415f04b15ec04c.png" alt="\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}"/> and all the other
 quantities are just scalars.</p>
-<p>From this we get the finite element formulation using the standard procedure
+<p>Stricly speaking, the exact Dirac notation would
+be the following:</p>
+<div class="math">
+<p><img src="../../images/math/47c6dba0fd1358f2f63ff03abf1ed5bfdc55e7ab.png" alt="\int
+\braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
+    = \epsilon \braket{\rho|P, Q}
+
+\braket{\rho|P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+
+\braket{\rho|\hat H|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+    \left(\begin{array}{cc}
+    V(r) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(r) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>From this we get the finite element formulation using the standard procedure
 &#8212; we insert the complete basis set <img class="math" src="../../images/math/8d28c3d8704971b77aa09b33514925769d2426bc.png" alt="\one=\sum_j \ket{l}\bra{l}"/> and multiply
 by <img class="math" src="../../images/math/79c0989f041dbb95914d9a519eb746e74c6076c5.png" alt="\bra{k}"/> from the left:</p>
 <div class="math">
