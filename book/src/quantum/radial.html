@@ -376,11 +376,11 @@ the radial equations in the following form:</p>
 <p><img src="../../images/math/2952befd08ad0bf4a8ab7dd1f65174d5054620e3.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}" /></p>
 </div><p>where:</p>
 <div class="math">
-<p><img src="../../images/math/2a49b052ffabdc950e5a6a5c80a25fce5a6eabba.png" alt="\ket{P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+<p><img src="../../images/math/e851a803c3a123349baa563eda416f58386ee409.png" alt="\ket{P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
 \hat H = \left(\begin{array}{cc}
-    V(r) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
-    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(r) - 2mc^2 \\
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
     \end{array}\right)" /></p>
 </div><p>the operator <img class="math" src="../../images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> is Hermitean (<img class="math" src="../../images/math/e5237b942cf710284a4dde70c861b1be8d290262.png" alt="\hat H^\dag = \hat H"/>), because
 <img class="math" src="../../images/math/4f537de82af06aa8dadf4b4a83415f04b15ec04c.png" alt="\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}"/> and all the other
@@ -388,16 +388,18 @@ quantities are just scalars.</p>
 <p>Stricly speaking, the exact Dirac notation would
 be the following:</p>
 <div class="math">
-<p><img src="../../images/math/47c6dba0fd1358f2f63ff03abf1ed5bfdc55e7ab.png" alt="\int
+<p><img src="../../images/math/b10c4378f4015ee8e2090eb59de8e46008c56bc0.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+\int
 \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
     = \epsilon \braket{\rho|P, Q}
 
-\braket{\rho|P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+\braket{\rho|P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
 \braket{\rho|\hat H|\rho'} = {\delta(\rho-\rho')\over \rho^2}
     \left(\begin{array}{cc}
-    V(r) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
-    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(r) - 2mc^2 \\
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
     \end{array}\right)" /></p>
 </div><p>From this we get the finite element formulation using the standard procedure
 &#8212; we insert the complete basis set <img class="math" src="../../images/math/8d28c3d8704971b77aa09b33514925769d2426bc.png" alt="\one=\sum_j \ket{l}\bra{l}"/> and multiply
