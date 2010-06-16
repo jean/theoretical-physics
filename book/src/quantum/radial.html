@@ -179,7 +179,43 @@ The boundary term is zero at the origin, so we get:</p>
 This is equivalent to either letting <img class="math" src="../../images/math/db588480c15ab9b5c6714760a82bf96c3d0ee8b6.png" alt="R'(a) = 0"/> (we prescribe the zero
 derivative of the radial wave function at <img class="math" src="../../images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>) or we set <img class="math" src="../../images/math/90524d29f191af7e44387ce6d2ea691fcad406f8.png" alt="v(a)=0"/> (which
 corresponds to zero Dirichlet condition for <img class="math" src="../../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, i.e. setting <img class="math" src="../../images/math/66663210d163676bfca995aac78bea49667b05a6.png" alt="R(a)=0"/>).</p>
-</div>
+<p>We can also write all the formulas using the Dirac notation:</p>
+<div class="math">
+<p><img src="../../images/math/d34883587d27665162591f8691dcbfef719a27b4.png" alt="\one = \int \d\rho \rho^2 \ket{\rho}\bra{\rho}
+
+\braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+
+\braket{\rho|R} = R(\rho)
+
+\braket{\rho|\hat H|R} =
+    {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+
+\hat H \ket{R} = E\ket{R}" /></p>
+</div><p>Then normalization is:</p>
+<div class="math">
+<p><img src="../../images/math/b50348bf5b8b7df38505c5de3afe7aa2c092588c.png" alt="\braket{R|R} = \int \d\rho \rho^2 \braket{R|\rho}\braket{\rho|R} =
+    \int \d\rho \rho^2 R^2(\rho)" /></p>
+</div><p>The operator <img class="math" src="../../images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> can be written as:</p>
+<div class="math">
+<p><img src="../../images/math/8fd40b975c7fd21a66f4054ebfe2944b56be00e5.png" alt="\braket{\rho|\hat H|\rho'} = \braket{\rho|\rho'}\left(
+    -\half{1\over\rho^2}{\d\over\d\rho}\left(\rho^2{\d\over\d\rho}\right)
+    + (V + \half {l(l+1)\over\rho^2})
+    \right)" /></p>
+</div><p>so to recover the above formula, we do:</p>
+<div class="math">
+<p><img src="../../images/math/8f07ce29f02dcf72823882c54a87f9eb3e5a5cc7.png" alt="\braket{\rho|\hat H| R} = \int\d\rho'\rho'^2\braket{\rho|\hat H|\rho'}
+    \braket{\rho'|R}=
+
+=\int\d\rho'\rho'^2
+{\delta(\rho-\rho')\over \rho^2}
+\left(
+    -\half{1\over\rho^2}{\d\over\d\rho}\left(\rho^2{\d\over\d\rho}\right)
+    + (V + \half {l(l+1)\over\rho^2})
+    \right)
+R(\rho')
+=
+    {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R" /></p>
+</div></div>
 </div>
 <div class="section" id="variational-formulation-of-the-dirac-equation">
 <h2>Variational Formulation of the Dirac equation<a class="headerlink" href="#variational-formulation-of-the-dirac-equation" title="Permalink to this headline">¶</a></h2>
@@ -388,9 +424,9 @@ quantities are just scalars.</p>
 <p>Stricly speaking, the exact Dirac notation (that is coordinate/representation
 independent) would be the following:</p>
 <div class="math">
-<p><img src="../../images/math/471a547c9e64ed15dbb144f0d845001212db3c23.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+<p><img src="../../images/math/1902ff24375923dfbc261f480b03b72e54ce3c16.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
 
-\one = \int \d\rho^2 \ket{\rho}\bra{\rho}
+\one = \int \d\rho \rho^2 \ket{\rho}\bra{\rho}
 
 \braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
 
