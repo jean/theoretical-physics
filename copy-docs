@@ -5,3 +5,4 @@ cd book
 sphinx-to-github .
 cd ..
 git add book
+git commit -a -m "Automatic commit"
