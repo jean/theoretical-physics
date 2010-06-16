@@ -475,22 +475,21 @@ completeness relation, which is different to the radial Schrödinger equation):<
     V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
     \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
     \end{array}\right)" /></p>
+</div><p>The normalization is:</p>
+<div class="math">
+<p><img src="../../images/math/004b313006f5ed4ac941a5304dcd581235592349.png" alt="\braket{P, Q| P, Q} = \int \d\rho \braket{P, Q|\rho}\braket{\rho|P, Q} =
+    \int \d\rho (P^2+Q^2)" /></p>
 </div><p>The weak formulation is:</p>
 <div class="math">
 <p><img src="../../images/math/e22d84ab648a4a0ec9a61ac9e538be40049ec576.png" alt="\braket{v|\hat H|P, Q} =
     \epsilon \braket{v|P, Q}" /></p>
 </div><p>where the test function <img class="math" src="../../images/math/8f8349fbe2590ef7d06bc8710640b0200cf5effc.png" alt="\ket{v}"/> is one of:</p>
-<div class="highlight-python"><pre>.. math::</pre>
-</div>
-<blockquote>
-<dl class="docutils">
-<dt>ket{v} = begin{cases}</dt>
-<dd>ket{v_1}left(begin{array}{c}1\0\end{array}right) cr
-ket{v_2}left(begin{array}{c}0\1\end{array}right) cr
-end{cases}</dd>
-</dl>
-</blockquote>
-<p>The FE formulation is then obtained by expanding <img class="math" src="../../images/math/249b20ffb164f50d639ba5ae70825c4eb6c96515.png" alt="\ket{P, Q} = \sum_k q_k \ket{k}"/>:</p>
+<div class="math">
+<p><img src="../../images/math/3f0252aa5c8f7b3e69c7fb00450cb151bba2099c.png" alt="\ket{v} = \begin{cases}
+    \ket{v_1}\left(\begin{array}{c}1\\0\\\end{array}\right) \cr
+    \ket{v_2}\left(\begin{array}{c}0\\1\\\end{array}\right) \cr
+    \end{cases}" /></p>
+</div><p>The FE formulation is then obtained by expanding <img class="math" src="../../images/math/249b20ffb164f50d639ba5ae70825c4eb6c96515.png" alt="\ket{P, Q} = \sum_k q_k \ket{k}"/>:</p>
 <div class="math">
 <p><img src="../../images/math/6893ccffd312f7814c738d515d995a0323d92be4.png" alt="\sum_l \braket{k|\hat H|l}q_l =
     \epsilon \sum_l\braket{k|l}q_l" /></p>
