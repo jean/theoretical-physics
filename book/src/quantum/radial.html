@@ -477,8 +477,8 @@ completeness relation, which is different to the radial Schrödinger equation):<
     \end{array}\right)" /></p>
 </div><p>The normalization is:</p>
 <div class="math">
-<p><img src="../../images/math/004b313006f5ed4ac941a5304dcd581235592349.png" alt="\braket{P, Q| P, Q} = \int \d\rho \braket{P, Q|\rho}\braket{\rho|P, Q} =
-    \int \d\rho (P^2+Q^2)" /></p>
+<p><img src="../../images/math/8c5e512742f84f7225f0f3f3d0f1a82be27d2b28.png" alt="\braket{P, Q| P, Q} = \int \d\rho \braket{P, Q|\rho}\braket{\rho|P, Q} =
+    \int \d\rho (P^2+Q^2) = 1" /></p>
 </div><p>The weak formulation is:</p>
 <div class="math">
 <p><img src="../../images/math/e22d84ab648a4a0ec9a61ac9e538be40049ec576.png" alt="\braket{v|\hat H|P, Q} =
@@ -516,6 +516,16 @@ equation like this:</p>
     \braket{i|j} &amp; 0 \\
     0            &amp; \braket{i|j} \\
     \end{array}\right)" /></p>
+</div><p>We can also write the matrix elements explicitly. Let <img class="math" src="../../images/math/81ed9099724895ea4a0f38957f573ff45eb32625.png" alt="\ket{i} = B_i(\rho)"/>,
+then:</p>
+<div class="math">
+<p><img src="../../images/math/581c6130a578c354b15622171c889b5fb4c7211a.png" alt="\braket{i|j} = \int B_i B_j \,\d\rho
+\braket{i|V|j} = \int B_i V B_j \,\d\rho
+\braket{i|V-2mc^2|j} = \int B_i (V-2mc^2) B_j \,\d\rho
+\hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} =
+    \hbar c\int B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho
+\hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} =
+    \hbar c\int -B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho" /></p>
 </div></div>
 </div>
 </div>
