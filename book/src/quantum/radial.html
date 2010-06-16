@@ -217,7 +217,14 @@ R(\rho')
     {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R" /></p>
 </div><p>The weak formulation is:</p>
 <div class="math">
-<p><img src="../../images/math/8efd3572fd8a0bfd75f4412fa4afd3bd72a3b432.png" alt="\braket{v|H|R} = E\braket{v|R}" /></p>
+<p><img src="../../images/math/06f70a8c85536fb9fb5215d918c6d326d633f582.png" alt="\braket{v|H|R} = E\braket{v|R}
+
+\int\d\rho\rho^2 \braket{v|\rho}\braket{\rho|H|R} = E
+    \int\d\rho\rho^2\braket{v|\rho}\braket{\rho|R}
+\int\d\rho\rho^2 v(\rho)\left(
+    {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+\right) = E
+    \int\d\rho\rho^2v(\rho)R(\rho)" /></p>
 </div><p>and we obtain the FE formulation by expanding <img class="math" src="../../images/math/05925298173fdc213b2408fe2cd306815c311152.png" alt="\ket{R} =\sum_j R_j \ket{j}"/>
 (note that the basis <img class="math" src="../../images/math/99c55d53dd40342bc9ec3f8b7db188b299a4a682.png" alt="\ket{j}"/> is not orthogonal, so in particular <img class="math" src="../../images/math/b49a670b187c03e94c975c72b681feb3dcd24b49.png" alt="\sum_j
 \ket{j}\bra{j} \neq 1"/>):</p>
