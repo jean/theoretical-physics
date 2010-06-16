@@ -385,18 +385,23 @@ the radial equations in the following form:</p>
 </div><p>the operator <img class="math" src="../../images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> is Hermitean (<img class="math" src="../../images/math/e5237b942cf710284a4dde70c861b1be8d290262.png" alt="\hat H^\dag = \hat H"/>), because
 <img class="math" src="../../images/math/4f537de82af06aa8dadf4b4a83415f04b15ec04c.png" alt="\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}"/> and all the other
 quantities are just scalars.</p>
-<p>Stricly speaking, the exact Dirac notation would
-be the following:</p>
+<p>Stricly speaking, the exact Dirac notation (that is coordinate/representation
+independent) would be the following:</p>
 <div class="math">
-<p><img src="../../images/math/b10c4378f4015ee8e2090eb59de8e46008c56bc0.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+<p><img src="../../images/math/471a547c9e64ed15dbb144f0d845001212db3c23.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+\one = \int \d\rho^2 \ket{\rho}\bra{\rho}
+
+\braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
 
 \int
 \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
     = \epsilon \braket{\rho|P, Q}
 
-\braket{\rho|P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+\braket{\rho|P, Q} = %{1\over\rho^2}
+    \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
-\braket{\rho|\hat H|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+\braket{\rho|\hat H|\rho'} = \braket{\rho|\rho'}
     \left(\begin{array}{cc}
     V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
     \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
