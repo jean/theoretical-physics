@@ -1,8 +1,0 @@
-rm -rf book
-cp -r _build/html/ book
-cp -r _build/latex/theoretical-physics.pdf book/
-cd book
-sphinx-to-github .
-cd ..
-git add book
-git commit -a -m "Automatic commit"
