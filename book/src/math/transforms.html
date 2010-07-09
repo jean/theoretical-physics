@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>Fourier Transform &mdash; Theoretical Physics Reference v0.5 documentation</title>
-    <link rel="stylesheet" href="../../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -17,8 +17,8 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../../static/jquery.js"></script>
-    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Mathematics" href="main.html" />
     <link rel="next" title="Polar and Spherical Coordinates" href="other.html" />
@@ -51,7 +51,7 @@
 <h1>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this headline">¶</a></h1>
 <p>The Fourier transform is:</p>
 <div class="math">
-<p><img src="../../images/math/9fb62c3445027a0cb4e744bb622c727f548308f3.png" alt="F[f(x)] \equiv \tilde f(\omega)
+<p><img src="../../_images/math/9fb62c3445027a0cb4e744bb622c727f548308f3.png" alt="F[f(x)] \equiv \tilde f(\omega)
     = \int_{-\infty}^{\infty} f(x) e^{-i\omega x}\,\d x
 
 F^{-1}[\tilde f(\omega)] = f(x)
@@ -59,7 +59,7 @@ F^{-1}[\tilde f(\omega)] = f(x)
     \tilde f(\omega) e^{+i\omega x}\,\d \omega" /></p>
 </div><p>To show that it works:</p>
 <div class="math">
-<p><img src="../../images/math/a0f1e4fbee5dd57836921191bbe74736bff28d4a.png" alt="F^{-1} F [f(x)]
+<p><img src="../../_images/math/a0f1e4fbee5dd57836921191bbe74736bff28d4a.png" alt="F^{-1} F [f(x)]
 =
 {1\over2\pi}\int_{-\infty}^{\infty} \left[\int_{-\infty}^{\infty}
     f(x) e^{-i\omega x}\,\d x\right] e^{+i\omega x}\,\d \omega
@@ -77,21 +77,21 @@ F^{-1}[\tilde f(\omega)] = f(x)
 </div></div>
 <div class="section" id="laplace-transform">
 <h1>Laplace Transform<a class="headerlink" href="#laplace-transform" title="Permalink to this headline">¶</a></h1>
-<p>Laplace transform of <img class="math" src="../../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> is:</p>
+<p>Laplace transform of <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> is:</p>
 <div class="math">
-<p><img src="../../images/math/8939823ab6133af32f1845a2d1adef453446dcd2.png" alt="L[f(x)] = \int_0^{\infty} f(x) e^{-s x}\,\d x
+<p><img src="../../_images/math/8939823ab6133af32f1845a2d1adef453446dcd2.png" alt="L[f(x)] = \int_0^{\infty} f(x) e^{-s x}\,\d x
 
 L^{-1}[\bar f(s)]
 = {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
     \bar f(s) e^{s x}\,\d s
 = \sum_{s_0} \res_{s=s_0} (\bar f(s) e^{s x})" /></p>
-</div><p>The contour integration is over the vertical line <img class="math" src="../../images/math/267f5facc7e76cd98b5358ab98ee1f92466c67cf.png" alt="\sigma+i\omega"/> and <img class="math" src="../../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/>
+</div><p>The contour integration is over the vertical line <img class="math" src="../../_images/math/267f5facc7e76cd98b5358ab98ee1f92466c67cf.png" alt="\sigma+i\omega"/> and <img class="math" src="../../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/>
 is chosen large enough so that all residues are to the left of the line (that&#8217;s
-because the Laplace transform <img class="math" src="../../images/math/2cce8230f9ec14f8577ec5112a360c68d550969d.png" alt="\bar f(s)"/> is only defined for <img class="math" src="../../images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> larger than
+because the Laplace transform <img class="math" src="../../_images/math/2cce8230f9ec14f8577ec5112a360c68d550969d.png" alt="\bar f(s)"/> is only defined for <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> larger than
 the residues, so we have to integrate in this range as well).  It can be shown
 that the integral over the left semicircle goes to zero:</p>
 <div class="math">
-<p><img src="../../images/math/4a8097935cc530eeef3a35998c76507853f9e7c9.png" alt="\left|\int_\Omega e^{sx}g(s) \d s \right|
+<p><img src="../../_images/math/4a8097935cc530eeef3a35998c76507853f9e7c9.png" alt="\left|\int_\Omega e^{sx}g(s) \d s \right|
 =\left|\int_{\pi\over2}^{3\pi\over2} e^{(\sigma + Re^{i\varphi})x}
 g(\sigma+Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
 \le
@@ -110,11 +110,11 @@ g(\sigma+Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
 =
 
 &lt; {\pi e^{\sigma x}\over x} \max_\Omega |g(z)|" /></p>
-</div><p>so the complex integral is equal to the sum of all residues of <img class="math" src="../../images/math/f86714ee986f85607ef56c935a30f8290860a757.png" alt="\bar
+</div><p>so the complex integral is equal to the sum of all residues of <img class="math" src="../../_images/math/f86714ee986f85607ef56c935a30f8290860a757.png" alt="\bar
 f(s)e^{sx}"/> in the complex plane.</p>
 <p>To show that it works:</p>
 <div class="math">
-<p><img src="../../images/math/e35a8957cafe2ab1c2039d94f29c8fd06596c54f.png" alt="L^{-1} L [f(x)]
+<p><img src="../../_images/math/e35a8957cafe2ab1c2039d94f29c8fd06596c54f.png" alt="L^{-1} L [f(x)]
 =
 {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
     \left[\int_0^{\infty}
@@ -134,7 +134,7 @@ f(s)e^{sx}"/> in the complex plane.</p>
 =f(x)" /></p>
 </div><p>where we used:</p>
 <div class="math">
-<p><img src="../../images/math/f002cb90e9caa541a6d4b9ace65944eb782e77a8.png" alt="{1\over2\pi i}
+<p><img src="../../_images/math/f002cb90e9caa541a6d4b9ace65944eb782e77a8.png" alt="{1\over2\pi i}
 \int_{\sigma-i\infty}^{\sigma+i\infty} e^{s (x- x')}\,\d s
 =
 {1\over2\pi i}
@@ -150,15 +150,15 @@ f(s)e^{sx}"/> in the complex plane.</p>
 = e^{\sigma (x- x')}\delta(x - x')
 =\delta(x - x')" /></p>
 </div><p>and it can be derived from the Fourier transform by
-transforming a function <img class="math" src="../../images/math/073f69367cee601cff7c1b8684c1453c6dd75e27.png" alt="U(x)"/>:</p>
+transforming a function <img class="math" src="../../_images/math/073f69367cee601cff7c1b8684c1453c6dd75e27.png" alt="U(x)"/>:</p>
 <div class="math">
-<p><img src="../../images/math/5f197daf6c9926eae698592b2172aa92b08eadf5.png" alt="U(x) = \begin{cases}
+<p><img src="../../_images/math/5f197daf6c9926eae698592b2172aa92b08eadf5.png" alt="U(x) = \begin{cases}
     f(x)e^{-\sigma x} &amp;\text{for $x\ge0$}\cr
     0 &amp;\text{for $x&lt;0$}\cr
     \end{cases}" /></p>
-</div><p>and making a substitution <img class="math" src="../../images/math/ac15f719720433a411b0e6bfd7208e95958f2a6e.png" alt="s = \sigma + i\omega"/>:</p>
+</div><p>and making a substitution <img class="math" src="../../_images/math/ac15f719720433a411b0e6bfd7208e95958f2a6e.png" alt="s = \sigma + i\omega"/>:</p>
 <div class="math">
-<p><img src="../../images/math/2be27d3ddb29bec572de95bb7e366faad0dc3748.png" alt="L[f(x)] \equiv \bar f(s) = F[U(x)] \equiv \tilde U(\omega)
+<p><img src="../../_images/math/2be27d3ddb29bec572de95bb7e366faad0dc3748.png" alt="L[f(x)] \equiv \bar f(s) = F[U(x)] \equiv \tilde U(\omega)
 = \int_{-\infty}^{\infty} U(x) e^{-i\omega x}\,\d x
 = \int_0^{\infty} f(x) e^{-\sigma x} e^{-i\omega x}\,\d x
 = \int_0^{\infty} f(x) e^{-s x}\,\d x
@@ -173,7 +173,7 @@ L^{-1}[\bar f(s)] \equiv f(x) = U(x) e^{\sigma x}
 = {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
     \bar f(s) e^{s x}\,\d s
 = \sum_{s_0} \res_{s=s_0} (\bar f(s) e^{s x})" /></p>
-</div><p>Where the bar (<img class="math" src="../../images/math/d30f27428b5089654561a4103e3ebfccf9e39895.png" alt="\bar f"/>) means the Laplace transform and tilde (<img class="math" src="../../images/math/9fad7e35d3630d54c16f6dc9ce146031cad37dfd.png" alt="\tilde U"/>)
+</div><p>Where the bar (<img class="math" src="../../_images/math/d30f27428b5089654561a4103e3ebfccf9e39895.png" alt="\bar f"/>) means the Laplace transform and tilde (<img class="math" src="../../_images/math/9fad7e35d3630d54c16f6dc9ce146031cad37dfd.png" alt="\tilde U"/>)
 means the Fourier transform.</p>
 </div>
 
@@ -197,7 +197,7 @@ means the Fourier transform.</p>
                                   title="next chapter">Polar and Spherical Coordinates</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="../../sources/src/math/transforms.txt"
+              <li><a href="../../_sources/src/math/transforms.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
