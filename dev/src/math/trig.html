@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Polar and Spherical Coordinates &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Delta Function" href="other.html" />
+    <link rel="prev" title="Fourier Transform" href="transforms.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="other.html" title="Delta Function"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="transforms.html" title="Fourier Transform"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="polar-and-spherical-coordinates">
+<h1>Polar and Spherical Coordinates<a class="headerlink" href="#polar-and-spherical-coordinates" title="Permalink to this headline">¶</a></h1>
+<p>Polar coordinates (radial, azimuth) <img class="math" src="../../_images/math/0cc34969521e4bb9913d4e07317af072427dde90.png" alt="(r,\phi)"/> are defined by</p>
+<div class="math">
+<p><img src="../../_images/math/c2b529225f4a60c1c85827efa43df79821a9f9ef.png" alt="\begin{eqnarray*} x&amp;=&amp;r\cos\phi \\ y&amp;=&amp;r\sin\phi \\ \end{eqnarray*}" /></p>
+</div><p>Spherical coordinates (radial, zenith, azimuth) <img class="math" src="../../_images/math/244da803f8ee0ecd7ad5513fe9206b7f5f95c7c8.png" alt="(\rho,\theta,\phi)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/369150e76aa335f444de36af0df609885249a4ef.png" alt="\begin{eqnarray*} x&amp;=&amp;\rho\sin\theta\cos\phi \\ y&amp;=&amp;\rho\sin\theta\sin\phi \\ z&amp;=&amp;\rho\cos\theta \\ \end{eqnarray*}" /></p>
+</div><p>Note: this meaning of <img class="math" src="../../_images/math/977460ae4c3a462a8f1ea3975e6d2d8b3218b20c.png" alt="(\theta,\phi)"/> is mostly used in the USA and in many
+books. In Europe people usually use different symbols, like <img class="math" src="../../_images/math/08f120ef1f9b5ffca7c41f2d3d626d5015602182.png" alt="(\phi,\theta)"/>, <img class="math" src="../../_images/math/5b72e7d02f6fc8bdf33dbbd0b3d35f2a5e0cf501.png" alt="(\vartheta,\varphi)"/> and others.</p>
+</div>
+<div class="section" id="argument-function-atan2">
+<span id="index-560"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<p>Argument function <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../_images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
+<div class="math">
+<p><img src="../../_images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
+</div><p>Obviously <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is unique up to any integer multiple of <img class="math" src="../../_images/math/709acef3551b886e6754de72d59a88f00660f0d3.png" alt="2\pi"/>. By taking
+the principal value of the <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> function, e.g. fixing <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> to the
+interval <img class="math" src="../../_images/math/e520a7aeab7e3c5078aebf7d07340c9485d2a110.png" alt="(-\pi, \pi]"/> (so that the branch cut is on the negative <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-axis, as
+usual), we get the <img class="math" src="../../_images/math/ac04fddbd2727efa331c066e1d11c950ae8c1c21.png" alt="\Arg(z)"/> function:</p>
+<div class="math">
+<p><img src="../../_images/math/ac7924a2bb40f53ee9ff1f85c230562c422cc692.png" alt="-\pi &lt; \Arg z \le \pi" /></p>
+</div><p>then <img class="math" src="../../_images/math/b0b9e3e705ff5748913d10bbf3668fe4c612593d.png" alt="\arg z = \Arg z + 2\pi n"/>, where <img class="math" src="../../_images/math/08ff5493a77264faebd1288e3dc3b8255facb66e.png" alt="n=0, \pm 1, \pm 2, \dots"/>. We can then
+use the following formula to easily calculate <img class="math" src="../../_images/math/572146525ff4f2cbe7da7da892634ea6f93e6c98.png" alt="\Arg z"/> for any <img class="math" src="../../_images/math/2a514d19359869e53b6e4be1413344d26ff908ff.png" alt="z=x+iy"/> (except
+<img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355d2909c.png" alt="x=y=0"/>, i.e. <img class="math" src="../../_images/math/72079803c6fcdcfa95b6d7f383f6ad71f1eb631b.png" alt="z=0"/>, where it is not defined):</p>
+<div class="math">
+<p><img src="../../_images/math/ee18b83dfebd12344b4d1cf51888f352fd9d7a01.png" alt="\Arg(x+iy) =\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}" /></p>
+</div><p>Finally we define <img class="math" src="../../_images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/da07cf4ef86ec3dbbacef0480cac62b7b4ae7fd5.png" alt="\atan2(y, x) = \Arg(x+iy) =
+    \begin{cases}\pi&amp;y=0;x&lt;0;\cr
+        2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}" /></p>
+</div><p>The angle <img class="math" src="../../_images/math/9dca46bc73bf20ff700b40a3561573754e6e84d0.png" alt="\phi=\atan2(y, x)"/> is the angle of the point <img class="math" src="../../_images/math/adfd9ae8a3fac031d3b8b470a52a709a23d4d6d2.png" alt="(x, y)"/> on the unit
+circle (assuming the usual conventions), and it works for all quadrants
+(<img class="math" src="../../_images/math/f74f6db3f63c2803376485b7589e8a796f67b404.png" alt="\phi=\atan({y\over x})"/> only works for the first and fourth quadrant, where
+<img class="math" src="../../_images/math/b9f769f8eabecf9a5dbb46ddcfedc5d74116478d.png" alt="\atan({y\over x})=\atan2(y, x)"/>, but in the second and third qudrant,
+<img class="math" src="../../_images/math/89bd115854578feba2dd688d7a4cee65c8258d9d.png" alt="\atan({y\over x})"/> gives the wrong angles, while <img class="math" src="../../_images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/> gives the
+correct angles). So in particular:</p>
+<div class="math">
+<p><img src="../../_images/math/38dbc154fc852666bef962c4cbeba0bb57bb627d.png" alt="\atan2(0, 1) = 2\,\atan{0\over\sqrt{1^2+0^2}+1} = 0
+
+\atan2(0, -1) = \pi
+
+\atan2(1, 0) = 2\,\atan{1\over\sqrt{0^2+1^2}+0} = 2\,\atan 1 =
+    {\pi\over 2}
+
+\atan2(-1, 0) = 2\,\atan{-1\over\sqrt{0^2+1^2}+0} = -2\,\atan 1 =
+    -{\pi\over 2}" /></p>
+</div><p>This convention (<img class="math" src="../../_images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/>) is used for example in Python, C or Fortran.
+Some people might interchange <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> with <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the definition (i.e. <img class="math" src="../../_images/math/4921e4c413a17ff4c3d94692165f2fcc565ca915.png" alt="\atan2(x,
+y)= \Arg(y+ix)"/>), but it is not very common.</p>
+<p>The following useful relations hold:</p>
+<div class="math">
+<p><img src="../../_images/math/a541b54b870856b4896e6b043fffd90f7569dc39.png" alt="\sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+    \quad\quad\quad\mbox{except $x=y=0$}
+
+\cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+    \quad\quad\quad\mbox{except $x=y=0$}
+
+\tan\atan2(y, x) = {y\over x}
+    \quad\quad\quad\mbox{for $x\neq 0$}
+
+\atan2(ky, kx) = \atan2(y, x)
+    \quad\quad\quad\mbox{for $k&gt;0$}" /></p>
+</div><p>We now prove them. The following works for all <img class="math" src="../../_images/math/32581661cddf01ad30c1e36efe72f99eb0a0adca.png" alt="x, y"/> except for <img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355d2909c.png" alt="x=y=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/708dc04823619641f1026d08832b162bad459691.png" alt="\sin\atan2(y, x)
+    =\begin{cases}\sin\pi&amp;y=0;x&lt;0;\cr
+        \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+            &amp;\rm otherwise\cr\end{cases}
+        =
+
+=\begin{cases}0&amp;y=0;x&lt;0;\cr
+    {y\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    =
+
+=\begin{cases}{y\over \sqrt{x^2+y^2}}&amp;y=0;x&lt;0;\cr
+    {y\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    ={y\over \sqrt{x^2+y^2}}
+
+
+
+\cos\atan2(y, x)
+    =\begin{cases}\cos\pi&amp;y=0;x&lt;0;\cr
+        \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+            &amp;\rm otherwise\cr\end{cases}
+        =
+
+=\begin{cases}-1&amp;y=0;x&lt;0;\cr
+    {x\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    =
+
+=\begin{cases}{x\over \sqrt{x^2+y^2}}&amp;y=0;x&lt;0;\cr
+    {x\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    ={x\over \sqrt{x^2+y^2}}" /></p>
+</div><p>Tangent is infinite for <img class="math" src="../../_images/math/736d380dcc9f466ff567480f0351e6243df08e72.png" alt="\pm{\pi\over 2}"/>, which corresponds to <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/>, so the
+following works for all <img class="math" src="../../_images/math/7470aeade5f47b768b503c1547f7e7cbf4540361.png" alt="x\neq 0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/13f2b57b852f30b4577f8ec052c93e6e73e8eea7.png" alt="\tan\atan2(y, x)
+    =\begin{cases}\tan\pi&amp;y=0;x&lt;0;\cr
+        \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+            &amp;\rm otherwise\cr\end{cases}
+        =
+
+=\begin{cases}0&amp;y=0;x&lt;0;\cr
+    {y\over x}&amp;\rm otherwise\cr\end{cases}
+    =
+
+=\begin{cases}{y\over x}&amp;y=0;x&lt;0;\cr
+    {y\over x}&amp;\rm otherwise\cr\end{cases}
+    ={y\over x}" /></p>
+</div><p>In the above, we used the following double angle formulas:</p>
+<div class="math">
+<p><img src="../../_images/math/9cfdfdb3bf37e9ea4ed25627e8ce4b5b9d572d24.png" alt="\sin 2x = {2\tan x\over 1+\tan^2 x}
+
+\cos 2x = {1-\tan^2x\over 1+\tan^2 x}
+
+\tan 2x = {2\tan x\over 1-\tan^2 x}" /></p>
+</div><p>to simplify the following expressions:</p>
+<div class="math">
+<p><img src="../../_images/math/58f593e12cc1ff077f482fd844e71589f891d1b0.png" alt="\sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+    {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+    =
+
+    =
+    {2{y\over\sqrt{x^2+y^2}+x}\over1
+        +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+    =
+    {2y\left(\sqrt{x^2+y^2}+x\right)\over
+        \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+    =
+
+    =
+    {y\left(\sqrt{x^2+y^2}+x\right)\over
+        x^2+y^2+x\sqrt{x^2+y^2}}
+    =
+    {y\left(\sqrt{x^2+y^2}+x\right)\over
+        \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+    =
+
+    =
+    {y\over\sqrt{x^2+y^2}}
+
+
+
+\cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+    {1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+    =
+
+    =
+    {1 -\left({y\over\sqrt{x^2+y^2}+x}\right)^2\over
+    1 +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+    =
+    {\left(\sqrt{x^2+y^2}+x\right)^2-y^2\over
+        \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+    =
+
+    =
+    {x\left(\sqrt{x^2+y^2}+x\right)\over
+        x^2+y^2+x\sqrt{x^2+y^2}}
+    =
+    {x\left(\sqrt{x^2+y^2}+x\right)\over
+        \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+    =
+
+    =
+    {x\over\sqrt{x^2+y^2}}
+
+
+
+\tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+    {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+    =
+
+    =
+    {2{y\over\sqrt{x^2+y^2}+x}\over1
+        -\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+    =
+    {2y\left(\sqrt{x^2+y^2}+x\right)\over
+        \left(\sqrt{x^2+y^2}+x\right)^2-y^2}
+    =
+
+    =
+    {y\left(\sqrt{x^2+y^2}+x\right)\over
+        x\left(\sqrt{x^2+y^2}+x\right)}
+    = {y\over x}" /></p>
+</div><p>Finally, for all <img class="math" src="../../_images/math/67e6630318d8cb28de2723180b6d359b972489c9.png" alt="k&gt;0"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8b52e67a8680712a7c693f960f2ba396681bb9be.png" alt="\atan2(ky, kx) = \Arg(kx + iky)
+=\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{ky\over\sqrt{(kx)^2+(ky)^2}+kx}&amp;\rm otherwise\cr\end{cases}
+=
+
+=\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}
+= \Arg(x+iy) = \atan2(y, x)" /></p>
+</div><p>An example of an application:</p>
+<div class="math">
+<p><img src="../../_images/math/9ac6e020d27b2d43ca97348676425e2647262e88.png" alt="A\sin x + B\cos x = \sqrt{A^2+B^2}\left(
+    {A\over\sqrt{A^2+B^2}}\sin x + {B\over\sqrt{A^2+B^2}}\cos x\right)
+=
+
+= \sqrt{A^2+B^2}\left( \cos\delta\sin x + \sin\delta\cos x\right)
+= \sqrt{A^2+B^2}\sin(x+\delta)
+=
+
+= \sqrt{A^2+B^2}\sin(x+\atan2(B, A))" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/b0e5f9a6399fb46f25c3f6ddd9f06d7f699a203a.png" alt="\delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
+=\atan2(B, A)" /></p>
+</div></div>
+<div class="section" id="multiple-argument-formulas">
+<h1>Multiple Argument Formulas<a class="headerlink" href="#multiple-argument-formulas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sin-a-x">
+<h2>sin(a x)<a class="headerlink" href="#sin-a-x" title="Permalink to this headline">¶</a></h2>
+<p>Systematic way to derive all multiple argument formulas is to use the following
+relation:</p>
+<div class="math">
+<p><img src="../../_images/math/eafe52457fa61795e92e6f8920e9c6625f051800.png" alt="\sin(ax) = U_{a-1}(\cos x) \sin x" /></p>
+</div><p>where <img class="math" src="../../_images/math/bc224bf0d5fd957095a282940921bd63fc68a468.png" alt="U_n(x)"/> are the Chebyshev polynomials of the second kind, first few are:</p>
+<div class="math">
+<p><img src="../../_images/math/4845b1dc6637c315fec64acbbe9049086b04ced6.png" alt="U_{-3}(x) = -2x
+
+U_{-2}(x) = -1
+
+U_{-1}(x) = 0
+
+U_{- {1\over2}}(x) = {1\over \sqrt 2 \sqrt{x+1}}
+
+U_0(x) = 1
+
+U_{1\over2}(x) = {2x+1\over \sqrt 2 \sqrt{x+1}}
+
+U_1(x) = 2x
+
+U_2(x) = 4x^2 - 1
+
+U_3(x) = 8x^3 - 4x
+
+U_4(x) = 16x^4 - 12x^2 + 1
+
+U_5(x) = 32x^5 - 32x^3 + 6x
+
+U_6(x) = 64x^6 - 80x^4 + 24x^2 - 1" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">chebyshevu</span><span class="p">,</span> <span class="n">var</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">7</span><span class="p">):</span> <span class="k">print</span> <span class="s">&quot;U_</span><span class="si">%d</span><span class="s">(x) = </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chebyshevu</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="go">U_0(x) = 1</span>
+<span class="go">U_1(x) = 2*x</span>
+<span class="go">U_2(x) = -1 + 4*x**2</span>
+<span class="go">U_3(x) = -4*x + 8*x**3</span>
+<span class="go">U_4(x) = 1 - 12*x**2 + 16*x**4</span>
+<span class="go">U_5(x) = 6*x - 32*x**3 + 32*x**5</span>
+<span class="go">U_6(x) = -1 + 24*x**2 - 80*x**4 + 64*x**6</span>
+</pre></div>
+</div>
+<p>One can then use this to calculate:</p>
+<div class="math">
+<p><img src="../../_images/math/88577ff606fe56a8a10403507303a5fc7d1a706d.png" alt="\sin (-2x) = U_{-3}(\cos x) \sin x = -2\cos x\sin x
+
+\sin (-x) = U_{-2}(\cos x) \sin x = -\sin x
+
+\sin 0 = U_{-1}(\cos x) \sin x = 0
+
+\sin {x\over 2}  = U_{-{1\over2}}(\cos x) \sin x =
+    {\sin x\over\sqrt 2\sqrt{\cos x + 1}} =
+    {\sqrt{1-\cos^2x}\over\sqrt 2\sqrt{\cos x + 1}} =
+    {\sqrt{1-\cos x}\over\sqrt 2}
+
+\sin x = U_0(\cos x) \sin x = \sin x
+
+\sin {3x\over 2}  = U_{1\over2}(\cos x) \sin x =
+    {(2\cos x+1)\sin x\over\sqrt 2\sqrt{\cos x + 1}} =
+    {(2\cos x+1)\sqrt{1-\cos^2x}\over\sqrt 2\sqrt{\cos x + 1}} =
+    {(2\cos x+1)\sqrt{1-\cos x}\over\sqrt 2}
+
+\sin 2x = U_1(\cos x) \sin x = 2\cos x\sin x
+
+\sin 3x = U_2(\cos x) \sin x = (4\cos^2 x-1)\sin x" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">chebyshevu</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">7</span><span class="p">):</span> <span class="k">print</span> <span class="s">&quot;sin(</span><span class="si">%d</span><span class="s">*x) = </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">chebyshevu</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="go">sin(1*x) = sin(x)</span>
+<span class="go">sin(2*x) = 2*cos(x)*sin(x)</span>
+<span class="go">sin(3*x) = -(1 - 4*cos(x)**2)*sin(x)</span>
+<span class="go">sin(4*x) = (-4*cos(x) + 8*cos(x)**3)*sin(x)</span>
+<span class="go">sin(5*x) = (1 - 12*cos(x)**2 + 16*cos(x)**4)*sin(x)</span>
+<span class="go">sin(6*x) = (6*cos(x) - 32*cos(x)**3 + 32*cos(x)**5)*sin(x)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cos-a-x">
+<h2>cos(a x)<a class="headerlink" href="#cos-a-x" title="Permalink to this headline">¶</a></h2>
+<p>Similarly as above, we use:</p>
+<div class="math">
+<p><img src="../../_images/math/aff795846f23c86086329740ba30f1376cab84ae.png" alt="\cos(ax) = T_a(\cos x)" /></p>
+</div><p>where <img class="math" src="../../_images/math/e4fe51661da2eabbd80cb6c7080652f96263b19d.png" alt="T_n(x)"/> are the Chebyshev polynomials of the first kind, first few are:</p>
+<div class="math">
+<p><img src="../../_images/math/58eeb1eda96a88e201177ff668a2a8e1b8a4cd36.png" alt="T_0(x) = 1
+
+T_{1\over2}(x) = {\sqrt{x+1}\over \sqrt 2}
+
+T_1(x) = x
+
+T_{3\over2}(x) = {(2x-1)\sqrt{x+1}\over \sqrt 2}
+
+T_2(x) = 2x^2 - 1
+
+T_3(x) = 4x^3 - 3x
+
+T_4(x) = 8x^4 - 8x^2 + 1
+
+T_5(x) = 16x^5 - 20x^3 + 5x
+
+T_6(x) = 32x^6 - 48x^4 + 18x^2 - 1" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">chebyshevt</span><span class="p">,</span> <span class="n">var</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">7</span><span class="p">):</span> <span class="k">print</span> <span class="s">&quot;T_</span><span class="si">%d</span><span class="s">(x) = </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chebyshevt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="go">T_0(x) = 1</span>
+<span class="go">T_1(x) = x</span>
+<span class="go">T_2(x) = -1 + 2*x**2</span>
+<span class="go">T_3(x) = -3*x + 4*x**3</span>
+<span class="go">T_4(x) = 1 - 8*x**2 + 8*x**4</span>
+<span class="go">T_5(x) = 5*x - 20*x**3 + 16*x**5</span>
+<span class="go">T_6(x) = -1 + 18*x**2 - 48*x**4 + 32*x**6</span>
+</pre></div>
+</div>
+<p>One can then use this to calculate:</p>
+<div class="math">
+<p><img src="../../_images/math/9ee4254143a4674cbbaf84087dd089224f1ac46f.png" alt="\cos 0 = T_0(\cos x) = 1
+
+\cos {x\over 2} = T_{1\over 2}(\cos x) = {\sqrt{1+\cos x}\over\sqrt 2}
+
+\cos x = T_1(\cos x) = \cos x
+
+\cos {3x\over 2} = T_{3\over2}(\cos x) =
+    {(2\cos x-1)\sqrt{1+\cos x}\over\sqrt 2}
+
+\cos 2x = T_2(\cos x) = 2\cos^2 x - 1
+
+\cos 3x = T_3(\cos x) = 4\cos^3 x - 3\cos x" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">chebyshevt</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">cos</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">7</span><span class="p">):</span> <span class="k">print</span> <span class="s">&quot;cos(</span><span class="si">%d</span><span class="s">*x) = </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">chebyshevt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="go">cos(0*x) = 1</span>
+<span class="go">cos(1*x) = cos(x)</span>
+<span class="go">cos(2*x) = -1 + 2*cos(x)**2</span>
+<span class="go">cos(3*x) = -3*cos(x) + 4*cos(x)**3</span>
+<span class="go">cos(4*x) = 1 - 8*cos(x)**2 + 8*cos(x)**4</span>
+<span class="go">cos(5*x) = 5*cos(x) - 20*cos(x)**3 + 16*cos(x)**5</span>
+<span class="go">cos(6*x) = -1 + 18*cos(x)**2 - 48*cos(x)**4 + 32*cos(x)**6</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Polar and Spherical Coordinates</a></li>
+<li><a class="reference external" href="#argument-function-atan2">Argument function, atan2</a></li>
+<li><a class="reference external" href="#multiple-argument-formulas">Multiple Argument Formulas</a><ul>
+<li><a class="reference external" href="#sin-a-x">sin(a x)</a></li>
+<li><a class="reference external" href="#cos-a-x">cos(a x)</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="transforms.html"
+                                  title="previous chapter">Fourier Transform</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="other.html"
+                                  title="next chapter">Delta Function</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/math/trig.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="other.html" title="Delta Function"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="transforms.html" title="Fourier Transform"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, 2010, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>
