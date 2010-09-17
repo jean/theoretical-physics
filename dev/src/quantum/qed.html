@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quantum Electrodynamics (QED) &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
+    <link rel="next" title="Quantum Mechanics" href="qm.html" />
+    <link rel="prev" title="Introduction" href="qft.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="qm.html" title="Quantum Mechanics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="qft.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="quantum-electrodynamics-qed">
+<span id="index-719"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="qed-lagrangian">
+<h2>QED Lagrangian<a class="headerlink" href="#qed-lagrangian" title="Permalink to this headline">¶</a></h2>
+<p>The QED Lagrangian density is</p>
+<div class="math">
+<p><img src="../../_images/math/bf3d7b68f0b9796871d4447ba7b0e61c501b0d0d.png" alt="\L=\bar\psi(i\hbar c\gamma^\mu D_\mu-mc^2)\psi-{1\over4}F_{\mu\nu}F^{\mu\nu}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/c90906518f17570b6eca121f1c048186f9b4c469.png" alt="\psi=\left( \begin{array}{c} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4 \\ \end{array}\right)" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/b76f3717d8b95018d98c42e69f91ced166382056.png" alt="D_\mu=\partial_\mu+{i\over \hbar}eA_\mu" /></p>
+</div><p>is the gauge covariant derivative and (<img class="math" src="../../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> is the elementary charge, which is <img class="math" src="../../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1"/> in atomic units, i.e. the electron has a charge <img class="math" src="../../_images/math/9510a71303aa5d215f165639a8f37afd64298419.png" alt="-e"/>)</p>
+<div class="math">
+<p><img src="../../_images/math/360f0df92affc46c2332ff2e088e153a2e5da364.png" alt="F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu" /></p>
+</div><p>is the electromagnetic field tensor. It&#8217;s astonishing, that this simple Lagrangian can account for all phenomena from macroscopic scales down to something like <img class="math" src="../../_images/math/98149bffe830857c28d2a44c8ce529104e8920ff.png" alt="10^{-13}\rm\,cm"/>. So it&#8217;s not a surprise that Feynman, Schwinger and Tomonaga received the 1965 Nobel Prize in Physics for such a fantastic achievement.</p>
+<p>Plugging this Lagrangian into the Euler-Lagrange equation of motion for a field, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/45f251c83de95e417bb9b40bed0a428ec2932856.png" alt="(i\hbar c\gamma^\mu D_\mu-mc^2)\psi=0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d429415350a8863009bda2b0de7fdd0f0b50da4e.png" alt="\partial_\nu F^{\nu\mu}=-ec\bar\psi\gamma^\mu\psi" /></p>
+</div><p>The first equation is the Dirac equation in the electromagnetic field and the
+second equation is a set of Maxwell equations (<img class="math" src="../../_images/math/6961e0154bdeb02e36704b0c6efa7ac2f6823d61.png" alt="\partial_\nu
+F^{\nu\mu}=-ej^\mu"/>) with a source <img class="math" src="../../_images/math/054dedf238c74e489563b0dd9dd547add66fc0c6.png" alt="j^\mu=c\bar\psi\gamma^\mu\psi"/>, which is a
+4-current comming from the Dirac equation.</p>
+</div>
+<div class="section" id="magnetic-moment-of-an-electron">
+<h2>Magnetic moment of an electron<a class="headerlink" href="#magnetic-moment-of-an-electron" title="Permalink to this headline">¶</a></h2>
+<p>In this section we derive the order-<img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/> correction to the magnetic moment
+of an electron.</p>
+<p>We start by computing the electron vertex function for the process
+<img class="math" src="../../_images/math/6038dc12f0cd5d9d9e8c6b7793f68bc6d077eca5.png" alt="\gamma(q)\to e^+(p) + e^-(p')"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/9787be2486023c6adfa6faad33d0de0a3c3d8af4.png" alt="i M = i e^2 \left(\bar u(p')\Gamma^\mu(p', p)u(p)\right) {1\over q^2}
+    \left(\bar u(k') \gamma_\mu u(k)\right)" /></p>
+</div><p>where <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> corresponds to some heavy target. If <img class="math" src="../../_images/math/4708a7741517dbd662c75ac919cff74e24f8b274.png" alt="A_\mu^{\rm cl}"/> is a fixed
+classical potential, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/554e64f20bac208ed18c9928f8e37499707d1001.png" alt="i M 2\pi \delta(p^{0'} - p^0) =
+    -i e \bar u(p')\Gamma^\mu(p', p)u(p) A_\mu^{\rm cl}" /></p>
+</div><p>Using general arguments (Lorentz invariance, parity-conservation, Ward
+identity) we can always write <img class="math" src="../../_images/math/dff6479d5c315c6f36b5c2a25ee311edcfaafa57.png" alt="\Gamma^\mu"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/0f1fe6422991304a4f77556a60a0661bb7e29645.png" alt="\Gamma^\mu(p', p) = \gamma^\mu F_1(q^2) + {i\sigma^{\mu\nu} q_\nu \over
+    2m} F_2(q^2)" /></p>
+</div><p>where <img class="math" src="../../_images/math/3a2731abbb0e2524327bba81e355d6d886e5a6cb.png" alt="F_1"/> and <img class="math" src="../../_images/math/e2df9f6e3dec58d5d04c5ac6f07d69f427df8923.png" alt="F_2"/> ar unknown functions of <img class="math" src="../../_images/math/742b79e30c757b15ef38a5da219eed90f14ee470.png" alt="q^2 = (p'-p)^2 = -2p'\cdot p +
+2m^2"/> called form factors. In the lowest order we get <img class="math" src="../../_images/math/4c0df42671f463da7039819f5bb3f229ce806eb6.png" alt="F_1 = 1"/> and <img class="math" src="../../_images/math/ac2a146dcb070961cc23890ad43f1845a81e8bf9.png" alt="F_2 = 0"/>.</p>
+<p>We can calculate the amplitude for elastic Coulomb scattering of a
+nonrelativistic electron from a region of nonzero electrostatic potential by
+setting <img class="math" src="../../_images/math/229ee167694f99066e6c1cf8b3c1408879395a11.png" alt="A_\mu^{\rm cl}(x)=(\phi({\bf x}), 0)"/>, then:</p>
+<div class="math">
+<p><img src="../../_images/math/da26e0ea38f02abefd8afe6ec22be851a7021b3d.png" alt="A_\mu^{\rm cl}(q)=(2\pi\delta(q^0)\tilde\phi({\bf q}), 0)
+
+i M 2\pi \delta(p^{0'} - p^0) =
+    -i e \bar u(p')\Gamma^0(p', p)u(p) 2\pi\delta(q^0)\tilde\phi({\bf q})
+
+i M = -i e \bar u(p')\Gamma^0(p', p)u(p) \tilde\phi({\bf q})" /></p>
+</div><p>If the electrostatic field is very slowly varying over a large (even
+macroscopic) region, <img class="math" src="../../_images/math/494c82a59fd0dfda110b72218066b8ff5c45275c.png" alt="\tilde\phi({\bf q})"/> will be concentrated about <img class="math" src="../../_images/math/e21e4811b284af78e612f7d747f55b885dd22443.png" alt="{\bf q}
+= 0"/>, then we can take the limit <img class="math" src="../../_images/math/ff0d6a7652a8ae6c858252c48cd4013fbe954174.png" alt="{\bf q}\to 0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6084a001739a7b3fe8b6a83ccd396d49fea9cbe4.png" alt="i M = -i e \bar u(p')\Gamma^0(p', p)u(p) \tilde\phi({\bf q})
+
+i M = -i e \bar u(p')
+    \left(\gamma^0 F_1(q^2) + {i\sigma^{0\nu} q_\nu \over 2m} F_2(q^2)
+        \right)u(p) \tilde\phi({\bf q})
+
+i M = -i e \bar u(p') \gamma^0 u(p) F_1(0) \tilde\phi({\bf q})
+
+i M = -i e 2m\xi^{'\dag}\xi F_1(0) \tilde\phi({\bf q})
+
+i M = -i \left( e F_1(0) \tilde\phi({\bf q})\right) 2m\xi^{'\dag}\xi" /></p>
+</div><p>This corresponds to the Born approximation for scattering from a potential</p>
+<div class="math">
+<p><img src="../../_images/math/8c0c3fb16ab5ea729809217e6462fd149e38f282.png" alt="V({\bf x}) = e F_1(0) \phi({\bf x})" /></p>
+</div><p>Thus <img class="math" src="../../_images/math/7ba6289d7097e0fbe6b42a561f6562694762f9b0.png" alt="F_1(0)"/> is the electric charge of the electron, in units of <img class="math" src="../../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/>. Since
+<img class="math" src="../../_images/math/fd0b9ea69c0a9a98392623e0db46c9837e432119.png" alt="F_1(0) = 1"/> already in the first order of perturbation theory, radiative
+corrections to <img class="math" src="../../_images/math/75ee7914490be7262d381e8c26c75ff463eff446.png" alt="F_1(q^2)"/> must vanish at <img class="math" src="../../_images/math/158c4c6279dc0719c93b4646a2ef4662992fd01b.png" alt="q^2=0"/>.</p>
+<p>Now we calculate the scattering from a static vector potential by setting
+<img class="math" src="../../_images/math/de04c6a059aeb495eb8393276763dece646b293a.png" alt="A_\mu^{\rm cl}(x)=(0, {\bf A}_\mu^{\rm cl}({\bf x}))"/>, then:</p>
+<div class="math">
+<p><img src="../../_images/math/75bf0f7c851fc0b3cf9e5459505c394c20fab589.png" alt="A^\mu_{\rm cl}(q)=(0, 2\pi\delta(q^i)\tilde A^i_{\rm cl}({\bf q}))
+
+i M 2\pi \delta(p^{'i} - p^i) =
+    i e \bar u(p')\Gamma^i(p', p)u(p) 2\pi\delta(q^i)\tilde A^i_{\rm cl}({\bf q})
+
+i M = i e \bar u(p')\Gamma^i(p', p)u(p) \tilde A^i_{\rm cl}({\bf q})
+
+i M = i e \bar u(p')\left(\gamma^i F_1(q^2) + {i\sigma^{i\nu} q_\nu \over 2m} F_2(q^2) \right)
+u(p) \tilde A^i_{\rm cl}({\bf q})" /></p>
+</div><p>In the limit <img class="math" src="../../_images/math/ab5e81752a68d51dc63fd3fd1ef69ac65771a6fb.png" alt="q\to0"/> this becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/01031611c8501720038173514f93c2cb7a1e098a.png" alt="i M = i e
+    2m\xi^{'\dag}\left(-i\epsilon^{ijk}{q^j\sigma^k\over 2m}(F_1(0) + F_2(0)) \right)\xi
+\tilde A^i_{\rm cl}({\bf q})
+
+i M = -i e
+    2m\xi^{'\dag}\left(-{\sigma^k\over 2m}(F_1(0) + F_2(0)) \right)\xi
+\left(-i\epsilon^{ijk}q^j\tilde A^i_{\rm cl}({\bf q})\right)
+
+i M = -i e
+    2m\xi^{'\dag}\left(-{\sigma^k\over 2m}(F_1(0) + F_2(0)) \right)\xi
+    \tilde B^k({\bf q})
+
+i M = -i \left(-{e\over m} (F_1(0) + F_2(0))
+    2m\xi^{'\dag}{\sigma^k\over 2}\xi
+    \tilde B^k({\bf q})\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/4c026d692d23928139ca57c20c14ed5dffd6c5a4.png" alt="\tilde B^k({\bf q}) =
+\left(-i\epsilon^{ijk}q^j\tilde A^i_{\rm cl}({\bf q})\right)" /></p>
+</div><p>is the Fourier transform of the magnetic field produced by <img class="math" src="../../_images/math/a98164c087bef03358f318648166d87e3d3433b9.png" alt="{\bf A}^{\rm
+cl}({\bf x})"/>.</p>
+<p>This corresponds to the Born approximation for scattering from a potential</p>
+<div class="math">
+<p><img src="../../_images/math/e102a1f41100d03d8bad98a387d76136131952d6.png" alt="V({\bf x}) = -{e\over m} (F_1(0) + F_2(0))
+    \xi^{'\dag}{\sigma^k\over 2}\xi
+    B^k({\bf x})
+
+V({\bf x}) = -{e\over m} (F_1(0) + F_2(0))
+    \xi^{'\dag}{\bsigma\over 2}\xi\cdot {\bf B}({\bf x})
+
+V({\bf x}) = -&lt;{\bmu}&gt;\cdot {\bf B}({\bf x})" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/50e31423ee2c340417124e438b4adfc8e2efef99.png" alt="&lt;{\bmu}&gt; = {e\over m} (F_1(0) + F_2(0)) \xi^{'\dag}{\bsigma\over 2}\xi
+
+&lt;{\bmu}&gt; = g {e\over 2m} {\bf S}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/c976d1b255c05862dadad0afcba8435c43244f8d.png" alt="g = 2(F_1(0) + F_2(0))
+
+{\bf S} = \xi^{'\dag}{\bsigma\over 2}\xi" /></p>
+</div><p>The coefficient <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is called the Landé g-factor, and since the leading order
+of perturbation theory gives <img class="math" src="../../_images/math/4882006daa07c681d38c16c152a0075852e9da4e.png" alt="F_2(0)=0"/> (and we know that <img class="math" src="../../_images/math/70cfd13d604fe11c1a2738ce643441381af687f5.png" alt="F_1(0)=1"/> to all
+orders), we get:</p>
+<div class="math">
+<p><img src="../../_images/math/200b250613db0714bd8cfdf3956804b0e98383c2.png" alt="g = 2(F_1(0) + F_2(0)) = 2 + 2F_2(0) = 2 + O(\alpha)" /></p>
+</div><p>This is the standard prediction of the Dirac equation. The anomalous magnetic
+moment is then:</p>
+<div class="math">
+<p><img src="../../_images/math/3adb11af871831c3400b02d2858512e89b835329.png" alt="a_e = {g - 2\over 2} = F_2(0)" /></p>
+</div><p>To calculate that, we need to evaluate the one-loop correction to the vertex
+function:</p>
+<div class="math">
+<p><img src="../../_images/math/dd0c611327de4722ec3e3d2578eb22cc5ff10272.png" alt="\bar u(p')\Gamma^\mu(p', p) u(p) =
+    \bar u(p')(\gamma^\mu + \delta\Gamma^\mu) u(p)
+
+\bar u(p')\delta\Gamma^\mu(p', p) u(p) =
+    \int {\d^4 k\over (2\pi)^4} {-ig_{\nu\rho}\over (k-p)^2 +i\epsilon}
+        \bar u(p')
+        (-ie\gamma^\nu)
+        {i(\fslash k' + m)\over k'^2-m^2 +i\epsilon}
+        \gamma^\mu
+        {i(\fslash k' + m)\over k^2-m^2 +i\epsilon}
+        (-ie\gamma^\rho)
+        u(p) =
+
+= 2ie^2\int {\d^4 k\over (2\pi)^4}
+    {\bar u(p') \left(
+        \fslash k \gamma^mu \fslash k' + m^2\gamma^\mu - 2m(k+k')^\mu
+        \right) u(p) \over
+    ((k-p)^2 + i\epsilon)(k'^2 - m^2 + i\epsilon)(k^2-m^2+i\epsilon)
+        }=
+
+= \cdots =
+
+= 2i e^2 \int {\d^4 l\over (2\pi)^4} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+    {2\over D^3} \bar u(p') \left(
+    \gamma^\mu (-\half l^2+ (1-x)(1-y)q^2 + (1-4z+z^2)m^2)
+        + {i\sigma^{\mu\nu}q_\nu\over 2m} (2m^2 z(1-z))
+    \right)u(p) =
+
+= {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+    \bar u(p') \left(
+    \gamma^\mu \left[\log {z \Lambda^2\over\Delta} + {1\over\Delta}
+        \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\right)\right]
+        + {i\sigma^{\mu\nu}q_\nu\over 2m}\left[{1\over\Delta}2m^2 z(1-z)
+            \right] \right)u(p)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/8c4c0337e513b4bfa002339db6f13f7ae9cb2736.png" alt="D = l^2 - \Delta + i\epsilon
+
+\Delta = -xyq^2 + (1-z)^2 m^2 &gt; 0" /></p>
+</div><p>So the expressions for the form factors are:</p>
+<div class="math">
+<p><img src="../../_images/math/c03cf2911aa6e4c4dca3af471e160559d68cbbaa.png" alt="F_1(q^2) = 1 + {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+    \left[\log {z \Lambda^2\over\Delta} + {1\over\Delta}
+        \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\right)\right]
+        +O(\alpha^2)
+
+F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+     \left[{1\over\Delta}2m^2 z(1-z) \right]
+        +O(\alpha^2)" /></p>
+</div><p>After renormalization we get:</p>
+<div class="math">
+<p><img src="../../_images/math/7b89ac7a42f600bda02ee405d1bff4b91a92b3dc.png" alt="F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+     \left[2m^2 z(1-z)\over m^2(1-z)^2 - q^2 xy \right]
+        +O(\alpha^2)" /></p>
+</div><p>and setting <img class="math" src="../../_images/math/8062318143377fad82aa5171b3efedf615871972.png" alt="q=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/b98559d6a3eb8a9fb137a0fd0bac30c66a72a2ac.png" alt="F_2(0) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+     \left[2m^2 z(1-z)\over m^2(1-z)^2 \right] +O(\alpha^2) =
+
+={\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    \delta(x+y+z-1)
+     {2 z\over 1-z} +O(\alpha^2) =
+
+={\alpha\over 2\pi} \int_0^1 \d z \int_0^{1-z} \,\d y
+     {2 z\over 1-z} +O(\alpha^2) =
+
+= {\alpha\over 2\pi} + O(\alpha^2)" /></p>
+</div><p>Thus we get the correction to the <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>-factor of the electron:</p>
+<div class="math">
+<p><img src="../../_images/math/53c0c4b50c20924c020096cbdd0e96f492f76e5b.png" alt="a_e = {g - 2\over 2} = F_2(0) = {\alpha\over 2\pi} \approx 0.0011614" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1</span><span class="o">/</span><span class="mf">137.035999</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_e</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_e</span>
+<span class="go">0.0011614097335977778</span>
+</pre></div>
+</div>
+<p>Experiments give <img class="math" src="../../_images/math/3ab701f3f3b129d1301dd5ee6872d15cf28e6487.png" alt="a_e = 0.00115965218073\pm0.00000000000028"/>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Quantum Electrodynamics (QED)</a><ul>
+<li><a class="reference external" href="#qed-lagrangian">QED Lagrangian</a></li>
+<li><a class="reference external" href="#magnetic-moment-of-an-electron">Magnetic moment of an electron</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="qft.html"
+                                  title="previous chapter">Introduction</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="qm.html"
+                                  title="next chapter">Quantum Mechanics</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/quantum/qed.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="qm.html" title="Quantum Mechanics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="qft.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, 2010, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>
