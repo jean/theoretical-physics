@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="quantum-electrodynamics-qed">
-<span id="index-785"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
+<span id="index-853"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="qed-lagrangian">
 <h2>QED Lagrangian<a class="headerlink" href="#qed-lagrangian" title="Permalink to this headline">¶</a></h2>
 <p>The QED Lagrangian density is</p>
@@ -278,8 +278,39 @@ F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
 </pre></div>
 </div>
 <p>Experiments give <img class="math" src="../../_images/math/3ab701f3f3b129d1301dd5ee6872d15cf28e6487.png" alt="a_e = 0.00115965218073\pm0.00000000000028"/>.</p>
-<p>Higher order corrections from QED can also be calculated, see for example
-<a class="reference external" href="http://arxiv.org/abs/hep-ph/9602417">hep-ph/9602417</a>.</p>
+<p>Higher order corrections from QED can also be calculated:</p>
+<div class="math">
+<p><img src="../../_images/math/c2fcfb3050c45852b66e2966a05aafd713417254.png" alt="a_e = A_1 \left({\alpha\over \pi}\right) +
+      A_2 \left({\alpha\over \pi}\right)^2 +
+      A_3 \left({\alpha\over \pi}\right)^3 + \cdots" /></p>
+</div><p>we already know that <img class="math" src="../../_images/math/796f4d516be38807894c55160bff0fec2233fa0e.png" alt="A_1 = \half"/>. See for example <a class="reference external" href="http://arxiv.org/abs/hep-ph/9602417">hep-ph/9602417</a>, where the author obtains the following
+expression for the coefficient <img class="math" src="../../_images/math/791fe65c9d1ed7d8ed33a5025f40c5c7f9e476af.png" alt="A_3"/>, code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">zeta</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">pprint</span><span class="p">,</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">oo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+<span class="go">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a4</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mf">1</span><span class="o">/</span><span class="p">(</span><span class="mf">2</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="mf">4</span><span class="p">),</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A_3</span> <span class="o">=</span> <span class="mf">83</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mf">2</span><span class="o">*</span><span class="n">zeta</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="o">/</span><span class="mf">72</span> <span class="o">-</span> <span class="mf">215</span><span class="o">*</span><span class="n">zeta</span><span class="p">(</span><span class="mf">5</span><span class="p">)</span><span class="o">/</span><span class="mf">24</span> <span class="o">+</span> <span class="mf">100</span><span class="o">*</span><span class="p">(</span><span class="n">a4</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="o">**</span><span class="mf">4</span><span class="o">/</span><span class="mf">24</span> <span class="o">-</span> \
+<span class="gp">... </span>        <span class="n">pi</span><span class="o">**</span><span class="mf">2</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="o">**</span><span class="mf">2</span><span class="o">/</span><span class="mf">24</span><span class="p">)</span><span class="o">/</span><span class="mf">3</span> <span class="o">-</span> \
+<span class="gp">... </span>        <span class="mf">239</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mf">4</span><span class="o">/</span><span class="mf">2160</span> <span class="o">+</span> <span class="mf">139</span><span class="o">*</span><span class="n">zeta</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="o">/</span><span class="mf">18</span> <span class="o">-</span> <span class="mf">298</span> <span class="o">*</span> <span class="n">pi</span><span class="o">**</span><span class="mf">2</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="o">/</span><span class="mf">9</span> <span class="o">+</span> \
+<span class="gp">... </span>        <span class="mf">17101</span> <span class="o">*</span> <span class="n">pi</span><span class="o">**</span><span class="mf">2</span> <span class="o">/</span> <span class="mf">810</span> <span class="o">+</span> <span class="n">S</span><span class="p">(</span><span class="mf">28259</span><span class="p">)</span><span class="o">/</span><span class="mf">5184</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">A_3</span><span class="p">)</span>
+<span class="go">                       ⎛                                 2    2         4   ⎞</span>
+<span class="go">                       ⎜                                π ⋅log (2)   log (2)⎟</span>
+<span class="go">                   100⋅⎜Sum(2**(-n)/n**4, (n, 1, oo)) - ────────── + ───────⎟</span>
+<span class="go">28259   215⋅ζ(5)       ⎝                                    24          24  ⎠</span>
+<span class="go">───── - ──────── + ──────────────────────────────────────────────────────────</span>
+<span class="go"> 5184      24                                  3</span>
+
+
+
+<span class="go">                  2              2               2        4</span>
+<span class="go">  139⋅ζ(3)   298⋅π ⋅log(2)   83⋅π ⋅ζ(3)   17101⋅π    239⋅π</span>
+<span class="go">+ ──────── - ───────────── + ────────── + ──────── - ──────</span>
+<span class="go">     18            9             72         810       2160</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A_3</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+<span class="go">1.18124145658720</span>
+</pre></div>
+</div>
 </div>
 </div>
 
