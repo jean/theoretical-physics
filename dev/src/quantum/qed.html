@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="quantum-electrodynamics-qed">
-<span id="index-965"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
+<span id="index-1035"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="qed-lagrangian">
 <h2>QED Lagrangian<a class="headerlink" href="#qed-lagrangian" title="Permalink to this headline">¶</a></h2>
 <p>The QED Lagrangian density is</p>
@@ -337,7 +337,7 @@ D = l^2 - \Delta + i\epsilon
 \Delta = -xyq^2 + (1-z)^2 m^2 &gt; 0" /></p>
 </div><p>So the expressions for the form factors are:</p>
 <div class="math">
-<p><img src="../../_images/math/c03cf2911aa6e4c4dca3af471e160559d68cbbaa.png" alt="F_1(q^2) = 1 + {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+<p><img src="../../_images/math/5349d519a28e9998dcbbcae8f0f3a12d66d67d9b.png" alt="F_1(q^2) = 1 + {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
     \delta(x+y+z-1)
     \left[\log {z \Lambda^2\over\Delta} + {1\over\Delta}
         \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\right)\right]
@@ -346,16 +346,16 @@ D = l^2 - \Delta + i\epsilon
 F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
     \delta(x+y+z-1)
      \left[{1\over\Delta}2m^2 z(1-z) \right]
-        +O(\alpha^2)" /></p>
-</div><p>After renormalization we get:</p>
-<div class="math">
-<p><img src="../../_images/math/7b89ac7a42f600bda02ee405d1bff4b91a92b3dc.png" alt="F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        +O(\alpha^2) =
+
+= {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
     \delta(x+y+z-1)
      \left[2m^2 z(1-z)\over m^2(1-z)^2 - q^2 xy \right]
         +O(\alpha^2)" /></p>
-</div><p>and setting <img class="math" src="../../_images/math/8062318143377fad82aa5171b3efedf615871972.png" alt="q=0"/>:</p>
+</div><p><img class="math" src="../../_images/math/3a2731abbb0e2524327bba81e355d6d886e5a6cb.png" alt="F_1"/> needs to be renormalized, but neither the ultraviolet nor the infrared
+divergence affects <img class="math" src="../../_images/math/fe9869cc73b60eeb9f940dfc781f9142ab5e2e10.png" alt="F_2(q^2)"/>, so we just set <img class="math" src="../../_images/math/8062318143377fad82aa5171b3efedf615871972.png" alt="q=0"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/b98559d6a3eb8a9fb137a0fd0bac30c66a72a2ac.png" alt="F_2(0) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+<p><img src="../../_images/math/fc495ce748c2887fb3ab85ad30423064ba4c3eda.png" alt="F_2(0) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
     \delta(x+y+z-1)
      \left[2m^2 z(1-z)\over m^2(1-z)^2 \right] +O(\alpha^2) =
 
@@ -363,8 +363,25 @@ F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
     \delta(x+y+z-1)
      {2 z\over 1-z} +O(\alpha^2) =
 
+={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+    \theta(1-(1-y-z))\theta((1-y-z)-0)
+     {2 z\over 1-z} +O(\alpha^2) =
+
+={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+    \theta(y+z)\theta(1-y-z)
+     {2 z\over 1-z} +O(\alpha^2) =
+
+={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+    \theta(1-y-z)
+     {2 z\over 1-z} +O(\alpha^2) =
+
 ={\alpha\over 2\pi} \int_0^1 \d z \int_0^{1-z} \,\d y
      {2 z\over 1-z} +O(\alpha^2) =
+
+={\alpha\over 2\pi} \int_0^1 \d z (1-z)
+     {2 z\over 1-z} +O(\alpha^2) =
+
+={\alpha\over 2\pi} \int_0^1 \d z 2z + O(\alpha^2) =
 
 = {\alpha\over 2\pi} + O(\alpha^2)" /></p>
 </div><p>Thus we get the correction to the <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>-factor of the electron:</p>
