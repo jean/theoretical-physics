@@ -128,6 +128,84 @@ the identity:</p>
 +x_n-1)=y\,\delta(yx_1 + \cdots +yx_n-y)"/>, after the substituation we also
 restricted the limits of integration from 1 to <img class="math" src="../../_images/math/88c0cec591016ad53431d73753673947c0f91eec.png" alt="1\over y"/>, since <img class="math" src="../../_images/math/ccada11db7b2b90693e2fac4f887a57fce6f96bf.png" alt="x_1"/>, <img class="math" src="../../_images/math/6a7d010bbff66a0c41e43310a51efbaa6bf63396.png" alt="x_2"/>,
 ... are all positive.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/2b6b4dacc13df546a755cbbc8045c8b8a45403fd.png" alt="\int {\d^4 k\over (k-p)^2 (k^2 - m^2)}
+    = \int d^4 k \int_0^1\d x \d y {\delta(x+y-1)\over D^2}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/8244c0ddf4ca15bd947c5bfe0de04aee672e112d.png" alt="D = x (k-p)^2 + y(k^2 - m^2) = (x+y)k^2 - 2xk\cdot p +xp^2-ym^2
+  = k^2 - 2xk\cdot p +xp^2-ym^2" /></p>
+</div><p>In the last part we used <img class="math" src="../../_images/math/476aee07c9af5110b8769e3534ef896fab9368ab.png" alt="x+y=1"/>. We now shift <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> by introducing:</p>
+<div class="math">
+<p><img src="../../_images/math/894f989a468e29850212169747144f621c4ca5eb.png" alt="l = k - xp
+
+\d^4k = \d^4 l" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/0a87c335f1eb3c6caa01cf5c195f56dae8ddb735.png" alt="D = k^2 - 2xk\cdot p +xp^2-ym^2 = l^2 - x^2p^2 + xp^2 - ym^2" /></p>
+</div><p>thus:</p>
+<div class="math">
+<p><img src="../../_images/math/7fa39a0c9f14fbbcdd44d015529675b97e19e1b0.png" alt="\int d^4 k \int_0^1\d x \d y {\delta(x+y-1)\over D^2} =
+
+= \int l^4 k \int_0^1\d x \d y {\delta(x+y-1)\over
+    (l^2 - x^2p^2 + xp^2 - ym^2)^2}" /></p>
+</div></div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/dbb3fd697c8f94453aa9a8dca9a22cbd1bf9fa65.png" alt="\int {\d^4 k\over (k^2-m^2+i\epsilon)((k+p)^2 - m^2 + i\epsilon)
+    ((k-p)^2+i\epsilon)}
+    = \int d^4 k \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over D^3}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/84d477534b7887bc61bd1fb8ef326f0d8352def3.png" alt="D = x (k^2-m^2+i\epsilon) + y((k+p)^2 - m^2 + i\epsilon) +
+    z((k-p)^2+i\epsilon) =
+
+  = (x+y+z)k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 +
+    (x+y+z)i\epsilon =
+
+  = k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 + i\epsilon" /></p>
+</div><p>In the last part we used <img class="math" src="../../_images/math/0fce09322356796e6adce205b1e7d6d0b7d7e5ac.png" alt="x+y+z=1"/>. We now shift <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> by introducing:</p>
+<div class="math">
+<p><img src="../../_images/math/f8d52afd223fd918673efb58c50f5ad7cef505c4.png" alt="l = k + yq - zp
+
+\d^4k = \d^4 l" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/6f801b1aada787aee1b4c0fa204846450aa7b045.png" alt="D = k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 + i\epsilon =
+
+= l^2 - \Delta + i\epsilon" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/a35408efc2a1b165a161401eddebd4cfe23b6e7d.png" alt="\Delta = -xyq^2 + (1-z)^2m^2" /></p>
+</div><p>thus:</p>
+<div class="math">
+<p><img src="../../_images/math/11a517272a10785e80a19f2d83fb2f219a30bc8f.png" alt="\int d^4 k \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over D^3} =
+
+= \int \d^4 l \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over
+(l^2 - \Delta + i\epsilon)^3 } =
+
+= (-i)\int \d^4 l_E \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over
+(l_E^2 + \Delta)^3 } =
+
+= (-i)\int \d\Omega_4 \int_0^\infty \d l_E \int_0^1\d x \d y\d z
+{2\delta(x+y+z-1)l_E^3\over (l_E^2 + \Delta)^3 } =
+
+= (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) \int_0^\infty \d l_E
+    {l_E^3\over (l_E^2 + \Delta)^3 } =
+
+= (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) \int_\Delta^\infty \d h
+    {h-\Delta \over 2 h^3 } =
+
+= (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) {1\over 4\Delta} =
+
+= (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over \Delta} =
+
+= (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+     (1-z)^2m^2 - xyq^2}" /></p>
+</div></div>
 </div>
 
 
@@ -136,6 +214,15 @@ restricted the limits of integration from 1 to <img class="math" src="../../_ima
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Feynman Parameters</a><ul>
+<li><a class="reference external" href="#example-1">Example 1</a></li>
+<li><a class="reference external" href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul>
+
             <h4>Previous topic</h4>
             <p class="topless"><a href="other.html"
                                   title="previous chapter">Delta Function</a></p>
