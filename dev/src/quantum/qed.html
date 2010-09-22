@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="quantum-electrodynamics-qed">
-<span id="index-519"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
+<span id="index-613"></span><h1>Quantum Electrodynamics (QED)<a class="headerlink" href="#quantum-electrodynamics-qed" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="qed-lagrangian">
 <h2>QED Lagrangian<a class="headerlink" href="#qed-lagrangian" title="Permalink to this headline">¶</a></h2>
 <p>The QED Lagrangian density is</p>
@@ -484,7 +484,15 @@ obtains the following expression for the coefficient <img class="math" src="../.
 <p><img src="../../_images/math/03f68d3d2b1bba643f2e4ba56fd97da70bacb923.png" alt="a_e = 0.00115965223273643 + O(\alpha^4)
 
 a_e = 0.00115965218242334 + O(\alpha^5)" /></p>
-</div><p>Code:</p>
+</div><p>Let&#8217;s state the experimental value again for comparison (see above):</p>
+<div class="math">
+<p><img src="../../_images/math/9b64e45f93e987273b67dfec8dbc111d20e8e866.png" alt="a_e = 0.00115965218073\pm0.00000000000028" /></p>
+</div><p>At this level of accuracy, the uncertainty of the exact value of <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/> as
+well as other corrections coming from the Standar Model come into play, so one
+should not take the numbers above too seriously, but one can roughly say, that
+the agreement between the QED prediction and experiment is about 8 significant
+figures.</p>
+<p>Code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">zeta</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">oo</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 <span class="go">n</span>
