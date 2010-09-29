@@ -1826,39 +1826,55 @@ fermions it changes a sign).
 Nonrelativistic Propagator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Nonrelativistic limits of the propagators are obtained by assuming $|{\bf p}|/m
-\ll 1$ (we substitute $\omega=p_0-m$):
+Nonrelativistic limits of the propagators are obtained by assuming
+$|{\bf p}|/mc \ll 1$, and then expressing the propagator using the
+nonrelativistic energy $\omega$ (total
+energy minus the rest mass energy) by using the
+well-known relations:
 
 .. math::
 
-    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
-    = {i\over p_0^2-{\bf p}^2-m^2+i\epsilon}
-    = {i\over \left(p_0-\sqrt{{\bf p}^2+m^2}\right)\left(p_0
-        +\sqrt{{\bf p}^2+m^2}\right)+i\epsilon}
-    \approx
+    p_0 c = E = mc^2 + \omega
 
-    \approx
-    {i\over \left(p_0-m-{{\bf p}^2\over 2m}\right)
-        \left(p_0+m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    \sqrt{{\bf p}^2c^2 + m^2c^4} = E_{\bf p} = mc^2+{{\bf p}^2\over 2m} + \cdots
+
+    E - E_{\bf p} = \omega - {{\bf p}^2\over 2m} - \cdots \approx
+        \omega - {{\bf p}^2\over 2m}
+
+    E + E_{\bf p} = \omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots \approx 2mc^2
+
+Where $E$ is the total energy, $\omega$ is the nonrelativistic energy, $E_{\bf
+p}$ is the relativistic energy of a noninteracting particle (kinetic energy).
+Now we can rewrite the propagator:
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2c^2+i\epsilon}
+    = {i\over p_0^2-{\bf p}^2-m^2c^2+i\epsilon}
+    = {i\over {1\over c^2}\left(p_0^2c^2-{\bf p}^2c^2-m^2c^4\right)+i\epsilon}
     =
-    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
 
-the behavior of the propagator in the vicinity of its positive frequency pole
-$\omega\approx{{\bf p}^2\over 2m}$ is (remember $\omega \to 0$ in the
-nonrelativistic limit):
+    = {i\over {1\over c^2}\left(E^2 - E_{\bf p}^2\right)+i\epsilon}
+    = {i\over {1\over c^2}(E - E_{\bf p})(E + E_{\bf p})+i\epsilon}
+    =
 
-.. math::
-
-    \tilde D(p) \approx
-    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    = {i\over {1\over c^2}\left(\omega - {{\bf p}^2\over 2m}-\cdots\right)
+        \left(\omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots\right)+i\epsilon}
     \approx
-    {i\over \left(\omega-{{\bf p}^2\over 2m}\right) 2m + i\epsilon}
+    {i\over {1\over c^2}\left(\omega - {{\bf p}^2\over 2m}\right)
+        2mc^2+i\epsilon}
+    =
+
+    =
+    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i{\epsilon\over 2m}}
     =
     {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
 
-Similarly for fermions:
+
+As you can see, we are interested in the behavior of the propagator in the
+vicinity of its positive frequency pole $\omega\approx{{\bf p}^2\over 2m}$.
+
+Similarly for fermions (we set $c=1$):
 
 .. math::
 
