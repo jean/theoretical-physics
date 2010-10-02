@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="newtonian-physics">
-<span id="index-675"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1046"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-why-tensors">
 <h2>Introduction: Why Tensors<a class="headerlink" href="#introduction-why-tensors" title="Permalink to this headline">¶</a></h2>
 <p>This section gives a brief introduction, and in the next sections we derive
@@ -210,8 +210,10 @@ general relativity uses the same language, the real differences between all
 these three theories will become clear.</p>
 <p>We write <img class="math" src="../../_images/math/d20258310be3455daf8318274224a9d1d28fb6a3.png" alt="x, y, z"/> and <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> as components of one 4-vector</p>
 <div class="math">
-<p><img src="../../_images/math/a86fa4e6fcf7805909719811ec96e94cdf9e1a99.png" alt="x^\mu = \mat{t\cr x\cr y\cr z\cr}" /></p>
-</div><p>Now we need to connect the Newtonian equations to geometry. To do that, we
+<p><img src="../../_images/math/685de853154f27dcf926357c0b57576d64c0a5d4.png" alt="x^\mu = \mat{ct\cr x\cr y\cr z\cr}" /></p>
+</div><p>In this section, you can imagine <img class="math" src="../../_images/math/0e4cc644ec8a1c3623c13ed3d14904096a0d87b9.png" alt="c=1"/>, but we&#8217;ll need it later, so we put it
+in right now, so that we don&#8217;t need to rederive all equations again.
+Now we need to connect the Newtonian equations to geometry. To do that, we
 reformulate the Newton&#8217;s second law:</p>
 <div class="math">
 <p><img src="../../_images/math/d705a4c0b8ff2c7c881943a4b63cf7bfc265a781.png" alt="{\d^2 x^i\over\d t^2} + \delta^{ij}\partial_j\phi =0" /></p>
@@ -230,12 +232,13 @@ so in general</p>
 <p><img src="../../_images/math/131751c809e4905fa1d00d0672da8c2b2dd4fbc2.png" alt="{\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d t\over\d\lambda}\right)^2 =0" /></p>
 </div><p>So using <img class="math" src="../../_images/math/eda9cb06647e9f40c563a46b475f4ae23decad20.png" alt="x^0"/> instead of <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/>, we endup with the following equations:</p>
 <div class="math">
-<p><img src="../../_images/math/213cdbfec4010a1221dbf7ed33d248d2f819e3d6.png" alt="{\d^2x^0\over\d\lambda^2}=0" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/5b8df2878d97c7c6ec6decd45801db2738a50459.png" alt="{\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d x^0\over\d\lambda}\right)^2 =0" /></p>
+<p><img src="../../_images/math/4ddcc14ac8a9599d62bc26fe99007935bf2b1fc6.png" alt="{\d^2x^0\over\d\lambda^2}=0
+
+{\d^2 x^i\over\d\lambda^2} + {1\over c^2}\delta^{ij}\partial_j\phi
+    \left({\d x^0\over\d\lambda}\right)^2 =0" /></p>
 </div><p>But this is exactly the geodesic equation for the following Christoffel symbols:</p>
 <div class="math" id="equation-Chris-newton">
-<p><span class="eqno">(2)</span><img src="../../_images/math/6ed1dac04c45075a07b3a40a9c01de75276bad14.png" alt="\Gamma^i_{00} = \delta^{ij}\partial_j\phi" /></p>
+<p><span class="eqno">(2)</span><img src="../../_images/math/e3f403b51d84d894bb2acf9b2a22772eaaf4409d.png" alt="\Gamma^i_{00} = {1\over c^2}\delta^{ij}\partial_j\phi" /></p>
 </div><p>and all other components are zero.</p>
 <p>In order to formulate the gravitation law, we now need to express
 <img class="math" src="../../_images/math/9c2815688dd93c48c9557d27a1bbef576e86777e.png" alt="\nabla^2\phi"/> in terms of geometric quantities like
@@ -243,23 +246,23 @@ so in general</p>
 We get the only nonzero components of
 the Riemann tensor:</p>
 <div class="math">
-<p><img src="../../_images/math/835df6508bca0b5a1be446bdd66c20e4df4514d3.png" alt="R^j{}_{0k0} = -R^j{}_{00k} = \delta^{ji}\partial_i\partial_k\phi" /></p>
+<p><img src="../../_images/math/c648a0a4369897eca87bba1346af5dab8b47aa30.png" alt="R^j{}_{0k0} = -R^j{}_{00k} = {1\over c^2}\delta^{ji}\partial_i\partial_k\phi" /></p>
 </div><p>we calculate the <img class="math" src="../../_images/math/5d1b37c10edb161c8ca96a218e451b628d245cf8.png" alt="R_{\alpha\beta}"/> by contracting:</p>
 <div class="math">
-<p><img src="../../_images/math/a3c5429deccd8f7e1632233f9d79de1d6a762959.png" alt="R_{00} = R^\mu{}_{0\mu0} = R^i{}_{0i0} = \delta^{ij}\partial_i\partial_j\phi" /></p>
+<p><img src="../../_images/math/151141ad1c1e4ce1e2e953f0b7c3aeb5a0ae6528.png" alt="R_{00} = R^\mu{}_{0\mu0} = R^i{}_{0i0} = {1\over c^2}\delta^{ij}\partial_i\partial_j\phi" /></p>
 </div><div class="math">
 <p><img src="../../_images/math/97112779b0de895a293289f50b31393a08b4d36b.png" alt="R_{ij} = 0" /></p>
-</div><p>and we see that the Newton gravitation law is</p>
+</div><p>comparing with <a href="#equation-grav">(1)</a> we see that the Newton gravitation law is</p>
 <div class="math">
-<p><img src="../../_images/math/9fd03bf33cfd30423bac17fdf1eaf59e01b3deef.png" alt="R_{00} = 4\pi G\rho" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/97112779b0de895a293289f50b31393a08b4d36b.png" alt="R_{ij} = 0" /></p>
+<p><img src="../../_images/math/82df7ab2e6c40de662aae42c17f0c64873abeedc.png" alt="R_{00} = {4\pi G\over c^2}\rho
+
+R_{ij} = 0" /></p>
 </div><p>Thus we have reformulated the Newton&#8217;s laws in a frame invariant way &#8212; the
 matter curves the geometry using the equations:</p>
 <div class="math">
-<p><img src="../../_images/math/9fd03bf33cfd30423bac17fdf1eaf59e01b3deef.png" alt="R_{00} = 4\pi G\rho" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/97112779b0de895a293289f50b31393a08b4d36b.png" alt="R_{ij} = 0" /></p>
+<p><img src="../../_images/math/82df7ab2e6c40de662aae42c17f0c64873abeedc.png" alt="R_{00} = {4\pi G\over c^2}\rho
+
+R_{ij} = 0" /></p>
 </div><p>from which one can (for example) calculate the Christoffel symbols and other
 things. The particles then move on the geodesics:</p>
 <div class="math">
@@ -267,6 +270,13 @@ things. The particles then move on the geodesics:</p>
 </div><p>Both equations now have the same form in all coordinate systems (inertial or
 not) and it is clear how to transform them &#8212; only the Christoffel symbols
 (and Ricci tensor) change and we have a formula for their transformation.</p>
+<p>Obviously this works for any value of <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> (as it cancels out in the final
+equations of motion) and at this level we don&#8217;t really need it yet, so we can
+set <img class="math" src="../../_images/math/0e4cc644ec8a1c3623c13ed3d14904096a0d87b9.png" alt="c=1"/> and forget about it. In the next section we will need some constant
+in the metric to send to infinity in order to obtain the correct Christoffel
+symbols, and we can conveniently just use <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>. Later on we introduce special
+relativity and we need to introduce a speed of light and it turns out that we
+can again just use <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> for that without any loss of generality.</p>
 </div>
 <div class="section" id="metrics">
 <h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
@@ -426,6 +436,38 @@ equation:</p>
 </div><div class="math">
 <p><img src="../../_images/math/066d280682f840d4e691faec4830ccccb8707fe9.png" alt="{\d^2 x^i\over\d t^2}=-\delta^{ij}\partial_j\phi" /></p>
 </div><p>So the Newton&#8217;s second law <em>is</em> the equation of geodesics.</p>
+<p>In the above, we
+have set <img class="math" src="../../_images/math/0e4cc644ec8a1c3623c13ed3d14904096a0d87b9.png" alt="c=1"/> in the Christoffel symbols themselves (see the last paragraph
+from the last section) and introduced another constant <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> in the metric
+itself. As we can see, the metric will become infinite with this approach in
+the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>. Another approach is to store this <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> in the <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/>
+vector itself, then the metric stays finite (in fact becomes a diagonal matrix
+<img class="math" src="../../_images/math/418e251e9dbf2927bc4b5fc2896c19b6d60ec107.png" alt="\diag(\pm 1, 1, 1, 1)"/>, thus it gives all the Christoffel symbols equal to
+zero, in the limit), but the vector becomes infinite in the limit.</p>
+<p>Either way our formalism breaks down, and thus we need to keep <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> finite and
+only do the limit in the final equations (after we don&#8217;t need differential
+geometry anymore). When needed, we can also carefully neglect higher terms in
+<img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>, that will not appear in the final equations after doing the limit, but one
+needs to make sure that no mistake is made.</p>
+<p>It is customary to put the constant
+<img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> into the vector <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/> and so we will do so too from this point on.</p>
+</div>
+<div class="section" id="conclusion-about-metric">
+<h2>Conclusion About Metric<a class="headerlink" href="#conclusion-about-metric" title="Permalink to this headline">¶</a></h2>
+<p>We will use the convention to keep <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> in the 4-vector and the simplest metric
+that generates the correct Christoffel symbols is the following:</p>
+<div class="math">
+<p><img src="../../_images/math/e0e90e31688f8f597d5e6b271338cecaf50382a2.png" alt="g_{\mu\nu} = \mat{\pm 1 -{2\phi\over c^2} &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1-{2\phi\over c^2} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1-{2\phi\over c^2} &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1-{2\phi\over c^2}\cr}" /></p>
+</div><p>In the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> we get the following nonzero Christoffel symbols (for
+both signs in <img class="math" src="../../_images/math/7cfbd35086ffefb83637d42166582b43c8a1ff4a.png" alt="\pm 1"/> above):</p>
+<div class="math">
+<p><img src="../../_images/math/e3f403b51d84d894bb2acf9b2a22772eaaf4409d.png" alt="\Gamma^i_{00} = {1\over c^2}\delta^{ij}\partial_j\phi" /></p>
+</div><p>all other symbols contain higher powers of <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> and thus will not contribute in
+the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>. The remaining <img class="math" src="../../_images/math/2b693026c70424da68ed4c52d3d0d35d9548ee4e.png" alt="c^2"/> in <img class="math" src="../../_images/math/0dfe6aeb5a6c3cb9983b75505bca9c88ce79cc5b.png" alt="\Gamma^i_{00}"/> will cancel with
+the <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> in <img class="math" src="../../_images/math/eec530bd17fc6f7b01d498c54dae56aee6c8fac1.png" alt="x^0=ct"/> in the final equations.</p>
+<p>As seen above, there is some freedom in which metric we can use in order to
+obtain the correct Christoffel symbols, but the above metric is the simplest,
+so we&#8217;ll use it from now on.</p>
 </div>
 <div class="section" id="obsolete-section">
 <h2>Obsolete section<a class="headerlink" href="#obsolete-section" title="Permalink to this headline">¶</a></h2>
@@ -640,7 +682,7 @@ matrix and let&#8217;s assume this particular form:</p>
 </div><p>(e.g. this covers almost all possible Newtonian metrics tensors).</p>
 </div>
 <div class="section" id="lorentz-group">
-<span id="index-676"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-1047"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
 <p>The Lorentz group is O(3,1), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho">
 <p><span class="eqno">(3)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
@@ -843,7 +885,7 @@ substitution <img class="math" src="../../_images/math/db1406080e883dec5d0f64bc4
 <p><img src="../../_images/math/84ef1f03fee421e7a1ec6af7f75bfce949591c43.png" alt="w = {u+v\over1+{uv\over c^2}}" /></p>
 </div></div>
 <div class="section" id="o-4-group">
-<span id="index-677"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-1048"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
 <p>The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho2">
 <p><span class="eqno">(4)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
@@ -910,7 +952,7 @@ structure of SO(4), because one can get from <img class="math" src="../../_image
 concerned about, we are fine.</p>
 </div>
 <div class="section" id="proper-time">
-<span id="index-678"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
+<span id="index-1049"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
 <p>Proper time <img class="math" src="../../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is a time elapsed by (physical) clocks along some (4D)
 trajectory.  Coordinate time <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is just some time coordinate assigned to each
 point in the space and usually one can find some real clocks, that would
@@ -1184,6 +1226,7 @@ are.</p>
 <li><a class="reference external" href="#college-formulation">College Formulation</a></li>
 <li><a class="reference external" href="#differential-geometry-formulation">Differential Geometry Formulation</a></li>
 <li><a class="reference external" href="#metrics">Metrics</a></li>
+<li><a class="reference external" href="#conclusion-about-metric">Conclusion About Metric</a></li>
 <li><a class="reference external" href="#obsolete-section">Obsolete section</a></li>
 <li><a class="reference external" href="#inertial-frames">Inertial frames</a></li>
 <li><a class="reference external" href="#lorentz-group">Lorentz Group</a></li>
