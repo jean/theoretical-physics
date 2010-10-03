@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="newtonian-physics">
-<span id="index-1046"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1279"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-why-tensors">
 <h2>Introduction: Why Tensors<a class="headerlink" href="#introduction-why-tensors" title="Permalink to this headline">¶</a></h2>
 <p>This section gives a brief introduction, and in the next sections we derive
@@ -196,7 +196,115 @@ define a gravitational potential by:</p>
 <p><img src="../../_images/math/d566403f7a8e81a616d586a3645866072ddd3c33.png" alt="[G] = \rm kg^{-1}\,m^3\,s^{-2}" /></p>
 </div><div class="math">
 <p><img src="../../_images/math/e76997e56cdb4414b1f199e7323ce4f8ec81731f.png" alt="[\phi] = \rm m^2\,s^{-2}" /></p>
-</div></div>
+</div><div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Calculate the force acting on a test particle inside an infinitely thin
+spherical shell of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> and surface mass distribution <img class="math" src="../../_images/math/a7c45865ab8eed70a36ef7955596c1512d494a25.png" alt="\sigma(\theta,
+\phi)=1"/>. We need to solve</p>
+<div class="math" id="equation-grav-example1">
+<p><span class="eqno">(2)</span><img src="../../_images/math/9de8e7a082ac321a413131a88d600172791e100b.png" alt="\nabla^2\phi = 4\pi G\rho" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/fa2a45b2c4478dcb7b41f9ab2d9e232a3783f96f.png" alt="\rho(x, y, z) = \sigma(\theta, \phi) {\delta(R-r)\over r^2}
+
+r = \sqrt{x^2 + y^2 + z^2}" /></p>
+</div><p>the Green function of <a href="#equation-grav-example1">(2)</a> is</p>
+<div class="math">
+<p><img src="../../_images/math/a83685ab4ea1d0aa12b61ac654baebbcc623e642.png" alt="G({\bf x}, {\bf y}) = {1\over |{\bf x} - {\bf y}|}" /></p>
+</div><p>so the solution is:</p>
+<div class="math">
+<p><img src="../../_images/math/2d5529fd7d3239ed966aa691e1f60eef3d59e663.png" alt="\phi = \int G({\bf x}, {\bf y}) 4\pi G \rho({\bf y}) \d^3 y
+    = 4\pi G \int {\rho({\bf y})\over |{\bf x} - {\bf y}|} \d^3 y
+    =
+
+= 4\pi G \int {\sigma(\theta, \phi){\delta(R-r)\over r^2} r^2\sin\theta
+    \over \sqrt{
+        (x-r\sin\theta\cos\phi)^2 +
+        (y-r\sin\theta\sin\phi)^2 +
+        (z-r\cos\theta)^2
+        }} \d \theta \d \phi \d r =
+
+= 4\pi G \int {\delta(R-r)\sin\theta
+    \over \sqrt{
+        (x-r\sin\theta\cos\phi)^2 +
+        (y-r\sin\theta\sin\phi)^2 +
+        (z-r\cos\theta)^2
+        }} \d \theta \d \phi \d r =
+
+= 4\pi G \int {\sin\theta
+    \over \sqrt{
+        (x-R\sin\theta\cos\phi)^2 +
+        (y-R\sin\theta\sin\phi)^2 +
+        (z-R\cos\theta)^2
+        }} \d \theta \d \phi =
+
+= 4\pi G \int {\sin\theta
+    \over \sqrt{x^2 + y^2 + z^2 + R^2
+        -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
+        }} \d \theta \d \phi" /></p>
+</div><p>for symmetry reasons we can set <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/>, <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/> and get</p>
+<div class="math">
+<p><img src="../../_images/math/aa9e25d251ac9a2222dc5f8c7faa8e6e0c87649f.png" alt="\phi(0, 0, z)
+= 4\pi G \int_0^{2\pi} \d\phi \int_0^\pi \d\theta {\sin\theta
+    \over \sqrt{z^2 + R^2 -2Rz\cos\theta }} =
+
+= 8\pi^2 G \int_0^\pi \d\theta {\sin\theta
+    \over \sqrt{z^2 + R^2 -2Rz\cos\theta }} =
+
+= 8\pi^2 G \int_{-1}^1 {\d y \over \sqrt{z^2 + R^2 -2Rzy }} =
+
+= -{4\pi^2 G\over R z} \int_{(R-z)^2}^{(R+z)^2} {\d u \over \sqrt{u}} =
+
+= -{4\pi^2 G\over R z} \Big[2\sqrt u\Big]_{(R-z)^2}^{(R+z)^2} =
+
+= -{4\pi^2 G\over R z} \Big[2|R+z| - 2|R-z|\Big] =
+
+= -{4\pi^2 G\over R z} \Big[4z\Big] =
+
+= -{16\pi^2 G\over R}" /></p>
+</div><p>This must hold for all <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> (less than <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>), so:</p>
+<div class="math">
+<p><img src="../../_images/math/4975d83100b568026120e02dd443ec81207edc62.png" alt="\phi(x, y, z) = -{16\pi^2 G\over R}" /></p>
+</div><p>And the force is</p>
+<div class="math">
+<p><img src="../../_images/math/58fe69c8f36cfed0ed96f8b573777d36647220b0.png" alt="{\bf F} = -m\nabla\phi(t, x, y, z) = -m\nabla
+    \left(-{16\pi^2 G\over R}\right) = 0" /></p>
+</div><p>So the force acting on a test particle inside the shell is zero.</p>
+<p>Note about the simplification of the square root for <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/> and <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/>, we can do
+that more exactly by
+introducing polar coordinates for <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> and <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/4096d947f90097f4df727d3aba829816cce14e4d.png" alt="x = r'\sin\theta' \cos \phi'
+
+y = r'\sin\theta' \sin \phi'
+
+z = r'\cos\theta'" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/17b1d4504e107db77a15f89c01a79aa1790dda44.png" alt="\sqrt{x^2 + y^2 + z^2 + R^2
+        -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
+        } =
+
+= \sqrt{r'^2 + R^2 -2Rr'(
+    \sin\theta'\cos\phi'\sin\theta\cos\phi
+    + \sin\theta'\sin\phi'\sin\theta\sin\phi
+    + \cos\theta'\cos\theta)
+        } =
+
+= \sqrt{r'^2 + R^2 -2Rr'(
+    \sin\theta'\sin\theta \cos(\phi-\phi') + \cos\theta'\cos\theta)
+        } =" /></p>
+</div><p>I think that we can introduce different spherical coordinates in the first
+place in such a way, so that effectively <img class="math" src="../../_images/math/a8f095499cc8383c2d50051a391a11eb6c6934ed.png" alt="\cos(\phi-\phi')=0"/> and then we get:</p>
+<div class="math">
+<p><img src="../../_images/math/dd316ff83f667a1e7705506444d77b4b7056181f.png" alt="= \sqrt{r'^2 + R^2 -2Rr'(
+    \sin\theta'\sin\theta + \cos\theta'\cos\theta)
+        } =
+
+= \sqrt{r'^2 + R^2 -2Rr'\cos(\theta-\theta')}" /></p>
+</div><p>And we just shift the definition of <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/>.</p>
+</div>
+</div>
 <div class="section" id="differential-geometry-formulation">
 <h2>Differential Geometry Formulation<a class="headerlink" href="#differential-geometry-formulation" title="Permalink to this headline">¶</a></h2>
 <p>There are still problems with this formulation, because it is not immediatelly
@@ -238,7 +346,7 @@ so in general</p>
     \left({\d x^0\over\d\lambda}\right)^2 =0" /></p>
 </div><p>But this is exactly the geodesic equation for the following Christoffel symbols:</p>
 <div class="math" id="equation-Chris-newton">
-<p><span class="eqno">(2)</span><img src="../../_images/math/e3f403b51d84d894bb2acf9b2a22772eaaf4409d.png" alt="\Gamma^i_{00} = {1\over c^2}\delta^{ij}\partial_j\phi" /></p>
+<p><span class="eqno">(3)</span><img src="../../_images/math/e3f403b51d84d894bb2acf9b2a22772eaaf4409d.png" alt="\Gamma^i_{00} = {1\over c^2}\delta^{ij}\partial_j\phi" /></p>
 </div><p>and all other components are zero.</p>
 <p>In order to formulate the gravitation law, we now need to express
 <img class="math" src="../../_images/math/9c2815688dd93c48c9557d27a1bbef576e86777e.png" alt="\nabla^2\phi"/> in terms of geometric quantities like
@@ -616,7 +724,7 @@ metric)</p>
 </div><p>Where <img class="math" src="../../_images/math/a9ade2c73be5bdc53891351c6b37d02645de906c.png" alt="mU^0 = p^0"/> is the energy of the particle (with respect to this frame
 only), this means the energy is conserved unless the gravitational field
 depends on time.</p>
-<p>To summarize: the Christoffel symbols <a href="#equation-Chris-newton">(2)</a> that we get from the
+<p>To summarize: the Christoffel symbols <a href="#equation-Chris-newton">(3)</a> that we get from the
 Newtonian theory contain <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>, which up to this point can be any speed, for
 example we can set <img class="math" src="../../_images/math/a14612169f97df0a0e5609caa140241bcd89f886.png" alt="c=1\rm\,ms^{-1}"/>. However, in order to have some metrics
 tensor that generates those Christoffel symbols, the only way to do that is by
@@ -625,7 +733,7 @@ the metrics</p>
 <p><img src="../../_images/math/f64f2988a718ac74ff434a9fdfffa02ccbfa350d.png" alt="\diag(-1, 1, 1, 1)-{2\phi\over c^2}\one" /></p>
 </div><p>then calculating the Christoffel symbols. If we neglect the terms of the order
 <img class="math" src="../../_images/math/4742da62c99782b0583ec0e95803804a9f5ee717.png" alt="O\left(\left(\phi\over c^2\right)^2\right)"/> and higher, we get the Newtonian
-Christoffel symbols <a href="#equation-Chris-newton">(2)</a> that we want. It&#8217;s clear that in order
+Christoffel symbols <a href="#equation-Chris-newton">(3)</a> that we want. It&#8217;s clear that in order
 to neglect the terms, we must have <img class="math" src="../../_images/math/2048933fe75a9412f8250cb789e5b250b5955ecc.png" alt="|\phi| \ll c^2"/>, so we must choose <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>
 large enough for this to work. To put it plainly, unless <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is large, there is
 no metrics in our Newtonian spacetime. However for <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> large, everything is
@@ -682,16 +790,16 @@ matrix and let&#8217;s assume this particular form:</p>
 </div><p>(e.g. this covers almost all possible Newtonian metrics tensors).</p>
 </div>
 <div class="section" id="lorentz-group">
-<span id="index-1047"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-1280"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
 <p>The Lorentz group is O(3,1), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho">
-<p><span class="eqno">(3)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
+<p><span class="eqno">(4)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
 \Lambda^T
 g
 \Lambda" /></p>
 </div><p>with <img class="math" src="../../_images/math/c27cfed7cbf71a7dcdd9be880b9baa9e4ce5341f.png" alt="g=\diag(-c^2, 1, 1, 1)"/>.
-Taking the determinant of <a href="#equation-ortho">(3)</a> we get <img class="math" src="../../_images/math/e5bd007d63d4f5763da58249a3c4d063fe6d7edc.png" alt="(\det\Lambda)^2=1"/> or
-<img class="math" src="../../_images/math/094bfadf66a3768020bb7eb6153fa141cac07fb8.png" alt="\det\Lambda=\pm1"/>. Writing the 00 component of <a href="#equation-ortho">(3)</a> we get</p>
+Taking the determinant of <a href="#equation-ortho">(4)</a> we get <img class="math" src="../../_images/math/e5bd007d63d4f5763da58249a3c4d063fe6d7edc.png" alt="(\det\Lambda)^2=1"/> or
+<img class="math" src="../../_images/math/094bfadf66a3768020bb7eb6153fa141cac07fb8.png" alt="\det\Lambda=\pm1"/>. Writing the 00 component of <a href="#equation-ortho">(4)</a> we get</p>
 <div class="math">
 <p><img src="../../_images/math/7b2796f3e3ab8dc715e334c70b4389771f84bd8a.png" alt="-c^2 = -c^2(A^0{}_0)^2+(A^0{}_1)^2+(A^0{}_2)^2+(A^0{}_3)^2" /></p>
 </div><p>or</p>
@@ -798,7 +906,7 @@ or <img class="math" src="../../_images/math/2ebdc03b4e24dbee7b5747d6a0aa2def18f
 <p>We can always write <img class="math" src="../../_images/math/bdd664c31d5a0eafee694ec8054f8a4292d63007.png" alt="A=e^L"/>, then:</p>
 <div class="math">
 <p><img src="../../_images/math/2e70261c4662c57b405b436a8ac163172af34b7b.png" alt="\det A = \det e^L = e^{{\rm Tr}\,L} = 1" /></p>
-</div><p>so <img class="math" src="../../_images/math/526edf286328303d74dfcd800873856cd8399b24.png" alt="\Tr L = 0"/> and <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is a real, traceless matrix. Rewriting <a href="#equation-ortho">(3)</a>:</p>
+</div><p>so <img class="math" src="../../_images/math/526edf286328303d74dfcd800873856cd8399b24.png" alt="\Tr L = 0"/> and <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is a real, traceless matrix. Rewriting <a href="#equation-ortho">(4)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/33df1522b3c52b49b2507e6d9de490fb66d6f658.png" alt="g = A^T g A" /></p>
 </div><div class="math">
@@ -885,16 +993,16 @@ substitution <img class="math" src="../../_images/math/db1406080e883dec5d0f64bc4
 <p><img src="../../_images/math/84ef1f03fee421e7a1ec6af7f75bfce949591c43.png" alt="w = {u+v\over1+{uv\over c^2}}" /></p>
 </div></div>
 <div class="section" id="o-4-group">
-<span id="index-1048"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-1281"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
 <p>The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho2">
-<p><span class="eqno">(4)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
+<p><span class="eqno">(5)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
 \Lambda^T
 g
 \Lambda" /></p>
 </div><p>with <img class="math" src="../../_images/math/d34a50128d50569399c7e8573378443c8af98451.png" alt="g=\diag(c^2, 1, 1, 1)"/>.
-Taking the determinant of <a href="#equation-ortho2">(4)</a> we get <img class="math" src="../../_images/math/e5bd007d63d4f5763da58249a3c4d063fe6d7edc.png" alt="(\det\Lambda)^2=1"/> or
-<img class="math" src="../../_images/math/094bfadf66a3768020bb7eb6153fa141cac07fb8.png" alt="\det\Lambda=\pm1"/>. Writing the 00 component of <a href="#equation-ortho2">(4)</a> we get</p>
+Taking the determinant of <a href="#equation-ortho2">(5)</a> we get <img class="math" src="../../_images/math/e5bd007d63d4f5763da58249a3c4d063fe6d7edc.png" alt="(\det\Lambda)^2=1"/> or
+<img class="math" src="../../_images/math/094bfadf66a3768020bb7eb6153fa141cac07fb8.png" alt="\det\Lambda=\pm1"/>. Writing the 00 component of <a href="#equation-ortho2">(5)</a> we get</p>
 <div class="math">
 <p><img src="../../_images/math/60fde7eef5fc291a6bc82fbf465a18007b778d3f.png" alt="c^2 = c^2(A^0{}_0)^2+(A^0{}_1)^2+(A^0{}_2)^2+(A^0{}_3)^2" /></p>
 </div><p>or</p>
@@ -952,7 +1060,7 @@ structure of SO(4), because one can get from <img class="math" src="../../_image
 concerned about, we are fine.</p>
 </div>
 <div class="section" id="proper-time">
-<span id="index-1049"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
+<span id="index-1282"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
 <p>Proper time <img class="math" src="../../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is a time elapsed by (physical) clocks along some (4D)
 trajectory.  Coordinate time <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is just some time coordinate assigned to each
 point in the space and usually one can find some real clocks, that would
@@ -1223,7 +1331,10 @@ are.</p>
 <li><a class="reference external" href="">Newtonian Physics</a><ul>
 <li><a class="reference external" href="#introduction-why-tensors">Introduction: Why Tensors</a></li>
 <li><a class="reference external" href="#high-school-formulation">High School Formulation</a></li>
-<li><a class="reference external" href="#college-formulation">College Formulation</a></li>
+<li><a class="reference external" href="#college-formulation">College Formulation</a><ul>
+<li><a class="reference external" href="#example">Example</a></li>
+</ul>
+</li>
 <li><a class="reference external" href="#differential-geometry-formulation">Differential Geometry Formulation</a></li>
 <li><a class="reference external" href="#metrics">Metrics</a></li>
 <li><a class="reference external" href="#conclusion-about-metric">Conclusion About Metric</a></li>
