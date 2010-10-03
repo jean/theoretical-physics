@@ -139,9 +139,68 @@ y = \rho_{xy}\sin\phi" /></p>
 y = \rho_{xy}\sin\phi = \rho\sin\theta\sin\phi
 
 z = \rho\cos\theta" /></p>
-</div></div>
+</div><div class="section" id="spherical-int-example">
+<span id="id1"></span><h2>Example<a class="headerlink" href="#spherical-int-example" title="Permalink to this headline">¶</a></h2>
+<p>When evaluating integrals of the type:</p>
+<div class="math">
+<p><img src="../../_images/math/869d71636e184e7b1fe339c901c9f2efbaeb4a0a.png" alt="l(x, y, z) = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{(x-r\sin\theta\cos\phi)^2
+    + (y-r\sin\theta\sin\phi)^2
+    + (z-r\cos\theta)^2
+      } \,\sin\theta" /></p>
+</div><p>we write <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> using polar coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/e93787c7abea1f77b1b378eaaf54741d6f084fe5.png" alt="x = \rho_{xy} \cos \phi'
+
+y = \rho_{xy} \sin \phi'" /></p>
+</div><p>and simplify:</p>
+<div class="math">
+<p><img src="../../_images/math/65c9475ae04a7e14b1803d23db2b2a12dc7d8992.png" alt="l(x, y, z) = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{(x-r\sin\theta\cos\phi)^2
+    + (y-r\sin\theta\sin\phi)^2
+    + (z-r\cos\theta)^2
+      } \,\sin\theta =
+
+= \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{x^2 + y^2 + z^2 + r^2 -2r(
+        x\sin\theta\cos\phi
+        +y\sin\theta\sin\phi
+        +z\cos\theta
+    )
+      } \,\sin\theta =
+
+= \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{\rho_{xy} + z^2 + r^2 -2r(
+        \rho_{xy}\cos\phi'\sin\theta\cos\phi
+        +\rho_{xy}\sin\phi'\sin\theta\sin\phi
+        +z\cos\theta
+    )
+      } \,\sin\theta =
+
+= \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{\rho_{xy} + z^2 + r^2 -2r(
+        \rho_{xy}\cos(\phi-\phi')\sin\theta
+        +z\cos\theta
+    )
+      } \,\sin\theta =
+
+= \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{\rho_{xy} + z^2 + r^2 -2r(
+        \rho_{xy}\cos\phi\sin\theta
+        +z\cos\theta
+    )
+      } \,\sin\theta" /></p>
+</div><p>comparing to:</p>
+<div class="math">
+<p><img src="../../_images/math/722aa41046992ae767de66e7a4943dee0f52b071.png" alt="l(0, 0, z)
+= \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+    \sqrt{z^2 + r^2 -2rz\cos\theta } \,\sin\theta =" /></p>
+</div><p>we can see that because the integral is symmetric, we can just set <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/>,
+<img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/> and then replace <img class="math" src="../../_images/math/be7bc477d601c3caa3e0ccd980aeadb7f9396529.png" alt="z \to \rho"/>.</p>
+</div>
+</div>
 <div class="section" id="argument-function-atan2">
-<span id="index-1370"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<span id="index-1451"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
 <p>Argument function <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../_images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
 <div class="math">
 <p><img src="../../_images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
@@ -504,7 +563,10 @@ T_6(x) = 32x^6 - 48x^4 + 18x^2 - 1" /></p>
 <li><a class="reference external" href="#example">Example</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#spherical-coordinates">Spherical Coordinates</a></li>
+<li><a class="reference external" href="#spherical-coordinates">Spherical Coordinates</a><ul>
+<li><a class="reference external" href="#spherical-int-example">Example</a></li>
+</ul>
+</li>
 <li><a class="reference external" href="#argument-function-atan2">Argument function, atan2</a></li>
 <li><a class="reference external" href="#multiple-argument-formulas">Multiple Argument Formulas</a><ul>
 <li><a class="reference external" href="#sin-a-x">sin(a x)</a></li>

@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="newtonian-physics">
-<span id="index-1344"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1452"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-why-tensors">
 <h2>Introduction: Why Tensors<a class="headerlink" href="#introduction-why-tensors" title="Permalink to this headline">¶</a></h2>
 <p>This section gives a brief introduction, and in the next sections we derive
@@ -242,7 +242,8 @@ r = \sqrt{x^2 + y^2 + z^2}" /></p>
     \over \sqrt{x^2 + y^2 + z^2 + R^2
         -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
         }} \d \theta \d \phi" /></p>
-</div><p>for symmetry reasons we can set <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/>, <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/> and get</p>
+</div><p>for symmetry reasons we can set <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/>, <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/> (it can also be done more exactly,
+as shown in <a class="reference external" href="../math/trig.html#spherical-int-example"><em>Example</em></a>):</p>
 <div class="math">
 <p><img src="../../_images/math/aa9e25d251ac9a2222dc5f8c7faa8e6e0c87649f.png" alt="\phi(0, 0, z)
 = 4\pi G \int_0^{2\pi} \d\phi \int_0^\pi \d\theta {\sin\theta
@@ -270,39 +271,6 @@ r = \sqrt{x^2 + y^2 + z^2}" /></p>
 <p><img src="../../_images/math/58fe69c8f36cfed0ed96f8b573777d36647220b0.png" alt="{\bf F} = -m\nabla\phi(t, x, y, z) = -m\nabla
     \left(-{16\pi^2 G\over R}\right) = 0" /></p>
 </div><p>So the force acting on a test particle inside the shell is zero.</p>
-<p>Note about the simplification of the square root for <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/> and <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/>, we can do
-that more exactly by
-introducing polar coordinates for <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> and <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>:</p>
-<div class="math">
-<p><img src="../../_images/math/4096d947f90097f4df727d3aba829816cce14e4d.png" alt="x = r'\sin\theta' \cos \phi'
-
-y = r'\sin\theta' \sin \phi'
-
-z = r'\cos\theta'" /></p>
-</div><p>and we get:</p>
-<div class="math">
-<p><img src="../../_images/math/17b1d4504e107db77a15f89c01a79aa1790dda44.png" alt="\sqrt{x^2 + y^2 + z^2 + R^2
-        -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
-        } =
-
-= \sqrt{r'^2 + R^2 -2Rr'(
-    \sin\theta'\cos\phi'\sin\theta\cos\phi
-    + \sin\theta'\sin\phi'\sin\theta\sin\phi
-    + \cos\theta'\cos\theta)
-        } =
-
-= \sqrt{r'^2 + R^2 -2Rr'(
-    \sin\theta'\sin\theta \cos(\phi-\phi') + \cos\theta'\cos\theta)
-        } =" /></p>
-</div><p>I think that we can introduce different spherical coordinates in the first
-place in such a way, so that effectively <img class="math" src="../../_images/math/a8f095499cc8383c2d50051a391a11eb6c6934ed.png" alt="\cos(\phi-\phi')=0"/> and then we get:</p>
-<div class="math">
-<p><img src="../../_images/math/dd316ff83f667a1e7705506444d77b4b7056181f.png" alt="= \sqrt{r'^2 + R^2 -2Rr'(
-    \sin\theta'\sin\theta + \cos\theta'\cos\theta)
-        } =
-
-= \sqrt{r'^2 + R^2 -2Rr'\cos(\theta-\theta')}" /></p>
-</div><p>And we just shift the definition of <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/>.</p>
 </div>
 </div>
 <div class="section" id="differential-geometry-formulation">
@@ -790,7 +758,7 @@ matrix and let&#8217;s assume this particular form:</p>
 </div><p>(e.g. this covers almost all possible Newtonian metrics tensors).</p>
 </div>
 <div class="section" id="lorentz-group">
-<span id="index-1345"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-1453"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
 <p>The Lorentz group is O(3,1), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho">
 <p><span class="eqno">(4)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
@@ -993,7 +961,7 @@ substitution <img class="math" src="../../_images/math/db1406080e883dec5d0f64bc4
 <p><img src="../../_images/math/84ef1f03fee421e7a1ec6af7f75bfce949591c43.png" alt="w = {u+v\over1+{uv\over c^2}}" /></p>
 </div></div>
 <div class="section" id="o-4-group">
-<span id="index-1346"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
+<span id="index-1454"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
 <p>The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:</p>
 <div class="math" id="equation-ortho2">
 <p><span class="eqno">(5)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
@@ -1060,7 +1028,7 @@ structure of SO(4), because one can get from <img class="math" src="../../_image
 concerned about, we are fine.</p>
 </div>
 <div class="section" id="proper-time">
-<span id="index-1347"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
+<span id="index-1455"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
 <p>Proper time <img class="math" src="../../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is a time elapsed by (physical) clocks along some (4D)
 trajectory.  Coordinate time <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is just some time coordinate assigned to each
 point in the space and usually one can find some real clocks, that would
