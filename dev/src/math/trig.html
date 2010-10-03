@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Polar and Spherical Coordinates &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <title>Periodic Functions &mdash; Theoretical Physics Reference v0.5 documentation</title>
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -47,19 +47,101 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="polar-and-spherical-coordinates">
-<h1>Polar and Spherical Coordinates<a class="headerlink" href="#polar-and-spherical-coordinates" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="periodic-functions">
+<h1>Periodic Functions<a class="headerlink" href="#periodic-functions" title="Permalink to this headline">¶</a></h1>
+<p>A function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> is periodic with period <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/8f0f7f899e088b2b9fc146ba8ec092179286f5bb.png" alt="f(x+T) = f(x)" /></p>
+</div><p>Then you can shift the integration limits by the period <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/e06c0aa08893772c5c1f6d8bb2b234cec8bbc8ba.png" alt="\int_a^b f(x) \d x
+    = \int_a^b f(x+T) \d x
+    = \int_{a+T}^{b+T} f(x) \d x" /></p>
+</div><p>If you integrate <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> from <img class="math" src="../../_images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> to <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>, you can shift <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> by any
+constant <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/0788ef2114cf8645353a62c27ef1d47b4766bb06.png" alt="\int_0^T f(x+\alpha) \d x =
+
+= \int_\alpha^{T+\alpha} f(x) \d x =
+
+= \int_\alpha^0 f(x) \d x
++ \int_0^T f(x) \d x
++ \int_T^{T+\alpha} f(x) \d x =
+
+= -\int_0^\alpha f(x) \d x
++ \int_0^T f(x) \d x
++ \int_0^\alpha f(x) \d x =
+
+= \int_0^T f(x) \d x" /></p>
+</div></div>
+<div class="section" id="polar-coordinates">
+<h1>Polar Coordinates<a class="headerlink" href="#polar-coordinates" title="Permalink to this headline">¶</a></h1>
 <p>Polar coordinates (radial, azimuth) <img class="math" src="../../_images/math/0cc34969521e4bb9913d4e07317af072427dde90.png" alt="(r,\phi)"/> are defined by</p>
 <div class="math">
 <p><img src="../../_images/math/c2b529225f4a60c1c85827efa43df79821a9f9ef.png" alt="\begin{eqnarray*} x&amp;=&amp;r\cos\phi \\ y&amp;=&amp;r\sin\phi \\ \end{eqnarray*}" /></p>
-</div><p>Spherical coordinates (radial, zenith, azimuth) <img class="math" src="../../_images/math/244da803f8ee0ecd7ad5513fe9206b7f5f95c7c8.png" alt="(\rho,\theta,\phi)"/>:</p>
+</div><div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>When evaluating integrals of the type:</p>
+<div class="math">
+<p><img src="../../_images/math/06485f52b0ac292a41a3fdeb710022a8c5129f3c.png" alt="l(x, y) = \int_0^{2\pi} \sqrt{(x-r\cos\phi)^2 + (y-r\sin\phi)^2} \,\d \phi" /></p>
+</div><p>we write <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> using polar coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/bcd229fa0796f9c5ec0a0a7d78bac0463e917389.png" alt="x = r' \cos \phi'
+
+y = r' \sin \phi'" /></p>
+</div><p>and then use the <img class="math" src="../../_images/math/709acef3551b886e6754de72d59a88f00660f0d3.png" alt="2\pi"/> periodicity of <img class="math" src="../../_images/math/11f986c49f29d7a2ed4c28cab7319fa2ee3ee978.png" alt="\cos x"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/62135b122a7eca6a57702ff73ed54617c5cdb9db.png" alt="l(x, y)
+= \int_0^{2\pi} \sqrt{(x-r\cos\phi)^2 + (y-r\sin\phi)^2} \,\d \phi =
+
+= \int_0^{2\pi} \sqrt{x^2 + y^2 + r^2 - 2r(x\cos\phi + y\sin\phi)} \,\d \phi =
+
+= \int_0^{2\pi} \sqrt{r'^2 + r^2
+    - 2rr'(\cos\phi'\cos\phi + \sin\phi'\sin\phi)} \,\d \phi =
+
+= \int_0^{2\pi} \sqrt{r'^2 + r^2
+    - 2rr'\cos(\phi-\phi')} \,\d \phi =
+
+= \int_0^{2\pi} \sqrt{r'^2 + r^2 - 2rr'\cos\phi} \,\d \phi =" /></p>
+</div><p>comparing to:</p>
+<div class="math">
+<p><img src="../../_images/math/70d418ca3b0c29fbdb499ee660f82aa41e0ed641.png" alt="l(0, y) = \int_0^{2\pi} \sqrt{y^2 + r^2 - 2ry\sin\phi} \,\d \phi" /></p>
+</div><p>we can see that because the integral is symmetric, we can just set <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/> and
+then replace <img class="math" src="../../_images/math/667b8cef073b86ab7c0f9f6af4de5230d921d2ad.png" alt="y \to r'"/>. The above method does everything algebraically, but
+you can use this symmetry argument to remember what to do, or even skip the
+calculation if you are sure that you didn&#8217;t make a mistake in the &#8220;symmetry
+argument&#8221;.</p>
+</div>
+</div>
+<div class="section" id="spherical-coordinates">
+<h1>Spherical Coordinates<a class="headerlink" href="#spherical-coordinates" title="Permalink to this headline">¶</a></h1>
+<p>Spherical coordinates (radial, zenith, azimuth) <img class="math" src="../../_images/math/244da803f8ee0ecd7ad5513fe9206b7f5f95c7c8.png" alt="(\rho,\theta,\phi)"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/369150e76aa335f444de36af0df609885249a4ef.png" alt="\begin{eqnarray*} x&amp;=&amp;\rho\sin\theta\cos\phi \\ y&amp;=&amp;\rho\sin\theta\sin\phi \\ z&amp;=&amp;\rho\cos\theta \\ \end{eqnarray*}" /></p>
 </div><p>Note: this meaning of <img class="math" src="../../_images/math/977460ae4c3a462a8f1ea3975e6d2d8b3218b20c.png" alt="(\theta,\phi)"/> is mostly used in the USA and in many
-books. In Europe people usually use different symbols, like <img class="math" src="../../_images/math/08f120ef1f9b5ffca7c41f2d3d626d5015602182.png" alt="(\phi,\theta)"/>, <img class="math" src="../../_images/math/5b72e7d02f6fc8bdf33dbbd0b3d35f2a5e0cf501.png" alt="(\vartheta,\varphi)"/> and others.</p>
-</div>
+books. In Europe people usually use different symbols, like <img class="math" src="../../_images/math/08f120ef1f9b5ffca7c41f2d3d626d5015602182.png" alt="(\phi,\theta)"/>,
+<img class="math" src="../../_images/math/5b72e7d02f6fc8bdf33dbbd0b3d35f2a5e0cf501.png" alt="(\vartheta,\varphi)"/> and others.</p>
+<p>The motivation is to first write <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> using polar coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/d0052f912950dcb68d1f109b48242ac45a38bb0f.png" alt="x = \rho_{xy}\cos\phi
+
+y = \rho_{xy}\sin\phi" /></p>
+</div><p>and then write <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> and the projection <img class="math" src="../../_images/math/58a0c1c7a3ecfd10c6f843439aa7cd9b938cd684.png" alt="\rho_{xy}"/> of <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> onto the plane
+<img class="math" src="../../_images/math/643e1765342cf3807fd7d130ee679b71ecd4789b.png" alt="x-y"/> using polar coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/086806667102a2c6c7843265bf949a33a04a2023.png" alt="z = \rho\cos\theta
+
+\rho_{xy} = \rho\sin\theta" /></p>
+</div><p>so by combining these two we get:</p>
+<div class="math">
+<p><img src="../../_images/math/cc3b1a5ea761c859afefb6ed547b1266ce9b51d9.png" alt="x = \rho_{xy}\cos\phi = \rho\sin\theta\cos\phi
+
+y = \rho_{xy}\sin\phi = \rho\sin\theta\sin\phi
+
+z = \rho\cos\theta" /></p>
+</div></div>
 <div class="section" id="argument-function-atan2">
-<span id="index-1086"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<span id="index-1370"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
 <p>Argument function <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../_images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
 <div class="math">
 <p><img src="../../_images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
@@ -417,7 +499,12 @@ T_6(x) = 32x^6 - 48x^4 + 18x^2 - 1" /></p>
         <div class="sphinxsidebarwrapper">
             <h3><a href="../../index.html">Table Of Contents</a></h3>
             <ul>
-<li><a class="reference external" href="">Polar and Spherical Coordinates</a></li>
+<li><a class="reference external" href="">Periodic Functions</a></li>
+<li><a class="reference external" href="#polar-coordinates">Polar Coordinates</a><ul>
+<li><a class="reference external" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#spherical-coordinates">Spherical Coordinates</a></li>
 <li><a class="reference external" href="#argument-function-atan2">Argument function, atan2</a></li>
 <li><a class="reference external" href="#multiple-argument-formulas">Multiple Argument Formulas</a><ul>
 <li><a class="reference external" href="#sin-a-x">sin(a x)</a></li>
