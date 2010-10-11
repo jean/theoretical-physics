@@ -206,21 +206,38 @@ the augmentation sphere.</p>
 </div>
 <div class="section" id="kohn-sham-equations">
 <h2>Kohn Sham Equations<a class="headerlink" href="#kohn-sham-equations" title="Permalink to this headline">¶</a></h2>
-<p>We multiply the original equations by <img class="math" src="../../_images/math/f3543eadd57f4da1271b839eb3b60472456f93c9.png" alt="T^\dag"/> from the left and use the smooth
-wavefunctions:</p>
+<p>We multiply the original equations by <img class="math" src="../../_images/math/f3543eadd57f4da1271b839eb3b60472456f93c9.png" alt="T^\dag"/> from the left and introduce the
+smooth wavefunctions:</p>
 <div class="math">
 <p><img src="../../_images/math/62ee864ec104482126fe573dbe12174756367ad2.png" alt="H\ket{\psi_n} = \epsilon_n\ket{\psi_n}
 
 T^\dag H\ket{\psi_n} = \epsilon_n T^\dag\ket{\psi_n}
 
 T^\dag H T\ket{\tilde\psi_n} = \epsilon_n T^\dag T \ket{\tilde\psi_n}" /></p>
+</div><p>The orthogonality of wavefunctions is:</p>
+<div class="math">
+<p><img src="../../_images/math/29f612895432470ffc83dd97771a24c59a84410e.png" alt="\braket{\psi_n | \psi_m} = \delta_{nm}
+
+\braket{\tilde \psi_n | T^\dag T | \tilde \psi_m} = \delta_{nm}" /></p>
 </div><p>The overlap operator <img class="math" src="../../_images/math/73f34bcd4236c6e63327227c9aba1005c50abcee.png" alt="T^\dag T"/> can be written as:</p>
 <div class="math">
-<p><img src="../../_images/math/96917b3b71f61de258dbd3474bbb839c3b1b496f.png" alt="T^\dag T = \cdots = \one + \sum_a \sum_{i,j}
-    \ket{\tilde p_i^a}\left(
-        \braket{\phi_i^a | \phi_j^a}
-        -\braket{\tilde \phi_i^a | \tilde\phi_j^a}
-    \right)\bra{\tilde p_j^a}" /></p>
+<p><img src="../../_images/math/1e5db16a08dcca092c1144ef5c4ff72bf7cf3fb8.png" alt="T^\dag T = \cdots = \one + \sum_a \sum_{i,j}
+    \ket{\tilde p_i^a} Q_{ij} \bra{\tilde p_j^a}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/ab69d65eca0c000dcdbdca39c277a3322ccbcdde.png" alt="Q_{ij} = \braket{\phi_i^a | \phi_j^a}
+        -\braket{\tilde \phi_i^a | \tilde\phi_j^a}" /></p>
+</div><p>The transformed Hamiltonian is</p>
+<div class="math">
+<p><img src="../../_images/math/8f75ed3b87ae9f691d66d2b6ebca908059b4808a.png" alt="H =-\half\nabla^2 + V_H({\bf r}) + V_{xc}({\bf r}) + v({\bf r})
+
+T^\dag H T = \cdots =
+    -\half\nabla^2 + V_H(\tilde n) + V_{xc}(\tilde n) +
+        \sum_a \sum_{ij}\ket{\tilde p_i^a} H_{ij}^a \bra{\tilde p_j^a}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/ff89226fcc0944fced5c09ca24c9538b7be434a7.png" alt="H_{ij}^a = \braket{\phi_i^a |-\half \nabla^2 + v_{\mbox{eff}} | \phi_j^a}
+        -\braket{\tilde \phi_i^a |-\half \nabla^2 + \tilde v_{\mbox{eff}} | \tilde\phi_j^a}" /></p>
 </div></div>
 </div>
 
