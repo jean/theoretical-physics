@@ -165,6 +165,78 @@ R' = {u'\over r} - {u\over r^2}" /></p>
 
 -\half u''+ \left(V + {l(l+1)\over 2 r^2}\right) u = \epsilon u" /></p>
 </div></div>
+<div class="section" id="perturbative-correction-to-energy">
+<h3>Perturbative Correction to Energy<a class="headerlink" href="#perturbative-correction-to-energy" title="Permalink to this headline">¶</a></h3>
+<p>We introduce <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> and <img class="math" src="../../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q"/> by <img class="math" src="../../_images/math/5e956a0f8e5e71388e3f7929ac138e866f57cbb3.png" alt="P(r) = u(r)"/> and <img class="math" src="../../_images/math/ea271209864f97787cb38bc2296b6e4052db4531.png" alt="Q(r) = P'(r) = u'(r)"/>. The
+radial Schrödinger equation is then:</p>
+<div class="math">
+<p><img src="../../_images/math/43a1e729fc7faecb7110bac576604a8e93f7e75b.png" alt="P'(r) = Q(r)
+
+Q'(r) = -2\left(E - V(r) - {l(l+1)\over 2 r^2}\right)P(r)" /></p>
+</div><p>Let <img class="math" src="../../_images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1"/> and <img class="math" src="../../_images/math/c16e423c8f499e0bef8c20078b04126aeb9417bc.png" alt="Q_1"/> represent the radial wave function and its derivative at
+<img class="math" src="../../_images/math/459b08d5235f417c69f0cc0c2d473a4739abdb1f.png" alt="E_1"/> and <img class="math" src="../../_images/math/107c7c8e5a64d81ed24331e510b777b7d08345b7.png" alt="P_2"/>, <img class="math" src="../../_images/math/f83bf0891a57ba8a1ee68d8c72f141ccbc14186d.png" alt="Q_2"/> at <img class="math" src="../../_images/math/f263b4685391e1f4f3ba204a355cc203a29a0653.png" alt="E_2"/>, so the following holds:</p>
+<div class="math">
+<p><img src="../../_images/math/cd271fd42295e7f923f6021f4bec00b97a673b10.png" alt="Q_1'(r) = -2\left(E_1 - V(r) - {l(l+1)\over 2 r^2}\right)P_1(r)
+
+Q_2'(r) = -2\left(E_2 - V(r) - {l(l+1)\over 2 r^2}\right)P_2(r)" /></p>
+</div><p>Now we evaluate <img class="math" src="../../_images/math/c433c1b454d7eb01bc3cc523fea79e0c4de72106.png" alt="(Q_2 P_1 - P_2 Q_1)'"/> using the relations above:</p>
+<div class="math">
+<p><img src="../../_images/math/207553f081869a345826750e577e6e8807473f62.png" alt="(Q_2 P_1 - P_2 Q_1)' = Q_2' P_1 + Q_2 P_1' - P_2'Q_1 - P_2 Q_1'
+= Q_2' P_1 + Q_2 Q_1' - Q_2'Q_1 - P_2 Q_1'
+= Q_2' P_1 - P_2 Q_1'
+= 2 (E_1 - E_2) P_1 P_2" /></p>
+</div><p>We integrate the last formula on the intervals <img class="math" src="../../_images/math/07864572bf47f8d90d96a8843809bc83f9a30b38.png" alt="(0, a_c)"/> and <img class="math" src="../../_images/math/2fdf643fcb4a205de1f4555881e89ea093ce49a1.png" alt="(a_c, \infty)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6781b0d44583febabaa4e591082dd8b8b23aaeb6.png" alt="[Q_2 P_1 - P_2 Q_1]^{a_c}_0
+    = 2 (E_1 - E_2) \int^{a_c}_0 P_1(r) P_2(r) \,\d r
+
+[Q_2 P_1 - P_2 Q_1]^\infty_{a_c}
+    = 2 (E_1 - E_2) \int^\infty_{a_c} P_1(r) P_2(r) \,\d r" /></p>
+</div><p>On the interval <img class="math" src="../../_images/math/07864572bf47f8d90d96a8843809bc83f9a30b38.png" alt="(0, a_c)"/> we know the exact solution corresponding to the
+energies <img class="math" src="../../_images/math/459b08d5235f417c69f0cc0c2d473a4739abdb1f.png" alt="E_1"/> and <img class="math" src="../../_images/math/f263b4685391e1f4f3ba204a355cc203a29a0653.png" alt="E_2"/> by integrating outwards (the solution will eventually
+diverge for large <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> except for the eigenvalues, but we only need it up to
+<img class="math" src="../../_images/math/67cc3eefd45ebaed02ceb77b8b47662bfbabdb7c.png" alt="a_c"/>) and we know that <img class="math" src="../../_images/math/ba2db90717e7e2649e7bf514b55d7287d717a30b.png" alt="P_1(0) = P_2(0) = 0"/>, so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/9df688e6e6ac36c6acfccecbbe664433334053bf.png" alt="Q_2(a_c^-) P_1(a_c^-) - P_2(a_c^-) Q_1(a_c^-)
+    = 2 (E_1 - E_2) \int^{a_c}_0 P_1(r) P_2(r) \,\d r" /></p>
+</div><p>where <img class="math" src="../../_images/math/88a149845622a4c0d934dd0fe29d8c120d2eda5f.png" alt="a_c^-"/> means that we need the values at <img class="math" src="../../_images/math/67cc3eefd45ebaed02ceb77b8b47662bfbabdb7c.png" alt="a_c"/> when integrating the
+equation from the left (the value will generally be different when integrating
+the equation from the right, unless the energy is an eigenvalue).
+Similarly on the other interval where <img class="math" src="../../_images/math/76c440f6fcedeaead871c4cef496f8b1a4f48ceb.png" alt="P_1(\infty) = P_2(\infty)=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/7c4daf8deabaf89aa3acd5b6f88f4f038f8a7701.png" alt="-(Q_2(a_c^+) P_1(a_c^+) - P_2(a_c^+) Q_1(a_c^+))
+    = 2 (E_1 - E_2) \int^\infty_{a_c} P_1(r) P_2(r) \,\d r" /></p>
+</div><p>Taking the sum of the last two expressions:</p>
+<div class="math">
+<p><img src="../../_images/math/75c94f5e2c43de160f66cfc1a2d2d020ee339bb3.png" alt="2 (E_1 - E_2) \int^\infty_0 P_1(r) P_2(r) \,\d r
+    = Q_2(a_c^-) P_1(a_c^-) - P_2(a_c^-) Q_1(a_c^-)
+        -(Q_2(a_c^+) P_1(a_c^+) - P_2(a_c^+) Q_1(a_c^+))" /></p>
+</div><p>Now we use the fact that <img class="math" src="../../_images/math/e10a1a24cc44d18f6c40050a9775e5d4f143b04d.png" alt="P_1(a_c^-) = P_1(a_c^+)"/> and
+<img class="math" src="../../_images/math/277e97bc721f135f01000fc57842cb056e523017.png" alt="P_2(a_c^-) = P_2(a_c^+)"/>, because we match the two solutions from the left and
+right, so that the function is continuous (it&#8217;s derivative will have a jump
+though):</p>
+<div class="math">
+<p><img src="../../_images/math/6225294c7f5c0133e643ff129233419113e004fd.png" alt="2 (E_1 - E_2) \int^\infty_0 P_1(r) P_2(r) \,\d r
+    = P_1(a_c) (Q_2(a_c^-)-Q_2(a_c^+)) - P_2(a_c)(Q_1(a_c^-)-Q_1(a_c^+))" /></p>
+</div><p>By requiring, that the energy <img class="math" src="../../_images/math/f263b4685391e1f4f3ba204a355cc203a29a0653.png" alt="E_2"/> is an eigenvalue, it follows that there is
+no jump in the derivative, so we set <img class="math" src="../../_images/math/63d56e6ae8b3ca29a420b6360e7c981e2389ce7e.png" alt="Q_2(a_c^-)=Q_2(a_c^+)"/> and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/7a058ea8556da14bbfde9d5648efe78a0a68acc1.png" alt="2 (E_1 - E_2) \int^\infty_0 P_1(r) P_2(r) \,\d r
+    = -P_2(a_c)(Q_1(a_c^-)-Q_1(a_c^+))" /></p>
+</div><p>that gives us an exact formula for the eigenvalue <img class="math" src="../../_images/math/f263b4685391e1f4f3ba204a355cc203a29a0653.png" alt="E_2"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/7ae9f51bd6802d419ae2851a4e50e7ac2cd17e49.png" alt="E_2 = E_1 +
+{P_2(a_c)(Q_1(a_c^-)-Q_1(a_c^+))\over 2\int^\infty_0 P_1(r) P_2(r) \,\d r}" /></p>
+</div><p>We approximate the value of <img class="math" src="../../_images/math/5f4906cb1f93efd45091188659589efcedf80597.png" alt="P_2(a_c)"/> by <img class="math" src="../../_images/math/b7b31eea0c08265c2d3357eba562f64e603eef06.png" alt="P_1(a_c)"/> as well as the integral
+<img class="math" src="../../_images/math/eac2d5419197ecaf8d07ad7c6513230f3b52cbb0.png" alt="\int^\infty_0 P_1(r) P_2(r) \,\d r"/> by <img class="math" src="../../_images/math/28cea36fb2ad9549bd6f3cec50bc12e21aeab8b4.png" alt="\int^\infty_0 P_1^2(r) \,\d r"/> and we
+get an approximation for the eigenenergy:</p>
+<div class="math">
+<p><img src="../../_images/math/51d65e46893e5c2bb2072b03f4ae1ef892a8258f.png" alt="E_2 \approx E_1 +
+    {P_1(a_c)(Q_1(a_c^-)-Q_1(a_c^+))\over 2\int^\infty_0 P_1^2(r) \,\d r}" /></p>
+</div><p>We use this approximation iteratively until the convergence is achieved (the
+discontinuity in <img class="math" src="../../_images/math/906d163dcbeb451ea5c7d62e9faab154b0914c11.png" alt="Q(r)"/> at <img class="math" src="../../_images/math/e7539ebce90921e3f7d996c7234d57dc64756ab1.png" alt="r=a_c"/> is small enough, or equivalently, the
+correction to the energy is small enough).</p>
+</div>
 <div class="section" id="id1">
 <h3>Weak Formulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The weak formulation is obtained from the action above by substituting <img class="math" src="../../_images/math/6f7d7b3a5fbc8830bc982fe3af75c3ccc3da5659.png" alt="\delta R
@@ -587,6 +659,7 @@ then:</p>
 <li><a class="reference external" href="#from-the-equation">From the Equation</a></li>
 <li><a class="reference external" href="#from-the-lagrangian">From the Lagrangian</a></li>
 <li><a class="reference external" href="#solving-for-u-rr">Solving for u=rR</a></li>
+<li><a class="reference external" href="#perturbative-correction-to-energy">Perturbative Correction to Energy</a></li>
 <li><a class="reference external" href="#id1">Weak Formulation</a><ul>
 <li><a class="reference external" href="#weak-formulation-for-u">Weak Formulation for u</a></li>
 <li><a class="reference external" href="#dirac-notation">Dirac Notation</a></li>
