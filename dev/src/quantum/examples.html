@@ -330,25 +330,41 @@ result is wrong, since it doesn&#8217;t correspond to the 3D Schrödinger equati
 <h3>Scattering in radial potential<a class="headerlink" href="#scattering-in-radial-potential" title="Permalink to this headline">¶</a></h3>
 <p>If <img class="math" src="../../_images/math/c16a277f21eab912af3b32d23e641e18398a6477.png" alt="V=0"/>, the radial equation is:</p>
 <div class="math">
-<p><img src="../../_images/math/8d4b27b504ea151a042271eda5b97df11fa17317.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+{l(l+1)\over2r^2} R(r)=ER(r)" /></p>
+<p><img src="../../_images/math/b85104d7a5136d5aa73de76d7d540bafab937de9.png" alt="-{1\over2}R_{El}''(r)-{1\over r}R_{El}'(r)+{l(l+1)\over2r^2} R_{El}(r)
+    = E R_{El}(r)" /></p>
 </div><p>The general solution is a linear combination of the spherical Bessel functions
-<img class="math" src="../../_images/math/ac9305860d2b8bcf7c26a97395f47874fc8d8052.png" alt="j_l(kr)"/> and <img class="math" src="../../_images/math/7a23588aee20988e52ab3f97047e3b70cc9e61c1.png" alt="n_l(kr)"/>, whose asymptotic expansion for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> is:</p>
+<img class="math" src="../../_images/math/ac9305860d2b8bcf7c26a97395f47874fc8d8052.png" alt="j_l(kr)"/> and <img class="math" src="../../_images/math/7a23588aee20988e52ab3f97047e3b70cc9e61c1.png" alt="n_l(kr)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/d0f79bb04284ec7418f3fad2a71eb9e77d94cb7b.png" alt="R_{El}(r) = A_l j_l(kr) + B_l n_l(kr)" /></p>
+</div><p>where <img class="math" src="../../_images/math/b9821d9432cfcd761e86eba5c397d07bd10aec0d.png" alt="k=\sqrt{2E}"/> and <img class="math" src="../../_images/math/ab5d367e8e9d475e96febb79b50c6621fbe2025a.png" alt="E &gt; 0"/> is a continuous spectrum. The asymptotic expansion for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> is:</p>
 <div class="math">
 <p><img src="../../_images/math/756afa9acb92822a887eb824423a97869ffc9da8.png" alt="j_l(kr)\to{1\over kr}\sin\left(kr-{l\pi\over 2}\right)
 
 n_l(kr)\to{1\over kr}\cos\left(kr-{l\pi\over 2}\right)" /></p>
 </div><p>so we get for large <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/b28c1cb44be451d16f295aede858d6310e0518a2.png" alt="R_l(kr) = A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+<p><img src="../../_images/math/5764ddf7259ad1720927d055ab324e511be9b0be.png" alt="R_{El}(r) = A_l j_l(kr) + B_l n_l(kr) \to
+
+\to A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
     + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
 
-= \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
-= C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)" /></p>
+= \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}
+    +\atan2(B_l, A_l)\right)
+= C_l {1\over kr}\sin\left(kr-{l\pi\over 2}-\delta_l\right)" /></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/1430744b8393bbcf90b831609baa6fa29e9af8a3.png" alt="\delta_l = \atan2(B_l, A_l)
+<p><img src="../../_images/math/a94fbcf384ccc4e7564f6bbec528e10d4fff745e.png" alt="\delta_l = -\atan2(B_l, A_l) = \atan2(-B_l, A_l)
 
 C_l = \sqrt{A_l^2 + B_l^2}" /></p>
+</div><p>The <img class="math" src="../../_images/math/e64bfab7f2a3a0a9816f0f7f8e0a527f840a699c.png" alt="C_l"/> and <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> are physical variables, so we express <img class="math" src="../../_images/math/b60f5b27fa8ce702f9316c2b77e83efa26fbb7d6.png" alt="A_l"/> and <img class="math" src="../../_images/math/9b6208f0dfd6e0f7fb251bf568f16b4f24fc1f6b.png" alt="B_l"/>
+using them:</p>
+<div class="math">
+<p><img src="../../_images/math/f74ddb36ac52d35dde673bf76bc08ba09bd03e31.png" alt="A_l = C_l \cos\delta_l
+
+B_l = -C_l \sin\delta_l" /></p>
+</div><p>and write the exact solution <img class="math" src="../../_images/math/51aae7bb7d9219fe7e2063131df50a97a12148a0.png" alt="R_{El}"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/53bc0c81b0a451dbc2ab6bf551668de4dd1a3897.png" alt="R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))" /></p>
 </div><p>We can then compare this to <img class="math" src="../../_images/math/a234d128ca652ba34fb3857f8296b39f6c08d56e.png" alt="\phi \approx e^{ikz} + f(\theta, \phi)
 {e^{ikr}\over r}"/>, by expanding <img class="math" src="../../_images/math/2b95b34ccbfbf178baf85e95aa62c502533803a5.png" alt="e^{ikz} = e^{ikr\cos\theta}=
 \sum (2l+1) i^l j_l(kr)P_l(\cos\theta)"/>:</p>
@@ -363,17 +379,44 @@ total cross section:</p>
 </div><p>In order to find the phase shifts <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/>, we solve the radial equation for
 the full potential</p>
 <div class="math">
-<p><img src="../../_images/math/c908f4552dbe43655d97fe3719d516de3ff1bd74.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)" /></p>
+<p><img src="../../_images/math/ee440d9461c1dee62a2b4444990bdc104fcdca24.png" alt="-{1\over2}R_{nl}''(r)-{1\over r}R_{nl}'(r)+\left(V+{l(l+1)\over2r^2}\right)
+    R_{nl}(r)=ER_{nl}(r)" /></p>
 </div><p>and then fit it to the above asymptotic solution for V=0. We require that the
 value and the slope must be continuous. In particular, we take the logarithmic
 derivative (<img class="math" src="../../_images/math/e4044014c380157ef0a37f66ab407974a07a167a.png" alt="(\log u)'={u'\over u}"/>) at the point <img class="math" src="../../_images/math/0d29ba05fb7937308e298672ed6a611d46835e44.png" alt="r=a"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/c724fe6c3d8cf555d890f7e58db62c6cd0539e11.png" alt="\gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a} =
-\left.{\d\over\d r} \log R_l(kr)\right|_{r=a}" /></p>
-</div><p>expressing <img class="math" src="../../_images/math/89fe326bc3164420d0f8d0273d99ff6bda5b56d4.png" alt="R_l(kr)"/> using <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> and solving for it we get:</p>
+<p><img src="../../_images/math/28bcc0931cc86d4189e0267b5a986952c85e36c8.png" alt="\gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a}
+= \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+= {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}" /></p>
+</div><p>expressing <img class="math" src="../../_images/math/4154ef1d1d17744806ba5241869b1860b0a3288a.png" alt="R_{El}(kr)"/> and <img class="math" src="../../_images/math/cfab33e828ffd4d205ac5c956f51cd59ffbb79f4.png" alt="R_{El}'(kr)"/> using <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/281404456c38ba10980cd795116915e67df8c5c2.png" alt="\tan\delta_l = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l
-    n_l(ka)}" /></p>
+<p><img src="../../_images/math/860a55c5e3db9e4e7b2082cd62dbf264cfb0db2e.png" alt="R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
+
+R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))" /></p>
+</div><p>calculating <img class="math" src="../../_images/math/7d5d10e707a4082053a6a05a187ef28745482359.png" alt="\gamma_l"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/48f838c5a01930dc1d4ddd36da4fcf11bc6376e5.png" alt="\gamma_l = {R_{El}'(a)\over R_{El}(a)}
+    = {C_l k (\cos\delta_l\, j_l'(ka) - \sin\delta_l\, n_l'(ka)) \over
+            C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
+    =
+
+    = {k j_l'(ka) - \tan\delta_l\, k n_l'(ka) \over
+            j_l(ka) - \tan\delta_l\, n_l(ka)) }" /></p>
+</div><p>and solving for <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/c21443200ba779d38411020af312c09112dfc4d8.png" alt="\tan\delta_l
+    = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
+    = {-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
+        \over -k n_{l+1}(ka)+kl{n_l(ka)\over ka} - \gamma_l n_l(ka)}
+    =
+
+    = {ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
+        \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}" /></p>
+</div><p>where we used the following relations:</p>
+<div class="math">
+<p><img src="../../_images/math/b499f8cfb988f9d8c1c00499b3b00737ef8a4f26.png" alt="j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
+
+n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}" /></p>
 </div><p>Now we can use these <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section.</p>
 <p>The problem can now be formulated in two ways. Either to solve the radial
 equation for a potential with finite reach and then &#8220;measure&#8221; those phase

@@ -478,10 +478,17 @@ If $V=0$, the radial equation is:
 
 .. math::
 
-    -{1\over2}R''(r)-{1\over r}R'(r)+{l(l+1)\over2r^2} R(r)=ER(r)
+    -{1\over2}R_{El}''(r)-{1\over r}R_{El}'(r)+{l(l+1)\over2r^2} R_{El}(r)
+        = E R_{El}(r)
 
 The general solution is a linear combination of the spherical Bessel functions
-$j_l(kr)$ and $n_l(kr)$, whose asymptotic expansion for $r\to\infty$ is:
+$j_l(kr)$ and $n_l(kr)$:
+
+.. math::
+
+    R_{El}(r) = A_l j_l(kr) + B_l n_l(kr)
+
+where $k=\sqrt{2E}$ and $E > 0$ is a continuous spectrum. The asymptotic expansion for $r\to\infty$ is:
 
 .. math::
 
@@ -493,19 +500,38 @@ so we get for large $r$:
 
 .. math::
 
-    R_l(kr) = A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+    R_{El}(r) = A_l j_l(kr) + B_l n_l(kr) \to
+
+    \to A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
         + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
 
-    = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
-    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
+    = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}
+        +\atan2(B_l, A_l)\right)
+    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}-\delta_l\right)
 
 where
 
 .. math::
 
-    \delta_l = \atan2(B_l, A_l)
+    \delta_l = -\atan2(B_l, A_l) = \atan2(-B_l, A_l)
 
     C_l = \sqrt{A_l^2 + B_l^2}
+
+The $C_l$ and $\delta_l$ are physical variables, so we express $A_l$ and $B_l$
+using them:
+
+.. math::
+
+    A_l = C_l \cos\delta_l
+
+    B_l = -C_l \sin\delta_l
+
+and write the exact solution $R_{El}$ as:
+
+.. math::
+
+    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
+
 
 We can then compare this to $\phi \approx e^{ikz} + f(\theta, \phi)
 {e^{ikr}\over r}$, by expanding $e^{ikz} = e^{ikr\cos\theta}=
@@ -529,7 +555,8 @@ the full potential
 
 .. math::
 
-    -{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)
+    -{1\over2}R_{nl}''(r)-{1\over r}R_{nl}'(r)+\left(V+{l(l+1)\over2r^2}\right)
+        R_{nl}(r)=ER_{nl}(r)
 
 and then fit it to the above asymptotic solution for V=0. We require that the
 value and the slope must be continuous. In particular, we take the logarithmic
@@ -537,15 +564,50 @@ derivative ($(\log u)'={u'\over u}$) at the point $r=a$:
 
 .. math::
 
-    \gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a} =
-    \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+    \gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a}
+    = \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+    = {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}
 
-expressing $R_l(kr)$ using $\delta_l$ and solving for it we get:
+expressing $R_{El}(kr)$ and $R_{El}'(kr)$ using $\delta_l$:
 
 .. math::
 
-    \tan\delta_l = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l
-        n_l(ka)}
+    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
+
+    R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))
+
+calculating $\gamma_l$:
+
+.. math::
+
+    \gamma_l = {R_{El}'(a)\over R_{El}(a)}
+        = {C_l k (\cos\delta_l\, j_l'(ka) - \sin\delta_l\, n_l'(ka)) \over
+                C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
+        =
+
+        = {k j_l'(ka) - \tan\delta_l\, k n_l'(ka) \over
+                j_l(ka) - \tan\delta_l\, n_l(ka)) }
+
+and solving for $\delta$ we get:
+
+.. math::
+
+    \tan\delta_l
+        = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
+        = {-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
+            \over -k n_{l+1}(ka)+kl{n_l(ka)\over ka} - \gamma_l n_l(ka)}
+        =
+
+        = {ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
+            \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}
+
+where we used the following relations:
+
+.. math::
+
+    j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
+
+    n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}
 
 Now we can use these $\delta_l$ in the formula for the total cross section.
 
