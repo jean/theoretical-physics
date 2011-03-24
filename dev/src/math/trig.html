@@ -200,7 +200,7 @@ y = \rho_{xy} \sin \phi'" /></p>
 </div>
 </div>
 <div class="section" id="argument-function-atan2">
-<span id="index-36"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<span id="index-140"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
 <p>Argument function <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../_images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
 <div class="math">
 <p><img src="../../_images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
@@ -242,7 +242,7 @@ Some people might interchange <img class="math" src="../../_images/math/26eeb525
 y)= \Arg(y+ix)"/>), but it is not very common.</p>
 <p>The following useful relations hold:</p>
 <div class="math">
-<p><img src="../../_images/math/a541b54b870856b4896e6b043fffd90f7569dc39.png" alt="\sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+<p><img src="../../_images/math/03be9816697dbc47ed77361a0ee5b4608fdda19e.png" alt="\sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
     \quad\quad\quad\mbox{except $x=y=0$}
 
 \cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
@@ -252,7 +252,9 @@ y)= \Arg(y+ix)"/>), but it is not very common.</p>
     \quad\quad\quad\mbox{for $x\neq 0$}
 
 \atan2(ky, kx) = \atan2(y, x)
-    \quad\quad\quad\mbox{for $k&gt;0$}" /></p>
+    \quad\quad\quad\mbox{for $k&gt;0$}
+
+\atan2(\sin x, \cos x) = x" /></p>
 </div><p>We now prove them. The following works for all <img class="math" src="../../_images/math/32581661cddf01ad30c1e36efe72f99eb0a0adca.png" alt="x, y"/> except for <img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355d2909c.png" alt="x=y=0"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/708dc04823619641f1026d08832b162bad459691.png" alt="\sin\atan2(y, x)
@@ -300,6 +302,23 @@ following works for all <img class="math" src="../../_images/math/7470aeade5f47b
 =\begin{cases}{y\over x}&amp;y=0;x&lt;0;\cr
     {y\over x}&amp;\rm otherwise\cr\end{cases}
     ={y\over x}" /></p>
+</div><p>Finally:</p>
+<div class="math">
+<p><img src="../../_images/math/a7714ae257f915eeecf80bd3cd19f51a1b9d9b00.png" alt="\atan2(\sin x, \cos x)
+    =\begin{cases}\pi &amp;x=\pi;\cr
+        2\,\atan{\sin x\over\sqrt{\cos^2x+\sin^2x}+\cos x}&amp;
+            \rm otherwise\cr\end{cases}
+    =
+
+    =\begin{cases}\pi &amp;x=\pi;\cr
+        2\,\atan{\sin x\over1+\cos x}&amp;
+            \rm otherwise\cr\end{cases}
+    =
+
+    =\begin{cases}x &amp;x=\pi;\cr
+        2\,\atan\left(\tan {x\over 2}\right)&amp;
+            \rm otherwise\cr\end{cases}
+    = x" /></p>
 </div><p>In the above, we used the following double angle formulas:</p>
 <div class="math">
 <p><img src="../../_images/math/9cfdfdb3bf37e9ea4ed25627e8ce4b5b9d572d24.png" alt="\sin 2x = {2\tan x\over 1+\tan^2 x}
@@ -400,6 +419,12 @@ following works for all <img class="math" src="../../_images/math/7470aeade5f47b
 <div class="math">
 <p><img src="../../_images/math/b0e5f9a6399fb46f25c3f6ddd9f06d7f699a203a.png" alt="\delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
 =\atan2(B, A)" /></p>
+</div><p>Another application</p>
+<div class="math">
+<p><img src="../../_images/math/b74cb87d5e68bc8ed5b3268e72d199b699c23ebb.png" alt="\atan2(\cos x, -\sin x)
+    = \atan2\left(\sin\left(x+{\pi\over2}\right),
+        \cos\left(x+{\pi\over2}\right)\right)
+    = x + {\pi\over2}" /></p>
 </div></div>
 <div class="section" id="multiple-argument-formulas">
 <h1>Multiple Argument Formulas<a class="headerlink" href="#multiple-argument-formulas" title="Permalink to this headline">¶</a></h1>
