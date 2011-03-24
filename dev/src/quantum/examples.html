@@ -395,12 +395,12 @@ derivative (<img class="math" src="../../_images/math/e4044014c380157ef0a37f66ab
 R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))" /></p>
 </div><p>calculating <img class="math" src="../../_images/math/7d5d10e707a4082053a6a05a187ef28745482359.png" alt="\gamma_l"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/48f838c5a01930dc1d4ddd36da4fcf11bc6376e5.png" alt="\gamma_l = {R_{El}'(a)\over R_{El}(a)}
+<p><img src="../../_images/math/ef389fe8f7c7b8d0c077ecad3fc36005443792dc.png" alt="\gamma_l = {R_{El}'(a)\over R_{El}(a)}
     = {C_l k (\cos\delta_l\, j_l'(ka) - \sin\delta_l\, n_l'(ka)) \over
             C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
     =
 
-    = {k j_l'(ka) - \tan\delta_l\, k n_l'(ka) \over
+    = k {j_l'(ka) - \tan\delta_l\, n_l'(ka) \over
             j_l(ka) - \tan\delta_l\, n_l(ka)) }" /></p>
 </div><p>and solving for <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> we get:</p>
 <div class="math">
@@ -417,7 +417,11 @@ R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))" /></p>
 <p><img src="../../_images/math/b499f8cfb988f9d8c1c00499b3b00737ef8a4f26.png" alt="j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
 
 n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}" /></p>
-</div><p>Now we can use these <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section.</p>
+</div><p>Now we can use these <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section. We
+can define a reduced phase-shift <img class="math" src="../../_images/math/a47a31d3269db12007e0ad9ece7eab1855b83d86.png" alt="\eta_l"/> by</p>
+<div class="math">
+<p><img src="../../_images/math/0e5c4fe6596839566ef66f55c72f1f52e7bfea55.png" alt="\delta_l = (n-l-1) \pi + \eta_l" /></p>
+</div><p>where <img class="math" src="../../_images/math/e6c88c3a6e420e143219325b60267ed1324ff687.png" alt="n-l-1"/> is the number of radial nodes and <img class="math" src="../../_images/math/28a09f3578174a1562dadff031a95a506beaaca7.png" alt="0 \le \eta_l \le \pi"/>.</p>
 <p>The problem can now be formulated in two ways. Either to solve the radial
 equation for a potential with finite reach and then &#8220;measure&#8221; those phase
 shifts in the solution. Or by prescribing those phase shifts and we now need to
