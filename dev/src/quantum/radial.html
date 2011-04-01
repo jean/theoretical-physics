@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
-    <link rel="next" title="Projector Augmented-Wave Method (PAW)" href="paw.html" />
+    <link rel="next" title="Density Functional Theory (DFT)" href="dft.html" />
     <link rel="prev" title="Examples" href="examples.html" /> 
   </head>
   <body>
@@ -32,7 +32,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="paw.html" title="Projector Augmented-Wave Method (PAW)"
+          <a href="dft.html" title="Density Functional Theory (DFT)"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="examples.html" title="Examples"
@@ -236,6 +236,13 @@ get an approximation for the eigenenergy:</p>
 </div><p>We use this approximation iteratively until the convergence is achieved (the
 discontinuity in <img class="math" src="../../_images/math/906d163dcbeb451ea5c7d62e9faab154b0914c11.png" alt="Q(r)"/> at <img class="math" src="../../_images/math/e7539ebce90921e3f7d996c7234d57dc64756ab1.png" alt="r=a_c"/> is small enough, or equivalently, the
 correction to the energy is small enough).</p>
+<p>For Dirac equation, one obtains a similar formula:</p>
+<div class="math">
+<p><img src="../../_images/math/dcbf2b6577ae5eeb1cf3b6d42cff0d5351ce6170.png" alt="E_2 \approx E_1 +
+    c {P_1(a_c)(Q_1(a_c^-)-Q_1(a_c^+))\over \int^\infty_0 P_1^2(r)
+        +Q_1^2(r) \,\d r}" /></p>
+</div><p>So it is just the previous formula multiplied by <img class="math" src="../../_images/math/9f6072f36e4577a20084d5e518bf7e2f2068ab3d.png" alt="2c"/> and the normalization is
+calculated using both <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> and <img class="math" src="../../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q"/> (as usual for the Dirac equation).</p>
 </div>
 <div class="section" id="id1">
 <h3>Weak Formulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -682,8 +689,8 @@ then:</p>
             <p class="topless"><a href="examples.html"
                                   title="previous chapter">Examples</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="paw.html"
-                                  title="next chapter">Projector Augmented-Wave Method (PAW)</a></p>
+            <p class="topless"><a href="dft.html"
+                                  title="next chapter">Density Functional Theory (DFT)</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="../../_sources/src/quantum/radial.txt"
@@ -713,7 +720,7 @@ then:</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="paw.html" title="Projector Augmented-Wave Method (PAW)"
+          <a href="dft.html" title="Density Functional Theory (DFT)"
              >next</a> |</li>
         <li class="right" >
           <a href="examples.html" title="Examples"
