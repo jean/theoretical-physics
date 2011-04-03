@@ -192,7 +192,7 @@ c}\right)\d x
 \int {\delta(x)\over |c|}\varphi(x)\d x" /></p>
 </div></div>
 <div class="section" id="variations-and-functional-derivatives">
-<span id="index-94"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
+<span id="index-239"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
 <p>Functional derivatives are a common source of confusion and especially the
 notation. The reason is similar to the delta function &#8212; the definition is
 operational, i.e. it tells you what operations you need to do to get a
@@ -332,7 +332,7 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
 </div><p>As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That&#8217;s why such obvious manipulations with <img class="math" src="../../_images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
 </div>
 <div class="section" id="spherical-harmonics">
-<span id="index-95"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
+<span id="index-240"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
 <p>Are defined by</p>
 <div class="math">
 <p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
@@ -361,7 +361,7 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
 <p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
 </div></div>
 <div class="section" id="dirac-notation">
-<span id="index-96"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
+<span id="index-241"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
 <p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
 <p>Let&#8217;s have a function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. We define</p>
 <div class="math">
@@ -462,7 +462,7 @@ remember and &#8211; that is important &#8211; less general.</p>
 <p><span class="eqno">(12)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})" /></p>
 </div></div>
 <div class="section" id="homogeneous-functions">
-<span id="index-97"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-242"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
 <p>A function of several variables <img class="math" src="../../_images/math/83d951deadedf7bc68666c3abe5d13125b1841ca.png" alt="f(x_1, x_2, \dots) \equiv f(x_i)"/> is
 homogeneous of degree <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> if</p>
 <div class="math">
@@ -499,6 +499,159 @@ z\left(-{xy\over z^2}\right)
 </div><p>Which obviously is true.</p>
 </div>
 </div>
+<div class="section" id="green-functions">
+<h1>Green Functions<a class="headerlink" href="#green-functions" title="Permalink to this headline">¶</a></h1>
+<p>Green functions are an excellent tool for working with a solution to any ODE or
+PDE. In this text we explain how it works and then show how one can calculate
+them using FEM.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s put any ODE or PDE in the form:</p>
+<div class="math" id="equation-pde">
+<p><span class="eqno">(13)</span><img src="../../_images/math/0e94fd314ce5ed6286db2be01cdc933f1910a5ce.png" alt="Lu(x)=f(x)" /></p>
+</div><p>Here <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is a differential operator and <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> can have any dimension, e.g. 1D
+(ODE), 2D, 3D or more (PDE). Then we can express the solution as</p>
+<div class="math" id="equation-solution">
+<p><span class="eqno">(14)</span><img src="../../_images/math/faf0afda8955c3a14ba2801acb01c11789556cb3.png" alt="u(x) = L^{-1}f(x) = \int G(x, x')f(x')\d x'" /></p>
+</div><p>where <img class="math" src="../../_images/math/6bc4f2d79d5dea70cf823f874c36803ebd47e927.png" alt="G(x, x')"/> is a Green function, that needs to satisfy the equation:</p>
+<div class="math" id="equation-green">
+<p><span class="eqno">(15)</span><img src="../../_images/math/bc811e345dc60d606c3797476e52099dd38ed6c7.png" alt="LG(x, x')=\delta(x-x')" /></p>
+</div><p>Remember, that <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> acts on <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> only, so we can check, that <a href="#equation-solution">(14)</a>
+indeed solves the PDE <a href="#equation-pde">(13)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/a201266d087c1545cdfdf6aeb544ffca3ef4efc9.png" alt="Lu(x)
+= L\int G(x, x')f(x')\d x'
+= \int LG(x, x')f(x')\d x'
+= \int \delta(x-x')f(x')\d x'
+= f(x)" /></p>
+</div></div>
+<div class="section" id="boundary-conditions">
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<p>The equation <a href="#equation-green">(15)</a> doesn&#8217;t determine the Green function uniquely,
+because one can add to it any solution of the homogeneous equation <img class="math" src="../../_images/math/4c504c1feea8b32eddeda2f7582056840c052196.png" alt="Lu(x)=0"/>.
+We can use this freedom to solve <a href="#equation-green">(15)</a> for any boundary condition, for
+example using FEM (more on that below). So we prescribe a boundary condition
+and find the Green function (by solving <a href="#equation-green">(15)</a>) that satisfies the
+boundary condition. It can be shown, that <img class="math" src="../../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)"/> determined from
+<a href="#equation-solution">(14)</a> then also needs to satisfy the same boundary condition.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="poisson-equation-in-3d">
+<h3>Poisson Equation in 3D<a class="headerlink" href="#poisson-equation-in-3d" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/cc0aba7e5a5f28360f855036b7df14a9fed6f6a4.png" alt="\nabla^2u(x)=f(x)
+
+\nabla^2G(x, x')=\delta(x-x')" /></p>
+</div><p>with boundary condition <img class="math" src="../../_images/math/7aa1bcbb0a32d05e1db594936c35c8a9bda1980f.png" alt="G(x) = 0"/> at infinity. Then:</p>
+<div class="math">
+<p><img src="../../_images/math/aad7dfcf65012fb36c8826c066d62d962b16e5f4.png" alt="G(x, x')=-{1\over4\pi}{1\over|x-x'| }" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/e82354574626bf90a7466a6f18ce29741ca16627.png" alt="u(x) = -{1\over4\pi}\int {f(x')\over|x-x'| }\d x'" /></p>
+</div></div>
+<div class="section" id="poisson-equation-in-2d">
+<h3>Poisson Equation in 2D<a class="headerlink" href="#poisson-equation-in-2d" title="Permalink to this headline">¶</a></h3>
+<p>Let <img class="math" src="../../_images/math/29386f5856bf6d3d892b0509adeb74c42f11feed.png" alt="{\bf x}=(x, y)"/> and we want to solve:</p>
+<div class="math">
+<p><img src="../../_images/math/1eda2a1c766d1ed84770a3944b716b92cf2a8a58.png" alt="\nabla^2u({\bf x})=f({\bf x})" /></p>
+</div><p>So we have:</p>
+<div class="math">
+<p><img src="../../_images/math/bd491434e223ec138e273a726faebfa59dfc44d5.png" alt="\nabla^2G({\bf x}, {\bf x'})=\delta({\bf x}-{\bf x'})" /></p>
+</div><p>The solution is:</p>
+<div class="math">
+<p><img src="../../_images/math/8658444c55ef28c154ee08a604a982aef3bf6a37.png" alt="G({\bf x}, {\bf x'})
+={1\over2\pi}\log|{\bf x}-{\bf x'}|
+={1\over4\pi}\log|{\bf x}-{\bf x'}|^2
+={1\over4\pi}\log((x-x')^2+(y-y')^2)" /></p>
+</div></div>
+<div class="section" id="helmholtz-equation-in-3d">
+<h3>Helmholtz Equation in 3D<a class="headerlink" href="#helmholtz-equation-in-3d" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/95065179bb2f6519b6f994c0c02e03d65ffa9ae6.png" alt="(\nabla^2+k^2)u(x)=f(x)
+
+(\nabla^2+k^2)G(x, x')=\delta(x-x')" /></p>
+</div><p>with boundary condition <img class="math" src="../../_images/math/7aa1bcbb0a32d05e1db594936c35c8a9bda1980f.png" alt="G(x) = 0"/> at infinity. Then:</p>
+<div class="math">
+<p><img src="../../_images/math/8357c030eddb6b054c014d79696d6b9708668ef4.png" alt="G(x, x')=-{1\over4\pi}{e^{ik|x-x'| }\over|x-x'| }
+
+u(x) = -{1\over4\pi}\int {f(x')e^{ik|x-x'| }\over|x-x'| }\d x'" /></p>
+</div></div>
+<div class="section" id="helmholtz-equation-in-1d">
+<h3>Helmholtz Equation in 1D<a class="headerlink" href="#helmholtz-equation-in-1d" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/a88b00015f9d05e05103893f53b5f6f2ef10089c.png" alt="\left({\d^2\over\d x^2}+1\right)u(x)=f(x)
+
+\left({\d^2\over\d x^2}+1\right)G(x, x')=\delta(x-x')" /></p>
+</div><p>with boundary conditions <img class="math" src="../../_images/math/e8b3141742ac93dbf237b1d583f18e8a05d92d09.png" alt="u(0)=u({\pi\over2})=0"/>. Then:</p>
+<div class="math">
+<p><img src="../../_images/math/83ab99574c4c97270bff8fe23df20e480498ba34.png" alt="G(x, x')=
+\begin{cases}
+-\sin x\cos x'&amp;\quad x&lt;x'\cr
+-\cos x\sin x'&amp;\quad x&gt;x'\cr
+\end{cases}" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/f0ae6205195f2c385a48d579bb853df4e7258a26.png" alt="u(x) = \int G(x, x')f(x')\d x'
+=-\cos x\int_0^xf(x')\sin x'\d x'
+-\sin x\int_x^{\pi\over2}f(x')\cos x'\d x'" /></p>
+</div><p>To show that this really works, let&#8217;s take for example <img class="math" src="../../_images/math/42caa80b6f855f97f5c604e1a193ee3b13600ce0.png" alt="f(x)=3\sin2x"/>. Then</p>
+<div class="math">
+<p><img src="../../_images/math/bc5614d0f430653f080c213aaf944c934549456c.png" alt="u(x)
+=-\cos x\int_0^x3\sin 2x'\sin x'\d x'
+-\sin x\int_x^{\pi\over2}3\sin 2x'\cos x'\d x'" /></p>
+</div><p>We can use SymPy to evaluate the integrals:</p>
+<div class="highlight-python"><pre>In [1]: u = -cos(x)*integrate(3*sin(2*y)*sin(y), (y, 0, x)) - \
+    sin(x)*integrate(3*sin(2*y)*cos(y), (y, x, pi/2))
+
+In [2]: u
+Out[2]:
+-(cos(x)*sin(2*x) - 2*cos(2*x)*sin(x))*cos(x) - (sin(x)*sin(2*x)
+    + 2*cos(x)*cos(2*x))*sin(x)
+
+In [3]: simplify(u)
+Out[3]:
+     2                  2
+- cos (x)*sin(2*x) - sin (x)*sin(2*x)
+
+In [4]: trigsimp(_)
+Out[4]: -sin(2*x)</pre>
+</div>
+<p>And we get</p>
+<div class="math">
+<p><img src="../../_images/math/006f6faf2fc1c8c9b8d50d49b30f1ad7f41b4f01.png" alt="u(x)=-\sin 2x" /></p>
+</div><p>We can easily check, that <img class="math" src="../../_images/math/af709e18b8bde8116a6af712713636af6b9cbd11.png" alt="u''+u=3\sin2x"/>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">u</span>
+<span class="go">3*sin(2*x)</span>
+</pre></div>
+</div>
+<p>and since <img class="math" src="../../_images/math/495440bbdc412d903e6df1f91be8b79ad0b0b067.png" alt="f(x) = 3\sin2x"/>, we have verified, that <img class="math" src="../../_images/math/4f0e59673f3bff83dfd903db4dc5524c56fcb992.png" alt="u(x)=-\sin 2x"/> is the correct
+solution.</p>
+</div>
+<div class="section" id="finite-element-method">
+<h3>Finite Element Method<a class="headerlink" href="#finite-element-method" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s show it on the Laplace equation. We want to solve:</p>
+<div class="math">
+<p><img src="../../_images/math/d3b15c64e5ec0b4d9568c36594b00fd3fd9851ba.png" alt="\nabla^2G(x, x')=\delta(x-x')" /></p>
+</div><p>We will treat <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> as a parameter, so we define <img class="math" src="../../_images/math/c740d72c5c0f7597e74ee1af7c33f1811c8a9abf.png" alt="g_{x'}(x)\equiv G(x, x')"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/75806481a93f0c2f1c5628bbcc870e6bee1a07b3.png" alt="\nabla^2g_{x'}(x)=\delta(x-x')" /></p>
+</div><p>We set <img class="math" src="../../_images/math/52cd9ffb6a13e6d1fec51b4d4c24423c28d46c20.png" alt="g_{x'}(x)=0"/> on the boundary and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ef14a3e7d96727f4d2fa4001a7105f9fc49e0c9d.png" alt="-\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = \int v(x)\delta(x-x')\d x
+
+-\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = v(x')" /></p>
+</div><p>So we choose <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> and then solve for <img class="math" src="../../_images/math/f0f989d590a53bc101f21905b0ce3fa602c749cd.png" alt="g_{x'}(x)"/> using FEM and we get the
+Green function <img class="math" src="../../_images/math/6bc4f2d79d5dea70cf823f874c36803ebd47e927.png" alt="G(x, x')"/> for all <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and one particular <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/>. We can then
+evaluate the integral <a href="#equation-solution">(14)</a> numerically &#8211; one would have to use FEM
+for all <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> that are needed in the integral, so that is not efficient, but it
+should work. One will then be able to play with Green functions and be able to
+calculate them numerically for any boundary condition (which is not possible
+analytically).</p>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -515,6 +668,19 @@ z\left(-{xy\over z^2}\right)
 <li><a class="reference external" href="#dirac-notation">Dirac Notation</a></li>
 <li><a class="reference external" href="#homogeneous-functions">Homogeneous functions</a><ul>
 <li><a class="reference external" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#green-functions">Green Functions</a><ul>
+<li><a class="reference external" href="#introduction">Introduction</a></li>
+<li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a></li>
+<li><a class="reference external" href="#examples">Examples</a><ul>
+<li><a class="reference external" href="#poisson-equation-in-3d">Poisson Equation in 3D</a></li>
+<li><a class="reference external" href="#poisson-equation-in-2d">Poisson Equation in 2D</a></li>
+<li><a class="reference external" href="#helmholtz-equation-in-3d">Helmholtz Equation in 3D</a></li>
+<li><a class="reference external" href="#helmholtz-equation-in-1d">Helmholtz Equation in 1D</a></li>
+<li><a class="reference external" href="#finite-element-method">Finite Element Method</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

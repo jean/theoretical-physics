@@ -477,6 +477,128 @@ V_x^{LD}\left(1-{3\over2} \left(
 </div>
 </div>
 </div>
+<div class="section" id="dft-as-a-nonlinear-problem">
+<h2>DFT As a Nonlinear Problem<a class="headerlink" href="#dft-as-a-nonlinear-problem" title="Permalink to this headline">¶</a></h2>
+<p>The task is to find such a charge density <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, so that all the equations below
+hold (e.g. are self-consistent):</p>
+<div class="math">
+<p><img src="../../_images/math/2a93abf7859cb327e25cfeb06c4d317561915419.png" alt="V = -{Z\over r} + V_H + V_{xc}
+
+\left(-\nabla^2+V\right)\phi_m = \epsilon_m\phi_m,\quad\quad m = 1, 2, \dots, 4
+
+n = \sum_{m=1}^4 \phi_m^2
+
+V_{xc} = f(n)
+
+\nabla^2 V_H = n" /></p>
+</div><p>This is a standard nonlinear problem, except that the Jacobian is dense, as
+shown below.</p>
+<div class="section" id="reformulation">
+<h3>Reformulation<a class="headerlink" href="#reformulation" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s write everything in terms of <img class="math" src="../../_images/math/07aa4128847ea85c9c3b9a45d18df01edb03ccbf.png" alt="\phi_m(x)"/> explicitly:</p>
+<div class="math">
+<p><img src="../../_images/math/93ac42fcf757c3afc64774f6869d34491e470dc6.png" alt="n(x) = %n(y^{(1)}, \dots, y^{(4)}) = \sum_{m=1}^4 \phi_m^2(x)
+
+V_{xc}(x) = f(n(x)) = f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+
+V_H(x) = \half \int_\Omega {n(x')\over|x' - x|}\d x'=
+\half \int_\Omega {
+\sum_{m=1}^4 \phi_m^2(x')
+\over|x' - x|}\d x'
+
+V(x) = -{Z\over r} + V_H(x) + V_{xc}(x)=
+
+=-{Z\over r}+
+\half \int_\Omega {
+\sum_{m=1}^4 \phi_m^2(x')
+\over|x' - x|}\d x'
++f\left( \sum_{m=1}^4\phi_m^2(x) \right)" /></p>
+</div><p>Now we can write everything as just one (nonlinear)
+equation:</p>
+<div class="math">
+<p><img src="../../_images/math/549cbb2651291d1c71528f8446338fd8e3e5ee7b.png" alt="\left(-\nabla^2
+-{Z\over r}+
+\half \int_\Omega {
+\sum_{m=1}^4 \phi_m^2(x')
+\over|x' - x|}\d x'
++f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+\right)\phi_n = \epsilon_n\phi_n,\quad\quad n = 1, 2, \dots, 4" /></p>
+</div></div>
+<div class="section" id="fe-discretization">
+<h3>FE Discretization<a class="headerlink" href="#fe-discretization" title="Permalink to this headline">¶</a></h3>
+<p>The correspondig discrete problem has the form</p>
+<div class="math">
+<p><img src="../../_images/math/82db9795aedfa0b845d18a1389d9f80e02f213cb.png" alt="\int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
+-{Z\over r}+
+\half \int_\Omega {
+\sum_{m=1}^4 \phi_m^2(x')
+\over|x' - x|}\d x'
++f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+\right]
+\phi_n(x) v_i(x)  \d x=
+
+=\int_\Omega
+\epsilon_n\phi_n(x) v_i(x) \d x,\quad\quad n = 1, 2, \dots, 4;\quad
+i = 1, 2, \dots, N" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/6bbd7733ffc2167b91fe308e22d113bfd4cf0405.png" alt="\phi_n = \phi_n({\bf Y}^{(n)}) = \sum_{j=1}^N y_j^{(n)} v_j(x)" /></p>
+</div><p>Here <img class="math" src="../../_images/math/d0ea3dd33b2b0fc29b0583f997383389d1a29930.png" alt="{\bf Y}^{(n)} = (y_1^{(n)}, y_2^{(n)}, \dots, y_N^{(n)})^T"/> is the vector
+of unknown coefficients for the <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>-th wavefunction <img class="math" src="../../_images/math/3039842d9e2c0ed4091c97ce04a95f5e81a8eb21.png" alt="\phi_n(x)"/>. Our equation
+can then be written in the compact form</p>
+<div class="math">
+<p><img src="../../_images/math/c24402ab0ccec41e8829e018307868722862a67b.png" alt="{\bf F}({\bf Y}^{(n)}) = {\bf 0},\quad\quad n = 1, 2, \dots, 4" /></p>
+</div><p>where <img class="math" src="../../_images/math/cef31b74ed2d81cbeecd6f9274372384dc499ef1.png" alt="{\bf F} = (F_1, F_2, \dots, F_N)^T"/> with</p>
+<div class="math">
+<p><img src="../../_images/math/46ead0e80002a44e1677260ab5efda3f71430be1.png" alt="F_i({\bf Y}^{(n)}) =
+\int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
+-{Z\over r}+
+\half \int_\Omega {
+\sum_{m=1}^4 \phi_m^2(x')
+\over|x' - x|}\d x'
++f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+\right]
+\phi_n(x) v_i(x)  \d x-
+
+-\int_\Omega
+\epsilon_n\phi_n(x) v_i(x) \d x" /></p>
+</div></div>
+<div class="section" id="jacobian">
+<h3>Jacobian<a class="headerlink" href="#jacobian" title="Permalink to this headline">¶</a></h3>
+<p>The Jacobi matrix has the elements:</p>
+<div class="math">
+<p><img src="../../_images/math/49b336cf54535827096b334ed7e78527ff2e1d73.png" alt="J_{ik} = {\partial F_i\over\partial y_k^{(s)}}" /></p>
+</div><p>The only possible dense term is:</p>
+<div class="math">
+<p><img src="../../_images/math/7660d6ef3dcb15aca28dc580a15038f72ffc8ad5.png" alt="{\partial\over\partial y_k^{(s)}}\int_\Omega \int_\Omega {
+\sum_{m=1}^4 \phi_m^2(x')
+\over|x' - x|}\d x'\,\phi_n(x) v_i(x) \d x =
+
+=
+{\partial\over\partial y_k^{(s)}}\int_\Omega \int_\Omega {
+\sum_{m=1}^4 \left(\sum_{j=1}^N y_j^{(m)} v_j(x')\right)^2
+\over|x' - x|}\d x'\, \left(\sum_{j=1}^N y_j^{(n)} v_j(x)\right)  v_i(x) \d x =
+
+=
+\int_\Omega \int_\Omega {
+2 \left(\sum_{j=1}^N y_j^{(s)} v_j(x')\right)v_k(x')
+\over|x' - x|}\d x'\, \left(\sum_{j=1}^N y_j^{(n)} v_j(x)\right)  v_i(x) \d x +
+
++
+\int_\Omega \int_\Omega {
+\sum_{m=1}^4 \left(\sum_{j=1}^N y_j^{(m)} v_j(x')\right)^2
+\over|x' - x|}\d x'\, \delta_{ns}v_k(x)  v_i(x) \d x" /></p>
+</div><p>Now we can see that we have in there the following term:</p>
+<div class="math">
+<p><img src="../../_images/math/c57f57d82f0729661fda7638019e91fc065f6eaa.png" alt="\int_\Omega \int_\Omega {v_k(x') v_i(x)\over |x'-x|}\d x'\d x" /></p>
+</div><p>which is dense in <img class="math" src="../../_images/math/c9eb748e4580dc3fe1d557106b2132a9a3310ad3.png" alt="(ki)"/>, as can be easily seen be fixing <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> and writing</p>
+<div class="math">
+<p><img src="../../_images/math/c3be6752159b08cece77999a71c0fc6611015df2.png" alt="\int_\Omega \int_\Omega {v_k(x')\over |x'-x|}\d x' v_i(x)\d x" /></p>
+</div><p>so for each <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> there is some contribution from the integral <img class="math" src="../../_images/math/85a762e8487c471686f9348b5eb2effafdb94614.png" alt="\int_\Omega
+{v_k(x')\over |x'-x|}\d x'"/> for such <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> where <img class="math" src="../../_images/math/da18107b9d4f56efadd92705e656501ed6d942f2.png" alt="v_i(x)"/> is nonzero, thus
+making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd85f9710538c2f68965e650.png" alt="J_{ik}"/> dense.</p>
+</div>
+</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="dft" rules="none">
@@ -521,6 +643,12 @@ V_x^{LD}\left(1-{3\over2} \left(
 <li><a class="reference external" href="#the-xc-term">The XC Term</a><ul>
 <li><a class="reference external" href="#lda">LDA</a></li>
 <li><a class="reference external" href="#rlda">RLDA</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#dft-as-a-nonlinear-problem">DFT As a Nonlinear Problem</a><ul>
+<li><a class="reference external" href="#reformulation">Reformulation</a></li>
+<li><a class="reference external" href="#fe-discretization">FE Discretization</a></li>
+<li><a class="reference external" href="#jacobian">Jacobian</a></li>
 </ul>
 </li>
 <li><a class="reference external" href="#references">References</a></li>
