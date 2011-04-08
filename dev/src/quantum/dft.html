@@ -280,11 +280,11 @@ the exchange and correlation energy functional. From <a href="#equation-euler">(
 <p><img src="../../_images/math/0220e85c55319caafa2f1b9b07b9ef81e060c022.png" alt="v_s\equiv V_H+V_{xc}+v" /></p>
 </div><p>then <img class="math" src="../../_images/math/245cfd7ac224be63e6855b55b5e163c0f06d5dc3.png" alt="n_s({\bf r})\equiv n({\bf r})"/>. So we solve the Kohn-Sham equations of
 this auxiliary non-interacting system</p>
-<div class="math">
-<p><img src="../../_images/math/c34b462be07894d24bbd7c824ece3991581c89cb.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi({\bf r})  \label{KSeq}" /></p>
+<div class="math" id="equation-KSeq">
+<p><span class="eqno">(12)</span><img src="../../_images/math/d21f96e608c6acc3c64b9ba9258a99e82d0d390f.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi({\bf r})" /></p>
 </div><p>which yield the orbitals <img class="math" src="../../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i"/> that reproduce the density <img class="math" src="../../_images/math/88bee3c8b92c428acf748ffb1a42363c7a23ac37.png" alt="n({\bf r})"/> of the original interacting system</p>
-<div class="math">
-<p><img src="../../_images/math/de8a368fee5e286d8ec018ca18f05341f876b4a6.png" alt="n({\bf r})\equiv n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2  \label{KSdensity}" /></p>
+<div class="math" id="equation-KSdensity">
+<p><span class="eqno">(13)</span><img src="../../_images/math/6a7df5c10ff75f5b28f12de441c067a7a3eb852b.png" alt="n({\bf r})\equiv n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2" /></p>
 </div><p>The sum is taken over the lowest <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/> energies. Some of the <img class="math" src="../../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i"/> can be
 degenerated, but it doesn&#8217;t matter - the index <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> counts every eigenfunction
 including all the degenerated. In plain words, the trick is in realizing, that
@@ -316,7 +316,7 @@ background, density <img class="math" src="../../_images/math/6a67645f769bfcb051
 <p><img src="../../_images/math/266f9b550cb8ea3cfb8af9388a93e492677b6eba.png" alt="V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r}';n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'" /></p>
 </div><p>which in the LDA becomes</p>
 <div class="math" id="equation-Vxcld">
-<p><span class="eqno">(12)</span><img src="../../_images/math/fcd1ad920ffbaef979b1ea65a1940a9699b3e80e.png" alt="V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)" /></p>
+<p><span class="eqno">(14)</span><img src="../../_images/math/fcd1ad920ffbaef979b1ea65a1940a9699b3e80e.png" alt="V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)" /></p>
 </div><p>The xc energy density <img class="math" src="../../_images/math/b0122a5284def13da5c83f6c111df01679559680.png" alt="\epsilon_{xc}^{LD}"/> of the homogeneous gas can be
 computed exactly:</p>
 <div class="math">
@@ -341,7 +341,7 @@ is virtually known exactly. VWN result:</p>
 parameter, which gives the mean distance between electrons (in atomic units):</p>
 <div class="math">
 <p><img src="../../_images/math/dfb9f4617e327f7931b983cf62e0907dbd301db5.png" alt="r_s=\left(3\over4\pi n\right)^{1\over3}" /></p>
-</div><p>The xc potential is then computed from <a href="#equation-Vxcld">(12)</a>:</p>
+</div><p>The xc potential is then computed from <a href="#equation-Vxcld">(14)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/52483aa71c6d51b8518bd9a411bc1a294a0fff42.png" alt="V_{xc}^{LD}=V_x^{LD}+V_c^{LD}
 
@@ -380,7 +380,7 @@ R = 1-{3\over2}\left(\beta\mu-\ln(\beta+\mu)\over\beta^2\right)^2
 A = {\beta\mu-\log(\beta+\mu)\over\beta^2}" /></p>
 </div><p>We now calculate <img class="math" src="../../_images/math/941aa4a67faa50046a316947ca4c3a1e0c2a4cdc.png" alt="V_x^{RLD}"/>:</p>
 <div class="math" id="equation-RLDA">
-<p><span class="eqno">(13)</span><img src="../../_images/math/3fa581bc937b3a1ac86a3e14888ff209f1623566.png" alt="V_x^{RLD}
+<p><span class="eqno">(15)</span><img src="../../_images/math/3fa581bc937b3a1ac86a3e14888ff209f1623566.png" alt="V_x^{RLD}
 =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}R\over\d n}=
 
 =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}\over\d n}R
@@ -476,6 +476,99 @@ V_x^{LD}\left(1-{3\over2} \left(
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="radial-dft-problem">
+<h2>Radial DFT Problem<a class="headerlink" href="#radial-dft-problem" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kohn-sham-equations">
+<h3>Kohn-Sham Equations<a class="headerlink" href="#kohn-sham-equations" title="Permalink to this headline">¶</a></h3>
+<p>For spherically symmetric potentials, we write all eigenfunctions as:</p>
+<div class="math">
+<p><img src="../../_images/math/78147c8dbdfe5303faa2be11d11cd03ec9cb4d27.png" alt="\psi_{nlm} = R_{nl} Y_{lm}" /></p>
+</div><p>and we need to solve the following Kohn-Sham equations:</p>
+<div class="math">
+<p><img src="../../_images/math/d9f5765ed2fd5daa2d9ee45463f450fb62c52d04.png" alt="-{1\over2}R_{nl}'' - {1\over r}R_{nl}' +
+    \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = E_{nl} R_{nl}" /></p>
+</div><p>With normalization:</p>
+<div class="math">
+<p><img src="../../_images/math/0e31da0821d3b159019dcf983668e3645c95a900.png" alt="\int R_{nl}^2 \,r^2 \,\d r = 1" /></p>
+</div><p>For Schroedinger equation, the charge density is calculated by adding all &#8220;(n,
+l, m)&#8221; states together, counting each one twice (for spin up and spin
+down):</p>
+<div class="math">
+<p><img src="../../_images/math/75bb41d3f4e80ec50d21d64261545dfaef78fd69.png" alt="n({\bf r}) = \sum_{nlm}2|\psi_{nlm}|^2
+    = \sum_{nlm}R_{nl}^2 2|Y_{lm}|^2
+    = \sum_{nl}R_{nl}^2 2\sum_m|Y_{lm}|^2
+    = {1\over 4\pi}\sum_{nl}f_{nl} R_{nl}^2" /></p>
+</div><p>where we have introduced the occupation numbers <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/> by</p>
+<div class="math">
+<p><img src="../../_images/math/60b244c68bfb763c06aedea21cc9744584873039.png" alt="f_{nl} = 4\pi\,2\sum_m |Y_{lm}|^2" /></p>
+</div><p>Normalization of the charge density is:</p>
+<div class="math">
+<p><img src="../../_images/math/980032e02c9751c28131842095f481a7605df1ec.png" alt="Z = \int n({\bf r}) \d^3 x
+    = \int n(r) \, r^2\d\Omega \d r
+    = 4\pi\int n(r) \, r^2 \d r
+    =
+
+    = 4\pi\int {1\over 4\pi} \sum_{nl} f_{nl} R_{nl}^2\, r^2\d\Omega \d r
+    =
+
+    = \sum_{nl} f_{nl}\int R_{nl}^2\, r^2 \d r
+    =
+
+    = \sum_{nl} f_{nl}" /></p>
+</div><p>So we can see, that it must hold:</p>
+<div class="math">
+<p><img src="../../_images/math/d0376bb5c5cbb2c3d8006f1028584d2a9df7ff60.png" alt="\sum_{nl} f_{nl} = Z" /></p>
+</div><p>where <img class="math" src="../../_images/math/3ead47fb9fb4a4c273feee398f72ff2a09702b84.png" alt="Z"/> is the atomic number (number of electrons), and as such, <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/> are
+indeed the occupation numbers (integers). The factor <img class="math" src="../../_images/math/a72a1caa0cb9e0f72f414ebd8180ea676808568f.png" alt="4\pi"/> is
+explicitly factored out, as it cancels with the spherical harmonics:
+assuming all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> states are occupied, this can be simplified to:</p>
+<div class="math">
+<p><img src="../../_images/math/963da352c6c768f431571c2f8ea1c502dbcf6733.png" alt="f_{nl} = 4\pi\,2\sum_m |Y_{lm}|^2
+    = 4\pi\,2{2l+1\over 4\pi}
+    = 2(2l+1)" /></p>
+</div><p>We can also use this machinery to prescribe &#8220;chemical occupation numbers&#8221;, that
+don&#8217;t necessarily correspond to the DFT ground state. For example for <img class="math" src="../../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/> atom
+we get:</p>
+<div class="math">
+<p><img src="../../_images/math/930311633e2812d8b0c64de8fb4162ac75aad692.png" alt="f_{1l} = 2 (2l+1)
+
+f_{2l} = 2 (2l+1)
+
+f_{3l} = 2 (2l+1)
+
+f_{4l} = 2 (2l+1)
+
+f_{5l} = 2 (2l+1)\quad\quad l\le2
+
+f_{53} = 3
+
+f_{60} = 2
+
+f_{61} = 6
+
+f_{62} = 1
+
+f_{70} = 2" /></p>
+</div><p>By summing all these <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/>, we get 92 as expected:</p>
+<div class="math">
+<p><img src="../../_images/math/29aeca32f72a63ba49169ba211b1f9468844d004.png" alt="\sum_{nl} f_{nl} = 2 + (2+6) + (2+6+10) + (2+6+10+14) + (2+6+10) +
+
+    + 3 + 2 + 6 + 1 + 2 = 92" /></p>
+</div><p>But this isn&#8217;t the DFT ground state, because some KS energies are skipped, for
+example there is only one state for <img class="math" src="../../_images/math/2f2a6991d2108f237ee451bf37db91cacaf4134e.png" alt="n=6"/>, <img class="math" src="../../_images/math/e6fbb515c22e2b4d5f4b9a2b164b626a4e3e2a72.png" alt="l=2"/>, but there are nine more
+states with the same energy &#8212; instead two more states are occupied in <img class="math" src="../../_images/math/f7f0f830b5b25ea929198068e407e8c9f62f56c4.png" alt="n=7"/>,
+<img class="math" src="../../_images/math/f5644099294a33bf6ea99f64e0eba8cb70bbc020.png" alt="l=0"/>, but those have higher energy. So this corresponds to excited DFT state,
+strictly speaking not physically valid in the DFT formalism, but in practice
+this approach is often used. One can also prescribe fractional occupation
+numbers (in the Dirac case).</p>
+</div>
+<div class="section" id="poisson-equation">
+<h3>Poisson Equation<a class="headerlink" href="#poisson-equation" title="Permalink to this headline">¶</a></h3>
+<p>Poisson equation becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/b66687a802de752e09d7c194fc14f11e522b33fe.png" alt="V_H''(r) + {2\over r} V_H'(r) = n(r)" /></p>
+</div></div>
 </div>
 <div class="section" id="dft-as-a-nonlinear-problem">
 <h2>DFT As a Nonlinear Problem<a class="headerlink" href="#dft-as-a-nonlinear-problem" title="Permalink to this headline">¶</a></h2>
@@ -643,6 +736,11 @@ making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd
 <li><a class="reference external" href="#the-xc-term">The XC Term</a><ul>
 <li><a class="reference external" href="#lda">LDA</a></li>
 <li><a class="reference external" href="#rlda">RLDA</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#radial-dft-problem">Radial DFT Problem</a><ul>
+<li><a class="reference external" href="#kohn-sham-equations">Kohn-Sham Equations</a></li>
+<li><a class="reference external" href="#poisson-equation">Poisson Equation</a></li>
 </ul>
 </li>
 <li><a class="reference external" href="#dft-as-a-nonlinear-problem">DFT As a Nonlinear Problem</a><ul>

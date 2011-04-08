@@ -96,7 +96,7 @@ Lagrangian, or from the equation itself.</p>
 </div><p>The way to solve it is to separate the equation into radial and angular parts
 by writing the Laplace operator in spherical coordinates as:</p>
 <div class="math">
-<p><img src="../../_images/math/36462eaf2e26a2615f8aa6ae0da6bde8479882aa.png" alt="\nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial^2 f\over\partial\rho^2} -{L^2 f\over \rho^2}" /></p>
+<p><img src="../../_images/math/fa04be7c08be3cf1213d3f5979add740f5b28755.png" alt="\nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial f\over\partial\rho} -{L^2 f\over \rho^2}" /></p>
 </div><div class="math">
 <p><img src="../../_images/math/22488f3355ae5d94741f4f3820b52f779caa6076.png" alt="L^2= -{\partial^2\over\partial\theta^2} -{1\over\sin^2\theta}{\partial^2\over\partial\phi^2} -{1\over\tan\theta}{\partial\over\partial\theta}" /></p>
 </div><p>Substituting <img class="math" src="../../_images/math/847f4d3192a254337910997c4f8b79ba9a3bee83.png" alt="\psi({\bf x})=R(\rho)Y(\theta,\phi)"/> into the Schrödinger equation
@@ -109,6 +109,13 @@ yields:</p>
 Schrödinger equation:</p>
 <div class="math">
 <p><img src="../../_images/math/996c94b9ddfc634fcea0c2c1650f72c97f1efca5.png" alt="-{1\over2}R''-{1\over\rho}R'+{l(l+1)R\over2\rho^2}+VR=ER" /></p>
+</div><p>Normalization:</p>
+<div class="math">
+<p><img src="../../_images/math/51a0e6dd76ec4f836ef1a57255910dcac59b9e65.png" alt="1 = \int |\psi|^2 \d^3 x
+  = \int R^2 |Y|^2 \d^3 x
+  = \int R^2 |Y|^2 \rho^2\d\Omega\d \rho
+  = \int R^2 \rho^2 \d\rho \int |Y|^2 \d\Omega
+  = \int R^2 \rho^2 \d \rho" /></p>
 </div></div>
 <div class="section" id="from-the-lagrangian">
 <h3>From the Lagrangian<a class="headerlink" href="#from-the-lagrangian" title="Permalink to this headline">¶</a></h3>
