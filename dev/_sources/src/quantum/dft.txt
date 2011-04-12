@@ -4,6 +4,7 @@ Density Functional Theory (DFT)
 Many Body Schrödinger Equation
 ------------------------------
 
+We use (Hartree) atomic units in this whole section about DFT.
 We use the Born-Oppenheimer approximation, which says that the nuclei of the
 treated atoms are seen as fixed. A stationary electronic state (for $N$
 electrons) is then described by a wave function
@@ -52,7 +53,7 @@ Integrating $|\Psi|^2$ over the first $N-1$ electrons is the probability
 density that the $N$-th electron is at the position ${\bf r}_N$. Thus the
 probability density $n({\bf r})$ that any of the N electrons (i.e the first, or
 the second, or the third, \dots, or the $N$-th) is at the position $\bf r$ is
-called the particle (or charge or electron) density and is therefore given by:
+called the particle (or number) density and is therefore given by:
 
 .. math::
   n({\bf r})= \int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N+
@@ -74,9 +75,30 @@ called the particle (or charge or electron) density and is therefore given by:
 
     =N\int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N
 
-Thus $\int_\Omega n({\bf r})\,\d^3r$ gives the number of particles (and also
-the amount of charge) in the region of integration $\Omega$. Obviously $\int
+Thus $\int_\Omega n({\bf r})\,\d^3r$ gives the number of particles
+in the region of integration $\Omega$. Obviously $\int
 n({\bf r})\,\d^3r=N$.
+
+Note that the number density $n({\bf r})$ and potential $V({\bf r})$ in the
+Schroedinger equation is related to the electron charge density $\rho({\bf r})$
+and electrostatic potential energy $\phi({\bf r})$ by:
+
+.. math::
+
+    \rho({\bf r}) = q n({\bf r})
+
+    q\phi({\bf r}) = V({\bf r})
+
+where $q$ is the particle elementary charge,
+which for electrons is $q=-e=-1$ in atomic units.
+The amount of electronic charge in the region $\Omega$ is given by:
+
+.. math::
+
+    Q
+        = \int_\Omega \rho({\bf r})\,\d^3r
+        = q\int_\Omega n({\bf r})\,\d^3r
+        = -\int_\Omega n({\bf r})\,\d^3r
 
 The energy of the system is given by
 
@@ -271,14 +293,15 @@ gas):
 
   \hat H_s=\hat T+\hat V_s
 
-Then the many-body ground state wavefunction can be decomposed into single
-particle orbitals
+the Schrödinger then becomes:
 
 .. math::
 
-  \ket{\Psi ({\bf r_1},{\bf r_2},\cdots,{\bf r_N})}= \ket{\psi_1({\bf r})}\ket{\psi_2({\bf r})}\cdots\ket{\psi_N({\bf r})}
+    (-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})
 
-and
+    n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2
+
+and the total energy is:
 
 .. math::
 
@@ -292,6 +315,39 @@ where
 
   V_s[n]=\braket{\Psi[n]|\hat V|\Psi[n]}=\int v_s({\bf r})n({\bf r})\d^3r
 
+So:
+
+.. math::
+
+    E_s[n] = \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i} +
+        \int v_s({\bf r})n({\bf r})\d^3r
+        =
+
+        = \sum_i\int \psi_i^* \left(-\half\nabla^2\right)\psi_i\,\d^3 r +
+            \int v_s({\bf r})\sum_i\psi_i^* \psi_i\, \d^3r
+        =
+
+        = \sum_i\int \psi_i^* \left(-\half\nabla^2 + v_s({\bf r})\right)
+            \psi_i\,\d^3 r
+        =
+
+        = \sum_i \epsilon_i\int \psi_i^* \psi_i\,\d^3 r =
+
+        = \sum_i \epsilon_i
+
+The total energy is the sum of eigenvalues (energies of the individual
+independent particles) as expected. From the last equation it follows:
+
+.. math::
+
+    T_s[n] = \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i}
+        = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r
+
+In other words, the kinetic energy of the noninteracting particles is equal to
+the sum of eigenvalues minus the potential energy coming from the total
+effective potential $v_s$ used to construct the single particle orbitals
+$\psi_i$.
+
 From :eq:`euler` we get
 
 .. math::
@@ -303,22 +359,61 @@ Solution to this equation gives the density $n_s$.
 
 Now we want to express the energy in :eq:`Emanybody` using $T_s$ and $E_H$
 for convenience, where $E_H$ is the classical electrostatic interaction energy
-of the charge distribution $n({\bf r})$:
+of the charge distribution $\rho({\bf r})$, defined using following relations
+- we start with a Poisson equation in atomic units
 
 .. math::
 
-  \nabla^2 V_H=n({\bf r})
+  \nabla^2 \phi_H({\bf r})=-4\pi \rho({\bf r})
 
-or equivalently
+and substitute $\rho({\bf r}) = q n({\bf r})$,
+$V_H({\bf r}) = q \phi_H({\bf r})$ and we use the fact that $q^2=1$ in atomic
+units:
 
 .. math::
 
-  E_H[n]=\half\int\int {n({\bf r})n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r\d^3r'
+  \nabla^2 V_H({\bf r})=-4\pi q^2 n({\bf r}) = -4\pi n({\bf r})
+
+or equivalently by expressing $V_H$ using the Green function:
 
 .. math::
     :label: V_H
 
-    V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+    V_H({\bf r})
+        = -{1\over 4\pi} \int {-4\pi n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+        = \int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+
+and finally $E_H$ is related to $V_H$ using:
+
+.. math::
+
+    V_H({\bf r})={\delta E_H\over\delta n({\bf r})}
+
+so we get:
+
+.. math::
+
+    E_H[n]=\half\int\int {n({\bf r})n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r\d^3r'
+
+Using the rules for functional differentiation, we can check that:
+
+.. math::
+
+    V_H({\bf r})
+        ={\delta E_H\over\delta n({\bf r})}
+        ={\delta \over\delta n({\bf r})}
+            \half\int\int {n({\bf r'})n({\bf r''})\over|{\bf r'}-{\bf r''}|}
+            \d^3r'\d^3r''
+        =
+
+        =\int {n({\bf r'})\over|{\bf r}-{\bf r'}|}
+            \d^3r'
+
+Using the above relations, we can see that
+
+.. math::
+
+    E_H[n]=\half\int V_H({\bf r}) n({\bf r}) \d^3r
 
 So from :eq:`Efunct` we get
 
@@ -363,7 +458,7 @@ so we arrive at
     \mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r})
 
 Solution to this equation gives the density $n$. Comparing :eq:`interact` to
-:eq`noninteract` we see that if we choose
+:eq:`noninteract` we see that if we choose
 
 .. math::
 
@@ -375,7 +470,8 @@ this auxiliary non-interacting system
 .. math::
     :label: KSeq
 
-    (-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi({\bf r})
+    (-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf
+    r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})
 
 which yield the orbitals $\psi_i$ that reproduce the density $n({\bf r})$ of the original interacting system
 
@@ -408,6 +504,36 @@ can always be written in the form
   E_{xc}[n]=\int n({\bf r}')\epsilon_{xc}({\bf r}';n)\d^3r'
 
 where the $\epsilon_{xc}({\bf r}';n)$ is called the xc energy density.
+
+Total Energy
+------------
+
+We already derived all the necessary things above, so we just summarize it here.
+The total energy is given by:
+
+.. math::
+
+    E[n]=(T+U)[n]+V[n]=T_s[n]+E_H[n]+(T-T_s+U-E_H)[n]+V[n]=
+
+    =T_s[n]+E_H[n]+E_{xc}[n]+V[n]
+
+where
+
+.. math::
+
+    T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r
+
+    E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
+
+    E_{xc}[n]=\int \epsilon_{xc}({\bf r};n) n({\bf r}) \d^3r
+
+    V[n]=\int v({\bf r}) n({\bf r}) \d^3r
+
+All these expressions are exact (no approximation has been made so far).
+
+
+XC Approximations
+-----------------
 
 LDA
 ~~~
@@ -653,7 +779,7 @@ and we need to solve the following Kohn-Sham equations:
 .. math::
 
     -{1\over2}R_{nl}'' - {1\over r}R_{nl}' +
-        \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = E_{nl} R_{nl}
+        \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = \epsilon_{nl} R_{nl}
 
 With normalization:
 
@@ -763,6 +889,62 @@ Poisson equation becomes:
 
     V_H''(r) + {2\over r} V_H'(r) = -4\pi n(r)
 
+Total Energy
+~~~~~~~~~~~~
+
+The total energy is given by:
+
+.. math::
+
+    E[n]= T_s[n]+E_H[n]+E_{xc}[n]+V[n]
+
+where
+
+.. math::
+
+    T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+        -\int (V_H(r) + V_{xc}(r) + v(r))_{in} n(r) \d^3 r
+        =
+
+        = \sum_{nl} f_{nl}\epsilon_{nl}
+            -\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} n(r) \d^3 r
+
+    E_H[n] = \half\int V_H(r) n(r) \d^3r
+
+    E_{xc}[n]=\int \epsilon_{xc}(r;n) n(r) \d^3r
+
+    V[n]=\int v(r) n(r) \d^3r = -\int {Z\over r} n(r) \d^3r
+
+doing the integrals a bit we get:
+
+.. math::
+
+    T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+            -4\pi\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} n(r)
+                r^2\,\d r
+
+    E_H[n] = 2\pi\int V_H(r) n(r)r^2\, \d r
+
+    E_{xc}[n]=4\pi\int \epsilon_{xc}(r;n) n(r)r^2\, \d r
+
+    V[n]=-4\pi \int {Z\over r} n(r)r^2\, \d r
+        =-4\pi Z \int n(r)r\, \d r
+
+We can also express everything using the charge density $\rho(r) = -n(r)$:
+
+.. math::
+
+    T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+            +4\pi\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} \rho(r)
+                r^2\,\d r
+
+    E_H[n] = -2\pi\int V_H(r) \rho(r)r^2\, \d r
+
+    E_{xc}[n]=-4\pi\int \epsilon_{xc}(r;n) \rho(r)r^2\, \d r
+
+    V[n]=4\pi \int {Z\over r} \rho(r)r^2\, \d r
+        =4\pi Z \int \rho(r)r\, \d r
+
 DFT As a Nonlinear Problem
 --------------------------
 
@@ -779,7 +961,7 @@ hold (e.g. are self-consistent):
 
     V_{xc} = f(n)
 
-    \nabla^2 V_H = n
+    \nabla^2 V_H = -4\pi n
 
 This is a standard nonlinear problem, except that the Jacobian is dense, as
 shown below.
@@ -791,19 +973,19 @@ Let's write everything in terms of $\phi_m(x)$ explicitly:
 
 .. math::
 
-    n(x) = %n(y^{(1)}, \dots, y^{(4)}) = \sum_{m=1}^4 \phi_m^2(x)
+    n(x) = \sum_{m=1}^4 \phi_m^2(x)
 
     V_{xc}(x) = f(n(x)) = f\left( \sum_{m=1}^4\phi_m^2(x) \right)
 
-    V_H(x) = \half \int_\Omega {n(x')\over|x' - x|}\d x'=
-    \half \int_\Omega {
+    V_H(x) = \int_\Omega {n(x')\over|x' - x|}\d x'=
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
 
     V(x) = -{Z\over r} + V_H(x) + V_{xc}(x)=
 
     =-{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -815,7 +997,7 @@ equation:
 
     \left(-\nabla^2
     -{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -830,7 +1012,7 @@ The correspondig discrete problem has the form
 
     \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
     -{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -862,7 +1044,7 @@ where ${\bf F} = (F_1, F_2, \dots, F_N)^T$ with
     F_i({\bf Y}^{(n)}) =
     \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
     -{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)

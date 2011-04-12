@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.5',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
@@ -51,7 +54,8 @@
 <h1>Density Functional Theory (DFT)<a class="headerlink" href="#density-functional-theory-dft" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="many-body-schrodinger-equation">
 <h2>Many Body Schrödinger Equation<a class="headerlink" href="#many-body-schrodinger-equation" title="Permalink to this headline">¶</a></h2>
-<p>We use the Born-Oppenheimer approximation, which says that the nuclei of the
+<p>We use (Hartree) atomic units in this whole section about DFT.
+We use the Born-Oppenheimer approximation, which says that the nuclei of the
 treated atoms are seen as fixed. A stationary electronic state (for <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/>
 electrons) is then described by a wave function
 <img class="math" src="../../_images/math/a924df24f9f024d26fc63eaa76eb4350c045d4b4.png" alt="\Psi({\bf r_1},{\bf r_2},\cdots,{\bf r}_N)"/>
@@ -85,7 +89,7 @@ r_1},\cdots,{\bf r}_N)= -\Psi({\bf r_1},{\bf r}_N,\cdots,{\bf r_2})"/> etc.</p>
 density that the <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/>-th electron is at the position <img class="math" src="../../_images/math/bf5be9c922081c024cd0cd305a1c828a908bc804.png" alt="{\bf r}_N"/>. Thus the
 probability density <img class="math" src="../../_images/math/88bee3c8b92c428acf748ffb1a42363c7a23ac37.png" alt="n({\bf r})"/> that any of the N electrons (i.e the first, or
 the second, or the third, dots, or the <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/>-th) is at the position <img class="math" src="../../_images/math/2d671c8502873792085d5a0571d9eef1d3b4fb0b.png" alt="\bf r"/> is
-called the particle (or charge or electron) density and is therefore given by:</p>
+called the particle (or number) density and is therefore given by:</p>
 <div class="math">
 <p><img src="../../_images/math/ab1a76695112d629c540e8f63ae28c96a478656c.png" alt="n({\bf r})= \int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N+
 
@@ -102,10 +106,25 @@ called the particle (or charge or electron) density and is therefore given by:</
 =N\int \braket{\Psi|{\bf r}_1,{\bf r}_2,\cdots,{\bf r}_N}\delta({\bf r}-{\bf r}_1) \braket{{\bf r}_1,{\bf r}_2,\cdots,{\bf r}_N|\Psi} \,\d^3 r_1\,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_{N}=" /></p>
 </div><div class="math" id="equation-chargedensity">
 <p><span class="eqno">(1)</span><img src="../../_images/math/950f6c89ea24a55ed1a5551ecadd5cd58feee1f6.png" alt="=N\int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N" /></p>
-</div><p>Thus <img class="math" src="../../_images/math/799fa53644973daa09f1828a84b76d4b346c8b7f.png" alt="\int_\Omega n({\bf r})\,\d^3r"/> gives the number of particles (and also
-the amount of charge) in the region of integration <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/>. Obviously <img class="math" src="../../_images/math/04de2d08093e61846f552018cc526295bab94b97.png" alt="\int
+</div><p>Thus <img class="math" src="../../_images/math/799fa53644973daa09f1828a84b76d4b346c8b7f.png" alt="\int_\Omega n({\bf r})\,\d^3r"/> gives the number of particles
+in the region of integration <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/>. Obviously <img class="math" src="../../_images/math/04de2d08093e61846f552018cc526295bab94b97.png" alt="\int
 n({\bf r})\,\d^3r=N"/>.</p>
-<p>The energy of the system is given by</p>
+<p>Note that the number density <img class="math" src="../../_images/math/88bee3c8b92c428acf748ffb1a42363c7a23ac37.png" alt="n({\bf r})"/> and potential <img class="math" src="../../_images/math/dc9ba5d56d05cab72d028bc2c89e4ae4b66ae862.png" alt="V({\bf r})"/> in the
+Schroedinger equation is related to the electron charge density <img class="math" src="../../_images/math/c308801745db9ba7922d22ff3bc24618fb9bf91d.png" alt="\rho({\bf r})"/>
+and electrostatic potential energy <img class="math" src="../../_images/math/ccde77c35ba827edb98a2c14635136af7170e838.png" alt="\phi({\bf r})"/> by:</p>
+<div class="math">
+<p><img src="../../_images/math/5d868154a2d398a991f43b2a71b14023bc0dfb66.png" alt="\rho({\bf r}) = q n({\bf r})
+
+q\phi({\bf r}) = V({\bf r})" /></p>
+</div><p>where <img class="math" src="../../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/> is the particle elementary charge,
+which for electrons is <img class="math" src="../../_images/math/ea326ca23c5e0c114249d0dbfdd25fe72b5103f9.png" alt="q=-e=-1"/> in atomic units.
+The amount of electronic charge in the region <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/6262ef35e6c40f5794c1e4521763ac15c907806d.png" alt="Q
+    = \int_\Omega \rho({\bf r})\,\d^3r
+    = q\int_\Omega n({\bf r})\,\d^3r
+    = -\int_\Omega n({\bf r})\,\d^3r" /></p>
+</div><p>The energy of the system is given by</p>
 <div class="math" id="equation-Emanybody">
 <p><span class="eqno">(2)</span><img src="../../_images/math/9f5664ebf2f8cae8c33afc42d7df98ea700eec7c.png" alt="E=\braket{\Psi|\hat H|\Psi}= \braket{\Psi|\hat T|\Psi}+\braket{\Psi|\hat U|\Psi}+\braket{\Psi|\hat V|\Psi}= T+U+V" /></p>
 </div><p>where</p>
@@ -227,11 +246,12 @@ so in order to get <img class="math" src="../../_images/math/174fadd07fd54c9afe2
 gas):</p>
 <div class="math">
 <p><img src="../../_images/math/36c3309d9c73a85d44dd67c7cbc5131ef6ac7b1f.png" alt="\hat H_s=\hat T+\hat V_s" /></p>
-</div><p>Then the many-body ground state wavefunction can be decomposed into single
-particle orbitals</p>
+</div><p>the Schrödinger then becomes:</p>
 <div class="math">
-<p><img src="../../_images/math/9cb9706481e989f4d45c82e4c46288bded610e0c.png" alt="\ket{\Psi ({\bf r_1},{\bf r_2},\cdots,{\bf r_N})}= \ket{\psi_1({\bf r})}\ket{\psi_2({\bf r})}\cdots\ket{\psi_N({\bf r})}" /></p>
-</div><p>and</p>
+<p><img src="../../_images/math/6171fa37fd4dbf3bd75d3717ac25f002e558be2e.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})
+
+n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2" /></p>
+</div><p>and the total energy is:</p>
 <div class="math">
 <p><img src="../../_images/math/92667b42a9c110759329eed9dace3d2b1222fb07.png" alt="E_s[n]=T_s[\{\psi_i[n]\}]+V_s[n]" /></p>
 </div><p>where</p>
@@ -239,20 +259,72 @@ particle orbitals</p>
 <p><img src="../../_images/math/f7ce25dfa857e3954fd3c677075e49aa344000a4.png" alt="T_s[n]=\braket{\Psi[n]|\hat T|\Psi[n]}= \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i}
 
 V_s[n]=\braket{\Psi[n]|\hat V|\Psi[n]}=\int v_s({\bf r})n({\bf r})\d^3r" /></p>
-</div><p>From <a href="#equation-euler">(6)</a> we get</p>
+</div><p>So:</p>
+<div class="math">
+<p><img src="../../_images/math/a80729daa732ae9ec0e7a96d77438e4a60d73a5e.png" alt="E_s[n] = \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i} +
+    \int v_s({\bf r})n({\bf r})\d^3r
+    =
+
+    = \sum_i\int \psi_i^* \left(-\half\nabla^2\right)\psi_i\,\d^3 r +
+        \int v_s({\bf r})\sum_i\psi_i^* \psi_i\, \d^3r
+    =
+
+    = \sum_i\int \psi_i^* \left(-\half\nabla^2 + v_s({\bf r})\right)
+        \psi_i\,\d^3 r
+    =
+
+    = \sum_i \epsilon_i\int \psi_i^* \psi_i\,\d^3 r =
+
+    = \sum_i \epsilon_i" /></p>
+</div><p>The total energy is the sum of eigenvalues (energies of the individual
+independent particles) as expected. From the last equation it follows:</p>
+<div class="math">
+<p><img src="../../_images/math/15091c09e66dfa095676d249c264a2d0d95399f7.png" alt="T_s[n] = \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i}
+    = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r" /></p>
+</div><p>In other words, the kinetic energy of the noninteracting particles is equal to
+the sum of eigenvalues minus the potential energy coming from the total
+effective potential <img class="math" src="../../_images/math/7d0220e2a0c12c2a6048f99e473516e1a4efab88.png" alt="v_s"/> used to construct the single particle orbitals
+<img class="math" src="../../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i"/>.</p>
+<p>From <a href="#equation-euler">(6)</a> we get</p>
 <div class="math" id="equation-noninteract">
 <p><span class="eqno">(7)</span><img src="../../_images/math/6513b7dafed08c0a54c7839fbf198f22675bc95d.png" alt="\mu={\delta E_s[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+{\delta V_s[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+v_s({\bf r})" /></p>
 </div><p>Solution to this equation gives the density <img class="math" src="../../_images/math/e67d506d841d6b0b63cb299e0635e9118f3f6969.png" alt="n_s"/>.</p>
 <p>Now we want to express the energy in <a href="#equation-Emanybody">(2)</a> using <img class="math" src="../../_images/math/43b3aabcb88e217357a0b38741411a9357bf238f.png" alt="T_s"/> and <img class="math" src="../../_images/math/98221fab89b1690eb98d0f1dbba30e97c9c36c10.png" alt="E_H"/>
 for convenience, where <img class="math" src="../../_images/math/98221fab89b1690eb98d0f1dbba30e97c9c36c10.png" alt="E_H"/> is the classical electrostatic interaction energy
-of the charge distribution <img class="math" src="../../_images/math/88bee3c8b92c428acf748ffb1a42363c7a23ac37.png" alt="n({\bf r})"/>:</p>
+of the charge distribution <img class="math" src="../../_images/math/c308801745db9ba7922d22ff3bc24618fb9bf91d.png" alt="\rho({\bf r})"/>, defined using following relations
+- we start with a Poisson equation in atomic units</p>
 <div class="math">
-<p><img src="../../_images/math/a22322eff683ce781875c7828c5e94a48cd30971.png" alt="\nabla^2 V_H=n({\bf r})" /></p>
-</div><p>or equivalently</p>
+<p><img src="../../_images/math/d27bc553d9f47c7e975f966e240db0fd5d041411.png" alt="\nabla^2 \phi_H({\bf r})=-4\pi \rho({\bf r})" /></p>
+</div><p>and substitute <img class="math" src="../../_images/math/9d4914a10a7b3417270bafaccaae542867c91600.png" alt="\rho({\bf r}) = q n({\bf r})"/>,
+<img class="math" src="../../_images/math/60a703c7679c3883184f04c639228a85970304de.png" alt="V_H({\bf r}) = q \phi_H({\bf r})"/> and we use the fact that <img class="math" src="../../_images/math/6758e63811698087b82800b0f4166a23d9af2d2e.png" alt="q^2=1"/> in atomic
+units:</p>
+<div class="math">
+<p><img src="../../_images/math/cc0b1c63af2cfc26246df816e252e37b6a01e8d0.png" alt="\nabla^2 V_H({\bf r})=-4\pi q^2 n({\bf r}) = -4\pi n({\bf r})" /></p>
+</div><p>or equivalently by expressing <img class="math" src="../../_images/math/0783030b7db37589c2fa4d4657fa9663d6bfea19.png" alt="V_H"/> using the Green function:</p>
+<div class="math" id="equation-V_H">
+<p><span class="eqno">(8)</span><img src="../../_images/math/f86ea01d43263d04384109bbec5c7524140f23fe.png" alt="V_H({\bf r})
+    = -{1\over 4\pi} \int {-4\pi n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+    = \int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'" /></p>
+</div><p>and finally <img class="math" src="../../_images/math/98221fab89b1690eb98d0f1dbba30e97c9c36c10.png" alt="E_H"/> is related to <img class="math" src="../../_images/math/0783030b7db37589c2fa4d4657fa9663d6bfea19.png" alt="V_H"/> using:</p>
+<div class="math">
+<p><img src="../../_images/math/fbb5c548178243190c00ddb914340b9def376945.png" alt="V_H({\bf r})={\delta E_H\over\delta n({\bf r})}" /></p>
+</div><p>so we get:</p>
 <div class="math">
 <p><img src="../../_images/math/a9ad5e5b20d9301dcdce74f135071cfbd6b902c3.png" alt="E_H[n]=\half\int\int {n({\bf r})n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r\d^3r'" /></p>
-</div><div class="math" id="equation-V_H">
-<p><span class="eqno">(8)</span><img src="../../_images/math/2547648b1ff7427362693cf54695a856ab0be59c.png" alt="V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'" /></p>
+</div><p>Using the rules for functional differentiation, we can check that:</p>
+<div class="math">
+<p><img src="../../_images/math/2ca58060a3765d1f6706d4be1d78cc1d7191a3a2.png" alt="V_H({\bf r})
+    ={\delta E_H\over\delta n({\bf r})}
+    ={\delta \over\delta n({\bf r})}
+        \half\int\int {n({\bf r'})n({\bf r''})\over|{\bf r'}-{\bf r''}|}
+        \d^3r'\d^3r''
+    =
+
+    =\int {n({\bf r'})\over|{\bf r}-{\bf r'}|}
+        \d^3r'" /></p>
+</div><p>Using the above relations, we can see that</p>
+<div class="math">
+<p><img src="../../_images/math/c9a2a48f4d3c981440303cc74e9f9a8eaeaf3884.png" alt="E_H[n]=\half\int V_H({\bf r}) n({\bf r}) \d^3r" /></p>
 </div><p>So from <a href="#equation-Efunct">(4)</a> we get</p>
 <div class="math" id="equation-Efunctxc">
 <p><span class="eqno">(9)</span><img src="../../_images/math/db144f4d778508608c4a1fe3768d0575acd3d99d.png" alt="E[n]=(T+U)[n]+V[n]=T_s[n]+E_H[n]+(T-T_s+U-E_H)[n]+V[n]=
@@ -275,13 +347,14 @@ the exchange and correlation energy functional. From <a href="#equation-euler">(
 <div class="math" id="equation-interact">
 <p><span class="eqno">(11)</span><img src="../../_images/math/4d2dd770037d98541f91ce3ec1fdfb590d711502.png" alt="\mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r})" /></p>
 </div><p>Solution to this equation gives the density <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>. Comparing <a href="#equation-interact">(11)</a> to
-:eq`noninteract` we see that if we choose</p>
+<a href="#equation-noninteract">(7)</a> we see that if we choose</p>
 <div class="math">
 <p><img src="../../_images/math/0220e85c55319caafa2f1b9b07b9ef81e060c022.png" alt="v_s\equiv V_H+V_{xc}+v" /></p>
 </div><p>then <img class="math" src="../../_images/math/245cfd7ac224be63e6855b55b5e163c0f06d5dc3.png" alt="n_s({\bf r})\equiv n({\bf r})"/>. So we solve the Kohn-Sham equations of
 this auxiliary non-interacting system</p>
 <div class="math" id="equation-KSeq">
-<p><span class="eqno">(12)</span><img src="../../_images/math/d21f96e608c6acc3c64b9ba9258a99e82d0d390f.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi({\bf r})" /></p>
+<p><span class="eqno">(12)</span><img src="../../_images/math/07bcd3699b8b68595a47300a3d675b1063b53cdd.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf
+r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})" /></p>
 </div><p>which yield the orbitals <img class="math" src="../../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i"/> that reproduce the density <img class="math" src="../../_images/math/88bee3c8b92c428acf748ffb1a42363c7a23ac37.png" alt="n({\bf r})"/> of the original interacting system</p>
 <div class="math" id="equation-KSdensity">
 <p><span class="eqno">(13)</span><img src="../../_images/math/6a7df5c10ff75f5b28f12de441c067a7a3eb852b.png" alt="n({\bf r})\equiv n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2" /></p>
@@ -302,6 +375,28 @@ with a special potential.</p>
 <div class="math">
 <p><img src="../../_images/math/9b610ad030c8356ef4cda50540887ff8dd894ad4.png" alt="E_{xc}[n]=\int n({\bf r}')\epsilon_{xc}({\bf r}';n)\d^3r'" /></p>
 </div><p>where the <img class="math" src="../../_images/math/d9f8c376278e0040e38bf4736e2c59dc3020e31b.png" alt="\epsilon_{xc}({\bf r}';n)"/> is called the xc energy density.</p>
+</div>
+<div class="section" id="total-energy">
+<h2>Total Energy<a class="headerlink" href="#total-energy" title="Permalink to this headline">¶</a></h2>
+<p>We already derived all the necessary things above, so we just summarize it here.
+The total energy is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/db144f4d778508608c4a1fe3768d0575acd3d99d.png" alt="E[n]=(T+U)[n]+V[n]=T_s[n]+E_H[n]+(T-T_s+U-E_H)[n]+V[n]=
+
+=T_s[n]+E_H[n]+E_{xc}[n]+V[n]" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/ac5cbab36160ed5ba3df280c117c400b7299af0f.png" alt="T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r
+
+E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
+
+E_{xc}[n]=\int \epsilon_{xc}({\bf r};n) n({\bf r}) \d^3r
+
+V[n]=\int v({\bf r}) n({\bf r}) \d^3r" /></p>
+</div><p>All these expressions are exact (no approximation has been made so far).</p>
+</div>
+<div class="section" id="xc-approximations">
+<h2>XC Approximations<a class="headerlink" href="#xc-approximations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lda">
 <h3>LDA<a class="headerlink" href="#lda" title="Permalink to this headline">¶</a></h3>
 <p>Unfortunately, no one knows <img class="math" src="../../_images/math/d9f8c376278e0040e38bf4736e2c59dc3020e31b.png" alt="\epsilon_{xc}({\bf r}';n)"/> exactly (yet). The most
@@ -486,8 +581,8 @@ V_x^{LD}\left(1-{3\over2} \left(
 <p><img src="../../_images/math/78147c8dbdfe5303faa2be11d11cd03ec9cb4d27.png" alt="\psi_{nlm} = R_{nl} Y_{lm}" /></p>
 </div><p>and we need to solve the following Kohn-Sham equations:</p>
 <div class="math">
-<p><img src="../../_images/math/d9f5765ed2fd5daa2d9ee45463f450fb62c52d04.png" alt="-{1\over2}R_{nl}'' - {1\over r}R_{nl}' +
-    \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = E_{nl} R_{nl}" /></p>
+<p><img src="../../_images/math/e0189b80227ca61963e2324e3c8c42ac03375189.png" alt="-{1\over2}R_{nl}'' - {1\over r}R_{nl}' +
+    \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = \epsilon_{nl} R_{nl}" /></p>
 </div><p>With normalization:</p>
 <div class="math">
 <p><img src="../../_images/math/0e31da0821d3b159019dcf983668e3645c95a900.png" alt="\int R_{nl}^2 \,r^2 \,\d r = 1" /></p>
@@ -569,13 +664,57 @@ numbers (in the Dirac case).</p>
 <div class="math">
 <p><img src="../../_images/math/00c6473b8d4deea7ead01a199fda1f3e5e629d69.png" alt="V_H''(r) + {2\over r} V_H'(r) = -4\pi n(r)" /></p>
 </div></div>
+<div class="section" id="id5">
+<h3>Total Energy<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The total energy is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/1f6e5d401ffa4d9c41402f3a7e1f8dc8f3b4541f.png" alt="E[n]= T_s[n]+E_H[n]+E_{xc}[n]+V[n]" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/7b0ed3f3f12d5864f72bed4012bf08be06cfffe6.png" alt="T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+    -\int (V_H(r) + V_{xc}(r) + v(r))_{in} n(r) \d^3 r
+    =
+
+    = \sum_{nl} f_{nl}\epsilon_{nl}
+        -\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} n(r) \d^3 r
+
+E_H[n] = \half\int V_H(r) n(r) \d^3r
+
+E_{xc}[n]=\int \epsilon_{xc}(r;n) n(r) \d^3r
+
+V[n]=\int v(r) n(r) \d^3r = -\int {Z\over r} n(r) \d^3r" /></p>
+</div><p>doing the integrals a bit we get:</p>
+<div class="math">
+<p><img src="../../_images/math/d5e6c4faf8a8b0efd099154bffa9d3e1c2dfba2c.png" alt="T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+        -4\pi\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} n(r)
+            r^2\,\d r
+
+E_H[n] = 2\pi\int V_H(r) n(r)r^2\, \d r
+
+E_{xc}[n]=4\pi\int \epsilon_{xc}(r;n) n(r)r^2\, \d r
+
+V[n]=-4\pi \int {Z\over r} n(r)r^2\, \d r
+    =-4\pi Z \int n(r)r\, \d r" /></p>
+</div><p>We can also express everything using the charge density <img class="math" src="../../_images/math/66b7874e970825592ee43dc0c406f887c89c77f2.png" alt="\rho(r) = -n(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f838e1f3bf417a4c3466a824cdd4ce43d3e84306.png" alt="T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+        +4\pi\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} \rho(r)
+            r^2\,\d r
+
+E_H[n] = -2\pi\int V_H(r) \rho(r)r^2\, \d r
+
+E_{xc}[n]=-4\pi\int \epsilon_{xc}(r;n) \rho(r)r^2\, \d r
+
+V[n]=4\pi \int {Z\over r} \rho(r)r^2\, \d r
+    =4\pi Z \int \rho(r)r\, \d r" /></p>
+</div></div>
 </div>
 <div class="section" id="dft-as-a-nonlinear-problem">
 <h2>DFT As a Nonlinear Problem<a class="headerlink" href="#dft-as-a-nonlinear-problem" title="Permalink to this headline">¶</a></h2>
 <p>The task is to find such a charge density <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, so that all the equations below
 hold (e.g. are self-consistent):</p>
 <div class="math">
-<p><img src="../../_images/math/2a93abf7859cb327e25cfeb06c4d317561915419.png" alt="V = -{Z\over r} + V_H + V_{xc}
+<p><img src="../../_images/math/3955d943553ea47efe2e7c18a910cde08612c235.png" alt="V = -{Z\over r} + V_H + V_{xc}
 
 \left(-\nabla^2+V\right)\phi_m = \epsilon_m\phi_m,\quad\quad m = 1, 2, \dots, 4
 
@@ -583,35 +722,35 @@ n = \sum_{m=1}^4 \phi_m^2
 
 V_{xc} = f(n)
 
-\nabla^2 V_H = n" /></p>
+\nabla^2 V_H = -4\pi n" /></p>
 </div><p>This is a standard nonlinear problem, except that the Jacobian is dense, as
 shown below.</p>
 <div class="section" id="reformulation">
 <h3>Reformulation<a class="headerlink" href="#reformulation" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s write everything in terms of <img class="math" src="../../_images/math/07aa4128847ea85c9c3b9a45d18df01edb03ccbf.png" alt="\phi_m(x)"/> explicitly:</p>
 <div class="math">
-<p><img src="../../_images/math/93ac42fcf757c3afc64774f6869d34491e470dc6.png" alt="n(x) = %n(y^{(1)}, \dots, y^{(4)}) = \sum_{m=1}^4 \phi_m^2(x)
+<p><img src="../../_images/math/1d81fb70cd7d50ea7522d16636b7227959e0a35a.png" alt="n(x) = \sum_{m=1}^4 \phi_m^2(x)
 
 V_{xc}(x) = f(n(x)) = f\left( \sum_{m=1}^4\phi_m^2(x) \right)
 
-V_H(x) = \half \int_\Omega {n(x')\over|x' - x|}\d x'=
-\half \int_\Omega {
+V_H(x) = \int_\Omega {n(x')\over|x' - x|}\d x'=
+\int_\Omega {
 \sum_{m=1}^4 \phi_m^2(x')
 \over|x' - x|}\d x'
 
 V(x) = -{Z\over r} + V_H(x) + V_{xc}(x)=
 
 =-{Z\over r}+
-\half \int_\Omega {
+\int_\Omega {
 \sum_{m=1}^4 \phi_m^2(x')
 \over|x' - x|}\d x'
 +f\left( \sum_{m=1}^4\phi_m^2(x) \right)" /></p>
 </div><p>Now we can write everything as just one (nonlinear)
 equation:</p>
 <div class="math">
-<p><img src="../../_images/math/549cbb2651291d1c71528f8446338fd8e3e5ee7b.png" alt="\left(-\nabla^2
+<p><img src="../../_images/math/bc35a49910a85e4982701221a97fa127f88dce97.png" alt="\left(-\nabla^2
 -{Z\over r}+
-\half \int_\Omega {
+\int_\Omega {
 \sum_{m=1}^4 \phi_m^2(x')
 \over|x' - x|}\d x'
 +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -621,9 +760,9 @@ equation:</p>
 <h3>FE Discretization<a class="headerlink" href="#fe-discretization" title="Permalink to this headline">¶</a></h3>
 <p>The correspondig discrete problem has the form</p>
 <div class="math">
-<p><img src="../../_images/math/82db9795aedfa0b845d18a1389d9f80e02f213cb.png" alt="\int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
+<p><img src="../../_images/math/1c48c4e069f6e50b9092e521b247f96e25d1860b.png" alt="\int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
 -{Z\over r}+
-\half \int_\Omega {
+\int_\Omega {
 \sum_{m=1}^4 \phi_m^2(x')
 \over|x' - x|}\d x'
 +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -643,10 +782,10 @@ can then be written in the compact form</p>
 <p><img src="../../_images/math/c24402ab0ccec41e8829e018307868722862a67b.png" alt="{\bf F}({\bf Y}^{(n)}) = {\bf 0},\quad\quad n = 1, 2, \dots, 4" /></p>
 </div><p>where <img class="math" src="../../_images/math/cef31b74ed2d81cbeecd6f9274372384dc499ef1.png" alt="{\bf F} = (F_1, F_2, \dots, F_N)^T"/> with</p>
 <div class="math">
-<p><img src="../../_images/math/46ead0e80002a44e1677260ab5efda3f71430be1.png" alt="F_i({\bf Y}^{(n)}) =
+<p><img src="../../_images/math/999b49eec72c24179acca7fe1a914c1363b9b992.png" alt="F_i({\bf Y}^{(n)}) =
 \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
 -{Z\over r}+
-\half \int_\Omega {
+\int_\Omega {
 \sum_{m=1}^4 \phi_m^2(x')
 \over|x' - x|}\d x'
 +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -727,57 +866,60 @@ making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../../index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="">Density Functional Theory (DFT)</a><ul>
-<li><a class="reference external" href="#many-body-schrodinger-equation">Many Body Schrödinger Equation</a></li>
-<li><a class="reference external" href="#the-hohenberg-kohn-theorem">The Hohenberg-Kohn Theorem</a></li>
-<li><a class="reference external" href="#the-kohn-sham-equations">The Kohn-Sham Equations</a></li>
-<li><a class="reference external" href="#the-xc-term">The XC Term</a><ul>
-<li><a class="reference external" href="#lda">LDA</a></li>
-<li><a class="reference external" href="#rlda">RLDA</a></li>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Density Functional Theory (DFT)</a><ul>
+<li><a class="reference internal" href="#many-body-schrodinger-equation">Many Body Schrödinger Equation</a></li>
+<li><a class="reference internal" href="#the-hohenberg-kohn-theorem">The Hohenberg-Kohn Theorem</a></li>
+<li><a class="reference internal" href="#the-kohn-sham-equations">The Kohn-Sham Equations</a></li>
+<li><a class="reference internal" href="#the-xc-term">The XC Term</a></li>
+<li><a class="reference internal" href="#total-energy">Total Energy</a></li>
+<li><a class="reference internal" href="#xc-approximations">XC Approximations</a><ul>
+<li><a class="reference internal" href="#lda">LDA</a></li>
+<li><a class="reference internal" href="#rlda">RLDA</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#radial-dft-problem">Radial DFT Problem</a><ul>
-<li><a class="reference external" href="#kohn-sham-equations">Kohn-Sham Equations</a></li>
-<li><a class="reference external" href="#poisson-equation">Poisson Equation</a></li>
+<li><a class="reference internal" href="#radial-dft-problem">Radial DFT Problem</a><ul>
+<li><a class="reference internal" href="#kohn-sham-equations">Kohn-Sham Equations</a></li>
+<li><a class="reference internal" href="#poisson-equation">Poisson Equation</a></li>
+<li><a class="reference internal" href="#id5">Total Energy</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#dft-as-a-nonlinear-problem">DFT As a Nonlinear Problem</a><ul>
-<li><a class="reference external" href="#reformulation">Reformulation</a></li>
-<li><a class="reference external" href="#fe-discretization">FE Discretization</a></li>
-<li><a class="reference external" href="#jacobian">Jacobian</a></li>
+<li><a class="reference internal" href="#dft-as-a-nonlinear-problem">DFT As a Nonlinear Problem</a><ul>
+<li><a class="reference internal" href="#reformulation">Reformulation</a></li>
+<li><a class="reference internal" href="#fe-discretization">FE Discretization</a></li>
+<li><a class="reference internal" href="#jacobian">Jacobian</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#references">References</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="radial.html"
-                                  title="previous chapter">Radial Schrödinger and Dirac Equations</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="paw.html"
-                                  title="next chapter">Projector Augmented-Wave Method (PAW)</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../_sources/src/quantum/dft.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="radial.html"
+                        title="previous chapter">Radial Schrödinger and Dirac Equations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="paw.html"
+                        title="next chapter">Projector Augmented-Wave Method (PAW)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/quantum/dft.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -800,7 +942,7 @@ making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd
     </div>
     <div class="footer">
         &copy; Copyright 2009, 2010, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.5',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
@@ -48,9 +51,9 @@
           <div class="body">
             
   <div class="section" id="quantum-mechanics">
-<span id="index-426"></span><h1>Quantum Mechanics<a class="headerlink" href="#quantum-mechanics" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Quantum Mechanics<a class="headerlink" href="#quantum-mechanics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="from-qed-to-quantum-mechanics">
-<span id="index-427"></span><h2>From QED to Quantum Mechanics<a class="headerlink" href="#from-qed-to-quantum-mechanics" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>From QED to Quantum Mechanics<a class="headerlink" href="#from-qed-to-quantum-mechanics" title="Permalink to this headline">¶</a></h2>
 <p>The QED Lagrangian density is</p>
 <div class="math">
 <p><img src="../../_images/math/bf3d7b68f0b9796871d4447ba7b0e61c501b0d0d.png" alt="\L=\bar\psi(i\hbar c\gamma^\mu D_\mu-mc^2)\psi-{1\over4}F_{\mu\nu}F^{\mu\nu}" /></p>
@@ -106,7 +109,7 @@
 <p><img src="../../_images/math/dbbfed16efd965e61db1cae365435228830193a8.png" alt="L=i\varphi^*{\partial\varphi\over\partial t} -{1\over 2m}\partial^i\varphi^*\partial_i \varphi" /></p>
 </div></div>
 <div class="section" id="klein-gordon-equation">
-<span id="index-428"></span><h3>Klein-Gordon Equation<a class="headerlink" href="#klein-gordon-equation" title="Permalink to this headline">¶</a></h3>
+<span id="index-2"></span><h3>Klein-Gordon Equation<a class="headerlink" href="#klein-gordon-equation" title="Permalink to this headline">¶</a></h3>
 <p>The Dirac equation implies the Klein-Gordon equation:</p>
 <div class="math">
 <p><img src="../../_images/math/0c8b1a471696e096eccf01556b5dbf1b29ce94fe.png" alt="0=(-i\hbar c\gamma^\mu D_\mu-mc^2)(i\hbar c\gamma^\nu D_\nu-mc^2)\psi= (\hbar^2c^2\gamma^\mu\gamma^\nu D_\mu D_\nu+m^2c^4)\psi=" /></p>
@@ -184,7 +187,7 @@
 </div></div>
 </div>
 <div class="section" id="perturbation-theory">
-<span id="index-429"></span><h2>Perturbation Theory<a class="headerlink" href="#perturbation-theory" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Perturbation Theory<a class="headerlink" href="#perturbation-theory" title="Permalink to this headline">¶</a></h2>
 <p>We want to solve the equation:</p>
 <div class="math" id="equation-schroed">
 <p><span class="eqno">(1)</span><img src="../../_images/math/2e0b294ef94b6a6eb38641709428d28d81ccfa9b.png" alt="i\hbar{\d \over\d t}\ket{\psi(t)}=H(t)\ket{\psi(t)}" /></p>
@@ -276,7 +279,7 @@
 </div></div>
 </div>
 <div class="section" id="scattering-theory">
-<span id="index-430"></span><h2>Scattering Theory<a class="headerlink" href="#scattering-theory" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Scattering Theory<a class="headerlink" href="#scattering-theory" title="Permalink to this headline">¶</a></h2>
 <p>The incoming plane wave state is a solution of</p>
 <div class="math">
 <p><img src="../../_images/math/7aeb04cb59194b085c7ce83c17f0f4f5be215720.png" alt="H_0\ket{{\bf k}}=E_k\ket{{\bf k}}" /></p>
@@ -594,7 +597,7 @@ number of (arbitrary) particles.</p>
 <div class="section" id="appendix">
 <h1>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="units-and-dimensional-analysis">
-<span id="index-431"></span><h2>Units and Dimensional Analysis<a class="headerlink" href="#units-and-dimensional-analysis" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Units and Dimensional Analysis<a class="headerlink" href="#units-and-dimensional-analysis" title="Permalink to this headline">¶</a></h2>
 <p>The evolution operator is dimensionless:</p>
 <div class="math">
 <p><img src="../../_images/math/349d7910bc22dcb6c22f688f4434630c10e56b42.png" alt="U(-\infty,\infty) = T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)" /></p>
@@ -630,27 +633,61 @@ number of (arbitrary) particles.</p>
 <p><img src="../../_images/math/9b8d574df016997a11626cc5cdcc154dd9ec8fe4.png" alt="A\to M^1" /></p>
 </div><p>The SI units of the above quantities are:</p>
 <div class="math">
-<p><img src="../../_images/math/06e874ac10299c85b6295669712e5195bdd63101.png" alt="[\phi] = \rm V={kg\,m^2\over A\,s^3}=M" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/64c09747d145a35ec43ec4fe3f497b92090b4122.png" alt="[A_\mu]={[\phi]\over [c]}=\rm{V\,s\over m} = {kg\, m\over A\,s^2}=M" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/701103ddba0fb5fd3b2921add9605cd726d3ee37.png" alt="[c]=\rm {m\over s} = 1" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/8dcc42411b6d3c14b74a2bd7503adef12007dbc5.png" alt="[e]=\rm C = A\, s=1" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/c73895f329071bdf9eafc0f7e739d2193b837d3a.png" alt="[\hbar]=\rm J\,s = {m^2\,kg\over s}=1" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/4dafda5c6ac0bc77ca7f7423c55f3a642416e03b.png" alt="[\partial_\mu]=\rm {1\over m}=M" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/da5e9867d3c83212878360c5755e4d7bd63909b8.png" alt="[F_{\mu\nu}]=[\partial_\mu A_\nu]=\rm {kg\over A\,s^2}=M^2" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/b8f4b549c7b17aac7718deda1ca311664076295b.png" alt="[\L]=[F_{\mu\nu}]^2=\rm {kg^2\over A^2\,s^4}=M^4" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/6904e49363d8b9dfbe7871dbef82f998be4f11ad.png" alt="[\psi]=\rm {kg^{1\over2}\over A\,m\,s}=M^{3\over2}" /></p>
+<p><img src="../../_images/math/104670888203728d33493886a90263103a4a8932.png" alt="[\phi] = \rm V={kg\,m^2\over A\,s^3}=M
+
+[A_\mu]={[\phi]\over [c]}=\rm{V\,s\over m} = {kg\, m\over A\,s^2}=M
+
+[c]=\rm {m\over s} = 1
+
+[e]=\rm C = A\, s=1
+
+[\hbar]=\rm J\,s = {m^2\,kg\over s}=1
+
+[\partial_\mu]=\rm {1\over m}=M
+
+[F_{\mu\nu}]=[\partial_\mu A_\nu]=\rm {kg\over A\,s^2}=M^2
+
+[\L]=[F_{\mu\nu}]^2=\rm {kg^2\over A^2\,s^4}=M^4
+
+[\psi]=\rm {kg^{1\over2}\over A\,m\,s}=M^{3\over2}" /></p>
 </div><p>The SI units are useful for checking that the <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>, <img class="math" src="../../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> and <img class="math" src="../../_images/math/0678e85c9374aaebeb3099f934cb8a7e452c75da.png" alt="\hbar"/> constants are at correct places in the expression.</p>
 </div>
+<div class="section" id="atomic-units">
+<span id="index-6"></span><h2>Atomic Units<a class="headerlink" href="#atomic-units" title="Permalink to this headline">¶</a></h2>
+<p>Hartree atomic units are defined using the relations:</p>
+<div class="math">
+<p><img src="../../_images/math/f1f67d90ba5ab66625c17296e10c508debbeb294.png" alt="\hbar = m = e = 4\pi\epsilon_0 = 1" /></p>
+</div><p>so for example for the Bohr radius we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ca6e024c742bb09e7323edd656c8c232dd60841f.png" alt="a_0 = {4\pi\epsilon_0 \hbar^2 \over m e^2} = 1" /></p>
+</div><p>for fine structure constant (<img class="math" src="../../_images/math/4ef121afda9d86bae6ddc9fcad74cd3bdc8cc347.png" alt="\alpha=1/137.036..."/>) we get:</p>
+<div class="math">
+<p><img src="../../_images/math/44a0e8b8ff83bae87f08dc4f4b38424126995bc6.png" alt="\alpha = {e^2\over 4\pi\epsilon_0 \hbar c} = {1\over c}" /></p>
+</div><p>from which we calculate the speed of light <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> in atomic units as:</p>
+<div class="math">
+<p><img src="../../_images/math/ade0c13f2711f8bb28154de490771c7c6cf936b0.png" alt="c = {1\over\alpha}" /></p>
+</div><p>Energy is measured in Hartrees, one Hartree being</p>
+<div class="math">
+<p><img src="../../_images/math/c6c04354bf1ab40ef88e9bfd8c87dae7f3bbd24d.png" alt="1{\rm\,Ha} = {\hbar^2\over m a_0^2} = 1{\rm\,(a.u.)} = 27.211\rm\,eV" /></p>
+</div><p>Hamiltonian and the corresponding spectrum of the Hydrogen atom:</p>
+<div class="math">
+<p><img src="../../_images/math/2de6c2b367619d1ec62e5e2c916ede69e6220e84.png" alt="H = -{\hbar^2\over 2m} \nabla^2 - {1\over 4\pi\epsilon_0} {e^2\over r}
+
+E_n = -{\hbar^2\over m a_0^2} {1\over 2n^2}" /></p>
+</div><p>become in atomic units:</p>
+<div class="math">
+<p><img src="../../_images/math/f4319199f70328dc40074df3aa2db497ebc11e37.png" alt="H = -{1\over 2} \nabla^2 - {1\over r}
+
+E_n = -{1\over 2n^2}" /></p>
+</div><p>Poisson equation (Gauss&#8217;s law)</p>
+<div class="math">
+<p><img src="../../_images/math/012ce234f03d9e83633d72498a3d28496eb00fef.png" alt="\nabla^2\phi = -{\rho\over\epsilon_0}" /></p>
+</div><p>becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/067e52f34ca962a1045585b3f79e4cfe524400d3.png" alt="\nabla^2\phi = -{4\pi\rho}" /></p>
+</div></div>
 <div class="section" id="tensors-in-special-relativity-and-qft">
-<span id="index-432"></span><h2>Tensors in Special Relativity and QFT<a class="headerlink" href="#tensors-in-special-relativity-and-qft" title="Permalink to this headline">¶</a></h2>
+<h2>Tensors in Special Relativity and QFT<a class="headerlink" href="#tensors-in-special-relativity-and-qft" title="Permalink to this headline">¶</a></h2>
 <p>In general, the covariant and contravariant vectors and tensors work just like
 in special (and general) relativity. We use the metric <img class="math" src="../../_images/math/d49e81db32f3568d624872fc980a81be55446791.png" alt="g_{\mu\nu}={\rm
 diag}(1, -1, -1, -1)"/> (e.g. signature -2, but it&#8217;s possible to also use the
@@ -786,7 +823,7 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
 <p><img src="../../_images/math/7b0b9d616c01e378c5a0ddcf61028e1e61047a53.png" alt="D_j = \partial_j + {i\over\hbar}e A_j=-{i\over\hbar}(i\hbar\partial_j-eA_j) ={i\over\hbar}(i\hbar\partial^j-eA^j) ={i\over\hbar}({\bf p}-e{\bf A})" /></p>
 </div></div>
 <div class="section" id="multipole-expansion">
-<span id="index-433"></span><h2>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/71624d5123d1bb445f3d8aa113618dec49eb0b55.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =" /></p>
 </div><div class="math">
@@ -814,57 +851,58 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../../index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="">Quantum Mechanics</a><ul>
-<li><a class="reference external" href="#from-qed-to-quantum-mechanics">From QED to Quantum Mechanics</a><ul>
-<li><a class="reference external" href="#nonrelativistic-limit-in-the-lagrangian">Nonrelativistic Limit in the Lagrangian</a></li>
-<li><a class="reference external" href="#klein-gordon-equation">Klein-Gordon Equation</a></li>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quantum Mechanics</a><ul>
+<li><a class="reference internal" href="#from-qed-to-quantum-mechanics">From QED to Quantum Mechanics</a><ul>
+<li><a class="reference internal" href="#nonrelativistic-limit-in-the-lagrangian">Nonrelativistic Limit in the Lagrangian</a></li>
+<li><a class="reference internal" href="#klein-gordon-equation">Klein-Gordon Equation</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#perturbation-theory">Perturbation Theory</a><ul>
-<li><a class="reference external" href="#time-independent-perturbation-theory">Time Independent Perturbation Theory</a></li>
+<li><a class="reference internal" href="#perturbation-theory">Perturbation Theory</a><ul>
+<li><a class="reference internal" href="#time-independent-perturbation-theory">Time Independent Perturbation Theory</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#scattering-theory">Scattering Theory</a><ul>
-<li><a class="reference external" href="#born-approximation">Born Approximation</a></li>
+<li><a class="reference internal" href="#scattering-theory">Scattering Theory</a><ul>
+<li><a class="reference internal" href="#born-approximation">Born Approximation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference external" href="#systematic-perturbation-theory-in-qm">Systematic Perturbation Theory in QM</a></li>
-<li><a class="reference external" href="#appendix">Appendix</a><ul>
-<li><a class="reference external" href="#units-and-dimensional-analysis">Units and Dimensional Analysis</a></li>
-<li><a class="reference external" href="#tensors-in-special-relativity-and-qft">Tensors in Special Relativity and QFT</a></li>
-<li><a class="reference external" href="#multipole-expansion">Multipole expansion</a></li>
+<li><a class="reference internal" href="#systematic-perturbation-theory-in-qm">Systematic Perturbation Theory in QM</a></li>
+<li><a class="reference internal" href="#appendix">Appendix</a><ul>
+<li><a class="reference internal" href="#units-and-dimensional-analysis">Units and Dimensional Analysis</a></li>
+<li><a class="reference internal" href="#atomic-units">Atomic Units</a></li>
+<li><a class="reference internal" href="#tensors-in-special-relativity-and-qft">Tensors in Special Relativity and QFT</a></li>
+<li><a class="reference internal" href="#multipole-expansion">Multipole expansion</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="qed.html"
-                                  title="previous chapter">Quantum Electrodynamics (QED)</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="examples.html"
-                                  title="next chapter">Examples</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../_sources/src/quantum/qm.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="qed.html"
+                        title="previous chapter">Quantum Electrodynamics (QED)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="next chapter">Examples</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/quantum/qm.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -887,7 +925,7 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
     </div>
     <div class="footer">
         &copy; Copyright 2009, 2010, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>
