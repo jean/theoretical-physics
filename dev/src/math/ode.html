@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ordinary Differential Equations &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Linear Algebra" href="la.html" />
+    <link rel="prev" title="Feynman Parameters" href="feynman-parameters.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="la.html" title="Linear Algebra"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="feynman-parameters.html" title="Feynman Parameters"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ordinary-differential-equations">
+<h1>Ordinary Differential Equations<a class="headerlink" href="#ordinary-differential-equations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="finite-difference-formulas">
+<h2>Finite Difference Formulas<a class="headerlink" href="#finite-difference-formulas" title="Permalink to this headline">¶</a></h2>
+<p>We define the backward difference operator <img class="math" src="../../_images/math/10e9553a425fbc2a2b4ab0e03203d69927d13133.png" alt="\nabla_h"/> by:</p>
+<div class="math">
+<p><img src="../../_images/math/0b0633a581b67a1618905ee62f1bbc34da203825.png" alt="\nabla_h f(a) = f(a) - f(a-h)" /></p>
+</div><p>Repeated application gives:</p>
+<div class="math">
+<p><img src="../../_images/math/48a85212919cc8e83615904827dbac9b47d570ea.png" alt="\nabla_h^2 f(a) = \nabla_h (f(a) - f(a-h))
+    = f(a) - f(a-h) -f(a-h) + f(a-2h)
+    = f(a) - 2f(a-h) + f(a-2h)
+
+\nabla_h^3 f(a) = f(a) - 3f(a-h) + 3f(a-2h)-f(a-3h)
+
+\nabla_h^n f(a) = \sum_{k=0}^n \binom{n}{k}(-1)^k f(a-kh)" /></p>
+</div><p>We can also derive a formula for <img class="math" src="../../_images/math/d2a98856b79db131e6dba318b2c19be3654bdc94.png" alt="f(a+t)"/> where <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is any real number,
+independent of <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/c47f7b15bb7d89ecbd59ef3da5d86bfc3e1ab202.png" alt="f(a-h) = (1-\nabla_h) f(a)
+
+(1-\nabla_h)^{-1} f(a-h) = f(a)
+
+(1-\nabla_h)^{-1} f(a) = f(a+h)
+
+(1-\nabla_h)^{-n} f(a) = f(a+nh)
+
+(1-\nabla_h)^{-{t\over h}} f(a) = f(a+t)" /></p>
+</div><p>Now we can express the following general integral using the function value from
+either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4adf3e668f4db723f.png" alt="f(a)"/>) or right (<img class="math" src="../../_images/math/e88bef0f90f0bbe4d107a713801ba523b69e4dee.png" alt="f(a+h)"/>) hand side of the interval <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f0486e467c514bf57c61bbb746800a2067d9e968.png" alt="\int_a^{a+h} f(t) \,\d t
+    = \int_0^h f(a+t) \,\d t
+    = \int_0^h (1-\nabla_h)^{-{t\over h}} f(a) \,\d t
+    =
+
+    = - {h\nabla_h\over (1-\nabla_h) \log(1-\nabla_h)}f(a) =
+
+    = h \left(1+\half\nabla_h + {5\over 12}\nabla_h^2+{3\over8}
+        \nabla_h^3+\cdots\right) f(a) =
+
+    = - {h\nabla_h\over \log(1-\nabla_h)} (1-\nabla_h)^{-1}f(a)
+    = - {h\nabla_h\over \log(1-\nabla_h)} f(a+h) =
+
+    = h \left(1-\half\nabla_h - {1\over 12}\nabla_h^2-{1\over24}
+        \nabla_h^3+\cdots\right) f(a+h)" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">simplify</span><span class="p">,</span> <span class="n">integrate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;nabla t h&quot;</span><span class="p">)</span>
+<span class="go">(nabla, t, h)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">nabla</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simplify</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">h*nabla/(-log(1 - nabla) + nabla*log(1 - nabla))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">nabla</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">h + h*nabla/2 + 5*h*nabla**2/12 + 3*h*nabla**3/8 + 251*h*nabla**4/720 + O(nabla**5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">nabla</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simplify</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="go">-h*nabla/log(1 - nabla)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">nabla</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">h - h*nabla/2 - h*nabla**2/12 - h*nabla**3/24 - 19*h*nabla**4/720 + O(nabla**5)</span>
+</pre></div>
+</div>
+<p>Keeping terms only to third-order, we obtain:</p>
+<div class="math">
+<p><img src="../../_images/math/f44e719ee5ba68707df1cb69bcb0c726f205beaf.png" alt="\int_a^{a+h} f(t) \,\d t
+    = - {h\nabla_h\over (1-\nabla_h) \log(1-\nabla_h)}f(a)
+    \approx h \left(1+\half\nabla_h + {5\over 12}\nabla_h^2+{3\over8}
+        \nabla_h^3\right) f(a)
+    =
+
+    = h f(a) + h\half\left(f(a)-f(a-h)\right)
+        +h{5\over 12}\left(f(a)-2f(a-h)+f(a-2h)\right)+
+
+        +h{3\over8}\left(f(a)-3f(a-h)+3f(a-2h)-f(a-3h)\right)
+    =
+
+    = h\left(1+\half+{5\over12}+{3\over8}\right)f(a)
+      -h\left(\half+{2\cdot5\over12}+{3\cdot3\over8}\right)f(a-h) +
+
+      +h\left({5\over12}+{3\cdot3\over8}\right)f(a-2h)
+      -h\left({3\over8}\right)f(a-3h)
+    =
+
+    = h{55\over24}f(a) -h{59\over24}f(a-h) +
+      h{37\over24}f(a-2h) -h{3\over8}f(a-3h)
+    =
+
+    = {h\over24}\left(55f(a) -59f(a-h) + 37f(a-2h) -9f(a-3h)\right)" /></p>
+</div><p>Similarly:</p>
+<div class="math">
+<p><img src="../../_images/math/98455a7d647d0262a7d80863ff8e2ede64d944eb.png" alt="\int_a^{a+h} f(t) \,\d t
+    = - {h\nabla_h\over\log(1-\nabla_h)}f(a+h)
+    \approx h \left(1-\half\nabla_h - {1\over 12}\nabla_h^2-{1\over24}
+        \nabla_h^3\right) f(a+h)
+    =
+
+    = {h\over24}\left(9f(a+h) +19f(a) -5f(a-h) +f(a-2h)\right)" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;f0 f1 f2 f3&quot;</span><span class="p">)</span>
+<span class="go">(f0, f1, f2, f3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nabla1</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">-</span> <span class="n">f1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nabla2</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nabla3</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">f1</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">f2</span> <span class="o">-</span> <span class="n">f3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">24</span><span class="o">*</span><span class="p">(</span><span class="n">f0</span> <span class="o">+</span> <span class="n">nabla1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">nabla2</span><span class="o">/</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">nabla3</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">-59*f1 - 9*f3 + 37*f2 + 55*f0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">24</span><span class="o">*</span><span class="p">(</span><span class="n">f0</span> <span class="o">-</span> <span class="n">nabla1</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">nabla2</span><span class="o">/</span><span class="mi">12</span> <span class="o">-</span> <span class="n">nabla3</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span>
+<span class="go">f3 - 5*f2 + 9*f0 + 19*f1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Ordinary Differential Equations</a><ul>
+<li><a class="reference internal" href="#finite-difference-formulas">Finite Difference Formulas</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="feynman-parameters.html"
+                        title="previous chapter">Feynman Parameters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="la.html"
+                        title="next chapter">Linear Algebra</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/math/ode.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="la.html" title="Linear Algebra"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="feynman-parameters.html" title="Feynman Parameters"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, 2010, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

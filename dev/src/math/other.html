@@ -655,6 +655,40 @@ analytically).</p>
 </div>
 </div>
 </div>
+<div class="section" id="binomial-coefficients">
+<h1>Binomial Coefficients<a class="headerlink" href="#binomial-coefficients" title="Permalink to this headline">¶</a></h1>
+<p>For <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> integers, the binomial coefficients are defined by:</p>
+<div class="math">
+<p><img src="../../_images/math/3dff4705614f84df7609f3d2278ede44a72b9da5.png" alt="\binom{n}{k} = {n!\over k! (n-k)!} =
+    {n (n-1) \cdots (n-k+1)\over k!}" /></p>
+</div><p>For <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> real, one just uses the second formula as a definition:</p>
+<div class="math">
+<p><img src="../../_images/math/9bbdc4748fc749ec59c9c9565e77ffdc84e0d098.png" alt="\binom{r}{k} = {r (r-1) \cdots (r-k+1)\over k!}" /></p>
+</div><p>Example:</p>
+<div class="math">
+<p><img src="../../_images/math/9cda2b102210117b1abe355d869c95ac6d9a69a2.png" alt="\binom{-n}{k}
+    = {(-n) (-n-1) \cdots (-n-k+1)\over k!}
+    = (-1)^{k} {n (n+1) \cdots (n+k-1)\over k!}
+    = (-1)^{k}\binom{n+k-1}{k}" /></p>
+</div><p>The binomial formula is for <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> integer:</p>
+<div class="math">
+<p><img src="../../_images/math/30f1025587b5179ab4c3a145f44ba09e0e38eaee.png" alt="(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}" /></p>
+</div><p>and for <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> real and <img class="math" src="../../_images/math/4880663de169301e011ab1b8b7b41d41cb3127f1.png" alt="|x| &lt; |y|"/> this can be generalized to:</p>
+<div class="math">
+<p><img src="../../_images/math/ca40d23dbab8aba00df5f02a3c392ff26c3627ed.png" alt="(x+y)^r = \sum_{k=0}^\infty \binom{r}{k} x^k y^{r-k}" /></p>
+</div><p>Example: (for <img class="math" src="../../_images/math/796af557812a3e6b3f7bff6d89875f9d7721d320.png" alt="|x| &lt; 1"/>)</p>
+<div class="math">
+<p><img src="../../_images/math/729e7a7e3e666cde98e975a1e1bcdc768926f511.png" alt="(1 + x)^{-n} = \sum_{k=0}^\infty \binom{-n}{k} x^k
+    = \sum_{k=0}^\infty (-1)^k\binom{n+k-1}{k} x^k
+    = \sum_{k=0}^\infty \binom{n+k-1}{k} (-x)^k" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/659af3f919fa183968a5813de027425b1aebefe9.png" alt="(1 - x)^{-n} = \sum_{k=0}^\infty \binom{n+k-1}{k} x^k
+
+(1 - x)^{-1} = \sum_{k=0}^\infty \binom{1+k-1}{k} x^k
+    = \sum_{k=0}^\infty \binom{k}{k} x^k
+    = \sum_{k=0}^\infty x^k" /></p>
+</div></div>
 
 
           </div>
@@ -686,6 +720,7 @@ analytically).</p>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
 </ul>
 
   <h4>Previous topic</h4>
