@@ -161,6 +161,42 @@ either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4a
 </pre></div>
 </div>
 </div>
+<div class="section" id="integrating-ode">
+<h2>Integrating ODE<a class="headerlink" href="#integrating-ode" title="Permalink to this headline">¶</a></h2>
+<p>Set of linear ODEs can be written in the form:</p>
+<div class="math" id="equation-ode_eq">
+<p><span class="eqno">(1)</span><img src="../../_images/math/e8d43e3a8a93f628aa78cda11ebca2d66fe490ca.png" alt="{\d y\over\d r} = G y" /></p>
+</div><p>For example for the Schrödinger we have</p>
+<div class="math">
+<p><img src="../../_images/math/c144a6b2a22c880cb39a2ecceabfc76bd5890a2f.png" alt="y = \begin{pmatrix}
+    P \\
+    Q
+    \end{pmatrix}
+
+G = \begin{pmatrix}
+    0 &amp; 1 \\
+    -2(E-V) - {l(l+1)\over r^2} &amp; 0 \\
+    \end{pmatrix}" /></p>
+</div><p>Now we need to choose a grid <img class="math" src="../../_images/math/258d51d7f19dc55e32e54a7228c2954d6bbd38ad.png" alt="r = r(t)"/>, where <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is some uniform grid. For
+example <img class="math" src="../../_images/math/3e3a72573d07a09025385a57eef07c7c06a75aca.png" alt="r = r_0 (e^t-1)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f4da6b24c198de46469670fe6d0892e24f72019a.png" alt="r_i = r_0 (e^{t_i} - 1)
+
+t_i = (i-1)h" /></p>
+</div><p>where <img class="math" src="../../_images/math/ff52527934669b955341c083e3bdaf63f62c27c8.png" alt="i = 1, 2, 3, \dots, N"/>. We also need the derivative, for the exampe
+above we get:</p>
+<div class="math">
+<p><img src="../../_images/math/4747903af2562137abba593ccebd0c5335d67c1d.png" alt="{\d r\over\d t} = r_0 e^t" /></p>
+</div><p>Now we substitute this into <a href="#equation-ode_eq">(1)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/423c7a7976c8a41a1fb683ad056b1b736416bf73.png" alt="{\d y\over\d t} = {\d r\over\d t} G y" /></p>
+</div><p>We can integrate this system from <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> to <img class="math" src="../../_images/math/ec2ac3b93c1551b226a92d7446fd4316867f921b.png" alt="a+h"/> on a uniform grid <img class="math" src="../../_images/math/273e0046b505d99f3d1167caa82b2ac76c96d075.png" alt="t_i"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/e81ab984b606bd314a3c0e87706223c872cdd1b4.png" alt="y(a+h) = y(a) + \int_a^{a+h} {\d r\over\d t} G y\,\d t
+    = y(a) + \int_a^{a+h} f(t)\,\d t" /></p>
+</div><p>where <img class="math" src="../../_images/math/f5a46fb36c750824df9c13194d51b38fb7056eb5.png" alt="f(t) = {\d r\over\d t} G y"/> and we use some method to approximate the
+integral, see the previous section.</p>
+</div>
 </div>
 
 
@@ -173,6 +209,7 @@ either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4a
   <ul>
 <li><a class="reference internal" href="#">Ordinary Differential Equations</a><ul>
 <li><a class="reference internal" href="#finite-difference-formulas">Finite Difference Formulas</a></li>
+<li><a class="reference internal" href="#integrating-ode">Integrating ODE</a></li>
 </ul>
 </li>
 </ul>
