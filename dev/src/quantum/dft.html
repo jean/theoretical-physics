@@ -398,10 +398,14 @@ E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
 E_{xc}[n]=\int \epsilon_{xc}({\bf r};n) n({\bf r}) \d^3r
 
 V[n]=\int v({\bf r}) n({\bf r}) \d^3r" /></p>
-</div><p>This is the variational (fast converging) form of the total energy.
-Another expression for the total energy, which is equivalent to the above if we
-are in self-consistency, but converges much slower with the SCF iterations, can
-be obtained by expanding <img class="math" src="../../_images/math/7d0220e2a0c12c2a6048f99e473516e1a4efab88.png" alt="v_s"/> using <a href="#equation-V_in">(12)</a>:</p>
+</div><p>This is the correct, quadratically convergent expression for the total energy.
+We use the whole input potential <img class="math" src="../../_images/math/a389c44b1b6e6fb107e79af358a2bd55f87220c1.png" alt="V_{in}\equiv v_s"/> and its associated
+eigenvalues <img class="math" src="../../_images/math/319593f7ae7122d7910bdf87a156b25f7588f1ad.png" alt="\epsilon_i"/> to calculate the kinetic energy <img class="math" src="../../_images/math/07c6b8a10e002df3e8f11024d99cab7ae30e1470.png" alt="T_s[n]"/>, this follows
+from the derivation of the expression for <img class="math" src="../../_images/math/07c6b8a10e002df3e8f11024d99cab7ae30e1470.png" alt="T_s[n]"/>. Then we use the calculated
+charge density to express <img class="math" src="../../_images/math/b0028f8a44f7e664713a38890a4de82c7a981a9b.png" alt="E_H[n]"/>, <img class="math" src="../../_images/math/2a228b0cfab82ec33a38319373cd61cb202205ee.png" alt="E_{xc}[n]"/> and <img class="math" src="../../_images/math/16a3ec972c7a23ad2299075d3ca4b8045b71be9c.png" alt="V[n]"/>.</p>
+<p>If one is not careful about the potential associated with the eigenvalues,
+i.e., confusing <img class="math" src="../../_images/math/16fc4b65029f2cadd229a56b4e62ecd1efbf69b2.png" alt="V_{in}"/> with <img class="math" src="../../_images/math/ee78831cb96266640a51dc11abb890488808a944.png" alt="V_{out}"/>, one gets a slow converging formula for
+total energy. By expanding <img class="math" src="../../_images/math/7d0220e2a0c12c2a6048f99e473516e1a4efab88.png" alt="v_s"/> using <a href="#equation-V_in">(12)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/ddac1a3ec1ccdaad32b74ed6893bbf096b562c3a.png" alt="\int v_s n({\bf r})\d^3 r
     = \int (V_H + V_{xc} + v) n({\bf r})\d^3 r
@@ -423,13 +427,20 @@ be obtained by expanding <img class="math" src="../../_images/math/7d0220e2a0c12
 
     = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
         -\int V_{xc}({\bf r};n) n({\bf r}) \d^3r" /></p>
-</div><p>All these expressions are exact (no approximation has been made so far).</p>
+</div><p>The reason it is slowly converging is because the new formula for kinetic
+energy is mixing <img class="math" src="../../_images/math/16fc4b65029f2cadd229a56b4e62ecd1efbf69b2.png" alt="V_{in}"/> with <img class="math" src="../../_images/math/ee78831cb96266640a51dc11abb890488808a944.png" alt="V_{out}"/>, so it is not as precise (see above)
+and converges much slower with SCF iterations. Once self-consistency has been
+achieved (i.e. <img class="math" src="../../_images/math/a239911f815a293a9a49c5684b49b89033e2acb1.png" alt="V_{in}=V_{out}"/>), the two expressions for total energy are
+equivalent.</p>
 </div>
 <div class="section" id="xc-approximations">
 <h2>XC Approximations<a class="headerlink" href="#xc-approximations" title="Permalink to this headline">¶</a></h2>
+<p>All the expressions above are exact (no approximation has been made so far).
+Unfortunately, no one knows <img class="math" src="../../_images/math/d9f8c376278e0040e38bf4736e2c59dc3020e31b.png" alt="\epsilon_{xc}({\bf r}';n)"/> exactly (yet). As such,
+various approximations for it exist.</p>
 <div class="section" id="lda">
 <h3>LDA<a class="headerlink" href="#lda" title="Permalink to this headline">¶</a></h3>
-<p>Unfortunately, no one knows <img class="math" src="../../_images/math/d9f8c376278e0040e38bf4736e2c59dc3020e31b.png" alt="\epsilon_{xc}({\bf r}';n)"/> exactly (yet). The most
+<p>The most
 simple approximation is the <em>local density approximation</em> (LDA), for which the
 xc energy density <img class="math" src="../../_images/math/c2f25bc635cc1f6b90da2c9d7f4f6100aa6b82ce.png" alt="\epsilon_{xc}"/> at <img class="math" src="../../_images/math/2d671c8502873792085d5a0571d9eef1d3b4fb0b.png" alt="\bf r"/> is taken as that of a homogeneous
 electron gas (the nuclei are replaced by a uniform positively charged
