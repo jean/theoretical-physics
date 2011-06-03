@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.5',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
@@ -345,16 +348,16 @@ the exchange and correlation energy functional. From <a href="#equation-euler">(
 <p><span class="eqno">(11)</span><img src="../../_images/math/4d2dd770037d98541f91ce3ec1fdfb590d711502.png" alt="\mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r})" /></p>
 </div><p>Solution to this equation gives the density <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>. Comparing <a href="#equation-interact">(11)</a> to
 <a href="#equation-noninteract">(7)</a> we see that if we choose</p>
-<div class="math">
-<p><img src="../../_images/math/0220e85c55319caafa2f1b9b07b9ef81e060c022.png" alt="v_s\equiv V_H+V_{xc}+v" /></p>
+<div class="math" id="equation-V_in">
+<p><span class="eqno">(12)</span><img src="../../_images/math/0220e85c55319caafa2f1b9b07b9ef81e060c022.png" alt="v_s\equiv V_H+V_{xc}+v" /></p>
 </div><p>then <img class="math" src="../../_images/math/245cfd7ac224be63e6855b55b5e163c0f06d5dc3.png" alt="n_s({\bf r})\equiv n({\bf r})"/>. So we solve the Kohn-Sham equations of
 this auxiliary non-interacting system</p>
 <div class="math" id="equation-KSeq">
-<p><span class="eqno">(12)</span><img src="../../_images/math/07bcd3699b8b68595a47300a3d675b1063b53cdd.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf
+<p><span class="eqno">(13)</span><img src="../../_images/math/07bcd3699b8b68595a47300a3d675b1063b53cdd.png" alt="(-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf
 r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})" /></p>
 </div><p>which yield the orbitals <img class="math" src="../../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i"/> that reproduce the density <img class="math" src="../../_images/math/88bee3c8b92c428acf748ffb1a42363c7a23ac37.png" alt="n({\bf r})"/> of the original interacting system</p>
 <div class="math" id="equation-KSdensity">
-<p><span class="eqno">(13)</span><img src="../../_images/math/6a7df5c10ff75f5b28f12de441c067a7a3eb852b.png" alt="n({\bf r})\equiv n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2" /></p>
+<p><span class="eqno">(14)</span><img src="../../_images/math/6a7df5c10ff75f5b28f12de441c067a7a3eb852b.png" alt="n({\bf r})\equiv n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2" /></p>
 </div><p>The sum is taken over the lowest <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/> energies. Some of the <img class="math" src="../../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i"/> can be
 degenerated, but it doesn&#8217;t matter - the index <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> counts every eigenfunction
 including all the degenerated. In plain words, the trick is in realizing, that
@@ -395,10 +398,30 @@ E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
 E_{xc}[n]=\int \epsilon_{xc}({\bf r};n) n({\bf r}) \d^3r
 
 V[n]=\int v({\bf r}) n({\bf r}) \d^3r" /></p>
-</div><p>This is the variational (fast converging) form of the total energy. Slowly
-converging form is:</p>
+</div><p>This is the variational (fast converging) form of the total energy.
+Another expression for the total energy, which is equivalent to the above if we
+are in self-consistency, but converges much slower with the SCF iterations, can
+be obtained by expanding <img class="math" src="../../_images/math/7d0220e2a0c12c2a6048f99e473516e1a4efab88.png" alt="v_s"/> using <a href="#equation-V_in">(12)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/35616ebb0fef73ce3c61676b23b7299fcf3a4904.png" alt="E[n] = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
+<p><img src="../../_images/math/ddac1a3ec1ccdaad32b74ed6893bbf096b562c3a.png" alt="\int v_s n({\bf r})\d^3 r
+    = \int (V_H + V_{xc} + v) n({\bf r})\d^3 r
+    = 2 \half\int V_H n({\bf r})\d^3 r
+    + \int V_{xc} n({\bf r})\d^3 r
+    + \int v n({\bf r})\d^3 r =
+
+    = 2 E_H[n] + \int V_{xc} n({\bf r})\d^3 r + V[n]" /></p>
+</div><p>So <img class="math" src="../../_images/math/43b3aabcb88e217357a0b38741411a9357bf238f.png" alt="T_s"/> is equal to:</p>
+<div class="math">
+<p><img src="../../_images/math/170c36a754485f793ebef6e97ebf03d73e21234b.png" alt="T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r =
+
+    = \sum_i \epsilon_i - 2 E_H[n] - \int V_{xc} n({\bf r})\d^3 r - V[n]" /></p>
+</div><p>And then the slowly converging form of total energy is:</p>
+<div class="math">
+<p><img src="../../_images/math/e3ca4c2178265a7c5fd846458aa1d17e03d04637.png" alt="E[n] = T_s[n]+E_H[n]+E_{xc}[n]+V[n]
+    = \sum_i \epsilon_i - 2 E_H[n] - \int V_{xc} n({\bf r})\d^3 r - V[n]
+        +E_H[n]+E_{xc}[n]+V[n] =
+
+    = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
         -\int V_{xc}({\bf r};n) n({\bf r}) \d^3r" /></p>
 </div><p>All these expressions are exact (no approximation has been made so far).</p>
 </div>
@@ -418,7 +441,7 @@ background, density <img class="math" src="../../_images/math/6a67645f769bfcb051
 <p><img src="../../_images/math/f73aa1ffdd053df6a4ac7ed7a4f169256903e9f3.png" alt="V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r};n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'" /></p>
 </div><p>which in the LDA becomes</p>
 <div class="math" id="equation-Vxcld">
-<p><span class="eqno">(14)</span><img src="../../_images/math/fcd1ad920ffbaef979b1ea65a1940a9699b3e80e.png" alt="V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)" /></p>
+<p><span class="eqno">(15)</span><img src="../../_images/math/fcd1ad920ffbaef979b1ea65a1940a9699b3e80e.png" alt="V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)" /></p>
 </div><p>The xc energy density <img class="math" src="../../_images/math/b0122a5284def13da5c83f6c111df01679559680.png" alt="\epsilon_{xc}^{LD}"/> of the homogeneous gas can be
 computed exactly:</p>
 <div class="math">
@@ -443,7 +466,7 @@ is virtually known exactly. VWN result:</p>
 parameter, which gives the mean distance between electrons (in atomic units):</p>
 <div class="math">
 <p><img src="../../_images/math/dfb9f4617e327f7931b983cf62e0907dbd301db5.png" alt="r_s=\left(3\over4\pi n\right)^{1\over3}" /></p>
-</div><p>The xc potential is then computed from <a href="#equation-Vxcld">(14)</a>:</p>
+</div><p>The xc potential is then computed from <a href="#equation-Vxcld">(15)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/52483aa71c6d51b8518bd9a411bc1a294a0fff42.png" alt="V_{xc}^{LD}=V_x^{LD}+V_c^{LD}
 
@@ -482,7 +505,7 @@ R = 1-{3\over2}\left(\beta\mu-\ln(\beta+\mu)\over\beta^2\right)^2
 A = {\beta\mu-\log(\beta+\mu)\over\beta^2}" /></p>
 </div><p>We now calculate <img class="math" src="../../_images/math/941aa4a67faa50046a316947ca4c3a1e0c2a4cdc.png" alt="V_x^{RLD}"/>:</p>
 <div class="math" id="equation-RLDA">
-<p><span class="eqno">(15)</span><img src="../../_images/math/3fa581bc937b3a1ac86a3e14888ff209f1623566.png" alt="V_x^{RLD}
+<p><span class="eqno">(16)</span><img src="../../_images/math/3fa581bc937b3a1ac86a3e14888ff209f1623566.png" alt="V_x^{RLD}
 =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}R\over\d n}=
 
 =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}\over\d n}R
@@ -873,60 +896,60 @@ making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../../index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Density Functional Theory (DFT)</a><ul>
-<li><a class="reference external" href="#many-body-schrodinger-equation">Many Body Schrödinger Equation</a></li>
-<li><a class="reference external" href="#the-hohenberg-kohn-theorem">The Hohenberg-Kohn Theorem</a></li>
-<li><a class="reference external" href="#the-kohn-sham-equations">The Kohn-Sham Equations</a></li>
-<li><a class="reference external" href="#the-xc-term">The XC Term</a></li>
-<li><a class="reference external" href="#total-energy">Total Energy</a></li>
-<li><a class="reference external" href="#xc-approximations">XC Approximations</a><ul>
-<li><a class="reference external" href="#lda">LDA</a></li>
-<li><a class="reference external" href="#rlda">RLDA</a></li>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Density Functional Theory (DFT)</a><ul>
+<li><a class="reference internal" href="#many-body-schrodinger-equation">Many Body Schrödinger Equation</a></li>
+<li><a class="reference internal" href="#the-hohenberg-kohn-theorem">The Hohenberg-Kohn Theorem</a></li>
+<li><a class="reference internal" href="#the-kohn-sham-equations">The Kohn-Sham Equations</a></li>
+<li><a class="reference internal" href="#the-xc-term">The XC Term</a></li>
+<li><a class="reference internal" href="#total-energy">Total Energy</a></li>
+<li><a class="reference internal" href="#xc-approximations">XC Approximations</a><ul>
+<li><a class="reference internal" href="#lda">LDA</a></li>
+<li><a class="reference internal" href="#rlda">RLDA</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#radial-dft-problem">Radial DFT Problem</a><ul>
-<li><a class="reference external" href="#kohn-sham-equations">Kohn-Sham Equations</a></li>
-<li><a class="reference external" href="#poisson-equation">Poisson Equation</a></li>
-<li><a class="reference external" href="#id5">Total Energy</a></li>
+<li><a class="reference internal" href="#radial-dft-problem">Radial DFT Problem</a><ul>
+<li><a class="reference internal" href="#kohn-sham-equations">Kohn-Sham Equations</a></li>
+<li><a class="reference internal" href="#poisson-equation">Poisson Equation</a></li>
+<li><a class="reference internal" href="#id5">Total Energy</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#dft-as-a-nonlinear-problem">DFT As a Nonlinear Problem</a><ul>
-<li><a class="reference external" href="#reformulation">Reformulation</a></li>
-<li><a class="reference external" href="#fe-discretization">FE Discretization</a></li>
-<li><a class="reference external" href="#jacobian">Jacobian</a></li>
+<li><a class="reference internal" href="#dft-as-a-nonlinear-problem">DFT As a Nonlinear Problem</a><ul>
+<li><a class="reference internal" href="#reformulation">Reformulation</a></li>
+<li><a class="reference internal" href="#fe-discretization">FE Discretization</a></li>
+<li><a class="reference internal" href="#jacobian">Jacobian</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#references">References</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="radial.html"
-                                  title="previous chapter">Radial Schrödinger and Dirac Equations</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="paw.html"
-                                  title="next chapter">Projector Augmented-Wave Method (PAW)</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../_sources/src/quantum/dft.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="radial.html"
+                        title="previous chapter">Radial Schrödinger and Dirac Equations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="paw.html"
+                        title="next chapter">Projector Augmented-Wave Method (PAW)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/quantum/dft.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -948,8 +971,8 @@ making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009-2011, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.6.
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>
