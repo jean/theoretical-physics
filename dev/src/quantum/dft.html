@@ -371,8 +371,13 @@ with a special potential.</p>
 </div><p>can always be written in the form</p>
 <div class="math">
 <p><img src="../../_images/math/9b610ad030c8356ef4cda50540887ff8dd894ad4.png" alt="E_{xc}[n]=\int n({\bf r}')\epsilon_{xc}({\bf r}';n)\d^3r'" /></p>
-</div><p>where the <img class="math" src="../../_images/math/d9f8c376278e0040e38bf4736e2c59dc3020e31b.png" alt="\epsilon_{xc}({\bf r}';n)"/> is called the xc energy density.</p>
-</div>
+</div><p>where the <img class="math" src="../../_images/math/d9f8c376278e0040e38bf4736e2c59dc3020e31b.png" alt="\epsilon_{xc}({\bf r}';n)"/> is called the XC energy density.
+The XC potential is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/8008cfcefbeab60ff49a61f0098fd174c898746c.png" alt="V_{xc}({\bf r};n) = {\delta E_{xc}[n]\over\delta n({\bf r})}
+    = \epsilon_{xc}({\bf r};n)+ \int n({\bf r}')
+        {\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'" /></p>
+</div></div>
 <div class="section" id="total-energy">
 <h2>Total Energy<a class="headerlink" href="#total-energy" title="Permalink to this headline">¶</a></h2>
 <p>We already derived all the necessary things above, so we just summarize it here.
@@ -410,7 +415,7 @@ background, density <img class="math" src="../../_images/math/6a67645f769bfcb051
 <p><img src="../../_images/math/d5adce8982f9b3a142e0ff364d6b1926ae7b85f0.png" alt="\epsilon_{xc}({\bf r};n)\approx\epsilon_{xc}^{LD}(n({\bf r}))" /></p>
 </div><p>The xc potential <img class="math" src="../../_images/math/3b0d3c19f8504e0f1d73a9958fa041f8b9d05328.png" alt="V_{xc}"/> defined by <a href="#equation-Vxcpot">(10)</a> is then</p>
 <div class="math">
-<p><img src="../../_images/math/266f9b550cb8ea3cfb8af9388a93e492677b6eba.png" alt="V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r}';n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'" /></p>
+<p><img src="../../_images/math/f73aa1ffdd053df6a4ac7ed7a4f169256903e9f3.png" alt="V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r};n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'" /></p>
 </div><p>which in the LDA becomes</p>
 <div class="math" id="equation-Vxcld">
 <p><span class="eqno">(14)</span><img src="../../_images/math/fcd1ad920ffbaef979b1ea65a1940a9699b3e80e.png" alt="V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)" /></p>
