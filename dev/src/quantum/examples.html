@@ -346,28 +346,28 @@ result is wrong, since it doesn&#8217;t correspond to the 3D Schrödinger equati
 n_l(kr)\to{1\over kr}\cos\left(kr-{l\pi\over 2}\right)" /></p>
 </div><p>so we get for large <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/5764ddf7259ad1720927d055ab324e511be9b0be.png" alt="R_{El}(r) = A_l j_l(kr) + B_l n_l(kr) \to
+<p><img src="../../_images/math/6e51cc6a21c5e156485e7581508c1fc18d779d3f.png" alt="R_{El}(r) = A_l j_l(kr) + B_l n_l(kr) \to
 
 \to A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
     + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
 
 = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}
     +\atan2(B_l, A_l)\right)
-= C_l {1\over kr}\sin\left(kr-{l\pi\over 2}-\delta_l\right)" /></p>
+= C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)" /></p>
 </div><p>where</p>
-<div class="math">
-<p><img src="../../_images/math/a94fbcf384ccc4e7564f6bbec528e10d4fff745e.png" alt="\delta_l = -\atan2(B_l, A_l) = \atan2(-B_l, A_l)
+<div class="math" id="equation-deltaCeq">
+<p><span class="eqno">(1)</span><img src="../../_images/math/1430744b8393bbcf90b831609baa6fa29e9af8a3.png" alt="\delta_l = \atan2(B_l, A_l)
 
 C_l = \sqrt{A_l^2 + B_l^2}" /></p>
 </div><p>The <img class="math" src="../../_images/math/e64bfab7f2a3a0a9816f0f7f8e0a527f840a699c.png" alt="C_l"/> and <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> are physical variables, so we express <img class="math" src="../../_images/math/b60f5b27fa8ce702f9316c2b77e83efa26fbb7d6.png" alt="A_l"/> and <img class="math" src="../../_images/math/9b6208f0dfd6e0f7fb251bf568f16b4f24fc1f6b.png" alt="B_l"/>
 using them:</p>
-<div class="math">
-<p><img src="../../_images/math/f74ddb36ac52d35dde673bf76bc08ba09bd03e31.png" alt="A_l = C_l \cos\delta_l
+<div class="math" id="equation-ABeq">
+<p><span class="eqno">(2)</span><img src="../../_images/math/fb7c03873f6d142164fe80449ca9edd603ce1348.png" alt="A_l = C_l \cos\delta_l
 
-B_l = -C_l \sin\delta_l" /></p>
+B_l = C_l \sin\delta_l" /></p>
 </div><p>and write the exact solution <img class="math" src="../../_images/math/51aae7bb7d9219fe7e2063131df50a97a12148a0.png" alt="R_{El}"/> as:</p>
-<div class="math">
-<p><img src="../../_images/math/53bc0c81b0a451dbc2ab6bf551668de4dd1a3897.png" alt="R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))" /></p>
+<div class="math" id="equation-Rnlas">
+<p><span class="eqno">(3)</span><img src="../../_images/math/c90ab91718a6f2ccde34d30a80f18ad128fcaa37.png" alt="R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) + \sin\delta_l\, n_l(kr))" /></p>
 </div><p>We can then compare this to <img class="math" src="../../_images/math/a234d128ca652ba34fb3857f8296b39f6c08d56e.png" alt="\phi \approx e^{ikz} + f(\theta, \phi)
 {e^{ikr}\over r}"/>, by expanding <img class="math" src="../../_images/math/2b95b34ccbfbf178baf85e95aa62c502533803a5.png" alt="e^{ikz} = e^{ikr\cos\theta}=
 \sum (2l+1) i^l j_l(kr)P_l(\cos\theta)"/>:</p>
@@ -385,42 +385,66 @@ the full potential</p>
 <p><img src="../../_images/math/ee440d9461c1dee62a2b4444990bdc104fcdca24.png" alt="-{1\over2}R_{nl}''(r)-{1\over r}R_{nl}'(r)+\left(V+{l(l+1)\over2r^2}\right)
     R_{nl}(r)=ER_{nl}(r)" /></p>
 </div><p>and then fit it to the above asymptotic solution for V=0. We require that the
-value and the slope must be continuous. In particular, we take the logarithmic
+value and the slope must be continuous, so we use <a href="#equation-Rnlas">(3)</a> and <img class="math" src="../../_images/math/4bff072256edd4591fcc884899cf71edcc2d2bed.png" alt="R_{nl}"/> must
+satisfy the following two equations (for the value and the derivative)
+at the point <img class="math" src="../../_images/math/0d29ba05fb7937308e298672ed6a611d46835e44.png" alt="r=a"/>:</p>
+<div class="math" id="equation-R_conditions">
+<p><span class="eqno">(4)</span><img src="../../_images/math/c77c6588bcb2609d4149b55d904ff389d61addbb.png" alt="R_{El}(a)
+    = A j_l(ka) + B n_l(ka))
+    = C_l (\cos\delta_l\, j_l(ka) + \sin\delta_l\, n_l(ka))
+
+R_{El}'(a)
+    = k A j_l'(ka) + k B n_l'(ka))
+    = C_l k (\cos\delta_l\, j_l'(ka) + \sin\delta_l\, n_l'(ka))" /></p>
+</div><p>This is a set of two equations for two unknowns <img class="math" src="../../_images/math/e64bfab7f2a3a0a9816f0f7f8e0a527f840a699c.png" alt="C_l"/> and <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/>.
+The solution is:</p>
+<div class="math" id="equation-ABsol">
+<p><span class="eqno">(5)</span><img src="../../_images/math/218fbed02cfa2734f93cb8ae59f57bad08a3ece0.png" alt="D = k(j_l(ka) n_l'(ka) - j_l'(ka) n_l(ka))
+
+A = {R_{El}(a) k n_l'(ka) - R_{El}'(a) n_l(ka) \over D}
+
+B = -{R_{El}(a) k j_l'(ka) - R_{El}'(a) j_l(ka) \over D}" /></p>
+</div><p>And one can calculate <img class="math" src="../../_images/math/e64bfab7f2a3a0a9816f0f7f8e0a527f840a699c.png" alt="C_l"/> and <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> from <a href="#equation-deltaCeq">(1)</a>.
+Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">solve</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;R Rp j jp n np A B k&quot;</span><span class="p">)</span>
+<span class="go">(R, Rp, j, jp, n, np, A, B, k)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eq1</span> <span class="o">=</span> <span class="n">R</span> <span class="o">-</span> <span class="n">A</span><span class="o">*</span><span class="n">j</span> <span class="o">-</span> <span class="n">B</span><span class="o">*</span><span class="n">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eq2</span> <span class="o">=</span> <span class="n">Rp</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">jp</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">solve</span><span class="p">([</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">],</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">])</span>
+<span class="go">{A: (R*k*np - Rp*n)/(k*(j*np - jp*n)), B: (-R*jp*k + Rp*j)/(k*(j*np - jp*n))}</span>
+</pre></div>
+</div>
+<p>Another approach to calculate <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> is to
+take the logarithmic
 derivative (<img class="math" src="../../_images/math/7ae7f2db9db8e02eb978b89672523d460b12293c.png" alt="(\log |u|)'={u'\over u}"/>) at the point <img class="math" src="../../_images/math/0d29ba05fb7937308e298672ed6a611d46835e44.png" alt="r=a"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/9c82f283afda3c2e4dccc520cf31f17055fee103.png" alt="\gamma_l \equiv \left.{\d\over\d r} \log |u|\right|_{r=a}
-= \left.{\d\over\d r} \log |R_l(kr)|\right|_{r=a}
-= {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}" /></p>
-</div><p>expressing <img class="math" src="../../_images/math/4154ef1d1d17744806ba5241869b1860b0a3288a.png" alt="R_{El}(kr)"/> and <img class="math" src="../../_images/math/cfab33e828ffd4d205ac5c956f51cd59ffbb79f4.png" alt="R_{El}'(kr)"/> using <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/>:</p>
+<p><img src="../../_images/math/a7dcce85cd7707a68ede0538f88245d3276f1074.png" alt="\gamma_l \equiv \left.{\d\over\d r} \log |R_l(r)|\right|_{r=a}
+= {R_{El}'(a)\over R_{El}(a)}
+    = {C_l k (\cos\delta_l\, j_l'(ka) + \sin\delta_l\, n_l'(ka)) \over
+            C_l (\cos\delta_l\, j_l(ka) + \sin\delta_l\, n_l(ka)) }
+    =" /></p>
+</div><div class="math" id="equation-gamma_xx">
+<p><span class="eqno">(6)</span><img src="../../_images/math/016f9c7e7bdeb09bbc641aecb60d33ae8884d2d2.png" alt="= k {j_l'(ka) + \tan\delta_l\, n_l'(ka) \over
+        j_l(ka) + \tan\delta_l\, n_l(ka) }" /></p>
+</div><p>and solving for <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/860a55c5e3db9e4e7b2082cd62dbf264cfb0db2e.png" alt="R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
-
-R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))" /></p>
-</div><p>calculating <img class="math" src="../../_images/math/7d5d10e707a4082053a6a05a187ef28745482359.png" alt="\gamma_l"/>:</p>
-<div class="math">
-<p><img src="../../_images/math/bf2fbb245317c487d8bea57f011bc00b1b1e765e.png" alt="\gamma_l = {R_{El}'(a)\over R_{El}(a)}
-    = {C_l k (\cos\delta_l\, j_l'(ka) - \sin\delta_l\, n_l'(ka)) \over
-            C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
-    =
-
-    = k {j_l'(ka) - \tan\delta_l\, n_l'(ka) \over
-            j_l(ka) - \tan\delta_l\, n_l(ka) }" /></p>
-</div><p>and solving for <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> we get:</p>
-<div class="math">
-<p><img src="../../_images/math/c21443200ba779d38411020af312c09112dfc4d8.png" alt="\tan\delta_l
-    = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
-    = {-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
+<p><img src="../../_images/math/1db14bc4c5aa445ecbce1d9d2eb2cd930d1db37f.png" alt="\tan\delta_l
+    = -{k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
+    = -{-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
         \over -k n_{l+1}(ka)+kl{n_l(ka)\over ka} - \gamma_l n_l(ka)}
-    =
-
-    = {ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
-        \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}" /></p>
+    =" /></p>
+</div><div class="math" id="equation-delta_l">
+<p><span class="eqno">(7)</span><img src="../../_images/math/2d9023fec10882adc3bb6700761e617e65cedf65.png" alt="= -{ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
+    \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}" /></p>
 </div><p>where we used the following relations:</p>
 <div class="math">
 <p><img src="../../_images/math/b499f8cfb988f9d8c1c00499b3b00737ef8a4f26.png" alt="j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
 
 n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}" /></p>
-</div><p>Now we can use these <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section. We
+</div><p>The disadvantage of <a href="#equation-delta_l">(7)</a> is that we only know <img class="math" src="../../_images/math/e654e93142a1ab2b5388ca8652a71ef6fd714891.png" alt="\tan\delta_l"/>, while in
+<a href="#equation-ABsol">(5)</a> we know <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> directly using the <img class="math" src="../../_images/math/4c1eb49801726429256e90669692e180312e7d9d.png" alt="\atan2"/> function.</p>
+<p>Now we can use these <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section. We
 can define a reduced phase-shift <img class="math" src="../../_images/math/a47a31d3269db12007e0ad9ece7eab1855b83d86.png" alt="\eta_l"/> by</p>
 <div class="math">
 <p><img src="../../_images/math/0e5c4fe6596839566ef66f55c72f1f52e7bfea55.png" alt="\delta_l = (n-l-1) \pi + \eta_l" /></p>
