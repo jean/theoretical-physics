@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.5',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Mathematics" href="main.html" />
@@ -192,7 +195,7 @@ c}\right)\d x
 \int {\delta(x)\over |c|}\varphi(x)\d x" /></p>
 </div></div>
 <div class="section" id="variations-and-functional-derivatives">
-<span id="index-274"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
 <p>Functional derivatives are a common source of confusion and especially the
 notation. The reason is similar to the delta function &#8212; the definition is
 operational, i.e. it tells you what operations you need to do to get a
@@ -332,7 +335,7 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
 </div><p>As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That&#8217;s why such obvious manipulations with <img class="math" src="../../_images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
 </div>
 <div class="section" id="spherical-harmonics">
-<span id="index-275"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
+<span id="index-1"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
 <p>Are defined by</p>
 <div class="math">
 <p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
@@ -361,7 +364,7 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
 <p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
 </div></div>
 <div class="section" id="dirac-notation">
-<span id="index-276"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
+<span id="index-2"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
 <p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
 <p>Let&#8217;s have a function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. We define</p>
 <div class="math">
@@ -462,7 +465,7 @@ remember and &#8211; that is important &#8211; less general.</p>
 <p><span class="eqno">(12)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})" /></p>
 </div></div>
 <div class="section" id="homogeneous-functions">
-<span id="index-277"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-3"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
 <p>A function of several variables <img class="math" src="../../_images/math/83d951deadedf7bc68666c3abe5d13125b1841ca.png" alt="f(x_1, x_2, \dots) \equiv f(x_i)"/> is
 homogeneous of degree <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> if</p>
 <div class="math">
@@ -686,48 +689,6 @@ analytically).</p>
     = \sum_{k=0}^\infty \binom{k}{k} x^k
     = \sum_{k=0}^\infty x^k" /></p>
 </div></div>
-<div class="section" id="wigner-d-function">
-<h1>Wigner D Function<a class="headerlink" href="#wigner-d-function" title="Permalink to this headline">¶</a></h1>
-<p>The Wigner <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function gives the matrix elements of the rotation operator <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>
-in the <img class="math" src="../../_images/math/b411dcb8306f0951dede20bea23ba18cd4485830.png" alt="jm"/>-representation. For the Euler angles <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/>, <img class="math" src="../../_images/math/fdb63b9e51abe6bbb16acfb5d7b773ddbb5bf4a8.png" alt="\beta"/>, <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/>,
-the <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function is defined as:</p>
-<div class="math">
-<p><img src="../../_images/math/201ae97419f7fa52badbcc3cf004aa4227b8c702.png" alt="\braket{j,m| R(\alpha, \beta, \gamma) |j',m'} =
-    \delta_{jj'} D(j, m, m', \alpha, \beta, \gamma)" /></p>
-</div><p>Where the rotation operator <img class="math" src="../../_images/math/c4bf533f1735dc509dcd8fd510b8faacb107d12f.png" alt="R(\alpha, \beta, \gamma)"/> is defined using the
-<img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>-<img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>-<img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> convention:</p>
-<div class="math">
-<p><img src="../../_images/math/1061e68e43fbaecff9a4f9c7c139785c61b3b103.png" alt="R(\alpha, \beta, \gamma) =
-    e^{-i\alpha J_z}
-    e^{-i\beta J_y}
-    e^{-i\gamma J_z}" /></p>
-</div><p>Here <img class="math" src="../../_images/math/8d395d0978e65f55986e368f46b1f784a6ac1dbd.png" alt="J_i"/> is the projection of the total angular momentum on an
-<img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>-axis. The <img class="math" src="../../_images/math/3b69e86926fd5a5d2fa1979d17daa7688d8d97ab.png" alt="\ket{jm}"/> is the eigenstate of the operators <img class="math" src="../../_images/math/51a3b8d94c302388b4ef486839982476de701227.png" alt="J^2"/> and <img class="math" src="../../_images/math/3bbe45fcf0d35e52b37e12313b77f7add19ded1f.png" alt="J_z"/>.
-Using the fact that <img class="math" src="../../_images/math/3a707971131b671187291db3cc96d65648f35de0.png" alt="e^{-i\gamma J_z}\ket{jm}=e^{-im\gamma}\ket{jm}"/>, we can
-see that the Wigner <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function can always be written using the Wigner
-small-<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> function as:</p>
-<div class="math">
-<p><img src="../../_images/math/9f3b530ad7c2950701864acf5240fb02e1f06b7c.png" alt="D(j, m, m', \alpha, \beta, \gamma)
-    = \braket{j,m| R(\alpha, \beta, \gamma) |j,m'}
-    = \braket{j,m| e^{-i\alpha J_z} e^{-i\beta J_y} e^{-i\gamma J_z} |j,m'}
-    =
-
-    = e^{-i m \alpha}\braket{j,m| e^{-i\beta J_y} |j,m'} e^{-i m' \gamma}
-    = e^{-i m \alpha} d(j, m, m', \beta) e^{-i m' \gamma}" /></p>
-</div><p>where</p>
-<div class="math">
-<p><img src="../../_images/math/f8510910a3d2ffa5cf395bc052bdb32a5aae599c.png" alt="d(j, m, m', \beta) = \braket{j,m| e^{-i\beta J_y} |j,m'}" /></p>
-</div><p>We can use the following relations to evaluate <img class="math" src="../../_images/math/b1b5b72b927371e53b27e76968e445726894906d.png" alt="d(j, m, m', \beta)"/>:</p>
-<div class="math">
-<p><img src="../../_images/math/79d07006abacfe9d2bf8af62461f3a9ca709da06.png" alt="d(j, m, m', \beta) = i^{2j-m-m'} (-1)^{2m}\sum_{m''=-j}^j
-    d(j, m, m'', {\pi\over2})
-    e^{-i m'' \beta}
-    d(j, m'', -m', {\pi\over2})
-
-d(j, m, m', {\pi\over2}) = (-1)^{m-m'} {1\over 2^j}
-    \sqrt{(j+m)! (j-m)! \over (j+m')! (j-m')!} \sum_k
-    (-1)^k \binom{j+m'}{k} \binom{j-m'}{k+m-m'}" /></p>
-</div></div>
 
 
           </div>
@@ -735,58 +696,57 @@ d(j, m, m', {\pi\over2}) = (-1)^{m-m'} {1\over 2^j}
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../../index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Delta Function</a></li>
-<li><a class="reference external" href="#distributions">Distributions</a></li>
-<li><a class="reference external" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a></li>
-<li><a class="reference external" href="#spherical-harmonics">Spherical Harmonics</a></li>
-<li><a class="reference external" href="#dirac-notation">Dirac Notation</a></li>
-<li><a class="reference external" href="#homogeneous-functions">Homogeneous functions</a><ul>
-<li><a class="reference external" href="#example">Example</a></li>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Delta Function</a></li>
+<li><a class="reference internal" href="#distributions">Distributions</a></li>
+<li><a class="reference internal" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a></li>
+<li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a></li>
+<li><a class="reference internal" href="#dirac-notation">Dirac Notation</a></li>
+<li><a class="reference internal" href="#homogeneous-functions">Homogeneous functions</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#green-functions">Green Functions</a><ul>
-<li><a class="reference external" href="#introduction">Introduction</a></li>
-<li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a></li>
-<li><a class="reference external" href="#examples">Examples</a><ul>
-<li><a class="reference external" href="#poisson-equation-in-3d">Poisson Equation in 3D</a></li>
-<li><a class="reference external" href="#poisson-equation-in-2d">Poisson Equation in 2D</a></li>
-<li><a class="reference external" href="#helmholtz-equation-in-3d">Helmholtz Equation in 3D</a></li>
-<li><a class="reference external" href="#helmholtz-equation-in-1d">Helmholtz Equation in 1D</a></li>
-<li><a class="reference external" href="#finite-element-method">Finite Element Method</a></li>
+<li><a class="reference internal" href="#green-functions">Green Functions</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#poisson-equation-in-3d">Poisson Equation in 3D</a></li>
+<li><a class="reference internal" href="#poisson-equation-in-2d">Poisson Equation in 2D</a></li>
+<li><a class="reference internal" href="#helmholtz-equation-in-3d">Helmholtz Equation in 3D</a></li>
+<li><a class="reference internal" href="#helmholtz-equation-in-1d">Helmholtz Equation in 1D</a></li>
+<li><a class="reference internal" href="#finite-element-method">Finite Element Method</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference external" href="#binomial-coefficients">Binomial Coefficients</a></li>
-<li><a class="reference external" href="#wigner-d-function">Wigner D Function</a></li>
+<li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="trig.html"
-                                  title="previous chapter">Periodic Functions</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="feynman-parameters.html"
-                                  title="next chapter">Feynman Parameters</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../_sources/src/math/other.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="trig.html"
+                        title="previous chapter">Periodic Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="feynman-parameters.html"
+                        title="next chapter">Feynman Parameters</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/math/other.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -808,8 +768,8 @@ d(j, m, m', {\pi\over2}) = (-1)^{m-m'} {1\over 2^j}
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009-2011, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.6.
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>

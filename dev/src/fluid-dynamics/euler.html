@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.5',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Fluid Dynamics" href="main.html" />
@@ -47,7 +50,7 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="index-209"></span><div class="section" id="compressible-euler-equations">
+  <span class="target" id="index-0"></span><div class="section" id="compressible-euler-equations">
 <h1>Compressible Euler Equations<a class="headerlink" href="#compressible-euler-equations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -65,7 +68,7 @@ conservation:</p>
 <p><img src="../../_images/math/1d2e4bb447ab5f65677ef0420617acf3b9b622cb.png" alt="\partial_\nu T^{\mu\nu} = 0
 
 \partial_\mu(nu^\mu) = 0" /></p>
-</div><p>By doing the nonrelativistic limit (see <a class="reference external" href="general.html#perfect-fluids"><em>Perfect Fluids</em></a> for a detailed
+</div><p>By doing the nonrelativistic limit (see <a class="reference internal" href="general.html#perfect-fluids"><em>Perfect Fluids</em></a> for a detailed
 derivation), we get the following Euler equations:</p>
 <div class="math">
 <p><img src="../../_images/math/d69b9c659b0cdbefd421e8c361b30d80a78df9fa.png" alt="{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
@@ -1474,57 +1477,57 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../../index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Compressible Euler Equations</a><ul>
-<li><a class="reference external" href="#introduction">Introduction</a></li>
-<li><a class="reference external" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a></li>
-<li><a class="reference external" href="#conservative-form-of-the-euler-equations">Conservative Form of the Euler Equations</a></li>
-<li><a class="reference external" href="#weak-formulation">Weak Formulation</a><ul>
-<li><a class="reference external" href="#explicit-method">Explicit Method</a></li>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Compressible Euler Equations</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#dimensionless-euler-equations">Dimensionless Euler Equations</a></li>
+<li><a class="reference internal" href="#conservative-form-of-the-euler-equations">Conservative Form of the Euler Equations</a></li>
+<li><a class="reference internal" href="#weak-formulation">Weak Formulation</a><ul>
+<li><a class="reference internal" href="#explicit-method">Explicit Method</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#flux-jacobians">Flux Jacobians</a></li>
-<li><a class="reference external" href="#d-version-of-the-equations">2D Version of the Equations</a></li>
-<li><a class="reference external" href="#sea-breeze-modeling">Sea Breeze Modeling</a></li>
-<li><a class="reference external" href="#boundary-conditions">Boundary Conditions</a><ul>
-<li><a class="reference external" href="#boundary-conditions-for-the-sea-breeze-model">Boundary Conditions for the Sea Breeze Model</a></li>
+<li><a class="reference internal" href="#flux-jacobians">Flux Jacobians</a></li>
+<li><a class="reference internal" href="#d-version-of-the-equations">2D Version of the Equations</a></li>
+<li><a class="reference internal" href="#sea-breeze-modeling">Sea Breeze Modeling</a></li>
+<li><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a><ul>
+<li><a class="reference internal" href="#boundary-conditions-for-the-sea-breeze-model">Boundary Conditions for the Sea Breeze Model</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#newton-method">Newton Method</a></li>
-<li><a class="reference external" href="#older-notes">Older notes</a><ul>
-<li><a class="reference external" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
-<li><a class="reference external" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
+<li><a class="reference internal" href="#newton-method">Newton Method</a></li>
+<li><a class="reference internal" href="#older-notes">Older notes</a><ul>
+<li><a class="reference internal" href="#governing-equations-and-boundary-conditions">Governing Equations and Boundary Conditions</a></li>
+<li><a class="reference internal" href="#discretization-and-the-newton-s-method">Discretization and the Newton&#8217;s Method</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="mhd.html"
-                                  title="previous chapter">MHD Equations</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="../quantum/main.html"
-                                  title="next chapter">Quantum Field Theory and Quantum Mechanics</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../_sources/src/fluid-dynamics/euler.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mhd.html"
+                        title="previous chapter">MHD Equations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../quantum/main.html"
+                        title="next chapter">Quantum Field Theory and Quantum Mechanics</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/fluid-dynamics/euler.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1546,8 +1549,8 @@ W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009-2011, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.6.
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>
