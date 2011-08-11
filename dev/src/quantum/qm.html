@@ -92,7 +92,129 @@
 <p><img src="../../_images/math/937d4aad28a8eedb4e4bb8f0d892808c1f76e019.png" alt="j^0=c\bar\psi\gamma^0\psi=c\psi^\dagger\psi=c\varphi^\dagger\varphi" /></p>
 </div><div class="math">
 <p><img src="../../_images/math/bfa70a57d3330df62ae7d049bfb0471aa7662f19.png" alt="j^i=c\bar\psi\gamma^i\psi=c\psi^\dagger\alpha^i\psi=c\varphi^\dagger\alpha^i\varphi" /></p>
-</div><div class="section" id="nonrelativistic-limit-in-the-lagrangian">
+</div><div class="section" id="derivation-of-the-pauli-equation">
+<h3>Derivation of the Pauli equation<a class="headerlink" href="#derivation-of-the-pauli-equation" title="Permalink to this headline">¶</a></h3>
+<p>We start from the Dirac equation:</p>
+<div class="math">
+<p><img src="../../_images/math/ff14953414be5a9798180b0bcd40f4fd00512454.png" alt="H\psi = W\psi" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/7acb90b17f70e4d0940c0ee66ecd81ac776d5974.png" alt="H=c{\boldsymbol\alpha}\cdot({\bf p}-e{\bf A})+\beta mc^2+e\phi\,.
+
+W = E + mc^2" /></p>
+</div><p><img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> is the relativistic energy, <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> is the nonrelativistic energy,
+<img class="math" src="../../_images/math/01602b98dd6dbac24632806448c68e2f66436838.png" alt="e\phi=V"/> is the potential. The matrices
+<img class="math" src="../../_images/math/bd0f228628cfbd7b855689a02c5b7689b08ade6d.png" alt="{\boldsymbol\alpha}"/> and <img class="math" src="../../_images/math/fdb63b9e51abe6bbb16acfb5d7b773ddbb5bf4a8.png" alt="\beta"/> are given by:</p>
+<div class="math">
+<p><img src="../../_images/math/c485d7dae86bf5588d2fae516aa81ceabdf8514c.png" alt="\alpha^i = \gamma^0\gamma^i
+
+\beta = \gamma^0" /></p>
+</div><p>so written explicitly:</p>
+<div class="math">
+<p><img src="../../_images/math/58327f2e367d91864cd5361d898c9179d22a67e7.png" alt="\alpha = \begin{pmatrix}
+    0 &amp; {\boldsymbol\sigma} \\
+    {\boldsymbol\sigma} &amp; 0 \\
+    \end{pmatrix}
+
+\beta = \begin{pmatrix}
+    \one &amp; 0 \\
+    0 &amp; -\one \\
+    \end{pmatrix}" /></p>
+</div><p>And the Dirac equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/d19293e1d85d022ab96a41fd0fc14894cf2a9ffc.png" alt="\begin{pmatrix}
+    V+mc^2 &amp; c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+    c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) &amp; V-mc^2 \\
+    \end{pmatrix}
+\begin{pmatrix}
+    \psi^L \\
+    \psi^S \\
+\end{pmatrix}
+=
+W
+\begin{pmatrix}
+    \psi^L \\
+    \psi^S \\
+\end{pmatrix}" /></p>
+</div><p>After introducing <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8fe845f83415571492a3a632761783fc3b2bde5e.png" alt="\begin{pmatrix}
+    V &amp; c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+    c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) &amp; V-2mc^2 \\
+    \end{pmatrix}
+\begin{pmatrix}
+    \psi^L \\
+    \psi^S \\
+\end{pmatrix}
+=
+E
+\begin{pmatrix}
+    \psi^L \\
+    \psi^S \\
+\end{pmatrix}" /></p>
+</div><p>We put everything on the left hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/e387771a6513339fb83e52ec655bfa8b6fc99dbc.png" alt="\begin{pmatrix}
+    V -E &amp; c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+    c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) &amp; V-E-2mc^2 \\
+    \end{pmatrix}
+\begin{pmatrix}
+    \psi^L \\
+    \psi^S \\
+\end{pmatrix}
+= 0" /></p>
+</div><p>We put <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> next to <img class="math" src="../../_images/math/b9dd5db66e5b779e6d2ca56c98569c3b2eaeace2.png" alt="\psi^S"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/2ae8b6992735ddf9102e973973da9350ab791b36.png" alt="\begin{pmatrix}
+    V -E &amp; {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+    c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) &amp; {V-E\over c}-2mc \\
+    \end{pmatrix}
+\begin{pmatrix}
+    \psi^L \\
+    c\psi^S \\
+\end{pmatrix}
+= 0" /></p>
+</div><p>And we divide the second equation by <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/5c0862d2f5699a3c088a1a8296e78edf6368d89e.png" alt="\begin{pmatrix}
+    V -E &amp; {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+    {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) &amp; {V-E\over c^2}-2m \\
+    \end{pmatrix}
+\begin{pmatrix}
+    \psi^L \\
+    c\psi^S \\
+\end{pmatrix}
+= 0" /></p>
+</div><p>Now we express <img class="math" src="../../_images/math/fc6613892fc4ce6593a873114de6a325039dd30d.png" alt="c\psi^L"/> from the second equation:</p>
+<div class="math">
+<p><img src="../../_images/math/5451fd3354b95e01c747c4cdea27bdb1ad3434de.png" alt="c\psi^L ={ {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \psi^L \over
+    2m - {V-E\over c^2}}" /></p>
+</div><p>And substitute into the first equation:</p>
+<div class="math">
+<p><img src="../../_images/math/dbbdf7d5d9a8415900f7988cceec97917f69f4e3.png" alt="\left(
+V - E +{\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
+    2m - {V-E\over c^2}}
+\right) \psi^L = 0" /></p>
+</div><p>So we get the following equation (so far this is an exact equation for the
+first two components of the Dirac equation, no approximation has been made):</p>
+<div class="math">
+<p><img src="../../_images/math/481bede5fc6336279f22d3e12262a472d80a65a5.png" alt="\left(
+{\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
+    2m - {V-E\over c^2}} + V
+\right) \psi^L = E \psi^L" /></p>
+</div><p>By doing the nonrelativistic approximation <img class="math" src="../../_images/math/a9b498f7c3a3366d366af4afe6a19172350cd4e6.png" alt="{V-E\over c^2} \ll 2m"/> we obtain
+the Pauli equation:</p>
+<div class="math">
+<p><img src="../../_images/math/a83b5ec8c4c2c5c7cf0838281eea6a0f71a5c2ce.png" alt="\left(
+{\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
+    2m} + V
+\right) \psi^L = E \psi^L" /></p>
+</div><p>We can see, that the quantity</p>
+<div class="math">
+<p><img src="../../_images/math/b12569cb72d7a3f6c6b7d5f39d091534378156d2.png" alt="M = m - {V-E\over 2c^2}" /></p>
+</div><p>can be interpreted as relativistic mass.</p>
+</div>
+<div class="section" id="nonrelativistic-limit-in-the-lagrangian">
 <h3>Nonrelativistic Limit in the Lagrangian<a class="headerlink" href="#nonrelativistic-limit-in-the-lagrangian" title="Permalink to this headline">¶</a></h3>
 <p>We use the identity <img class="math" src="../../_images/math/fca3dec86d5a76d1d2db261350abfaafb5099fb0.png" alt="{\partial\over\partial t}\left(e^{-imc^2t}f(t)\right)= e^{-imc^2t}(-imc^2+{\partial\over\partial t})f(t)"/> to get:</p>
 <div class="math">
@@ -855,6 +977,7 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
   <ul>
 <li><a class="reference internal" href="#">Quantum Mechanics</a><ul>
 <li><a class="reference internal" href="#from-qed-to-quantum-mechanics">From QED to Quantum Mechanics</a><ul>
+<li><a class="reference internal" href="#derivation-of-the-pauli-equation">Derivation of the Pauli equation</a></li>
 <li><a class="reference internal" href="#nonrelativistic-limit-in-the-lagrangian">Nonrelativistic Limit in the Lagrangian</a></li>
 <li><a class="reference internal" href="#klein-gordon-equation">Klein-Gordon Equation</a></li>
 </ul>
