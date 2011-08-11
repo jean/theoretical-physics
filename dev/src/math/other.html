@@ -479,8 +479,8 @@ homogeneous of degree <img class="math" src="../../_images/math/8c325612684d4130
 </div><p>in 3D this can also be written as:</p>
 <div class="math">
 <p><img src="../../_images/math/1e606c6a951337e852945027d4ade4dabd56bb44.png" alt="{\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})" /></p>
-</div><div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</div><div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p>The function <img class="math" src="../../_images/math/25c8930c58dccfbb4c67d058b75092c834bdf1e8.png" alt="f(x, y, z) = {xy\over z}"/> is homogeneous of degree 1, because:</p>
 <div class="math">
 <p><img src="../../_images/math/eced7a878964174f007a4eb9f8be1ffe51386e84.png" alt="f(\lambda x, \lambda y, \lambda z) = {\lambda x\lambda y\over \lambda z}
@@ -499,7 +499,20 @@ f" /></p>
 y{x\over z} +
 z\left(-{xy\over z^2}\right)
 ={xy\over z}" /></p>
-</div><p>Which obviously is true.</p>
+</div><p>Which is true.</p>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>The function <img class="math" src="../../_images/math/c780d266b1463ff54a85fc4c1e6c36d8d2a5e6e5.png" alt="V(r) = -{Z \over r}"/> is homogeneous of degree -1, because:</p>
+<div class="math">
+<p><img src="../../_images/math/0b254499db6b04075e86fb801506f1778e4928e0.png" alt="V(\lambda r) = -{Z\over \lambda r} = \lambda^{-1} V(r)" /></p>
+</div><p>and the Euler equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/b9108fd763648ed72428e7702f894418c67ee529.png" alt="r{\d V\over\d r} = -V" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/b0a6f0cf301812882538a0cafb48f7b317adc727.png" alt="r{Z\over r^2} = -\left(-{Z\over r}\right)" /></p>
+</div><p>Which is true.</p>
 </div>
 </div>
 <div class="section" id="green-functions">
@@ -704,7 +717,8 @@ analytically).</p>
 <li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a></li>
 <li><a class="reference internal" href="#dirac-notation">Dirac Notation</a></li>
 <li><a class="reference internal" href="#homogeneous-functions">Homogeneous functions</a><ul>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#example-1">Example 1</a></li>
+<li><a class="reference internal" href="#example-2">Example 2</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#green-functions">Green Functions</a><ul>
