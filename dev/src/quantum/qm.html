@@ -215,10 +215,46 @@ the Pauli equation:</p>
 </div><p>can be interpreted as relativistic mass.</p>
 <p>Using the relations between the Pauli matrices, we can further simplify:</p>
 <div class="math">
-<p><img src="../../_images/math/8adad3b9799aa7abc865a06d0bb3c72b4e5faf45.png" alt="\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2
+<p><img src="../../_images/math/835b7062bd0b6284d42d73c575f01f5b74021259.png" alt="\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2
+    = \left({\bf p}-e{\bf A}\right)^2+i{\boldsymbol\sigma}
+        \cdot{({\bf p}-e{\bf A})\times({\bf p}-e{\bf A})} =
+
+    = \left({\bf p}-e{\bf A}\right)^2+i{\boldsymbol\sigma}
+        \cdot\left({\bf p}\times{\bf p}-e{\bf A}\times{\bf p}
+            -e{\bf p}\times{\bf A}+e^2{\bf A}\times{\bf A}\right) =
+
+    = \left({\bf p}-e{\bf A}\right)^2-ie{\boldsymbol\sigma}
+        \cdot\left({\bf A}\times{\bf p} +{\bf p}\times{\bf A}\right) =
+
+    = \left({\bf p}-e{\bf A}\right)^2-ie{\boldsymbol\sigma}
+        \cdot\left({\bf A}\times{\bf p}-{\bf A}\times{\bf p}
+        -i\hbar(\nabla\times{\bf A})\right) =
+
     = \left({\bf p}-e{\bf A}\right)^2-{e\hbar}{\boldsymbol\sigma}
-        \cdot{\nabla\times{\bf A}}" /></p>
-</div><p>We introduce the magnetic field <img class="math" src="../../_images/math/315811ef08439d2534b133bf28490f550032ac79.png" alt="{\bf B} = {\nabla\times{\bf A}}"/> and get:</p>
+        \cdot(\nabla\times{\bf A}) =
+
+    = \left({\bf p}-e{\bf A}\right)^2-{e\hbar}{\boldsymbol\sigma}
+        \cdot{\bf B}" /></p>
+</div><p>At the end, we have introduced the magnetic field <img class="math" src="../../_images/math/315811ef08439d2534b133bf28490f550032ac79.png" alt="{\bf B} = {\nabla\times{\bf A}}"/>.
+In the above, one has to be careful, because <img class="math" src="../../_images/math/0a8584e844f8c0f2e2a414d3fcc2413d18235190.png" alt="{\bf p}"/> and <img class="math" src="../../_images/math/83c3c7c699d02fb20e6cd05765b0dbfae0444c10.png" alt="{\bf A}"/> don&#8217;t
+commute and also the operator <img class="math" src="../../_images/math/0a8584e844f8c0f2e2a414d3fcc2413d18235190.png" alt="{\bf p}"/> acts on everything on the right. We
+used the formula
+<img class="math" src="../../_images/math/1d17dc36c4fdbd77eafceeb6f96193b42ce2980c.png" alt="{\bf p}\times{\bf A}=-{\bf A}\times{\bf p}-i\hbar(\nabla\times{\bf A})"/>,
+that can be proven by:</p>
+<div class="math">
+<p><img src="../../_images/math/b6e9d2328fa67f7ed7a10836d9954342177d8645.png" alt="({\bf p}\times{\bf A} \psi)_i =
+    \epsilon_{ijk}p_j A_k \psi =
+
+    = -i\hbar\epsilon_{ijk}\partial_j (A_k \psi) =
+
+    = -i\hbar\epsilon_{ijk}((\partial_j A_k)\psi + A_k\partial_j \psi) =
+
+    = -i\hbar\epsilon_{ijk}((\partial_j A_k)\psi - A_j\partial_k \psi) =
+
+    = \epsilon_{ijk}(-i\hbar(\partial_j A_k)\psi - A_j p_k \psi) =
+
+    = -i\hbar((\nabla\times{\bf A})\psi)_i - ({\bf A}\times{\bf p} \psi)_i" /></p>
+</div><p>Putting this into the Pauli equation, we get:</p>
 <div class="math">
 <p><img src="../../_images/math/ae6b8a48faa04ab3f158c2673eb7276cf4f050f3.png" alt="\left(
 {\left({\bf p}-e{\bf A}\right)^2 \over 2m} + V
