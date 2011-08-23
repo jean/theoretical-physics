@@ -657,6 +657,120 @@ then:</p>
     \hbar c\int -B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho" /></p>
 </div></div>
 </div>
+<div class="section" id="other-forms-of-dirac-equations">
+<h2>Other Forms of Dirac Equations<a class="headerlink" href="#other-forms-of-dirac-equations" title="Permalink to this headline">¶</a></h2>
+<p>The radial Dirac equations are:</p>
+<div class="math">
+<p><img src="../../_images/math/497ea450c05b5ebb4adea02f9de1723fc07e1432.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+\ket{P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+
+\hat H = \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>After substitution <img class="math" src="../../_images/math/236d55d2ec7b4bad919e9989fc9fcb417ae6b63c.png" alt="S = f(r)P"/> and <img class="math" src="../../_images/math/299ec1b4dc68c478f26a46dbfff8ea844ffa68cd.png" alt="T = f(r)Q"/>, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ef200081a7dadf0abc554dcdbc475e5a5f2a2e2f.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+\hat H {1\over f} \ket{S, T} = \epsilon {1\over f}\ket{S, T}
+
+f\hat H {1\over f} \ket{S, T} = \epsilon \ket{S, T}" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/9ffe5272cf0b7caf477aaa1d5f544f8cd02b95c0.png" alt="f\hat H {1\over f}= f\left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right){1\over f}
+    =
+
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-f{\d\over\d\rho}{1\over f}+{\kappa\over\rho}\right) \\
+    \hbar c \left(f{\d\over\d\rho}{1\over f}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>and after using:</p>
+<div class="math">
+<p><img src="../../_images/math/4e296e349ea6becf8af31c11f66b65af578bc5e6.png" alt="f{\d\over\d\rho}{1\over f} = {\d\over\d\rho} - {f'\over f}" /></p>
+</div><p>we get:</p>
+<div class="math">
+<p><img src="../../_images/math/e347bbce6f8fc44b010aefac3b17d5ef0667e1ec.png" alt="f\hat H {1\over f}
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{f'\over f}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{f'\over f}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><div class="section" id="example-i">
+<h3>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h3>
+<p>In order to obtain equations for <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> and <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>, related to <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> and <img class="math" src="../../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q"/> by:</p>
+<div class="math">
+<p><img src="../../_images/math/ad693ed0e9804342389c54efb4facc378201945b.png" alt="P = \rho g
+
+Q = \rho f" /></p>
+</div><p>so <img class="math" src="../../_images/math/c351ef04fbbf0abd5e15ba7a63c88d535a3a8a0d.png" alt="f(r) = {1\over \rho}"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/389ea62328a49e36cc04237c900b63371a0c3291.png" alt="{f'\over f} = -{1\over \rho}" /></p>
+</div><p>and we get the radial Dirac equation for <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> and <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/19c05e57571084d74716861bc81a12a73c3da4d0.png" alt="f\hat H {1\over f}
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa-1\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa+1\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div></div>
+<div class="section" id="example-ii">
+<h3>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h3>
+<p>For <img class="math" src="../../_images/math/66c3fc3325e70aef0e9ba0cd0b67353a80187eb2.png" alt="f(r) = \rho"/> we get</p>
+<div class="math">
+<p><img src="../../_images/math/030c2695aa750734750222122e8c552be80c2797.png" alt="{f'\over f} = {1\over \rho}" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/5ffa238cce6a6e868bf85d8905ec99e312dff319.png" alt="f\hat H {1\over f}
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa+1\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa-1\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div></div>
+<div class="section" id="example-iii">
+<h3>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h3>
+<p>For <img class="math" src="../../_images/math/96c164f717914fd863663d79b36ee83d45cd5b70.png" alt="f(r) = \rho^n"/> we get</p>
+<div class="math">
+<p><img src="../../_images/math/b2be144066c14ded1232cfd7306b536d415c83ab.png" alt="{f'\over f} = {n\over \rho}" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/be9dfc52cf69a0bf893ff9dd83f6ddf1034be611.png" alt="f\hat H {1\over f}
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa+n\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa-n\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>Example I is just a special case for <img class="math" src="../../_images/math/abffc6551fd537142e5ae0d6907dc57c4f42cd84.png" alt="n=-1"/>, Example II for <img class="math" src="../../_images/math/1d96ecc15129c5631ba4a2c6578e91e3d13e3baf.png" alt="n=1"/>.</p>
+</div>
+<div class="section" id="example-iv">
+<h3>Example IV<a class="headerlink" href="#example-iv" title="Permalink to this headline">¶</a></h3>
+<p>For <img class="math" src="../../_images/math/2e1241770a5a31ae6a192a4d68b9d36fa2435c63.png" alt="f(r) = \tanh \rho"/> we get</p>
+<div class="math">
+<p><img src="../../_images/math/f41f930e1afee01448bfe583c5dc9421875f3cec.png" alt="{f'\over f} = {1\over \sinh\rho\cosh\rho}" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/6ad4c1da4776ca9a3c3c9da4d414e986634b511a.png" alt="f\hat H {1\over f}
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{1\over \sinh\rho\cosh\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{1\over \sinh\rho\cosh\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div></div>
+<div class="section" id="example-v">
+<h3>Example V<a class="headerlink" href="#example-v" title="Permalink to this headline">¶</a></h3>
+<p>For <img class="math" src="../../_images/math/6b08e57daf52ac2e0d3c06a9fa186b95cc80645f.png" alt="f(r) = \tanh^n \rho"/> we get</p>
+<div class="math">
+<p><img src="../../_images/math/86e049af071a6eb6c24a02c09b8b5d3cff10b718.png" alt="{f'\over f} = {n\over \sinh\rho\cosh\rho}" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/d8a70714c450e7f1f2ce958e17138197166a5d60.png" alt="f\hat H {1\over f}
+= \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{n\over \sinh\rho\cosh\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{n\over \sinh\rho\cosh\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>Example IV is just a special case for <img class="math" src="../../_images/math/1d96ecc15129c5631ba4a2c6578e91e3d13e3baf.png" alt="n=1"/>.</p>
+</div>
+</div>
 </div>
 
 
@@ -689,6 +803,14 @@ then:</p>
 <li><a class="reference internal" href="#id2">From the Equation</a></li>
 <li><a class="reference internal" href="#id3">From the Lagrangian</a></li>
 <li><a class="reference internal" href="#id4">Weak Formulation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-forms-of-dirac-equations">Other Forms of Dirac Equations</a><ul>
+<li><a class="reference internal" href="#example-i">Example I</a></li>
+<li><a class="reference internal" href="#example-ii">Example II</a></li>
+<li><a class="reference internal" href="#example-iii">Example III</a></li>
+<li><a class="reference internal" href="#example-iv">Example IV</a></li>
+<li><a class="reference internal" href="#example-v">Example V</a></li>
 </ul>
 </li>
 </ul>

@@ -846,3 +846,167 @@ then:
 
     \hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} =
         \hbar c\int -B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho
+
+Other Forms of Dirac Equations
+------------------------------
+
+The radial Dirac equations are:
+
+.. math::
+
+    \hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+    \ket{P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+
+    \hat H = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+After substitution $S = f(r)P$ and $T = f(r)Q$, we get:
+
+.. math::
+
+    \hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+    \hat H {1\over f} \ket{S, T} = \epsilon {1\over f}\ket{S, T}
+
+    f\hat H {1\over f} \ket{S, T} = \epsilon \ket{S, T}
+
+where:
+
+.. math::
+
+    f\hat H {1\over f}= f\left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right){1\over f}
+        =
+
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-f{\d\over\d\rho}{1\over f}+{\kappa\over\rho}\right) \\
+        \hbar c \left(f{\d\over\d\rho}{1\over f}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+and after using:
+
+.. math::
+
+    f{\d\over\d\rho}{1\over f} = {\d\over\d\rho} - {f'\over f}
+
+we get:
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{f'\over f}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{f'\over f}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example I
+~~~~~~~~~
+
+In order to obtain equations for $g$ and $f$, related to $P$ and $Q$ by:
+
+.. math::
+
+    P = \rho g
+
+    Q = \rho f
+
+so $f(r) = {1\over \rho}$ and
+
+.. math::
+
+    {f'\over f} = -{1\over \rho}
+
+and we get the radial Dirac equation for $g$ and $f$:
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa-1\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa+1\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example II
+~~~~~~~~~~
+
+For $f(r) = \rho$ we get
+
+.. math::
+
+    {f'\over f} = {1\over \rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa+1\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa-1\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example III
+~~~~~~~~~~~
+
+For $f(r) = \rho^n$ we get
+
+.. math::
+
+    {f'\over f} = {n\over \rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa+n\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa-n\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example I is just a special case for $n=-1$, Example II for $n=1$.
+
+Example IV
+~~~~~~~~~~
+
+For $f(r) = \tanh \rho$ we get
+
+.. math::
+
+    {f'\over f} = {1\over \sinh\rho\cosh\rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{1\over \sinh\rho\cosh\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{1\over \sinh\rho\cosh\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example V
+~~~~~~~~~
+
+For $f(r) = \tanh^n \rho$ we get
+
+.. math::
+
+    {f'\over f} = {n\over \sinh\rho\cosh\rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{n\over \sinh\rho\cosh\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{n\over \sinh\rho\cosh\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example IV is just a special case for $n=1$.
