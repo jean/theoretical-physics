@@ -228,7 +228,7 @@ into <a href="#equation-energy-relat2">(5)</a>:</p>
     \partial_i\left(\left(\rho\gamma^2 - {E\gamma\over c^2}\right)
     v^i
     \right) = 0" /></p>
-</div><p>For <img class="math" src="../../_images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> we get:</p>
+</div><p>The equation <a href="#equation-conv1">(1)</a> for <img class="math" src="../../_images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> gives:</p>
 <div class="math">
 <p><img src="../../_images/math/1b1e9c2e6d19d9d0c9923f905bd8bc1fb021d6aa.png" alt="\partial_\nu T^{i\nu} = 0
 
@@ -249,7 +249,8 @@ and
 <a href="#equation-energy-relat">(6)</a> are the correct relativistic equations for the perfect fluid
 (no approximations were done). We can take either <a href="#equation-continuity-relat3">(7)</a> or
 <a href="#equation-energy-relat2">(5)</a> as the equation of continuity (both give the same
-nonrelativistic equation of continuity).  Their Newtonian limit is:</p>
+nonrelativistic equation of continuity).  Their Newtonian limit is obtained by
+<img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> (which implies <img class="math" src="../../_images/math/fd87634f51bf39f0d58a4f4fad4b06811548d530.png" alt="\gamma\to1"/>):</p>
 <div class="math">
 <p><img src="../../_images/math/8f218084edc10a33e7ee67f69b34f44e467471de.png" alt="\partial_t \rho + \partial_i(\rho v^i) = 0
 
@@ -268,7 +269,62 @@ nonrelativistic equation of continuity).  Their Newtonian limit is:</p>
 
 {\partial E\over\partial t}
     + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0" /></p>
-</div></div>
+</div><p>The momentum equation can be further simplified by expanding the parentheses
+and using the continuity equation:</p>
+<div class="math">
+<p><img src="../../_images/math/a8814a87e8bd51fda2ed345f11df570aa0d3e990.png" alt="{\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
+    (\rho {\bf v}{\bf v}^T) + \nabla p = 0
+
+\underbrace{\left(
+{\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v})\right)}_0
+{\bf v} +
+\rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
+    {\bf v}\right)
+    + \nabla p = 0
+
+\rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
+    {\bf v}\right)
+    + \nabla p = 0" /></p>
+</div><div class="section" id="alternative-derivation">
+<h4>Alternative Derivation<a class="headerlink" href="#alternative-derivation" title="Permalink to this headline">¶</a></h4>
+<p>We can also take the non-relativistic limit in the stress energy tensor:</p>
+<div class="math">
+<p><img src="../../_images/math/d85e262321a24a5be7842e5578b19e9abb1e0000.png" alt="T^{00} \to \rho c^2
+
+T^{0i} = T^{i0} \to {1\over c} \rho c^2 v^i
+
+T^{ij} \to \rho v^iv^j + p \delta^{ij}" /></p>
+</div><p>and plug it into the equation <a href="#equation-conv1">(1)</a>. For <img class="math" src="../../_images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/> we get the equation of
+continuity:</p>
+<div class="math">
+<p><img src="../../_images/math/261e287ab8c3bb66ff35e467246c69d7cc04e9f5.png" alt="\partial_\nu T^{0\nu} = 0
+
+\partial_0 T^{00} + \partial_i T^{0i} = 0
+
+\partial_t\left({1\over c} \rho c^2\right)
+    + \partial_i\left({1\over c}\rho c^2 v^i \right) = 0
+
+\partial_t \rho + \partial_i\left(\rho v^i \right) = 0" /></p>
+</div><p>and for <img class="math" src="../../_images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> we get the momentum equation:</p>
+<div class="math">
+<p><img src="../../_images/math/2295d20c0368ced7cf7fe6469968dc79fbefe31a.png" alt="\partial_\nu T^{i\nu} = 0
+
+\partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+\partial_t \left({1\over c^2}\rho c^2 v^i\right)
+    + \partial_j \left(
+    \rho v^iv^j + p \delta^{ij}
+    \right) = 0
+
+\partial_t \left(\rho v^i\right)
+    + \partial_j \left(
+    \rho v^iv^j + p \delta^{ij}
+    \right) = 0" /></p>
+</div><p>However, in order to derive the equation for energy <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/>, one needs to take into
+account the full relativistic stress energy tensor, see the previous section
+for details.</p>
+</div>
+</div>
 <div class="section" id="energy-equation">
 <h3>Energy Equation<a class="headerlink" href="#energy-equation" title="Permalink to this headline">¶</a></h3>
 <p>The energy equation can also be derived from thermodynamic and the other two
@@ -364,8 +420,48 @@ We have the following two Euler equations:</p>
 </div>
 <div class="section" id="navier-stokes-equations">
 <h2>Navier-Stokes Equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this headline">¶</a></h2>
-<p>When we write the relativistic conservation law in a nonrelativistic limit (for
-a general fluid), we get the Cauchy momentum equation:</p>
+<p>We start with the following nonrelativistic components of the stress energy
+tensor:</p>
+<div class="math">
+<p><img src="../../_images/math/12afaf4d8c172347bea54cea6b4d747f675780cf.png" alt="T^{00} \to \rho c^2
+
+T^{0i} = T^{i0} \to {1\over c} \rho c^2 v^i
+
+T^{ij} \to \rho v^iv^j - \sigma^{ij}" /></p>
+</div><p>where <img class="math" src="../../_images/math/b0a809020f42653b2bf25bd546f3239ba8890f1d.png" alt="\sigma^{ij} = -p \delta^{ij} + \mathds{T}"/> (more below)
+and plug it into the equation <a href="#equation-conv1">(1)</a>. For <img class="math" src="../../_images/math/6fb9784238a0e8caf96b491ddba1749e92a41490.png" alt="\mu=0"/> we get the equation of
+continuity as for perfect fluids:</p>
+<div class="math">
+<p><img src="../../_images/math/261e287ab8c3bb66ff35e467246c69d7cc04e9f5.png" alt="\partial_\nu T^{0\nu} = 0
+
+\partial_0 T^{00} + \partial_i T^{0i} = 0
+
+\partial_t\left({1\over c} \rho c^2\right)
+    + \partial_i\left({1\over c}\rho c^2 v^i \right) = 0
+
+\partial_t \rho + \partial_i\left(\rho v^i \right) = 0" /></p>
+</div><p>and for <img class="math" src="../../_images/math/73c5be5c6faff9bbe4adf4cda7ef956737aa7000.png" alt="\mu=i"/> we get the momentum equation:</p>
+<div class="math">
+<p><img src="../../_images/math/c156131ad49e4e31b9e6de6b53b54af84980f860.png" alt="\partial_\nu T^{i\nu} = f^i
+
+\partial_0 T^{i0} + \partial_j T^{ij} = f^i
+
+\partial_t \left({1\over c^2}\rho c^2 v^i\right)
+    + \partial_j \left(
+    \rho v^iv^j - \sigma^{ij}
+    \right) = f^i
+
+\partial_t \left(\rho v^i\right)
+    + \partial_j \left(
+    \rho v^iv^j - \sigma^{ij}
+    \right) = f^i" /></p>
+</div><p>By using the continuity equation in the momentum equation (as in perfect
+fluids), we get:</p>
+<div class="math">
+<p><img src="../../_images/math/51693bb70e00fa69cc7496e230c5961c1429e7e4.png" alt="\rho\left(\partial_t v^i + v^i \partial_j v^j\right)
+    - \partial_j\sigma^{ij}
+    = f^i" /></p>
+</div><p>This is sometimes called the Cauchy momentum equation:</p>
 <div class="math">
 <p><img src="../../_images/math/119550a59cc84e3e2f38eeacc94e0a75f0454b72.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = \nabla \cdot \mathds{\sigma} + {\bf f}" /></p>
 </div><p>where the stress tensor <img class="math" src="../../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> can be written as:</p>
@@ -376,7 +472,7 @@ a general fluid), we get the Cauchy momentum equation:</p>
 <p><img src="../../_images/math/2ae3c88354e1745859bc332d10cb50a37df2f407.png" alt="\rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p + \nabla \cdot \mathds{T} + {\bf f}" /></p>
 </div><p>Those are the most general equations. If we assume some more things about the
 fluid, they can be further simplified.</p>
-<p>For Newtonean fluids, we want <img class="math" src="../../_images/math/4576a14f9aac382d8d9d781b7df05bc91062581d.png" alt="\mathds{T}"/> to be isotropic, linear in strain
+<p>For Newtonian fluids, we want <img class="math" src="../../_images/math/4576a14f9aac382d8d9d781b7df05bc91062581d.png" alt="\mathds{T}"/> to be isotropic, linear in strain
 rates and it&#8217;s divergence zero for fluid at rest. It follows that the only way
 to write the tensor under these conditions is:</p>
 <div class="math">
@@ -433,7 +529,7 @@ v}\over\partial t}=0"/> and since points <img class="math" src="../../_images/ma
 If the fluid is not moving, we set <img class="math" src="../../_images/math/c259a1a66934b18e9912f8e0c579f8c7456f566c.png" alt="{\bf v}=0"/> in the equations above and
 immediately get:</p>
 <div class="math">
-<p><img src="../../_images/math/855c6b64752e3b7029374b7c4a0df89d818193ec.png" alt="{v^2\over 2} + gz + {p\over\rho}={\rm const.}" /></p>
+<p><img src="../../_images/math/a82ebf2273d397b07ad85c515d0dd55dfbe0f239.png" alt="gz + {p\over\rho}={\rm const.}" /></p>
 </div><p>The last equation then holds everywhere in the (nonmoving) fluid (as opposed to
 the previous equation that only holds along the streamline).</p>
 <div class="section" id="hydrostatic-pressure">
@@ -529,7 +625,10 @@ Hagen-Poiseuille law.</p>
   <ul>
 <li><a class="reference internal" href="#">Fluid Dynamics</a><ul>
 <li><a class="reference internal" href="#stress-energy-tensor">Stress-Energy Tensor</a><ul>
-<li><a class="reference internal" href="#perfect-fluids">Perfect Fluids</a></li>
+<li><a class="reference internal" href="#perfect-fluids">Perfect Fluids</a><ul>
+<li><a class="reference internal" href="#alternative-derivation">Alternative Derivation</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#energy-equation">Energy Equation</a></li>
 </ul>
 </li>
