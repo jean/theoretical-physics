@@ -999,24 +999,41 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
 </div></div>
 <div class="section" id="multipole-expansion">
 <span id="index-7"></span><h2>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h2>
+<p>Assuming <img class="math" src="../../_images/math/77598bff52f38421a571fd42ed448608de7d2273.png" alt="r' \ll r"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/71624d5123d1bb445f3d8aa113618dec49eb0b55.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/95e8d9da9ce48c305330800208b3f634ae851609.png" alt="={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/57ef7f1b9ea2ea9d733727fe50c206f19cabd8a7.png" alt="={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/91e01e10e4b71304904ef298dd1021e4d2c9f1ea.png" alt="={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/6e849ec1ac05ea195e76346a055dc335cb0a1a56.png" alt="={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)" /></p>
+<p><img src="../../_images/math/748018f3dece67a098dceebf2a0e4c9cbfdd29b4.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =
+
+={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)" /></p>
 </div><p>We can also use the formula:</p>
 <div class="math">
-<p><img src="../../_images/math/8d7b55a7de1072a93ec996f9b53b36935abc6bb2.png" alt="\sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}={4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}" /></p>
+<p><img src="../../_images/math/ad6409b25926cb6cecff8d41b35202a44bf5b8ab.png" alt="\sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
+    ={2l+1 \over 4\pi} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}" /></p>
 </div><p>and rewrite the expansion using spherical harmonics:</p>
 <div class="math">
-<p><img src="../../_images/math/b1f4118b9be1ad31918b29ac186fc21a8e4cfeb5.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =" /></p>
-</div><div class="math">
-<p><img src="../../_images/math/a7e3168e471a8503ba5ff8ed50c78748b3d2bafc.png" alt="={1\over r}\sum_{l,m}\left(r'\over r\right)^l {2l+1\over4\pi}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'} ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {2l+1\over4\pi}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+<p><img src="../../_images/math/f84b85ffb86c8889e4b4619baf14fe93a46c5bb5.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
+={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+</div><p>Assuming <img class="math" src="../../_images/math/109d81b6db98ab0365354a9465f787a4cffc99d3.png" alt="r' \gg r"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/b597459b9dc4501615dc9b6c2ca4f0365ac2871d.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r'}\sum_{l=0}^\infty\left(r\over r'\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+= {1\over r'}\sum_{l,m}\left(r\over r'\right)^l
+{4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+</div><p>We can combine the two formulas by introducing <img class="math" src="../../_images/math/8084280f2ca144fe44373e90055aef8f5e8aed60.png" alt="r_{&gt;} = \max(r, r')"/> and
+<img class="math" src="../../_images/math/38e8ffeacf1099ce658907682532458b8e21f33e.png" alt="r_{&lt;} = \min(r, r')"/> and then for any <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> and <img class="math" src="../../_images/math/8db99a3261aeba6b17548670b2445e79d4d0e4c3.png" alt="r'"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/70b02b0c85f5c51f978de4fcec1b8e52f35acf0d.png" alt="{1\over |{\bf r}-{\bf r'}|}
+    ={1\over r_{&gt;}}\sum_{l=0}^\infty\left(r_{&lt;}\over r_{&gt;}\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+    = {1\over r_{&gt;}}\sum_{l,m}\left(r_{&lt;}\over r_{&gt;}\right)^l
+        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
 </div></div>
 </div>
 
