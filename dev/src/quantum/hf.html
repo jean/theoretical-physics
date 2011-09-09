@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hartree-Fock (HF) Method &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
+    <link rel="next" title="Projector Augmented-Wave Method (PAW)" href="paw.html" />
+    <link rel="prev" title="Density Functional Theory (DFT)" href="dft.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="paw.html" title="Projector Augmented-Wave Method (PAW)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dft.html" title="Density Functional Theory (DFT)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hartree-fock-hf-method">
+<h1>Hartree-Fock (HF) Method<a class="headerlink" href="#hartree-fock-hf-method" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="derivation">
+<h2>Derivation<a class="headerlink" href="#derivation" title="Permalink to this headline">¶</a></h2>
+<p>The interacting Hamiltonian is (see the general QFT notes for derivation):</p>
+<div class="math">
+<p><img src="../../_images/math/eb749ec01c1ec41d6a9cae52c70704d38a764254.png" alt="i\hbar\partial_t\ket{\Psi(t)} = \hat H\ket{\Psi(t)}
+
+\hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
+    \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k" /></p>
+</div><p>We would like to minimize the energy <img class="math" src="../../_images/math/273bf72a66beb46b49afaf4acc5b94b084a64beb.png" alt="E = \braket{\Psi | \hat H | \Psi }"/> using
+the following basis for <img class="math" src="../../_images/math/3ead47fb9fb4a4c273feee398f72ff2a09702b84.png" alt="Z"/> electrons:</p>
+<div class="math">
+<p><img src="../../_images/math/dc930162d14c84c3e74f80c2b1b1a359ca766913.png" alt="\ket{\Psi} = c_1^\dag c_2^\dag \cdots c_Z^\dag\ket{0}" /></p>
+</div><p>We express the energy <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> in this basis:</p>
+<div class="math">
+<p><img src="../../_images/math/0233d7dd4815586841fd42756ff85c3df6c7336b.png" alt="E = \braket{\Psi | \hat H | \Psi } =
+
+= \bra{0}c_Z\cdots c_2 c_1 \hat H
+    c_1^\dag c_2^\dag \cdots c_Z^\dag\ket{0} =
+
+= \bra{0}c_Z\cdots c_2 c_1
+\left(\sum_{i,j=1}^Z c_i^\dag\braket{i|T|j}c_j +
+    \half \sum_{i,j,k,l=1}^Z c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k\right)
+    c_1^\dag c_2^\dag \cdots c_Z^\dag\ket{0} =
+
+= \sum_{i=1}^Z \braket{i|T|i} +
+    \half \sum_{i,j=1}^Z \left(\braket{ij|V|ij}-\braket{ij|V|ji}\right)" /></p>
+</div><p>We minimize it with the constrain <img class="math" src="../../_images/math/4d2f0be0becced525df6ebe6b1054830f852dc03.png" alt="\braket{i|j} = \delta_{ij}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6289865d3a69a850cd8e9d081723651247b16fdc.png" alt="\delta \left(E - \sum_{i,j=1}^Z \epsilon_{ij} \braket{i|j}\right) = 0" /></p>
+</div><p>We obtain:</p>
+<div class="math">
+<p><img src="../../_images/math/62154828796e69b45b7f6cabe3c901253c6f8736.png" alt="T \ket{i} + \sum_{j=1}^Z \left(\braket{j|V|ij}-\braket{j|V|ji}\right)
+    = \epsilon_i \ket{i}" /></p>
+</div><p>in the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-representation:</p>
+<div class="math">
+<p><img src="../../_images/math/3d0d94412832c2c1cc9d50fcaa022b37b2cef025.png" alt="\braket{{\bf x} | T | i}
+    + \sum_{j=1}^Z \left(\bra{{\bf x}}\braket{j|V|ij}-
+        \bra{{\bf x}}\braket{j|V|ji}\right)
+    = \epsilon_i \braket{{\bf x} | i}
+
+\braket{{\bf x} | T | i}
+    + \sum_{j=1}^Z \left(\braket{j{\bf x}|V|ij}-
+        \braket{j{\bf x}|V|ji}\right)
+    = \epsilon_i \braket{{\bf x} | i}" /></p>
+</div><p>And writing the individual terms explicitly:</p>
+<div class="math">
+<p><img src="../../_images/math/16a3022e56278f21fb1753943d9276f2a03a9ef6.png" alt="\braket{{\bf x} | i} = \psi_i({\bf x})
+
+\braket{{\bf x} | T | i}
+    = \left(-\half \nabla^2 -{Z\over |{\bf x}|}\right)\psi_i({\bf x})
+
+\braket{j{\bf x}|V|ij}
+    = \int \psi_j^*({\bf y}){1\over|{\bf x}-{\bf y}|}
+        \psi_i({\bf x})\psi_j({\bf y}) \d^3 y
+    = \int {|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_i({\bf x})
+
+\braket{j{\bf x}|V|ji}
+    = \int \psi_j^*({\bf y}){1\over|{\bf x}-{\bf y}|}
+        \psi_j({\bf x})\psi_i({\bf y}) \d^3 y
+    = \int {\psi_i({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_j({\bf x})" /></p>
+</div><p>we get the Hartree-Fock equations:</p>
+<div class="math">
+<p><img src="../../_images/math/a5bdf22279384d7d4b8167e82a0955068f300dd3.png" alt="\left(-\half \nabla^2 -{Z\over |{\bf x}|}
++
+\int {\sum_{j=1}^Z|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y\right)\psi_i({\bf x})
+- \sum_{j=1}^Z\int {\psi_i({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_j({\bf x})
+=
+\epsilon_i \psi_i({\bf x})" /></p>
+</div><p>Let&#8217;s introduce the number density <img class="math" src="../../_images/math/f10e663a3514899631dbd824742529f30025fb21.png" alt="n({\bf x})"/>, Hartree potential <img class="math" src="../../_images/math/2c0d4b1d012ada58475c043bc30ebdd798f09766.png" alt="V_H({\bf
+x})"/> and nonlocal exchange potential <img class="math" src="../../_images/math/7315a8cb1f7772bdd9b55899365d3a8ff2b4b0a8.png" alt="V_x"/> with its kernel <img class="math" src="../../_images/math/e435aea1ee0d8cd99c67eb45207b2a6d088d1e5b.png" alt="U({\bf x}, {\bf
+y})"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/374d0b3f3fde12c7122736b3605efa848ad3a2de.png" alt="n({\bf x}) = \sum_{j=1}^Z|\psi_j({\bf y})|^2
+
+V_H({\bf x}) = \int {\sum_{j=1}^Z|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y
+    = \int {n({\bf y})\over|{\bf x}-{\bf y}|} \d^3 y
+
+\hat V_x f({\bf x}) =
+- \sum_{j=1}^Z\int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_j({\bf x})
+= \int U({\bf x}, {\bf y}) f({\bf y}) \d^3 y
+
+U({\bf x}, {\bf y}) =
+- \sum_{j=1}^Z {\psi_j({\bf x})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}" /></p>
+</div><p>then we can write the HF equations as:</p>
+<div class="math">
+<p><img src="../../_images/math/6f19b40bd3a08149367f00a0b0bea0fa9d35a571.png" alt="\left(-\half \nabla^2 -{Z\over |{\bf x}|} + V_H({\bf x})
+    + \hat V_x
+    \right)\psi_i({\bf x})
+=
+\epsilon_i \psi_i({\bf x})
+
+\left(-\half \nabla^2 -{Z\over |{\bf x}|} + V_H({\bf x})
+    \right)\psi_i({\bf x})
++ \int U({\bf x}, {\bf y}) \psi_i({\bf y}) \d^3 y
+=
+\epsilon_i \psi_i({\bf x})" /></p>
+</div><p>The Hartree potential can be calculated by solving the Poisson equation:</p>
+<div class="math">
+<p><img src="../../_images/math/5859c4b770b257d0d0e70f952f232ca1571ce9c1.png" alt="\nabla^2V_H({\bf x}) = -4\pi n({\bf x})" /></p>
+</div><p>The application of the exchange potential <img class="math" src="../../_images/math/e4f87ff57e85fc782892da776174515fa7fa3c74.png" alt="\hat V_x"/> on any function
+<img class="math" src="../../_images/math/d731455805df3f06fcea80904540c5b7c7c8820c.png" alt="f({\bf x})"/> can be calculated by:</p>
+<div class="math">
+<p><img src="../../_images/math/cfc755b7f2ceefe72b2825428dbd2607a884fe65.png" alt="\hat V_x f({\bf x}) = - \sum_{j=1}^Z W_{fj}({\bf x})\psi_j({\bf x})
+
+W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y
+
+\nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})" /></p>
+</div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hartree-Fock (HF) Method</a><ul>
+<li><a class="reference internal" href="#derivation">Derivation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dft.html"
+                        title="previous chapter">Density Functional Theory (DFT)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="paw.html"
+                        title="next chapter">Projector Augmented-Wave Method (PAW)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/quantum/hf.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="paw.html" title="Projector Augmented-Wave Method (PAW)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dft.html" title="Density Functional Theory (DFT)"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>
