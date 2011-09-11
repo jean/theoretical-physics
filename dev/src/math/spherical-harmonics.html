@@ -226,7 +226,29 @@ l+l'+k = \mbox{even integer}" /></p>
 
     =
     (2l+1) \delta_{k0}" /></p>
-</div></div>
+</div><p>and:</p>
+<div class="math">
+<p><img src="../../_images/math/24d1b1002725d49feec1cddb6cccd440e4239085.png" alt="c^k(l, -m, l', -m') =
+
+= (-1)^{m}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ m &amp; -m+m' &amp; -m' \end{pmatrix} =
+
+= (-1)^{m}(-1)^{l+k+l'}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix} =
+
+= (-1)^{-m}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix} =
+
+c^k(l, m, l', m')" /></p>
+</div><p>Where we used the fact, that <img class="math" src="../../_images/math/985acf8f695a158b512fcb586bdcc40b2ecf9331.png" alt="l+k+l'"/> is an even integer and
+<img class="math" src="../../_images/math/4bbb3fe616b2a0b1164bacc5ba004b841784a3a4.png" alt="(-1)^m=(-1)^{-m}"/>.</p>
+</div>
 </div>
 <div class="section" id="wigner-3j-symbols">
 <h1>Wigner 3j Symbols<a class="headerlink" href="#wigner-3j-symbols" title="Permalink to this headline">¶</a></h1>
@@ -276,6 +298,47 @@ integer:</p>
     = (-1)^{j_1+j_2+j_3}
     \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ -m_1 &amp; -m_2 &amp; -m_3 \end{pmatrix}" /></p>
 </div></div>
+<div class="section" id="multipole-expansion">
+<span id="index-1"></span><h1>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
+<p>Assuming <img class="math" src="../../_images/math/77598bff52f38421a571fd42ed448608de7d2273.png" alt="r' \ll r"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/748018f3dece67a098dceebf2a0e4c9cbfdd29b4.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =
+
+={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)" /></p>
+</div><p>We can also use the formula:</p>
+<div class="math">
+<p><img src="../../_images/math/ad6409b25926cb6cecff8d41b35202a44bf5b8ab.png" alt="\sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
+    ={2l+1 \over 4\pi} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}" /></p>
+</div><p>and rewrite the expansion using spherical harmonics:</p>
+<div class="math">
+<p><img src="../../_images/math/f84b85ffb86c8889e4b4619baf14fe93a46c5bb5.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
+={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+</div><p>Assuming <img class="math" src="../../_images/math/109d81b6db98ab0365354a9465f787a4cffc99d3.png" alt="r' \gg r"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/b597459b9dc4501615dc9b6c2ca4f0365ac2871d.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r'}\sum_{l=0}^\infty\left(r\over r'\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+= {1\over r'}\sum_{l,m}\left(r\over r'\right)^l
+{4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+</div><p>We can combine the two formulas by introducing <img class="math" src="../../_images/math/8084280f2ca144fe44373e90055aef8f5e8aed60.png" alt="r_{&gt;} = \max(r, r')"/> and
+<img class="math" src="../../_images/math/38e8ffeacf1099ce658907682532458b8e21f33e.png" alt="r_{&lt;} = \min(r, r')"/> and then for any <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> and <img class="math" src="../../_images/math/8db99a3261aeba6b17548670b2445e79d4d0e4c3.png" alt="r'"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/79bfc6fe0a12180fac7227c537512d348514368e.png" alt="{1\over |{\bf r}-{\bf r'}|}
+    ={1\over r_{&gt;}}\sum_{l=0}^\infty\left(r_{&lt;}\over r_{&gt;}\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+    = {1\over r_{&gt;}}\sum_{l,m}\left(r_{&lt;}\over r_{&gt;}\right)^l
+        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}') =
+
+    = \sum_{l,m}{r_{&lt;}^l\over r_{&gt;}^{l+1}}
+        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+</div></div>
 
 
           </div>
@@ -294,6 +357,7 @@ integer:</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a></li>
+<li><a class="reference internal" href="#multipole-expansion">Multipole expansion</a></li>
 </ul>
 
   <h4>Previous topic</h4>
