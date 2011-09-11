@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Mathematics" href="main.html" />
-    <link rel="next" title="Feynman Parameters" href="feynman-parameters.html" />
+    <link rel="next" title="Spherical Harmonics" href="spherical-harmonics.html" />
     <link rel="prev" title="Periodic Functions" href="trig.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="feynman-parameters.html" title="Feynman Parameters"
+          <a href="spherical-harmonics.html" title="Spherical Harmonics"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="trig.html" title="Periodic Functions"
@@ -334,37 +334,8 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
 <p><span class="eqno">(6)</span><img src="../../_images/math/f307d4a8c7baf08d7befd8f6640c6015126d34d0.png" alt="=\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)" /></p>
 </div><p>As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That&#8217;s why such obvious manipulations with <img class="math" src="../../_images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
 </div>
-<div class="section" id="spherical-harmonics">
-<span id="index-1"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
-<p>Are defined by</p>
-<div class="math">
-<p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
-</div><p>where <img class="math" src="../../_images/math/d8a3014951eb2ea04abd44b40541cac5a0fa4925.png" alt="P_l^m"/> are associated Legendre polynomials defined by</p>
-<div class="math">
-<p><img src="../../_images/math/649165b371ffd4e944838db3687106b5969d8f94.png" alt="P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)" /></p>
-</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials defined by the formula</p>
-<div class="math">
-<p><img src="../../_images/math/9d4375f23c92f4a73c90f97bbc1430f727daae3a.png" alt="P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]" /></p>
-</div><p>they also obey the completeness relation</p>
-<div class="math" id="equation-Lorto">
-<p><span class="eqno">(7)</span><img src="../../_images/math/c829f772cce4c848b61833429408d6c7a5ef3359.png" alt="\sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')" /></p>
-</div><p>The spherical harmonics are ortonormal:</p>
-<div class="math" id="equation-Yorto">
-<p><span class="eqno">(8)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
-</div><p>and complete (both in the <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>-subspace and the whole space):</p>
-<div class="math" id="equation-lcomplete">
-<p><span class="eqno">(9)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
-</div><div class="math" id="equation-Ycomplete">
-<p><span class="eqno">(10)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
-</div><p>The relation <a href="#equation-lcomplete">(9)</a> is a special case of an addition theorem for spherical harmonics</p>
-<div class="math" id="equation-lsum">
-<p><span class="eqno">(11)</span><img src="../../_images/math/e4bd9c36e7fa12aa97f54efcdc3ee3d547c97d1a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)" /></p>
-</div><p>where <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/> is the angle between the unit vectors given by <img class="math" src="../../_images/math/1c862146f0f101b924261bb58d0fc29b1b9e46af.png" alt="{\bf\hat r}=(\theta,\phi)"/> and <img class="math" src="../../_images/math/0d0aecb78b70ae3aa399e60b21e36311f861c7aa.png" alt="{\bf\hat r'}=(\theta',\phi')"/>:</p>
-<div class="math">
-<p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
-</div></div>
 <div class="section" id="dirac-notation">
-<span id="index-2"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
+<span id="index-1"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
 <p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
 <p>Let&#8217;s have a function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. We define</p>
 <div class="math">
@@ -401,13 +372,13 @@ remember and &#8211; that is important &#8211; less general.</p>
 </div><p>thus</p>
 <div class="math">
 <p><img src="../../_images/math/9bcb4dd1df7a28e404ffd041f71963fb013c9775.png" alt="\int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \int\braket{l'm'|{\bf\hat r}}\braket{{\bf\hat r}|lm}\d\Omega= \braket{l'm'|lm}" /></p>
-</div><p>and from <a href="#equation-Yorto">(8)</a> we get</p>
+</div><p>and from <a href="#equation-Yorto">(?)</a> we get</p>
 <div class="math">
 <p><img src="../../_images/math/bb890851c7504ec411898d2bdf2cf00a5cdf5a10.png" alt="\braket{l'm'|lm}=\delta_{mm'}\delta_{ll'}" /></p>
 </div><p>now</p>
 <div class="math">
 <p><img src="../../_images/math/e2f09e64938f0450ebd1e12b5e93adc544b12738.png" alt="\sum_{lm}Y_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}" /></p>
-</div><p>from <a href="#equation-Ycomplete">(10)</a> we get</p>
+</div><p>from <a href="#equation-Ycomplete">(?)</a> we get</p>
 <div class="math">
 <p><img src="../../_images/math/f114dad12a6e05eab7be445dbf858339e3d63eb9.png" alt="\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= \braket{{\bf\hat r}|{\bf\hat r'}}" /></p>
 </div><p>so we have</p>
@@ -444,10 +415,10 @@ remember and &#8211; that is important &#8211; less general.</p>
 <div class="math">
 <p><img src="../../_images/math/70b0ff2a935b1cef935f24c086efbd7ce6e33068.png" alt="\sum_{lm} \ket{lm}\bra{lm}=\one" /></p>
 </div><p>is a unity in the <img class="math" src="../../_images/math/b7f202c9ff14e303c94641201e6eb04c99fbef52.png" alt="\ket{\bf\hat r}"/> space only (i.e. on the unit sphere).</p>
-<p>Let&#8217;s rewrite the equation <a href="#equation-lsum">(11)</a>:</p>
+<p>Let&#8217;s rewrite the equation <a href="#equation-lsum">(?)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/7c280b7751deeb9d4f024315544c4d792a724d00.png" alt="\sum_m\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= {4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}" /></p>
-</div><p>Using the completeness relation <a href="#equation-Lorto">(7)</a>:</p>
+</div><p>Using the completeness relation <a href="#equation-Lorto">(?)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/4816662c168bc68ca33b7978a8b689746ec17e5e.png" alt="\sum_l {2l+1\over2}\braket{x'|P_l}\braket{P_l|x}=\braket{x'|x}" /></p>
 </div><div class="math">
@@ -462,10 +433,10 @@ remember and &#8211; that is important &#8211; less general.</p>
 <p><img src="../../_images/math/7e5d47d8dd40bb72107f0063eea69c3a015294ef.png" alt="f_l={(2l+1)^2\over8\pi}\braket{P_l|f} ={(2l+1)^2\over8\pi}\int_{-1}^1 \braket{P_l|x}\braket{x|f}\d x ={(2l+1)^2\over8\pi}\int_{-1}^1 P_l(x)f(x)\d x" /></p>
 </div><p>or written explicitly</p>
 <div class="math" id="equation-fylm">
-<p><span class="eqno">(12)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})" /></p>
+<p><span class="eqno">(7)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})" /></p>
 </div></div>
 <div class="section" id="homogeneous-functions">
-<span id="index-3"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-2"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
 <p>A function of several variables <img class="math" src="../../_images/math/83d951deadedf7bc68666c3abe5d13125b1841ca.png" alt="f(x_1, x_2, \dots) \equiv f(x_i)"/> is
 homogeneous of degree <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> if</p>
 <div class="math">
@@ -524,16 +495,16 @@ them using FEM.</p>
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s put any ODE or PDE in the form:</p>
 <div class="math" id="equation-pde">
-<p><span class="eqno">(13)</span><img src="../../_images/math/0e94fd314ce5ed6286db2be01cdc933f1910a5ce.png" alt="Lu(x)=f(x)" /></p>
+<p><span class="eqno">(8)</span><img src="../../_images/math/0e94fd314ce5ed6286db2be01cdc933f1910a5ce.png" alt="Lu(x)=f(x)" /></p>
 </div><p>Here <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is a differential operator and <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> can have any dimension, e.g. 1D
 (ODE), 2D, 3D or more (PDE). Then we can express the solution as</p>
 <div class="math" id="equation-solution">
-<p><span class="eqno">(14)</span><img src="../../_images/math/faf0afda8955c3a14ba2801acb01c11789556cb3.png" alt="u(x) = L^{-1}f(x) = \int G(x, x')f(x')\d x'" /></p>
+<p><span class="eqno">(9)</span><img src="../../_images/math/faf0afda8955c3a14ba2801acb01c11789556cb3.png" alt="u(x) = L^{-1}f(x) = \int G(x, x')f(x')\d x'" /></p>
 </div><p>where <img class="math" src="../../_images/math/6bc4f2d79d5dea70cf823f874c36803ebd47e927.png" alt="G(x, x')"/> is a Green function, that needs to satisfy the equation:</p>
 <div class="math" id="equation-green">
-<p><span class="eqno">(15)</span><img src="../../_images/math/bc811e345dc60d606c3797476e52099dd38ed6c7.png" alt="LG(x, x')=\delta(x-x')" /></p>
-</div><p>Remember, that <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> acts on <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> only, so we can check, that <a href="#equation-solution">(14)</a>
-indeed solves the PDE <a href="#equation-pde">(13)</a>:</p>
+<p><span class="eqno">(10)</span><img src="../../_images/math/bc811e345dc60d606c3797476e52099dd38ed6c7.png" alt="LG(x, x')=\delta(x-x')" /></p>
+</div><p>Remember, that <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> acts on <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> only, so we can check, that <a href="#equation-solution">(9)</a>
+indeed solves the PDE <a href="#equation-pde">(8)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/a201266d087c1545cdfdf6aeb544ffca3ef4efc9.png" alt="Lu(x)
 = L\int G(x, x')f(x')\d x'
@@ -543,13 +514,13 @@ indeed solves the PDE <a href="#equation-pde">(13)</a>:</p>
 </div></div>
 <div class="section" id="boundary-conditions">
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
-<p>The equation <a href="#equation-green">(15)</a> doesn&#8217;t determine the Green function uniquely,
+<p>The equation <a href="#equation-green">(10)</a> doesn&#8217;t determine the Green function uniquely,
 because one can add to it any solution of the homogeneous equation <img class="math" src="../../_images/math/4c504c1feea8b32eddeda2f7582056840c052196.png" alt="Lu(x)=0"/>.
-We can use this freedom to solve <a href="#equation-green">(15)</a> for any boundary condition, for
+We can use this freedom to solve <a href="#equation-green">(10)</a> for any boundary condition, for
 example using FEM (more on that below). So we prescribe a boundary condition
-and find the Green function (by solving <a href="#equation-green">(15)</a>) that satisfies the
+and find the Green function (by solving <a href="#equation-green">(10)</a>) that satisfies the
 boundary condition. It can be shown, that <img class="math" src="../../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)"/> determined from
-<a href="#equation-solution">(14)</a> then also needs to satisfy the same boundary condition.</p>
+<a href="#equation-solution">(9)</a> then also needs to satisfy the same boundary condition.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -660,7 +631,7 @@ solution.</p>
 -\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = v(x')" /></p>
 </div><p>So we choose <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> and then solve for <img class="math" src="../../_images/math/f0f989d590a53bc101f21905b0ce3fa602c749cd.png" alt="g_{x'}(x)"/> using FEM and we get the
 Green function <img class="math" src="../../_images/math/6bc4f2d79d5dea70cf823f874c36803ebd47e927.png" alt="G(x, x')"/> for all <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and one particular <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/>. We can then
-evaluate the integral <a href="#equation-solution">(14)</a> numerically &#8211; one would have to use FEM
+evaluate the integral <a href="#equation-solution">(9)</a> numerically &#8211; one would have to use FEM
 for all <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> that are needed in the integral, so that is not efficient, but it
 should work. One will then be able to play with Green functions and be able to
 calculate them numerically for any boundary condition (which is not possible
@@ -714,7 +685,6 @@ analytically).</p>
 <li><a class="reference internal" href="#">Delta Function</a></li>
 <li><a class="reference internal" href="#distributions">Distributions</a></li>
 <li><a class="reference internal" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a></li>
-<li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a></li>
 <li><a class="reference internal" href="#dirac-notation">Dirac Notation</a></li>
 <li><a class="reference internal" href="#homogeneous-functions">Homogeneous functions</a><ul>
 <li><a class="reference internal" href="#example-1">Example 1</a></li>
@@ -741,8 +711,8 @@ analytically).</p>
   <p class="topless"><a href="trig.html"
                         title="previous chapter">Periodic Functions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="feynman-parameters.html"
-                        title="next chapter">Feynman Parameters</a></p>
+  <p class="topless"><a href="spherical-harmonics.html"
+                        title="next chapter">Spherical Harmonics</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/src/math/other.txt"
@@ -772,7 +742,7 @@ analytically).</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="feynman-parameters.html" title="Feynman Parameters"
+          <a href="spherical-harmonics.html" title="Spherical Harmonics"
              >next</a> |</li>
         <li class="right" >
           <a href="trig.html" title="Periodic Functions"

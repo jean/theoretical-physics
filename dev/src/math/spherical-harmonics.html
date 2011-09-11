@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Spherical Harmonics &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Feynman Parameters" href="feynman-parameters.html" />
+    <link rel="prev" title="Delta Function" href="other.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="feynman-parameters.html" title="Feynman Parameters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="other.html" title="Delta Function"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="spherical-harmonics">
+<span id="index-0"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
+<p>Are defined by</p>
+<div class="math">
+<p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
+</div><p>where <img class="math" src="../../_images/math/d8a3014951eb2ea04abd44b40541cac5a0fa4925.png" alt="P_l^m"/> are associated Legendre polynomials defined by</p>
+<div class="math">
+<p><img src="../../_images/math/649165b371ffd4e944838db3687106b5969d8f94.png" alt="P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)" /></p>
+</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials defined by the formula</p>
+<div class="math">
+<p><img src="../../_images/math/9d4375f23c92f4a73c90f97bbc1430f727daae3a.png" alt="P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]" /></p>
+</div><p>they also obey the completeness relation</p>
+<div class="math" id="equation-Lorto">
+<p><span class="eqno">(1)</span><img src="../../_images/math/c829f772cce4c848b61833429408d6c7a5ef3359.png" alt="\sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')" /></p>
+</div><p>and orthogonality relation:</p>
+<div class="math">
+<p><img src="../../_images/math/ec87009d4edea63752472c17e394f7eab44b5950.png" alt="\int_{-1}^1 P_k(x) P_l(x) \d x = {2\delta_{kl} \over 2k+1}" /></p>
+</div><p>The spherical harmonics are ortonormal:</p>
+<div class="math" id="equation-Yorto">
+<p><span class="eqno">(2)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
+</div><p>and complete (both in the <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>-subspace and the whole space):</p>
+<div class="math" id="equation-lcomplete">
+<p><span class="eqno">(3)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
+</div><div class="math" id="equation-Ycomplete">
+<p><span class="eqno">(4)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
+</div><p>The relation <a href="#equation-lcomplete">(3)</a> is a special case of an addition theorem for spherical harmonics</p>
+<div class="math" id="equation-lsum">
+<p><span class="eqno">(5)</span><img src="../../_images/math/e4bd9c36e7fa12aa97f54efcdc3ee3d547c97d1a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)" /></p>
+</div><p>where <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/> is the angle between the unit vectors given by <img class="math" src="../../_images/math/1c862146f0f101b924261bb58d0fc29b1b9e46af.png" alt="{\bf\hat r}=(\theta,\phi)"/> and <img class="math" src="../../_images/math/0d0aecb78b70ae3aa399e60b21e36311f861c7aa.png" alt="{\bf\hat r'}=(\theta',\phi')"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
+</div><p>Relations between complex conjugates is:</p>
+<div class="math">
+<p><img src="../../_images/math/1704b9bba510fe3ac2ddcf45e163c59959f5a333.png" alt="Y_{l m}^*(\Omega) = (-1)^m Y_{l,-m}(\Omega)
+
+(-1)^m Y_{l,-m}^*(\Omega) = Y_{lm}(\Omega)" /></p>
+</div><div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/c12ef497990815f5123bb8002a9673d9eebae293.png" alt="\int_{-1}^1 P_k(x) \d x
+    = \int_{-1}^1 P_k(x) P_0(x) \d x
+    = 2\delta_{k0}
+
+\int Y_{k0}(\Omega) \d \Omega
+    = \int Y_{k0}(\Omega) \sqrt{4\pi} Y_{00}(\Omega) \d \Omega
+    = \sqrt{4\pi} \delta_{k0}" /></p>
+</div><div class="section" id="gaunt-coefficients">
+<h3>Gaunt Coefficients<a class="headerlink" href="#gaunt-coefficients" title="Permalink to this headline">¶</a></h3>
+<p>We use the Wigner-Eckart theorem:</p>
+<div class="math">
+<p><img src="../../_images/math/d9ee180acc7298581820951e10d60c281388c893.png" alt="\braket{j m | T^k_q | j' m'} = (-1)^{j-m}
+    \begin{pmatrix} j &amp; k &amp; j' \\ -m &amp; q &amp; m' \end{pmatrix}
+    (j || T^k || j')" /></p>
+</div><p>Where:</p>
+<div class="math">
+<p><img src="../../_images/math/f8f80874db4f3846a0df6a7742701e1b63b80da4.png" alt="T^k_q = Y_{k q}" /></p>
+</div><p>In order to calculate the reduced matrix element <img class="math" src="../../_images/math/1f03e842e6137684cadea0058c0b702205f54093.png" alt="(j || T^k || j')"/>, we
+evaluate the W-E theorem for <img class="math" src="../../_images/math/b0baf04d9eb36334826fbab5504f2e983f1f526e.png" alt="m=q=m'=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/aef388157a2226dd8f604df0c1a4e4acf39c44ec.png" alt="\braket{j 0 | T^k_0 | j' 0} = (-1)^{j}
+    \begin{pmatrix} j &amp; k &amp; j' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    (j || T^k || j')" /></p>
+</div><p>and also evaluate the left hand side explicitly:</p>
+<div class="math">
+<p><img src="../../_images/math/a730aeb27ecf0443a476b6c0e42197bfc2753637.png" alt="\braket{j 0 | T^k_0 | j' 0}
+    = \braket{j 0 | Y_{k 0} | j' 0}
+    = \int Y_{j0}^*(\Omega) Y_{k0}(\Omega) Y_{j'0}(\Omega) \d \Omega =
+
+= \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi} {1\over 4\pi}
+    \int P_j(\cos\theta) P_k(\cos\theta) P_{j'}(\cos\theta) \sin\theta
+        \d \theta \d \phi =
+
+= \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi} {1\over 2}
+    \int_{-1}^1 P_j(x) P_k(x) P_{j'}(x) \d x =
+
+= \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
+    \begin{pmatrix} j &amp; k &amp; j' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
+</div><p>where we used:</p>
+<div class="math">
+<p><img src="../../_images/math/c282dfa526729e3de7af2415a3d92788c8bdb1e6.png" alt="\int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
+2\begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
+</div><p>Comparing these two results, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/9b77784eae94d081ed902b8855d649de21e13f7a.png" alt="(j || T^k || j') = (-1)^{-j}
+    \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
+    \begin{pmatrix} j &amp; k &amp; j' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}" /></p>
+</div><p>and finally:</p>
+<div class="math">
+<p><img src="../../_images/math/3017b7c5cbfaf1fc0e670c23b475e5405d72cdad.png" alt="\int Y_{jm}^*(\Omega) Y_{kq}(\Omega) Y_{j'm'}(\Omega) \d \Omega =
+
+=\braket{j m | T^k_q | j' m'} = (-1)^{j-m}
+    \begin{pmatrix} j &amp; k &amp; j' \\ -m &amp; q &amp; m' \end{pmatrix}
+    (j || T^k || j') =
+
+= (-1)^{j-m}
+    \begin{pmatrix} j &amp; k &amp; j' \\ -m &amp; q &amp; m' \end{pmatrix}
+    (-1)^{-j}
+    \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
+    \begin{pmatrix} j &amp; k &amp; j' \\ 0 &amp; 0 &amp; 0 \end{pmatrix} =
+
+= (-1)^{-m}
+    \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
+    \begin{pmatrix} j &amp; k &amp; j' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} j &amp; k &amp; j' \\ -m &amp; q &amp; m' \end{pmatrix}" /></p>
+</div><p>In order to evaluate other integrals of spherical harmonics, we just use the
+above result, for example:</p>
+<div class="math">
+<p><img src="../../_images/math/b43fb7bc105bd36f6dbcd4ad5726a02bc94d7396.png" alt="\int Y_{l_1 m_1}(\Omega) Y_{l_2 m_2}(\Omega) Y_{l_3 m_3}(\Omega) \d\Omega =
+
+=(-1)^{m_1}\int Y_{l_1 -m_1}^*(\Omega) Y_{l_2 m_2}(\Omega)
+    Y_{l_3 m_3}(\Omega) \d\Omega=
+
+=(-1)^{m_1}
+(-1)^{-(-m_1)}
+    \sqrt{(2l_1+1)(2l_2+1)(2l_3+1)\over 4\pi}
+    \begin{pmatrix} l_1 &amp; l_2 &amp; l_3 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l_1 &amp; l_2 &amp; l_3 \\ -(-m_1) &amp; m_2 &amp; m_3 \end{pmatrix}=
+
+= \sqrt{(2l_1+1)(2l_2+1)(2l_3+1)\over 4\pi}
+    \begin{pmatrix} l_1 &amp; l_2 &amp; l_3 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l_1 &amp; l_2 &amp; l_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix}" /></p>
+</div><p>This is the most symmetric relation. It is useful to incorporate
+the selection rule <img class="math" src="../../_images/math/ea964752d6d416dd2aceb0e2154cefaf61dd9596.png" alt="m_1 + m_2 + m_3 = 0"/> of the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols into the formula
+and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3c43adbbb55c674cb2f4ecf188580ab0f38d351e.png" alt="c^k(l, m, l', m') =
+    \sqrt{4\pi \over 4k+1}
+\int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
+
+= (-1)^{-m}
+    \sqrt{4\pi \over 4k+1}
+    \sqrt{(2l+1)(2k+1)(2l'+1)\over 4\pi}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix} =
+
+= (-1)^{-m}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix}" /></p>
+</div><p>From the other selection rules of the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols it follows, that
+the <img class="math" src="../../_images/math/c28a4cd3860cdcf0ce03d897ef228a4cbafa58c7.png" alt="c^k(l, m, l', m')"/> coefficients are nonzero only when:</p>
+<div class="math">
+<p><img src="../../_images/math/5164cc08a5ff7373d1655532d0da5d9baf9409cf.png" alt="|l-l'| \le k \le l + l'
+
+l+l'+k = \mbox{even integer}" /></p>
+</div></div>
+</div>
+<div class="section" id="id1">
+<h2>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/4f21bf4e3029cc8497e79bb550472ba95ea53690.png" alt="c^0(l, m, l', m')
+    =\sqrt{4\pi}
+\int Y_{lm}^*(\Omega) Y_{00}(\Omega) Y_{l'm'}(\Omega) \d\Omega
+    =\delta_{l l'}\delta_{m m'}" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/79e16d7b3aadc4c50562853906c1cb38f74cd6eb.png" alt="\sum_{m=-l}^l c^k(l, m, l, m)
+    = \sum_m
+    \sqrt{4\pi \over 4k+1}
+    \int Y_{lm}^*(\Omega) Y_{k0}(\Omega) Y_{lm}(\Omega) \d\Omega =
+
+    =
+    \sqrt{4\pi \over 4k+1}
+    \int \sum_m |Y_{lm}(\Omega)|^2 Y_{k0}(\Omega) \d\Omega =
+
+    =
+    \sqrt{4\pi \over 4k+1}
+    {2l+1\over 4\pi} \int Y_{k0}(\Omega) \d\Omega =
+
+    =
+    \sqrt{4\pi \over 4k+1}
+    {2l+1\over 4\pi}
+    \sqrt{4\pi} \delta_{k0} =
+
+    =
+    (2l+1) \delta_{k0}" /></p>
+</div><div class="section" id="wigner-3j-symbols">
+<h3>Wigner 3j Symbols<a class="headerlink" href="#wigner-3j-symbols" title="Permalink to this headline">¶</a></h3>
+<p>Relation between the Wigner <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols and Clebsch-Gordan coefficients:</p>
+<div class="math">
+<p><img src="../../_images/math/bcfb9162149aee3a4dc5e23d3bd6b87fb67e5ff3.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix}
+    = {(-1)^{j_1-j_2-m_3}\over \sqrt{2j_3+1}}
+        (j_1 m_1 j_2 m_2 | j_3 -m_3)
+
+(j_1 m_1 j_2 m_2 | j_3 m_3)
+    = (-1)^{j_1-j_2+m_3}\sqrt{2j_3+1}
+    \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; -m_3 \end{pmatrix}" /></p>
+</div><p>They are nonzero only when:</p>
+<div class="math">
+<p><img src="../../_images/math/6e51eaa5233654fef2918eb41a1e8dad9ad830db.png" alt="m_1 + m_2 + m_3 = 0
+
+j_1+j_2+j_3 = \mbox{integer (or even integer if $m_1=m_2=m_3=0$)}
+
+|m_i| \le j_i
+
+|j_1-j_2| \le j_3 \le j_1+j_2" /></p>
+</div><p>They have lots of symmetries. The <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbol is invariant for an even
+permutation of columns:</p>
+<div class="math">
+<p><img src="../../_images/math/8b0bc4c44dd17f07fbada304b744ab476d7a8bd9.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix} =
+
+    = \begin{pmatrix} j_2 &amp; j_3 &amp; j_1 \\ m_2 &amp; m_3 &amp; m_1 \end{pmatrix} =
+
+    = \begin{pmatrix} j_3 &amp; j_1 &amp; j_2 \\ m_3 &amp; m_1 &amp; m_2 \end{pmatrix}" /></p>
+</div><p>For an odd permutation of columns it changes sign if <img class="math" src="../../_images/math/d8cf97fabb0e4a0be27b02b919fde98404976dc7.png" alt="j_1+j_2+j+3"/> is an odd
+integer:</p>
+<div class="math">
+<p><img src="../../_images/math/bfc11d6af5e1d22af41ec7ebdb7956614d54a4c6.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix} =
+
+    = (-1)^{j_1+j_2+j_3}
+    \begin{pmatrix} j_2 &amp; j_1 &amp; j_3 \\ m_2 &amp; m_1 &amp; m_3 \end{pmatrix} =
+
+    = (-1)^{j_1+j_2+j_3}
+    \begin{pmatrix} j_1 &amp; j_3 &amp; j_2 \\ m_1 &amp; m_3 &amp; m_2 \end{pmatrix} =
+
+    = (-1)^{j_1+j_2+j_3}
+    \begin{pmatrix} j_3 &amp; j_2 &amp; j_1 \\ m_3 &amp; m_2 &amp; m_1 \end{pmatrix}" /></p>
+</div><p>and the same if you change the sign of the second row:</p>
+<div class="math">
+<p><img src="../../_images/math/bca0b67dce2836c719ab2c22a5dcbdab541c51da.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix} =
+
+    = (-1)^{j_1+j_2+j_3}
+    \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ -m_1 &amp; -m_2 &amp; -m_3 \end{pmatrix}" /></p>
+</div></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Spherical Harmonics</a><ul>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#gaunt-coefficients">Gaunt Coefficients</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Examples</a><ul>
+<li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="other.html"
+                        title="previous chapter">Delta Function</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="feynman-parameters.html"
+                        title="next chapter">Feynman Parameters</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/math/spherical-harmonics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="feynman-parameters.html" title="Feynman Parameters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="other.html" title="Delta Function"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>
