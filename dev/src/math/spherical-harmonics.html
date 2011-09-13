@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Spherical Harmonics &mdash; Theoretical Physics Reference v0.5 documentation</title>
+    <title>Legendre Polynomials &mdash; Theoretical Physics Reference v0.5 documentation</title>
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -50,15 +50,9 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="spherical-harmonics">
-<span id="index-0"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
-<p>Are defined by</p>
-<div class="math">
-<p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
-</div><p>where <img class="math" src="../../_images/math/d8a3014951eb2ea04abd44b40541cac5a0fa4925.png" alt="P_l^m"/> are associated Legendre polynomials defined by</p>
-<div class="math">
-<p><img src="../../_images/math/649165b371ffd4e944838db3687106b5969d8f94.png" alt="P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)" /></p>
-</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials defined by the formula</p>
+  <div class="section" id="legendre-polynomials">
+<span id="index-0"></span><h1>Legendre Polynomials<a class="headerlink" href="#legendre-polynomials" title="Permalink to this headline">¶</a></h1>
+<p>Legendre polynomials <img class="math" src="../../_images/math/01db28aedd2b3dc45cf8622fee217c3c644bea82.png" alt="P_l(x)"/> defined by the Rodrigues&#8217;s formula</p>
 <div class="math">
 <p><img src="../../_images/math/9d4375f23c92f4a73c90f97bbc1430f727daae3a.png" alt="P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]" /></p>
 </div><p>they also obey the completeness relation</p>
@@ -67,17 +61,114 @@
 </div><p>and orthogonality relation:</p>
 <div class="math">
 <p><img src="../../_images/math/ec87009d4edea63752472c17e394f7eab44b5950.png" alt="\int_{-1}^1 P_k(x) P_l(x) \d x = {2\delta_{kl} \over 2k+1}" /></p>
+</div><p>Two Legendre polynomials can be expanded in a series:</p>
+<div class="math">
+<p><img src="../../_images/math/df5f1d7a765d01335b8f29e396fdfeb7a283f02c.png" alt="P_k(x) P_l(x) = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+    {2n+1\over 2s+1} P_n(x)" /></p>
+</div><p>where <img class="math" src="../../_images/math/3dff7f12d4cb5804ef85c728bc29bb2b4f1798a0.png" alt="s={k+l+n\over 2}"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/3afd7daea3026055dd34496222349533a1d678c1.png" alt="A(m) = {1\cdot3\cdot5 \cdot \dots \cdot (2m-1) \over
+    1\cdot 2\cdot 3\cdot \dots \cdot m} =
+        {(2m)!\over 2^m (m!)^2} = {1\over 2^m}\binom{2m}{m}" /></p>
+</div><p>This can be proven by induction, see <a class="reference internal" href="#adams">[Adams]</a>.
+We can now calculate the integral of three Legendre polynomials:</p>
+<div class="math" id="equation-int_three_legendre_polys">
+<p><span class="eqno">(2)</span><img src="../../_images/math/ed5fc9a4b38412ba13480cfef9955784f5e387e6.png" alt="\int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
+
+= \int_{-1}^1
+    \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+    {2n+1\over 2s+1} P_n(x)
+    P_m(x) \d x =
+
+= \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+    {2n+1\over 2s+1}
+    \int_{-1}^1 P_n(x) P_m(x) \d x =
+
+= \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+    {2n+1\over 2s+1}
+    {2\over 2n+1} \delta_{nm} =
+
+= 2 {A(s-k) A(s-l) A(s-m)\over A(s)} {1\over 2s+1} =
+
+= 2 {
+        {1\over2^{s-k}}\binom{2s-2k}{s-k}
+        {1\over2^{s-l}}\binom{2s-2l}{s-l}
+        {1\over2^{s-m}}\binom{2s-2m}{s-m}
+        \over
+        {1\over2^{s}}\binom{2s}{s}
+    } {1\over 2s+1} =
+
+= 2 {2^s\over2^{s-k+s-l+s-m}} {
+        \binom{2s-2k}{s-k}
+        \binom{2s-2l}{s-l}
+        \binom{2s-2m}{s-m}
+        \over
+        \binom{2s}{s}
+    } {1\over 2s+1} =
+
+= 2 {
+        \binom{2s-2k}{s-k}
+        \binom{2s-2l}{s-l}
+        \binom{2s-2m}{s-m}
+        \over
+        \binom{2s}{s}
+    } {1\over 2s+1} =
+
+= 2 {
+        {(2s-2k)! \over ((s-k)!)^2}
+        {(2s-2l)! \over ((s-l)!)^2}
+        {(2s-2m)! \over ((s-m)!)^2}
+        {(s!)^2 \over (2s)!}
+    } {1\over 2s+1} =
+
+= 2 {(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
+    \left[{s! \over (s-k)! (s-l)! (s-m)!}\right]^2
+   =
+
+= 2 \begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
+</div><p>As such, we can write the series expansion as:</p>
+<div class="math">
+<p><img src="../../_images/math/5fa1719268351af5b18f29480d46155b35244a6c.png" alt="P_k(x) P_l(x) = \sum_{m=|k-l|}^{k+l}
+    {2m+1\over 2}\int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x\,\,
+    P_m(x) =
+
+= \sum_{m=|k-l|}^{k+l}
+    \begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    (2m+1) P_m(x)" /></p>
+</div><table class="docutils citation" frame="void" id="adams" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Adams]</a></td><td>Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre&#8217;s Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="spherical-harmonics">
+<span id="index-1"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
+<p>Are defined by</p>
+<div class="math">
+<p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
+</div><p>where <img class="math" src="../../_images/math/d8a3014951eb2ea04abd44b40541cac5a0fa4925.png" alt="P_l^m"/> are associated Legendre polynomials defined by</p>
+<div class="math">
+<p><img src="../../_images/math/649165b371ffd4e944838db3687106b5969d8f94.png" alt="P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)" /></p>
+</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials. Sometimes the spherical harmonics are
+written as:</p>
+<div class="math">
+<p><img src="../../_images/math/add334c84329c2f00bfbe58192097051128fcf26.png" alt="Y_{lm}(\theta,\phi) = \Theta_{lm}(\theta) \Phi_m(\phi)" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/56067d88c052d0513849a7f38038daf88de11a9e.png" alt="\Phi_m(\phi) &amp;= {1\over\sqrt{2\pi}} e^{im\phi} \\
+\Theta_{lm}(\theta) &amp;= \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)" /></p>
 </div><p>The spherical harmonics are ortonormal:</p>
 <div class="math" id="equation-Yorto">
-<p><span class="eqno">(2)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
+<p><span class="eqno">(3)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
 </div><p>and complete (both in the <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>-subspace and the whole space):</p>
 <div class="math" id="equation-lcomplete">
-<p><span class="eqno">(3)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
+<p><span class="eqno">(4)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
 </div><div class="math" id="equation-Ycomplete">
-<p><span class="eqno">(4)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
-</div><p>The relation <a href="#equation-lcomplete">(3)</a> is a special case of an addition theorem for spherical harmonics</p>
+<p><span class="eqno">(5)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
+</div><p>The relation <a href="#equation-lcomplete">(4)</a> is a special case of an addition theorem for spherical harmonics</p>
 <div class="math" id="equation-lsum">
-<p><span class="eqno">(5)</span><img src="../../_images/math/e4bd9c36e7fa12aa97f54efcdc3ee3d547c97d1a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)" /></p>
+<p><span class="eqno">(6)</span><img src="../../_images/math/e4bd9c36e7fa12aa97f54efcdc3ee3d547c97d1a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)" /></p>
 </div><p>where <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/> is the angle between the unit vectors given by <img class="math" src="../../_images/math/1c862146f0f101b924261bb58d0fc29b1b9e46af.png" alt="{\bf\hat r}=(\theta,\phi)"/> and <img class="math" src="../../_images/math/0d0aecb78b70ae3aa399e60b21e36311f861c7aa.png" alt="{\bf\hat r'}=(\theta',\phi')"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
@@ -129,11 +220,8 @@ evaluate the W-E theorem for <img class="math" src="../../_images/math/b0baf04d9
 
 = \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
     \begin{pmatrix} j &amp; k &amp; j' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
-</div><p>where we used:</p>
-<div class="math">
-<p><img src="../../_images/math/c282dfa526729e3de7af2415a3d92788c8bdb1e6.png" alt="\int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
-2\begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
-</div><p>Comparing these two results, we get:</p>
+</div><p>where we used <a href="#equation-int_three_legendre_polys">(2)</a>.
+Comparing these two results, we get:</p>
 <div class="math">
 <p><img src="../../_images/math/9b77784eae94d081ed902b8855d649de21e13f7a.png" alt="(j || T^k || j') = (-1)^{-j}
     \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
@@ -173,7 +261,10 @@ above result, for example:</p>
 = \sqrt{(2l_1+1)(2l_2+1)(2l_3+1)\over 4\pi}
     \begin{pmatrix} l_1 &amp; l_2 &amp; l_3 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
     \begin{pmatrix} l_1 &amp; l_2 &amp; l_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix}" /></p>
-</div><p>This is the most symmetric relation. It is useful to incorporate
+</div><p>This is the most symmetric relation. It was first obtained by <a class="reference internal" href="#gaunt">[Gaunt]</a>
+(equation (9), p. 194, where he expanded the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols, so his formula is
+more complex but equivalent to the above).</p>
+<p>It is useful to incorporate
 the selection rule <img class="math" src="../../_images/math/ea964752d6d416dd2aceb0e2154cefaf61dd9596.png" alt="m_1 + m_2 + m_3 = 0"/> of the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols into the formula
 and we get:</p>
 <div class="math">
@@ -197,7 +288,13 @@ the <img class="math" src="../../_images/math/c28a4cd3860cdcf0ce03d897ef228a4cba
 <p><img src="../../_images/math/5164cc08a5ff7373d1655532d0da5d9baf9409cf.png" alt="|l-l'| \le k \le l + l'
 
 l+l'+k = \mbox{even integer}" /></p>
-</div><div class="section" id="example-i">
+</div><table class="docutils citation" frame="void" id="gaunt" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[Gaunt]</a></td><td>Gaunt, J. A. (1929). The Triplets of Helium. Philosophical Transactions of the Royal Society of London, 228, 151-196.</td></tr>
+</tbody>
+</table>
+<div class="section" id="example-i">
 <h2>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/4f21bf4e3029cc8497e79bb550472ba95ea53690.png" alt="c^0(l, m, l', m')
@@ -232,6 +329,34 @@ l+l'+k = \mbox{even integer}" /></p>
 <div class="section" id="example-iii">
 <h2>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h2>
 <div class="math">
+<p><img src="../../_images/math/0708dc3eee036ecfb5dd94b55b1cdcb5c7bbf894.png" alt="c^k(l, m, l', m') =
+    \sqrt{4\pi \over 4k+1}
+\int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
+
+= \sqrt{4\pi \over 4k+1}
+\int \Theta_{lm}\Phi_m^* \Theta_{k, m-m'}\Phi_{m-m'} \Theta_{l'm'}\Phi_{m'}
+    \sin\theta \d\theta \d\phi =
+
+= \sqrt{4\pi \over 4k+1}
+\int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+\int_0^{2\pi} \Phi_m^* \Phi_{m-m'} \Phi_{m'} \d\phi =
+
+= \sqrt{4\pi \over 4k+1}
+\int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+\left(1\over\sqrt{2\pi}\right)^3
+\int_0^{2\pi} e^{-im\phi} e^{i(m-m')\phi} e^{im'\phi} \d\phi =
+
+= \sqrt{4\pi \over 4k+1}
+\int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+\left(1\over\sqrt{2\pi}\right)^3
+\int_0^{2\pi} \!\!\!\d\phi =
+
+= \sqrt{2\over 4k+1}
+\int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta" /></p>
+</div></div>
+<div class="section" id="example-iv">
+<h2>Example IV<a class="headerlink" href="#example-iv" title="Permalink to this headline">¶</a></h2>
+<div class="math">
 <p><img src="../../_images/math/24d1b1002725d49feec1cddb6cccd440e4239085.png" alt="c^k(l, -m, l', -m') =
 
 = (-1)^{m}
@@ -251,12 +376,48 @@ l+l'+k = \mbox{even integer}" /></p>
 
 c^k(l, m, l', m')" /></p>
 </div><p>Where we used the fact, that <img class="math" src="../../_images/math/985acf8f695a158b512fcb586bdcc40b2ecf9331.png" alt="l+k+l'"/> is an even integer and
-<img class="math" src="../../_images/math/4bbb3fe616b2a0b1164bacc5ba004b841784a3a4.png" alt="(-1)^m=(-1)^{-m}"/>.</p>
-</div>
-<div class="section" id="example-iv">
-<span id="five-spherical-harmonics"></span><h2>Example IV<a class="headerlink" href="#example-iv" title="Permalink to this headline">¶</a></h2>
+<img class="math" src="../../_images/math/4bbb3fe616b2a0b1164bacc5ba004b841784a3a4.png" alt="(-1)^m=(-1)^{-m}"/>. <img class="math" src="../../_images/math/310746dd13a807fb847da174a52034f2059b17b0.png" alt="c^k"/> is not symmetric in <img class="math" src="../../_images/math/1b70e8d92b2a0c9f64d309f55dae33ac36d57a38.png" alt="l m"/> and <img class="math" src="../../_images/math/a4b167dba9218124fd50ed4522f389e120f5c81f.png" alt="l' m'"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/9e603272c827c46419a95b5aff17c3c70932fb2a.png" alt="c^k(l', m', l, m)
+
+= (-1)^{-m'}
+    \sqrt{(2l'+1)(2l+1)}
+    \begin{pmatrix} l' &amp; k &amp; l \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l' &amp; k &amp; l \\ -m' &amp; m'-m &amp; m \end{pmatrix} =
+
+= (-1)^{-m'}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ m &amp; m'-m &amp; -m' \end{pmatrix} =
+
+= (-1)^{-m'}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix} =
+
+= (-1)^{m-m'} (-1)^{-m}
+    \sqrt{(2l+1)(2l'+1)}
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix} =
+
+= (-1)^{m-m'} c^k(l, m, l', m')" /></p>
+</div><p>Few other identities:</p>
+<div class="math">
+<p><img src="../../_images/math/406add7b5ec7b9cdd043d0c795f3cf8f853cc830.png" alt="c^k(l, 0, l', 0)
+    = \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+
+\begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    = {c^k(l, 0, l', 0) \over \sqrt{(2l+1)(2l'+1)}}
+    = {c^{l'}(l, 0, k, 0) \over \sqrt{(2l+1)(2k+1)}}
+    = {c^{l}(l', 0, k, 0) \over \sqrt{(2l'+1)(2k+1)}}
+
+c^k(l, 0, l', 0) = c^k(l', 0, l, 0)" /></p>
+</div></div>
+<div class="section" id="example-v">
+<span id="five-spherical-harmonics"></span><h2>Example V<a class="headerlink" href="#example-v" title="Permalink to this headline">¶</a></h2>
 <div class="math" id="equation-five_spherical_harmonics">
-<p><span class="eqno">(6)</span><img src="../../_images/math/31000c1263f6e62b8203cb8ff18f9400eab5d2d7.png" alt="\sum_{m'}\sum_{q}\int
+<p><span class="eqno">(7)</span><img src="../../_images/math/31000c1263f6e62b8203cb8ff18f9400eab5d2d7.png" alt="\sum_{m'}\sum_{q}\int
         Y_{l'm'}(\Omega)
         Y_{l'm'}^*(\Omega')
         Y_{kq}(\Omega)
@@ -300,7 +461,7 @@ c^k(l, m, l', m')" /></p>
             Y_{lm}(\Omega)" /></p>
 </div><p>Where we used the following identities:</p>
 <div class="math">
-<p><img src="../../_images/math/b790f2415b7d444e98dd8142dabb80ece35fb805.png" alt="\sum_{m'}
+<p><img src="../../_images/math/dfb2a14f9ea6d9c4cf1be9ddc3704ad84fbc7a41.png" alt="\sum_{m'}
     Y_{l'm'}(\Omega)
     Y_{l'm'}^*(\Omega')
 = {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
@@ -311,6 +472,10 @@ c^k(l, m, l', m')" /></p>
 = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
 
 P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+= \sum_{\lambda=|l'-k|}^{l'+k}
+    \begin{pmatrix} k &amp; l' &amp; \lambda \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    (2\lambda+1) P_\lambda({\bf x}\cdot{\bf x}') =
+
     = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
         \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
         P_\lambda({\bf x}\cdot{\bf x}') =
@@ -322,7 +487,7 @@ P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
     Y_{\lambda\mu}^*(\Omega')
     Y_{\lambda\mu}(\Omega)" /></p>
 </div><p>Note: using the integral of 3 spherical harmonics directly in
-<a href="#equation-five_spherical_harmonics">(6)</a>:</p>
+<a href="#equation-five_spherical_harmonics">(7)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/5601a1f67f5316d93a7938c7b0c2820ca78f99af.png" alt="\sum_{m'}\sum_{q}\int
         Y_{l'm'}(\Omega)
@@ -337,8 +502,8 @@ P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
         Y_{k, m-m'}(\Omega)
         \sqrt{4\pi\over 2k+1}
         c^k(l, m, l', m')" /></p>
-</div><p>doesn&#8217;t directly lead to the final result, as it is not obvious how to simplify
-things further.</p>
+</div><p>doesn&#8217;t straightforwardly lead to the final result, as it is not obvious how to
+simplify things further.</p>
 </div>
 </div>
 <div class="section" id="wigner-3j-symbols">
@@ -390,7 +555,7 @@ integer:</p>
     \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ -m_1 &amp; -m_2 &amp; -m_3 \end{pmatrix}" /></p>
 </div></div>
 <div class="section" id="multipole-expansion">
-<span id="index-1"></span><h1>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
+<span id="index-2"></span><h1>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
 <p>Assuming <img class="math" src="../../_images/math/77598bff52f38421a571fd42ed448608de7d2273.png" alt="r' \ll r"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/748018f3dece67a098dceebf2a0e4c9cbfdd29b4.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =
@@ -439,7 +604,8 @@ integer:</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Spherical Harmonics</a><ul>
+<li><a class="reference internal" href="#">Legendre Polynomials</a></li>
+<li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a><ul>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -448,6 +614,7 @@ integer:</p>
 <li><a class="reference internal" href="#example-ii">Example II</a></li>
 <li><a class="reference internal" href="#example-iii">Example III</a></li>
 <li><a class="reference internal" href="#example-iv">Example IV</a></li>
+<li><a class="reference internal" href="#example-v">Example V</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a></li>

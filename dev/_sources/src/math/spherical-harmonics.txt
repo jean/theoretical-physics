@@ -1,3 +1,118 @@
+.. index:: Legendre polynomials
+
+Legendre Polynomials
+====================
+
+Legendre polynomials $P_l(x)$ defined by the Rodrigues's formula
+
+.. math::
+
+       P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]
+
+they also obey the completeness relation
+
+.. math::
+    :label: Lorto
+
+       \sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')
+
+and orthogonality relation:
+
+.. math::
+
+    \int_{-1}^1 P_k(x) P_l(x) \d x = {2\delta_{kl} \over 2k+1}
+
+Two Legendre polynomials can be expanded in a series:
+
+.. math::
+
+    P_k(x) P_l(x) = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1} P_n(x)
+
+where $s={k+l+n\over 2}$ and
+
+.. math::
+
+    A(m) = {1\cdot3\cdot5 \cdot \dots \cdot (2m-1) \over
+        1\cdot 2\cdot 3\cdot \dots \cdot m} =
+            {(2m)!\over 2^m (m!)^2} = {1\over 2^m}\binom{2m}{m}
+
+This can be proven by induction, see [Adams]_.
+We can now calculate the integral of three Legendre polynomials:
+
+.. math::
+    :label: int_three_legendre_polys
+
+    \int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
+
+    = \int_{-1}^1
+        \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1} P_n(x)
+        P_m(x) \d x =
+
+    = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1}
+        \int_{-1}^1 P_n(x) P_m(x) \d x =
+
+    = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1}
+        {2\over 2n+1} \delta_{nm} =
+
+    = 2 {A(s-k) A(s-l) A(s-m)\over A(s)} {1\over 2s+1} =
+
+    = 2 {
+            {1\over2^{s-k}}\binom{2s-2k}{s-k}
+            {1\over2^{s-l}}\binom{2s-2l}{s-l}
+            {1\over2^{s-m}}\binom{2s-2m}{s-m}
+            \over
+            {1\over2^{s}}\binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = 2 {2^s\over2^{s-k+s-l+s-m}} {
+            \binom{2s-2k}{s-k}
+            \binom{2s-2l}{s-l}
+            \binom{2s-2m}{s-m}
+            \over
+            \binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = 2 {
+            \binom{2s-2k}{s-k}
+            \binom{2s-2l}{s-l}
+            \binom{2s-2m}{s-m}
+            \over
+            \binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = 2 {
+            {(2s-2k)! \over ((s-k)!)^2}
+            {(2s-2l)! \over ((s-l)!)^2}
+            {(2s-2m)! \over ((s-m)!)^2}
+            {(s!)^2 \over (2s)!}
+        } {1\over 2s+1} =
+
+    = 2 {(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
+        \left[{s! \over (s-k)! (s-l)! (s-m)!}\right]^2
+       =
+
+    = 2 \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
+
+As such, we can write the series expansion as:
+
+.. math::
+
+    P_k(x) P_l(x) = \sum_{m=|k-l|}^{k+l}
+        {2m+1\over 2}\int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x\,\,
+        P_m(x) =
+
+    = \sum_{m=|k-l|}^{k+l}
+        \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2m+1) P_m(x)
+
+
+.. [Adams] Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre's Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.
+
+
 .. index:: spherical harmonics
 
 Spherical Harmonics
@@ -16,24 +131,19 @@ where $P_l^m$ are associated Legendre polynomials defined by
 
        P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)
 
-and $P_l$ are Legendre polynomials defined by the formula
+and $P_l$ are Legendre polynomials. Sometimes the spherical harmonics are
+written as:
 
 .. math::
 
-       P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]
+    Y_{lm}(\theta,\phi) = \Theta_{lm}(\theta) \Phi_m(\phi)
 
-they also obey the completeness relation
-
-.. math::
-    :label: Lorto
-
-       \sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')
-
-and orthogonality relation:
+where:
 
 .. math::
 
-    \int_{-1}^1 P_k(x) P_l(x) \d x = {2\delta_{kl} \over 2k+1}
+    \Phi_m(\phi) &= {1\over\sqrt{2\pi}} e^{im\phi} \\
+    \Theta_{lm}(\theta) &= \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)
 
 The spherical harmonics are ortonormal:
 
@@ -134,13 +244,7 @@ and also evaluate the left hand side explicitly:
     = \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
         \begin{pmatrix} j & k & j' \\ 0 & 0 & 0 \end{pmatrix}^2
 
-where we used:
-
-.. math::
-
-        \int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
-        2\begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
-
+where we used :eq:`int_three_legendre_polys`.
 Comparing these two results, we get:
 
 .. math::
@@ -190,7 +294,11 @@ above result, for example:
         \begin{pmatrix} l_1 & l_2 & l_3 \\ 0 & 0 & 0 \end{pmatrix}
         \begin{pmatrix} l_1 & l_2 & l_3 \\ m_1 & m_2 & m_3 \end{pmatrix}
 
-This is the most symmetric relation. It is useful to incorporate
+This is the most symmetric relation. It was first obtained by [Gaunt]_
+(equation (9), p. 194, where he expanded the $3j$ symbols, so his formula is
+more complex but equivalent to the above).
+
+It is useful to incorporate
 the selection rule $m_1 + m_2 + m_3 = 0$ of the $3j$ symbols into the formula
 and we get:
 
@@ -219,6 +327,9 @@ the $c^k(l, m, l', m')$ coefficients are nonzero only when:
     |l-l'| \le k \le l + l'
 
     l+l'+k = \mbox{even integer}
+
+.. [Gaunt] Gaunt, J. A. (1929). The Triplets of Helium. Philosophical Transactions of the Royal Society of London, 228, 151-196.
+
 
 Example I
 ~~~~~~~~~
@@ -261,6 +372,36 @@ Example III
 
 .. math::
 
+    c^k(l, m, l', m') =
+        \sqrt{4\pi \over 4k+1}
+    \int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int \Theta_{lm}\Phi_m^* \Theta_{k, m-m'}\Phi_{m-m'} \Theta_{l'm'}\Phi_{m'}
+        \sin\theta \d\theta \d\phi =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+    \int_0^{2\pi} \Phi_m^* \Phi_{m-m'} \Phi_{m'} \d\phi =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+    \left(1\over\sqrt{2\pi}\right)^3
+    \int_0^{2\pi} e^{-im\phi} e^{i(m-m')\phi} e^{im'\phi} \d\phi =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+    \left(1\over\sqrt{2\pi}\right)^3
+    \int_0^{2\pi} \!\!\!\d\phi =
+
+    = \sqrt{2\over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+
+Example IV
+~~~~~~~~~~
+
+.. math::
+
     c^k(l, -m, l', -m') =
 
     = (-1)^{m}
@@ -281,12 +422,53 @@ Example III
     c^k(l, m, l', m')
 
 Where we used the fact, that $l+k+l'$ is an even integer and
-$(-1)^m=(-1)^{-m}$.
+$(-1)^m=(-1)^{-m}$. $c^k$ is not symmetric in $l m$ and $l' m'$:
+
+.. math::
+
+    c^k(l', m', l, m)
+
+    = (-1)^{-m'}
+        \sqrt{(2l'+1)(2l+1)}
+        \begin{pmatrix} l' & k & l \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l' & k & l \\ -m' & m'-m & m \end{pmatrix} =
+
+    = (-1)^{-m'}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ m & m'-m & -m' \end{pmatrix} =
+
+    = (-1)^{-m'}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
+
+    = (-1)^{m-m'} (-1)^{-m}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
+
+    = (-1)^{m-m'} c^k(l, m, l', m')
+
+Few other identities:
+
+.. math::
+
+    c^k(l, 0, l', 0)
+        = \sqrt{(2l+1)(2l'+1)}
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+
+    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        = {c^k(l, 0, l', 0) \over \sqrt{(2l+1)(2l'+1)}}
+        = {c^{l'}(l, 0, k, 0) \over \sqrt{(2l+1)(2k+1)}}
+        = {c^{l}(l', 0, k, 0) \over \sqrt{(2l'+1)(2k+1)}}
+
+    c^k(l, 0, l', 0) = c^k(l', 0, l, 0)
 
 .. _five_spherical_harmonics:
 
-Example IV
-~~~~~~~~~~
+Example V
+~~~~~~~~~
 
 .. math::
     :label: five_spherical_harmonics
@@ -350,6 +532,10 @@ Where we used the following identities:
     = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
 
     P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+    = \sum_{\lambda=|l'-k|}^{l'+k}
+        \begin{pmatrix} k & l' & \lambda \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2\lambda+1) P_\lambda({\bf x}\cdot{\bf x}') =
+
         = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
             \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
             P_\lambda({\bf x}\cdot{\bf x}') =
@@ -380,8 +566,8 @@ Note: using the integral of 3 spherical harmonics directly in
             \sqrt{4\pi\over 2k+1}
             c^k(l, m, l', m')
 
-doesn't directly lead to the final result, as it is not obvious how to simplify
-things further.
+doesn't straightforwardly lead to the final result, as it is not obvious how to
+simplify things further.
 
 
 Wigner 3j Symbols

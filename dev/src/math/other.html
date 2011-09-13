@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Theoretical Physics Reference v0.5 documentation" href="../../index.html" />
     <link rel="up" title="Mathematics" href="main.html" />
-    <link rel="next" title="Spherical Harmonics" href="spherical-harmonics.html" />
+    <link rel="next" title="Legendre Polynomials" href="spherical-harmonics.html" />
     <link rel="prev" title="Periodic Functions" href="trig.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="spherical-harmonics.html" title="Spherical Harmonics"
+          <a href="spherical-harmonics.html" title="Legendre Polynomials"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="trig.html" title="Periodic Functions"
@@ -673,6 +673,80 @@ analytically).</p>
     = \sum_{k=0}^\infty \binom{k}{k} x^k
     = \sum_{k=0}^\infty x^k" /></p>
 </div></div>
+<div class="section" id="triangle-inequality">
+<h1>Triangle Inequality<a class="headerlink" href="#triangle-inequality" title="Permalink to this headline">¶</a></h1>
+<p>Triangle inequality (condition) means that none of the three
+quantities <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/>, <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is greater than the sum of the other two:</p>
+<div class="math" id="equation-trig_three">
+<p><span class="eqno">(11)</span><img src="../../_images/math/63f93f945d8220a1cc7399a27e0968aac6715f40.png" alt="a + b \ge c
+
+b + c \ge a
+
+c + a \ge b" /></p>
+</div><p>This is equivalent to just one equation:</p>
+<div class="math" id="equation-trig_one">
+<p><span class="eqno">(12)</span><img src="../../_images/math/34fcbc530a181a24e6e519a374afce380cafb11c.png" alt="|a-b| \le c \le a+b" /></p>
+</div><p>we can do any permutation of the symbols, i.e. the above equation is equivalent
+to any of these:</p>
+<div class="math">
+<p><img src="../../_images/math/6fcb2b0944901b3a897eea074abdd9689d8f689d.png" alt="|b-c| \le a \le b+c
+
+|c-a| \le b \le c+a" /></p>
+</div><p>So instead of stating the three inequalities <a href="#equation-trig_three">(11)</a> it is more
+convenient to just write <a href="#equation-trig_one">(12)</a>, using any permutation that we like.</p>
+<p>To show, that <a href="#equation-trig_three">(11)</a> implies <a href="#equation-trig_one">(12)</a> we rewrite
+<a href="#equation-trig_three">(11)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/8370f0a9f90f9a8d7089933237acb1032c0a5503.png" alt="a + b \ge c
+
+c \ge a-b
+
+c \ge b-a" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/e5d52fd4492f6ef9023e12ccf54ded2436db47b2.png" alt="a + b \ge c
+
+c \ge |a-b|" /></p>
+</div><p>and we get <a href="#equation-trig_one">(12)</a>.
+To show, that <a href="#equation-trig_one">(12)</a> implies <a href="#equation-trig_three">(11)</a> we rewrite
+<a href="#equation-trig_one">(12)</a> for <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> first:</p>
+<div class="math">
+<p><img src="../../_images/math/ba85c798d565c143977eceb1ca68a4dc1597a4e1.png" alt="a \ge b
+
+|a-b| \le c \le a+b" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/4e152f4b159bc3e0a8eaba9bb4a6c8ea7bb02970.png" alt="a \ge b
+
+a-b \le c \le a+b" /></p>
+</div><p>rearranging:</p>
+<div class="math">
+<p><img src="../../_images/math/3594c9f584c20c13ba7af7707c934947f244ce3e.png" alt="a + b \ge c
+
+b + c \ge a
+
+a \ge b" /></p>
+</div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> then also <img class="math" src="../../_images/math/254cfc0cf485b38c808f49dc71c34752bc2c787b.png" alt="c+a\ge b"/> and we get
+<a href="#equation-trig_three">(11)</a>. Finally, for <img class="math" src="../../_images/math/55f8abc0d69ac6ab491f6125f9550af6b25e22fb.png" alt="a &lt; b"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/dd95588a356e92a540fa321dcf6432318270a8b7.png" alt="a &lt; b
+
+|a-b| \le c \le a+b" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/69feace8eacd3d5c533488ed3e7b890ef81edb71.png" alt="a &lt; b
+
+-(a-b) \le c \le a+b" /></p>
+</div><p>rearranging:</p>
+<div class="math">
+<p><img src="../../_images/math/d423552fc3d9988a32c6ea66bf07ab8ba3fd273f.png" alt="a + b \ge c
+
+b &gt; a
+
+c + a \ge b" /></p>
+</div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/18850c5a6f67139956c8c1e35094c0a864ecb8ca.png" alt="b &gt; a"/> then also <img class="math" src="../../_images/math/6ff26c9514349439d29c60e8ce67d0ad3a64e765.png" alt="b+c\ge a"/> and we get
+<a href="#equation-trig_three">(11)</a>.</p>
+</div>
 
 
           </div>
@@ -705,6 +779,7 @@ analytically).</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
+<li><a class="reference internal" href="#triangle-inequality">Triangle Inequality</a></li>
 </ul>
 
   <h4>Previous topic</h4>
@@ -712,7 +787,7 @@ analytically).</p>
                         title="previous chapter">Periodic Functions</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="spherical-harmonics.html"
-                        title="next chapter">Spherical Harmonics</a></p>
+                        title="next chapter">Legendre Polynomials</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/src/math/other.txt"
@@ -742,7 +817,7 @@ analytically).</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="spherical-harmonics.html" title="Spherical Harmonics"
+          <a href="spherical-harmonics.html" title="Legendre Polynomials"
              >next</a> |</li>
         <li class="right" >
           <a href="trig.html" title="Periodic Functions"
