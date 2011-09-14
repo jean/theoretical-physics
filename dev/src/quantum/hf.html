@@ -341,8 +341,15 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
     \d r'\,
         P_{n'l'}(r)" /></p>
 </div><p>Where we used the result of the integral in
-<a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example IV</em></a>.</p>
-</div>
+<a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example V</em></a>. Note that:</p>
+<div class="math" id="equation-using3j">
+<p><span class="eqno">(1)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+    = \sqrt{2l'+1\over 2l+1}
+        \sqrt{(2l'+1)(2l+1)}
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    = (2l'+1)
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
+</div></div>
 <div class="section" id="spherical-symmetry">
 <h2>Spherical Symmetry<a class="headerlink" href="#spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>In the central field approximation, we average the integral for <img class="math" src="../../_images/math/0783030b7db37589c2fa4d4657fa9663d6bfea19.png" alt="V_H"/> over the
@@ -351,11 +358,27 @@ angles:</p>
 <p><img src="../../_images/math/ba83ccfb97f3fb0c4603f99a05a7c9c9b4b066a0.png" alt="V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega" /></p>
 </div><p>Using the above integrals, the HF equations become:</p>
 <div class="math">
-<p><img src="../../_images/math/ce0c54567b075b03f652bc499c96166bd3191310.png" alt="-\half P_{nl}(r) +
+<p><img src="../../_images/math/6194a94c3993e1562d3bd69499bb266c8d048812.png" alt="-\half P_{nl}''(r) +
     \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
 
         -\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
                 \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+            \int
+            {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+            P_{nl}(r')
+            P_{n'l'}(r')
+            \d r'\,
+                P_{n'l'}(r)
+    = \epsilon_{nl} P_{nl}(r)" /></p>
+</div><p>or using <a href="#equation-using3j">(1)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/635d04be5cbce9667ca7e9af7881464fc70b9293.png" alt="-\half P_{nl}''(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+        -\sum_{n'l'}
+            (2l'+1)
+            \sum_{k=|l-l'|}^{k=l+l'}
+                \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
             \int
             {r_{&lt;}^k\over r_{&gt;}^{k+1}}
             P_{nl}(r')
