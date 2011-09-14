@@ -415,7 +415,35 @@ c^k(l, m, l', m')" /></p>
 c^k(l, 0, l', 0) = c^k(l', 0, l, 0)" /></p>
 </div></div>
 <div class="section" id="example-v">
-<span id="five-spherical-harmonics"></span><h2>Example V<a class="headerlink" href="#example-v" title="Permalink to this headline">¶</a></h2>
+<h2>Example V<a class="headerlink" href="#example-v" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/b9f5ea9ce0f8324113681b0946e2ee60b2a687eb.png" alt="\sum_{m'} \left(c^k(l, m, l', m')\right)^2 =
+
+    = \sum_{m'}
+    (2l+1)(2l'+1)
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix}^2 =
+
+    =
+    (2l+1)(2l'+1)
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    \sum_{m'}
+    \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix}^2 =
+
+    =
+    (2l+1)(2l'+1)
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    {1\over 2l+1} =
+
+    =
+    (2l'+1)
+    \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    =
+
+    =\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)" /></p>
+</div></div>
+<div class="section" id="example-vi">
+<span id="five-spherical-harmonics"></span><h2>Example VI<a class="headerlink" href="#example-vi" title="Permalink to this headline">¶</a></h2>
 <div class="math" id="equation-five_spherical_harmonics">
 <p><span class="eqno">(7)</span><img src="../../_images/math/31000c1263f6e62b8203cb8ff18f9400eab5d2d7.png" alt="\sum_{m'}\sum_{q}\int
         Y_{l'm'}(\Omega)
@@ -553,7 +581,77 @@ integer:</p>
 
     = (-1)^{j_1+j_2+j_3}
     \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ -m_1 &amp; -m_2 &amp; -m_3 \end{pmatrix}" /></p>
-</div></div>
+</div><p>Orthogonality relations:</p>
+<div class="math">
+<p><img src="../../_images/math/d31e22e75a8dc3b3f0ff026d952b934189ab4ba4.png" alt="\sum_{m_1 m_2}
+\begin{pmatrix} j_1 &amp; j_2 &amp; j \\ m_1 &amp; m_2 &amp; m \end{pmatrix}
+\begin{pmatrix} j_1 &amp; j_2 &amp; j' \\ m_1 &amp; m_2 &amp; m' \end{pmatrix} =
+    {\delta_{jj'}\delta_{mm'}
+        \over
+    2j+1}" /></p>
+</div><p>As a special case, we get:</p>
+<div class="math" id="equation-3j-square-sum">
+<p><span class="eqno">(8)</span><img src="../../_images/math/652d77accb4ea75d1a5299c4c397620fac57c060.png" alt="\sum_{m'}
+\begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix}^2
+=
+    {1 \over 2l+1}" /></p>
+</div><p>Here is a script to check that the equation <a href="#equation-3j-square-sum">(8)</a> works:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">S</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.wigner</span> <span class="kn">import</span> <span class="n">wigner_3j</span>
+
+<span class="k">def</span> <span class="nf">doit</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lp</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">mp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">lp</span><span class="p">,</span> <span class="n">lp</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">wigner_3j</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="n">mp</span><span class="p">,</span> <span class="n">mp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%2d</span><span class="s"> </span><span class="si">%2d</span><span class="s"> </span><span class="si">%2d</span><span class="s"> </span><span class="si">%2d</span><span class="s">  &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lp</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> <span class="n">s</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">print</span> <span class="s">&quot; l  k  lp m:  lhs   rhs&quot;</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">doit</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lp</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>it prints:</p>
+<div class="highlight-python"><pre>l  k  lp m:  lhs   rhs
+1  4  3 -1   1/3   1/3
+1  4  3  0   1/3   1/3
+1  4  3  1   1/3   1/3
+2  4  3 -2   1/5   1/5
+2  4  3 -1   1/5   1/5
+2  4  3  0   1/5   1/5
+2  4  3  1   1/5   1/5
+2  4  3  2   1/5   1/5
+3  4  3 -3   1/7   1/7
+3  4  3 -2   1/7   1/7
+3  4  3 -1   1/7   1/7
+3  4  3  0   1/7   1/7
+3  4  3  1   1/7   1/7
+3  4  3  2   1/7   1/7
+3  4  3  3   1/7   1/7
+4  4  3 -4   1/9   1/9
+4  4  3 -3   1/9   1/9
+4  4  3 -2   1/9   1/9
+4  4  3 -1   1/9   1/9
+4  4  3  0   1/9   1/9
+4  4  3  1   1/9   1/9
+4  4  3  2   1/9   1/9
+4  4  3  3   1/9   1/9
+4  4  3  4   1/9   1/9
+5  4  3 -5   1/11   1/11
+5  4  3 -4   1/11   1/11
+5  4  3 -3   1/11   1/11
+5  4  3 -2   1/11   1/11
+5  4  3 -1   1/11   1/11
+5  4  3  0   1/11   1/11
+5  4  3  1   1/11   1/11
+5  4  3  2   1/11   1/11
+5  4  3  3   1/11   1/11
+5  4  3  4   1/11   1/11
+5  4  3  5   1/11   1/11</pre>
+</div>
+</div>
 <div class="section" id="multipole-expansion">
 <span id="index-2"></span><h1>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
 <p>Assuming <img class="math" src="../../_images/math/77598bff52f38421a571fd42ed448608de7d2273.png" alt="r' \ll r"/>:</p>
@@ -615,6 +713,7 @@ integer:</p>
 <li><a class="reference internal" href="#example-iii">Example III</a></li>
 <li><a class="reference internal" href="#example-iv">Example IV</a></li>
 <li><a class="reference internal" href="#example-v">Example V</a></li>
+<li><a class="reference internal" href="#example-vi">Example VI</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a></li>

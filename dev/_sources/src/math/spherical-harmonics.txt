@@ -465,10 +465,41 @@ Few other identities:
 
     c^k(l, 0, l', 0) = c^k(l', 0, l, 0)
 
-.. _five_spherical_harmonics:
-
 Example V
 ~~~~~~~~~
+
+.. math::
+
+    \sum_{m'} \left(c^k(l, m, l', m')\right)^2 =
+
+        = \sum_{m'}
+        (2l+1)(2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2 =
+
+        =
+        (2l+1)(2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \sum_{m'}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2 =
+
+        =
+        (2l+1)(2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        {1\over 2l+1} =
+
+        =
+        (2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        =
+
+        =\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+
+
+.. _five_spherical_harmonics:
+
+Example VI
+~~~~~~~~~~
 
 .. math::
     :label: five_spherical_harmonics
@@ -632,6 +663,84 @@ and the same if you change the sign of the second row:
 
         = (-1)^{j_1+j_2+j_3}
         \begin{pmatrix} j_1 & j_2 & j_3 \\ -m_1 & -m_2 & -m_3 \end{pmatrix}
+
+Orthogonality relations:
+
+.. math::
+
+    \sum_{m_1 m_2}
+    \begin{pmatrix} j_1 & j_2 & j \\ m_1 & m_2 & m \end{pmatrix}
+    \begin{pmatrix} j_1 & j_2 & j' \\ m_1 & m_2 & m' \end{pmatrix} =
+        {\delta_{jj'}\delta_{mm'}
+            \over
+        2j+1}
+
+As a special case, we get:
+
+.. math::
+    :label: 3j-square-sum
+
+    \sum_{m'}
+    \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2
+    =
+        {1 \over 2l+1}
+
+Here is a script to check that the equation :eq:`3j-square-sum` works::
+
+    from sympy import S
+    from sympy.physics.wigner import wigner_3j
+
+    def doit(l, k, lp, m):
+        s = 0
+        for mp in range(-lp, lp+1):
+            s += wigner_3j(l, k, lp, -m, m-mp, mp)**2
+        print "%2d %2d %2d %2d  " % (l, k, lp, m), s, " ", S(1)/(2*l+1)
+
+    k = 4
+    lp = 3
+    print " l  k  lp m:  lhs   rhs"
+    for l in range(1, 6):
+        for m in range(-l, l+1):
+            doit(l, k, lp, m)
+
+it prints::
+
+     l  k  lp m:  lhs   rhs
+     1  4  3 -1   1/3   1/3
+     1  4  3  0   1/3   1/3
+     1  4  3  1   1/3   1/3
+     2  4  3 -2   1/5   1/5
+     2  4  3 -1   1/5   1/5
+     2  4  3  0   1/5   1/5
+     2  4  3  1   1/5   1/5
+     2  4  3  2   1/5   1/5
+     3  4  3 -3   1/7   1/7
+     3  4  3 -2   1/7   1/7
+     3  4  3 -1   1/7   1/7
+     3  4  3  0   1/7   1/7
+     3  4  3  1   1/7   1/7
+     3  4  3  2   1/7   1/7
+     3  4  3  3   1/7   1/7
+     4  4  3 -4   1/9   1/9
+     4  4  3 -3   1/9   1/9
+     4  4  3 -2   1/9   1/9
+     4  4  3 -1   1/9   1/9
+     4  4  3  0   1/9   1/9
+     4  4  3  1   1/9   1/9
+     4  4  3  2   1/9   1/9
+     4  4  3  3   1/9   1/9
+     4  4  3  4   1/9   1/9
+     5  4  3 -5   1/11   1/11
+     5  4  3 -4   1/11   1/11
+     5  4  3 -3   1/11   1/11
+     5  4  3 -2   1/11   1/11
+     5  4  3 -1   1/11   1/11
+     5  4  3  0   1/11   1/11
+     5  4  3  1   1/11   1/11
+     5  4  3  2   1/11   1/11
+     5  4  3  3   1/11   1/11
+     5  4  3  4   1/11   1/11
+     5  4  3  5   1/11   1/11
 
 
 .. index:: multipole expansion
