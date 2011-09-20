@@ -747,6 +747,103 @@ c + a \ge b" /></p>
 </div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/18850c5a6f67139956c8c1e35094c0a864ecb8ca.png" alt="b &gt; a"/> then also <img class="math" src="../../_images/math/6ff26c9514349439d29c60e8ce67d0ad3a64e765.png" alt="b+c\ge a"/> and we get
 <a href="#equation-trig_three">(11)</a>.</p>
 </div>
+<div class="section" id="gamma-function">
+<h1>Gamma Function<a class="headerlink" href="#gamma-function" title="Permalink to this headline">¶</a></h1>
+<p>Gamma function <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t" /></p>
+</div><p>Integrating by parts we get:</p>
+<div class="math">
+<p><img src="../../_images/math/6578ff5f0fccbfb26ce613f0a8e971f010d2e406.png" alt="\Gamma(z)
+    = \int_0^\infty t^{z-1} e^{-t} \d t
+    = (z-1)\int_0^\infty t^{z-2} e^{-t} \d t-[t^{z-1}e^{-t}]_0^\infty
+    = (z-1)\Gamma(z-1)" /></p>
+</div><p>So for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> we get:</p>
+<div class="math" id="equation-gamma_fact">
+<p><span class="eqno">(13)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
+    = n(n-1)(n-2)\cdots 2\cdot1\cdot\Gamma(1) =
+
+    = n(n-1)(n-2)\cdots 1
+    = n!" /></p>
+</div><p>and</p>
+<div class="math" id="equation-gamma_double_fact">
+<p><span class="eqno">(14)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
+    = (n-\half)(n-1-\half)\Gamma(n-1-\half)
+    = (n-\half)(n-1-\half)\cdots\half\Gamma(\half) =
+
+    = {2n-1\over2}{2n-3\over2}{2n-5\over2}\cdots{1\over2}\Gamma(\half)
+    = {(2n-1)!!\over 2^n}\Gamma(\half)
+    = {(2n-1)!!\over 2^n}\sqrt\pi" /></p>
+</div><p>Where we used:</p>
+<div class="math">
+<p><img src="../../_images/math/de2e79c735421b0177001c04d18b65035ab34ebf.png" alt="\Gamma(1)
+    = \int_0^\infty t^{1-1} e^{-t} \d t
+    = \int_0^\infty e^{-t} \d t
+    = [-e^{-t}]_0^\infty
+    = 1
+
+\Gamma(\half)
+    = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
+    = \int_0^\infty {e^{-t}\over\sqrt t} \d t
+    = \int_0^\infty {e^{-x^2}\over x} 2x\, \d x
+    = 2\int_0^\infty e^{-x^2} \d x =
+
+    = \int_{-\infty}^\infty e^{-x^2} \d x
+    = \sqrt{
+        \int_{-\infty}^\infty e^{-x^2} \d x
+        \int_{-\infty}^\infty e^{-y^2} \d y
+        }
+    = \sqrt{2\pi \int_0^\infty e^{-r^2} r\d r} =
+
+    = \sqrt{2\pi \int_0^\infty e^{-u} \half\d u}
+    = \sqrt\pi" /></p>
+</div></div>
+<div class="section" id="factorial">
+<h1>Factorial<a class="headerlink" href="#factorial" title="Permalink to this headline">¶</a></h1>
+<p>The factorial <img class="math" src="../../_images/math/63f344e7d8b14a7886fc7fb72da53cd0a3271dcc.png" alt="n!"/> is defined as</p>
+<div class="math">
+<p><img src="../../_images/math/d6c12d6ee30c8fd297ca8456a4b57a41c37656e7.png" alt="n! = n(n-1)(n-2)\cdots 3\cdot2\cdot 1" /></p>
+</div><p>By <a href="#equation-gamma_fact">(13)</a> it can be written using the Gamma function as:</p>
+<div class="math">
+<p><img src="../../_images/math/75c06ec67b40d1419bf500bec5dce6cc65be2a01.png" alt="n! = \Gamma(n+1)" /></p>
+</div></div>
+<div class="section" id="double-factorial">
+<h1>Double Factorial<a class="headerlink" href="#double-factorial" title="Permalink to this headline">¶</a></h1>
+<p>The double factorial <img class="math" src="../../_images/math/a48b26e0e333328642ad64597080192f303f88cf.png" alt="n!!"/> is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/1383bdbe17c4798b10f31e4fb40c479191bf29ad.png" alt="n!! = \begin{cases}
+    n(n-2)(n-4)(n-6)\cdots 5\cdot3\cdot1\quad\quad\mbox{for odd $n=2k+1$} \\
+    n(n-2)(n-4)(n-6)\cdots 6\cdot4\cdot2\quad\quad\mbox{for even $n=2k$}
+\end{cases}" /></p>
+</div><p>One can rewrite double factorial using a factorial as:</p>
+<div class="math">
+<p><img src="../../_images/math/497651345af9b7be2262fdd69a45042e6a2d0a8d.png" alt="(2k)!! = 2\cdot4\cdot6\cdots (2k)
+    = 2^k (1\cdot2\cdot3\cdots k)
+    = 2^k k!
+
+(2k-1)!!
+    = 1\cdot3\cdot5\cdots(2k-1)
+    = {1\cdot2\cdot3\cdot4\cdot5\cdots(2k) \over 2\cdot4\cdot6\cdots (2k)}
+    = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}" /></p>
+</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(14)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/6410fa87f077a0af590956eaf7c948eb22138906.png" alt="(2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)" /></p>
+</div><div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/63060ccffb922e30be5411f05e36f90966ff77a9.png" alt="A(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
+    1\cdot 2\cdot 3\cdot \dots \cdot n}
+    = {(2n-1)!!\over n!}
+    = {(2n)!\over 2^n (n!)^2}
+    = {1\over 2^n}\binom{2n}{n}
+
+B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
+    2\cdot 4\cdot\cdot6 \dots \cdot 2n}
+    = {(2n-1)!!\over (2n)!!}
+    = {(2n)!\over (2^n n!)^2}
+    = {1\over 4^n}\binom{2n}{n}" /></p>
+</div></div>
+</div>
 
 
           </div>
@@ -780,6 +877,12 @@ c + a \ge b" /></p>
 </li>
 <li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
 <li><a class="reference internal" href="#triangle-inequality">Triangle Inequality</a></li>
+<li><a class="reference internal" href="#gamma-function">Gamma Function</a></li>
+<li><a class="reference internal" href="#factorial">Factorial</a></li>
+<li><a class="reference internal" href="#double-factorial">Double Factorial</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
 
   <h4>Previous topic</h4>
