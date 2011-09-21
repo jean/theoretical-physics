@@ -387,6 +387,160 @@ angles:</p>
                 P_{n'l'}(r)
     = \epsilon_{nl} P_{nl}(r)" /></p>
 </div></div>
+<div class="section" id="fem">
+<h2>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h2>
+<p>The weak formulation is (<img class="math" src="../../_images/math/1f9e783b3d274664b83591c39a5f2df8b6db3288.png" alt="u(r) = P_{nl}(r)"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/4e802c06c4adb7108934b21a21470265467d118f.png" alt="\int_0^\infty \half u'(r) v'(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r) \d r+
+
+        -\sum_{n'l'}
+            (2l'+1)
+            \sum_{k=|l-l'|}^{k=l+l'}
+                \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            \int_0^\infty
+            \int_0^\infty
+            {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+            u(r')v(r)
+            P_{n'l'}(r')
+            P_{n'l'}(r)
+            \d r'\,
+            \d r
+    = \epsilon \int_0^\infty u(r)v(r)\d r" /></p>
+</div><p>The radial double integral can be done in the following way:</p>
+<div class="math">
+<p><img src="../../_images/math/817e7bff87e184fd116dca611f746310ee850dcc.png" alt="\int_0^\infty
+\int_0^\infty
+{r_{&lt;}^k\over r_{&gt;}^{k+1}}
+u(r')v(r)
+f(r')
+g(r)
+\d r'\,
+\d r
+= \int_0^\infty g(r) v(r) {Y^k(r)\over r}" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/b32d0fc1538dac5e04a0433a75b93e1be8d9cb67.png" alt="Y^k(r) = r
+\int_0^\infty
+{r_{&lt;}^k\over r_{&gt;}^{k+1}}
+u(r')
+f(r')
+\d r'
+= r
+\int_0^r
+{r'^k\over r^{k+1}}
+u(r')
+f(r')
+\d r'
++
+r \int_r^\infty
+{r^k\over r'^{k+1}}
+u(r')
+f(r')
+\d r'
+=
+
+=
+{1\over r^k}
+\int_0^r
+{x^k}
+u(x)
+f(x)
+\d x
++
+r^{k+1}
+\int_r^\infty
+{1\over x^{k+1}}
+u(x)
+f(x)
+\d x
+=Z^k(r)
++
+r^{k+1}
+\int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/e79fcd0718157d3893d1b5eca34d226bf6e2e9fc.png" alt="Z^k(r) =
+{1\over r^k}
+\int_0^r
+{x^k}
+u(x)
+f(x)
+\d x
+
+{\d Z^k(r) \over \d r}= -{k\over r} Z^k(r) + u(r) f(r)
+
+Z^k(0) = 0" /></p>
+</div><p>Now we differentiate <img class="math" src="../../_images/math/72beda70fabe1bce3c06ae9149ed0557ac852caa.png" alt="Y^k(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/00caa193fcce2f4a9d32e7b9ee5b668ae862cc2f.png" alt="{\d Y^k(r) \over \d r} = {\d Z^k(r) \over \d r}
+    + {k+1\over r} r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
+    -u(r) f(r)
+=
+
+=
+-{k\over r} Z^k(r) + u(r) f(r)
+    + {k+1\over r} r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
+    -u(r) f(r) =
+
+=
+-{k\over r} Z^k(r)
+    + {k+1\over r} r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x =
+
+=
+-{k\over r} Z^k(r)
+    + {k+1\over r} (Y^k(r) - Z^k(r)) =
+
+=
+-{2k+1\over r} Z^k(r) + {k+1\over r} Y^k(r)" /></p>
+</div><p>Also <img class="math" src="../../_images/math/dad96842ac186f9805c6ba8937af9425868af228.png" alt="Y^k(\infty) = Z^k(\infty)"/>, so we get the following set of differential
+equations with boundary conditions:</p>
+<div class="math">
+<p><img src="../../_images/math/69a240952a364c1b2485079504b4eda69cd63195.png" alt="\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) = -{2k+1\over r} Z^k(r)
+
+\left({\d\over\d r} + {k\over r}\right) Z^k(r) = u(r) f(r)
+
+Y^k(\infty) = Z^k(\infty)
+
+Z^k(0) = 0" /></p>
+</div><p>Expressing <img class="math" src="../../_images/math/344b901709c8fffa4532705a03d11f5a2d8cf7be.png" alt="Z^k"/> from the first equation:</p>
+<div class="math">
+<p><img src="../../_images/math/fcb051944d6a2ba032f8528a2f7bae37f6caa6b7.png" alt="Z^k(r) = -{r\over 2k+1}\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) =
+
+=-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)" /></p>
+</div><p>and substituting into the second equation we get:</p>
+<div class="math">
+<p><img src="../../_images/math/c46c3ef97f4dda1d1b51f8d73e42149b82a75335.png" alt="-\left({\d\over\d r} + {k\over r}\right)
+    \left({r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k\right)
+    = u(r) f(r)
+
+-{r\over 2k+1}\left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right)
+    Y^k(r)
+    = u(r) f(r)
+
+\left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right) Y^k(r)
+    = -{2k+1\over r}u(r) f(r)" /></p>
+</div><p>With boundary condition on the left:</p>
+<div class="math">
+<p><img src="../../_images/math/203c93a1a069b89a7310608e6882aaa745ab41be.png" alt="Z^k(0) = {k+1\over 2k+1} Y^k(0) = 0
+
+Y^k(0) = 0" /></p>
+</div><p>and on the right:</p>
+<div class="math">
+<p><img src="../../_images/math/50a6ba8182e9c762e300acc682819dc1068084cc.png" alt="Z^k(r)
+    =-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)
+    = Y^k(r)
+
+-{r\over 2k+1}{\d Y^k(r)\over \d r} - {k\over 2k+1} Y^k(r) = 0
+
+{\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0" /></p>
+</div><p>so for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/7ba45299a2141e398a476f6b328fad6a1bed4344.png" alt="\left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0" /></p>
+</div></div>
 </div>
 
 
@@ -402,6 +556,7 @@ angles:</p>
 <li><a class="reference internal" href="#exchange-integral">Exchange Integral</a></li>
 <li><a class="reference internal" href="#nonlocal-exchange-potential">Nonlocal Exchange Potential</a></li>
 <li><a class="reference internal" href="#spherical-symmetry">Spherical Symmetry</a></li>
+<li><a class="reference internal" href="#fem">FEM</a></li>
 </ul>
 </li>
 </ul>
