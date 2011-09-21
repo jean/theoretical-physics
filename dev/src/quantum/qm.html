@@ -997,6 +997,148 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
 </div><div class="math">
 <p><img src="../../_images/math/7b0b9d616c01e378c5a0ddcf61028e1e61047a53.png" alt="D_j = \partial_j + {i\over\hbar}e A_j=-{i\over\hbar}(i\hbar\partial_j-eA_j) ={i\over\hbar}(i\hbar\partial^j-eA^j) ={i\over\hbar}({\bf p}-e{\bf A})" /></p>
 </div></div>
+<div class="section" id="adding-angular-momenta">
+<h2>Adding Angular Momenta<a class="headerlink" href="#adding-angular-momenta" title="Permalink to this headline">¶</a></h2>
+<p>Angular momenta are added using the Clebsch-Gordan coefficients (or
+equivalently <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols):</p>
+<div class="math" id="equation-angular_momenta_adding">
+<p><span class="eqno">(4)</span><img src="../../_images/math/b10c544509a9eb002019c4938fa32a505a9709d2.png" alt="\ket{j_1 j_2 j_3 m_3} =
+    \sum_{m_1 m_2} (j_1 m_1 j_2 m_2 | j_3 m_3 ) \ket{j_1 m_1 j_2 m_2} =
+
+    = \sum_{m_1 m_2}
+        (-1)^{j_1-j_2+m_3}\sqrt{2j_3+1}
+        \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; -m_3 \end{pmatrix}
+        \ket{j_1 m_1 j_2 m_2}" /></p>
+</div><div class="section" id="spin-orbit-coupling">
+<h3>Spin Orbit Coupling<a class="headerlink" href="#spin-orbit-coupling" title="Permalink to this headline">¶</a></h3>
+<p>This is just a special case of <a href="#equation-angular_momenta_adding">(4)</a> for:</p>
+<div class="math">
+<p><img src="../../_images/math/e549080243bd8024d93a7e59d0739d6318d27ace.png" alt="j_1 = l
+
+m_1 = m
+
+j_2 = \half
+
+m_2 = s" /></p>
+</div><p>So the kets <img class="math" src="../../_images/math/ddc6e2fca0ff2724ef976bd972c92691891bb329.png" alt="\ket{j_1 m_1 j_2 m_2}"/> can be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/fead42b9cbae7a3a1eb1595944bfc3df689ffb80.png" alt="\ket{j_1 m_1 j_2 m_2} = \ket{l m \half s}
+    = Y_{lm} \Phi_s" /></p>
+</div><p>Where:</p>
+<div class="math">
+<p><img src="../../_images/math/3ae1ae8e8f86216336051caed086b744b4e29507.png" alt="\Phi_{1\over2} = \begin{pmatrix}1\\0\end{pmatrix}
+
+\Phi_{-{1\over2}} = \begin{pmatrix}0\\1\end{pmatrix}" /></p>
+</div><p>Where <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> is a spin, <img class="math" src="../../_images/math/b8a688318112a50a541587ad3822e2e6d0daace6.png" alt="s=\pm\half"/>. Then we get:</p>
+<div class="math">
+<p><img src="../../_images/math/c9b2647001bb80f7cd2cc2099eb2482dc24810e3.png" alt="\ket{l \half j_3 m_3}
+    = \sum_{m=-l}^l \sum_{s=-\half}^\half
+        (-1)^{l-\half+m_3}\sqrt{2j_3+1}
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m &amp; s &amp; -m_3 \end{pmatrix}
+        \ket{l m \half s}
+    =
+
+    = (-1)^{l-\half+m_3}\sqrt{2j_3+1}
+    \sum_{m=-l}^l
+        \left(
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m &amp; -\half &amp; -m_3 \end{pmatrix}
+        \ket{l m \half (-\half)}\right.
+        +
+
+        +\left.
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m &amp; \half &amp; -m_3 \end{pmatrix}
+        \ket{l m \half \half}\right)=
+
+    =(-1)^{l-\half+m_3}\sqrt{2j_3+1} \left(
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m_3+\half &amp; -\half &amp; -m_3 \end{pmatrix}
+        \ket{l (m_3+\half) \half (-\half)}\right.
+        +
+
+        +\left.
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m_3-\half &amp; \half &amp; -m_3 \end{pmatrix}
+        \ket{l (m_3-\half) \half \half}\right)=
+
+    =(-1)^{l-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m_3-\half &amp; \half &amp; -m_3 \end{pmatrix}
+        Y_{l, m_3-\half} \\
+        \begin{pmatrix} l &amp; \half &amp; j_3 \\ m_3+\half &amp; -\half &amp; -m_3 \end{pmatrix}
+        Y_{l, m_3+\half}
+        \end{pmatrix}" /></p>
+</div><p>These are called spin-angular functions or spin spherical harmonics.
+Using the triangle selection rule of the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols, we can see that there
+are only two options for <img class="math" src="../../_images/math/2061bcb6902ecaed55a7bf3cbed47c91fc5b8114.png" alt="j_3"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/2cdefa343a59779743e23c4be8b2b83ae0c06565.png" alt="j_3 = l+\half
+
+j_3 = l-\half" /></p>
+</div><p>So we get for <img class="math" src="../../_images/math/3d3b2cf67da57409f755e496c6228790512646e3.png" alt="j_3=l+\half"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/b2a9171386bc541f2b193c62032a6eaedf6f050b.png" alt="\ket{(j_3-\half) \half j_3 m_3}
+    =(-1)^{j_3-\half-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+        \begin{pmatrix} j_3-\half &amp; \half &amp; j_3 \\ m_3-\half &amp; \half &amp; -m_3 \end{pmatrix}
+        Y_{j_3-\half, m_3-\half} \\
+        \begin{pmatrix} j_3-\half &amp; \half &amp; j_3 \\ m_3+\half &amp; -\half &amp; -m_3 \end{pmatrix}
+        Y_{j_3-\half, m_3+\half}
+        \end{pmatrix} =
+
+    =(-1)^{j_3+m_3-1}\sqrt{2j_3+1} \begin{pmatrix}
+        (-1)^{j_3+m_3-1}\sqrt{j_3+m_3\over 2 j_3 (2j_3+1)}
+        Y_{j_3-\half, m_3-\half} \\
+        (-1)^{2j_3} (-1)^{j_3-m_3-1}\sqrt{j_3-m_3\over 2 j_3 (2j_3+1)}
+        Y_{j_3-\half, m_3+\half}
+        \end{pmatrix} =
+
+    = \begin{pmatrix}
+        \sqrt{j_3+m_3\over 2 j_3}
+        Y_{j_3-\half, m_3-\half} \\
+        (-1)^{4j_3}\sqrt{j_3-m_3\over 2 j_3}
+        Y_{j_3-\half, m_3+\half}
+        \end{pmatrix} =
+
+    = {1\over \sqrt{2j_3}}\begin{pmatrix}
+          \sqrt{j_3+m_3}\, Y_{j_3-\half, m_3-\half} \\
+          \sqrt{j_3-m_3}\, Y_{j_3-\half, m_3+\half}
+        \end{pmatrix} =
+
+    = {1\over\sqrt{2l+1}}\begin{pmatrix}
+          \sqrt{l+m_3+\half}\, Y_{l, m_3-\half} \\
+          \sqrt{l-m_3+\half}\, Y_{l, m_3+\half}
+        \end{pmatrix}" /></p>
+</div><p>and <img class="math" src="../../_images/math/385de3d213e60096a95c026b1ca42bebfb50e86d.png" alt="j_3=l-\half"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/0757fda82aebd21e877ffe5bd419a15232f42791.png" alt="\ket{(j_3+\half) \half j_3 m_3}
+    =(-1)^{j_3+\half-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+        \begin{pmatrix} j_3+\half &amp; \half &amp; j_3 \\ m_3-\half &amp; \half &amp; -m_3 \end{pmatrix}
+        Y_{j_3+\half, m_3-\half} \\
+        \begin{pmatrix} j_3+\half &amp; \half &amp; j_3 \\ m_3+\half &amp; -\half &amp; -m_3 \end{pmatrix}
+        Y_{j_3+\half, m_3+\half}
+        \end{pmatrix} =
+
+    =(-1)^{j_3+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+          (-1)^{2j_3+1}(-1)^{j_3-m_3}\sqrt{j_3-m_3+1 \over (2j_3+1)(2j_3+2)}
+        Y_{j_3+\half, m_3-\half} \\
+          (-1)^{j_3+m_3}\sqrt{j_3+m_3+1 \over (2j_3+1)(2j_3+2)}
+        Y_{j_3+\half, m_3+\half}
+        \end{pmatrix} =
+
+    = \begin{pmatrix}
+          (-1)^{4j_3+1}\sqrt{j_3-m_3+1 \over 2j_3+2}
+        Y_{j_3+\half, m_3-\half} \\
+          \sqrt{j_3+m_3+1 \over 2j_3+2}
+        Y_{j_3+\half, m_3+\half}
+        \end{pmatrix} =
+
+    = {1\over\sqrt{2j_3+2}}\begin{pmatrix}
+          -\sqrt{j_3-m_3+1}\, Y_{j_3+\half, m_3-\half} \\
+           \sqrt{j_3+m_3+1}\, Y_{j_3+\half, m_3+\half}
+        \end{pmatrix} =
+
+    = {1\over\sqrt{2l+1}}\begin{pmatrix}
+          -\sqrt{l-m_3+\half}\, Y_{l, m_3-\half} \\
+           \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
+        \end{pmatrix}" /></p>
+</div></div>
+</div>
 </div>
 
 
@@ -1029,6 +1171,10 @@ E = \sqrt{m^2c^4 + {\bf p}^2c^2}
 <li><a class="reference internal" href="#units-and-dimensional-analysis">Units and Dimensional Analysis</a></li>
 <li><a class="reference internal" href="#atomic-units">Atomic Units</a></li>
 <li><a class="reference internal" href="#tensors-in-special-relativity-and-qft">Tensors in Special Relativity and QFT</a></li>
+<li><a class="reference internal" href="#adding-angular-momenta">Adding Angular Momenta</a><ul>
+<li><a class="reference internal" href="#spin-orbit-coupling">Spin Orbit Coupling</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

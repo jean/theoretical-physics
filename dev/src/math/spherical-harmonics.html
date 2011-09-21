@@ -453,7 +453,7 @@ c^k(l, 0, l', 0) = c^k(l', 0, l, 0)" /></p>
 <div class="section" id="example-vi">
 <span id="five-spherical-harmonics"></span><h2>Example VI<a class="headerlink" href="#example-vi" title="Permalink to this headline">¶</a></h2>
 <div class="math" id="equation-five_spherical_harmonics">
-<p><span class="eqno">(7)</span><img src="../../_images/math/31000c1263f6e62b8203cb8ff18f9400eab5d2d7.png" alt="\sum_{m'}\sum_{q}\int
+<p><span class="eqno">(7)</span><img src="../../_images/math/277e76a07133464d006d612cc9146a6e55b89123.png" alt="\sum_{m'}\sum_{q}\int
         Y_{l'm'}(\Omega)
         Y_{l'm'}^*(\Omega')
         Y_{kq}(\Omega)
@@ -462,8 +462,8 @@ c^k(l, 0, l', 0) = c^k(l', 0, l, 0)" /></p>
         \d \Omega' =
 
 =\int
-        {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
-        {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+        {2l'+1\over 4\pi} P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
+        {2k+1\over 4\pi} P_k({\bf \hat x}\cdot{\bf \hat x}')
         Y_{lm}(\Omega')
         \d \Omega' =
 
@@ -497,24 +497,24 @@ c^k(l, 0, l', 0) = c^k(l', 0, l, 0)" /></p>
             Y_{lm}(\Omega)" /></p>
 </div><p>Where we used the following identities:</p>
 <div class="math">
-<p><img src="../../_images/math/dfb2a14f9ea6d9c4cf1be9ddc3704ad84fbc7a41.png" alt="\sum_{m'}
+<p><img src="../../_images/math/fea29ad4e8a09d4e822e8069dd3c7688b63bb502.png" alt="\sum_{m'}
     Y_{l'm'}(\Omega)
     Y_{l'm'}^*(\Omega')
-= {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
+= {2l'+1\over 4\pi} P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
 
 \sum_{q}
     Y_{kq}(\Omega)
     Y_{kq}^*(\Omega')
-= {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+= {2k+1\over 4\pi} P_k({\bf \hat x}\cdot{\bf \hat x}')
 
-P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+P_k({\bf \hat x}\cdot{\bf \hat x}')P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
 = \sum_{\lambda=|l'-k|}^{l'+k}
     \begin{pmatrix} k &amp; l' &amp; \lambda \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-    (2\lambda+1) P_\lambda({\bf x}\cdot{\bf x}') =
+    (2\lambda+1) P_\lambda({\bf \hat x}\cdot{\bf \hat x}') =
 
     = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
         \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
-        P_\lambda({\bf x}\cdot{\bf x}') =
+        P_\lambda({\bf \hat x}\cdot{\bf \hat x}') =
 
 = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
     \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
@@ -659,6 +659,92 @@ integer:</p>
 5  4  3  4   1/11   1/11
 5  4  3  5   1/11   1/11</pre>
 </div>
+<p>Values of the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> coefficients for a few special cases (use the symmetries
+above to obtain values for permuted symbols):</p>
+<div class="math">
+<p><img src="../../_images/math/ca323b71cea2fdf54c64580ff213ff118c026a29.png" alt="\begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    &amp;= (-1)^s \sqrt{(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
+        {s! \over (s-k)! (s-l)! (s-m)!}
+        \quad\quad\mbox{for $2s=k+l+m$ even} \\
+\begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+    &amp;= 0
+        \quad\quad\mbox{for $2s=k+l+m$ odd} \\
+\begin{pmatrix} j+\half &amp; j &amp; \half \\ m &amp; -m-\half &amp; \half \end{pmatrix}
+    &amp;= (-1)^{j-m-\half} \sqrt{j-m+\half
+        \over (2j+1)(2j+2)} \\
+\begin{pmatrix} j+1 &amp; j &amp; 1 \\ m &amp; -m-1 &amp; 1 \end{pmatrix}
+    &amp;= (-1)^{j-m-1} \sqrt{(j-m)(j-m+1)
+        \over (2j+1)(2j+2)(2j+3)} \\
+\begin{pmatrix} j+1 &amp; j &amp; 1 \\ m &amp; -m &amp; 0 \end{pmatrix}
+    &amp;= (-1)^{j-m-1} \sqrt{2(j+m+1)(j-m+1)
+        \over (2j+1)(2j+2)(2j+3)}" /></p>
+</div><div class="section" id="id3">
+<h2>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/b02984a49e8fe83a5280933a3c4b703d6724fcee.png" alt="\begin{pmatrix} j_3-\half &amp; \half &amp; j_3 \\
+    m_3-\half &amp; \half &amp; -m_3 \end{pmatrix} =
+\begin{pmatrix} j_3 &amp; j_3-\half &amp; \half \\
+    -m_3 &amp; m_3-\half &amp; \half \end{pmatrix} =
+    \left.
+\begin{pmatrix} j+\half &amp; j &amp; \half \\ m &amp; -m-\half &amp; \half \end{pmatrix}
+\right|_{j=j_3-\half;m=-m_3}
+=
+
+= (-1)^{j_3-\half+m_3-\half}\sqrt{j_3-\half+m_3+\half\over
+    (2 j_3-1+1) (2j_3-1+2)}
+= (-1)^{j_3+m_3-1}\sqrt{j_3+m_3\over 2 j_3 (2j_3+1)}
+
+
+
+\begin{pmatrix} j_3-\half &amp; \half &amp; j_3 \\
+    m_3+\half &amp; -\half &amp; -m_3 \end{pmatrix} =
+    (-1)^{j_3-\half + \half + j_3}
+\begin{pmatrix} j_3 &amp; j_3-\half &amp; \half \\
+    m_3 &amp; -m_3-\half &amp; \half \end{pmatrix} =
+    (-1)^{2j_3}
+    \left.
+\begin{pmatrix} j+\half &amp; j &amp; \half \\ m &amp; -m-\half &amp; \half \end{pmatrix}
+\right|_{j=j_3-\half;m=m_3}
+=
+
+= (-1)^{2j_3}
+(-1)^{j_3-\half-m_3-\half}\sqrt{j_3-\half-m_3+\half\over
+    (2 j_3-1+1) (2j_3-1+2)}
+= (-1)^{2j_3} (-1)^{j_3-m_3-1}\sqrt{j_3-m_3\over 2 j_3 (2j_3+1)}
+
+
+
+\begin{pmatrix} j_3+\half &amp; \half &amp; j_3 \\
+    m_3-\half &amp; \half &amp; -m_3 \end{pmatrix} =
+    (-1)^{j_3+\half+\half+j_3}
+\begin{pmatrix} j_3+\half &amp; j_3 &amp; \half \\
+    m_3-\half &amp; -m_3 &amp; \half \end{pmatrix} =
+    (-1)^{2j_3+1}
+    \left.
+\begin{pmatrix} j+\half &amp; j &amp; \half \\ m &amp; -m-\half &amp; \half \end{pmatrix}
+\right|_{j=j_3;m=m_3-\half}
+=
+
+=(-1)^{2j_3+1}(-1)^{j_3-m_3+\half-\half}\sqrt{j_3-m_3+\half+\half \over
+    (2j_3+1)(2j_3+2)}
+=(-1)^{2j_3+1}(-1)^{j_3-m_3}\sqrt{j_3-m_3+1 \over (2j_3+1)(2j_3+2)}
+
+
+
+
+\begin{pmatrix} j_3+\half &amp; \half &amp; j_3 \\
+    m_3+\half &amp; -\half &amp; -m_3 \end{pmatrix} =
+\begin{pmatrix} j_3+\half &amp; j_3 &amp; \half \\
+    -m_3-\half &amp; m_3 &amp; \half \end{pmatrix} =
+    \left.
+\begin{pmatrix} j+\half &amp; j &amp; \half \\ m &amp; -m-\half &amp; \half \end{pmatrix}
+\right|_{j=j_3;m=-m_3-\half}
+=
+
+=(-1)^{j_3+m_3+\half-\half}\sqrt{j_3+m_3+\half+\half \over
+    (2j_3+1)(2j_3+2)}
+=(-1)^{j_3+m_3}\sqrt{j_3+m_3+1 \over (2j_3+1)(2j_3+2)}" /></p>
+</div></div>
 </div>
 <div class="section" id="multipole-expansion">
 <span id="index-2"></span><h1>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
@@ -724,7 +810,10 @@ integer:</p>
 <li><a class="reference internal" href="#example-vi">Example VI</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a></li>
+<li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a><ul>
+<li><a class="reference internal" href="#id3">Examples</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#multipole-expansion">Multipole expansion</a></li>
 </ul>
 
