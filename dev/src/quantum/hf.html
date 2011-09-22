@@ -157,6 +157,9 @@ U({\bf x}, {\bf y}) =
 </div><p>The Hartree potential can be calculated by solving the Poisson equation:</p>
 <div class="math">
 <p><img src="../../_images/math/5859c4b770b257d0d0e70f952f232ca1571ce9c1.png" alt="\nabla^2V_H({\bf x}) = -4\pi n({\bf x})" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/6fb49f3d6eeaa4af736a3f3d4510a544ca2a99c1.png" alt="n({\bf x}) = \sum_{i=1}^Z |\psi_i({\bf x})|^2" /></p>
 </div><p>The application of the exchange potential <img class="math" src="../../_images/math/e4f87ff57e85fc782892da776174515fa7fa3c74.png" alt="\hat V_x"/> on any function
 <img class="math" src="../../_images/math/d731455805df3f06fcea80904540c5b7c7c8820c.png" alt="f({\bf x})"/> can be calculated by:</p>
 <div class="math">
@@ -167,8 +170,8 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
 
 \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})" /></p>
 </div></div>
-<div class="section" id="exchange-integral">
-<h2>Exchange Integral<a class="headerlink" href="#exchange-integral" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exchange-integral-in-spherical-symmetry">
+<h2>Exchange Integral in Spherical Symmetry<a class="headerlink" href="#exchange-integral-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s calculate the exchange integral</p>
 <div class="math">
 <p><img src="../../_images/math/7e5b11b2f1f9b841048c0945a3adb20d815c9b18.png" alt="\int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_j^*({\bf x}')\psi_i({\bf x}')
@@ -289,8 +292,8 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
     P_{nl}(r')
     \d r \d r'" /></p>
 </div></div>
-<div class="section" id="nonlocal-exchange-potential">
-<h2>Nonlocal Exchange Potential<a class="headerlink" href="#nonlocal-exchange-potential" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nonlocal-exchange-potential-in-spherical-symmetry">
+<h2>Nonlocal Exchange Potential in Spherical Symmetry<a class="headerlink" href="#nonlocal-exchange-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>Similarly, we calculate:</p>
 <div class="math">
 <p><img src="../../_images/math/71b3f146679a3a648f02bda49c9e9287f0728adb.png" alt="\sum_{j=1}^Z\int {\psi_i({\bf x'})\psi_j^*({\bf x'})\over|{\bf x}-{\bf x'}|}
@@ -340,7 +343,10 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
     P_{n'l'}(r')
     \d r'\,
         P_{n'l'}(r)" /></p>
-</div><p>Where we used the result of the integral in
+</div><p>Functions with different spins don&#8217;t contribute to the sum, so there is no
+multiplication by 2. We assumed closed shells atoms (we summed over all <img class="math" src="../../_images/math/644b1d79ecab35999ad2f46649f0676cd91d1af5.png" alt="m'"/> in
+the above).</p>
+<p>Where we used the result of the integral in
 <a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a>. Note that:</p>
 <div class="math" id="equation-using3j">
 <p><span class="eqno">(1)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
@@ -350,13 +356,167 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
     = (2l'+1)
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
 </div></div>
-<div class="section" id="spherical-symmetry">
-<h2>Spherical Symmetry<a class="headerlink" href="#spherical-symmetry" title="Permalink to this headline">¶</a></h2>
-<p>In the central field approximation, we average the integral for <img class="math" src="../../_images/math/0783030b7db37589c2fa4d4657fa9663d6bfea19.png" alt="V_H"/> over the
-angles:</p>
+<div class="section" id="occupation-numbers">
+<h2>Occupation Numbers<a class="headerlink" href="#occupation-numbers" title="Permalink to this headline">¶</a></h2>
+<p>We have a sum over <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/> electron states like this:</p>
 <div class="math">
-<p><img src="../../_images/math/ba83ccfb97f3fb0c4603f99a05a7c9c9b4b066a0.png" alt="V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega" /></p>
-</div><p>Using the above integrals, the HF equations become:</p>
+<p><img src="../../_images/math/ca2b1824c0ac2fb76222bdec3b1de8a278847bdc.png" alt="\sum_{i=1}^N A_i({\bf x}) = \sum_{nlms} A_{nlms}({\bf x})" /></p>
+</div><p>where <img class="math" src="../../_images/math/2002a0b16c3b8701b12c349088da7f3e3712bf16.png" alt="A_{nlms}({\bf x})"/> are some functions that depend on the state numbers
+(for example squares of the wavefunctions). Then there are two options &#8212;
+either there is a way to sum over the <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> and <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> degrees of freedom, so that
+the sum can be written exactly as:</p>
+<div class="math">
+<p><img src="../../_images/math/e03970346087b7e5e54aa3bfa4a3e967ebc23526.png" alt="\sum_{nlms} A_{nlms}({\bf x}) = \sum_{nlms} B_{nl}({\bf x})" /></p>
+</div><p>where <img class="math" src="../../_images/math/23046bb23fd0cded746f284771323a4d4ad37c26.png" alt="B_{nl}"/> (that don&#8217;t depend on <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> and <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/>) will in general be different
+to <img class="math" src="../../_images/math/5b78e75a02ca8822dd3af148b606397aedf01e65.png" alt="A_{nlms}"/>, but the sum will be the same. Or we have to approximate the sum
+(for example by averaging over the angles, or in some other way) as:</p>
+<div class="math">
+<p><img src="../../_images/math/674b031dacd311b294a665efabb7d5cd7e2823c0.png" alt="\sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlms} B_{nl}({\bf x})" /></p>
+</div><p>In either case, the occupation numbers <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/> are simply the number of times
+the functions <img class="math" src="../../_images/math/cbe53bbfbff66ea67710e1ad5d1f3452e706c099.png" alt="B_{nl}({\bf x})"/> appear in the sum for the given <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/17a12bc53ca609c9cdde84e79d5a0bb0f4310778.png" alt="\sum_{nlms} B_{nl}({\bf x}) = \sum_{nl} f_{nl} B_{nl}({\bf x})" /></p>
+</div><p>So for closed shells atoms, it is always:</p>
+<div class="math">
+<p><img src="../../_images/math/795eadea177c2e1c4ffcaa7bb877fc9b54642b1f.png" alt="f_{nl} = 2(2l+1)" /></p>
+</div><p>because there are two spins, and <img class="math" src="../../_images/math/9e059613efd4f51fd6b17b56122d31e8f5cfd64f.png" alt="2l+1"/> possibilities for <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>, for open shell
+atoms, <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/> is anything between <img class="math" src="../../_images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> and <img class="math" src="../../_images/math/9e059613efd4f51fd6b17b56122d31e8f5cfd64f.png" alt="2l+1"/>.</p>
+<div class="section" id="example-i">
+<h3>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h3>
+<p>As an example, let&#8217;s say that after some calculation for closed shell systems
+we get exactly:</p>
+<div class="math">
+<p><img src="../../_images/math/81739e283958962f6fc7d5ebcbc3a1ef6b02cefc.png" alt="\sum_{nlms} A_{nlms}({\bf x}) = \sum_{nl} 2(2l+1) B_{nl}({\bf x})" /></p>
+</div><p>Then because there are exactly <img class="math" src="../../_images/math/6d8ab501470d48fe2f14b6bfb50fdd6fc4828d6f.png" alt="2(2l+1)"/> states in the <img class="math" src="../../_images/math/cecf9f734bb73ff23397f4a9a1e2d2d160e21dc6.png" alt="nl"/> shell, we write the
+above as:</p>
+<div class="math">
+<p><img src="../../_images/math/2a1371da2ca2d45e294c49dc3ecbc7539e0f3e42.png" alt="\sum_{nlms} A_{nlms}({\bf x}) = \sum_{nl} 2(2l+1) B_{nl}({\bf x})
+    = \sum_{nl} f_{nl} B_{nl}({\bf x})" /></p>
+</div><p>Then we do similar calculation for the open shell system, and we have to use
+some approximations to get the following formula, where the <img class="math" src="../../_images/math/cbe53bbfbff66ea67710e1ad5d1f3452e706c099.png" alt="B_{nl}({\bf x})"/>
+happen to be exactly the same as for the closed shell system:</p>
+<div class="math">
+<p><img src="../../_images/math/585e236890f86a3cebce381b0fc5334fe66770d7.png" alt="\sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlm} 2 B_{nl}({\bf x})" /></p>
+</div><p>Then we denote by <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/> the number of electrons in the shell <img class="math" src="../../_images/math/cecf9f734bb73ff23397f4a9a1e2d2d160e21dc6.png" alt="nl"/> (at least
+one of them will be open, for which <img class="math" src="../../_images/math/cecf9f734bb73ff23397f4a9a1e2d2d160e21dc6.png" alt="nl"/> we have <img class="math" src="../../_images/math/5d868e3d92eda8296d0f24a571910da2b71065af.png" alt="f_{nl} &lt; 2(2l+1)"/>), and we
+can write the above as:</p>
+<div class="math">
+<p><img src="../../_images/math/12fe803a0aba74e993c2ece71318a06f5643525d.png" alt="\sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlm} 2 B_{nl}({\bf x})
+    = \sum_{nl} f_{nl} B_{nl}({\bf x})" /></p>
+</div></div>
+<div class="section" id="example-ii">
+<h3>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h3>
+<p>The usual chemical occupation numbers for the Uranium atom are:</p>
+<div class="math">
+<p><img src="../../_images/math/9c035051ecc4dee0069badd7d799d9c7319e553a.png" alt="f_{1l} &amp; = 2 (2l+1)    \\
+f_{2l} &amp; = 2 (2l+1)    \\
+f_{3l} &amp; = 2 (2l+1)    \\
+f_{4l} &amp; = 2 (2l+1)    \\
+f_{5l} &amp; = 2 (2l+1)\quad\quad\mbox{for $l\le2$}    \\
+f_{53} &amp; = 3    \\
+f_{60} &amp; = 2    \\
+f_{61} &amp; = 6    \\
+f_{62} &amp; = 1    \\
+f_{70} &amp; = 2    \\" /></p>
+</div><p>So the <img class="math" src="../../_images/math/84e75ddd39b9408f4d8e7fa62d2f6cdca00232de.png" alt="n=5"/>, <img class="math" src="../../_images/math/956e0fd75a22357659f8389681ffee6a2a28fbc0.png" alt="l=3"/> and <img class="math" src="../../_images/math/2f2a6991d2108f237ee451bf37db91cacaf4134e.png" alt="n=6"/>, <img class="math" src="../../_images/math/e6fbb515c22e2b4d5f4b9a2b164b626a4e3e2a72.png" alt="l=2"/> shells are open, all others are closed.
+By summing all these <img class="math" src="../../_images/math/e8d1d1630bc2e021ff5cfe63a9b2762c09e56ba0.png" alt="f_{nl}"/>, we get 92 states as expected:</p>
+<div class="math">
+<p><img src="../../_images/math/29aeca32f72a63ba49169ba211b1f9468844d004.png" alt="\sum_{nl} f_{nl} = 2 + (2+6) + (2+6+10) + (2+6+10+14) + (2+6+10) +
+
+    + 3 + 2 + 6 + 1 + 2 = 92" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f_nl</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">print</span> <span class="s">&quot;Sum f_nl =&quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">([</span><span class="n">f_nl</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>prints:</p>
+<div class="highlight-python"><pre>Sum f_nl = 92</pre>
+</div>
+</div>
+</div>
+<div class="section" id="hartree-potential-in-spherical-symmetry">
+<h2>Hartree Potential in Spherical Symmetry<a class="headerlink" href="#hartree-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
+<p>For both open and closed shell atoms we get exactly:</p>
+<div class="math">
+<p><img src="../../_images/math/b24f0890d01993136c7da9d0eb654d0c5fbab09a.png" alt="V_H({\bf x})
+    = \int {n({\bf y})\over|{\bf x}-{\bf y}|} \d^3 y
+    = \int {\sum_{j=1}^Z|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y =
+
+    = 2\sum_{nlm}\int {|Y_{lm}(\Omega')|^2 P_{nl}^2(r')\over
+        |{\bf x}-{\bf y}|} \d\Omega' \d r' =
+
+    = 2\sum_{nlm}\sum_{l'm'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        Y_{lm}^*(\Omega')Y_{lm}(\Omega')
+        Y_{l'm'}^*(\Omega)Y_{l'm'}(\Omega') P_{nl}^2(r') \d\Omega' \d r' =
+
+    = 2\sum_{nlm}\sum_{l'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =" /></p>
+</div><p>For closed shell atoms we continue simplifying:</p>
+<div class="math">
+<p><img src="../../_images/math/89f713cf40cb2646c6a45f07c2d96c3ba4464fa8.png" alt="V_H({\bf x}) = \cdots =
+
+    = 2\sum_{nl}\sum_{l'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        Y_{l'0}^*(\Omega) (2l+1)\delta_{l'0} P_{nl}^2(r') \d r' =
+
+    = 2\sum_{nl}\int {1\over r_&gt;}
+        Y_{00}^*(\Omega) (2l+1) P_{nl}^2(r') \d r' =
+
+    = \sum_{nl}2(2l+1) {1\over\sqrt{4\pi}}\int {1\over r_&gt;}
+        P_{nl}^2(r') \d r' =
+
+    = \sum_{nl} f_{nl} {1\over\sqrt{4\pi}}\int {1\over r_&gt;}
+        P_{nl}^2(r') \d r'" /></p>
+</div><p>For open shell atoms we have to use the central field approximation, we average
+the integral for <img class="math" src="../../_images/math/0783030b7db37589c2fa4d4657fa9663d6bfea19.png" alt="V_H"/> over the angles:</p>
+<div class="math">
+<p><img src="../../_images/math/144f826ad1fd7f5b0bfd4fa5d27a543025612b5a.png" alt="V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
+    = \cdots =
+
+= {1\over 4\pi} \int
+    2\sum_{nlm}\sum_{l'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' \d \Omega =
+
+= {1\over \sqrt{4\pi}}
+    2\sum_{nlm}\int {1\over r_&gt;} c^0(l, m, l, m) P_{nl}^2(r') \d r' =
+
+= \sum_{nlm} 2 {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r' =
+
+= \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r'" /></p>
+</div><p>We got the same expression for both open shell (with central field
+approximation) and closed shell (no approximation) atoms. The radial charge
+density is:</p>
+<div class="math">
+<p><img src="../../_images/math/11c261255143c0388a51ac077e8ed9840e968979.png" alt="n(r) = {1\over 4\pi} \sum_{nl} f_{nl} \left(P_{nl}(r)\over r\right)^2" /></p>
+</div><p>So we got:</p>
+<div class="math">
+<p><img src="../../_images/math/c560c10ab3c29b3faedb596c207f4b32fe851ede.png" alt="V_H(r) =
+   \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r'
+   =
+
+   =\sqrt{4\pi}\int {n(r')\over r_&gt;} r'^2 \d r'" /></p>
+</div><p>This is equivalent to solving the following radial Poisson equation:</p>
+<div class="math">
+<p><img src="../../_images/math/d52c3cc191d111f38abdf3b6560bf449fb2c0019.png" alt="V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)" /></p>
+</div></div>
+<div class="section" id="radial-hartre-fock-equations">
+<h2>Radial Hartre-Fock Equations<a class="headerlink" href="#radial-hartre-fock-equations" title="Permalink to this headline">¶</a></h2>
+<p>Using the above integrals, the HF equations become:</p>
 <div class="math">
 <p><img src="../../_images/math/6194a94c3993e1562d3bd69499bb266c8d048812.png" alt="-\half P_{nl}''(r) +
     \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
@@ -386,18 +546,39 @@ angles:</p>
             \d r'\,
                 P_{n'l'}(r)
     = \epsilon_{nl} P_{nl}(r)" /></p>
+</div><p>This can be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/fa93b3e14aa7327e1b0e8418dfa79809b60a6009.png" alt="-\half P_{nl}''(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+        -\sum_{n'l'}
+            f_{n'l'}
+            \sum_{k=|l-l'|}^{k=l+l'}
+            \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            \int
+            {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+            P_{nl}(r')
+            P_{n'l'}(r')
+            \d r'\,
+                P_{n'l'}(r)
+    = \epsilon_{nl} P_{nl}(r)" /></p>
+</div><p>with:</p>
+<div class="math">
+<p><img src="../../_images/math/791165e12ed3ed469f41a7627409509e2485d34b.png" alt="V_H(r) =
+   \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r'" /></p>
 </div></div>
 <div class="section" id="fem">
 <h2>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h2>
 <p>The weak formulation is (<img class="math" src="../../_images/math/1f9e783b3d274664b83591c39a5f2df8b6db3288.png" alt="u(r) = P_{nl}(r)"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/4e802c06c4adb7108934b21a21470265467d118f.png" alt="\int_0^\infty \half u'(r) v'(r) +
-    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r) \d r+
+<p><img src="../../_images/math/17450573c4dbff615e897f804060017387dd2390.png" alt="\int_0^\infty \left( \half u'(r) v'(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r)
+        \right) \d r+
 
         -\sum_{n'l'}
-            (2l'+1)
+            f_{n'l'}
             \sum_{k=|l-l'|}^{k=l+l'}
-                \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
             \int_0^\infty
             \int_0^\infty
             {r_{&lt;}^k\over r_{&gt;}^{k+1}}
@@ -553,9 +734,15 @@ Y^k(0) = 0" /></p>
   <ul>
 <li><a class="reference internal" href="#">Hartree-Fock (HF) Method</a><ul>
 <li><a class="reference internal" href="#derivation">Derivation</a></li>
-<li><a class="reference internal" href="#exchange-integral">Exchange Integral</a></li>
-<li><a class="reference internal" href="#nonlocal-exchange-potential">Nonlocal Exchange Potential</a></li>
-<li><a class="reference internal" href="#spherical-symmetry">Spherical Symmetry</a></li>
+<li><a class="reference internal" href="#exchange-integral-in-spherical-symmetry">Exchange Integral in Spherical Symmetry</a></li>
+<li><a class="reference internal" href="#nonlocal-exchange-potential-in-spherical-symmetry">Nonlocal Exchange Potential in Spherical Symmetry</a></li>
+<li><a class="reference internal" href="#occupation-numbers">Occupation Numbers</a><ul>
+<li><a class="reference internal" href="#example-i">Example I</a></li>
+<li><a class="reference internal" href="#example-ii">Example II</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hartree-potential-in-spherical-symmetry">Hartree Potential in Spherical Symmetry</a></li>
+<li><a class="reference internal" href="#radial-hartre-fock-equations">Radial Hartre-Fock Equations</a></li>
 <li><a class="reference internal" href="#fem">FEM</a></li>
 </ul>
 </li>

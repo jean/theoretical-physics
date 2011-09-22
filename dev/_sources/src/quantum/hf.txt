@@ -140,6 +140,12 @@ The Hartree potential can be calculated by solving the Poisson equation:
 
     \nabla^2V_H({\bf x}) = -4\pi n({\bf x})
 
+where:
+
+.. math::
+
+    n({\bf x}) = \sum_{i=1}^Z |\psi_i({\bf x})|^2
+
 The application of the exchange potential $\hat V_x$ on any function
 $f({\bf x})$ can be calculated by:
 
@@ -152,8 +158,8 @@ $f({\bf x})$ can be calculated by:
 
     \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})
 
-Exchange Integral
------------------
+Exchange Integral in Spherical Symmetry
+---------------------------------------
 
 Let's calculate the exchange integral
 
@@ -286,8 +292,8 @@ And we get:
         P_{nl}(r')
         \d r \d r'
 
-Nonlocal Exchange Potential
----------------------------
+Nonlocal Exchange Potential in Spherical Symmetry
+-------------------------------------------------
 
 Similarly, we calculate:
 
@@ -341,6 +347,10 @@ Similarly, we calculate:
         \d r'\,
             P_{n'l'}(r)
 
+Functions with different spins don't contribute to the sum, so there is no
+multiplication by 2. We assumed closed shells atoms (we summed over all $m'$ in
+the above).
+
 Where we used the result of the integral in
 :ref:`five_spherical_harmonics`. Note that:
 
@@ -354,15 +364,221 @@ Where we used the result of the integral in
         = (2l'+1)
             \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
 
-Spherical Symmetry
+Occupation Numbers
 ------------------
 
-In the central field approximation, we average the integral for $V_H$ over the
-angles:
+We have a sum over $N$ electron states like this:
+
+.. math::
+
+    \sum_{i=1}^N A_i({\bf x}) = \sum_{nlms} A_{nlms}({\bf x})
+
+where $A_{nlms}({\bf x})$ are some functions that depend on the state numbers
+(for example squares of the wavefunctions). Then there are two options ---
+either there is a way to sum over the $m$ and $s$ degrees of freedom, so that
+the sum can be written exactly as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) = \sum_{nlms} B_{nl}({\bf x})
+
+where $B_{nl}$ (that don't depend on $m$ and $s$) will in general be different
+to $A_{nlms}$, but the sum will be the same. Or we have to approximate the sum
+(for example by averaging over the angles, or in some other way) as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlms} B_{nl}({\bf x})
+
+In either case, the occupation numbers $f_{nl}$ are simply the number of times
+the functions $B_{nl}({\bf x})$ appear in the sum for the given $n$ and $l$:
+
+.. math::
+
+    \sum_{nlms} B_{nl}({\bf x}) = \sum_{nl} f_{nl} B_{nl}({\bf x})
+
+So for closed shells atoms, it is always:
+
+.. math::
+
+    f_{nl} = 2(2l+1)
+
+because there are two spins, and $2l+1$ possibilities for $m$, for open shell
+atoms, $f_{nl}$ is anything between $0$ and $2l+1$.
+
+Example I
+~~~~~~~~~
+
+As an example, let's say that after some calculation for closed shell systems
+we get exactly:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) = \sum_{nl} 2(2l+1) B_{nl}({\bf x})
+
+Then because there are exactly $2(2l+1)$ states in the $nl$ shell, we write the
+above as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) = \sum_{nl} 2(2l+1) B_{nl}({\bf x})
+        = \sum_{nl} f_{nl} B_{nl}({\bf x})
+
+Then we do similar calculation for the open shell system, and we have to use
+some approximations to get the following formula, where the $B_{nl}({\bf x})$
+happen to be exactly the same as for the closed shell system:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlm} 2 B_{nl}({\bf x})
+
+Then we denote by $f_{nl}$ the number of electrons in the shell $nl$ (at least
+one of them will be open, for which $nl$ we have $f_{nl} < 2(2l+1)$), and we
+can write the above as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlm} 2 B_{nl}({\bf x})
+        = \sum_{nl} f_{nl} B_{nl}({\bf x})
+
+Example II
+~~~~~~~~~~
+
+The usual chemical occupation numbers for the Uranium atom are:
+
+.. math::
+
+    f_{1l} & = 2 (2l+1)    \\
+    f_{2l} & = 2 (2l+1)    \\
+    f_{3l} & = 2 (2l+1)    \\
+    f_{4l} & = 2 (2l+1)    \\
+    f_{5l} & = 2 (2l+1)\quad\quad\mbox{for $l\le2$}    \\
+    f_{53} & = 3    \\
+    f_{60} & = 2    \\
+    f_{61} & = 6    \\
+    f_{62} & = 1    \\
+    f_{70} & = 2    \\
+
+So the $n=5$, $l=3$ and $n=6$, $l=2$ shells are open, all others are closed.
+By summing all these $f_{nl}$, we get 92 states as expected:
+
+.. math::
+
+    \sum_{nl} f_{nl} = 2 + (2+6) + (2+6+10) + (2+6+10+14) + (2+6+10) +
+
+        + 3 + 2 + 6 + 1 + 2 = 92
+
+Code::
+
+    def f_nl(n, l):
+        if n < 5 or (n == 5 and l <= 2):
+            return 2*(2*l+1)
+        else:
+            d = {
+                (5, 3): 3,
+                (6, 0): 2,
+                (6, 1): 6,
+                (6, 2): 1,
+                (7, 0): 2,
+                }
+            if (n, l) in d:
+                return d[n, l]
+            else:
+                return 0
+
+    print "Sum f_nl =", sum([f_nl(n, l) for n in range(8) for l in range(n)])
+
+prints::
+
+    Sum f_nl = 92
+
+
+Hartree Potential in Spherical Symmetry
+---------------------------------------
+
+For both open and closed shell atoms we get exactly:
+
+.. math::
+
+    V_H({\bf x})
+        = \int {n({\bf y})\over|{\bf x}-{\bf y}|} \d^3 y
+        = \int {\sum_{j=1}^Z|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y =
+
+        = 2\sum_{nlm}\int {|Y_{lm}(\Omega')|^2 P_{nl}^2(r')\over
+            |{\bf x}-{\bf y}|} \d\Omega' \d r' =
+
+        = 2\sum_{nlm}\sum_{l'm'}\int {r_<^{l'}\over r_>^{l'+1}}
+            Y_{lm}^*(\Omega')Y_{lm}(\Omega')
+            Y_{l'm'}^*(\Omega)Y_{l'm'}(\Omega') P_{nl}^2(r') \d\Omega' \d r' =
+
+        = 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+For closed shell atoms we continue simplifying:
+
+.. math::
+
+    V_H({\bf x}) = \cdots =
+
+        = 2\sum_{nl}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            Y_{l'0}^*(\Omega) (2l+1)\delta_{l'0} P_{nl}^2(r') \d r' =
+
+        = 2\sum_{nl}\int {1\over r_>}
+            Y_{00}^*(\Omega) (2l+1) P_{nl}^2(r') \d r' =
+
+        = \sum_{nl}2(2l+1) {1\over\sqrt{4\pi}}\int {1\over r_>}
+            P_{nl}^2(r') \d r' =
+
+        = \sum_{nl} f_{nl} {1\over\sqrt{4\pi}}\int {1\over r_>}
+            P_{nl}^2(r') \d r'
+
+For open shell atoms we have to use the central field approximation, we average
+the integral for $V_H$ over the angles:
 
 .. math::
 
     V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
+        = \cdots =
+
+    = {1\over 4\pi} \int
+        2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' \d \Omega =
+
+    = {1\over \sqrt{4\pi}}
+        2\sum_{nlm}\int {1\over r_>} c^0(l, m, l, m) P_{nl}^2(r') \d r' =
+
+    = \sum_{nlm} 2 {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r' =
+
+    = \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r'
+
+We got the same expression for both open shell (with central field
+approximation) and closed shell (no approximation) atoms. The radial charge
+density is:
+
+.. math::
+
+    n(r) = {1\over 4\pi} \sum_{nl} f_{nl} \left(P_{nl}(r)\over r\right)^2
+
+So we got:
+
+.. math::
+
+    V_H(r) =
+       \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r'
+       =
+
+       =\sqrt{4\pi}\int {n(r')\over r_>} r'^2 \d r'
+
+This is equivalent to solving the following radial Poisson equation:
+
+.. math::
+
+    V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)
+
+
+Radial Hartre-Fock Equations
+----------------------------
 
 Using the above integrals, the HF equations become:
 
@@ -400,6 +616,31 @@ or using :eq:`using3j`:
                     P_{n'l'}(r)
         = \epsilon_{nl} P_{nl}(r)
 
+This can be written as:
+
+.. math::
+
+    -\half P_{nl}''(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+            -\sum_{n'l'}
+                f_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int
+                {r_{<}^k\over r_{>}^{k+1}}
+                P_{nl}(r')
+                P_{n'l'}(r')
+                \d r'\,
+                    P_{n'l'}(r)
+        = \epsilon_{nl} P_{nl}(r)
+
+with:
+
+.. math::
+
+    V_H(r) =
+       \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r'
 
 FEM
 ---
@@ -408,13 +649,14 @@ The weak formulation is ($u(r) = P_{nl}(r)$):
 
 .. math::
 
-    \int_0^\infty \half u'(r) v'(r) +
-        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r) \d r+
+    \int_0^\infty \left( \half u'(r) v'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r)
+            \right) \d r+
 
             -\sum_{n'l'}
-                (2l'+1)
+                f_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
-                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
                 \int_0^\infty
                 \int_0^\infty
                 {r_{<}^k\over r_{>}^{k+1}}
