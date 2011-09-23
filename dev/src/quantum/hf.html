@@ -292,70 +292,6 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
     P_{nl}(r')
     \d r \d r'" /></p>
 </div></div>
-<div class="section" id="nonlocal-exchange-potential-in-spherical-symmetry">
-<h2>Nonlocal Exchange Potential in Spherical Symmetry<a class="headerlink" href="#nonlocal-exchange-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
-<p>Similarly, we calculate:</p>
-<div class="math">
-<p><img src="../../_images/math/71b3f146679a3a648f02bda49c9e9287f0728adb.png" alt="\sum_{j=1}^Z\int {\psi_i({\bf x'})\psi_j^*({\bf x'})\over|{\bf x}-{\bf x'}|}
-        \d^3 x'\,\,\psi_j({\bf x}) =
-
-= \sum_{n'l'm'}\sum_{k,q}\int
-    {P_{nl}(r')\over r'} Y_{lm}(\Omega')
-    {P_{n'l'}(r')\over r'} Y_{l'm'}^*(\Omega')
-    {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
-
-    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-        {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
-    r'^2 \d r' \d \Omega' =
-
-= \sum_{n'l'm'}\sum_{k,q}
-        {P_{n'l'}(r)\over r}
-        {4\pi\over 2k+1}
-    \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
-        Y_{l'm'}(\Omega)
-        Y_{kq}(\Omega)
-        \d \Omega'
-    \int
-    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-    P_{nl}(r')
-    P_{n'l'}(r')
-    \d r'  =
-
-= \sum_{n'l'}\sum_{k}
-        {P_{n'l'}(r)\over r}
-        {4\pi\over 2k+1}
-        {2k+1\over 4\pi}
-            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-            Y_{lm}(\Omega)
-    \int
-    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-    P_{nl}(r')
-    P_{n'l'}(r')
-    \d r'  =
-
-=
-{Y_{lm}(\Omega)\over r}
-\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
-        \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-    \int
-    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-    P_{nl}(r')
-    P_{n'l'}(r')
-    \d r'\,
-        P_{n'l'}(r)" /></p>
-</div><p>Functions with different spins don&#8217;t contribute to the sum, so there is no
-multiplication by 2. We assumed closed shells atoms (we summed over all <img class="math" src="../../_images/math/644b1d79ecab35999ad2f46649f0676cd91d1af5.png" alt="m'"/> in
-the above).</p>
-<p>Where we used the result of the integral in
-<a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a>. Note that:</p>
-<div class="math" id="equation-using3j">
-<p><span class="eqno">(1)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-    = \sqrt{2l'+1\over 2l+1}
-        \sqrt{(2l'+1)(2l+1)}
-        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-    = (2l'+1)
-        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
-</div></div>
 <div class="section" id="occupation-numbers">
 <h2>Occupation Numbers<a class="headerlink" href="#occupation-numbers" title="Permalink to this headline">¶</a></h2>
 <p>We have a sum over <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/> electron states like this:</p>
@@ -453,7 +389,7 @@ By summing all these <img class="math" src="../../_images/math/e8d1d1630bc2e021f
 <h2>Hartree Potential in Spherical Symmetry<a class="headerlink" href="#hartree-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>For both open and closed shell atoms we get exactly:</p>
 <div class="math">
-<p><img src="../../_images/math/b24f0890d01993136c7da9d0eb654d0c5fbab09a.png" alt="V_H({\bf x})
+<p><img src="../../_images/math/67f678af58593f565e7a092ed83fc18143264381.png" alt="V_H({\bf x})
     = \int {n({\bf y})\over|{\bf x}-{\bf y}|} \d^3 y
     = \int {\sum_{j=1}^Z|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
         \d^3 y =
@@ -462,91 +398,171 @@ By summing all these <img class="math" src="../../_images/math/e8d1d1630bc2e021f
         |{\bf x}-{\bf y}|} \d\Omega' \d r' =
 
     = 2\sum_{nlm}\sum_{l'm'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        {4\pi\over 2l'+1}
         Y_{lm}^*(\Omega')Y_{lm}(\Omega')
         Y_{l'm'}^*(\Omega)Y_{l'm'}(\Omega') P_{nl}^2(r') \d\Omega' \d r' =
 
     = 2\sum_{nlm}\sum_{l'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
-        Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =" /></p>
-</div><p>For closed shell atoms we continue simplifying:</p>
-<div class="math">
-<p><img src="../../_images/math/89f713cf40cb2646c6a45f07c2d96c3ba4464fa8.png" alt="V_H({\bf x}) = \cdots =
+        {4\pi\over 2l'+1}
+        Y_{l'0}^*(\Omega) \sqrt{2l'+1\over 4\pi}
+            c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
-    = 2\sum_{nl}\sum_{l'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
-        Y_{l'0}^*(\Omega) (2l+1)\delta_{l'0} P_{nl}^2(r') \d r' =
+    = 2\sum_{nl}\sum_{l'=0}^{2l}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        \sqrt{4\pi\over 2l'+1}
+        Y_{l'0}^*(\Omega)
+            \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
     = 2\sum_{nl}\int {1\over r_&gt;}
-        Y_{00}^*(\Omega) (2l+1) P_{nl}^2(r') \d r' =
+        \sqrt{4\pi}
+        Y_{00}^*(\Omega)
+            \sum_m c^0(l, m, l, m) P_{nl}^2(r') \d r' +
 
-    = \sum_{nl}2(2l+1) {1\over\sqrt{4\pi}}\int {1\over r_&gt;}
-        P_{nl}^2(r') \d r' =
+    + 2\sum_{nl}\sum_{l'=1}^{2l}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        \sqrt{4\pi\over 2l'+1}
+        Y_{l'0}^*(\Omega)
+            \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
-    = \sum_{nl} f_{nl} {1\over\sqrt{4\pi}}\int {1\over r_&gt;}
-        P_{nl}^2(r') \d r'" /></p>
-</div><p>For open shell atoms we have to use the central field approximation, we average
+    = \sum_{nl}2\sum_m c^0(l, m, l, m) \int {1\over r_&gt;}
+             P_{nl}^2(r') \d r' +
+
+    + 2\sum_{nl}\sum_{l'=1}^{2l}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        \sqrt{4\pi\over 2l'+1}
+        Y_{l'0}^*(\Omega)
+            \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+    = \sum_{nl}2\sum_m \int {1\over r_&gt;}
+             P_{nl}^2(r') \d r' +
+
+    + 2\sum_{nl}\sum_{l'=1}^{2l}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
+        \sqrt{4\pi\over 2l'+1}
+        Y_{l'0}^*(\Omega)
+            \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+    = \sum_{nl} f_{nl} \int {1\over r_&gt;} P_{nl}^2(r') \d r' +
+
+    + 2\sum_{nl}\sum_{l'=1}^{2l}
+        \sqrt{4\pi\over 2l'+1}
+        Y_{l'0}^*(\Omega)\sum_m c^{l'}(l, m, l, m)
+      \int {r_&lt;^{l'}\over r_&gt;^{l'+1}} P_{nl}^2(r') \d r'" /></p>
+</div><p>For closed shell atoms we use the fact, that</p>
+<div class="math">
+<p><img src="../../_images/math/0c072c9c84ac6e6a86336034f15065a74cb3d946.png" alt="\sum_{m=-l}^l c^{l'}(l, m, l, m) = (2l+1) \delta_{l' 0}" /></p>
+</div><p>and the second term disappears, and for open shell atoms
+we have to use the central field approximation: we average
 the integral for <img class="math" src="../../_images/math/0783030b7db37589c2fa4d4657fa9663d6bfea19.png" alt="V_H"/> over the angles:</p>
 <div class="math">
-<p><img src="../../_images/math/144f826ad1fd7f5b0bfd4fa5d27a543025612b5a.png" alt="V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
-    = \cdots =
-
-= {1\over 4\pi} \int
-    2\sum_{nlm}\sum_{l'}\int {r_&lt;^{l'}\over r_&gt;^{l'+1}}
-        Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' \d \Omega =
-
-= {1\over \sqrt{4\pi}}
-    2\sum_{nlm}\int {1\over r_&gt;} c^0(l, m, l, m) P_{nl}^2(r') \d r' =
-
-= \sum_{nlm} 2 {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r' =
-
-= \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r'" /></p>
-</div><p>We got the same expression for both open shell (with central field
-approximation) and closed shell (no approximation) atoms. The radial charge
-density is:</p>
+<p><img src="../../_images/math/ba83ccfb97f3fb0c4603f99a05a7c9c9b4b066a0.png" alt="V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega" /></p>
+</div><p>and using the fact, that</p>
+<div class="math">
+<p><img src="../../_images/math/163eb11e53fea12b1916b5f5117cdc48b0163056.png" alt="\int Y_{l'0}^*(\Omega)\, \d \Omega = \sqrt{4\pi} \delta_{l' 0}" /></p>
+</div><p>the second term disappears as well. We got the same expression for both open
+shell (with central field approximation) and closed shell (no approximation)
+atoms.  The radial charge density is:</p>
 <div class="math">
 <p><img src="../../_images/math/11c261255143c0388a51ac077e8ed9840e968979.png" alt="n(r) = {1\over 4\pi} \sum_{nl} f_{nl} \left(P_{nl}(r)\over r\right)^2" /></p>
 </div><p>So we got:</p>
 <div class="math">
-<p><img src="../../_images/math/c560c10ab3c29b3faedb596c207f4b32fe851ede.png" alt="V_H(r) =
-   \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r'
-   =
-
-   =\sqrt{4\pi}\int {n(r')\over r_&gt;} r'^2 \d r'" /></p>
+<p><img src="../../_images/math/d6bab52f71e47a1fc2a762fc6310e0365e6cc592.png" alt="V_H(r) =
+   \sum_{nl} f_{nl} \int {1\over r_&gt;} P_{nl}^2(r') \d r'
+   =\int {4\pi n(r') r'^2 \over r_&gt;} \d r'" /></p>
 </div><p>This is equivalent to solving the following radial Poisson equation:</p>
 <div class="math">
-<p><img src="../../_images/math/d52c3cc191d111f38abdf3b6560bf449fb2c0019.png" alt="V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)" /></p>
+<p><img src="../../_images/math/83cee30167c8debd9062a64f86e57c16291683b1.png" alt="(V_H(r) r)'' = -{1\over r} 4\pi n(r) r^2
+
+V_H''(r) r + 2V_H'(r) = - 4\pi n(r) r
+
+V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)" /></p>
+</div></div>
+<div class="section" id="nonlocal-exchange-potential-in-spherical-symmetry">
+<h2>Nonlocal Exchange Potential in Spherical Symmetry<a class="headerlink" href="#nonlocal-exchange-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
+<p>Similarly, we calculate:</p>
+<div class="math">
+<p><img src="../../_images/math/d2f02a59daf5155796c9a03bdf9a9202dd101917.png" alt="\sum_{j=1}^Z\int {\psi_i({\bf x'})\psi_j^*({\bf x'})\over|{\bf x}-{\bf x'}|}
+        \d^3 x'\,\,\psi_j({\bf x}) =
+
+= \sum_{n'l'm'}\sum_{k,q}\int
+    {P_{nl}(r')\over r'} Y_{lm}(\Omega')
+    {P_{n'l'}(r')\over r'} Y_{l'm'}^*(\Omega')
+    {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
+
+    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+        {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+    r'^2 \d r' \d \Omega' =
+
+= \sum_{n'l'm'}\sum_{k,q}
+        {P_{n'l'}(r)\over r}
+        {4\pi\over 2k+1}
+    \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
+        Y_{l'm'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega'
+    \int
+    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{nl}(r')
+    P_{n'l'}(r')
+    \d r'  =
+
+= \sum_{n'l'}\sum_{k}
+        {P_{n'l'}(r)\over r}
+        {4\pi\over 2k+1}
+        {2k+1\over 4\pi}
+            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+            Y_{lm}(\Omega)
+    \int
+    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{nl}(r')
+    P_{n'l'}(r')
+    \d r'  =
+
+=
+{Y_{lm}(\Omega)\over r}
+\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
+        \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+    \int
+    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{nl}(r')
+    P_{n'l'}(r')
+    \d r'\,
+        P_{n'l'}(r) =
+
+=
+{Y_{lm}(\Omega)\over r}
+\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
+    (2l'+1)
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    \int
+    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{nl}(r')
+    P_{n'l'}(r')
+    \d r'\,
+        P_{n'l'}(r) =
+
+=
+{Y_{lm}(\Omega)\over r}
+\sum_{n'l'} f_{n'l'} \sum_{k=|l-l'|}^{k=l+l'}
+    \half
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    \int
+    {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{nl}(r')
+    P_{n'l'}(r')
+    \d r'\,
+        P_{n'l'}(r)" /></p>
+</div><p>Functions with different spins don&#8217;t contribute to the sum, so there is no
+multiplication by 2. We assumed closed shells atoms (we summed over all <img class="math" src="../../_images/math/644b1d79ecab35999ad2f46649f0676cd91d1af5.png" alt="m'"/> in
+the above). We used the result of the integral in
+<a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a> and also:</p>
+<div class="math" id="equation-using3j">
+<p><span class="eqno">(1)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+    = \sqrt{2l'+1\over 2l+1}
+        \sqrt{(2l'+1)(2l+1)}
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+    = (2l'+1)
+        \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2" /></p>
 </div></div>
 <div class="section" id="radial-hartre-fock-equations">
 <h2>Radial Hartre-Fock Equations<a class="headerlink" href="#radial-hartre-fock-equations" title="Permalink to this headline">¶</a></h2>
 <p>Using the above integrals, the HF equations become:</p>
-<div class="math">
-<p><img src="../../_images/math/6194a94c3993e1562d3bd69499bb266c8d048812.png" alt="-\half P_{nl}''(r) +
-    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
-
-        -\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
-                \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-            \int
-            {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-            P_{nl}(r')
-            P_{n'l'}(r')
-            \d r'\,
-                P_{n'l'}(r)
-    = \epsilon_{nl} P_{nl}(r)" /></p>
-</div><p>or using <a href="#equation-using3j">(1)</a>:</p>
-<div class="math">
-<p><img src="../../_images/math/635d04be5cbce9667ca7e9af7881464fc70b9293.png" alt="-\half P_{nl}''(r) +
-    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
-
-        -\sum_{n'l'}
-            (2l'+1)
-            \sum_{k=|l-l'|}^{k=l+l'}
-                \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-            \int
-            {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-            P_{nl}(r')
-            P_{n'l'}(r')
-            \d r'\,
-                P_{n'l'}(r)
-    = \epsilon_{nl} P_{nl}(r)" /></p>
-</div><p>This can be written as:</p>
 <div class="math">
 <p><img src="../../_images/math/fa93b3e14aa7327e1b0e8418dfa79809b60a6009.png" alt="-\half P_{nl}''(r) +
     \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
@@ -564,8 +580,8 @@ density is:</p>
     = \epsilon_{nl} P_{nl}(r)" /></p>
 </div><p>with:</p>
 <div class="math">
-<p><img src="../../_images/math/791165e12ed3ed469f41a7627409509e2485d34b.png" alt="V_H(r) =
-   \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_&gt;} P_{nl}^2(r') \d r'" /></p>
+<p><img src="../../_images/math/fbb90b1c84c37dce15ee4ae22702baf07e30cd78.png" alt="V_H(r) =
+   \sum_{nl} f_{nl} \int {1\over r_&gt;} P_{nl}^2(r') \d r'" /></p>
 </div></div>
 <div class="section" id="fem">
 <h2>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h2>
@@ -735,13 +751,13 @@ Y^k(0) = 0" /></p>
 <li><a class="reference internal" href="#">Hartree-Fock (HF) Method</a><ul>
 <li><a class="reference internal" href="#derivation">Derivation</a></li>
 <li><a class="reference internal" href="#exchange-integral-in-spherical-symmetry">Exchange Integral in Spherical Symmetry</a></li>
-<li><a class="reference internal" href="#nonlocal-exchange-potential-in-spherical-symmetry">Nonlocal Exchange Potential in Spherical Symmetry</a></li>
 <li><a class="reference internal" href="#occupation-numbers">Occupation Numbers</a><ul>
 <li><a class="reference internal" href="#example-i">Example I</a></li>
 <li><a class="reference internal" href="#example-ii">Example II</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#hartree-potential-in-spherical-symmetry">Hartree Potential in Spherical Symmetry</a></li>
+<li><a class="reference internal" href="#nonlocal-exchange-potential-in-spherical-symmetry">Nonlocal Exchange Potential in Spherical Symmetry</a></li>
 <li><a class="reference internal" href="#radial-hartre-fock-equations">Radial Hartre-Fock Equations</a></li>
 <li><a class="reference internal" href="#fem">FEM</a></li>
 </ul>
