@@ -516,11 +516,43 @@ indeed solves the PDE <a href="#equation-pde">(8)</a>:</p>
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The equation <a href="#equation-green">(10)</a> doesn&#8217;t determine the Green function uniquely,
 because one can add to it any solution of the homogeneous equation <img class="math" src="../../_images/math/4c504c1feea8b32eddeda2f7582056840c052196.png" alt="Lu(x)=0"/>.
-We can use this freedom to solve <a href="#equation-green">(10)</a> for any boundary condition, for
-example using FEM (more on that below). So we prescribe a boundary condition
+We can use this freedom to solve <a href="#equation-green">(10)</a> for any boundary condition.
+So we prescribe a boundary condition
 and find the Green function (by solving <a href="#equation-green">(10)</a>) that satisfies the
 boundary condition. It can be shown, that <img class="math" src="../../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)"/> determined from
 <a href="#equation-solution">(9)</a> then also needs to satisfy the same boundary condition.</p>
+</div>
+<div class="section" id="symmetry">
+<h2>Symmetry<a class="headerlink" href="#symmetry" title="Permalink to this headline">¶</a></h2>
+<p>We write the equation for Green functions at two different points <img class="math" src="../../_images/math/ccada11db7b2b90693e2fac4f887a57fce6f96bf.png" alt="x_1"/>
+and <img class="math" src="../../_images/math/6a7d010bbff66a0c41e43310a51efbaa6bf63396.png" alt="x_2"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f92a66786482a04b90e68df2c94e9a25e4580535.png" alt="L G(x, x_1) = \delta(x-x_1)
+
+L G(x, x_2) = \delta(x-x_2)" /></p>
+</div><p>and multiply the first equation by <img class="math" src="../../_images/math/65a7142b5c49bafc9982585f452d194d6f75fa8c.png" alt="G(x, x_2)"/>, second by <img class="math" src="../../_images/math/a518722ac51323e96de30a888f4a8ec1854ae581.png" alt="G(x, x_1)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/3915b4a075121338396928dd32cc61b63768e3bf.png" alt="G(x, x_2) L G(x, x_1) = \delta(x-x_1) G(x, x_2)
+
+G(x, x_1) L G(x, x_2) = \delta(x-x_2) G(x, x_1)" /></p>
+</div><p>substract them and integrate over <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/cd02ee3a74ba20fbe085478fd3fc9fda7e414383.png" alt="G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2)
+    = \delta(x-x_1) G(x, x_2) - \delta(x-x_2) G(x, x_1)
+
+\int \left(G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+    = \int \left(\delta(x-x_1) G(x, x_2) - \delta(x-x_2) G(x, x_1)
+        \right)\d x
+
+\int \left(G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+    = G(x_1, x_2) - G(x_2, x_1)" /></p>
+</div><p>Assuming that the operator <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is Hermitean, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/278f37c34c2124c25ba9943702441383d0a3a865.png" alt="\int \left((L G(x, x_2)) G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+    = G(x_1, x_2) - G(x_2, x_1)
+
+0 = G(x_1, x_2) - G(x_2, x_1)" /></p>
+</div><p>So the Green function is symmetric for Hermitean operators <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/>.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -633,9 +665,49 @@ equation:</p>
 <p><img src="../../_images/math/a88b00015f9d05e05103893f53b5f6f2ef10089c.png" alt="\left({\d^2\over\d x^2}+1\right)u(x)=f(x)
 
 \left({\d^2\over\d x^2}+1\right)G(x, x')=\delta(x-x')" /></p>
-</div><p>with boundary conditions <img class="math" src="../../_images/math/e8b3141742ac93dbf237b1d583f18e8a05d92d09.png" alt="u(0)=u({\pi\over2})=0"/>. Then:</p>
+</div><p>with boundary conditions <img class="math" src="../../_images/math/e8b3141742ac93dbf237b1d583f18e8a05d92d09.png" alt="u(0)=u({\pi\over2})=0"/>.
+We use the Fourier transform:</p>
 <div class="math">
-<p><img src="../../_images/math/4011013c47d015ce5866472eda843eb0caa5bc19.png" alt="G(x, x')=
+<p><img src="../../_images/math/637591dee9c5dceaa382005277149d75114f9e69.png" alt="\left((ik)^2+1\right)\tilde G(k, x')={e^{ikx'}\over\sqrt{2\pi}}
+
+\tilde G(k, x')={e^{ikx'}\over \sqrt{2\pi} (1-k^2)}
+
+G(x, x') = \half\sign(x-x')\sin(x-x')" /></p>
+</div><p>Check:</p>
+<div class="math">
+<p><img src="../../_images/math/76b80bab522a30d62ff4b4b36f4868ea12e8e8e3.png" alt="{\partial\over\partial x} G(x, x') = \delta(x-x')\sin(x-x')
+    +\half\sign(x-x')\cos(x-x') =
+
+    = \half\sign(x-x')\cos(x-x')
+
+{\partial^2\over\partial x^2} G(x, x') = \delta(x-x')\cos(x-x')
+    -\half\sign(x-x')\sin(x-x') =
+
+    = -\half\sign(x-x')\sin(x-x') + \delta(x-x')
+
+{\partial^2\over\partial x^2} G(x, x')
++{\partial\over\partial x} G(x, x') = \delta(x-x')" /></p>
+</div><p>The general solution of the homogeneous equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/b146fd02a167b3c42f6f498a5287dbf1807d225a.png" alt="u(x) = C_1 \sin x + C_2 \cos x" /></p>
+</div><p>so the general Green function is:</p>
+<div class="math">
+<p><img src="../../_images/math/49607c022d251fada0488b9214a02a2efcf5103e.png" alt="G(x, x') = \half\sign(x-x')\sin(x-x') + C_1 \sin (x+x')
+    + C_2 \cos (x+x')" /></p>
+</div><p>Satisfying the boundary conditions (for all <img class="math" src="../../_images/math/498cc7e462563a90d71df05069a7b86506579ef9.png" alt="x' \ne 0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/555b6c68959c14a05e263fe02f4b1ac1a48a13ae.png" alt="G(0, x') = G({\pi\over 2}, x') = 0" /></p>
+</div><p>we get:</p>
+<div class="math">
+<p><img src="../../_images/math/213220895ee27c87cab8f51bd9ded32af8746139.png" alt="C_1 &amp; = -\half \\
+C_2 &amp; = 0" /></p>
+</div><p>and:</p>
+<div class="math">
+<p><img src="../../_images/math/db4db3a89380a9ae745de591b69ff545364f64f8.png" alt="G(x, x') = \half\sign(x-x')\sin(x-x') -\half \sin (x+x') =
+
+=-H(x'-x)\sin x\cos x' - H(x - x') \cos x \sin x' =
+
+=
 \begin{cases}
 -\sin x\cos x'&amp;\quad x&lt;x'\cr
 -\cos x\sin x'&amp;\quad x&gt;x'\cr
@@ -969,6 +1041,7 @@ B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
 <li><a class="reference internal" href="#green-functions">Green Functions</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
+<li><a class="reference internal" href="#symmetry">Symmetry</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#poisson-equation-in-1d">Poisson Equation in 1D</a></li>
 <li><a class="reference internal" href="#radial-poisson-equation">Radial Poisson Equation</a></li>
