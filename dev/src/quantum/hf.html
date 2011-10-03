@@ -734,10 +734,29 @@ Y^k(0) = 0" /></p>
 -{r\over 2k+1}{\d Y^k(r)\over \d r} - {k\over 2k+1} Y^k(r) = 0
 
 {\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0" /></p>
-</div><p>so for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/>:</p>
+</div><p>which for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> becomes:</p>
 <div class="math">
 <p><img src="../../_images/math/7ba45299a2141e398a476f6b328fad6a1bed4344.png" alt="\left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0" /></p>
-</div></div>
+</div><p>but in practise, it&#8217;s better to use the Newton (Robin) boundary condition. The
+weak formulation is:</p>
+<div class="math">
+<p><img src="../../_images/math/80b46ec9387cfcee6700027ee51eed7d838d27ff.png" alt="\int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
+    -[Y^k{}'(r)v(r)]_0^{r_{max}}
+    = \int_0^{r_{max}} {2k+1\over r}u(r)f(r)v(r) \d r" /></p>
+</div><p>The boundary term can be simplified using the boundary conditions as:</p>
+<div class="math">
+<p><img src="../../_images/math/69dff46878f801ec44be9b792082b4acec4935bb.png" alt="-[Y^k{}'(r)v(r)]_0^{r_{max}}
+= -Y^k{}'(r_{max})v(r_{max}) + Y^k{}'(0) v(0)
+= -Y^k{}'(r_{max})v(r_{max})
+= {k\over r_{max}} Y^k(r_{max})v(r_{max})" /></p>
+</div><p>so we get</p>
+<div class="math">
+<p><img src="../../_images/math/43c95dcd5a01656b0d4dc537cf8ddcdbe6824882.png" alt="\int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
+    + {k\over r_{max}} Y^k(r_{max})v(r_{max})
+    = \int_0^{r_{max}} {2k+1\over r}u(r)f(r)v(r) \d r" /></p>
+</div><p>where the test functions <img class="math" src="../../_images/math/adc990da6e78b6437fd32653e8ffd1259f0b29fa.png" alt="v(r)"/> have the constrain <img class="math" src="../../_images/math/c04e70e4422a8da04142c83ebd029b5dbb834c9c.png" alt="v(0)=0"/> on the left
+boundary and no constrain on the right.</p>
+</div>
 </div>
 
 
