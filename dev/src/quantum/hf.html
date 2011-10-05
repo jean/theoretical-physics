@@ -385,6 +385,168 @@ By summing all these <img class="math" src="../../_images/math/e8d1d1630bc2e021f
 </div>
 </div>
 </div>
+<div class="section" id="hartree-screening-functions">
+<h2>Hartree Screening Functions<a class="headerlink" href="#hartree-screening-functions" title="Permalink to this headline">¶</a></h2>
+<p>Hartree screening function <img class="math" src="../../_images/math/722ee0dcd85efb5b58b8038e80327e7eb05e856a.png" alt="Y^k(f, r)"/> is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/2dc54d7cc91406e7fc898cf55015e9eb174002a0.png" alt="Y^k(f, r) = r
+\int_0^\infty
+{r_{&lt;}^k\over r_{&gt;}^{k+1}}
+f(r')
+\d r'" /></p>
+</div><p>and it occurs in many formulas in the Hartree Fock theory, so this section shows
+how to calculate it. It depends on <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> and a function <img class="math" src="../../_images/math/4d404a4bf3e67e6fd88a82c768979219e455e3e5.png" alt="f(r)"/>.</p>
+<p>We first do the integral:</p>
+<div class="math">
+<p><img src="../../_images/math/30adacb700e4d6836674a2f8f8d74e44323d2f1c.png" alt="Y^k(f, r) = r
+\int_0^\infty
+{r_{&lt;}^k\over r_{&gt;}^{k+1}}
+f(r')
+\d r'
+= r
+\int_0^r
+{r'^k\over r^{k+1}}
+f(r')
+\d r'
++
+r \int_r^\infty
+{r^k\over r'^{k+1}}
+f(r')
+\d r'
+=
+
+=
+{1\over r^k}
+\int_0^r
+{x^k}
+f(x)
+\d x
++
+r^{k+1}
+\int_r^\infty
+{1\over x^{k+1}}
+f(x)
+\d x
+=Z^k(r)
++
+r^{k+1}
+\int_r^\infty {1\over x^{k+1}} f(x) \d x" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/8af1e5e7c3df5bb9573353b01db2446c64dde3c7.png" alt="Z^k(r) =
+{1\over r^k}
+\int_0^r
+{x^k}
+f(x)
+\d x
+
+{\d Z^k(r) \over \d r}= -{k\over r} Z^k(r) + f(r)
+
+Z^k(0) = 0" /></p>
+</div><p>Now we differentiate <img class="math" src="../../_images/math/72beda70fabe1bce3c06ae9149ed0557ac852caa.png" alt="Y^k(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/af713cdc00c60945be404bc62752baf913ef1791.png" alt="{\d Y^k(r) \over \d r} = {\d Z^k(r) \over \d r}
+    + {k+1\over r} r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} f(x) \d x
+    -f(r)
+=
+
+=
+-{k\over r} Z^k(r) + f(r)
+    + {k+1\over r} r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} f(x) \d x
+    -f(r) =
+
+=
+-{k\over r} Z^k(r)
+    + {k+1\over r} r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} f(x) \d x =
+
+=
+-{k\over r} Z^k(r)
+    + {k+1\over r} (Y^k(r) - Z^k(r)) =
+
+=
+-{2k+1\over r} Z^k(r) + {k+1\over r} Y^k(r)" /></p>
+</div><p>Also <img class="math" src="../../_images/math/dad96842ac186f9805c6ba8937af9425868af228.png" alt="Y^k(\infty) = Z^k(\infty)"/>, so we get the following set of first order
+differential equations with boundary conditions:</p>
+<div class="math">
+<p><img src="../../_images/math/8b266544d950286e9d33bcec71aab8c81ff79c2f.png" alt="\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) = -{2k+1\over r} Z^k(r)
+
+\left({\d\over\d r} + {k\over r}\right) Z^k(r) = f(r)
+
+Y^k(\infty) = Z^k(\infty)
+
+Z^k(0) = 0" /></p>
+</div><p>One way to calculate the Hartree screening function is to integrate the second
+equation from the left using the boundary condition <img class="math" src="../../_images/math/8c3b9a5e1b66de796672d2cf7611ac482e44d89f.png" alt="Z^k(0) = 0"/> and then
+integrate the first equation from the right, using the boundary condition
+<img class="math" src="../../_images/math/dad96842ac186f9805c6ba8937af9425868af228.png" alt="Y^k(\infty) = Z^k(\infty)"/>.</p>
+<p>Another way is to obtain one second order equation. Expressing <img class="math" src="../../_images/math/344b901709c8fffa4532705a03d11f5a2d8cf7be.png" alt="Z^k"/> from the
+first equation:</p>
+<div class="math">
+<p><img src="../../_images/math/fcb051944d6a2ba032f8528a2f7bae37f6caa6b7.png" alt="Z^k(r) = -{r\over 2k+1}\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) =
+
+=-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)" /></p>
+</div><p>and substituting into the second equation we get:</p>
+<div class="math">
+<p><img src="../../_images/math/10c853b6293e1acddc92a03dac795a6e4a2ac432.png" alt="-\left({\d\over\d r} + {k\over r}\right)
+    \left({r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k\right)
+    = f(r)
+
+-{r\over 2k+1}\left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right)
+    Y^k(r)
+    = f(r)
+
+\left(-{\d^2\over\d r^2} + {k(k+1)\over r^2}\right) Y^k(r)
+    = {2k+1\over r} f(r)" /></p>
+</div><p>With boundary condition on the left:</p>
+<div class="math">
+<p><img src="../../_images/math/203c93a1a069b89a7310608e6882aaa745ab41be.png" alt="Z^k(0) = {k+1\over 2k+1} Y^k(0) = 0
+
+Y^k(0) = 0" /></p>
+</div><p>and on the right:</p>
+<div class="math">
+<p><img src="../../_images/math/50a6ba8182e9c762e300acc682819dc1068084cc.png" alt="Z^k(r)
+    =-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)
+    = Y^k(r)
+
+-{r\over 2k+1}{\d Y^k(r)\over \d r} - {k\over 2k+1} Y^k(r) = 0
+
+{\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0" /></p>
+</div><p>which for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/7ba45299a2141e398a476f6b328fad6a1bed4344.png" alt="\left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0" /></p>
+</div><p>but in practise, it&#8217;s better to use the former Newton (Robin) boundary
+condition. We have obtain one second order equation for <img class="math" src="../../_images/math/72beda70fabe1bce3c06ae9149ed0557ac852caa.png" alt="Y^k(r)"/></p>
+<div class="math">
+<p><img src="../../_images/math/635208de7a200f836a4810c1c3601336975ca57a.png" alt="\left(-{\d^2\over\d r^2} + {k(k+1)\over r^2}\right) Y^k(r)
+    = {2k+1\over r} f(r)" /></p>
+</div><p>with boundary conditions:</p>
+<div class="math">
+<p><img src="../../_images/math/c966d6440b9b99694b0d1a3f46ec59099afe268b.png" alt="Y^k(0) = 0
+
+{\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0" /></p>
+</div><p>The
+weak formulation is:</p>
+<div class="math">
+<p><img src="../../_images/math/2d9be8047304af0b25a18d7c97c9fb8b094f652c.png" alt="\int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
+    -[Y^k{}'(r)v(r)]_0^{r_{max}}
+    = \int_0^{r_{max}} {2k+1\over r}f(r)v(r) \d r" /></p>
+</div><p>The boundary term can be simplified using the boundary conditions as:</p>
+<div class="math">
+<p><img src="../../_images/math/69dff46878f801ec44be9b792082b4acec4935bb.png" alt="-[Y^k{}'(r)v(r)]_0^{r_{max}}
+= -Y^k{}'(r_{max})v(r_{max}) + Y^k{}'(0) v(0)
+= -Y^k{}'(r_{max})v(r_{max})
+= {k\over r_{max}} Y^k(r_{max})v(r_{max})" /></p>
+</div><p>so we get</p>
+<div class="math">
+<p><img src="../../_images/math/ccb7c6c47b9de62850988c5bff9f0dffce14ad41.png" alt="\int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
+    + {k\over r_{max}} Y^k(r_{max})v(r_{max})
+    = \int_0^{r_{max}} {2k+1\over r}f(r)v(r) \d r" /></p>
+</div><p>where the test functions <img class="math" src="../../_images/math/adc990da6e78b6437fd32653e8ffd1259f0b29fa.png" alt="v(r)"/> have the constrain <img class="math" src="../../_images/math/c04e70e4422a8da04142c83ebd029b5dbb834c9c.png" alt="v(0)=0"/> on the left
+boundary and no constrain on the right.</p>
+</div>
 <div class="section" id="hartree-potential-in-spherical-symmetry">
 <h2>Hartree Potential in Spherical Symmetry<a class="headerlink" href="#hartree-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>For both open and closed shell atoms we get exactly:</p>
@@ -462,10 +624,14 @@ atoms.  The radial charge density is:</p>
 <p><img src="../../_images/math/11c261255143c0388a51ac077e8ed9840e968979.png" alt="n(r) = {1\over 4\pi} \sum_{nl} f_{nl} \left(P_{nl}(r)\over r\right)^2" /></p>
 </div><p>So we got:</p>
 <div class="math">
-<p><img src="../../_images/math/d6bab52f71e47a1fc2a762fc6310e0365e6cc592.png" alt="V_H(r) =
+<p><img src="../../_images/math/237d4fb07b5876df35b8d314e26c8fa95bfecf85.png" alt="V_H(r) =
    \sum_{nl} f_{nl} \int {1\over r_&gt;} P_{nl}^2(r') \d r'
-   =\int {4\pi n(r') r'^2 \over r_&gt;} \d r'" /></p>
-</div><p>This is equivalent to solving the following radial Poisson equation:</p>
+   =\int {4\pi n(r') r'^2 \over r_&gt;} \d r'
+   = {Y^0(4\pi n(r) r^2, r) \over r}" /></p>
+</div><p>The Hartree screening function <img class="math" src="../../_images/math/98fd8cddeb2ada27e528e7c1a0540e57204b4549.png" alt="Y^0(4\pi n(r) r^2, r)"/> is given by the equation:</p>
+<div class="math">
+<p><img src="../../_images/math/465382d99e7b17ac8cfc450f2ca60dfbd49dc6e8.png" alt="-{\d^2\over\d r^2} Y^0(r) = {1\over r} 4\pi n(r) r^2" /></p>
+</div><p>So <img class="math" src="../../_images/math/8b9534524a04b89407b66af6b4c04fce54d88f89.png" alt="V_H(r)"/> satisfies the radial Poisson equation:</p>
 <div class="math">
 <p><img src="../../_images/math/83cee30167c8debd9062a64f86e57c16291683b1.png" alt="(V_H(r) r)'' = -{1\over r} 4\pi n(r) r^2
 
@@ -582,12 +748,65 @@ the above). We used the result of the integral in
 <div class="math">
 <p><img src="../../_images/math/fbb90b1c84c37dce15ee4ae22702baf07e30cd78.png" alt="V_H(r) =
    \sum_{nl} f_{nl} \int {1\over r_&gt;} P_{nl}^2(r') \d r'" /></p>
+</div><p>Using the Hartree screening functions, the HF equations are:</p>
+<div class="math">
+<p><img src="../../_images/math/6dcf208fee8aae69252681646583610ab91ca885.png" alt="-\half P_{nl}''(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+        -\sum_{n'l'}
+            f_{n'l'}
+            \sum_{k=|l-l'|}^{k=l+l'}
+            \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            {Y^k(P_{nl}(r) P_{n'l'}(r), r) \over r}
+            P_{n'l'}(r)
+    = \epsilon_{nl} P_{nl}(r)" /></p>
+</div><p>with:</p>
+<div class="math">
+<p><img src="../../_images/math/e584cc779ac58e2374d1aa43db9974105dded00a.png" alt="V_H(r) = \sum_{nl} f_{nl} {Y^0(P_{nl}^2(r), r) \over r}
+    = {Y^0(4\pi n(r) r^2, r) \over r}" /></p>
+</div><div class="section" id="example-helium">
+<h3>Example: Helium<a class="headerlink" href="#example-helium" title="Permalink to this headline">¶</a></h3>
+<p>For Helium atom, the only nonzero occupation numbers are:</p>
+<div class="math">
+<p><img src="../../_images/math/0015bee5940e7f322336286f2825687f329ddb3f.png" alt="f_{10} = 2" /></p>
+</div><p>and the sum over <img class="math" src="../../_images/math/89256757d31ee3cc5e09546f852b7a4d302e983a.png" alt="n'l'"/> simplifies to:</p>
+<div class="math">
+<p><img src="../../_images/math/57fdf2a99b6bd7342e2cdbec8b8315c718c0d7c9.png" alt="\sum_{n'l'}
+    f_{n'l'}
+    \sum_{k=|l-l'|}^{k=l+l'}
+    \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+= f_{10} \half \begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+= f_{10} \half = 1" /></p>
+</div><p>so we only need to solve for the <img class="math" src="../../_images/math/ac34434820d7d60d1e03766ab985ab67423aff54.png" alt="1s"/> state and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/9b597184c2d205c8cd830a796cf10d46463f004b.png" alt="-\half P_{10}''(r) +
+    \left(-{Z\over r} + V_H(r)\right)P_{10}(r)
+        -{Y^0(P_{10}(r) P_{10}(r), r) \over r}
+            P_{10}(r)
+    = \epsilon_{10} P_{10}(r)" /></p>
+</div><p>with:</p>
+<div class="math">
+<p><img src="../../_images/math/5e47fff8d747469e6b06da7caf9f3adf55438ead.png" alt="V_H(r) = 2 {Y^0(P_{10}^2(r), r) \over r}
+    = {Y^0(4\pi n(r) r^2, r) \over r}" /></p>
+</div><p>We can combine the equations:</p>
+<div class="math">
+<p><img src="../../_images/math/f108000762349b6e2865ccdbbcb392775046f8ed.png" alt="-\half P_{10}''(r) +
+    \left(-{Z\over r} + 2 {Y^0(P_{10}^2(r), r) \over r}\right)P_{10}(r)
+        -{Y^0(P_{10}^2(r), r) \over r}
+            P_{10}(r)
+    = \epsilon_{10} P_{10}(r)" /></p>
+</div><p>and we obtain:</p>
+<div class="math">
+<p><img src="../../_images/math/b8c99816033db865c604051c6d052fc5dd91960d.png" alt="-\half P_{10}''(r) +
+    \left(-{Z\over r} + {Y^0(P_{10}^2(r), r) \over r}\right)P_{10}(r)
+    = \epsilon_{10} P_{10}(r)" /></p>
 </div></div>
+</div>
 <div class="section" id="fem">
 <h2>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h2>
 <p>The weak formulation is (<img class="math" src="../../_images/math/1f9e783b3d274664b83591c39a5f2df8b6db3288.png" alt="u(r) = P_{nl}(r)"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/17450573c4dbff615e897f804060017387dd2390.png" alt="\int_0^\infty \left( \half u'(r) v'(r) +
+<p><img src="../../_images/math/98cb96374488fb2d75c37d8b6fd9d6a705628bf9.png" alt="\int_0^\infty \left( \half u'(r) v'(r) +
     \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r)
         \right) \d r+
 
@@ -596,167 +815,12 @@ the above). We used the result of the integral in
             \sum_{k=|l-l'|}^{k=l+l'}
             \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
             \int_0^\infty
-            \int_0^\infty
-            {r_{&lt;}^k\over r_{&gt;}^{k+1}}
-            u(r')v(r)
-            P_{n'l'}(r')
+            v(r)
             P_{n'l'}(r)
-            \d r'\,
+            {Y^k(u(r) P_{n'l'}(r), r)\over r}
             \d r
     = \epsilon \int_0^\infty u(r)v(r)\d r" /></p>
-</div><p>The radial double integral can be done in the following way:</p>
-<div class="math">
-<p><img src="../../_images/math/817e7bff87e184fd116dca611f746310ee850dcc.png" alt="\int_0^\infty
-\int_0^\infty
-{r_{&lt;}^k\over r_{&gt;}^{k+1}}
-u(r')v(r)
-f(r')
-g(r)
-\d r'\,
-\d r
-= \int_0^\infty g(r) v(r) {Y^k(r)\over r}" /></p>
-</div><p>where:</p>
-<div class="math">
-<p><img src="../../_images/math/b32d0fc1538dac5e04a0433a75b93e1be8d9cb67.png" alt="Y^k(r) = r
-\int_0^\infty
-{r_{&lt;}^k\over r_{&gt;}^{k+1}}
-u(r')
-f(r')
-\d r'
-= r
-\int_0^r
-{r'^k\over r^{k+1}}
-u(r')
-f(r')
-\d r'
-+
-r \int_r^\infty
-{r^k\over r'^{k+1}}
-u(r')
-f(r')
-\d r'
-=
-
-=
-{1\over r^k}
-\int_0^r
-{x^k}
-u(x)
-f(x)
-\d x
-+
-r^{k+1}
-\int_r^\infty
-{1\over x^{k+1}}
-u(x)
-f(x)
-\d x
-=Z^k(r)
-+
-r^{k+1}
-\int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x" /></p>
-</div><p>where:</p>
-<div class="math">
-<p><img src="../../_images/math/e79fcd0718157d3893d1b5eca34d226bf6e2e9fc.png" alt="Z^k(r) =
-{1\over r^k}
-\int_0^r
-{x^k}
-u(x)
-f(x)
-\d x
-
-{\d Z^k(r) \over \d r}= -{k\over r} Z^k(r) + u(r) f(r)
-
-Z^k(0) = 0" /></p>
-</div><p>Now we differentiate <img class="math" src="../../_images/math/72beda70fabe1bce3c06ae9149ed0557ac852caa.png" alt="Y^k(r)"/>:</p>
-<div class="math">
-<p><img src="../../_images/math/00caa193fcce2f4a9d32e7b9ee5b668ae862cc2f.png" alt="{\d Y^k(r) \over \d r} = {\d Z^k(r) \over \d r}
-    + {k+1\over r} r^{k+1}
-    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
-    -u(r) f(r)
-=
-
-=
--{k\over r} Z^k(r) + u(r) f(r)
-    + {k+1\over r} r^{k+1}
-    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
-    -u(r) f(r) =
-
-=
--{k\over r} Z^k(r)
-    + {k+1\over r} r^{k+1}
-    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x =
-
-=
--{k\over r} Z^k(r)
-    + {k+1\over r} (Y^k(r) - Z^k(r)) =
-
-=
--{2k+1\over r} Z^k(r) + {k+1\over r} Y^k(r)" /></p>
-</div><p>Also <img class="math" src="../../_images/math/dad96842ac186f9805c6ba8937af9425868af228.png" alt="Y^k(\infty) = Z^k(\infty)"/>, so we get the following set of differential
-equations with boundary conditions:</p>
-<div class="math">
-<p><img src="../../_images/math/69a240952a364c1b2485079504b4eda69cd63195.png" alt="\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) = -{2k+1\over r} Z^k(r)
-
-\left({\d\over\d r} + {k\over r}\right) Z^k(r) = u(r) f(r)
-
-Y^k(\infty) = Z^k(\infty)
-
-Z^k(0) = 0" /></p>
-</div><p>Expressing <img class="math" src="../../_images/math/344b901709c8fffa4532705a03d11f5a2d8cf7be.png" alt="Z^k"/> from the first equation:</p>
-<div class="math">
-<p><img src="../../_images/math/fcb051944d6a2ba032f8528a2f7bae37f6caa6b7.png" alt="Z^k(r) = -{r\over 2k+1}\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) =
-
-=-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)" /></p>
-</div><p>and substituting into the second equation we get:</p>
-<div class="math">
-<p><img src="../../_images/math/3f943cbe59885593f2f52fd1bd7d9ab8382b858e.png" alt="-\left({\d\over\d r} + {k\over r}\right)
-    \left({r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k\right)
-    = u(r) f(r)
-
--{r\over 2k+1}\left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right)
-    Y^k(r)
-    = u(r) f(r)
-
-\left(-{\d^2\over\d r^2} + {k(k+1)\over r^2}\right) Y^k(r)
-    = {2k+1\over r}u(r) f(r)" /></p>
-</div><p>With boundary condition on the left:</p>
-<div class="math">
-<p><img src="../../_images/math/203c93a1a069b89a7310608e6882aaa745ab41be.png" alt="Z^k(0) = {k+1\over 2k+1} Y^k(0) = 0
-
-Y^k(0) = 0" /></p>
-</div><p>and on the right:</p>
-<div class="math">
-<p><img src="../../_images/math/50a6ba8182e9c762e300acc682819dc1068084cc.png" alt="Z^k(r)
-    =-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)
-    = Y^k(r)
-
--{r\over 2k+1}{\d Y^k(r)\over \d r} - {k\over 2k+1} Y^k(r) = 0
-
-{\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0" /></p>
-</div><p>which for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> becomes:</p>
-<div class="math">
-<p><img src="../../_images/math/7ba45299a2141e398a476f6b328fad6a1bed4344.png" alt="\left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0" /></p>
-</div><p>but in practise, it&#8217;s better to use the Newton (Robin) boundary condition. The
-weak formulation is:</p>
-<div class="math">
-<p><img src="../../_images/math/80b46ec9387cfcee6700027ee51eed7d838d27ff.png" alt="\int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
-    -[Y^k{}'(r)v(r)]_0^{r_{max}}
-    = \int_0^{r_{max}} {2k+1\over r}u(r)f(r)v(r) \d r" /></p>
-</div><p>The boundary term can be simplified using the boundary conditions as:</p>
-<div class="math">
-<p><img src="../../_images/math/69dff46878f801ec44be9b792082b4acec4935bb.png" alt="-[Y^k{}'(r)v(r)]_0^{r_{max}}
-= -Y^k{}'(r_{max})v(r_{max}) + Y^k{}'(0) v(0)
-= -Y^k{}'(r_{max})v(r_{max})
-= {k\over r_{max}} Y^k(r_{max})v(r_{max})" /></p>
-</div><p>so we get</p>
-<div class="math">
-<p><img src="../../_images/math/43c95dcd5a01656b0d4dc537cf8ddcdbe6824882.png" alt="\int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
-    + {k\over r_{max}} Y^k(r_{max})v(r_{max})
-    = \int_0^{r_{max}} {2k+1\over r}u(r)f(r)v(r) \d r" /></p>
-</div><p>where the test functions <img class="math" src="../../_images/math/adc990da6e78b6437fd32653e8ffd1259f0b29fa.png" alt="v(r)"/> have the constrain <img class="math" src="../../_images/math/c04e70e4422a8da04142c83ebd029b5dbb834c9c.png" alt="v(0)=0"/> on the left
-boundary and no constrain on the right.</p>
-</div>
+</div></div>
 </div>
 
 
@@ -775,9 +839,13 @@ boundary and no constrain on the right.</p>
 <li><a class="reference internal" href="#example-ii">Example II</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#hartree-screening-functions">Hartree Screening Functions</a></li>
 <li><a class="reference internal" href="#hartree-potential-in-spherical-symmetry">Hartree Potential in Spherical Symmetry</a></li>
 <li><a class="reference internal" href="#nonlocal-exchange-potential-in-spherical-symmetry">Nonlocal Exchange Potential in Spherical Symmetry</a></li>
-<li><a class="reference internal" href="#radial-hartre-fock-equations">Radial Hartre-Fock Equations</a></li>
+<li><a class="reference internal" href="#radial-hartre-fock-equations">Radial Hartre-Fock Equations</a><ul>
+<li><a class="reference internal" href="#example-helium">Example: Helium</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#fem">FEM</a></li>
 </ul>
 </li>
