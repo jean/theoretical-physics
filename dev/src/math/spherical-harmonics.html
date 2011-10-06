@@ -143,12 +143,49 @@ P_m(x) \d x =
 = \sum_{m=|k-l|}^{k+l}
     \begin{pmatrix} k &amp; l &amp; m \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
     (2m+1) P_m(x)" /></p>
+</div><p>Any function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> (where <img class="math" src="../../_images/math/797fd829f440864abfe411ee6b419d211977ecde.png" alt="-1\le x \le 1"/>) can be expanded as:</p>
+<div class="math">
+<p><img src="../../_images/math/90b285a0cdc021fbec5efa9a36ebfc96f673ef18.png" alt="f(x) = \sum_{l=0}^\infty f_l P_l(x)
+
+f_l = {(2l+1)\over 2} \int_{-1}^1 f(x) P_l(x) \d x" /></p>
+</div><p>For the following choice of <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> we get (for <img class="math" src="../../_images/math/697ae8520398f741502c4d1b8041be3ca5b90540.png" alt="|t| &lt; 1"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/389b48de8ea9ae818016c9ba93ed20001d1a9c01.png" alt="f(x) = {1\over\sqrt{1-2xt+t^2}}
+
+f_l = {(2l+1)\over 2} \int_{-1}^1 {P_l(x)\over\sqrt{1-2xt+t^2}} \d x
+    = t^l" /></p>
+</div><p>So the Legendre polynomials are the coefficients of the following expansion:</p>
+<div class="math">
+<p><img src="../../_images/math/a7ab2c64fe1eba854c0d93fccceb96ce42277b90.png" alt="{1\over\sqrt{1-2xt+t^2}} = \sum_{l=0}^\infty P_l(x) t^l" /></p>
 </div><table class="docutils citation" frame="void" id="adams" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[Adams]</a></td><td>Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre&#8217;s Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.</td></tr>
 </tbody>
 </table>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Very important is the following multipole expansion:</p>
+<div class="math" id="equation-legendre_expansion">
+<p><span class="eqno">(3)</span><img src="../../_images/math/78bd50d8b1b815775f35c1a588aa17e143b96ecd.png" alt="{1\over |{\bf r}-{\bf r'}|}
+    ={1\over \sqrt{({\bf r}-{\bf r'})^2}}
+    ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}}
+    ={1\over r_&gt;\sqrt{1-2\left(r_&lt;\over r_&gt;\right){\bf\hat r}\cdot {\bf\hat
+        r'} + \left(r&lt;\over r_&gt;\right)^2}} =
+
+={1\over r_&gt;}\sum_{l=0}^\infty\left(r_&lt;\over r_&gt;\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'})
+=\sum_{l=0}^\infty {r_&lt;^l\over r_&gt;^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})" /></p>
+</div><p>Where <img class="math" src="../../_images/math/8084280f2ca144fe44373e90055aef8f5e8aed60.png" alt="r_{&gt;} = \max(r, r')"/> and
+<img class="math" src="../../_images/math/38e8ffeacf1099ce658907682532458b8e21f33e.png" alt="r_{&lt;} = \min(r, r')"/>.
+Assuming <img class="math" src="../../_images/math/5c8248ac4873ba91aeab9b97d6df74988dd429bd.png" alt="r &gt; r'"/>, we get for the first few terms:</p>
+<div class="math">
+<p><img src="../../_images/math/5a3282f58e0f2f858b505a4428a84379869548eb.png" alt="{1\over |{\bf r}-{\bf r'}|}
+={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)" /></p>
+</div></div>
 </div>
 <div class="section" id="spherical-harmonics">
 <span id="index-1"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
@@ -168,15 +205,15 @@ written as:</p>
 \Theta_{lm}(\theta) &amp;= \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)" /></p>
 </div><p>The spherical harmonics are ortonormal:</p>
 <div class="math" id="equation-Yorto">
-<p><span class="eqno">(3)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
+<p><span class="eqno">(4)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
 </div><p>and complete (both in the <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>-subspace and the whole space):</p>
 <div class="math" id="equation-lcomplete">
-<p><span class="eqno">(4)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
+<p><span class="eqno">(5)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
 </div><div class="math" id="equation-Ycomplete">
-<p><span class="eqno">(5)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
-</div><p>The relation <a href="#equation-lcomplete">(4)</a> is a special case of an addition theorem for spherical harmonics</p>
+<p><span class="eqno">(6)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
+</div><p>The relation <a href="#equation-lcomplete">(5)</a> is a special case of an addition theorem for spherical harmonics</p>
 <div class="math" id="equation-lsum">
-<p><span class="eqno">(6)</span><img src="../../_images/math/e4bd9c36e7fa12aa97f54efcdc3ee3d547c97d1a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)" /></p>
+<p><span class="eqno">(7)</span><img src="../../_images/math/e4bd9c36e7fa12aa97f54efcdc3ee3d547c97d1a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)" /></p>
 </div><p>where <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/> is the angle between the unit vectors given by <img class="math" src="../../_images/math/1c862146f0f101b924261bb58d0fc29b1b9e46af.png" alt="{\bf\hat r}=(\theta,\phi)"/> and <img class="math" src="../../_images/math/0d0aecb78b70ae3aa399e60b21e36311f861c7aa.png" alt="{\bf\hat r'}=(\theta',\phi')"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
@@ -453,7 +490,7 @@ c^k(l, 0, l', 0) = c^k(l', 0, l, 0)" /></p>
 <div class="section" id="example-vi">
 <span id="five-spherical-harmonics"></span><h2>Example VI<a class="headerlink" href="#example-vi" title="Permalink to this headline">¶</a></h2>
 <div class="math" id="equation-five_spherical_harmonics">
-<p><span class="eqno">(7)</span><img src="../../_images/math/277e76a07133464d006d612cc9146a6e55b89123.png" alt="\sum_{m'}\sum_{q}\int
+<p><span class="eqno">(8)</span><img src="../../_images/math/277e76a07133464d006d612cc9146a6e55b89123.png" alt="\sum_{m'}\sum_{q}\int
         Y_{l'm'}(\Omega)
         Y_{l'm'}^*(\Omega')
         Y_{kq}(\Omega)
@@ -523,7 +560,7 @@ P_k({\bf \hat x}\cdot{\bf \hat x}')P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
     Y_{\lambda\mu}^*(\Omega')
     Y_{\lambda\mu}(\Omega)" /></p>
 </div><p>Note: using the integral of 3 spherical harmonics directly in
-<a href="#equation-five_spherical_harmonics">(7)</a>:</p>
+<a href="#equation-five_spherical_harmonics">(8)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/5601a1f67f5316d93a7938c7b0c2820ca78f99af.png" alt="\sum_{m'}\sum_{q}\int
         Y_{l'm'}(\Omega)
@@ -599,11 +636,11 @@ integer:</p>
     2j+1}" /></p>
 </div><p>As a special case, we get:</p>
 <div class="math" id="equation-3j-square-sum">
-<p><span class="eqno">(8)</span><img src="../../_images/math/652d77accb4ea75d1a5299c4c397620fac57c060.png" alt="\sum_{m'}
+<p><span class="eqno">(9)</span><img src="../../_images/math/652d77accb4ea75d1a5299c4c397620fac57c060.png" alt="\sum_{m'}
 \begin{pmatrix} l &amp; k &amp; l' \\ -m &amp; m-m' &amp; m' \end{pmatrix}^2
 =
     {1 \over 2l+1}" /></p>
-</div><p>Here is a script to check that the equation <a href="#equation-3j-square-sum">(8)</a> works:</p>
+</div><p>Here is a script to check that the equation <a href="#equation-3j-square-sum">(9)</a> works:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">S</span>
 <span class="kn">from</span> <span class="nn">sympy.physics.wigner</span> <span class="kn">import</span> <span class="n">wigner_3j</span>
 
@@ -747,45 +784,17 @@ above to obtain values for permuted symbols):</p>
 </div></div>
 </div>
 <div class="section" id="multipole-expansion">
-<span id="index-2"></span><h1>Multipole expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
-<p>Assuming <img class="math" src="../../_images/math/77598bff52f38421a571fd42ed448608de7d2273.png" alt="r' \ll r"/>:</p>
+<span id="index-2"></span><h1>Multipole Expansion<a class="headerlink" href="#multipole-expansion" title="Permalink to this headline">¶</a></h1>
+<p>Using <a href="#equation-legendre_expansion">(3)</a> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/748018f3dece67a098dceebf2a0e4c9cbfdd29b4.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =
-
-={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
-
-={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
-
-={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)" /></p>
-</div><p>We can also use the formula:</p>
+<p><img src="../../_images/math/946e36dd85972ac162e0d314cff9e2be328d1958.png" alt="{1\over |{\bf r}-{\bf r'}|}
+    =\sum_{l=0}^\infty{r_{&lt;}^l\over r_{&gt;}^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})
+    = \sum_{l,m}{r_{&lt;}^l\over r_{&gt;}^{l+1}}
+        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
+</div><p>where we used the formula:</p>
 <div class="math">
 <p><img src="../../_images/math/ad6409b25926cb6cecff8d41b35202a44bf5b8ab.png" alt="\sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
     ={2l+1 \over 4\pi} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}" /></p>
-</div><p>and rewrite the expansion using spherical harmonics:</p>
-<div class="math">
-<p><img src="../../_images/math/f84b85ffb86c8889e4b4619baf14fe93a46c5bb5.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
-={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
-</div><p>Assuming <img class="math" src="../../_images/math/109d81b6db98ab0365354a9465f787a4cffc99d3.png" alt="r' \gg r"/> we get:</p>
-<div class="math">
-<p><img src="../../_images/math/b597459b9dc4501615dc9b6c2ca4f0365ac2871d.png" alt="{1\over |{\bf r}-{\bf r'}|} ={1\over r'}\sum_{l=0}^\infty\left(r\over r'\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-= {1\over r'}\sum_{l,m}\left(r\over r'\right)^l
-{4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
-</div><p>We can combine the two formulas by introducing <img class="math" src="../../_images/math/8084280f2ca144fe44373e90055aef8f5e8aed60.png" alt="r_{&gt;} = \max(r, r')"/> and
-<img class="math" src="../../_images/math/38e8ffeacf1099ce658907682532458b8e21f33e.png" alt="r_{&lt;} = \min(r, r')"/> and then for any <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> and <img class="math" src="../../_images/math/8db99a3261aeba6b17548670b2445e79d4d0e4c3.png" alt="r'"/> we get:</p>
-<div class="math">
-<p><img src="../../_images/math/79bfc6fe0a12180fac7227c537512d348514368e.png" alt="{1\over |{\bf r}-{\bf r'}|}
-    ={1\over r_{&gt;}}\sum_{l=0}^\infty\left(r_{&lt;}\over r_{&gt;}\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-    = {1\over r_{&gt;}}\sum_{l,m}\left(r_{&lt;}\over r_{&gt;}\right)^l
-        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}') =
-
-    = \sum_{l,m}{r_{&lt;}^l\over r_{&gt;}^{l+1}}
-        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')" /></p>
 </div></div>
 
 
@@ -796,7 +805,10 @@ above to obtain values for permuted symbols):</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Legendre Polynomials</a></li>
+<li><a class="reference internal" href="#">Legendre Polynomials</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a><ul>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
@@ -814,7 +826,7 @@ above to obtain values for permuted symbols):</p>
 <li><a class="reference internal" href="#id3">Examples</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#multipole-expansion">Multipole expansion</a></li>
+<li><a class="reference internal" href="#multipole-expansion">Multipole Expansion</a></li>
 </ul>
 
   <h4>Previous topic</h4>
