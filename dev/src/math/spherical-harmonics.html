@@ -148,23 +148,71 @@ P_m(x) \d x =
 <p><img src="../../_images/math/90b285a0cdc021fbec5efa9a36ebfc96f673ef18.png" alt="f(x) = \sum_{l=0}^\infty f_l P_l(x)
 
 f_l = {(2l+1)\over 2} \int_{-1}^1 f(x) P_l(x) \d x" /></p>
-</div><p>For the following choice of <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> we get (for <img class="math" src="../../_images/math/697ae8520398f741502c4d1b8041be3ca5b90540.png" alt="|t| &lt; 1"/>):</p>
+</div><p>For the following choice of <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> we get (for <img class="math" src="../../_images/math/93c2ea8a903dcc034ae576ae39969394cd0e87a3.png" alt="|t| \le 1"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/389b48de8ea9ae818016c9ba93ed20001d1a9c01.png" alt="f(x) = {1\over\sqrt{1-2xt+t^2}}
+<p><img src="../../_images/math/65304073be8c3a42f35369c1100de437dc917d2e.png" alt="f(x) = {1\over\sqrt{1-2xt+t^2}}
 
 f_l = {(2l+1)\over 2} \int_{-1}^1 {P_l(x)\over\sqrt{1-2xt+t^2}} \d x
+    = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
+             {P_l\left(1-R^2-t^2\over 2 t\right)\over R}
+             \left(-{R\over t}\right) \d R
+    =
+
+    = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
+             P_l\left(1-R^2-t^2\over 2 t\right) \d R
+    = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
+             P_l\left(1-R^2-t^2\over 2 t\right) \d R
+    =
+
     = t^l" /></p>
-</div><p>So the Legendre polynomials are the coefficients of the following expansion:</p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">legendre</span><span class="p">,</span> <span class="n">integrate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;l R t&quot;</span><span class="p">)</span>
+<span class="go">(l, R, t)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">integrate</span><span class="p">(</span><span class="n">legendre</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">t</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span> <span class="k">print</span> <span class="n">_l</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">_l</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">0 1</span>
+<span class="go">1 t</span>
+<span class="go">2 t**2</span>
+<span class="go">3 t**3</span>
+<span class="go">4 t**4</span>
+<span class="go">5 t**5</span>
+<span class="go">6 t**6</span>
+<span class="go">7 t**7</span>
+<span class="go">8 t**8</span>
+<span class="go">9 t**9</span>
+<span class="go">10 t**10</span>
+<span class="go">11 t**11</span>
+<span class="go">12 t**12</span>
+<span class="go">13 t**13</span>
+<span class="go">14 t**14</span>
+<span class="go">15 t**15</span>
+<span class="go">16 t**16</span>
+<span class="go">17 t**17</span>
+<span class="go">18 t**18</span>
+<span class="go">19 t**19</span>
+</pre></div>
+</div>
+<p>So the Legendre polynomials are the coefficients of the following expansion
+for <img class="math" src="../../_images/math/93c2ea8a903dcc034ae576ae39969394cd0e87a3.png" alt="|t| \le 1"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/a7ab2c64fe1eba854c0d93fccceb96ce42277b90.png" alt="{1\over\sqrt{1-2xt+t^2}} = \sum_{l=0}^\infty P_l(x) t^l" /></p>
+</div><p>Note that for <img class="math" src="../../_images/math/2af1021aa54193a8bcb90bb17dc411579fd779e1.png" alt="|t| &gt; 1"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8e2277269e627e910e3967a8cde24a605f0a8633.png" alt="{1\over\sqrt{1-2xt+t^2}}
+= {1\over |t|}{1\over\sqrt{1-2x{1\over t}+\left({1\over t}\right)^2}}
+= {1\over |t|}\sum_{l=0}^\infty P_l(x) \left({1\over t}\right)^l
+= \sign t \sum_{l=0}^\infty P_l(x) t^{-l-1}" /></p>
 </div><table class="docutils citation" frame="void" id="adams" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[Adams]</a></td><td>Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre&#8217;s Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.</td></tr>
 </tbody>
 </table>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-i">
+<h2>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h2>
 <p>Very important is the following multipole expansion:</p>
 <div class="math" id="equation-legendre_expansion">
 <p><span class="eqno">(3)</span><img src="../../_images/math/78bd50d8b1b815775f35c1a588aa17e143b96ecd.png" alt="{1\over |{\bf r}-{\bf r'}|}
@@ -185,6 +233,85 @@ Assuming <img class="math" src="../../_images/math/5c8248ac4873ba91aeab9b97d6df7
 ={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
 
 ={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)" /></p>
+</div></div>
+<div class="section" id="example-ii">
+<h2>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s find the expansion of</p>
+<div class="math">
+<p><img src="../../_images/math/daa499035d0427bfaa6d628a2bb36975ffca4db4.png" alt="f(x) = {e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}" /></p>
+</div><p>for <img class="math" src="../../_images/math/93c2ea8a903dcc034ae576ae39969394cd0e87a3.png" alt="|t| \le 1"/>. We get:</p>
+<div class="math">
+<p><img src="../../_images/math/896a4c073a5eeb6d92392dcce632f7bc29c81fa3.png" alt="f_l = {(2l+1)\over 2} \int_{-1}^1
+    {P_l(x)e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}} \d x
+    = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
+             {P_l\left(1-R^2-t^2\over 2 t\right)e^{-\alpha R}\over R}
+             \left(-{R\over t}\right) \d R
+    =
+
+    = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
+             P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R
+    = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
+             P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R" /></p>
+</div><p>Here is the result for the first few <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/1274fa8903e3765ff8fec5a717c2622806da0204.png" alt="f_0 &amp; = \frac{\left(e^{2 \alpha t} -1\right) e^{- \alpha t - \alpha}}{2 \alpha t} \\
+f_1 &amp; = \frac{3}{2} \frac{\left(\alpha^{2} t e^{2 \alpha t} + \alpha^{2} t + \alpha t e^{2 \alpha t} + \alpha t - \alpha e^{2 \alpha t} + \alpha - e^{2 \alpha t} + 1\right) e^{- \alpha t - \alpha}}{\alpha^{3} t^{2}} \\
+f_2 &amp; = \frac{5}{2} \frac{\left(\alpha^{4} t^{2} e^{2 \alpha t} - \alpha^{4} t^{2} + 3 \alpha^{3} t^{2} e^{2 \alpha t} - 3 \alpha^{3} t^{2} - 3 \alpha^{3} t e^{2 \alpha t} - 3 \alpha^{3} t + 3 \alpha^{2} t^{2} e^{2 \alpha t} - 3 \alpha^{2} t^{2} - 9 \alpha^{2} t e^{2 \alpha t} - 9 \alpha^{2} t + X\right) e^{- \alpha t - \alpha}}{\alpha^{5} t^{3}}
+
+X = 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \alpha t + 9 \alpha e^{2 \alpha t} - 9 \alpha + 9 e^{2 \alpha t} -9" /></p>
+</div><p>Expanding in <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> up to
+<img class="math" src="../../_images/math/b3708ec9e10e6a415dea2b380b8e1eaa214328dc.png" alt="\operatorname{\mathcal{O}}\left(t^{7}\right)"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/c1c53c7e6aabe16b71b1fb7ead67040c954d174a.png" alt="f_l &amp; = e^\alpha g_l \\
+g_0 &amp; = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+g_1 &amp; = t + \alpha t + \frac{1}{10} \alpha^{2} t^{3} + \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} + \frac{1}{280} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+g_2 &amp; = t^{2} + \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} + \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} + \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+g_3 &amp; = t^{3} + \alpha t^{3} + \frac{2}{5} \alpha^{2} t^{3} + \frac{1}{18} \alpha^{2} t^{5} + \frac{1}{15} \alpha^{3} t^{3} + \frac{1}{18} \alpha^{3} t^{5} + \frac{1}{45} \alpha^{4} t^{5} + \frac{1}{270} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+g_4 &amp; = t^{4} + \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} + \frac{2}{21} \alpha^{3} t^{4} + \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{231} \alpha^{5} t^{6} + \frac{1}{2310} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">legendre</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">latex</span><span class="p">,</span> <span class="n">cse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;l R t alpha&quot;</span><span class="p">)</span>
+<span class="go">(l, R, t, alpha)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">integrate</span><span class="p">(</span><span class="n">legendre</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">))</span> \
+<span class="gp">... </span>        <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="n">R</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">t</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">&quot;f_</span><span class="si">%d</span><span class="s"> &amp; =&quot;</span> <span class="o">%</span><span class="n">_l</span><span class="p">,</span> <span class="n">latex</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">_l</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span><span class="o">.</span><span class="n">simplify</span><span class="p">()),</span> <span class="s">&quot;</span><span class="se">\\\\</span><span class="s">&quot;</span>
+<span class="gp">...</span>
+<span class="go">f_0 &amp; = \frac{\left(e^{2 \alpha t} -1\right) e^{- \alpha t - \alpha}}{2 \alpha t} \\</span>
+<span class="go">f_1 &amp; = \frac{3}{2} \frac{\left(\alpha^{2} t e^{2 \alpha t} + \alpha^{2} t + \alpha t e^{2 \alpha t} + \alpha t - \alpha e^{2 \alpha t} + \alpha - e^{2 \alpha t} + 1\right) e^{- \alpha t - \alpha}}{\alpha^{3} t^{2}} \\</span>
+<span class="go">f_2 &amp; = \frac{5}{2} \frac{\left(\alpha^{4} t^{2} e^{2 \alpha t} - \alpha^{4} t^{2} + 3 \alpha^{3} t^{2} e^{2 \alpha t} - 3 \alpha^{3} t^{2} - 3 \alpha^{3} t e^{2 \alpha t} - 3 \alpha^{3} t + 3 \alpha^{2} t^{2} e^{2 \alpha t} - 3 \alpha^{2} t^{2} - 9 \alpha^{2} t e^{2 \alpha t} - 9 \alpha^{2} t + 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \alpha t + 9 \alpha e^{2 \alpha t} - 9 \alpha + 9 e^{2 \alpha t} -9\right) e^{- \alpha t - \alpha}}{\alpha^{5} t^{3}} \\</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">_l</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span> <span class="o">/</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">&quot;g_</span><span class="si">%d</span><span class="s"> &amp; =&quot;</span> <span class="o">%</span><span class="n">_l</span><span class="p">,</span> <span class="n">latex</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span> <span class="s">&quot;</span><span class="se">\\\\</span><span class="s">&quot;</span>
+<span class="gp">...</span>
+<span class="go">g_0 &amp; = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\</span>
+<span class="go">g_1 &amp; = t + \alpha t + \frac{1}{10} \alpha^{2} t^{3} + \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} + \frac{1}{280} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\</span>
+<span class="go">g_2 &amp; = t^{2} + \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} + \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} + \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\</span>
+<span class="go">g_3 &amp; = t^{3} + \alpha t^{3} + \frac{2}{5} \alpha^{2} t^{3} + \frac{1}{18} \alpha^{2} t^{5} + \frac{1}{15} \alpha^{3} t^{3} + \frac{1}{18} \alpha^{3} t^{5} + \frac{1}{45} \alpha^{4} t^{5} + \frac{1}{270} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\</span>
+<span class="go">g_4 &amp; = t^{4} + \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} + \frac{2}{21} \alpha^{3} t^{4} + \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{231} \alpha^{5} t^{6} + \frac{1}{2310} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-iii">
+<h2>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/e890c7d53dc55964fc6de5b7d78cb940d001cc24.png" alt="{e^{-{|{\bf r}-{\bf r'}|\over D}}\over |{\bf r}-{\bf r'}|}
+    = {e^{-r_&gt;\sqrt{1-2\left(r_&lt;\over r_&gt;\right)
+            {\bf\hat r}\cdot {\bf\hat r'}
+        +\left(r_&lt;\over r_&gt;\right)^2}\over D}\over
+            r_&gt;\sqrt{1-2\left(r_&lt;\over r_&gt;\right)
+                    {\bf\hat r}\cdot {\bf\hat r'}
+            +\left(r_&lt;\over r_&gt;\right)^2}}
+    = {1\over r_&gt;}
+        {e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/8ce77617fc489573b006b7b72d67d6a0349d2f0e.png" alt="\alpha &amp; = {r_&gt;\over D} \\
+x &amp; = {\bf\hat r}\cdot {\bf\hat r'} \\
+t &amp; = {r_&lt;\over r_&gt;}" /></p>
 </div></div>
 </div>
 <div class="section" id="spherical-harmonics">
@@ -339,16 +466,16 @@ l+l'+k = \mbox{even integer}" /></p>
 <tr><td class="label"><a class="fn-backref" href="#id2">[Gaunt]</a></td><td>Gaunt, J. A. (1929). The Triplets of Helium. Philosophical Transactions of the Royal Society of London, 228, 151-196.</td></tr>
 </tbody>
 </table>
-<div class="section" id="example-i">
-<h2>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Example I<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/4f21bf4e3029cc8497e79bb550472ba95ea53690.png" alt="c^0(l, m, l', m')
     =\sqrt{4\pi}
 \int Y_{lm}^*(\Omega) Y_{00}(\Omega) Y_{l'm'}(\Omega) \d\Omega
     =\delta_{l l'}\delta_{m m'}" /></p>
 </div></div>
-<div class="section" id="example-ii">
-<h2>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Example II<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/79e16d7b3aadc4c50562853906c1cb38f74cd6eb.png" alt="\sum_{m=-l}^l c^k(l, m, l, m)
     = \sum_m
@@ -371,8 +498,8 @@ l+l'+k = \mbox{even integer}" /></p>
     =
     (2l+1) \delta_{k0}" /></p>
 </div></div>
-<div class="section" id="example-iii">
-<h2>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>Example III<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/0708dc3eee036ecfb5dd94b55b1cdcb5c7bbf894.png" alt="c^k(l, m, l', m') =
     \sqrt{4\pi \over 4k+1}
@@ -715,8 +842,8 @@ above to obtain values for permuted symbols):</p>
 \begin{pmatrix} j+1 &amp; j &amp; 1 \\ m &amp; -m &amp; 0 \end{pmatrix}
     &amp;= (-1)^{j-m-1} \sqrt{2(j+m+1)(j-m+1)
         \over (2j+1)(2j+2)(2j+3)}" /></p>
-</div><div class="section" id="id3">
-<h2>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</div><div class="section" id="id6">
+<h2>Examples<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/b02984a49e8fe83a5280933a3c4b703d6724fcee.png" alt="\begin{pmatrix} j_3-\half &amp; \half &amp; j_3 \\
     m_3-\half &amp; \half &amp; -m_3 \end{pmatrix} =
@@ -806,7 +933,9 @@ above to obtain values for permuted symbols):</p>
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Legendre Polynomials</a><ul>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#example-i">Example I</a></li>
+<li><a class="reference internal" href="#example-ii">Example II</a></li>
+<li><a class="reference internal" href="#example-iii">Example III</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a><ul>
@@ -814,16 +943,16 @@ above to obtain values for permuted symbols):</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#gaunt-coefficients">Gaunt Coefficients</a><ul>
-<li><a class="reference internal" href="#example-i">Example I</a></li>
-<li><a class="reference internal" href="#example-ii">Example II</a></li>
-<li><a class="reference internal" href="#example-iii">Example III</a></li>
+<li><a class="reference internal" href="#id3">Example I</a></li>
+<li><a class="reference internal" href="#id4">Example II</a></li>
+<li><a class="reference internal" href="#id5">Example III</a></li>
 <li><a class="reference internal" href="#example-iv">Example IV</a></li>
 <li><a class="reference internal" href="#example-v">Example V</a></li>
 <li><a class="reference internal" href="#example-vi">Example VI</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a><ul>
-<li><a class="reference internal" href="#id3">Examples</a></li>
+<li><a class="reference internal" href="#id6">Examples</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#multipole-expansion">Multipole Expansion</a></li>
