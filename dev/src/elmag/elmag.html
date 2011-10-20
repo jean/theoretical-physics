@@ -101,6 +101,320 @@ sources are automatically satisfied by the four potential):</p>
     \mu_0 j^\beta" /></p>
 </div><p>where we have employed the Lorentz gauge <img class="math" src="../../_images/math/d22f57954759e85307b53cb9f4b60f8a87d8f3bb.png" alt="\partial_\alpha A^\alpha=0"/>.</p>
 </div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="magnetic-dipole">
+<h3>Magnetic Dipole<a class="headerlink" href="#magnetic-dipole" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/c9095a1bf3f765abb4491d58f47b180920c6b3f6.png" alt="{\bf A}({\bf r}) = {\mu_0\over 4\pi} {{\bf m}\times{\bf r}\over r^3}
+
+{\bf B}({\bf r}) = \nabla\times {\bf A}
+= {\mu_0\over 4\pi} \nabla\times
+    \left({{\bf m}\times{\bf r}\over r^3}\right) =
+
+= {\mu_0\over 4\pi} \left({\bf m}\nabla\cdot\left({\bf r}\over r^3\right)
+    -{\bf m}\cdot\nabla\left({\bf r}\over r^3\right)
+    \right) =
+
+= {\mu_0\over 4\pi} \left({\bf m}\left(\left(\nabla{1\over r^3}\right)
+        \cdot{\bf r}+{1\over r^3}\nabla\cdot{\bf r}\right)
+    -{\bf m}\cdot\left(\left(\nabla{1\over r^3}\right)
+        {\bf r}+{1\over r^3}\nabla{\bf r}\right)\right)
+    =
+
+= {\mu_0\over 4\pi} \left({\bf m}\left(\left(-{3{\bf r}\over r^5}\right)
+        \cdot{\bf r}+{1\over r^3}3\right)
+    -{\bf m}\cdot\left(\left(-{3{\bf r}\over r^5}\right)
+        {\bf r}+{1\over r^3}\one\right)\right)
+    =
+
+= {\mu_0\over 4\pi} \left({\bf m}\left(-{3\over r^3}+{3\over r^3}\right)
+    +{\bf m}\cdot\left({3{\bf r}{\bf r}\over r^5}-{\one\over r^3}\right)
+    \right)
+    =
+
+= {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
+    -{{\bf m}\over r^3}\right)" /></p>
+</div></div>
+</div>
+<div class="section" id="bar-magnet">
+<h2>Bar Magnet<a class="headerlink" href="#bar-magnet" title="Permalink to this headline">¶</a></h2>
+<p>A good model of a bar magnet of the length <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> and width <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> is a combination
+of two magnetic monopoles (that sit inside the magnet, so one cannot actually
+see them, just their behavior outside the magnet):</p>
+<div class="math">
+<p><img src="../../_images/math/2a55e7389ee017b2bfed6441540710d63ee5729e.png" alt="{\bf B}({\bf x}) = {Q_m\over 4\pi} \left(
+    {{\bf x}-{\bf p}_1 \over |{\bf x}-{\bf p}_1|^3}
+    -
+    {{\bf x}-{\bf p}_2 \over |{\bf x}-{\bf p}_2|^3}
+    \right)" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/ff6827ca280d9bf35a9f5d390c55276a67277136.png" alt="{\bf p}_1 = (0, 0, d)
+
+{\bf p}_2 = (0, 0, -d)
+
+d = {L-W\over 2}" /></p>
+</div><div class="section" id="bar-magnet-in-a-coil">
+<h3>Bar Magnet in a Coil<a class="headerlink" href="#bar-magnet-in-a-coil" title="Permalink to this headline">¶</a></h3>
+<p>We throw a magnet through a coil and calculate the voltage on the coil.
+We use two model of the bar magnet: a magnetic dipole and two monopoles <img class="math" src="../../_images/math/808d70ce29110acbfa47228747db2e682cf103ef.png" alt="2d"/>
+apart.</p>
+<p>Geometry:</p>
+<div class="math">
+<p><img src="../../_images/math/a9ca9b2e1b52bde991cdf90282237ee2e98b6cf6.png" alt="{\bf v} = (0, 0, v)
+
+{\bf l} = (a\cos\phi, a\sin\phi, z)
+
+{\d{\bf l}\over \d\phi} = (-a\sin\phi, a\cos\phi, 0)" /></p>
+</div><p>Field of the dipole:</p>
+<div class="math">
+<p><img src="../../_images/math/db4516e4a061fa66605bbb481b53967a17295e88.png" alt="{\bf E} = 0
+
+{\bf B}({\bf r}) = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
+    -{{\bf m}\over r^3}\right)
+
+{\bf m} = (0, 0, m)" /></p>
+</div><p>we will need:</p>
+<div class="math">
+<p><img src="../../_images/math/6b2cb61ae6f7401e6d785244517d9f0152a6be20.png" alt="{\bf v}\times{\bf B}({\bf l})
+= {\mu_0\over 4\pi}{\bf v}\times
+    \left({3{\bf l}({\bf m}\cdot{\bf l})\over l^5}
+-{{\bf m}\over l^3}\right) =
+
+= {\mu_0\over 4\pi}
+    \left({3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
+-{{\bf v}\times{\bf m}\over l^3}\right) =
+
+= {\mu_0\over 4\pi}
+    {3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
+    =
+
+= {\mu_0\over 4\pi}
+    {3(va\sin\theta, -va\cos\theta, 0)mz\over (a^2 + z^2)^{5\over2}} =
+
+= {3\mu_0 m\over 4\pi}
+    {a v z\over (a^2 + z^2)^{5\over2}} (\sin\theta, -\cos\theta, 0)" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/f977f4e20b2d7a13d9c8d6d23a44a34ee5dad57a.png" alt="{\bf v}\times{\bf B}\cdot{\d{\bf l}\over \d\phi} =
+
+= {3\mu_0 m\over 4\pi}
+    {a v z\over (a^2 + z^2)^{5\over2}} (\sin\theta, -\cos\theta, 0)
+    \cdot
+(-a\sin\phi, a\cos\phi, 0) =
+
+= -{3\mu_0 m\over 4\pi}
+    {a^2 v z\over (a^2 + z^2)^{5\over2}}" /></p>
+</div><p>Field of two monopoles:</p>
+<div class="math">
+<p><img src="../../_images/math/19d0c3a4739712982516715564b9aec8b672cc3b.png" alt="{\bf E} = 0
+
+{\bf B}({\bf x}) = {Q_m\over 4\pi} \left(
+    {{\bf x}-{\bf p}_1 \over |{\bf x}-{\bf p}_1|^3}
+    -
+    {{\bf x}-{\bf p}_2 \over |{\bf x}-{\bf p}_2|^3}
+    \right)
+
+{\bf p}_1 = (0, 0, d)
+
+{\bf p}_2 = (0, 0, -d)
+
+d = {L-W\over 2}" /></p>
+</div><p>we will need:</p>
+<div class="math">
+<p><img src="../../_images/math/bcce0f3201070d7afcaa8cdd1c974b5aab6c7183.png" alt="{\bf v}\times{\bf B}({\bf l})
+    = {Q_m\over 4\pi} \left(
+    {{\bf v}\times({\bf l}-{\bf p}_1) \over |{\bf l}-{\bf p}_1|^3}
+    -
+    {{\bf v}\times({\bf l}-{\bf p}_2) \over |{\bf l}-{\bf p}_2|^3}
+    \right) =
+
+    = {Q_m\over 4\pi} \left(
+    {(0, 0, v)\times(a\cos\phi, a\sin\phi, z-d) \over
+        (a^2+(z-d)^2)^{3\over2}}
+    -
+    {(0, 0, v)\times(a\cos\phi, a\sin\phi, z+d) \over
+        (a^2+(z+d)^2)^{3\over2}}
+    \right) =
+
+    = {Q_m a v \over 4\pi} \left(
+    {1 \over (a^2+(z-d)^2)^{3\over2}}
+    -
+    {1 \over (a^2+(z+d)^2)^{3\over2}}
+    \right) (\sin\phi, -\cos\phi, 0)" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/b4a159ad207daf563ff538511384cb637b9b8aaf.png" alt="{\bf v}\times{\bf B}\cdot{\d{\bf l}\over \d\phi} =
+
+= {Q_m a v \over 4\pi} \left(
+{1 \over (a^2+(z-d)^2)^{3\over2}}
+-
+{1 \over (a^2+(z+d)^2)^{3\over2}}
+\right) (\sin\phi, -\cos\phi, 0)
+    \cdot
+(-a\sin\phi, a\cos\phi, 0) =
+
+= -{Q_m a^2 v \over 4\pi} \left(
+{1 \over (a^2+(z-d)^2)^{3\over2}}
+-
+{1 \over (a^2+(z+d)^2)^{3\over2}}
+\right)" /></p>
+</div><p>Now we can calculate the voltage:</p>
+<div class="math">
+<p><img src="../../_images/math/8318a1082cbc970e017a0ef86df6789fe43363f2.png" alt="V = \oint \left({\bf E} + {\bf v}\times{\bf B}\right) \cdot {\d{\bf l}} =
+
+    = \oint {\bf v}\times{\bf B} \cdot {\d{\bf l}} =
+
+    = \int_0^{2\pi} {\bf v}\times{\bf B} \cdot {\d{\bf l}\over \d\phi}
+        \d\phi" /></p>
+</div><p>for the dipole we get</p>
+<div class="math">
+<p><img src="../../_images/math/7b3ec9c62d26256177bbf05be2bf624401e8e301.png" alt="V = \cdots
+= -\int_0^{2\pi} {3\mu_0 m\over 4\pi}
+{a^2 v z\over (a^2 + z^2)^{5\over2}}
+    \d\phi =
+
+= -{3\mu_0 m\over 2}
+{a^2 v z\over (a^2 + z^2)^{5\over2}}" /></p>
+</div><p>For two monopoles we get</p>
+<div class="math">
+<p><img src="../../_images/math/a11d4c2d36987122600098401f38dab76f559758.png" alt="V = \cdots
+= -\int_0^{2\pi} {Q_m a^2 v \over 4\pi} \left(
+    {1 \over (a^2+(z-d)^2)^{3\over2}}
+    -
+    {1 \over (a^2+(z+d)^2)^{3\over2}}
+    \right)
+    \d\phi =
+
+= -{Q_m a^2 v \over 2} \left(
+    {1 \over (a^2+(z-d)^2)^{3\over2}}
+    -
+    {1 \over (a^2+(z+d)^2)^{3\over2}}
+    \right)" /></p>
+</div><p>For the dipole, the function</p>
+<div class="math">
+<p><img src="../../_images/math/c08ce334e41b3e546dfd5eddce823a0dbec18e6d.png" alt="{z\over(a^2+z^2)^{5\over 2}}" /></p>
+</div><p>has a maximum and minimum for:</p>
+<div class="math">
+<p><img src="../../_images/math/5a3c164d53ee2c3b67e80e8c5051dfc1ccc277bf.png" alt="z = \pm{a\over 2}" /></p>
+</div><p>with the max value:</p>
+<div class="math">
+<p><img src="../../_images/math/7df0bfb7aa4cb98877fcb2275121c19994b3ff5d.png" alt="{z\over(a^2+z^2)^{5\over 2}} =
+{{a\over 2}\over(a^2+\left({a\over 2}\right)^2)^{5\over 2}} =
+{16\sqrt 5 \over 125 a^4}" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">solve</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">refine</span><span class="p">,</span> <span class="n">Q</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;a z&quot;</span><span class="p">)</span>
+<span class="go">(a, z)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">solve</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">z</span><span class="p">)</span>
+<span class="go">[-a/2, a/2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">16*sqrt(5)*a/(125*(a**2)**(5/2))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">refine</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">Q</span><span class="o">.</span><span class="n">positive</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="go">16*sqrt(5)/(125*a**4)</span>
+</pre></div>
+</div>
+<p>So the maximum voltage is:</p>
+<div class="math">
+<p><img src="../../_images/math/c8cc0cf1bec52c9b89cc47e6766113e70e8c9fc8.png" alt="V = {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
+    = {\mu_0\over 2} {3mva^2 {16\sqrt 5 \over 125 a^4}} =
+
+    = {24\sqrt 5\over125} {\mu_0 m v\over a^2}" /></p>
+</div><p>If we drop the magnet from height <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/> above the coil into it, then its speed
+will be <img class="math" src="../../_images/math/b94162e695dfc52fb3194749673e9a2223c13d62.png" alt="v_0 = \sqrt{2hg}"/> in the middle of the coil, when <img class="math" src="../../_images/math/5a607fd61885c014512c949fee18869690330407.png" alt="t=0"/>. Then:</p>
+<div class="math">
+<p><img src="../../_images/math/0e0d4c9be4db8e3394504bbe026a4baa5f564138.png" alt="z = v_0 t + \half g t^2
+
+v = v_0 + g t" /></p>
+</div><p>And we get for the voltage dependence for dipole:</p>
+<div class="math">
+<p><img src="../../_images/math/1738e40304d6ac56e7112d13856ca185c81f2210.png" alt="V = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
+    =- {\mu_0\over 2} {3(v_0+gt)a^2m(v_0 t + \half g t^2)\over
+         (a^2 + (v_0 t + \half g t^2)^2)^{5\over2}}" /></p>
+</div><p>The time difference between the maximum and minimum is the time difference
+between <img class="math" src="../../_images/math/eb8cc2ad231c712f0e7c45f5c809904ba05b79c8.png" alt="z=-{a\over2}"/> and <img class="math" src="../../_images/math/bfc0474bb9eb4d4600bc2611b1a69a98e190eef4.png" alt="z=+{a\over2}"/>, so:</p>
+<div class="math">
+<p><img src="../../_images/math/dae4359844614b88d9619b94c5f3bf7e62abcb92.png" alt="\Delta t = \sqrt{2h+a\over g} - \sqrt{2h-a\over g}" /></p>
+</div><p>The total flux doesn&#8217;t depend on the particular dependence of <img class="math" src="../../_images/math/b00fc10753d7366a6919ed110df236f9a0b54f64.png" alt="z(t)"/> and
+<img class="math" src="../../_images/math/0dfca47fad8dae84de1c4d7532d3bf9269f096ae.png" alt="v(t)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/fb17ad83f8b94e8db60fc931b69439595ccefd7a.png" alt="\Phi = \int_0^\infty V(t) \d t =
+
+    = - {3\mu_0 m\over 2} \int_0^\infty{v(t)a^2z(t)
+            \over (a^2 + z(t)^2)^{5\over2}} \d t =
+
+    = - {3\mu_0 m\over 2} \int_0^\infty{{\d z\over\d t}a^2z(t)
+            \over (a^2 + z(t)^2)^{5\over2}} \d t =
+
+    = - {3\mu_0 m\over 2} \int_0^\infty{a^2z
+            \over (a^2 + z^2)^{5\over2}} \d z =
+
+    = - {3\mu_0 m\over 4} \int_{a^2}^\infty{a^2
+            \over u^{5\over2}} \d u =
+
+    = - {3\mu_0 m a^2\over 4} \left(-{2\over 3}\right)
+        \left[1\over u^{3\over2}\right]_{a^2}^\infty =
+
+    = - {3\mu_0 m a^2\over 4} \left(-{2\over 3}\right)
+        \left[-1\over a^3\right] =
+
+    = - {\mu_0 m \over 2a}" /></p>
+</div><p>For the voltage dependence of two monopoles, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/da59f351c1814ee8cd99f5b1960f9fe9445abb2e.png" alt="V = -{Q_m a^2 v \over 2} \left(
+        {1 \over (a^2+(z-d)^2)^{3\over2}}
+        -
+        {1 \over (a^2+(z+d)^2)^{3\over2}}
+        \right) =
+
+= -{Q_m a^2 (v_0+gt) \over 2} \left(
+        {1 \over (a^2+(v_0 t + \half g t^2-d)^2)^{3\over2}}
+        -
+        {1 \over (a^2+(v_0 t + \half g t^2+d)^2)^{3\over2}}
+        \right)" /></p>
+</div><p>The total flux doesn&#8217;t depend on the particular dependence of <img class="math" src="../../_images/math/b00fc10753d7366a6919ed110df236f9a0b54f64.png" alt="z(t)"/> and
+<img class="math" src="../../_images/math/0dfca47fad8dae84de1c4d7532d3bf9269f096ae.png" alt="v(t)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/afc6fe0cd4a6118d57d3033019e3ea948787f864.png" alt="\Phi = \int_0^\infty V(t) \d t =
+
+    =-\int_0^\infty {Q_m a^2 v(t) \over 2} \left(
+        {1 \over (a^2+(z(t)-d)^2)^{3\over2}}
+        -
+        {1 \over (a^2+(z(t)+d)^2)^{3\over2}}
+        \right)
+        \d t =
+
+    =-\int_0^\infty {Q_m a^2 {\d z\over \d t} \over 2} \left(
+        {1 \over (a^2+(z(t)-d)^2)^{3\over2}}
+        -
+        {1 \over (a^2+(z(t)+d)^2)^{3\over2}}
+        \right)
+        \d t =
+
+    =-\int_0^\infty {Q_m a^2 \over 2} \left(
+        {1 \over (a^2+(z-d)^2)^{3\over2}}
+        -
+        {1 \over (a^2+(z+d)^2)^{3\over2}}
+        \right)
+        \d z =
+
+    =- {Q_m a^2 \over 2} \left(
+        \int_0^\infty{1 \over (a^2+(z-d)^2)^{3\over2}} \d z
+        -
+        \int_0^\infty{1 \over (a^2+(z+d)^2)^{3\over2}} \d z
+        \right) =
+
+    =- {Q_m a^2 \over 2} \left(
+        {1\over a^2}\left(1 + {d\over\sqrt{a^2 + d^2}}\right)
+        -
+        {1\over a^2}\left(1 - {d\over\sqrt{a^2 + d^2}}\right)
+        \right) =
+
+    =- Q_m {d\over\sqrt{a^2 + d^2}}" /></p>
+</div></div>
+</div>
 </div>
 <div class="section" id="semiconductor-device-physics">
 <h1>Semiconductor Device Physics<a class="headerlink" href="#semiconductor-device-physics" title="Permalink to this headline">¶</a></h1>
@@ -326,6 +640,14 @@ y_4' = y_5" /></p>
   <ul>
 <li><a class="reference internal" href="#">Maxwell&#8217;s Equations</a><ul>
 <li><a class="reference internal" href="#four-potential">Four Potential</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#magnetic-dipole">Magnetic Dipole</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bar-magnet">Bar Magnet</a><ul>
+<li><a class="reference internal" href="#bar-magnet-in-a-coil">Bar Magnet in a Coil</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#semiconductor-device-physics">Semiconductor Device Physics</a><ul>
@@ -385,7 +707,7 @@ y_4' = y_5" /></p>
     </div>
     <div class="footer">
         &copy; Copyright 2009-2011, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>
