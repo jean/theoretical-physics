@@ -111,7 +111,7 @@ Magnetic Dipole
         -{{\bf m}\over r^3}\right)
 
 Bar Magnet
-----------
+~~~~~~~~~~
 
 A good model of a bar magnet of the length $L$ and width $W$ is a combination
 of two magnetic monopoles (that sit inside the magnet, so one cannot actually
@@ -471,6 +471,118 @@ $v(t)$:
 
 Note that in the limit $d\to 0$, we get the magnetic moment $m = 2 d Q_m$ and
 the last formula for two monopoles flux becomes the dipole flux.
+
+As a particular example, consider a coil with $N=500$ loops, $a=1.4\rm\,cm$,
+$d=1.8\rm\,cm$, $Q_m=43\rm\,A\cdot m$. Then the total flux from the second peak
+is:
+
+.. math::
+
+    \Phi =- {N\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -0.021 \rm\, V\cdot s
+
+Code::
+
+    >>> from math import pi, sqrt
+    >>> mu0 = 4*pi*1e-7
+    >>> cm = 0.01
+    >>> Q_m = 43.
+    >>> d = 1.8*cm
+    >>> a = 1.4*cm
+    >>> N = 500
+    >>> -N*mu0*Q_m*d/sqrt(a**2+d**2)
+    -0.02132647889395681
+
+For a single loop with $a=1.25\rm\,cm$ we get:
+
+.. math::
+
+    \Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -4.44\times 10^{-5}
+        \rm\, V\cdot s
+
+and for a single loop with $a=1.8\rm\,cm$ we get:
+
+.. math::
+
+    \Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -3.82\times 10^{-5}
+        \rm\, V\cdot s
+
+Code::
+
+    >>> a = 1.25*cm
+    >>> -mu0*Q_m*d/sqrt(a**2+d**2)
+    -4.438304942066266e-05
+    >>> a = 1.8*cm
+    >>> -mu0*Q_m*d/sqrt(a**2+d**2)
+    -3.820879326816195e-05
+
+
+
+RC Circuit
+~~~~~~~~~~
+
+Let's consider resistor (with voltage $V=RI$) and capacitor (with voltage
+$V={Q\over C}$ and current $I(t) = Q'(t)$) in a series. Voltage on the battery
+is $V$, then the equation for the circuit is:
+
+.. math::
+
+    RI(t) + {Q(t)\over C} = V
+
+with initial condition $Q(0) = 0$. We differentiate it:
+
+.. math::
+
+    RI'(t) + {I(t)\over C} = 0
+
+and the initial condition follows from the first equation $I(0) = {V\over R}$.
+The solution is:
+
+.. math::
+
+    I(t) = {V\over R} e^{-{t\over RC}}
+
+Now we calculate the charge (using the initial condition for the charge above
+for the lower bound of the integral):
+
+.. math::
+
+    Q(t) = \int_0^t I(t') \d t'
+         = {V\over R} \int_0^t e^{-{t'\over RC}} \d t'
+         = {V\over R} \left[-RC e^{-{t'\over RC}}\right]_0^t =
+
+         = {V\over R} \left[-RC e^{-{t\over RC}}+RC\right]
+         = VC \left(1-e^{-{t\over RC}}\right)
+
+The voltage on the resistor is:
+
+.. math::
+
+    R I(t) = R {V\over R} e^{-{t\over RC}} = V e^{-{t\over RC}}
+
+The voltage on the capacitor is:
+
+.. math::
+
+    {Q(t)\over C} = {VC \left(1-e^{-{t\over RC}}\right) \over C}
+        = V \left(1-e^{-{t\over RC}}\right)
+
+Half life of the capacitor is defined as the time $\tau$ so that the charge is
+half of the total charge, and we get:
+
+.. math::
+
+    Q(\tau) = \half Q(\infty)
+
+    VC \left(1-e^{-{\tau\over RC}}\right) = \half VC
+
+    1-e^{-{\tau\over RC}} = \half
+
+    \half = e^{-{\tau\over RC}}
+
+    \log \half = -{\tau\over RC}
+
+    \tau = -RC \log \half = RC\log 2
+
 
 Semiconductor Device Physics
 ============================

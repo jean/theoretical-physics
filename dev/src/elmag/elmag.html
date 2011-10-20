@@ -136,9 +136,8 @@ sources are automatically satisfied by the four potential):</p>
 = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
     -{{\bf m}\over r^3}\right)" /></p>
 </div></div>
-</div>
 <div class="section" id="bar-magnet">
-<h2>Bar Magnet<a class="headerlink" href="#bar-magnet" title="Permalink to this headline">¶</a></h2>
+<h3>Bar Magnet<a class="headerlink" href="#bar-magnet" title="Permalink to this headline">¶</a></h3>
 <p>A good model of a bar magnet of the length <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> and width <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> is a combination
 of two magnetic monopoles (that sit inside the magnet, so one cannot actually
 see them, just their behavior outside the magnet):</p>
@@ -161,7 +160,8 @@ d = {L-W\over 2}" /></p>
 </div><p>and its magnitude then is:</p>
 <div class="math">
 <p><img src="../../_images/math/25144ef1f9015d38ca42775dae0563c9ff1a219a.png" alt="m = 2 Q_m d" /></p>
-</div><div class="section" id="bar-magnet-in-a-coil">
+</div></div>
+<div class="section" id="bar-magnet-in-a-coil">
 <h3>Bar Magnet in a Coil<a class="headerlink" href="#bar-magnet-in-a-coil" title="Permalink to this headline">¶</a></h3>
 <p>We throw a magnet through a coil and calculate the voltage on the coil.
 We use two model of the bar magnet: a magnetic dipole and two monopoles <img class="math" src="../../_images/math/808d70ce29110acbfa47228747db2e682cf103ef.png" alt="2d"/>
@@ -421,7 +421,86 @@ between <img class="math" src="../../_images/math/eb8cc2ad231c712f0e7c45f5c80990
     =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}}" /></p>
 </div><p>Note that in the limit <img class="math" src="../../_images/math/258d69274d1c8011c09877627e3a0d3a12bc2f8f.png" alt="d\to 0"/>, we get the magnetic moment <img class="math" src="../../_images/math/5d945a7776780932a3d6adfa923b90b386edfa8a.png" alt="m = 2 d Q_m"/> and
 the last formula for two monopoles flux becomes the dipole flux.</p>
+<p>As a particular example, consider a coil with <img class="math" src="../../_images/math/1136e6caef621b12b6be59c7780c2e502f233388.png" alt="N=500"/> loops, <img class="math" src="../../_images/math/8eb716085d5d94204dd2c5d572fe5b2c0efba219.png" alt="a=1.4\rm\,cm"/>,
+<img class="math" src="../../_images/math/81dc0f9768b3ab375a74590a508e85d78fbbeb8d.png" alt="d=1.8\rm\,cm"/>, <img class="math" src="../../_images/math/0c3cd9ca5b063ddc1fe5b5dda245a893c9ae85e0.png" alt="Q_m=43\rm\,A\cdot m"/>. Then the total flux from the second peak
+is:</p>
+<div class="math">
+<p><img src="../../_images/math/537ed4183ef39bf2cf0b6c5ca3d300c719633235.png" alt="\Phi =- {N\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -0.021 \rm\, V\cdot s" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mu0</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="mf">1e-7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q_m</span> <span class="o">=</span> <span class="mf">43.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.8</span><span class="o">*</span><span class="n">cm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.4</span><span class="o">*</span><span class="n">cm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">N</span><span class="o">*</span><span class="n">mu0</span><span class="o">*</span><span class="n">Q_m</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">-0.02132647889395681</span>
+</pre></div>
 </div>
+<p>For a single loop with <img class="math" src="../../_images/math/96b5908f0898b416234d0fe08611128d59f6b3d4.png" alt="a=1.25\rm\,cm"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ff2add9fac80565ff89d38c5564aabb1192782b2.png" alt="\Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -4.44\times 10^{-5}
+    \rm\, V\cdot s" /></p>
+</div><p>and for a single loop with <img class="math" src="../../_images/math/140abc4c119c6a957a4962cfb1a832757905a80a.png" alt="a=1.8\rm\,cm"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/d3050c265bb3857a7883c5aab71839c8fa2ee5ac.png" alt="\Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -3.82\times 10^{-5}
+    \rm\, V\cdot s" /></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.25</span><span class="o">*</span><span class="n">cm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">mu0</span><span class="o">*</span><span class="n">Q_m</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">-4.438304942066266e-05</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.8</span><span class="o">*</span><span class="n">cm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">mu0</span><span class="o">*</span><span class="n">Q_m</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">-3.820879326816195e-05</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rc-circuit">
+<h3>RC Circuit<a class="headerlink" href="#rc-circuit" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s consider resistor (with voltage <img class="math" src="../../_images/math/e8d487234c1cf44f48923a7afdf4cfa5a70d855d.png" alt="V=RI"/>) and capacitor (with voltage
+<img class="math" src="../../_images/math/6b5fab197372fdc0a0c31b198aed5cc9a7da2466.png" alt="V={Q\over C}"/> and current <img class="math" src="../../_images/math/23b63f5ee955a2879418676cd79c9989b4907b68.png" alt="I(t) = Q'(t)"/>) in a series. Voltage on the battery
+is <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>, then the equation for the circuit is:</p>
+<div class="math">
+<p><img src="../../_images/math/fb44a92c686cd5d4a1e68a175109a3cd7e5f7a30.png" alt="RI(t) + {Q(t)\over C} = V" /></p>
+</div><p>with initial condition <img class="math" src="../../_images/math/ea24a4cacc8ebd47f5e8e47a80c1aa0640695cbe.png" alt="Q(0) = 0"/>. We differentiate it:</p>
+<div class="math">
+<p><img src="../../_images/math/aaa869a040a2854d7328874e9b8c0fc723270205.png" alt="RI'(t) + {I(t)\over C} = 0" /></p>
+</div><p>and the initial condition follows from the first equation <img class="math" src="../../_images/math/6de64f1e7287d225f3be2cab75b71479b57abe38.png" alt="I(0) = {V\over R}"/>.
+The solution is:</p>
+<div class="math">
+<p><img src="../../_images/math/9ea1d4c51549f5c00c57a7884689ceb7831014b3.png" alt="I(t) = {V\over R} e^{-{t\over RC}}" /></p>
+</div><p>Now we calculate the charge (using the initial condition for the charge above
+for the lower bound of the integral):</p>
+<div class="math">
+<p><img src="../../_images/math/0b6ebfebdf4c440c867662a9e935cb23ec07aae9.png" alt="Q(t) = \int_0^t I(t') \d t'
+     = {V\over R} \int_0^t e^{-{t'\over RC}} \d t'
+     = {V\over R} \left[-RC e^{-{t'\over RC}}\right]_0^t =
+
+     = {V\over R} \left[-RC e^{-{t\over RC}}+RC\right]
+     = VC \left(1-e^{-{t\over RC}}\right)" /></p>
+</div><p>The voltage on the resistor is:</p>
+<div class="math">
+<p><img src="../../_images/math/f67ccb34170ac50574905724cbf64b0b56da7072.png" alt="R I(t) = R {V\over R} e^{-{t\over RC}} = V e^{-{t\over RC}}" /></p>
+</div><p>The voltage on the capacitor is:</p>
+<div class="math">
+<p><img src="../../_images/math/ad28ff1fef00529d02427e0239012edba67b1b4d.png" alt="{Q(t)\over C} = {VC \left(1-e^{-{t\over RC}}\right) \over C}
+    = V \left(1-e^{-{t\over RC}}\right)" /></p>
+</div><p>Half life of the capacitor is defined as the time <img class="math" src="../../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> so that the charge is
+half of the total charge, and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/65b5f9d9e0ce6b84c93a4759375e9b7d0ec697bb.png" alt="Q(\tau) = \half Q(\infty)
+
+VC \left(1-e^{-{\tau\over RC}}\right) = \half VC
+
+1-e^{-{\tau\over RC}} = \half
+
+\half = e^{-{\tau\over RC}}
+
+\log \half = -{\tau\over RC}
+
+\tau = -RC \log \half = RC\log 2" /></p>
+</div></div>
 </div>
 </div>
 <div class="section" id="semiconductor-device-physics">
@@ -650,10 +729,9 @@ y_4' = y_5" /></p>
 <li><a class="reference internal" href="#four-potential">Four Potential</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#magnetic-dipole">Magnetic Dipole</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bar-magnet">Bar Magnet</a><ul>
+<li><a class="reference internal" href="#bar-magnet">Bar Magnet</a></li>
 <li><a class="reference internal" href="#bar-magnet-in-a-coil">Bar Magnet in a Coil</a></li>
+<li><a class="reference internal" href="#rc-circuit">RC Circuit</a></li>
 </ul>
 </li>
 </ul>
