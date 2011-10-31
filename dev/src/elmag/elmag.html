@@ -232,6 +232,10 @@ Euler-Lagrange equations are:</p>
 
 {\d \over \d t} \left({m {\bf v}\over\sqrt{1-{v^2\over c^2}}}\right)
      = e\left({\bf E} + {\bf v}\times {\bf B}\right)"/></p>
+</div><p>For continuous case (current), the force due to the magnetic field is:</p>
+<div class="math">
+<p><img src="../../_images/math/ae3b19695c0c0d5204c5d51dad35664e773c94f2.png" alt="{\bf F} = \int {\bf j}\times {\bf B} \d^3 x
+    = I \int \d {\bf l}\times {\bf B}"/></p>
 </div><div class="section" id="hamiltonian">
 <h3>Hamiltonian<a class="headerlink" href="#hamiltonian" title="Permalink to this headline">¶</a></h3>
 <p>Expressing <img class="math" src="../../_images/math/54c725b9ffee3760029f9fc19c8783ca23da6f93.png" alt="{\bf v}"/> in terms of <img class="math" src="../../_images/math/ba345b0e1fc4db99ae1b3f33bfa31ae7c687f67a.png" alt="{\bf P}"/> we get:</p>
@@ -444,26 +448,39 @@ The solution to this equation is:</p>
 <h4>Example: Straight Wire<a class="headerlink" href="#example-straight-wire" title="Permalink to this headline">¶</a></h4>
 <p>Let&#8217;s assume infinite straight wire carrying constant current <img class="math" src="../../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/d0babca953e6a4d27e8098076d91076a507089a6.png" alt="{\bf l} = (0, 0, z+l)
+<p><img src="../../_images/math/fc020051aa8d928686f474f760d478d5f2b8da1c.png" alt="{\bf l} = (0, 0, l)
 
-\d {\bf l} = (0, 0, 1)
+\d {\bf l} = (0, 0, 1)\d l
 
 {\bf x} = (x, y, z)
 
-{\bf x}-{\bf l} = (x, y, z-z+l) = (x, y, l)
+{\bf x}-{\bf l} = (x, y, z-l)
 
 {\bf B}({\bf x})
      ={\mu_0 I\over 4\pi}\int \d{\bf l} \times {{\bf x} - {\bf l}
             \over |{\bf x} - {\bf l}|^3 } =
 
-     ={\mu_0 I\over 4\pi} 2\int_0^\infty (0, 0, 1) \times
-         {(x, y, l) \d l
-            \over (x^2 + y^2 + l^2)^{3\over 2} } =
+     ={\mu_0 I\over 4\pi} \int_{-\infty}^\infty (0, 0, 1) \times
+         {(x, y, z-l) \d l
+            \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
 
-     =(y, -x, 0) {\mu_0 I \over 2\pi}\int_0^\infty {\d l
-            \over (x^2 + y^2 + l^2)^{3\over 2} } =
+     =(y, -x, 0) {\mu_0 I \over 4\pi}\int_{-\infty}^\infty {\d l
+            \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
+
+     =(y, -x, 0) {\mu_0 I \over 4\pi} {2\over x^2+y^2} =
 
      =(y, -x, 0) {\mu_0 I \over 2\pi} {1\over x^2+y^2}"/></p>
+</div><p>Where we used the value of the folowing integral:</p>
+<div class="math">
+<p><img src="../../_images/math/2700a818e0cb88645a9936b21a0d10e5c6ab4f31.png" alt="\int_{-\infty}^\infty {\d l \over (x^2+y^2 + (z - l)^2)^{3\over 2} }
+    = \int_{-\infty}^\infty {\d u \over (x^2+y^2 + u^2)^{3\over 2} } =
+
+    = \left[u\over (x^2+y^2) \sqrt{x^2+y^2 + u^2}\right]_{-\infty}^\infty
+    = \left[\sign u\over (x^2+y^2) \sqrt{
+        \left(x\over u\right)^2 + \left(y\over u\right)^2 + 1}
+        \right]_{-\infty}^\infty =
+
+    = {1\over x^2+y^2} - \left(-{1\over x^2+y^2}\right) = {2\over x^2+y^2}"/></p>
 </div><p>For <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/c0bcf5f7c1148cbc5501bbfbedcd557b03413c43.png" alt="{\bf B}(x, 0, z)
@@ -528,6 +545,195 @@ For <img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355
 
      =(0, 0, -1) {\mu_0 I\over 2} {
          r^2 \over (r^2 + z^2)^{3\over 2} }"/></p>
+</div></div>
+</div>
+<div class="section" id="ampere-s-force-law">
+<h3>Ampère&#8217;s Force Law<a class="headerlink" href="#ampere-s-force-law" title="Permalink to this headline">¶</a></h3>
+<p>The force on a wire 1 due to a magnetic field of a wire 2 is:</p>
+<div class="math">
+<p><img src="../../_images/math/6267cc4a0b42157facaba226282b09ac3bb52f9e.png" alt="{\bf F} = I_1 \int \d {\bf l}_1 \times {\bf B}({\bf l}_1)
+
+{\bf B}({\bf x})
+     ={\mu_0\over 4\pi}\int I_2(t)\d{\bf l}_2 \times {{\bf x} - {\bf l}_2
+            \over |{\bf x} - {\bf l}_2|^3 }"/></p>
+</div><p>Where <img class="math" src="../../_images/math/e45504db553bb0e765c649b1504273090663f1f8.png" alt="{\bf B}({\bf x})"/> is the magnetic field produced by the wire 2.
+Combining these two equations we get:</p>
+<div class="math">
+<p><img src="../../_images/math/20f28ed9725c5d93b1f29d67b2db7ccf5d7f226b.png" alt="{\bf F} = I_1 \int \d {\bf l}_1 \times {\bf B}({\bf l}_1) =
+
+    = I_1 \int \d {\bf l}_1 \times \left(
+     {\mu_0\over 4\pi}\int I_2(t)\d{\bf l}_2 \times {{\bf l}_1 - {\bf l}_2
+            \over |{\bf l}_1 - {\bf l}_2|^3 }\right) =
+
+    = {\mu_o I_1 I_2\over 4\pi} \int \int {\d {\bf l}_1 \times (
+     \d{\bf l}_2 \times ({\bf l}_1 - {\bf l}_2))
+            \over |{\bf l}_1 - {\bf l}_2|^3 } =
+
+    = {\mu_o I_1 I_2\over 4\pi} \int \int {
+        \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+        ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+            \over |{\bf l}_1 - {\bf l}_2|^3 }"/></p>
+</div><div class="section" id="parallel-straight-wires">
+<h4>Parallel Straight Wires<a class="headerlink" href="#parallel-straight-wires" title="Permalink to this headline">¶</a></h4>
+<p>We calculate the force between two parallel straight infinite wires:</p>
+<div class="math">
+<p><img src="../../_images/math/2075daf7aa670fa31f8b57fb60f91cdb08cfc15c.png" alt="{\bf l}_1 = ({d\over 2}, 0, l_1)
+
+\d{\bf l}_1 = (0, 0, \d l_1)
+
+{\bf l}_2 = (-{d\over 2}, 0, l_2)
+
+\d{\bf l}_2 = (0, 0, \d l_2)
+
+{\bf l}_1 - {\bf l}_2 = (d, 0, l_1-l_2)
+
+\d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+    = (0, 0, \d l_2) (l_1-l_2)\d l_1 - (d, 0, l_1-l_2)\d l_2 \d l_1
+    = (-d, 0, 0)\d l_1 \d l_2
+
+{\bf F}
+    = {\mu_o I_1 I_2\over 4\pi} \int \int {
+        \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+        ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+            \over |{\bf l}_1 - {\bf l}_2|^3 } =
+
+    = {\mu_o I_1 I_2\over 4\pi} \int \int {
+        (-d, 0, 0)\d l_1 \d l_2
+            \over (d^2 + (l_1 - l_2)^2)^{3\over 2} } =
+
+    = (-1, 0, 0){\mu_o I_1 I_2\over 4\pi} \int \d l_1
+        \int_{-\infty}^\infty \d l_2 {
+        d
+            \over (d^2 + (l_1 - l_2)^2)^{3\over 2} } =
+
+    = (-1, 0, 0){\mu_o I_1 I_2\over 4\pi} \int \d l_1
+        {2\over d} =
+
+    = (-1, 0, 0){\mu_o I_1 I_2\over 2\pi d} \int \d l_1"/></p>
+</div><p>Where we used the value of the folowing integral:</p>
+<div class="math">
+<p><img src="../../_images/math/0ac5fb6791eab43ede18a5933fd4a552b24d2575.png" alt="\int_{-\infty}^\infty \d l_2 {d \over (d^2 + (l_1 - l_2)^2)^{3\over 2} }
+    = \int_{-\infty}^\infty \d x {d \over (d^2 + x^2)^{3\over 2} } =
+
+    = \left[x\over d \sqrt{d^2 + x^2}\right]_{-\infty}^\infty
+    = \left[\sign x\over d \sqrt{\left(d\over x\right)^2 + 1}
+        \right]_{-\infty}^\infty =
+
+    = {1\over d} - \left(-{1\over d}\right) = {2\over d}"/></p>
+</div><p>As such, the direction of the force on the first wire (at coordinates <img class="math" src="../../_images/math/64c633a590c15fda994c7cd9df7284edd4b35dbb.png" alt="({d\over
+2}, 0, 0)"/> going in the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> direction) will be to the left and the force per
+unit length is:</p>
+<div class="math">
+<p><img src="../../_images/math/528c639d9d2ee832e67f6b28cbf274c60d4281fc.png" alt="F_m = {\mu_o I_1 I_2\over 2\pi d}"/></p>
+</div></div>
+<div class="section" id="perpendicular-straight-wires">
+<h4>Perpendicular Straight Wires<a class="headerlink" href="#perpendicular-straight-wires" title="Permalink to this headline">¶</a></h4>
+<p>We calculate the force between two perpendicular straight infinite wires:</p>
+<div class="math">
+<p><img src="../../_images/math/942cec12055492145a45fb7162d9e4283db1d1a5.png" alt="{\bf l}_1 = ({d\over 2}, 0, l_1)
+
+\d{\bf l}_1 = (0, 0, \d l_1)
+
+{\bf l}_2 = (-{d\over 2}, l_2, 0)
+
+\d{\bf l}_2 = (0, \d l_2, 0)
+
+{\bf l}_1 - {\bf l}_2 = (d, -l_2, l_1)
+
+\d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+    = (0, \d l_2, 0) l_1\d l_1
+    = (0, l_1, 0)\d l_1 \d l_2
+
+{\bf F}
+    = {\mu_o I_1 I_2\over 4\pi} \int \int {
+        \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+        ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+            \over |{\bf l}_1 - {\bf l}_2|^3 } =
+
+    = {\mu_o I_1 I_2\over 4\pi} \int \int {
+        (0, l_1, 0)\d l_1 \d l_2
+            \over (d^2 + l_1^2 + l_2^2)^{3\over 2} } =
+
+    = (0, 1, 0){\mu_o I_1 I_2\over 4\pi} \int_{-\infty}^\infty \d l_1
+        \int_{-\infty}^\infty \d l_2 {
+        l_1
+            \over (d^2 + l_1^2 +l_2^2)^{3\over 2} } =
+
+    = (-1, 0, 0){\mu_o I_1 I_2\over 4\pi} \int_{-\infty}^\infty \d l_1
+        {2 l_1\over d^2 + l_1^2}
+        =
+
+    = 0"/></p>
+</div><p>The integral is an odd functin of <img class="math" src="../../_images/math/6ee61fd6e8a1926a802b97fc99b66b8687d8f620.png" alt="l_1"/>, so it is zero.  We used the value of
+the folowing integral (but in fact it is already seen before this integral is
+needed that the double integral must be zero):</p>
+<div class="math">
+<p><img src="../../_images/math/f52fc0089fc40e5c7609eb76a41f487957edd576.png" alt="\int_{-\infty}^\infty \d l_2 {l_1 \over (d^2 + l_1^2 + l_2^2)^{3\over 2} }
+
+    = \left[l_1 l_2\over (d^2+l_1^2) \sqrt{d^2 +l_1^2 + l_2^2}
+        \right]_{-\infty}^\infty
+    = \left[l_1 \sign l_2\over (d^2+l_1^2)
+        \sqrt{\left(d\over l_2\right)^2 + \left(l_1\over l_2\right)^2 + 1}
+        \right]_{-\infty}^\infty =
+
+    = {l_1\over d^2+l_1^2} - \left(-{l_1\over d^2 + l_1^2}\right)
+    = {2 l_1\over d^2 + l_1^2}"/></p>
+</div><p>As such, there will be no net force.</p>
+</div>
+<div class="section" id="infinitely-long-wire-and-a-square-loop">
+<h4>Infinitely Long Wire and a Square Loop<a class="headerlink" href="#infinitely-long-wire-and-a-square-loop" title="Permalink to this headline">¶</a></h4>
+<p>We calculate the net force on a square loop with current <img class="math" src="../../_images/math/b267db327cda83047220f49cbb647f9cc165f1c0.png" alt="I_1"/> of side <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>,
+whose center is <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> far from an infinitely long wire with current <img class="math" src="../../_images/math/41192b5d91024dbdddbdbe3cb08b0ca3b2a98159.png" alt="I_2"/>:</p>
+<p>The wire has coordinates <img class="math" src="../../_images/math/e0dbcd6538b10044a8f58aef2802576f7b0e852e.png" alt="(0, 0, z)"/> and the magnetic field from it is (see the
+example above):</p>
+<div class="math">
+<p><img src="../../_images/math/007e6d3dbeb6056e0b0274f144916d464e3b23a1.png" alt="{\bf B}(x, 0, z) = (0, -1, 0) {\mu_0 I \over 2\pi x}"/></p>
+</div><p>The four sides of the loop are (<img class="math" src="../../_images/math/6bd69eb6d757cef5972f6c99113a5946a21aa58c.png" alt="0 \le l_1 \le a"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/9c33a8b3d5ff4a1751432ac5f72e43f57a38bc91.png" alt="{\bf l}_1 = (d-{a\over 2}+l_1, 0, {a\over2})
+
+{\bf l}_1 = (d+{a\over 2}, 0, {a\over2}-l_1)
+
+{\bf l}_1 = (d+{a\over 2}-l_1, 0, -{a\over2})
+
+{\bf l}_1 = (d-{a\over 2}, 0, -{a\over2}+l_1)"/></p>
+</div><p>and the differentials are:</p>
+<div class="math">
+<p><img src="../../_images/math/b70ed1fb1ffcf377eaaec8310a082f11313c1fc0.png" alt="\d {\bf l}_1 = (1, 0, 0) \d l_1
+
+\d {\bf l}_1 = (0, 0, -1) \d l_1
+
+\d {\bf l}_1 = (-1, 0, 0) \d l_1
+
+\d {\bf l}_1 = (0, 0, 1) \d l_1"/></p>
+</div><p>The net force on the loop is:</p>
+<div class="math">
+<p><img src="../../_images/math/43dc2f7277403febd2a0e0a896f1b23511ec814d.png" alt="{\bf F} = I_1 \int \d {\bf l}_1 \times {\bf B}
+    = I_1 \int \d {\bf l}_1 \times (0, -1, 0) {\mu_0 I_2 \over 2\pi
+        ({\bf l}_1)_x} =
+
+    = {\mu_0 I_1 I_2\over 2\pi}\left(
+        \int_0^a {(0, 0, 1)\d l_1\over d-{a\over 2} + l_1}
+        +\int_0^a {(1, 0, 0)\d l_1\over d+{a\over 2}}
+        +\int_0^a {(0, 0, -1)\d l_1\over d+{a\over 2}-l_1}
+        +\int_0^a {(-1, 0, 0)\d l_1\over d-{a\over 2}}
+        \right) =
+
+    = {\mu_0 I_1 I_2\over 2\pi}\left(
+        (0, 0, 1)\left[\log \left| d-{a\over 2} + l_1 \right|
+            -\log \left|d + {a\over 2} - l_1\right| \right]_0^a
+        +(1, 0, 0)\left({a\over d + {a\over 2}}-{a\over d - {a\over 2}}
+            \right)\right) =
+
+    = {\mu_0 I_1 I_2\over 2\pi}\left(
+        (0, 0, 1) \cdot 0 +
+        (1, 0, 0){a^2\over d^2 - \left({a\over 2}\right)^2}
+            \right) =
+
+    = (1, 0, 0){\mu_0 I_1 I_2\over 2\pi}
+        {a^2\over d^2 - \left({a\over 2}\right)^2}"/></p>
 </div></div>
 </div>
 <div class="section" id="magnetic-dipole">
@@ -1176,6 +1382,12 @@ y_4' = y_5"/></p>
 <li><a class="reference internal" href="#biot-savart-law">Biot-Savart Law</a><ul>
 <li><a class="reference internal" href="#example-straight-wire">Example: Straight Wire</a></li>
 <li><a class="reference internal" href="#example-circular-loop">Example: Circular Loop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ampere-s-force-law">Ampère&#8217;s Force Law</a><ul>
+<li><a class="reference internal" href="#parallel-straight-wires">Parallel Straight Wires</a></li>
+<li><a class="reference internal" href="#perpendicular-straight-wires">Perpendicular Straight Wires</a></li>
+<li><a class="reference internal" href="#infinitely-long-wire-and-a-square-loop">Infinitely Long Wire and a Square Loop</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#magnetic-dipole">Magnetic Dipole</a></li>
