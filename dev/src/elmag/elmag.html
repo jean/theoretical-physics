@@ -617,6 +617,53 @@ For <img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355
      =(0, 0, -1) {\mu_0 I\over 2} {
          r^2 \over (r^2 + z^2)^{3\over 2} }"/></p>
 </div></div>
+<div class="section" id="helmholtz-coil">
+<h4>Helmholtz Coil<a class="headerlink" href="#helmholtz-coil" title="Permalink to this headline">¶</a></h4>
+<p>Helmholtz coil is a set of two circular loops of radius <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>, that are <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/>
+apart, where <img class="math" src="../../_images/math/31a85b45c3b481c9c8ffffb15294be0d600c32e2.png" alt="d=r"/>. Let&#8217;s calculate the magnetic field on the axis.
+Magnetic field of the first coil is:</p>
+<div class="math">
+<p><img src="../../_images/math/8477156df3c39114268fc0844aa49fa5b5008e21.png" alt="{\bf B}_1(0, 0, z) = (0, 0, -1) {\mu_0 I\over 2} {
+         r^2 \over (r^2 + z^2)^{3\over 2} }"/></p>
+</div><p>Second coil is positioned <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> above the first one:</p>
+<div class="math">
+<p><img src="../../_images/math/c2b43b327bfbc698f97b657fe5260f2bb1892105.png" alt="{\bf B}_2(0, 0, z) = (0, 0, -1) {\mu_0 I\over 2} {
+         r^2 \over (r^2 + (z-d)^2)^{3\over 2} }"/></p>
+</div><p>The total magnetic field is:</p>
+<div class="math">
+<p><img src="../../_images/math/c6d92b109c33b6d9ca152b607d38c65f6d4db349.png" alt="{\bf B}(0, 0, z) = {\bf B}_1(0, 0, z) + {\bf B}_2(0, 0, z) =
+
+= (0, 0, -1) {\mu_0 I\over 2} {
+         r^2 \over (r^2 + z^2)^{3\over 2} }
++ (0, 0, -1) {\mu_0 I\over 2} {
+         r^2 \over (r^2 + (z-d)^2)^{3\over 2} } =
+
+= (0, 0, -1) {\mu_0 I r^2\over 2} \left(
+         {1 \over (r^2 + z^2)^{3\over 2} } +
+         {1 \over (r^2 + (z-d)^2)^{3\over 2} }\right)"/></p>
+</div><p>The field in the middle:</p>
+<div class="math">
+<p><img src="../../_images/math/5697e411484b927d33e21ac6713905eb5f23fdfb.png" alt="{\bf B}(0, 0, {d\over 2})
+= (0, 0, -1) {\mu_0 I r^2\over 2} \left(
+         {1 \over (r^2 + \left(d\over 2\right)^2)^{3\over 2} } +
+         {1 \over (r^2 + \left(d\over 2\right)^2)^{3\over 2} }\right) =
+
+= (0, 0, -1) {\mu_0 I r^2
+         \over (r^2 + \left(d\over 2\right)^2)^{3\over 2} }"/></p>
+</div><p>For <img class="math" src="../../_images/math/e227518a3710222c7d2254a00d5e1f3f404228a4.png" alt="r=d"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/a94887d659007f383e2a2c4fcbb26b750f4f210c.png" alt="{\bf B}(0, 0, {d\over 2})
+= (0, 0, -1) {\mu_0 I r^2
+         \over (r^2 + \left(r\over 2\right)^2)^{3\over 2} } =
+
+= (0, 0, -1) {\mu_0 I
+         \over r (1 + \left(1\over 2\right)^2)^{3\over 2} } =
+
+= (0, 0, -1) {\mu_0 I 4^{3\over 2}
+         \over r 5^{3\over 2} } =
+
+= (0, 0, -1) {8 \over 5 \sqrt 5} {\mu_0 I \over r}"/></p>
+</div></div>
 </div>
 <div class="section" id="ampere-s-force-law">
 <h3>Ampère&#8217;s Force Law<a class="headerlink" href="#ampere-s-force-law" title="Permalink to this headline">¶</a></h3>
@@ -1453,6 +1500,7 @@ y_4' = y_5"/></p>
 <li><a class="reference internal" href="#biot-savart-law">Biot-Savart Law</a><ul>
 <li><a class="reference internal" href="#example-straight-wire">Example: Straight Wire</a></li>
 <li><a class="reference internal" href="#example-circular-loop">Example: Circular Loop</a></li>
+<li><a class="reference internal" href="#helmholtz-coil">Helmholtz Coil</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ampere-s-force-law">Ampère&#8217;s Force Law</a><ul>
