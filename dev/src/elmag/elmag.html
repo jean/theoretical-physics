@@ -146,12 +146,31 @@ particle is:</p>
     = -\half m v_\alpha v^\alpha - e v_\alpha A^\alpha"/></p>
 </div><p>The Euler-Lagrange equations are:</p>
 <div class="math">
-<p><img src="../../_images/math/0f8c4cfaf9a5367fb2a72996b23336b6a7e97e19.png" alt="{\d \over \d \tau} {\partial L\over \partial v_\mu}
+<p><img src="../../_images/math/fc484acb8b5e872dc6dba3ac783a207d63e15351.png" alt="{\d \over \d \tau} {\partial L\over \partial v_\mu}
      = {\partial L \over \partial x_\mu}
 
 {\d \over \d \tau} {\partial \over \partial v_\mu}
     \left(\half m g^{\alpha\beta} v_\alpha v_\beta
         + e v_\alpha A^\alpha\right)
+     = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+{\d \over \d \tau}
+    \left(
+        \half m g^{\alpha\beta} (\delta_{\alpha\mu} v_\beta
+        + v_\alpha \delta_{\beta\mu})
+        + e \delta_{\alpha\mu} A^\alpha\right)
+     = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+{\d \over \d \tau}
+    \left(
+        \half m (g^{\mu\beta} v_\beta + g^{\alpha\mu} v_\alpha)
+        + e A^\mu\right)
+     = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+{\d \over \d \tau}
+    \left(
+        \half m (v^\mu + v^\mu)
+        + e A^\mu\right)
      = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
 
 {\d \over \d \tau}
@@ -477,6 +496,38 @@ This equation is the E.-L. equation that follows from Lagrangian
      {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
         \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
 </div></div>
+<div class="section" id="particle-field-interaction">
+<h2>Particle Field Interaction<a class="headerlink" href="#particle-field-interaction" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/3233f938980ebff4e18927c42a304ec90c026ef5.png" alt="\L(A^\alpha, \partial^\beta A^\alpha)
+    = -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} - j_\alpha A^\alpha
+
+\rho = q \delta({\bf r} - {\bf s})
+
+{\bf j} = \rho {\bf v} = q \delta({\bf r} - {\bf s}) {\bf v}
+
+j^\mu = \rho v^\mu = \gamma \rho (c, {\bf v})
+
+L = \int \L \d^3 x
+  = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+        - j_\alpha A^\alpha \d^3 x =
+
+  = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+        - \rho v_\alpha A^\alpha \d^3 x =
+
+  = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} \d^3 x
+        - q v_\alpha A^\alpha ="/></p>
+</div><p>Finally we add the Lagrangian for the free particle:</p>
+<div class="math">
+<p><img src="../../_images/math/c6e312e3cee68f07214aec5022ff5124ee4f6221.png" alt="L = -\half m v_\alpha v^\alpha + \int -{1\over 4\mu_0} F_{\alpha\beta}
+    F^{\alpha\beta} \d^3 x - q v_\alpha A^\alpha"/></p>
+</div><p>Note that:</p>
+<div class="math">
+<p><img src="../../_images/math/3091fa7765be1ffc068fe28158583fc4eb2c4a0f.png" alt="v_\alpha A^\alpha = - \gamma \phi + \gamma {\bf v} \cdot {\bf A}"/></p>
+</div><p>Considered as the function of <img class="math" src="../../_images/math/6c1c974279e05fcbe83079cba65bfda30f23d36c.png" alt="A^\alpha"/>, this Lagrangian implies the Maxwell&#8217;s
+equations, considered as a function of <img class="math" src="../../_images/math/4a5cb4929c989eeb9f42bed597d1de6d915da702.png" alt="x^\alpha"/> (and <img class="math" src="../../_images/math/98f207bb270ee322796cd278d9d7b1efa5e2c909.png" alt="v^\alpha"/>), it implies
+the particle equation of motion (with Lorentz force).</p>
+</div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="biot-savart-law">
@@ -1496,6 +1547,7 @@ y_4' = y_5"/></p>
 </ul>
 </li>
 <li><a class="reference internal" href="#id1">Maxwell&#8217;s Equations</a></li>
+<li><a class="reference internal" href="#particle-field-interaction">Particle Field Interaction</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#biot-savart-law">Biot-Savart Law</a><ul>
 <li><a class="reference internal" href="#example-straight-wire">Example: Straight Wire</a></li>
