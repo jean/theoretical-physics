@@ -197,6 +197,51 @@ I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
 <p>Special cases are a rod of length <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/> (set <img class="math" src="../../_images/math/7cabdac25e931867e38c2efc2e553e258984119e.png" alt="R=0"/> above) and a thin solid disk
 of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> and mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> (set <img class="math" src="../../_images/math/af7e5b7d062655d4be01f4d56b203954a93cf7eb.png" alt="h=0"/> above).</p>
 </div>
+<div class="section" id="sphere">
+<h4>Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h4>
+<p>Solid sphere of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> and mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>. We&#8217;ll use spherical
+coordinates. All axes are equivalent, so we use
+rotation about the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> axis:</p>
+<div class="math">
+<p><img src="../../_images/math/700b4d4cb711d42480b5668818e8edbf9c998d63.png" alt="V = {4\over3} \pi R^3
+
+{\bf n} = (0, 0, 1)
+
+{\bf r} = (\rho\cos\phi\sin\theta, \rho\sin\phi\sin\theta, \rho\cos\theta)
+
+{\bf r} \cdot {\bf n} = \rho\cos\theta
+
+r^2 = \rho^2
+
+
+I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+  = \int {m\over V} (\rho^2 - \rho^2\cos^2\theta) \d^3 r =
+
+  = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_0^\pi
+    \d \theta
+     \rho^2(1-\cos^2\theta) \rho^2\sin\theta =
+
+  = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_0^\pi
+    \d \theta
+     \rho^4\sin^3\theta =
+
+  = {m\over V} 2\pi {R^5\over 5} {4\over 3} =
+
+  = {m\over V} {8\over 15}\pi R^5
+  = {m\over {4\over 3}\pi R^3} {8\over 15}\pi R^5
+  = {2\over 5} m R^2"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;m V R rho theta phi&quot;</span><span class="p">)</span>
+<span class="go">(m, V, R, rho, theta, phi)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span> <span class="o">=</span> <span class="n">m</span><span class="o">/</span><span class="n">V</span> <span class="o">*</span> <span class="n">integrate</span><span class="p">(</span><span class="n">rho</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span>
+<span class="go">8*pi*R**5*m/(15*V)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">2*R**2*m/5</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -215,6 +260,7 @@ of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248
 <li><a class="reference internal" href="#angular-momentum">Angular Momentum</a></li>
 <li><a class="reference internal" href="#moment-of-inertia">Moment of Inertia</a><ul>
 <li><a class="reference internal" href="#cylinder">Cylinder</a></li>
+<li><a class="reference internal" href="#sphere">Sphere</a></li>
 </ul>
 </li>
 </ul>
