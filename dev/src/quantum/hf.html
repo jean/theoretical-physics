@@ -729,8 +729,8 @@ the above). We used the result of the integral in
     = (2l'+1)
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2"/></p>
 </div></div>
-<div class="section" id="radial-hartre-fock-equations">
-<h2>Radial Hartre-Fock Equations<a class="headerlink" href="#radial-hartre-fock-equations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="radial-hartree-fock-equations">
+<h2>Radial Hartree-Fock Equations<a class="headerlink" href="#radial-hartree-fock-equations" title="Permalink to this headline">¶</a></h2>
 <p>Using the above integrals, the HF equations become:</p>
 <div class="math">
 <p><img src="../../_images/math/fa93b3e14aa7327e1b0e8418dfa79809b60a6009.png" alt="-\half P_{nl}''(r) +
@@ -772,10 +772,42 @@ the above). We used the result of the integral in
 <h2>Total Energy<a class="headerlink" href="#total-energy" title="Permalink to this headline">¶</a></h2>
 <p>The total energy is:</p>
 <div class="math">
-<p><img src="../../_images/math/03a0d3877bc9e667da6d7c2253068666e3c69242.png" alt="E = \sum_a 2(2l_a+1) \left( \epsilon_a
+<p><img src="../../_images/math/ff02cbf8aff4d4c889f11fd81edc7cf40f54ee3f.png" alt="E = \sum_a 2(2l_a+1) \left( \epsilon_a
     -\sum_b (2l_b+1) \left( R_0(a, b, a, b)-\sum_l
         \half \begin{pmatrix} l_a &amp; l &amp; l_b \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-        R_l(a, b, b, a)\right) \right)"/></p>
+        R_l(a, b, b, a)\right) \right) =
+
+  = \sum_{nl} f_{nl} \left( \epsilon_{nl}
+    -\sum_{n'l'} \half f_{n'l'} \left( R_0(nl, n'l', nl, n'l')-\sum_k
+        \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+        R_l(nl, n'l', n'l', nl)\right) \right) =
+
+  = \sum_{nl} f_{nl} \epsilon_{nl}
+    -\sum_{nl}\sum_{n'l'} \half f_{nl} f_{n'l'}
+        \left(
+    \int_0^\infty P_{nl}^2(r) {Y^0(P_{n'l'}^2(r), r)\over r} \d r
+        -\sum_k
+        \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            \int_0^\infty P_{nl}(r) P_{n'l'}(r)
+                    {Y^l(P_{nl}(r) P_{n'l'}(r), r)\over r} \d r
+        \right) =
+
+  = \sum_{nl} f_{nl} \epsilon_{nl}
+    -\half
+    \int_0^\infty 4\pi n(r) r^2 {Y^0(4\pi n(r) r^2, r)\over r} \d r +
+
+        +\sum_{nl}\sum_{n'l'} \half f_{nl} f_{n'l'} \sum_k
+        \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            \int_0^\infty P_{nl}(r) P_{n'l'}(r)
+                    {Y^l(P_{nl}(r) P_{n'l'}(r), r)\over r} \d r
+        =
+
+  = \sum_{nl} f_{nl} \epsilon_{nl}
+    -2\pi \int_0^\infty V_H(r) n(r) r^2 \d r
+        +\sum_{nl}\sum_{n'l'} \half f_{nl} f_{n'l'} \sum_k
+        \half \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            \int_0^\infty P_{nl}(r) P_{n'l'}(r)
+                    {Y^l(P_{nl}(r) P_{n'l'}(r), r)\over r} \d r"/></p>
 </div><p>where:</p>
 <div class="math">
 <p><img src="../../_images/math/a555421cdf45d6d9e553734183520f7aa0c1bff6.png" alt="R_l(a, b, c, d) = \int_0^\infty P_a(r) P_c(r) {Y^l(P_b(r) P_d(r), r)\over r} \d r"/></p>
@@ -857,7 +889,7 @@ the above). We used the result of the integral in
 <li><a class="reference internal" href="#hartree-screening-functions">Hartree Screening Functions</a></li>
 <li><a class="reference internal" href="#hartree-potential-in-spherical-symmetry">Hartree Potential in Spherical Symmetry</a></li>
 <li><a class="reference internal" href="#nonlocal-exchange-potential-in-spherical-symmetry">Nonlocal Exchange Potential in Spherical Symmetry</a></li>
-<li><a class="reference internal" href="#radial-hartre-fock-equations">Radial Hartre-Fock Equations</a></li>
+<li><a class="reference internal" href="#radial-hartree-fock-equations">Radial Hartree-Fock Equations</a></li>
 <li><a class="reference internal" href="#total-energy">Total Energy</a><ul>
 <li><a class="reference internal" href="#example-helium">Example: Helium</a></li>
 </ul>

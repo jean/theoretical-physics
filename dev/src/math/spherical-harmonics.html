@@ -316,6 +316,50 @@ g_4 &amp; = t^{4} + \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \
 x &amp; = {\bf\hat r}\cdot {\bf\hat r'} \\
 t &amp; = {r_&lt;\over r_&gt;}"/></p>
 </div></div>
+<div class="section" id="example-iv">
+<h2>Example IV<a class="headerlink" href="#example-iv" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/0038c0714245a231d0654998af90eef283b814cf.png" alt="V(|{\bf r}_1-{\bf r}_2|)
+    = {e^{-{|{\bf r}_1-{\bf r}_2|\over D}}\over |{\bf r}_1-{\bf r}_2|}"/></p>
+</div><p>The potential <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> is a function of <img class="math" src="../../_images/math/52d988fb5a0382bd9bc449bd96c14b6d2a8985d9.png" alt="r1"/>, <img class="math" src="../../_images/math/9c317919701074db7dc38edb67b4cccf0f65a252.png" alt="r2"/> and <img class="math" src="../../_images/math/de5a3b34841a0696e4e3afc4fda90bda98eead51.png" alt="\cos\theta"/> only:</p>
+<div class="math">
+<p><img src="../../_images/math/8f729466d121a77f9ce0118a146e11e3fb9f1401.png" alt="V(|{\bf r}_1-{\bf r}_2|)
+    = V\left(\sqrt{r_1^2 - 2 {\bf r_1} \cdot {\bf r_2} + r_2^2}\right)
+    = V\left(\sqrt{r_1^2 - 2 r_1 r_2\cos\theta + r_2^2}\right)
+    = V(r_1, r_2, \cos\theta)"/></p>
+</div><p>So we expand in the <img class="math" src="../../_images/math/de5a3b34841a0696e4e3afc4fda90bda98eead51.png" alt="\cos\theta"/> variable using the Legendre expansion:</p>
+<div class="math">
+<p><img src="../../_images/math/29cf989063e558da915d9967792b5f5aaa53a8fd.png" alt="V(|{\bf r}_1-{\bf r}_2|)
+    = V(r_1, r_2, \cos\theta)
+    = \sum_{l=0}^\infty V_l(r_1, r_2) P_l(\cos\theta)"/></p>
+</div><p>where <img class="math" src="../../_images/math/28c12776becb12d7b79433071422a41a7eb3c74b.png" alt="V_l(r_1, r_2)"/> only depends on <img class="math" src="../../_images/math/52d988fb5a0382bd9bc449bd96c14b6d2a8985d9.png" alt="r1"/> and <img class="math" src="../../_images/math/0b4f3f4b698ce35667432041e168f7653533fa7b.png" alt="r_2"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6b4d322174c1a606147566a46945cb852e63f29c.png" alt="V_l(r_1, r_2) = {2l+1\over 2}\int_{-1}^1 V(|{\bf r}_1-{\bf r}_2|)
+    P_l(\cos\theta) \d(\cos\theta) =
+
+    = {2l+1\over 2}\int_{-1}^1
+        {e^{-{|{\bf r}_1-{\bf r}_2|\over D}}\over |{\bf r}_1-{\bf r}_2|}
+        P_l(\cos\theta) \d(\cos\theta) =
+
+    = {2l+1\over 2 r_1 r_2}\int_{|r_1 - r_2|}^{r1+r2}
+        e^{-{r\over D}}
+        P_l\left(r_1^2 - r^2 + r_2^2 \over 2 r_1 r_2 \right) \d r"/></p>
+</div><p>In the limit <img class="math" src="../../_images/math/6b4480bba591f4c9ecc84f9b534c90f8f9a22031.png" alt="D\to\infty"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/05df015abc7d656a0a03c3a31f1ddf58ce207909.png" alt="V_l(r_1, r_2) \to {r_&lt;^l\over r_&gt;^{l+1}}"/></p>
+</div><p>In general, the <img class="math" src="../../_images/math/28c12776becb12d7b79433071422a41a7eb3c74b.png" alt="V_l(r_1, r_2)"/> expressions are complicated. For the first few
+<img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/21be9d636c673e31a072c22816c6c84bf4b0ad78.png" alt="V_0(r_1, r_2) = {D\over 2 r_1 r_2}\left(e^{-{|r_1 - r_2|\over D}} -
+    e^{-{r_1 + r_2\over D}}\right)
+
+V_1(r_1, r_2) =
+    \frac{3}{2} \frac{D \left(- D^{2} e^{2 \frac{r_{2}}{D}} + D^{2} - D
+    r_{1} e^{2 \frac{r_{2}}{D}} + D r_{1} + D r_{2} e^{2 \frac{r_{2}}{D}} +
+    D r_{2} + r_{1} r_{2} e^{2 \frac{r_{2}}{D}} + r_{1} r_{2}\right) e^{-
+    \frac{r_{1}}{D} - \frac{r_{2}}{D}}}{r_{1}^{2} r_{2}^{2}}"/></p>
+</div><p>In <img class="math" src="../../_images/math/75b8119f1900cfa0d85755f3f0cdc344f2294838.png" alt="V_1(r_1, r_2)"/> we assume <img class="math" src="../../_images/math/da43b334ce865f27095c9b4b2e6307a8d6c852ce.png" alt="r_1 \ge r_2"/>.</p>
+</div>
 </div>
 <div class="section" id="spherical-harmonics">
 <span id="index-1"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
@@ -529,8 +573,8 @@ l+l'+k = \mbox{even integer}"/></p>
 = \sqrt{2\over 4k+1}
 \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta"/></p>
 </div></div>
-<div class="section" id="example-iv">
-<h2>Example IV<a class="headerlink" href="#example-iv" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>Example IV<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/24d1b1002725d49feec1cddb6cccd440e4239085.png" alt="c^k(l, -m, l', -m') =
 
@@ -845,8 +889,8 @@ above to obtain values for permuted symbols):</p>
 \begin{pmatrix} j+1 &amp; j &amp; 1 \\ m &amp; -m &amp; 0 \end{pmatrix}
     &amp;= (-1)^{j-m-1} \sqrt{2(j+m+1)(j-m+1)
         \over (2j+1)(2j+2)(2j+3)}"/></p>
-</div><div class="section" id="id6">
-<h2>Examples<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+</div><div class="section" id="id7">
+<h2>Examples<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/b02984a49e8fe83a5280933a3c4b703d6724fcee.png" alt="\begin{pmatrix} j_3-\half &amp; \half &amp; j_3 \\
     m_3-\half &amp; \half &amp; -m_3 \end{pmatrix} =
@@ -939,6 +983,7 @@ above to obtain values for permuted symbols):</p>
 <li><a class="reference internal" href="#example-i">Example I</a></li>
 <li><a class="reference internal" href="#example-ii">Example II</a></li>
 <li><a class="reference internal" href="#example-iii">Example III</a></li>
+<li><a class="reference internal" href="#example-iv">Example IV</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#spherical-harmonics">Spherical Harmonics</a><ul>
@@ -949,13 +994,13 @@ above to obtain values for permuted symbols):</p>
 <li><a class="reference internal" href="#id3">Example I</a></li>
 <li><a class="reference internal" href="#id4">Example II</a></li>
 <li><a class="reference internal" href="#id5">Example III</a></li>
-<li><a class="reference internal" href="#example-iv">Example IV</a></li>
+<li><a class="reference internal" href="#id6">Example IV</a></li>
 <li><a class="reference internal" href="#example-v">Example V</a></li>
 <li><a class="reference internal" href="#example-vi">Example VI</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#wigner-3j-symbols">Wigner 3j Symbols</a><ul>
-<li><a class="reference internal" href="#id6">Examples</a></li>
+<li><a class="reference internal" href="#id7">Examples</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#multipole-expansion">Multipole Expansion</a></li>
