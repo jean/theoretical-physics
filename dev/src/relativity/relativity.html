@@ -551,8 +551,82 @@ the <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9
 obtain the correct Christoffel symbols, but the above metric is the simplest,
 so we&#8217;ll use it from now on.</p>
 </div>
+<div class="section" id="einstein-s-equations">
+<h2>Einstein&#8217;s Equations<a class="headerlink" href="#einstein-s-equations" title="Permalink to this headline">¶</a></h2>
+<p>Einstein&#8217;s equations are derived from the Hilbert action:</p>
+<div class="math">
+<p><img src="../../_images/math/eb8d5412d367c7524b98748de0116d5cfcd8516b.png" alt="S_H = \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
+    = \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x"/></p>
+</div><p>The Lagrangian density <img class="math" src="../../_images/math/460c7ffb86c1df927d2352a12bb11b354b4922f5.png" alt="R \sqrt{ |\det g_{\mu\nu}| }"/> has to be given, that&#8217;s
+our assumption and everything else is derived from it. In principle it can have
+other terms, for example
+<img class="math" src="../../_images/math/ad3a53ef5f5c885f94c605088adb84b7dda3e34c.png" alt="\alpha_1 R^2 + \alpha_2 R_{\mu\nu} R^{\mu\nu} + \alpha_3 g^{\mu\nu} \nabla_\mu R \nabla_\nu R + \cdots"/>
+and there are a lot of possibilities and ultimately the exact form of the
+Lagrangian has to be decided by experiment.
+The Hilbert action is the simplest possible action and it already gives a
+theory which agrees with experiment, so that will be our starting point.</p>
+<p>Varying it with respect to the metric <img class="math" src="../../_images/math/1ec358694a495688f1ca6f376bcdf81236b7fb72.png" alt="g^{\mu\nu}"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/a1ebf052651b9fb53da7ae76c331e0800989bb03.png" alt="\delta S_H = \delta \int R \sqrt{ |\det g| } \d^4 x =
+
+    = \int
+        (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+        +g^{\mu\nu} (\delta R_{\mu\nu}) \sqrt{ |\det g| }
+        +R (\delta \sqrt{ |\det g| })
+        \d^4 x=
+
+    = \int
+        (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+        +g^{\mu\nu} \left(
+            \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
+            -\nabla_\nu(\delta \Gamma^\lambda_{\lambda\mu})
+            \right)\sqrt{ |\det g| }
+        +R (
+        -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu}))
+        \d^4 x=
+
+    = \int
+        (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+        + \left(
+            \nabla_\lambda g^{\mu\nu}(\delta \Gamma^\lambda_{\nu\mu})
+            -\nabla_\nu g^{\mu\nu}(\delta \Gamma^\lambda_{\lambda\mu})
+            \right)\sqrt{ |\det g| }
+        -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
+            (\delta g^{\mu\nu})
+        \d^4 x=
+
+    = \int
+        (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+        -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
+            (\delta g^{\mu\nu})
+        \d^4 x=
+
+    = \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+            (\delta g^{\mu\nu}) \sqrt{ |\det g| }
+        \d^4 x"/></p>
+</div><p>Where we used the fact, that the four divergence doesn&#8217;t contribute to the
+integral. By setting <img class="math" src="../../_images/math/6d1bf5b656cca53f5eb7c773591d5d637e7589f4.png" alt="\delta S_H=0"/>, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/2349345bad41648f49dc7dc3b9eab97b85766476.png" alt="{1\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
+    = R_{\mu\nu} -\half R g_{\mu\nu} = 0"/></p>
+</div><p>Combining the Hilbert action <img class="math" src="../../_images/math/4aa9f327497ca055318e9a31b3a8ddff4bd002f9.png" alt="S_H"/> with the action for matter <img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/650e50c5ff3535f7236820d598b5ecd3d356bfd4.png" alt="S = {c^4\over 8\pi G} S_H + S_M"/></p>
+</div><p>Varying this action as above we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3da7d01563d76c2e764bb623527a351d2375d72a.png" alt="{1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
+    ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+    +
+{1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0"/></p>
+</div><p>We set:</p>
+<div class="math">
+<p><img src="../../_images/math/4dd96c5df55324562af5752742450f4ba8dc0914.png" alt="T_{\mu\nu} = - {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}"/></p>
+</div><p>and we obtain the Einstein&#8217;s equations:</p>
+<div class="math">
+<p><img src="../../_images/math/e3712c539d7ca34073be96f85f3ba36f1e3d995a.png" alt="R_{\mu\nu} -\half R g_{\mu\nu} = {8\pi G \over c^4} T_{\mu\nu}"/></p>
+</div></div>
 <div class="section" id="obsolete-section">
-<h2>Obsolete section<a class="headerlink" href="#obsolete-section" title="Permalink to this headline">¶</a></h2>
+<h2>Obsolete Section<a class="headerlink" href="#obsolete-section" title="Permalink to this headline">¶</a></h2>
 <p>This section is obsolete, ideas from it should be polished (sometimes
 corrected) and put to other sections.</p>
 <p>The problem is, that in general, Christoffel symbols have 40 components and
@@ -1312,7 +1386,8 @@ are.</p>
 <li><a class="reference internal" href="#differential-geometry-formulation">Differential Geometry Formulation</a></li>
 <li><a class="reference internal" href="#metrics">Metrics</a></li>
 <li><a class="reference internal" href="#conclusion-about-metric">Conclusion About Metric</a></li>
-<li><a class="reference internal" href="#obsolete-section">Obsolete section</a></li>
+<li><a class="reference internal" href="#einstein-s-equations">Einstein&#8217;s Equations</a></li>
+<li><a class="reference internal" href="#obsolete-section">Obsolete Section</a></li>
 <li><a class="reference internal" href="#inertial-frames">Inertial frames</a></li>
 <li><a class="reference internal" href="#lorentz-group">Lorentz Group</a></li>
 <li><a class="reference internal" href="#o-4-group">O(4) Group</a></li>

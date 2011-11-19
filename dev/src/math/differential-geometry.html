@@ -252,7 +252,129 @@ which gives:</p>
 <div class="math">
 <p><img src="../../_images/math/a763fdc5ba56886c0ad1d75a3e90a411f430083d.png" alt="f(\lambda) = a \lambda + b"/></p>
 </div><p>This is called an affine reparametrization.</p>
-</div>
+<p>Another way to derive the geodesic equation is by finding a curve that
+maximizes the proper time:</p>
+<div class="math">
+<p><img src="../../_images/math/eeb83cf1dfa844ec1fa23de2e3606d7ef736c6a6.png" alt="\tau = \int \d \tau
+    = \int \sqrt{-{1\over c^2} \d s^2}
+    = \int \sqrt{-{1\over c^2} g_{\mu\nu} \d x^\mu \d x^\nu}
+    = \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+        {\d x^\nu\over\d\lambda}} \d\lambda"/></p>
+</div><p>We vary this action with respect to <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/de9bee177ff5667b34f5cf225eec326c075aa046.png" alt="\delta \tau
+    = \delta \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+        {\d x^\nu\over\d\lambda}} \d\lambda =
+
+    = \int {-{1\over c^2}\left(
+ (\delta g_{\mu\nu}) {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+ +g_{\mu\nu} \left(\delta {\d x^\mu\over\d \lambda}\right)
+    {\d x^\nu\over\d\lambda}
+ +g_{\mu\nu} {\d x^\mu\over\d \lambda}\left(\delta {\d x^\nu\over\d\lambda}
+    \right)
+        \right) \over 2
+        \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+        {\d x^\nu\over\d\lambda}}} \d\lambda =
+
+    = {1\over c^2}\int {\left(-\half
+ (\delta g_{\mu\nu}) {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+ - g_{\mu\nu} \left(\delta {\d x^\mu\over\d \lambda}\right)
+    {\d x^\nu\over\d\lambda}
+        \right) \over
+        \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+        {\d x^\nu\over\d\lambda}}} \d\lambda =
+
+    = {1\over c^2}\int {\left(-\half
+ (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+ - g_{\mu\nu} {\d (\delta x^\mu)\over\d \lambda}
+    {\d x^\nu\over\d\lambda}
+        \right) \over
+        \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+        {\d x^\nu\over\d\lambda}}} \d\lambda =
+
+    = {1\over c^2}\int \left(-\half
+ (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
+ - g_{\mu\nu} {\d (\delta x^\mu)\over\d \tau}
+    {\d x^\nu\over\d\tau}
+        \right) \d\tau =
+
+    = {1\over c^2}\int \left(-\half
+ (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
+ + {\d \over\d \tau}\left(g_{\mu\nu}
+    {\d x^\nu\over\d\tau}\right)(\delta x^\mu)
+        \right) \d\tau =
+
+    = {1\over c^2}\int \left(-\half
+     \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
+ + {\d \over\d \tau}\left(g_{\alpha\nu}
+    {\d x^\nu\over\d\tau}\right)
+        \right)(\delta x^\alpha) \d\tau =
+
+    = {1\over c^2}\int \left(-\half
+     \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
+ + {\d x^\mu\over\d \tau}(\partial_\mu g_{\alpha\nu})
+    {\d x^\nu\over\d\tau}
+ + g_{\alpha\nu}
+    {\d^2 x^\nu\over\d\tau^2}
+        \right)(\delta x^\alpha) \d\tau =
+
+    = {1\over c^2}\int \left(-\half
+     \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
+ + \half{\d x^\mu\over\d \tau}(\partial_\mu g_{\alpha\nu})
+    {\d x^\nu\over\d\tau}
+ + \half{\d x^\mu\over\d \tau}(\partial_\nu g_{\alpha\mu})
+    {\d x^\nu\over\d\tau}
+ + g_{\alpha\nu}
+    {\d^2 x^\nu\over\d\tau^2}
+        \right)(\delta x^\alpha) \d\tau =
+
+    = {1\over c^2}\int \left(
+    g_{\alpha\nu}
+        {\d^2 x^\nu\over\d\tau^2}
+    +\half(-
+     \partial_\alpha g_{\mu\nu}
+ + \partial_\mu g_{\alpha\nu}
+ + \partial_\nu g_{\alpha\mu})
+ {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
+        \right)(\delta x^\alpha) \d\tau =
+
+    = {1\over c^2}\int \left(
+    g_{\alpha\nu}
+        {\d^2 x^\nu\over\d\tau^2}
+    +\half(-
+     \partial_\alpha g_{\mu\nu}
+ + \partial_\mu g_{\alpha\nu}
+ + \partial_\nu g_{\alpha\mu})
+ {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
+        \right)g^{\alpha\rho}(\delta x_\rho) \d\tau =
+
+    = {1\over c^2}\int \left(
+        \delta_\nu{}^\rho
+        {\d^2 x^\nu\over\d\tau^2}
+    +\half g^{\alpha\rho}(-
+     \partial_\alpha g_{\mu\nu}
+ + \partial_\mu g_{\alpha\nu}
+ + \partial_\nu g_{\alpha\mu})
+ {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
+        \right)(\delta x_\rho) \d\tau =
+
+    = {1\over c^2}\int \left(
+        {\d^2 x^\rho\over\d\tau^2}
+    +\Gamma^\rho_{\mu\nu}
+ {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
+        \right)(\delta x_\rho) \d\tau"/></p>
+</div><p>By setting the variation <img class="math" src="../../_images/math/bde16f952e7821c4d2a28b3911f8f74087dfe99b.png" alt="\delta\tau=0"/> we obtain the geodesic equation:</p>
+<div class="math">
+<p><img src="../../_images/math/4ffc4b7b2b9763c768b7c63adb26636339b879c6.png" alt="{\d^2 x^\rho\over\d\tau^2}
+   +\Gamma^\rho_{\mu\nu}
+{\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau} = 0"/></p>
+</div></div>
 <div class="section" id="curvature">
 <span id="index-6"></span><h3>Curvature<a class="headerlink" href="#curvature" title="Permalink to this headline">¶</a></h3>
 <p>Curvature means that we take a vector <img class="math" src="../../_images/math/8b1d253fdeede3fed879c7a47ba91fa197799df8.png" alt="V^\mu"/>, parallel transport it around

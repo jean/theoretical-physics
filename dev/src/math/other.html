@@ -257,7 +257,11 @@ it is in fact perfectly fine to use <img class="math" src="../../_images/math/49
 <p><img src="../../_images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}"/></p>
 </div><p>More generally, <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/>-variation can by applied to any function <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> which contains the function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> being varied, you just need to replace <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> by <img class="math" src="../../_images/math/c06519738d7b1dca4ef16eaf7c3ceeffdf769812.png" alt="f+\epsilon h"/> and apply <img class="math" src="../../_images/math/9f23bfd30193abbf05a0a4902dd0f07bca098b8a.png" alt="{\d\over\d\epsilon}"/> to the whole <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>, for example (here <img class="math" src="../../_images/math/863c88d6680dd27db9835a147c0ce37233109ee1.png" alt="g=\partial_\mu\phi"/> and <img class="math" src="../../_images/math/173ffb3899170071c1007f633772f81a1d284757.png" alt="f=\phi"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/d7d7c01e227afa7fc82d28451f14c2620f48a8e6.png" alt="\delta\partial_\mu\phi=\left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}= \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}=\partial_\mu\delta\phi"/></p>
+<p><img src="../../_images/math/5535a35a39b0a828b531b88d003224e066813507.png" alt="\delta\partial_\mu\phi
+    = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}
+    = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}
+    =\partial_\mu h
+    =\partial_\mu \delta\phi"/></p>
 </div><p>This notation allows us a very convinient computation, as shown in the following examples. First, when computing a variation of some integral, when can interchange <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> and <img class="math" src="../../_images/math/c059b8f341d53786ae635d963ead37f20eb55b3b.png" alt="\int"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/90c6e5cb0f8047f52f0362c62ae0b152748eab17.png" alt="F[f]=\int K(x) f(x) \d x"/></p>
@@ -281,8 +285,8 @@ it is in fact perfectly fine to use <img class="math" src="../../_images/math/49
 <p>Another example is the derivation of Euler-Lagrange equations for the
 Lagrangian density <img class="math" src="../../_images/math/5dde232e7d98a7e226092bf4cc8886441e4f0a26.png" alt="\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/ca3df7ea8ec0fdf676a58b601e6200e37f07ab31.png" alt="0 = \delta I = \delta \int \L \,\d^4x^\mu
-= \int \partial \L \,\d^4x^\mu
+<p><img src="../../_images/math/5d0daaac1d2cb9ccf560bfc270acfdd165709b2d.png" alt="0 = \delta I = \delta \int \L \,\d^4x^\mu
+= \int \delta \L \,\d^4x^\mu
 = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
     +
     { \partial \L\over\partial (\partial_\nu \eta_\rho)}
@@ -336,7 +340,31 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
 </div><div class="math" id="equation-functionalderdel">
 <p><span class="eqno">(6)</span><img src="../../_images/math/f307d4a8c7baf08d7befd8f6640c6015126d34d0.png" alt="=\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)"/></p>
 </div><p>As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That&#8217;s why such obvious manipulations with <img class="math" src="../../_images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
-</div>
+<p>Another example with a metric as a function of coordinates
+<img class="math" src="../../_images/math/6608a1b744d0b091b2cf1ab98248cbf20579a552.png" alt="g_{\mu\nu} = g_{\mu\nu}(x^\mu)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/145ba5505622b0fd6b994893802418b15d15acf3.png" alt="\delta g_{\mu\nu}
+    = \delta g_{\mu\nu}(x^\mu)
+    = \left.{\d\over\d\varepsilon} g_{\mu\nu}(x^\mu+\varepsilon
+            (\delta x^\mu)) \right|_{\varepsilon=0}
+    = \left.{\d\over\d\varepsilon}
+            (x^\sigma+\varepsilon(\delta x^\sigma)) \right|_{\varepsilon=0}
+        \partial_\sigma g_{\mu\nu}
+    = (\delta x^\sigma) \partial_\sigma g_{\mu\nu}"/></p>
+</div><p>And an example of varying with respect to a metric:</p>
+<div class="math">
+<p><img src="../../_images/math/06e72379d3a2f54cc13ec5271eb99223e5c69a54.png" alt="\delta \sqrt{ |\det g_{\mu\nu}| }
+    =\sqrt{ |\det g_{\mu\nu}| }\, \delta \log \sqrt{ |\det g_{\mu\nu}| }
+    =\half \sqrt{ |\det g_{\mu\nu}| }\, \delta \log |\det g_{\mu\nu}| =
+
+    =\half \sqrt{ |\det g_{\mu\nu}| }\, \delta \Tr \log g_{\mu\nu}
+    =\half \sqrt{ |\det g_{\mu\nu}| }\, \Tr \delta \log g_{\mu\nu} =
+
+    =\half \sqrt{ |\det g_{\mu\nu}| }\, \Tr g^{\mu\nu} \delta g_{\mu\nu}
+    =\half \sqrt{ |\det g_{\mu\nu}| }\, g^{\mu\nu} \delta g_{\mu\nu} =
+
+    =-\half \sqrt{ |\det g_{\mu\nu}| }\, g_{\mu\nu} \delta g^{\mu\nu}"/></p>
+</div></div>
 <div class="section" id="dirac-notation">
 <span id="index-1"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
 <p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
