@@ -604,26 +604,41 @@ theory which agrees with experiment, so that will be our starting point.</p>
     = \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
             (\delta g^{\mu\nu}) \sqrt{ |\det g| }
         \d^4 x"/></p>
-</div><p>Where we used the fact, that the four divergence doesn&#8217;t contribute to the
+</div><p>Where we used the following identities:</p>
+<div class="math">
+<p><img src="../../_images/math/6c9f5819bdb8bc1db6b7fb261d3bfb0afd938771.png" alt="\delta \sqrt{ |\det g| } =
+        -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu})
+
+\delta R^\rho{}_{\mu\lambda\nu} =
+            \nabla_\lambda(\delta \Gamma^\rho_{\nu\mu})
+            -\nabla_\nu(\delta \Gamma^\rho_{\lambda\mu})
+
+\delta R_{\mu\nu} = \delta R^\lambda{}_{\mu\lambda\nu} =
+            \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
+            -\nabla_\nu(\delta \Gamma^\lambda_{\lambda\mu})"/></p>
+</div><p>and the fact that the four divergence doesn&#8217;t contribute to the
 integral. By setting <img class="math" src="../../_images/math/6d1bf5b656cca53f5eb7c773591d5d637e7589f4.png" alt="\delta S_H=0"/>, we get:</p>
 <div class="math">
 <p><img src="../../_images/math/2349345bad41648f49dc7dc3b9eab97b85766476.png" alt="{1\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
     = R_{\mu\nu} -\half R g_{\mu\nu} = 0"/></p>
 </div><p>Combining the Hilbert action <img class="math" src="../../_images/math/4aa9f327497ca055318e9a31b3a8ddff4bd002f9.png" alt="S_H"/> with the action for matter <img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/650e50c5ff3535f7236820d598b5ecd3d356bfd4.png" alt="S = {c^4\over 8\pi G} S_H + S_M"/></p>
+<p><img src="../../_images/math/fdd2d095e679eb9ed8291ed6bf8e64f39744e6c4.png" alt="S = {c^4\over 16\pi G} S_H + S_M"/></p>
 </div><p>Varying this action as above we get:</p>
 <div class="math">
-<p><img src="../../_images/math/3da7d01563d76c2e764bb623527a351d2375d72a.png" alt="{1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
-    ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+<p><img src="../../_images/math/fa3a30834359967d250a0bbb9e0fd4fd3bf5c4d4.png" alt="{1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
+    ={c^4\over 16\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
     +
 {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0"/></p>
-</div><p>We set:</p>
+</div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/4dd96c5df55324562af5752742450f4ba8dc0914.png" alt="T_{\mu\nu} = - {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}"/></p>
-</div><p>and we obtain the Einstein&#8217;s equations:</p>
+<p><img src="../../_images/math/860727ccb2893af47c6fa186d4d2cc7f02c9063b.png" alt="R_{\mu\nu} -\half R g_{\mu\nu} =
+    -{16\pi G \over c^4}
+    {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
+={8\pi G \over c^4} T_{\mu\nu}"/></p>
+</div><p>Where we set:</p>
 <div class="math">
-<p><img src="../../_images/math/e3712c539d7ca34073be96f85f3ba36f1e3d995a.png" alt="R_{\mu\nu} -\half R g_{\mu\nu} = {8\pi G \over c^4} T_{\mu\nu}"/></p>
+<p><img src="../../_images/math/aca73048e4cc18862417a2bb309e5a553e7e6621.png" alt="T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}"/></p>
 </div></div>
 <div class="section" id="obsolete-section">
 <h2>Obsolete Section<a class="headerlink" href="#obsolete-section" title="Permalink to this headline">¶</a></h2>

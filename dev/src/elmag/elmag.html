@@ -586,7 +586,57 @@ tensor is still conserved. We choose
         -{1\over 4}g^{\mu\nu}
             F_{\alpha\beta} F^{\alpha\beta}\right)"/></p>
 </div><p>where we used <img class="math" src="../../_images/math/dd90ee0495c65c7816fef0c37d3c092b3a18545a.png" alt="\partial_\alpha F^{\mu\alpha} = 0"/>.</p>
-</div>
+<p>Another way to derive the stress energy tensor is from general relativity using
+the formula:</p>
+<div class="math">
+<p><img src="../../_images/math/232c4a467d0cfba2983fb215f2f0a694bc1b803f.png" alt="T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_{EM}\over
+        \delta g^{\mu\nu}}"/></p>
+</div><p>So we write the action:</p>
+<div class="math">
+<p><img src="../../_images/math/3ca001719ca7f10078bbb13f79aacf4ed20b5f76.png" alt="S_{EM} = -\int {1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+    \sqrt{ |\det g| }\d^4 x
+    = -\int {1\over 4\mu_0} g^{\alpha\lambda} g^{\beta\rho} F_{\alpha\beta}
+        F_{\lambda\rho}
+    \sqrt{ |\det g| }\d^4 x"/></p>
+</div><p>And vary with respect to <img class="math" src="../../_images/math/1ec358694a495688f1ca6f376bcdf81236b7fb72.png" alt="g^{\mu\nu}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/92350dbe8779a0828da80bf285eb84a342fec886.png" alt="\delta S_{EM}
+    = -\delta \int {1\over 4\mu_0} g^{\alpha\lambda} g^{\beta\rho}
+        F_{\alpha\beta} F_{\lambda\rho} \sqrt{ |\det g| }\d^4 x =
+
+    = -{1\over 4\mu_0} \int  \left(\delta (g^{\alpha\lambda} g^{\beta\rho})
+        F_{\alpha\beta} F_{\lambda\rho} \sqrt{ |\det g| }
+        + g^{\alpha\mu} g^{\beta\rho}
+        F_{\alpha\beta} F_{\lambda\rho} \left(\delta \sqrt{ |\det g| }
+        \right)
+        \right)\d^4 x =
+
+    = -{1\over 4\mu_0} \int  \left(2(\delta g^{\alpha\lambda}) g^{\beta\rho}
+        F_{\alpha\beta} F_{\lambda\rho} \sqrt{ |\det g| }
+        + g^{\alpha\lambda} g^{\beta\rho}
+        F_{\alpha\beta} F_{\lambda\rho} \left(-\half \sqrt{ |\det g| }
+        g_{\mu\nu} (\delta g^{\mu\nu})
+        \right)
+        \right)\d^4 x =
+
+    = -{1\over 4\mu_0} \int  \left(2(\delta g^{\alpha\lambda})
+        F_{\alpha\beta} F_\lambda{}^\beta
+        -\half F_{\alpha\beta} F^{\alpha\beta}
+        g_{\mu\nu} (\delta g^{\mu\nu})
+        \right) \sqrt{ |\det g| } \d^4 x =
+
+    = -{1\over 2\mu_0} \int  \left(
+        F_{\mu\beta} F_\nu{}^\beta
+        -{1\over 4} F_{\alpha\beta} F^{\alpha\beta}
+        g_{\mu\nu}
+        \right) (\delta g^{\mu\nu}) \sqrt{ |\det g| } \d^4 x"/></p>
+</div><p>And we get:</p>
+<div class="math">
+<p><img src="../../_images/math/e40606fc6fe2354d566a602d019a80f3693379ed.png" alt="T_{\mu\nu} = {1\over \mu_0} \left(
+        F_{\mu\beta} F_\nu{}^\beta
+        -{1\over 4} F_{\alpha\beta} F^{\alpha\beta}
+        g_{\mu\nu} \right)"/></p>
+</div></div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="biot-savart-law">

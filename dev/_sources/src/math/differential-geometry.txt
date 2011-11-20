@@ -489,29 +489,237 @@ By setting the variation $\delta\tau=0$ we obtain the geodesic equation:
 
 .. index:: curvature
 
-Curvature
----------
+Riemann Curvature Tensor
+------------------------
 
-
-Curvature means that we take a vector $V^\mu$, parallel transport it around
-a closed loop (which is just applying a commutator of the covariant derivatives $[\nabla_\alpha, \nabla_\beta]V^\mu$), see how it changes and
-that's the curvature:
+Curvature means that we take a vector $V^\mu$, parallel transport it around a
+closed loop (which is just applying a commutator of the covariant derivatives
+$[\nabla_\alpha, \nabla_\beta]V^\mu$) and see how it changes. We express the
+result in terms of the vector $V^\mu$:
 
 .. math::
 
     [\nabla_\alpha, \nabla_\beta]V^\mu\equiv R^\mu{}_{\nu\alpha\beta}V^\nu
 
-That's all there is to it. Expanding the left hand side:
+The coefficients $R^\mu{}_{\nu\alpha\beta}$ form a tensor called Riemann
+curvature tensor.
+Expanding the left hand side:
 
 .. math::
 
-    [\nabla_\alpha, \nabla_\beta]V^\mu=\left(\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}\right)V^\nu
+    [\nabla_\alpha, \nabla_\beta]V^\mu
+        =\nabla_\alpha \nabla_\beta V^\mu - \nabla_\alpha \nabla_\beta V^\mu =
 
-we get
+        =\nabla_\alpha \nabla_\beta V^\mu - (\alpha \leftrightarrow \beta) =
+
+        =\partial_\alpha \nabla_\beta V^\mu
+            - \Gamma^\sigma_{\alpha \beta} \nabla_\sigma V^\mu
+            + \Gamma^\mu_{\alpha \sigma} \nabla_\beta V^\sigma
+            - (\alpha \leftrightarrow \beta) =
+
+        =\partial_\alpha
+            \left(\partial_\beta V^\mu +\Gamma^\mu_{\beta\sigma} V^\sigma\right)
+            - \Gamma^\sigma_{\alpha \beta}
+            \left(\partial_\sigma V^\mu +\Gamma^\mu_{\sigma\nu} V^\nu\right)
+            + \Gamma^\mu_{\alpha \sigma}
+            \left(\partial_\beta V^\sigma +\Gamma^\sigma_{\beta\nu} V^\nu\right)
+            - (\alpha \leftrightarrow \beta) =
+
+        =\partial_\alpha
+            \left(\partial_\beta V^\mu +\Gamma^\mu_{\beta\sigma} V^\sigma\right)
+            + \Gamma^\mu_{\alpha \sigma}
+            \left(\partial_\beta V^\sigma +\Gamma^\sigma_{\beta\nu} V^\nu\right)
+            - (\alpha \leftrightarrow \beta) =
+
+        = \partial_\alpha \partial_\beta V^\mu
+                + \partial_\alpha\Gamma^\mu_{\beta\sigma} V^\sigma
+                + \Gamma^\mu_{\beta\sigma} \partial_\alpha V^\sigma
+            + \Gamma^\mu_{\alpha \sigma} \partial_\beta V^\sigma
+                +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu} V^\nu
+            - (\alpha \leftrightarrow \beta) =
+
+        = \partial_\alpha\Gamma^\mu_{\beta\sigma} V^\sigma
+            +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu} V^\nu
+            - (\alpha \leftrightarrow \beta) =
+
+        = \left(\partial_\alpha\Gamma^\mu_{\beta\nu}
+            +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu}
+            - (\alpha \leftrightarrow \beta) \right) V^\nu
+
+Where we have used the fact that all terms symmetric in
+$\alpha\beta$ (in particular $\Gamma^\sigma_{\alpha\beta}$ and
+$\partial_\alpha \partial_\beta V^\mu$ and
+$\Gamma^\mu_{\beta\sigma} \partial_\alpha V^\sigma + \Gamma^\mu_{\alpha \sigma} \partial_\beta V^\sigma$) get canceled by the
+same term in the $(\alpha \leftrightarrow \beta)$. We get
 
 .. math::
 
-    R^\mu{}_{\nu\alpha\beta}=\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}
+    R^\mu{}_{\nu\alpha\beta}
+        = \partial_\alpha\Gamma^\mu_{\beta \nu}
+        + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+          - (\alpha \leftrightarrow \beta)
+        = \partial_\alpha\Gamma^\mu_{\beta \nu}
+        - \partial_\beta \Gamma^\mu_{\alpha\nu}
+        + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+        - \Gamma^\mu_{\beta \sigma}\Gamma^\sigma_{\alpha\nu}
+
+In order to see all the symmetries, that the Riemann tensor has, we lower the
+first index
+
+.. math::
+
+    R_{\mu\nu\alpha\beta} = g_{\mu\lambda} R^\lambda{}_{\nu\alpha\beta}
+        = g_{\mu\lambda} \left(
+        \partial_\alpha\Gamma^\lambda_{\beta \nu}
+        + \Gamma^\lambda_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+          - (\alpha \leftrightarrow \beta)
+        \right)
+
+
+and use local inertial frame coordinates, where all Christoffel
+symbols vanish (not their derivatives though):
+
+.. math::
+
+    R_{\mu\nu\alpha\beta}
+        = g_{\mu\lambda} \left(
+        \partial_\alpha\Gamma^\lambda_{\beta \nu}
+          - (\alpha \leftrightarrow \beta)
+        \right)
+
+        = g_{\mu\lambda}\left(\partial_\alpha\left(
+            \half g^{\lambda\sigma}(
+                 \partial_\beta g_{\sigma\nu}
+                +\partial_\nu g_{\sigma\beta}
+                -\partial_\sigma g_{\beta\nu}
+                )\right)
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half g_{\mu\lambda}g^{\lambda\sigma} \left(\partial_\alpha\left(
+                 \partial_\beta g_{\sigma\nu}
+                +\partial_\nu g_{\sigma\beta}
+                -\partial_\sigma g_{\beta\nu}
+                \right)
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \delta_\mu{}^\sigma \left(\partial_\alpha\left(
+                 \partial_\beta g_{\sigma\nu}
+                +\partial_\nu g_{\sigma\beta}
+                -\partial_\sigma g_{\beta\nu}
+                \right)
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                 \partial_\alpha\partial_\beta g_{\mu\nu}
+                +\partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                \partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                \partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+                -\partial_\beta\partial_\nu g_{\mu\alpha}
+                +\partial_\beta\partial_\mu g_{\alpha\nu}
+                \right)
+
+We will also need:
+
+.. math::
+
+    \nabla_\lambda R_{\mu\nu\alpha\beta}
+        = \half \partial_\lambda \left(
+                \partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                \partial_\lambda\partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\lambda\partial_\alpha\partial_\mu g_{\beta\nu}
+                -\partial_\lambda\partial_\beta\partial_\nu g_{\mu\alpha}
+                +\partial_\lambda\partial_\beta\partial_\mu g_{\alpha\nu}
+                \right)
+
+Using these expressions for the curvature tensor in a local inertial frame, we
+derive the following 5 symmetries of the curvature tensor by simply
+substituting for the left hand side and verify that it is equal to the right
+hand side:
+
+.. math::
+
+    R_{\mu\nu\alpha\beta} &= -R_{\mu\nu\beta\alpha} \\
+    R_{\mu\nu\alpha\beta} &= -R_{\nu\mu\alpha\beta} \\
+    R_{\mu\nu\alpha\beta} &= R_{\alpha\beta\mu\nu} \\
+    R_{\mu\nu\alpha\beta} + R_{\mu\alpha\beta\nu} + R_{\mu\beta\nu\alpha} &= 0\\
+    \nabla_\lambda R_{\mu\nu\alpha\beta} +\nabla_\mu R_{\nu\lambda\alpha\beta} +\nabla_\nu R_{\lambda\mu\alpha\beta} &= 0
+
+These are tensor expressions and so even though we derived them in a local
+inertial frame, they hold in all coordinates. The last identity is called
+a Bianchi identity.
+
+The Ricci tensor is defined as:
+
+.. math::
+
+    R_{\mu\nu} = R^\lambda{}_{\mu\lambda\nu} = g^{\lambda\sigma}
+        R_{\sigma\mu\lambda\nu}
+
+From the last equality we can see that it is symmetric in $\mu\nu$. A Ricci
+scalar is defined as:
+
+.. math::
+
+    R = R^\mu{}_\mu = g^{\mu\nu} R_{\mu\nu}
+
+The Einstein tensor is defined as:
+
+.. math::
+
+    G_{\mu\nu} = R_{\mu\nu} - \half R g_{\mu\nu}
+
+It is symmetric in $\mu\nu$ due to the symmetry of the metric and Ricci
+tensors. By contracting the Bianchi identity twice, we can show that Einstein
+tensor has zero divergence:
+
+.. math::
+
+    g^{\lambda\alpha} g^{\nu\beta}\left(
+    \nabla_\lambda R_{\mu\nu\alpha\beta}
+    +\nabla_\mu R_{\nu\lambda\alpha\beta}
+    +\nabla_\nu R_{\lambda\mu\alpha\beta}\right) =
+
+    = \nabla^\alpha g^{\nu\beta} R_{\mu\nu\alpha\beta}
+    +\nabla_\mu g^{\lambda\alpha} R^\beta{}_{\lambda\alpha\beta}
+    +\nabla^\beta g^{\lambda\alpha} R_{\lambda\mu\alpha\beta} =
+
+    = \nabla^\alpha g^{\nu\beta} R_{\nu\mu\beta\alpha}
+    -\nabla_\mu g^{\lambda\alpha} R^\beta{}_{\lambda\beta\alpha}
+    +\nabla^\beta R^\alpha{}_{\mu\alpha\beta} =
+
+    = \nabla^\alpha R^\beta{}_{\mu\beta\alpha}
+    -\nabla_\mu g^{\lambda\alpha} R_{\lambda\alpha}
+    +\nabla^\beta R_{\mu\beta} =
+
+    = \nabla^\alpha R_{\mu\alpha}
+    -\nabla_\mu R^\alpha{}_\alpha
+    +\nabla^\beta R_{\mu\beta} =
+
+    = 2\nabla^\alpha R_{\mu\alpha} -\nabla_\mu R =
+
+    = 2\nabla^\alpha\left(R_{\mu\alpha} -\half g_{\mu\alpha} R \right) =
+
+    = 2\nabla^\alpha G_{\mu\alpha} = 0
+
 
 .. index::
     pair: Lie; derivative

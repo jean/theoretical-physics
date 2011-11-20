@@ -375,19 +375,201 @@ maximizes the proper time:</p>
    +\Gamma^\rho_{\mu\nu}
 {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau} = 0"/></p>
 </div></div>
-<div class="section" id="curvature">
-<span id="index-6"></span><h3>Curvature<a class="headerlink" href="#curvature" title="Permalink to this headline">¶</a></h3>
-<p>Curvature means that we take a vector <img class="math" src="../../_images/math/8b1d253fdeede3fed879c7a47ba91fa197799df8.png" alt="V^\mu"/>, parallel transport it around
-a closed loop (which is just applying a commutator of the covariant derivatives <img class="math" src="../../_images/math/4025c4f43eb0f72b83dd1890bfedaf45a492a82c.png" alt="[\nabla_\alpha, \nabla_\beta]V^\mu"/>), see how it changes and
-that&#8217;s the curvature:</p>
+<div class="section" id="riemann-curvature-tensor">
+<span id="index-6"></span><h3>Riemann Curvature Tensor<a class="headerlink" href="#riemann-curvature-tensor" title="Permalink to this headline">¶</a></h3>
+<p>Curvature means that we take a vector <img class="math" src="../../_images/math/8b1d253fdeede3fed879c7a47ba91fa197799df8.png" alt="V^\mu"/>, parallel transport it around a
+closed loop (which is just applying a commutator of the covariant derivatives
+<img class="math" src="../../_images/math/4025c4f43eb0f72b83dd1890bfedaf45a492a82c.png" alt="[\nabla_\alpha, \nabla_\beta]V^\mu"/>) and see how it changes. We express the
+result in terms of the vector <img class="math" src="../../_images/math/8b1d253fdeede3fed879c7a47ba91fa197799df8.png" alt="V^\mu"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/d2cdef901515168d83df026f3444947aaef21208.png" alt="[\nabla_\alpha, \nabla_\beta]V^\mu\equiv R^\mu{}_{\nu\alpha\beta}V^\nu"/></p>
-</div><p>That&#8217;s all there is to it. Expanding the left hand side:</p>
+</div><p>The coefficients <img class="math" src="../../_images/math/7a4f90025b908d16d7fd02be088faf604da196ec.png" alt="R^\mu{}_{\nu\alpha\beta}"/> form a tensor called Riemann
+curvature tensor.
+Expanding the left hand side:</p>
 <div class="math">
-<p><img src="../../_images/math/9469c66955886e1a1f84684ef37bd8c59dd24333.png" alt="[\nabla_\alpha, \nabla_\beta]V^\mu=\left(\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}\right)V^\nu"/></p>
-</div><p>we get</p>
+<p><img src="../../_images/math/0993d89158954a936c297c02b27b9eb055a22a2d.png" alt="[\nabla_\alpha, \nabla_\beta]V^\mu
+    =\nabla_\alpha \nabla_\beta V^\mu - \nabla_\alpha \nabla_\beta V^\mu =
+
+    =\nabla_\alpha \nabla_\beta V^\mu - (\alpha \leftrightarrow \beta) =
+
+    =\partial_\alpha \nabla_\beta V^\mu
+        - \Gamma^\sigma_{\alpha \beta} \nabla_\sigma V^\mu
+        + \Gamma^\mu_{\alpha \sigma} \nabla_\beta V^\sigma
+        - (\alpha \leftrightarrow \beta) =
+
+    =\partial_\alpha
+        \left(\partial_\beta V^\mu +\Gamma^\mu_{\beta\sigma} V^\sigma\right)
+        - \Gamma^\sigma_{\alpha \beta}
+        \left(\partial_\sigma V^\mu +\Gamma^\mu_{\sigma\nu} V^\nu\right)
+        + \Gamma^\mu_{\alpha \sigma}
+        \left(\partial_\beta V^\sigma +\Gamma^\sigma_{\beta\nu} V^\nu\right)
+        - (\alpha \leftrightarrow \beta) =
+
+    =\partial_\alpha
+        \left(\partial_\beta V^\mu +\Gamma^\mu_{\beta\sigma} V^\sigma\right)
+        + \Gamma^\mu_{\alpha \sigma}
+        \left(\partial_\beta V^\sigma +\Gamma^\sigma_{\beta\nu} V^\nu\right)
+        - (\alpha \leftrightarrow \beta) =
+
+    = \partial_\alpha \partial_\beta V^\mu
+            + \partial_\alpha\Gamma^\mu_{\beta\sigma} V^\sigma
+            + \Gamma^\mu_{\beta\sigma} \partial_\alpha V^\sigma
+        + \Gamma^\mu_{\alpha \sigma} \partial_\beta V^\sigma
+            +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu} V^\nu
+        - (\alpha \leftrightarrow \beta) =
+
+    = \partial_\alpha\Gamma^\mu_{\beta\sigma} V^\sigma
+        +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu} V^\nu
+        - (\alpha \leftrightarrow \beta) =
+
+    = \left(\partial_\alpha\Gamma^\mu_{\beta\nu}
+        +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu}
+        - (\alpha \leftrightarrow \beta) \right) V^\nu"/></p>
+</div><p>Where we have used the fact that all terms symmetric in
+<img class="math" src="../../_images/math/f7ab0163edd4c1a0e201afe0279824d2efa68f32.png" alt="\alpha\beta"/> (in particular <img class="math" src="../../_images/math/5050f8069c427ede5d97ef4bcf55573142ee8cb5.png" alt="\Gamma^\sigma_{\alpha\beta}"/> and
+<img class="math" src="../../_images/math/9b386f3e8b18bd7dfe22f19e1f3f7659e70b11f0.png" alt="\partial_\alpha \partial_\beta V^\mu"/> and
+<img class="math" src="../../_images/math/970b3200ed99eb7c98cced3620b64cadbc8f9a41.png" alt="\Gamma^\mu_{\beta\sigma} \partial_\alpha V^\sigma + \Gamma^\mu_{\alpha \sigma} \partial_\beta V^\sigma"/>) get canceled by the
+same term in the <img class="math" src="../../_images/math/ade57c97d2817b7afb2f0f0dea4fe4097b0d8e68.png" alt="(\alpha \leftrightarrow \beta)"/>. We get</p>
 <div class="math">
-<p><img src="../../_images/math/cd5f25b918834138c763f06a28ac8ac3d2a263f0.png" alt="R^\mu{}_{\nu\alpha\beta}=\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}"/></p>
+<p><img src="../../_images/math/69bd199fc0fb762162979c409ea8bbb37e25e108.png" alt="R^\mu{}_{\nu\alpha\beta}
+    = \partial_\alpha\Gamma^\mu_{\beta \nu}
+    + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+      - (\alpha \leftrightarrow \beta)
+    = \partial_\alpha\Gamma^\mu_{\beta \nu}
+    - \partial_\beta \Gamma^\mu_{\alpha\nu}
+    + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+    - \Gamma^\mu_{\beta \sigma}\Gamma^\sigma_{\alpha\nu}"/></p>
+</div><p>In order to see all the symmetries, that the Riemann tensor has, we lower the
+first index</p>
+<div class="math">
+<p><img src="../../_images/math/770dd6de6957a01fb21f942e8a337324093871a4.png" alt="R_{\mu\nu\alpha\beta} = g_{\mu\lambda} R^\lambda{}_{\nu\alpha\beta}
+    = g_{\mu\lambda} \left(
+    \partial_\alpha\Gamma^\lambda_{\beta \nu}
+    + \Gamma^\lambda_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+      - (\alpha \leftrightarrow \beta)
+    \right)"/></p>
+</div><p>and use local inertial frame coordinates, where all Christoffel
+symbols vanish (not their derivatives though):</p>
+<div class="math">
+<p><img src="../../_images/math/6197788edc1b836076f9aec664e1434acdbcc293.png" alt="R_{\mu\nu\alpha\beta}
+    = g_{\mu\lambda} \left(
+    \partial_\alpha\Gamma^\lambda_{\beta \nu}
+      - (\alpha \leftrightarrow \beta)
+    \right)
+
+    = g_{\mu\lambda}\left(\partial_\alpha\left(
+        \half g^{\lambda\sigma}(
+             \partial_\beta g_{\sigma\nu}
+            +\partial_\nu g_{\sigma\beta}
+            -\partial_\sigma g_{\beta\nu}
+            )\right)
+      - (\alpha \leftrightarrow \beta)
+            \right) =
+
+    = \half g_{\mu\lambda}g^{\lambda\sigma} \left(\partial_\alpha\left(
+             \partial_\beta g_{\sigma\nu}
+            +\partial_\nu g_{\sigma\beta}
+            -\partial_\sigma g_{\beta\nu}
+            \right)
+      - (\alpha \leftrightarrow \beta)
+            \right) =
+
+    = \half \delta_\mu{}^\sigma \left(\partial_\alpha\left(
+             \partial_\beta g_{\sigma\nu}
+            +\partial_\nu g_{\sigma\beta}
+            -\partial_\sigma g_{\beta\nu}
+            \right)
+      - (\alpha \leftrightarrow \beta)
+            \right) =
+
+    = \half \left(
+             \partial_\alpha\partial_\beta g_{\mu\nu}
+            +\partial_\alpha\partial_\nu g_{\mu\beta}
+            -\partial_\alpha\partial_\mu g_{\beta\nu}
+      - (\alpha \leftrightarrow \beta)
+            \right) =
+
+    = \half \left(
+            \partial_\alpha\partial_\nu g_{\mu\beta}
+            -\partial_\alpha\partial_\mu g_{\beta\nu}
+      - (\alpha \leftrightarrow \beta)
+            \right) =
+
+    = \half \left(
+            \partial_\alpha\partial_\nu g_{\mu\beta}
+            -\partial_\alpha\partial_\mu g_{\beta\nu}
+            -\partial_\beta\partial_\nu g_{\mu\alpha}
+            +\partial_\beta\partial_\mu g_{\alpha\nu}
+            \right)"/></p>
+</div><p>We will also need:</p>
+<div class="math">
+<p><img src="../../_images/math/69ac54a54c9338996c06bb1e7e5042519bfbee6e.png" alt="\nabla_\lambda R_{\mu\nu\alpha\beta}
+    = \half \partial_\lambda \left(
+            \partial_\alpha\partial_\nu g_{\mu\beta}
+            -\partial_\alpha\partial_\mu g_{\beta\nu}
+      - (\alpha \leftrightarrow \beta)
+            \right) =
+
+    = \half \left(
+            \partial_\lambda\partial_\alpha\partial_\nu g_{\mu\beta}
+            -\partial_\lambda\partial_\alpha\partial_\mu g_{\beta\nu}
+            -\partial_\lambda\partial_\beta\partial_\nu g_{\mu\alpha}
+            +\partial_\lambda\partial_\beta\partial_\mu g_{\alpha\nu}
+            \right)"/></p>
+</div><p>Using these expressions for the curvature tensor in a local inertial frame, we
+derive the following 5 symmetries of the curvature tensor by simply
+substituting for the left hand side and verify that it is equal to the right
+hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/14576b6560f5292ddd286e612efbfdee02d7ce0c.png" alt="R_{\mu\nu\alpha\beta} &amp;= -R_{\mu\nu\beta\alpha} \\
+R_{\mu\nu\alpha\beta} &amp;= -R_{\nu\mu\alpha\beta} \\
+R_{\mu\nu\alpha\beta} &amp;= R_{\alpha\beta\mu\nu} \\
+R_{\mu\nu\alpha\beta} + R_{\mu\alpha\beta\nu} + R_{\mu\beta\nu\alpha} &amp;= 0\\
+\nabla_\lambda R_{\mu\nu\alpha\beta} +\nabla_\mu R_{\nu\lambda\alpha\beta} +\nabla_\nu R_{\lambda\mu\alpha\beta} &amp;= 0"/></p>
+</div><p>These are tensor expressions and so even though we derived them in a local
+inertial frame, they hold in all coordinates. The last identity is called
+a Bianchi identity.</p>
+<p>The Ricci tensor is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/e7e6ada6fe7b2edeb74239f5d9e404f217baec45.png" alt="R_{\mu\nu} = R^\lambda{}_{\mu\lambda\nu} = g^{\lambda\sigma}
+    R_{\sigma\mu\lambda\nu}"/></p>
+</div><p>From the last equality we can see that it is symmetric in <img class="math" src="../../_images/math/e72d03b8f162910252d6170548721746617b5ec5.png" alt="\mu\nu"/>. A Ricci
+scalar is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/34c3842efb464bc5712047a0622d60b8da5b81e2.png" alt="R = R^\mu{}_\mu = g^{\mu\nu} R_{\mu\nu}"/></p>
+</div><p>The Einstein tensor is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/f5e4e7c7442b94ed5311c28f42be33c94bbdcaff.png" alt="G_{\mu\nu} = R_{\mu\nu} - \half R g_{\mu\nu}"/></p>
+</div><p>It is symmetric in <img class="math" src="../../_images/math/e72d03b8f162910252d6170548721746617b5ec5.png" alt="\mu\nu"/> due to the symmetry of the metric and Ricci
+tensors. By contracting the Bianchi identity twice, we can show that Einstein
+tensor has zero divergence:</p>
+<div class="math">
+<p><img src="../../_images/math/b1a71ea49fe5ea8dd9bc5d113ad2a61f319f5a2c.png" alt="g^{\lambda\alpha} g^{\nu\beta}\left(
+\nabla_\lambda R_{\mu\nu\alpha\beta}
++\nabla_\mu R_{\nu\lambda\alpha\beta}
++\nabla_\nu R_{\lambda\mu\alpha\beta}\right) =
+
+= \nabla^\alpha g^{\nu\beta} R_{\mu\nu\alpha\beta}
++\nabla_\mu g^{\lambda\alpha} R^\beta{}_{\lambda\alpha\beta}
++\nabla^\beta g^{\lambda\alpha} R_{\lambda\mu\alpha\beta} =
+
+= \nabla^\alpha g^{\nu\beta} R_{\nu\mu\beta\alpha}
+-\nabla_\mu g^{\lambda\alpha} R^\beta{}_{\lambda\beta\alpha}
++\nabla^\beta R^\alpha{}_{\mu\alpha\beta} =
+
+= \nabla^\alpha R^\beta{}_{\mu\beta\alpha}
+-\nabla_\mu g^{\lambda\alpha} R_{\lambda\alpha}
++\nabla^\beta R_{\mu\beta} =
+
+= \nabla^\alpha R_{\mu\alpha}
+-\nabla_\mu R^\alpha{}_\alpha
++\nabla^\beta R_{\mu\beta} =
+
+= 2\nabla^\alpha R_{\mu\alpha} -\nabla_\mu R =
+
+= 2\nabla^\alpha\left(R_{\mu\alpha} -\half g_{\mu\alpha} R \right) =
+
+= 2\nabla^\alpha G_{\mu\alpha} = 0"/></p>
 </div></div>
 <div class="section" id="lie-derivative">
 <span id="index-7"></span><h3>Lie derivative<a class="headerlink" href="#lie-derivative" title="Permalink to this headline">¶</a></h3>
@@ -1307,7 +1489,7 @@ g^{zj}\nabla_j v^z = g^{zz}\nabla_z v^z =
 <li><a class="reference internal" href="#parallel-transport">Parallel transport</a></li>
 <li><a class="reference internal" href="#fermi-walker-transport">Fermi-Walker transport</a></li>
 <li><a class="reference internal" href="#geodesics">Geodesics</a></li>
-<li><a class="reference internal" href="#curvature">Curvature</a></li>
+<li><a class="reference internal" href="#riemann-curvature-tensor">Riemann Curvature Tensor</a></li>
 <li><a class="reference internal" href="#lie-derivative">Lie derivative</a></li>
 <li><a class="reference internal" href="#metric">Metric</a><ul>
 <li><a class="reference internal" href="#diagonal-metric">Diagonal Metric</a></li>
