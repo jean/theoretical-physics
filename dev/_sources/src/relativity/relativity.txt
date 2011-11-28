@@ -855,8 +855,8 @@ Einstein's equations are derived from the Hilbert action:
 
 .. math::
 
-    S_H = \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
-        = \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x
+    S_H = {c^4\over 16\pi G} \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
+        = {c^4\over 16\pi G} \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x
 
 The Lagrangian density $R \sqrt{ |\det g_{\mu\nu}| }$ has to be given, that's
 our assumption and everything else is derived from it. In principle it can have
@@ -871,15 +871,15 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
 
 .. math::
 
-    \delta S_H = \delta \int R \sqrt{ |\det g| } \d^4 x =
+    \delta S_H = \delta {c^4\over 16\pi G} \int R \sqrt{ |\det g| } \d^4 x =
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             +g^{\mu\nu} (\delta R_{\mu\nu}) \sqrt{ |\det g| }
             +R (\delta \sqrt{ |\det g| })
             \d^4 x=
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             +g^{\mu\nu} \left(
                 \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
@@ -889,7 +889,7 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
             -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu}))
             \d^4 x=
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             + \left(
                 \nabla_\lambda g^{\mu\nu}(\delta \Gamma^\lambda_{\nu\mu})
@@ -899,13 +899,13 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
                 (\delta g^{\mu\nu})
             \d^4 x=
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
                 (\delta g^{\mu\nu})
             \d^4 x=
 
-        = \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+        = {c^4\over 16\pi G} \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
                 (\delta g^{\mu\nu}) \sqrt{ |\det g| }
             \d^4 x
 
@@ -929,31 +929,31 @@ integral. By setting $\delta S_H=0$, we get:
 
 .. math::
 
-    {1\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
-        = R_{\mu\nu} -\half R g_{\mu\nu} = 0
+    {2\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
+        = {c^4\over 8\pi G}(R_{\mu\nu} -\half R g_{\mu\nu}) = 0
 
 Combining the Hilbert action $S_H$ with the action for matter $S_M$ we get:
 
 .. math::
 
-    S = {c^4\over 16\pi G} S_H + S_M
+    S = S_H + S_M
 
 Varying this action as above we get:
 
 .. math::
 
-    {1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
-        ={c^4\over 16\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right) 
+    {2\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
+        ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
         +
-    {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0
+    {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0
 
 so:
 
 .. math::
 
     R_{\mu\nu} -\half R g_{\mu\nu} =
-        -{16\pi G \over c^4}
-        {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} 
+        -{8\pi G \over c^4}
+        {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} 
     ={8\pi G \over c^4} T_{\mu\nu}
 
 Where we set:
@@ -961,6 +961,186 @@ Where we set:
 .. math::
 
     T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
+
+This is a definition of the stress energy tensor corresponding to the action
+$S_M$. If this action contains electromagnetic field, we get an electromagnetic
+stress energy tensor. For continous matter, we get the stress energy tensor for
+continous matter, see the next section. The right hand side of the Einstein's
+equations contains the sum of all stress energy tensors (for all fields in the
+Lagrangian).
+
+
+Continuous Distribution of Matter
+---------------------------------
+
+The action is:
+
+.. math::
+
+    S_M = -\int \rho c \sqrt{v_\mu v^\mu} \sqrt{ |\det g| } \d^4 x
+
+But it isn't suitable for applying variations because $\rho$ and $v^\mu$ are
+not independent quantities. So we write it in terms of a 4-momentum vector
+density $\textgoth{p}^\mu$:
+
+.. math::
+
+    p^\mu = \rho v^\mu
+
+    \textgoth{p}^\mu = p^\mu \sqrt{ |\det g| } = \rho v^\mu \sqrt{ |\det g| }
+
+    \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu}
+        = \sqrt{\rho v_\mu \sqrt{ |\det g| } \rho v^\mu \sqrt{ |\det g| }}
+        = \rho \sqrt{v_\mu v^\mu} \sqrt{ |\det g| }
+
+and the action becomes:
+
+.. math::
+
+    S_M = -\int \rho c \sqrt{v_\mu v^\mu} \sqrt{ |\det g| } \d^4 x
+        = -\int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x
+
+We vary $S_M$ with respect to $g^{\mu\nu}$:
+
+.. math::
+
+    \delta S_M
+        = - \delta \int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x =
+
+        = - \int c {\delta(g^{\mu\nu} \textgoth{p}_\mu \textgoth{p}_\nu)
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
+
+        = - \int c { \textgoth{p}_\mu \textgoth{p}_\nu
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            \delta(g^{\mu\nu})\d^4 x =
+
+        = - \int c { \rho v_\mu \rho v_\nu
+            \sqrt{ |\det g| }^2
+            \over 2 \rho c \sqrt{ |\det g| } }
+             \delta(g^{\mu\nu})\d^4 x =
+
+        = - \int \half \rho v_\mu v_\nu
+             \delta(g^{\mu\nu}) \sqrt{ |\det g| } \d^4 x
+
+And the stress energy tensor is:
+
+.. math::
+
+    T_{\mu\nu}
+        = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} =
+
+        = - {2\over\sqrt{ |\det g| }} \left(
+                -\half \rho v_\mu v_\nu \sqrt{ |\det g| }
+            \right)=
+
+        = \rho v_\mu v_\nu
+
+Now we vary $S_M$ with respect to $x^\mu$:
+
+.. math::
+
+    \delta S_M
+        = - \delta \int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x =
+
+        = - \int c {\delta(g^{\mu\nu} \textgoth{p}_\mu \textgoth{p}_\nu)
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
+
+        = - \int c { 2 g^{\mu\nu} \textgoth{p}_\mu (\delta \textgoth{p}_\nu)
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
+
+        = - \int c { \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            (\delta \textgoth{p}^\mu) \d^4 x =
+
+        = - \int c { \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            \partial_\nu \left(\textgoth{p}^\nu(\delta x^\mu) - \textgoth{p}^\mu (\delta x^\nu)\right)
+                \d^4 x =
+
+        = \int c \partial_\nu \left({ \textgoth{p}_\mu \over
+        \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+                \right)
+            \left(\textgoth{p}^\nu(\delta x^\mu) - \textgoth{p}^\mu (\delta x^\nu)\right)
+                \d^4 x =
+
+        = \int c \left(
+            \partial_\nu \left({ \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+            -\partial_\mu \left({ \textgoth{p}_\nu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+            \right)
+            \textgoth{p}^\nu(\delta x^\mu)
+                \d^4 x =
+
+        = \int c \left(
+            \nabla_\nu \left({ \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+            -\nabla_\mu \left({ \textgoth{p}_\nu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+            \right)
+            \textgoth{p}^\nu(\delta x^\mu)
+                \d^4 x =
+
+        = \int \left( \nabla_\nu v_\mu -\nabla_\mu v_\nu \right)
+            \rho v^\nu (\delta x^\mu) \sqrt{ |\det g| }
+                \d^4 x =
+
+        = \int \rho (\nabla_\nu v_\mu) v^\nu (\delta x^\mu) \sqrt{ |\det g| }
+                \d^4 x
+
+So the equation of motion is the geodesic:
+
+.. math::
+
+    \rho (\nabla_\nu v_\mu) v^\nu = 0
+
+Charged matter has the interaction action:
+
+.. math::
+
+    S_q = -\int \rho_{EM} v^\mu A_\mu \sqrt{ |\det g| } \d^4 x
+        = -\int j^\mu A_\mu \sqrt{ |\det g| }\d^4 x
+        = -\int \textgoth{j}^\mu A_\mu \d^4 x
+
+where we have introduced the 4-current $j^\mu$ and 4-current density
+$\textgoth{j}^\mu$:
+
+.. math::
+
+    j^\mu = \rho_{EM} v^\mu
+
+    \textgoth{j}^\mu = j^\mu \sqrt{ |\det g| }
+        = \rho_{EM} v^\mu \sqrt{ |\det g| }
+
+We vary $S_q$ with respect to $x^\mu$:
+
+.. math::
+
+    \delta S_q
+        = - \delta \int \textgoth{j}^\mu A_\mu \d^4 x =
+
+        = - \int (\delta \textgoth{j}^\mu) A_\mu \d^4 x =
+
+        = - \int \partial_\nu \left(\textgoth{j}^\nu (\delta x^\mu)
+            - \textgoth{j}^\mu (\delta x^\nu)\right) A_\mu \d^4 x =
+
+        = \int \left(\textgoth{j}^\nu (\delta x^\mu)
+            - \textgoth{j}^\mu (\delta x^\nu)\right) \partial_\nu A_\mu \d^4 x =
+
+        = \int \textgoth{j}^\nu (\delta x^\mu) (\partial_\nu A_\mu -\partial_\mu A_\nu)
+            \d^4 x =
+
+        = \int \rho_{EM} v^\nu  (\partial_\nu A_\mu -\partial_\mu A_\nu)
+            (\delta x^\mu) \sqrt{ |\det g| }
+            \d^4 x =
+
+        = -\int \rho_{EM} v^\nu  F_{\mu\nu} (\delta x^\mu) \sqrt{ |\det g| }
+            \d^4 x
+
+So the combined action $S_M + S_q$ yields:
+
+.. math::
+
+    \rho (\nabla_\nu v_\mu) v^\nu
+        -\rho_{EM} v^\nu  F_{\mu\nu} = 0
+
+Varying $S_q$ with respect to $A^\mu$ yields the 4-current $j^\mu = \rho_{EM}
+v^\mu$ which ends up on the right hand side of the Maxwell's equations when
+varying the $S_{EM}$ action.
 
 Obsolete Section
 ----------------
@@ -984,7 +1164,7 @@ metrics tensor, so that I can easily derive things in exactly the same way as
 in general relativity. To do that, we will have to work in the regime $c$ is
 finite and only at the end do the limit $c\to\infty$.
 
-We start with Einstein equations:
+We start with Einstein's equations:
 
 .. math::
 

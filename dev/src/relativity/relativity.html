@@ -555,8 +555,8 @@ so we&#8217;ll use it from now on.</p>
 <h2>Einstein&#8217;s Equations<a class="headerlink" href="#einstein-s-equations" title="Permalink to this headline">¶</a></h2>
 <p>Einstein&#8217;s equations are derived from the Hilbert action:</p>
 <div class="math">
-<p><img src="../../_images/math/eb8d5412d367c7524b98748de0116d5cfcd8516b.png" alt="S_H = \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
-    = \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x"/></p>
+<p><img src="../../_images/math/9bc72d9c7d17cda8aa522528a0eccb04e16422dc.png" alt="S_H = {c^4\over 16\pi G} \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
+    = {c^4\over 16\pi G} \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x"/></p>
 </div><p>The Lagrangian density <img class="math" src="../../_images/math/460c7ffb86c1df927d2352a12bb11b354b4922f5.png" alt="R \sqrt{ |\det g_{\mu\nu}| }"/> has to be given, that&#8217;s
 our assumption and everything else is derived from it. In principle it can have
 other terms, for example
@@ -567,15 +567,15 @@ The Hilbert action is the simplest possible action and it already gives a
 theory which agrees with experiment, so that will be our starting point.</p>
 <p>Varying it with respect to the metric <img class="math" src="../../_images/math/1ec358694a495688f1ca6f376bcdf81236b7fb72.png" alt="g^{\mu\nu}"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/a1ebf052651b9fb53da7ae76c331e0800989bb03.png" alt="\delta S_H = \delta \int R \sqrt{ |\det g| } \d^4 x =
+<p><img src="../../_images/math/919133525331c376824330939b4cd9661f9503f2.png" alt="\delta S_H = \delta {c^4\over 16\pi G} \int R \sqrt{ |\det g| } \d^4 x =
 
-    = \int
+    = {c^4\over 16\pi G} \int
         (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
         +g^{\mu\nu} (\delta R_{\mu\nu}) \sqrt{ |\det g| }
         +R (\delta \sqrt{ |\det g| })
         \d^4 x=
 
-    = \int
+    = {c^4\over 16\pi G} \int
         (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
         +g^{\mu\nu} \left(
             \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
@@ -585,7 +585,7 @@ theory which agrees with experiment, so that will be our starting point.</p>
         -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu}))
         \d^4 x=
 
-    = \int
+    = {c^4\over 16\pi G} \int
         (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
         + \left(
             \nabla_\lambda g^{\mu\nu}(\delta \Gamma^\lambda_{\nu\mu})
@@ -595,13 +595,13 @@ theory which agrees with experiment, so that will be our starting point.</p>
             (\delta g^{\mu\nu})
         \d^4 x=
 
-    = \int
+    = {c^4\over 16\pi G} \int
         (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
         -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
             (\delta g^{\mu\nu})
         \d^4 x=
 
-    = \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+    = {c^4\over 16\pi G} \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
             (\delta g^{\mu\nu}) \sqrt{ |\det g| }
         \d^4 x"/></p>
 </div><p>Where we used the following identities:</p>
@@ -619,27 +619,171 @@ theory which agrees with experiment, so that will be our starting point.</p>
 </div><p>and the fact that the four divergence doesn&#8217;t contribute to the
 integral. By setting <img class="math" src="../../_images/math/6d1bf5b656cca53f5eb7c773591d5d637e7589f4.png" alt="\delta S_H=0"/>, we get:</p>
 <div class="math">
-<p><img src="../../_images/math/2349345bad41648f49dc7dc3b9eab97b85766476.png" alt="{1\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
-    = R_{\mu\nu} -\half R g_{\mu\nu} = 0"/></p>
+<p><img src="../../_images/math/311a10c7e7f46f69bdb1593b6d7c05aba35ac0a3.png" alt="{2\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
+    = {c^4\over 8\pi G}(R_{\mu\nu} -\half R g_{\mu\nu}) = 0"/></p>
 </div><p>Combining the Hilbert action <img class="math" src="../../_images/math/4aa9f327497ca055318e9a31b3a8ddff4bd002f9.png" alt="S_H"/> with the action for matter <img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/fdd2d095e679eb9ed8291ed6bf8e64f39744e6c4.png" alt="S = {c^4\over 16\pi G} S_H + S_M"/></p>
+<p><img src="../../_images/math/d461db9b06d33d4e749c73ceb8ecb285edad5de9.png" alt="S = S_H + S_M"/></p>
 </div><p>Varying this action as above we get:</p>
 <div class="math">
-<p><img src="../../_images/math/fa3a30834359967d250a0bbb9e0fd4fd3bf5c4d4.png" alt="{1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
-    ={c^4\over 16\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+<p><img src="../../_images/math/f5688ff85d97c37001a5bb9574f88d4c02548e02.png" alt="{2\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
+    ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
     +
-{1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0"/></p>
+{2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/860727ccb2893af47c6fa186d4d2cc7f02c9063b.png" alt="R_{\mu\nu} -\half R g_{\mu\nu} =
-    -{16\pi G \over c^4}
-    {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
+<p><img src="../../_images/math/dc36cc54b64abb537095361a009a24c945daa8c1.png" alt="R_{\mu\nu} -\half R g_{\mu\nu} =
+    -{8\pi G \over c^4}
+    {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
 ={8\pi G \over c^4} T_{\mu\nu}"/></p>
 </div><p>Where we set:</p>
 <div class="math">
 <p><img src="../../_images/math/aca73048e4cc18862417a2bb309e5a553e7e6621.png" alt="T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}"/></p>
-</div></div>
+</div><p>This is a definition of the stress energy tensor corresponding to the action
+<img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/>. If this action contains electromagnetic field, we get an electromagnetic
+stress energy tensor. For continous matter, we get the stress energy tensor for
+continous matter, see the next section. The right hand side of the Einstein&#8217;s
+equations contains the sum of all stress energy tensors (for all fields in the
+Lagrangian).</p>
+</div>
+<div class="section" id="continuous-distribution-of-matter">
+<h2>Continuous Distribution of Matter<a class="headerlink" href="#continuous-distribution-of-matter" title="Permalink to this headline">¶</a></h2>
+<p>The action is:</p>
+<div class="math">
+<p><img src="../../_images/math/ccc0da20354fbfff9c1b043ada89f960f1badce9.png" alt="S_M = -\int \rho c \sqrt{v_\mu v^\mu} \sqrt{ |\det g| } \d^4 x"/></p>
+</div><p>But it isn&#8217;t suitable for applying variations because <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> and <img class="math" src="../../_images/math/6fa24d4711d661d6242c44024a76591970dfa5ff.png" alt="v^\mu"/> are
+not independent quantities. So we write it in terms of a 4-momentum vector
+density <img class="math" src="../../_images/math/bb93c5619806418e32a2a4523d8d29c431c41126.png" alt="\textgoth{p}^\mu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/7ebc62ecb6ca78c28f269603435b6c1ab13cf09a.png" alt="p^\mu = \rho v^\mu
+
+\textgoth{p}^\mu = p^\mu \sqrt{ |\det g| } = \rho v^\mu \sqrt{ |\det g| }
+
+\sqrt{\textgoth{p}_\mu \textgoth{p}^\mu}
+    = \sqrt{\rho v_\mu \sqrt{ |\det g| } \rho v^\mu \sqrt{ |\det g| }}
+    = \rho \sqrt{v_\mu v^\mu} \sqrt{ |\det g| }"/></p>
+</div><p>and the action becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/98260888fd96d60a54a3bc6681ba164dc885cf96.png" alt="S_M = -\int \rho c \sqrt{v_\mu v^\mu} \sqrt{ |\det g| } \d^4 x
+    = -\int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x"/></p>
+</div><p>We vary <img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/> with respect to <img class="math" src="../../_images/math/1ec358694a495688f1ca6f376bcdf81236b7fb72.png" alt="g^{\mu\nu}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/2c016169e24dd5dbd4b712fa8e3ca9ffb22ef308.png" alt="\delta S_M
+    = - \delta \int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x =
+
+    = - \int c {\delta(g^{\mu\nu} \textgoth{p}_\mu \textgoth{p}_\nu)
+        \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
+
+    = - \int c { \textgoth{p}_\mu \textgoth{p}_\nu
+        \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+        \delta(g^{\mu\nu})\d^4 x =
+
+    = - \int c { \rho v_\mu \rho v_\nu
+        \sqrt{ |\det g| }^2
+        \over 2 \rho c \sqrt{ |\det g| } }
+         \delta(g^{\mu\nu})\d^4 x =
+
+    = - \int \half \rho v_\mu v_\nu
+         \delta(g^{\mu\nu}) \sqrt{ |\det g| } \d^4 x"/></p>
+</div><p>And the stress energy tensor is:</p>
+<div class="math">
+<p><img src="../../_images/math/e3d8120db3916e37a69e70cd7db61c892bb40ebb.png" alt="T_{\mu\nu}
+    = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} =
+
+    = - {2\over\sqrt{ |\det g| }} \left(
+            -\half \rho v_\mu v_\nu \sqrt{ |\det g| }
+        \right)=
+
+    = \rho v_\mu v_\nu"/></p>
+</div><p>Now we vary <img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/> with respect to <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/7a9693f025f65e1f73c7a917b8e0088a80a0c709.png" alt="\delta S_M
+    = - \delta \int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x =
+
+    = - \int c {\delta(g^{\mu\nu} \textgoth{p}_\mu \textgoth{p}_\nu)
+        \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
+
+    = - \int c { 2 g^{\mu\nu} \textgoth{p}_\mu (\delta \textgoth{p}_\nu)
+        \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
+
+    = - \int c { \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+        (\delta \textgoth{p}^\mu) \d^4 x =
+
+    = - \int c { \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+        \partial_\nu \left(\textgoth{p}^\nu(\delta x^\mu) - \textgoth{p}^\mu (\delta x^\nu)\right)
+            \d^4 x =
+
+    = \int c \partial_\nu \left({ \textgoth{p}_\mu \over
+    \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            \right)
+        \left(\textgoth{p}^\nu(\delta x^\mu) - \textgoth{p}^\mu (\delta x^\nu)\right)
+            \d^4 x =
+
+    = \int c \left(
+        \partial_\nu \left({ \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+        -\partial_\mu \left({ \textgoth{p}_\nu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+        \right)
+        \textgoth{p}^\nu(\delta x^\mu)
+            \d^4 x =
+
+    = \int c \left(
+        \nabla_\nu \left({ \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+        -\nabla_\mu \left({ \textgoth{p}_\nu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+        \right)
+        \textgoth{p}^\nu(\delta x^\mu)
+            \d^4 x =
+
+    = \int \left( \nabla_\nu v_\mu -\nabla_\mu v_\nu \right)
+        \rho v^\nu (\delta x^\mu) \sqrt{ |\det g| }
+            \d^4 x =
+
+    = \int \rho (\nabla_\nu v_\mu) v^\nu (\delta x^\mu) \sqrt{ |\det g| }
+            \d^4 x"/></p>
+</div><p>So the equation of motion is the geodesic:</p>
+<div class="math">
+<p><img src="../../_images/math/eb313ac0fc6c25e543073a519f33ddbfa4b514c6.png" alt="\rho (\nabla_\nu v_\mu) v^\nu = 0"/></p>
+</div><p>Charged matter has the interaction action:</p>
+<div class="math">
+<p><img src="../../_images/math/020ade8f3f5d34b7373b7416cd26252db11b347c.png" alt="S_q = -\int \rho_{EM} v^\mu A_\mu \sqrt{ |\det g| } \d^4 x
+    = -\int j^\mu A_\mu \sqrt{ |\det g| }\d^4 x
+    = -\int \textgoth{j}^\mu A_\mu \d^4 x"/></p>
+</div><p>where we have introduced the 4-current <img class="math" src="../../_images/math/2ce8c0411ae2c21e0a52190831491721e983a2ab.png" alt="j^\mu"/> and 4-current density
+<img class="math" src="../../_images/math/85371ef51901a99bc8822e76c1c3b7b3ce0cf286.png" alt="\textgoth{j}^\mu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/c14e6e9a75072bf7003449826f9f2106d0f06286.png" alt="j^\mu = \rho_{EM} v^\mu
+
+\textgoth{j}^\mu = j^\mu \sqrt{ |\det g| }
+    = \rho_{EM} v^\mu \sqrt{ |\det g| }"/></p>
+</div><p>We vary <img class="math" src="../../_images/math/18a10c331fa86db238662194403b92c203e6b5c1.png" alt="S_q"/> with respect to <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ce760eb19888b1c0ebff33eb50ce2f51b2aac789.png" alt="\delta S_q
+    = - \delta \int \textgoth{j}^\mu A_\mu \d^4 x =
+
+    = - \int (\delta \textgoth{j}^\mu) A_\mu \d^4 x =
+
+    = - \int \partial_\nu \left(\textgoth{j}^\nu (\delta x^\mu)
+        - \textgoth{j}^\mu (\delta x^\nu)\right) A_\mu \d^4 x =
+
+    = \int \left(\textgoth{j}^\nu (\delta x^\mu)
+        - \textgoth{j}^\mu (\delta x^\nu)\right) \partial_\nu A_\mu \d^4 x =
+
+    = \int \textgoth{j}^\nu (\delta x^\mu) (\partial_\nu A_\mu -\partial_\mu A_\nu)
+        \d^4 x =
+
+    = \int \rho_{EM} v^\nu  (\partial_\nu A_\mu -\partial_\mu A_\nu)
+        (\delta x^\mu) \sqrt{ |\det g| }
+        \d^4 x =
+
+    = -\int \rho_{EM} v^\nu  F_{\mu\nu} (\delta x^\mu) \sqrt{ |\det g| }
+        \d^4 x"/></p>
+</div><p>So the combined action <img class="math" src="../../_images/math/da41c4de4fbf5f12fdb810a51da4dd840d10f588.png" alt="S_M + S_q"/> yields:</p>
+<div class="math">
+<p><img src="../../_images/math/5b5af72ba96b21df282a96f88bb9b9599975d7d4.png" alt="\rho (\nabla_\nu v_\mu) v^\nu
+    -\rho_{EM} v^\nu  F_{\mu\nu} = 0"/></p>
+</div><p>Varying <img class="math" src="../../_images/math/18a10c331fa86db238662194403b92c203e6b5c1.png" alt="S_q"/> with respect to <img class="math" src="../../_images/math/806aa7b68a2b78ed6ae1adb79b77c8f5f4297ee2.png" alt="A^\mu"/> yields the 4-current <img class="math" src="../../_images/math/d713a42a1ec0036ea889d8fce4b641c08a9cf9e2.png" alt="j^\mu = \rho_{EM}
+v^\mu"/> which ends up on the right hand side of the Maxwell&#8217;s equations when
+varying the <img class="math" src="../../_images/math/a8995c46cc3fbaa7c64808c4d0f0ec9d51f8f0d5.png" alt="S_{EM}"/> action.</p>
+</div>
 <div class="section" id="obsolete-section">
 <h2>Obsolete Section<a class="headerlink" href="#obsolete-section" title="Permalink to this headline">¶</a></h2>
 <p>This section is obsolete, ideas from it should be polished (sometimes
@@ -657,7 +801,7 @@ everything we need.</p>
 metrics tensor, so that I can easily derive things in exactly the same way as
 in general relativity. To do that, we will have to work in the regime <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is
 finite and only at the end do the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>.</p>
-<p>We start with Einstein equations:</p>
+<p>We start with Einstein&#8217;s equations:</p>
 <div class="math">
 <p><img src="../../_images/math/5fbb72b5e0f9599075a58d3ebb623ecb283ccce9.png" alt="R_{\alpha\beta}-\half Rg_{\alpha\beta}={8\pi G\over c^4}T_{\alpha\beta}"/></p>
 </div><p>or</p>
@@ -1402,6 +1546,7 @@ are.</p>
 <li><a class="reference internal" href="#metrics">Metrics</a></li>
 <li><a class="reference internal" href="#conclusion-about-metric">Conclusion About Metric</a></li>
 <li><a class="reference internal" href="#einstein-s-equations">Einstein&#8217;s Equations</a></li>
+<li><a class="reference internal" href="#continuous-distribution-of-matter">Continuous Distribution of Matter</a></li>
 <li><a class="reference internal" href="#obsolete-section">Obsolete Section</a></li>
 <li><a class="reference internal" href="#inertial-frames">Inertial frames</a></li>
 <li><a class="reference internal" href="#lorentz-group">Lorentz Group</a></li>
