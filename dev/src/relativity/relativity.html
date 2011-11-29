@@ -640,7 +640,31 @@ integral. By setting <img class="math" src="../../_images/math/6d1bf5b656cca53f5
 <div class="math">
 <p><img src="../../_images/math/aca73048e4cc18862417a2bb309e5a553e7e6621.png" alt="T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}"/></p>
 </div><p>This is a definition of the stress energy tensor corresponding to the action
-<img class="math" src="../../_images/math/1841a4b58642471a62b93b8f61500642891fc054.png" alt="S_M"/>. If this action contains electromagnetic field, we get an electromagnetic
+<img class="math" src="../../_images/math/06f658e548cdd73f01533e8657127e79b6efb852.png" alt="S_M=\int \L_M \sqrt{ |\det g| }\d^4 x"/>. We can also write it in terms of the
+Lagrangian <img class="math" src="../../_images/math/e2644a16cdc7b4b9555e941175d52200b895bc4b.png" alt="\L_M"/> directly as:</p>
+<div class="math">
+<p><img src="../../_images/math/37386cd0696a3f4f5c02be2b5062111aea795d50.png" alt="T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}=
+
+    = - {2\over\sqrt{ |\det g| }}{\delta \int \L_M \sqrt{ |\det g| }\d^4 x
+            \over\delta g^{\mu\nu}} =
+
+    = - {2\over\sqrt{ |\det g| }}{\int (\delta \L_M) \sqrt{ |\det g| }
+        + \L_M \left(\delta \sqrt{ |\det g| }\right)\d^4 x
+            \over\delta g^{\mu\nu}} =
+
+    = - {2\over\sqrt{ |\det g| }}{\int \left({\delta \L_M
+        \over\delta g^{\mu\nu}}(\delta g^{\mu\nu})\right) \sqrt{ |\det g| }
+        + \L_M \left(-\half
+            \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu})\right)\d^4 x
+            \over\delta g^{\mu\nu}} =
+
+    = - {2\over\sqrt{ |\det g| }}\left({\delta \L_M
+        \over\delta g^{\mu\nu}} \sqrt{ |\det g| }
+        - \half \L_M \sqrt{ |\det g| }\, g_{\mu\nu} \right) =
+
+    = - 2 {\delta \L_M \over\delta g^{\mu\nu}}
+        + g_{\mu\nu} \L_M"/></p>
+</div><p>If this action contains electromagnetic field, we get an electromagnetic
 stress energy tensor. For continous matter, we get the stress energy tensor for
 continous matter, see the next section. The right hand side of the Einstein&#8217;s
 equations contains the sum of all stress energy tensors (for all fields in the
