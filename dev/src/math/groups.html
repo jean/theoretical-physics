@@ -136,11 +136,86 @@ the reduction.</p>
 <p><img src="../../_images/math/08ca27b48b98bc1863cffc036180d6c465580f0c.png" alt="\chi=m_1\chi^{(1)} + m_2\chi^{(2)} + m_3\chi^{(3)} + \cdots"/></p>
 </div><p>and it can be shown <a class="reference internal" href="#elliott">[Elliott]</a> (eq. 4.28, page 63):</p>
 <div class="math">
-<p><img src="../../_images/math/3ab15fbe97e0d6724c0b0820300f0524b865ce46.png" alt="m_\alpha={1\over g}\sum_{x\in G} \chi^{(\alpha)*}(x)\chi^{(\alpha)}(x)=
+<p><img src="../../_images/math/4d8d8570833069a39c77335863b9f611bb533045.png" alt="m_\alpha={1\over g}\sum_{x\in G} \chi^{(\alpha)*}(x)\chi(x)=
 
-= {1\over g}\sum_{p} c_p\chi^{(\alpha)*}_p\chi^{(\alpha)}_p"/></p>
+= {1\over g}\sum_{p} c_p\chi^{(\alpha)*}_p\chi_p"/></p>
 </div><p>where <img class="math" src="../../_images/math/7e07132757b7e92c50f7311f096eabc544018293.png" alt="c_p"/> is the number of elements in the class <img class="math" src="../../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>, <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is the number of
 elements in <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/> (the order of the group).</p>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Consider the <img class="math" src="../../_images/math/54147dbf4167d407147e92a3439b0d168c96bee8.png" alt="S_3"/> permutation group. The character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/3e9a872496eba29ef33d1acc0eba20a697ba45e1.png" alt="\begin{array}{c|ccc}
+S_3    &amp; e &amp; 3 (1 2) &amp; 2 (1 2 3) \\
+\hline
+ A_1   &amp; 1 &amp;   1     &amp;  1 \\
+ A_2   &amp; 1 &amp;  -1     &amp;  1 \\
+  E    &amp; 2 &amp;   0     &amp; -1 \\
+\end{array}"/></p>
+</div><p>From the table we read <img class="math" src="../../_images/math/e50622a437ed869fea40aa757e2fea9fca7cf8c4.png" alt="c_1 = 1"/>, <img class="math" src="../../_images/math/c87f62fb68bfbcf1350290313a27cf81550dcf31.png" alt="c_2 = 3"/>, <img class="math" src="../../_images/math/72dd2434f5251b689b324cb0ee570a9f15cf8523.png" alt="c_3 = 2"/> and
+<img class="math" src="../../_images/math/af4ee6e12f66d86567b43f7876f72660e06c17c3.png" alt="g = c_1 + c_2 + c_3 = 1 + 3 + 2 = 6"/>. There are 3 classes and 3 irreducible
+representaitons.</p>
+<dl class="docutils">
+<dt>Case I</dt>
+<dd><p class="first">We are given a representation given by the following matrices:</p>
+<div class="math">
+<p><img src="../../_images/math/49e3720e4641c1fbe6bc00fa27435148ed3ba60e.png" alt="e = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+a = \half\begin{pmatrix} 1 &amp; -\sqrt{3} \\ -\sqrt{3} &amp; -1 \end{pmatrix},
+    \quad\quad
+b = \half\begin{pmatrix} 1 &amp; \sqrt{3} \\ \sqrt{3} &amp; -1 \end{pmatrix},
+
+c = \begin{pmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+d = \half\begin{pmatrix} -1 &amp; \sqrt{3} \\ -\sqrt{3} &amp; -1 \end{pmatrix},
+    \quad\quad
+f = \half\begin{pmatrix} -1 &amp; -\sqrt{3} \\ \sqrt{3} &amp; -1 \end{pmatrix}."/></p>
+</div><p>These 6 matrices belong to the following three classes
+<img class="math" src="../../_images/math/b39dac17bdaf7a0ac21ea00e626f53f4990df24c.png" alt="\{e\}"/>, <img class="math" src="../../_images/math/7af56e439a2c6e0a48f8f7d071e008e58e734f78.png" alt="\{a, b, c\}"/>, <img class="math" src="../../_images/math/e29280b5425de1d60bb1b493f2eb9d696b6f8f40.png" alt="\{d, f\}"/> and the corresponding characters for
+each class are:</p>
+<div class="math">
+<p><img src="../../_images/math/01e73d5cb3fe98c7a425ded1d0b8d6dfc289010c.png" alt="\chi_1 &amp;= 2 \\
+\chi_2 &amp;= 0 \\
+\chi_3 &amp;= -1"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8d5d8672b3793e4376e29ced59fc3b3f29ee03c3.png" alt="m_1 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot1\cdot 0
+    + 2\cdot1\cdot (-1)) = 0 \\
+m_2 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot(-1)\cdot 0
+    + 2\cdot1\cdot (-1)) = 0\\
+m_3 &amp;= {1\over 6} (1\cdot 2\cdot 2 + 3\cdot 0\cdot 0
+    + 2\cdot(-1)\cdot (-1)) = 1\\"/></p>
+</div><p class="last">So this representation is irreducible and it is equivalent to
+<img class="math" src="../../_images/math/44f6c04f266eff50a70b4e54beabf0435bd34b3c.png" alt="m_1 A_1 \oplus m_2 A_2 \oplus m_3 E = E"/>.</p>
+</dd>
+<dt>Case II</dt>
+<dd><p class="first">We are given a representation given by the following matrices:</p>
+<div class="math">
+<p><img src="../../_images/math/77377c24fbbfc47808d7434885c6d61aea00beda.png" alt="e = d = f = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+a = b = c = \half\begin{pmatrix} -1 &amp; -\sqrt{3} \\ -\sqrt{3} &amp; 1
+    \end{pmatrix}."/></p>
+</div><p>These 6 matrices belong to the following three classes
+<img class="math" src="../../_images/math/b39dac17bdaf7a0ac21ea00e626f53f4990df24c.png" alt="\{e\}"/>, <img class="math" src="../../_images/math/7af56e439a2c6e0a48f8f7d071e008e58e734f78.png" alt="\{a, b, c\}"/>, <img class="math" src="../../_images/math/e29280b5425de1d60bb1b493f2eb9d696b6f8f40.png" alt="\{d, f\}"/> and the corresponding characters for
+each class are:</p>
+<div class="math">
+<p><img src="../../_images/math/c65fc696f437f7a2632cd090f23c5457f5087c1c.png" alt="\chi_1 &amp;= 2 \\
+\chi_2 &amp;= 0 \\
+\chi_3 &amp;= 2"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/674480d823c5c7a8b874f12eb046228e266999e8.png" alt="m_1 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot1\cdot 0
+    + 2\cdot1\cdot 2) = 1 \\
+m_2 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot(-1)\cdot 0
+    + 2\cdot1\cdot 2) = 1\\
+m_3 &amp;= {1\over 6} (1\cdot 2\cdot 2 + 3\cdot 0\cdot 0
+    + 2\cdot(-1)\cdot 2) = 0\\"/></p>
+</div><p>So this representation is reducible and it is equivalent to
+<img class="math" src="../../_images/math/604d58b5ebe30b40589d556bb0b9102357baa484.png" alt="m_1 A_1 \oplus m_2 A_2 \oplus m_3 E = A_1 \oplus A_2"/>.
+The matrices are equivalent to:</p>
+<div class="last math">
+<p><img src="../../_images/math/5e74737ded3f054010e244c29be6711cdd1509b5.png" alt="e = d = f = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+a = b = c = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}."/></p>
+</div></dd>
+</dl>
+</div>
 </div>
 <div class="section" id="other-facts">
 <h3>Other facts<a class="headerlink" href="#other-facts" title="Permalink to this headline">¶</a></h3>
@@ -341,8 +416,8 @@ rotation about the symmetry axis of highest order <img class="math" src="../../_
 is no symmetry axis, all one-dimensional representations are labeled <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>.</p>
 <p>For general information, see <a class="reference internal" href="#elliott">[Elliott]</a> (sec. 4.15, page 67) and <a class="reference internal" href="#bishop">[Bishop]</a>, page
 128.</p>
-<div class="section" id="example">
-<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id17">
+<h4>Example<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
 <p>Let&#8217;s take the group <img class="math" src="../../_images/math/ebb2d996de6d651003a897d063c285a1ef9cbea7.png" alt="C_{3v}"/>, which has three classes <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/>, <img class="math" src="../../_images/math/480c040079c7e31be49449a0e8b3f3d4cc68fd1f.png" alt="2C_3"/> and
 <img class="math" src="../../_images/math/8c87725673537642a2d403829457b0e73f9994e9.png" alt="3\sigma_v"/>.</p>
 <p>So <img class="math" src="../../_images/math/ad5f7c6419ccec8d290ef7931e4c4b3c35f90f8c.png" alt="g_1=1"/>, <img class="math" src="../../_images/math/9008f43f48611aad6e3e9be24712a1320c809670.png" alt="g_2=2"/> and <img class="math" src="../../_images/math/d3c02a51e12beadce0c05f4cc0a873789d09573f.png" alt="g_3=3"/> and the order is
@@ -566,8 +641,8 @@ is claimed to be equivalent to checking whether <img class="math" src="../../_im
 depending probably on the polarization of light), the Raman scattering has
 <img class="math" src="../../_images/math/73256ef6a08767fd78ce4b2c13e8740a4605f585.png" alt="H_1\propto x^2"/> (it comes from the second order perturbation theory?).</p>
 </div>
-<div class="section" id="id18">
-<h3>Zoology<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>Zoology<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <p>Todo:</p>
 <ul class="simple">
 <li>Describe the representations <img class="math" src="../../_images/math/36c7f3f828cf12ab9cafeffad282468a95219600.png" alt="A_1"/>, <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/>, <img class="math" src="../../_images/math/243af6fad28c15abb3e11996374ba60e745bf543.png" alt="B_1"/>, <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> etc.</li>
@@ -681,19 +756,19 @@ Basis of <img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62b
 <table class="docutils citation" frame="void" id="georgi" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[Georgi]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id24">2</a>)</em> Georgi, H. (1990). Lie Algebras in Particle Physics. Addison-Wesley.</td></tr>
+<tr><td class="label">[Georgi]</td><td><em>(<a class="fn-backref" href="#id23">1</a>, <a class="fn-backref" href="#id25">2</a>)</em> Georgi, H. (1990). Lie Algebras in Particle Physics. Addison-Wesley.</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="pilar" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id17">[Pilar]</a></td><td>Pilar, F.L. (1990). Elementary Quantum Chemistry, McGraw&#8211;Hill.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id18">[Pilar]</a></td><td>Pilar, F.L. (1990). Elementary Quantum Chemistry, McGraw&#8211;Hill.</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="sternberg" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[Sternberg]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>, <a class="fn-backref" href="#id6">5</a>, <a class="fn-backref" href="#id7">6</a>, <a class="fn-backref" href="#id9">7</a>, <a class="fn-backref" href="#id10">8</a>, <a class="fn-backref" href="#id19">9</a>, <a class="fn-backref" href="#id20">10</a>, <a class="fn-backref" href="#id21">11</a>, <a class="fn-backref" href="#id23">12</a>, <a class="fn-backref" href="#id25">13</a>, <a class="fn-backref" href="#id26">14</a>, <a class="fn-backref" href="#id27">15</a>)</em> Sternberg, S. (1994). Group theory and physics. Cambridge University Press</td></tr>
+<tr><td class="label">[Sternberg]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>, <a class="fn-backref" href="#id6">5</a>, <a class="fn-backref" href="#id7">6</a>, <a class="fn-backref" href="#id9">7</a>, <a class="fn-backref" href="#id10">8</a>, <a class="fn-backref" href="#id20">9</a>, <a class="fn-backref" href="#id21">10</a>, <a class="fn-backref" href="#id22">11</a>, <a class="fn-backref" href="#id24">12</a>, <a class="fn-backref" href="#id26">13</a>, <a class="fn-backref" href="#id27">14</a>, <a class="fn-backref" href="#id28">15</a>)</em> Sternberg, S. (1994). Group theory and physics. Cambridge University Press</td></tr>
 </tbody>
 </table>
 <p>Articles:</p>
@@ -728,7 +803,10 @@ Basis of <img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62b
   <ul>
 <li><a class="reference internal" href="#">Groups</a><ul>
 <li><a class="reference internal" href="#theory">Theory</a><ul>
-<li><a class="reference internal" href="#representation">Representation</a></li>
+<li><a class="reference internal" href="#representation">Representation</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#other-facts">Other facts</a></li>
 <li><a class="reference internal" href="#interesting-examples">Interesting examples</a></li>
 </ul>
@@ -736,7 +814,7 @@ Basis of <img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62b
 <li><a class="reference internal" href="#crystallographic-point-groups">Crystallographic Point Groups</a><ul>
 <li><a class="reference internal" href="#zoology">Zoology</a></li>
 <li><a class="reference internal" href="#construction-and-usage-of-the-character-table">Construction and usage of the character table</a><ul>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#id17">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -744,7 +822,7 @@ Basis of <img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62b
 <li><a class="reference internal" href="#applications-of-finite-groups">Applications of finite groups</a><ul>
 <li><a class="reference internal" href="#distinct-energy-levels-vibrations">Distinct energy levels (&#8216;vibrations&#8217;)</a></li>
 <li><a class="reference internal" href="#selection-rules-transitions">Selection rules (&#8216;transitions&#8217;)</a></li>
-<li><a class="reference internal" href="#id18">Zoology</a></li>
+<li><a class="reference internal" href="#id19">Zoology</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#continuous-groups">Continuous Groups</a><ul>
