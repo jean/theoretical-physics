@@ -1141,10 +1141,14 @@ j_3 = l-\half"/></p>
            \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
         \end{pmatrix}"/></p>
 </div><p>The last formula is the spin spherical harmonics given in terms of <img class="math" src="../../_images/math/f3fda49629158ec2d2056add806565e06f6ab9dd.png" alt="l,m_3"/>, the
-second last formula is in terms of <img class="math" src="../../_images/math/aaab5be3693d51c18947e556528c85bb6749c075.png" alt="j_3, m_3"/> (both are used).</p>
+second last formula is in terms of <img class="math" src="../../_images/math/aaab5be3693d51c18947e556528c85bb6749c075.png" alt="j_3, m_3"/> (both are used).
+The spin spherical harmonics is usually denoted by <img class="math" src="../../_images/math/3d3bfbfdcbb2ad33b2779ac7087abf6d672f79d3.png" alt="\chi_\kappa^{m_3}"/>
+or <img class="math" src="../../_images/math/5ca90376e98df4592b46278605479494dba3cbf5.png" alt="y^{m_3}_{j_3 l}"/>. See the next section for the definition of <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>.</p>
 <div class="section" id="kappa">
 <h4>Kappa<a class="headerlink" href="#kappa" title="Permalink to this headline">¶</a></h4>
-<p>The two cases <img class="math" src="../../_images/math/4f9c07eb9a30b628a0e16949b4a180a6263121af.png" alt="j_3 = l \pm \half"/> are unified by introducing <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>.
+<p>In order to define the state, one needs to specify both <img class="math" src="../../_images/math/2061bcb6902ecaed55a7bf3cbed47c91fc5b8114.png" alt="j_3"/> and <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>
+(distinguishng the two cases <img class="math" src="../../_images/math/4f9c07eb9a30b628a0e16949b4a180a6263121af.png" alt="j_3 = l \pm \half"/>). This can be unified
+into just one integer <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>, where
 <img class="math" src="../../_images/math/97701d0ed9ef31efc3ca4fa6501058d340ec703a.png" alt="-\hbar \kappa"/> is defined as the eigenvalue of the operator:</p>
 <div class="math">
 <p><img src="../../_images/math/8a9365045df8fe10be8eddcf194a6679b00454dd.png" alt="K = {\bsigma \cdot {\bf L}} + \hbar
@@ -1197,22 +1201,24 @@ second last formula is in terms of <img class="math" src="../../_images/math/aaa
 <span class="go">j + 1/2</span>
 </pre></div>
 </div>
-<p>Some useful relations with <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/> that follow from the above for both cases <img class="math" src="../../_images/math/b3d606450966d2b11eed4a389c7d062af8e2fa1b.png" alt="j_3 = l \pm 1"/>:</p>
+<p>Some useful relations with <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/> that follow from the above for both cases
+<img class="math" src="../../_images/math/4f9c07eb9a30b628a0e16949b4a180a6263121af.png" alt="j_3 = l \pm \half"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/aa3a267bb27b37c2d231b241c206c5ea25b6ecf1.png" alt="l(l+1) = \kappa (\kappa+1)
 
 | \kappa | = j_3 + \half"/></p>
 </div><p>In order to enumerate all possibilities, one needs to count all integers except zero: <img class="math" src="../../_images/math/94a4e9b0c794ffeabe21c67f1c7079ac9d9658e2.png" alt="\kappa=-1, 1, -2, 2, -3, 3, \dots"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/0f209d705424d337331708bdf5b84bc28aae7095.png" alt="\begin{array}{rrr}
-    \kappa &amp; l &amp; j_3 - l \\
+<p><img src="../../_images/math/10491fadbcae6ed4a1a4fd7cda41a25fa77ba009.png" alt="\begin{array}{rrrr}
+    \kappa &amp; l &amp; j_3 &amp; j_3 - l \\
     \hline
-    -1 &amp; 0 &amp; \half \\
-     1 &amp; 1 &amp; -\half \\
-    -2 &amp; 1 &amp; \half \\
-     2 &amp; 2 &amp; -\half \\
-    -3 &amp; 2 &amp; \half \\
-     3 &amp; 3 &amp; -\half \\
+    -1 &amp; 0 &amp; 0.5 &amp;  0.5 \\
+     1 &amp; 1 &amp; 0.5 &amp; -0.5 \\
+    -2 &amp; 1 &amp; 1.5 &amp;  0.5 \\
+     2 &amp; 2 &amp; 1.5 &amp; -0.5 \\
+    -3 &amp; 2 &amp; 2.5 &amp;  0.5 \\
+     3 &amp; 3 &amp; 2.5 &amp; -0.5 \\
+     \cdots &amp; &amp;  &amp;      \\
 \end{array}"/></p>
 </div></div>
 </div>
