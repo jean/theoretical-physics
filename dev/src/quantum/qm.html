@@ -1012,8 +1012,8 @@ equivalently <img class="math" src="../../_images/math/c5352adeaf45930e862095579
         (-1)^{j_1-j_2+m_3}\sqrt{2j_3+1}
         \begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; -m_3 \end{pmatrix}
         \ket{j_1 m_1 j_2 m_2}"/></p>
-</div><div class="section" id="spin-orbit-coupling">
-<h3>Spin Orbit Coupling<a class="headerlink" href="#spin-orbit-coupling" title="Permalink to this headline">¶</a></h3>
+</div><div class="section" id="spin-orbit-coupling-spin-spherical-harmonics">
+<h3>Spin Orbit Coupling (Spin Spherical Harmonics)<a class="headerlink" href="#spin-orbit-coupling-spin-spherical-harmonics" title="Permalink to this headline">¶</a></h3>
 <p>This is just a special case of <a href="#equation-angular_momenta_adding">(4)</a> for:</p>
 <div class="math">
 <p><img src="../../_images/math/e549080243bd8024d93a7e59d0739d6318d27ace.png" alt="j_1 = l
@@ -1140,7 +1140,82 @@ j_3 = l-\half"/></p>
           -\sqrt{l-m_3+\half}\, Y_{l, m_3-\half} \\
            \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
         \end{pmatrix}"/></p>
+</div><p>The last formula is the spin spherical harmonics given in terms of <img class="math" src="../../_images/math/f3fda49629158ec2d2056add806565e06f6ab9dd.png" alt="l,m_3"/>, the
+second last formula is in terms of <img class="math" src="../../_images/math/aaab5be3693d51c18947e556528c85bb6749c075.png" alt="j_3, m_3"/> (both are used).</p>
+<div class="section" id="kappa">
+<h4>Kappa<a class="headerlink" href="#kappa" title="Permalink to this headline">¶</a></h4>
+<p>The two cases <img class="math" src="../../_images/math/4f9c07eb9a30b628a0e16949b4a180a6263121af.png" alt="j_3 = l \pm \half"/> are unified by introducing <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>.
+<img class="math" src="../../_images/math/97701d0ed9ef31efc3ca4fa6501058d340ec703a.png" alt="-\hbar \kappa"/> is defined as the eigenvalue of the operator:</p>
+<div class="math">
+<p><img src="../../_images/math/8a9365045df8fe10be8eddcf194a6679b00454dd.png" alt="K = {\bsigma \cdot {\bf L}} + \hbar
+    = \left({2\over \hbar^2} {\bf S} \cdot {\bf L} + 1 \right) \hbar
+    = \left({1\over \hbar^2}\left({\bf J}^2 - {\bf L}^2 - {\bf S}^2\right)
+        + 1 \right) \hbar"/></p>
+</div><p>Then:</p>
+<div class="math">
+<p><img src="../../_images/math/9403d58b6d40d2b3706d56bf842e56e0e763e35f.png" alt="K \psi
+    = \left({1\over \hbar^2}\left({\bf J}^2 - {\bf L}^2 - {\bf S}^2\right)
+        + 1 \right) \hbar \psi =
+
+    = \left(j_3 (j_3+1) - l(l+1)-s(s+1) + 1 \right) \hbar \psi =
+
+    = \left(j_3 (j_3+1) - l(l+1) + {1\over 4} \right) \hbar \psi =
+
+    = -\kappa \hbar \psi"/></p>
+</div><p>from which</p>
+<div class="math">
+<p><img src="../../_images/math/be2ecc73865b6538c649c4642f2491d60827ecd8.png" alt="\kappa = -j_3 (j_3+1) + l(l+1) - {1\over 4} =
+
+= \begin{cases}
+    -j_3 (j_3+1) + (j_3-\half)(j_3-\half+1) - {1\over 4}; &amp; \text{for $j_3=l+\half$} \\
+    -j_3 (j_3+1) + (j_3+\half)(j_3+\half+1) - {1\over 4}; &amp; \text{for $j_3=l-\half$} \\
+    \end{cases} =
+
+= \begin{cases}
+    -(j_3+\half); &amp; \text{for $j_3=l+\half$} \\
+    +(j_3+\half); &amp; \text{for $j_3=l-\half$}
+    \end{cases} =
+
+= \begin{cases}
+    -l -1; &amp; \text{for $j_3=l+\half$} \\
+    l; &amp; \text{for $j_3=l-\half$}
+    \end{cases}"/></p>
+</div><p>The opposite relation is:</p>
+<div class="math">
+<p><img src="../../_images/math/62cbae85a9219941db71234d726be2155c308108.png" alt="l = \begin{cases}
+    -\kappa -1; &amp; \text{for $\kappa &lt; 0$, equivalently  $j_3=l+\half$} \\
+    \kappa; &amp; \text{for $\kappa &gt; 0$, equivalently $j_3=l-\half$}
+    \end{cases}"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">S</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;j l&quot;</span><span class="p">)</span>
+<span class="go">(j, l)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">l</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
+<span class="go">-j - 1/2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
+<span class="go">j + 1/2</span>
+</pre></div>
+</div>
+<p>Some useful relations with <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/> that follow from the above for both cases <img class="math" src="../../_images/math/b3d606450966d2b11eed4a389c7d062af8e2fa1b.png" alt="j_3 = l \pm 1"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/aa3a267bb27b37c2d231b241c206c5ea25b6ecf1.png" alt="l(l+1) = \kappa (\kappa+1)
+
+| \kappa | = j_3 + \half"/></p>
+</div><p>In order to enumerate all possibilities, one needs to count all integers except zero: <img class="math" src="../../_images/math/94a4e9b0c794ffeabe21c67f1c7079ac9d9658e2.png" alt="\kappa=-1, 1, -2, 2, -3, 3, \dots"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/0f209d705424d337331708bdf5b84bc28aae7095.png" alt="\begin{array}{rrr}
+    \kappa &amp; l &amp; j_3 - l \\
+    \hline
+    -1 &amp; 0 &amp; \half \\
+     1 &amp; 1 &amp; -\half \\
+    -2 &amp; 1 &amp; \half \\
+     2 &amp; 2 &amp; -\half \\
+    -3 &amp; 2 &amp; \half \\
+     3 &amp; 3 &amp; -\half \\
+\end{array}"/></p>
 </div></div>
+</div>
 </div>
 </div>
 
@@ -1175,7 +1250,10 @@ j_3 = l-\half"/></p>
 <li><a class="reference internal" href="#atomic-units">Atomic Units</a></li>
 <li><a class="reference internal" href="#tensors-in-special-relativity-and-qft">Tensors in Special Relativity and QFT</a></li>
 <li><a class="reference internal" href="#adding-angular-momenta">Adding Angular Momenta</a><ul>
-<li><a class="reference internal" href="#spin-orbit-coupling">Spin Orbit Coupling</a></li>
+<li><a class="reference internal" href="#spin-orbit-coupling-spin-spherical-harmonics">Spin Orbit Coupling (Spin Spherical Harmonics)</a><ul>
+<li><a class="reference internal" href="#kappa">Kappa</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
