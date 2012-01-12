@@ -1107,7 +1107,12 @@ j_3 = l-\half"/></p>
           \sqrt{l+m_3+\half}\, Y_{l, m_3-\half} \\
           \sqrt{l-m_3+\half}\, Y_{l, m_3+\half}
         \end{pmatrix}"/></p>
-</div><p>and <img class="math" src="../../_images/math/385de3d213e60096a95c026b1ca42bebfb50e86d.png" alt="j_3=l-\half"/>:</p>
+</div><p>The allowed values for <img class="math" src="../../_images/math/5539c188681f3fb7d29174d0bbf06bbd17bf0d97.png" alt="m_3"/> are <img class="math" src="../../_images/math/c955727be31b7a97adbd8f9023bcef739a3d8e69.png" alt="m_3 = -l-\half, -l+\half, -l+\half +1, \dots,
+l-\half, l+\half"/>,
+total of <img class="math" src="../../_images/math/c625d8de12dde82a29e353dca8ca9b31c680a99b.png" alt="2l+2"/> values. For the case <img class="math" src="../../_images/math/1a234b11492aa5fcb39665847edc356d2a3d7bae.png" alt="l=\pm(l+\half)"/>, the spherical harmonic
+is not defined (<img class="math" src="../../_images/math/307e48361d6e99c3a25c5e8b4c5d4a0be28cc8bd.png" alt="m &gt; l"/>) but its coefficient (the square root
+<img class="math" src="../../_images/math/e2ffe9599463fcb16aab029cbea649b6446b94f4.png" alt="\sqrt{l \pm m_3 + \half}"/>) is zero, so the whole element is defined as zero.</p>
+<p>For <img class="math" src="../../_images/math/385de3d213e60096a95c026b1ca42bebfb50e86d.png" alt="j_3=l-\half"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/0757fda82aebd21e877ffe5bd419a15232f42791.png" alt="\ket{(j_3+\half) \half j_3 m_3}
     =(-1)^{j_3+\half-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
@@ -1140,10 +1145,13 @@ j_3 = l-\half"/></p>
           -\sqrt{l-m_3+\half}\, Y_{l, m_3-\half} \\
            \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
         \end{pmatrix}"/></p>
-</div><p>The last formula is the spin spherical harmonics given in terms of <img class="math" src="../../_images/math/f3fda49629158ec2d2056add806565e06f6ab9dd.png" alt="l,m_3"/>, the
+</div><p>The allowed values for <img class="math" src="../../_images/math/5539c188681f3fb7d29174d0bbf06bbd17bf0d97.png" alt="m_3"/> are <img class="math" src="../../_images/math/b223e7e08390b0d1a2f307a6c36e818a50c5d3ff.png" alt="m_3 = -l+\half, -l+\half +1, \dots, l-\half"/>,
+total of <img class="math" src="../../_images/math/1a40f8faeab3899443c5ea0672d4899be44aa7ef.png" alt="2l"/> values (in particular, the values
+<img class="math" src="../../_images/math/b4a42a06d292fb054fd0663eb49d0265eeaa1e12.png" alt="m_3=\pm (l+\half)"/> are not allowed).</p>
+<p>The last formula is the spin spherical harmonics given in terms of <img class="math" src="../../_images/math/f3fda49629158ec2d2056add806565e06f6ab9dd.png" alt="l,m_3"/>, the
 second last formula is in terms of <img class="math" src="../../_images/math/aaab5be3693d51c18947e556528c85bb6749c075.png" alt="j_3, m_3"/> (both are used).
 The spin spherical harmonics is usually denoted by <img class="math" src="../../_images/math/3d3bfbfdcbb2ad33b2779ac7087abf6d672f79d3.png" alt="\chi_\kappa^{m_3}"/>
-or <img class="math" src="../../_images/math/5ca90376e98df4592b46278605479494dba3cbf5.png" alt="y^{m_3}_{j_3 l}"/>. See the next section for the definition of <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>.</p>
+or <img class="math" src="../../_images/math/0b4e717e9e36f15826db121286d966cd02f38864.png" alt="y^{j_3, m_3}_l"/>. See the next section for the definition of <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>.</p>
 <div class="section" id="kappa">
 <h4>Kappa<a class="headerlink" href="#kappa" title="Permalink to this headline">¶</a></h4>
 <p>In order to define the state, one needs to specify both <img class="math" src="../../_images/math/2061bcb6902ecaed55a7bf3cbed47c91fc5b8114.png" alt="j_3"/> and <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>
@@ -1209,18 +1217,36 @@ into just one integer <img class="math" src="../../_images/math/da61bb0fa48fe712
 | \kappa | = j_3 + \half"/></p>
 </div><p>In order to enumerate all possibilities, one needs to count all integers except zero: <img class="math" src="../../_images/math/94a4e9b0c794ffeabe21c67f1c7079ac9d9658e2.png" alt="\kappa=-1, 1, -2, 2, -3, 3, \dots"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/10491fadbcae6ed4a1a4fd7cda41a25fa77ba009.png" alt="\begin{array}{rrrr}
-    \kappa &amp; l &amp; j_3 &amp; j_3 - l \\
+<p><img src="../../_images/math/2cb3ad0ecc2129ceff7360838c6c01780ca12d1b.png" alt="\begin{array}{rrrrcc}
+    \kappa &amp; l &amp; j_3 &amp; j_3 - l &amp; \mbox{degeneracy} &amp; \mbox{label} \\
     \hline
-    -1 &amp; 0 &amp; 0.5 &amp;  0.5 \\
-     1 &amp; 1 &amp; 0.5 &amp; -0.5 \\
-    -2 &amp; 1 &amp; 1.5 &amp;  0.5 \\
-     2 &amp; 2 &amp; 1.5 &amp; -0.5 \\
-    -3 &amp; 2 &amp; 2.5 &amp;  0.5 \\
-     3 &amp; 3 &amp; 2.5 &amp; -0.5 \\
+    -1 &amp; 0 &amp; 0.5 &amp;  0.5 &amp; 2 &amp; s_{1/2} \\
+     1 &amp; 1 &amp; 0.5 &amp; -0.5 &amp; 2 &amp; p_{1/2} \\
+    -2 &amp; 1 &amp; 1.5 &amp;  0.5 &amp; 4 &amp; p_{3/2} \\
+     2 &amp; 2 &amp; 1.5 &amp; -0.5 &amp; 4 &amp; d_{3/2} \\
+    -3 &amp; 2 &amp; 2.5 &amp;  0.5 &amp; 6 &amp; d_{5/2} \\
+     3 &amp; 3 &amp; 2.5 &amp; -0.5 &amp; 6 &amp; f_{5/2} \\
+    -4 &amp; 3 &amp; 3.5 &amp;  0.5 &amp; 8 &amp; f_{7/2} \\
+     4 &amp; 4 &amp; 3.5 &amp; -0.5 &amp; 8 &amp; g_{7/2} \\
+    -5 &amp; 4 &amp; 4.5 &amp;  0.5 &amp; 10 &amp; g_{9/2} \\
+     5 &amp; 5 &amp; 4.5 &amp; -0.5 &amp; 10 &amp; h_{9/2} \\
+    -6 &amp; 5 &amp; 5.5 &amp;  0.5 &amp; 12 &amp; h_{11/2} \\
+     6 &amp; 6 &amp; 5.5 &amp; -0.5 &amp; 12 &amp; i_{11/2} \\
      \cdots &amp; &amp;  &amp;      \\
 \end{array}"/></p>
-</div></div>
+</div><p>The degeneracy of the individual states for each <img class="math" src="../../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa"/>
+is equal to <img class="math" src="../../_images/math/758c947cafa349c2d0a3b378213154e008a98226.png" alt="2j_3+1=2|\kappa|"/> (which is equal to <img class="math" src="../../_images/math/c625d8de12dde82a29e353dca8ca9b31c680a99b.png" alt="2l+2"/> for <img class="math" src="../../_images/math/3d3b2cf67da57409f755e496c6228790512646e3.png" alt="j_3=l+\half"/>
+and <img class="math" src="../../_images/math/1a40f8faeab3899443c5ea0672d4899be44aa7ef.png" alt="2l"/> for <img class="math" src="../../_images/math/385de3d213e60096a95c026b1ca42bebfb50e86d.png" alt="j_3=l-\half"/>, see the previous section), that is 2, 4, 6, 8 for
+<img class="math" src="../../_images/math/6d0d55e0ddb2a4621d31002b162c07c8b1b09097.png" alt="j_3=0.5, 1.5, 2.5, 3.5"/> (or equivalently <img class="math" src="../../_images/math/62904cc0d347f9cb5228c39d5ba2b413aa00dcd5.png" alt="\kappa=\pm 1, \pm 2, \pm 3, \pm 4"/>)
+respectively.  All states together with the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> have total degeneracy
+<img class="math" src="../../_images/math/91bf5c3a44c249cdb1db5b4edab8077771bde87b.png" alt="2l+2+2l=2(2l+1)"/>, that is 2, 6, 10, 14 for <img class="math" src="../../_images/math/e5dcb9f3ae712b66ea6692f271c72ec4d07898bc.png" alt="l=0, 1, 2, 3"/> respectively.</p>
+<p>The states are labeled by a letter corresponding to <img class="math" src="../../_images/math/03399148211d56aa2d190d5bfeda32b13a5af10e.png" alt="l=0, 1, 2, 3, \dots"/>
+(s, p, d, f, g, h, i, j, k,
+l, m, n, o, q, r, t, u, v, w, x, y, z, a, b, c, e, F,
+G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
+A, B, C, D, E) with a subscript equal to the
+total angular momentum <img class="math" src="../../_images/math/b390b00d6aa67d9616fa65ba9db480b58dbf819c.png" alt="j_3=n/2"/> with <img class="math" src="../../_images/math/91c0bc872fc906eee73f55ad49a4de8180adcbcd.png" alt="n=1, 3, 5, 7, \dots"/>.</p>
+</div>
 </div>
 </div>
 </div>
