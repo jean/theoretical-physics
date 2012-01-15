@@ -219,8 +219,8 @@ transports its own tangent vector:</p>
 </div><p>or equivalently (using the fact <img class="math" src="../../_images/math/ea9e5edbffa27c50b5c36e94681a985e495026c0.png" alt="U^\beta\partial_\beta U^\alpha=
 {\d x^\beta\over\d\lambda}{\partial\over\partial x^\beta}
 {\d x^\alpha\over\d\lambda} = {\d^2 x^\alpha\over\d\lambda^2}"/>):</p>
-<div class="math">
-<p><img src="../../_images/math/e0b19f978f97ec57dec87f7e196acdf0fffec209.png" alt="{\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0"/></p>
+<div class="math" id="equation-geodesic-equation">
+<p><span class="eqno">(1)</span><img src="../../_images/math/e0b19f978f97ec57dec87f7e196acdf0fffec209.png" alt="{\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0"/></p>
 </div><p>Let&#8217;s determine all possible reparametrizations that leave the geodesic
 equation invariant:</p>
 <div class="math">
@@ -253,16 +253,23 @@ which gives:</p>
 <p><img src="../../_images/math/a763fdc5ba56886c0ad1d75a3e90a411f430083d.png" alt="f(\lambda) = a \lambda + b"/></p>
 </div><p>This is called an affine reparametrization.</p>
 <p>Another way to derive the geodesic equation is by finding a curve that
-maximizes the proper time:</p>
+extremizes the proper time:</p>
 <div class="math">
-<p><img src="../../_images/math/eeb83cf1dfa844ec1fa23de2e3606d7ef736c6a6.png" alt="\tau = \int \d \tau
+<p><img src="../../_images/math/63662fb56655676f1c8185042e7cc5bd2747995e.png" alt="\tau = \int \d \tau
     = \int \sqrt{-{1\over c^2} \d s^2}
     = \int \sqrt{-{1\over c^2} g_{\mu\nu} \d x^\mu \d x^\nu}
     = \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-        {\d x^\nu\over\d\lambda}} \d\lambda"/></p>
+        {\d x^\nu\over\d\lambda}} \d\lambda
+    = \int K \d\lambda"/></p>
+</div><p>Here <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/> can be <em>any</em> parametrization. We have introduced <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> to make the
+formulas shorter:</p>
+<div class="math">
+<p><img src="../../_images/math/29a7bb425b32b9394dd3da691da27765391247f2.png" alt="K = \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+        {\d x^\nu\over\d\lambda}}"/></p>
 </div><p>We vary this action with respect to <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/de9bee177ff5667b34f5cf225eec326c075aa046.png" alt="\delta \tau
+<p><img src="../../_images/math/4e46b99270ce8c714815093ca583308d0ce88c7d.png" alt="\delta \tau = \delta \int K \d\lambda =
+
     = \delta \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
         {\d x^\nu\over\d\lambda}} \d\lambda =
 
@@ -272,109 +279,115 @@ maximizes the proper time:</p>
     {\d x^\nu\over\d\lambda}
  +g_{\mu\nu} {\d x^\mu\over\d \lambda}\left(\delta {\d x^\nu\over\d\lambda}
     \right)
-        \right) \over 2
-        \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-        {\d x^\nu\over\d\lambda}}} \d\lambda =
+        \right) \over 2 K } \d\lambda =
 
     = {1\over c^2}\int {\left(-\half
  (\delta g_{\mu\nu}) {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
  - g_{\mu\nu} \left(\delta {\d x^\mu\over\d \lambda}\right)
     {\d x^\nu\over\d\lambda}
-        \right) \over
-        \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-        {\d x^\nu\over\d\lambda}}} \d\lambda =
+        \right) \over K } \d\lambda =
 
     = {1\over c^2}\int {\left(-\half
  (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
     {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
- - g_{\mu\nu} {\d (\delta x^\mu)\over\d \lambda}
+ - g_{\alpha\nu} {\d (\delta x^\alpha)\over\d \lambda}
     {\d x^\nu\over\d\lambda}
-        \right) \over
-        \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-        {\d x^\nu\over\d\lambda}}} \d\lambda =
+        \right) \over K} \d\lambda =
 
-    = {1\over c^2}\int \left(-\half
+    = {1\over c^2}\int \left({-\half
  (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
-    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
- - g_{\mu\nu} {\d (\delta x^\mu)\over\d \tau}
-    {\d x^\nu\over\d\tau}
-        \right) \d\tau =
+    {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+        \over
+        K }
+ + {\d\over\d\lambda}\left({g_{\alpha\nu}
+    {\d x^\nu\over\d\lambda}
+        \over K}\right)(\delta x^\alpha)\right) \d\lambda =
 
-    = {1\over c^2}\int \left(-\half
- (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
-    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
- + {\d \over\d \tau}\left(g_{\mu\nu}
-    {\d x^\nu\over\d\tau}\right)(\delta x^\mu)
-        \right) \d\tau =
+    = {1\over c^2}\int {1\over K} \left(
+    K{\d\over\d\lambda}\left({g_{\alpha\nu}
+    {\d x^\nu\over\d\lambda}
+        \over K}\right)
+    -\half \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+        \right) (\delta x^\alpha) \d\lambda =
 
-    = {1\over c^2}\int \left(-\half
-     \partial_\alpha g_{\mu\nu}
-    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
- + {\d \over\d \tau}\left(g_{\alpha\nu}
-    {\d x^\nu\over\d\tau}\right)
-        \right)(\delta x^\alpha) \d\tau =
-
-    = {1\over c^2}\int \left(-\half
-     \partial_\alpha g_{\mu\nu}
-    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
- + {\d x^\mu\over\d \tau}(\partial_\mu g_{\alpha\nu})
-    {\d x^\nu\over\d\tau}
- + g_{\alpha\nu}
-    {\d^2 x^\nu\over\d\tau^2}
-        \right)(\delta x^\alpha) \d\tau =
-
-    = {1\over c^2}\int \left(-\half
-     \partial_\alpha g_{\mu\nu}
-    {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
- + \half{\d x^\mu\over\d \tau}(\partial_\mu g_{\alpha\nu})
-    {\d x^\nu\over\d\tau}
- + \half{\d x^\mu\over\d \tau}(\partial_\nu g_{\alpha\mu})
-    {\d x^\nu\over\d\tau}
- + g_{\alpha\nu}
-    {\d^2 x^\nu\over\d\tau^2}
-        \right)(\delta x^\alpha) \d\tau =
-
-    = {1\over c^2}\int \left(
+    = {1\over c^2}\int {1\over K} \left(
+    K{\d\over\d\lambda}\left(1\over K\right)+
+    {\d g_{\alpha\nu} \over\d\lambda}
+    {\d x^\nu\over\d\lambda}
+    +
     g_{\alpha\nu}
-        {\d^2 x^\nu\over\d\tau^2}
-    +\half(-
-     \partial_\alpha g_{\mu\nu}
- + \partial_\mu g_{\alpha\nu}
- + \partial_\nu g_{\alpha\mu})
- {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-        \right)(\delta x^\alpha) \d\tau =
+    {\d^2 x^\nu\over\d\lambda^2}
+    -\half \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+        \right) (\delta x^\alpha) \d\lambda =
 
-    = {1\over c^2}\int \left(
+    = {1\over c^2}\int {1\over K} \left(
+    K{\d\over\d\lambda}\left(1\over K\right)+
     g_{\alpha\nu}
-        {\d^2 x^\nu\over\d\tau^2}
-    +\half(-
-     \partial_\alpha g_{\mu\nu}
- + \partial_\mu g_{\alpha\nu}
- + \partial_\nu g_{\alpha\mu})
- {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-        \right)g^{\alpha\rho}(\delta x_\rho) \d\tau =
+    {\d^2 x^\nu\over\d\lambda^2}
+    +\partial_\mu g_{\alpha\nu}
+    {\d x^\mu\over\d\lambda}
+    {\d x^\nu\over\d\lambda}
+    -\half \partial_\alpha g_{\mu\nu}
+    {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+        \right) (\delta x^\alpha) \d\lambda =
 
-    = {1\over c^2}\int \left(
+    = {1\over c^2}\int {1\over K} \left(
+    K{\d\over\d\lambda}\left(1\over K\right)+
+    g_{\alpha\nu}
+    {\d^2 x^\nu\over\d\lambda^2}
+    +\half(\partial_\mu g_{\alpha\nu}+\partial_\nu g_{\alpha\mu}
+    - \partial_\alpha g_{\mu\nu})
+    {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+        \right) (\delta x^\alpha) \d\lambda =
+
+    = {1\over c^2}\int {1\over K} \left(
+    K{\d\over\d\lambda}\left(1\over K\right)+
+    g_{\alpha\nu}
+        {\d^2 x^\nu\over\d\lambda^2}
+    +\half(
+   \partial_\mu g_{\alpha\nu}
+ + \partial_\nu g_{\alpha\mu}
+ - \partial_\alpha g_{\mu\nu}
+   )
+ {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda}
+        \right)g^{\alpha\rho}(\delta x_\rho) \d\lambda =
+
+    = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left(1\over K\right)g^{\alpha\rho}+
         \delta_\nu{}^\rho
-        {\d^2 x^\nu\over\d\tau^2}
-    +\half g^{\alpha\rho}(-
-     \partial_\alpha g_{\mu\nu}
- + \partial_\mu g_{\alpha\nu}
- + \partial_\nu g_{\alpha\mu})
- {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-        \right)(\delta x_\rho) \d\tau =
+        {\d^2 x^\nu\over\d\lambda^2}
+    +\half g^{\alpha\rho} (
+   \partial_\mu g_{\alpha\nu}
+ + \partial_\nu g_{\alpha\mu}
+ - \partial_\alpha g_{\mu\nu}
+   )
+ {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda}
+        \right)(\delta x_\rho) \d\lambda =
 
-    = {1\over c^2}\int \left(
-        {\d^2 x^\rho\over\d\tau^2}
+    = {1\over c^2}\int {1\over K} \left(
+    K{\d\over\d\lambda}\left(1\over K\right)g^{\alpha\rho}+
+        {\d^2 x^\rho\over\d\lambda^2}
     +\Gamma^\rho_{\mu\nu}
- {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-        \right)(\delta x_\rho) \d\tau"/></p>
+ {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda}
+        \right)(\delta x_\rho) \d\lambda"/></p>
 </div><p>By setting the variation <img class="math" src="../../_images/math/bde16f952e7821c4d2a28b3911f8f74087dfe99b.png" alt="\delta\tau=0"/> we obtain the geodesic equation:</p>
+<div class="math" id="equation-geodesic-equation2">
+<p><span class="eqno">(2)</span><img src="../../_images/math/29f3b5eed647c9425b1e35118b5d8ae9fff54271.png" alt="K{\d\over\d\lambda}\left(1\over K\right)g^{\alpha\rho}+
+        {\d^2 x^\rho\over\d\lambda^2}
+    +\Gamma^\rho_{\mu\nu}
+ {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda} = 0"/></p>
+</div><p>We have a freedom of choosing <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>, so we choose
+such parametrization so that <img class="math" src="../../_images/math/7d2e9fa499e89bc712fa22784040260d44c7fe1d.png" alt="\d\lambda = \d\tau"/>, which makes <img class="math" src="../../_images/math/5af2e9ebb9aad97fdf868342a2b749153e8583b2.png" alt="K=1"/> and
+we recover <a href="#equation-geodesic-equation">(1)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/4ffc4b7b2b9763c768b7c63adb26636339b879c6.png" alt="{\d^2 x^\rho\over\d\tau^2}
+<p><img src="../../_images/math/4d450b144e428806f8e27d51c493723f23dab9d7.png" alt="{\d^2 x^\rho\over\d\lambda^2}
    +\Gamma^\rho_{\mu\nu}
-{\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau} = 0"/></p>
-</div></div>
+{\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda} = 0"/></p>
+</div><p>Note that the equation <a href="#equation-geodesic-equation2">(2)</a> is parametrization
+invariant, but <a href="#equation-geodesic-equation">(1)</a> is not.</p>
+</div>
 <div class="section" id="riemann-curvature-tensor">
 <span id="index-6"></span><h3>Riemann Curvature Tensor<a class="headerlink" href="#riemann-curvature-tensor" title="Permalink to this headline">¶</a></h3>
 <p>Curvature means that we take a vector <img class="math" src="../../_images/math/8b1d253fdeede3fed879c7a47ba91fa197799df8.png" alt="V^\mu"/>, parallel transport it around a
@@ -652,7 +665,7 @@ over <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e90159
      \partial_k g_{ij}\right)"/></p>
 </div><p>If <img class="math" src="../../_images/math/955a68e99d48638d68093f7d2ef3d9edbfcd09e7.png" alt="k=i"/> or <img class="math" src="../../_images/math/afe92c6556202f513c3bd212dcd2795996abba74.png" alt="k=j"/> then</p>
 <div class="math" id="equation-Chris1">
-<p><span class="eqno">(1)</span><img src="../../_images/math/c615e33acb38d2e40f2182b3e3ed64ecd12048b2.png" alt="\Gamma^k_{ij} =
+<p><span class="eqno">(3)</span><img src="../../_images/math/c615e33acb38d2e40f2182b3e3ed64ecd12048b2.png" alt="\Gamma^k_{ij} =
 \Gamma^i_{ij} = \Gamma^i_{ji}
     =\half g^{ii} \left(\partial_j g_{ii}+\partial_i g_{ij}-
      \partial_i g_{ij}\right)
@@ -661,7 +674,7 @@ over <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e90159
     ={1\over h_i} \partial_j h_i"/></p>
 </div><p>otherwise (i.e. <img class="math" src="../../_images/math/399456eae5b4f18a44d1cdf8847d2b186965eb05.png" alt="k\neq i"/> and <img class="math" src="../../_images/math/a4d7ed43ecfc6f6a4f475616db80bf1311c79d86.png" alt="k\neq j"/>) then either <img class="math" src="../../_images/math/00251835eb6bf90a89fb44863112b33132201906.png" alt="i=j"/>:</p>
 <div class="math" id="equation-Chris2">
-<p><span class="eqno">(2)</span><img src="../../_images/math/b4b79f6fea36ffcd47f58e0a5d85512247585491.png" alt="\Gamma^k_{ij} =
+<p><span class="eqno">(4)</span><img src="../../_images/math/b4b79f6fea36ffcd47f58e0a5d85512247585491.png" alt="\Gamma^k_{ij} =
 \Gamma^k_{ii}
     =\half g^{kk} \left(\partial_i g_{ki}+\partial_i g_{ki}-
      \partial_k g_{ii}\right)
@@ -675,18 +688,18 @@ over <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e90159
      \partial_k g_{ij}\right)
     =0"/></p>
 </div><p>In other words, the symbols can only be nonzero if at least two of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>, <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/>
-or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> are the same and one can use the two formulas <a href="#equation-Chris1">(1)</a> and
-<a href="#equation-Chris2">(2)</a> to quickly evaluate them. A systematic way to do it is to write
-<a href="#equation-Chris1">(1)</a> and <a href="#equation-Chris2">(2)</a> in the following form:</p>
+or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> are the same and one can use the two formulas <a href="#equation-Chris1">(3)</a> and
+<a href="#equation-Chris2">(4)</a> to quickly evaluate them. A systematic way to do it is to write
+<a href="#equation-Chris1">(3)</a> and <a href="#equation-Chris2">(4)</a> in the following form:</p>
 <div class="math" id="equation-Chris3">
-<p><span class="eqno">(3)</span><img src="../../_images/math/6d8d3108560a65f29e763f3beccbcc47a5f9ef4d.png" alt="\Gamma^i_{ij} = \Gamma^i_{ji} ={1\over h_i} \partial_j h_i \quad\quad
+<p><span class="eqno">(5)</span><img src="../../_images/math/6d8d3108560a65f29e763f3beccbcc47a5f9ef4d.png" alt="\Gamma^i_{ij} = \Gamma^i_{ji} ={1\over h_i} \partial_j h_i \quad\quad
     \mbox{$i$, $j$ arbitrary}
 
 \Gamma^j_{ii} =-{h_i\over h_j^2} \partial_j h_i \quad\quad
     \mbox{$i\neq j$}"/></p>
 </div><p>Then find all <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> and <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> for which <img class="math" src="../../_images/math/57c1be13fda11dd77662f56e6ef776a27e260f75.png" alt="\partial_j h_i"/> is nonzero and then
 immediately write all nonzero Christoffel symbols using the equations
-<a href="#equation-Chris3">(3)</a>.</p>
+<a href="#equation-Chris3">(5)</a>.</p>
 <p>For example for cylindrical coordinates we have <img class="math" src="../../_images/math/fcff3a5dd0194df52d7e6ac6e377c8854eda0d51.png" alt="h_\rho=h_z =1"/> and <img class="math" src="../../_images/math/bbe0449953e8be475968cea2909f10931dfa1d7f.png" alt="h_\phi =
 \rho"/>, so <img class="math" src="../../_images/math/57c1be13fda11dd77662f56e6ef776a27e260f75.png" alt="\partial_j h_i"/> is only nonzero for <img class="math" src="../../_images/math/f017209406d7df019c1a91e08c0341376441f25c.png" alt="i=\phi"/> and <img class="math" src="../../_images/math/d001bb95698ec42ff037d5cab7533451647c908e.png" alt="j=\rho"/> and we
 get:</p>
@@ -757,6 +770,93 @@ tangent vector <img class="math" src="../../_images/math/138992c72ecd2197a31453d
 <p><img src="../../_images/math/bac79578bf85ccf6bb4b725f616a5cc36b00ff10.png" alt="{\d (V_\mu U^\mu)\over\d\lambda} =  U^\nu\nabla_\nu(V_\mu U^\mu)=U^\nu U^\mu\nabla_\nu V_\mu +V_\mu U^\nu\nabla_\nu U^\mu = 0"/></p>
 </div><p>where the first term is both symmetric and antisymmetric in <img class="math" src="../../_images/math/3eeaeda62f7d6dfd1414d0894e9dff551cd2903e.png" alt="(\mu, \nu)"/>, thus
 zero, and the second term is the geodesics equation, thus also zero.</p>
+</div>
+<div class="section" id="symmetry-and-antisymmetry">
+<h3>Symmetry and Antisymmetry<a class="headerlink" href="#symmetry-and-antisymmetry" title="Permalink to this headline">¶</a></h3>
+<p>Every tensor can be decomposed into symmetric and antisymmetric parts:</p>
+<div class="math">
+<p><img src="../../_images/math/e2f5d684e63453a7de5ac7f1b2d6f89d22f565c6.png" alt="T_{\alpha\beta} = \half(T_{\alpha\beta} + T_{\beta\alpha})
+    + \half(T_{\alpha\beta} - T_{\beta\alpha})"/></p>
+</div><p>In particular, for a symmetric tensor <img class="math" src="../../_images/math/7bc715ad4c72280caf865785fe19027399df6002.png" alt="S_{\alpha\beta}=S_{\beta\alpha}"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/91a6a95ed293a187f9c74e7b72a57a18dd3c4f5d.png" alt="S_{\alpha\beta} = \half(S_{\alpha\beta} + S_{\beta\alpha})"/></p>
+</div><p>and for antisymmetric tensor <img class="math" src="../../_images/math/73d0b4f43aac305fecec2d1a45300afc98bd7b7f.png" alt="A_{\alpha\beta}=-A_{\beta\alpha}"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3a2473c149c6134178aaa20d1bc0b773de005221.png" alt="A_{\alpha\beta} = \half(A_{\alpha\beta} - A_{\beta\alpha})"/></p>
+</div><p>When contracting a symmetric tensor with an antisymmetric tensor we get zero:</p>
+<div class="math">
+<p><img src="../../_images/math/9742f72bd509e2e08c93a55c0a749fbb26709027.png" alt="S_{\alpha\beta} A^{\alpha\beta} =
+
+    = \half S_{\alpha\beta} (A^{\alpha\beta} - A^{\beta\alpha}) =
+
+    = \half (S_{\alpha\beta} A^{\alpha\beta} - S_{\alpha\beta}
+        A^{\beta\alpha}) =
+
+    = \half (S_{\alpha\beta} A^{\alpha\beta} - S_{\beta\alpha}
+        A^{\beta\alpha}) =
+
+    = \half (S_{\alpha\beta} A^{\alpha\beta} - S_{\alpha\beta}
+        A^{\alpha\beta}) =
+
+    = 0"/></p>
+</div><p>When contracting a general tensor <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> with a symmetric tensor <img class="math" src="../../_images/math/ad28c83c99a8fd0dd2e2e594c9d02ee532765a0a.png" alt="S"/>,
+only the symmetric part of <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> contributes:</p>
+<div class="math">
+<p><img src="../../_images/math/2c02eab5e6b22c2f24e0a5c9163afae00f9c42a0.png" alt="T_{\alpha\beta} S^{\alpha\beta} =
+
+    = \half(T_{\alpha\beta} + T_{\beta\alpha})S^{\alpha\beta}
+    + \half(T_{\alpha\beta} - T_{\beta\alpha})S^{\alpha\beta} =
+
+    = \half(T_{\alpha\beta} + T_{\beta\alpha})S^{\alpha\beta}"/></p>
+</div><p>When contracting a general tensor <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> with an antisymmetric tensor <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>,
+only the antisymmetric part of <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> contributes:</p>
+<div class="math">
+<p><img src="../../_images/math/bbb3c4e8e5a6a4be6d9d01128c1f246f6606bd24.png" alt="T_{\alpha\beta} A^{\alpha\beta} =
+
+    = \half(T_{\alpha\beta} + T_{\beta\alpha})A^{\alpha\beta}
+    + \half(T_{\alpha\beta} - T_{\beta\alpha})A^{\alpha\beta} =
+
+    = \half(T_{\alpha\beta} - T_{\beta\alpha})A^{\alpha\beta}"/></p>
+</div><div class="section" id="example-i">
+<h4>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h4>
+<p>We want to rewrite:</p>
+<div class="math">
+<p><img src="../../_images/math/68943adb296c7f4415621d40185cabfe7dc24833.png" alt="2\partial_\nu g_{\mu\lambda} {\d x^\mu\over\d s} {\d x^\nu\over\d s}"/></p>
+</div><p>So we write the left part as a sum of symmetric and antisymmetric parts:</p>
+<div class="math">
+<p><img src="../../_images/math/1357f5f17cc5bc6055fa70b7cd40fb1cf825a3e5.png" alt="(\partial_\nu g_{\mu\lambda} + \partial_\mu g_{\nu\lambda}
++\partial_\nu g_{\mu\lambda} - \partial_\mu g_{\nu\lambda})
+{\d x^\mu\over\d s} {\d x^\nu\over\d s}"/></p>
+</div><p>Here <img class="math" src="../../_images/math/7d62d0dc1ce7128a7ae4b7ffeefcbe24e3dff91b.png" alt="\partial_\nu g_{\mu\lambda} - \partial_\mu g_{\nu\lambda}"/> is
+antisymmetric and <img class="math" src="../../_images/math/9fa699a32e8587a7e74a099b7b69024785061267.png" alt="{\d x^\mu\over\d s} {\d x^\nu\over\d s}"/> is symmetric in
+<img class="math" src="../../_images/math/88ee182e8b077179548d32c66c059a52b76ad9a9.png" alt="\mu,\nu"/>, so the contraction is zero. The final result is:</p>
+<div class="math">
+<p><img src="../../_images/math/6364919139b179df897c57fa772c29d98f6b99b8.png" alt="(\partial_\nu g_{\mu\lambda} + \partial_\mu g_{\nu\lambda})
+{\d x^\mu\over\d s} {\d x^\nu\over\d s}"/></p>
+</div></div>
+<div class="section" id="example-ii">
+<h4>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h4>
+<p>Let <img class="math" src="../../_images/math/03f6fc58da499e445cf807ee9b9d32ebf957a5df.png" alt="F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu"/>. Then we
+can simplify:</p>
+<div class="math">
+<p><img src="../../_images/math/9c4a73f4c504cba6828dda18379df4ff89760ffe.png" alt="F^{\mu\nu} F_{\mu\nu} =
+F^{\mu\nu} (\partial_\mu A_\nu - \partial_\nu A_\mu) =
+
+=2 F^{\mu\nu} \half (\partial_\mu A_\nu - \partial_\nu A_\mu)
+=2 F^{\mu\nu} \partial_\mu A_\nu"/></p>
+</div><p>Here <img class="math" src="../../_images/math/fbb183a90422e72721a388bd3afb3776ef5404f0.png" alt="\half (\partial_\mu A_\nu - \partial_\nu A_\mu)"/> is the antisymmetric
+part (the only one that contributes, because <img class="math" src="../../_images/math/9c2760f2bebadae27ecc67dd087c7b3e298badf3.png" alt="F^{\mu\nu}"/> is antisymmetric) of
+<img class="math" src="../../_images/math/49c6bfe4d2205b9a40c43fa9bd9652c5c7b86255.png" alt="\partial_\mu A_\nu"/>.</p>
+</div>
+<div class="section" id="example-iii">
+<h4>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h4>
+<p>Let <img class="math" src="../../_images/math/03f6fc58da499e445cf807ee9b9d32ebf957a5df.png" alt="F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu"/>. Then we
+get</p>
+<div class="math">
+<p><img src="../../_images/math/fb4e26add1bbd2e47fd7710937ba696ef893e6b0.png" alt="F_{\mu\nu} v^\mu v^\nu = 0\,,"/></p>
+</div><p>because <img class="math" src="../../_images/math/66b33c23c8f3c3b8f59c0e399a0a9f95d22af2fe.png" alt="F_{\mu\nu}"/> is an antisymmetric tensor, while <img class="math" src="../../_images/math/9dc9e130a3c4c0e04650d99450346272276e6646.png" alt="v^\mu v^\nu"/> is a
+symmetric tensor.</p>
+</div>
 </div>
 <div class="section" id="divergence-operator">
 <span id="index-10"></span><h3>Divergence Operator<a class="headerlink" href="#divergence-operator" title="Permalink to this headline">¶</a></h3>
@@ -1149,7 +1249,7 @@ coordinate systems):</p>
 </div><div class="math">
 <p><img src="../../_images/math/e69f9efcd565348a8bcd315002cd5c0de2e5a7eb.png" alt="\nabla_0 \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr} = \mat{\partial_0V'^0\cr \partial_0V'^1 +\Gamma^1_{00}V'^0+\Gamma^1_{02}V'^2\cr \partial_0V'^2 +\Gamma^2_{00}V'^0+\Gamma^2_{01}V'^1\cr \partial_0V'^3\cr} = \mat{\partial_0V'^0\cr \partial_0V'^1 -x'\omega^2V'^0-\omega V'^2\cr \partial_0V'^2 -y'\omega^2V'^0+\omega V'^1\cr \partial_0V'^3\cr}="/></p>
 </div><div class="math" id="equation-vcovar">
-<p><span class="eqno">(4)</span><img src="../../_images/math/b0c0ec58eddd6ff0fe85234a987f545c1f261808.png" alt="=
+<p><span class="eqno">(6)</span><img src="../../_images/math/b0c0ec58eddd6ff0fe85234a987f545c1f261808.png" alt="=
 \partial_0
 \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr}
 +
@@ -1181,7 +1281,7 @@ Let&#8217;s imagine a static vector in the <img class="math" src="../../_images/
 <p><img src="../../_images/math/102ea7f835ce35f466e71e59c1309492e80c1cf7.png" alt="\nabla_0\nabla_0W^\mu= = \mat{0\cr -\omega^2\cos\omega t\cr -\omega^2\sin\omega t\cr 0\cr}"/></p>
 </div><p>How can one prove the relation:</p>
 <div class="math" id="equation-vrot">
-<p><span class="eqno">(5)</span><img src="../../_images/math/eb0b979422227fe7970e6e6bb1b8c1ad7f7e1a06.png" alt="{\d{\bf A}\over\d t} = \boldsymbol\omega \times {\bf A} + {\d'{\bf A}\over\d t}"/></p>
+<p><span class="eqno">(7)</span><img src="../../_images/math/eb0b979422227fe7970e6e6bb1b8c1ad7f7e1a06.png" alt="{\d{\bf A}\over\d t} = \boldsymbol\omega \times {\bf A} + {\d'{\bf A}\over\d t}"/></p>
 </div><p>that is used for example to derive the Coriolis acceleration etc.?
 We need to write it components to understand what it really means:</p>
 <div class="math">
@@ -1233,7 +1333,7 @@ for the finite element discretization of axisymmetric 3D problems.</p>
 <p><img src="../../_images/math/6d8982f71e59d0e0747fe9bb8a5f4392689ba2d7.png" alt="\epsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}   \right),\ \ \ \ 1 \le i,j \le 3."/></p>
 </div><p>The stress tensor <img class="math" src="../../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> has the form</p>
 <div class="math" id="equation-0a">
-<p><span class="eqno">(6)</span><img src="../../_images/math/5a50a08874c1832617c972ae28a696b3c770d0f1.png" alt="\sigma_{ij} = \lambda \delta_{ij}\mbox{div}\bfu + 2\mu \epsilon_{ij},\ \ \ \ 1 \le i,j \le 3,"/></p>
+<p><span class="eqno">(8)</span><img src="../../_images/math/5a50a08874c1832617c972ae28a696b3c770d0f1.png" alt="\sigma_{ij} = \lambda \delta_{ij}\mbox{div}\bfu + 2\mu \epsilon_{ij},\ \ \ \ 1 \le i,j \le 3,"/></p>
 </div><p>where</p>
 <div class="math">
 <p><img src="../../_images/math/19af175f2b8188a943d9215e44ca3b6985aa21b0.png" alt="\mbox{div}\bfu = \sum_{k=1}^3 \frac{\partial u_k}{\partial x_k} = \sum_{k=1}^3 \epsilon_{kk} = \mbox{Tr}(\epsilon)."/></p>
@@ -1241,7 +1341,7 @@ for the finite element discretization of axisymmetric 3D problems.</p>
 symbol (<img class="math" src="../../_images/math/a9c662e8228d8c6ebc51bc78e181d37aea4baa00.png" alt="\delta_{ij} = 1"/> if <img class="math" src="../../_images/math/3799ffcebc202623d060cc962304a9b0d851e15e.png" alt="i = j"/> and <img class="math" src="../../_images/math/79f621114df6eca16b05ec37978cb9bcf189deda.png" alt="\delta_{ij} = 0"/> otherwise).
 The equilibrium equations have the form</p>
 <div class="math" id="equation-0b">
-<p><span class="eqno">(7)</span><img src="../../_images/math/cbbdeff2e549a244754758c255ada52f8d39b593.png" alt="\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j} + f_i = 0,\ \ \ \ 1 \le i \le 3,"/></p>
+<p><span class="eqno">(9)</span><img src="../../_images/math/cbbdeff2e549a244754758c255ada52f8d39b593.png" alt="\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j} + f_i = 0,\ \ \ \ 1 \le i \le 3,"/></p>
 </div><p>where <img class="math" src="../../_images/math/70c27f4a347f5b6bccef52d7de416ef18edbd36c.png" alt="(f_1, f_2, f_3)^T"/> is the vector of internal forces (such as gravity).</p>
 <p>The boundary conditions for linear elasticity are given by</p>
 <div class="math">
@@ -1252,16 +1352,16 @@ The equilibrium equations have the form</p>
 <h4>Weak formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this headline">¶</a></h4>
 <p>Multiplying by test functions and integrating over the domain <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> we obtain</p>
 <div class="math" id="equation-1a">
-<p><span class="eqno">(8)</span><img src="../../_images/math/5475f4586eb8264efcd57d26cc6e4b8aff9c2847.png" alt="- \int_{\Omega}\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j}v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
+<p><span class="eqno">(10)</span><img src="../../_images/math/5475f4586eb8264efcd57d26cc6e4b8aff9c2847.png" alt="- \int_{\Omega}\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j}v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
 </div><p>Using Green&#8217;s theorem and the boundary conditions</p>
 <div class="math">
 <p><img src="../../_images/math/691d1dd3a49e362f94beeaed5b175de438464e3b.png" alt="\int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\partial \Omega} \sum_{j=1}^3 \sigma_{ij} n_j v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
 </div><p>Thus</p>
 <div class="math" id="equation-1b">
-<p><span class="eqno">(9)</span><img src="../../_images/math/e209718cef4a9586b2f9f8a7863d58ab75510e5f.png" alt="\int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\Gamma_2} g_i v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
-</div><p>Let us write the equations <a href="#equation-1b">(9)</a> in detail using relation <a href="#equation-0a">(6)</a></p>
+<p><span class="eqno">(11)</span><img src="../../_images/math/e209718cef4a9586b2f9f8a7863d58ab75510e5f.png" alt="\int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\Gamma_2} g_i v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
+</div><p>Let us write the equations <a href="#equation-1b">(11)</a> in detail using relation <a href="#equation-0a">(8)</a></p>
 <div class="math" id="equation-weak">
-<p><span class="eqno">(10)</span><img src="../../_images/math/0b77882aca2c10d5218be959780c7dd18ef18d8c.png" alt="\begin{eqnarray*}
+<p><span class="eqno">(12)</span><img src="../../_images/math/0b77882aca2c10d5218be959780c7dd18ef18d8c.png" alt="\begin{eqnarray*}
 \int_{\Omega} \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_1}{\partial x_1}\right] \frac{\partial v_1}{\partial x_1} + \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_1}{\partial x_2} + \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_1}{\partial x_3}
 - \int_{\Gamma_2} g_1 v_1 &amp;=&amp; \int_{\Omega}f_1\ v_1,\nonumber\\
 \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_2}{\partial x_1} + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_2}{\partial x_2}\right] \frac{\partial v_2}{\partial x_2} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_2}{\partial x_3}
@@ -1289,7 +1389,7 @@ Note that</p>
 \end{eqnarray*}"/></p>
 </div><p>From here we obtain</p>
 <div class="math" id="equation-1">
-<p><span class="eqno">(11)</span><img src="../../_images/math/21662265519ea59bb488308a8631902b8bee79ed.png" alt="\begin{eqnarray*}
+<p><span class="eqno">(13)</span><img src="../../_images/math/21662265519ea59bb488308a8631902b8bee79ed.png" alt="\begin{eqnarray*}
 \frac{\partial g}{\partial x_1} &amp;=&amp; \frac{\partial g}{\partial r}\cos\phi - \frac{1}{r}\frac{\partial g}{\partial \phi}\sin\phi,\nonumber \\
 \frac{\partial g}{\partial x_2} &amp;=&amp; \frac{\partial g}{\partial r}\sin\phi + \frac{1}{r}\frac{\partial g}{\partial \phi}\cos\phi, \\
 \frac{\partial g}{\partial x_3} &amp;=&amp; \frac{\partial g}{\partial z}. \nonumber
@@ -1297,20 +1397,20 @@ Note that</p>
 </div><p>The relations between displacement components in Cartesian and cylindrical
 coordinates are</p>
 <div class="math" id="equation-2">
-<p><span class="eqno">(12)</span><img src="../../_images/math/aa2626c0b3530a3cc5f090ee99e8419cf6953845.png" alt="\begin{eqnarray*}
+<p><span class="eqno">(14)</span><img src="../../_images/math/aa2626c0b3530a3cc5f090ee99e8419cf6953845.png" alt="\begin{eqnarray*}
 u_1 &amp;=&amp; u_r \cos \phi, \nonumber \\
 u_2 &amp;=&amp; u_r \sin \phi, \nonumber \\
 u_3 &amp;=&amp; u_z. \nonumber
 \end{eqnarray*}"/></p>
 </div><p>The same relations hold for surface forces <img class="math" src="../../_images/math/a19cce4fbe92afdfac314bb1f9762a3846ddf4e0.png" alt="g_i"/> and volume forces <img class="math" src="../../_images/math/61c594c97b61f72af93af4e61894b3f16a3bbb30.png" alt="f_i"/>.</p>
-<p>Applying <a href="#equation-1">(11)</a> to <img class="math" src="../../_images/math/0559ffc8c62a08ff533f3fcd1a5c1713a520755d.png" alt="u_1"/>, we obtain</p>
+<p>Applying <a href="#equation-1">(13)</a> to <img class="math" src="../../_images/math/0559ffc8c62a08ff533f3fcd1a5c1713a520755d.png" alt="u_1"/>, we obtain</p>
 <div class="math">
 <p><img src="../../_images/math/24b9db8d4b65826d601f2b837b50b96b5a457137.png" alt="\begin{eqnarray*}
 \frac{\partial u_1}{\partial x_1} &amp;=&amp; \frac{\partial u_1}{\partial r}\cos\phi - \frac{1}{r}\frac{\partial u_1}{\partial \phi}\sin\phi,\nonumber \\
 \frac{\partial u_1}{\partial x_2} &amp;=&amp; \frac{\partial u_1}{\partial r}\sin\phi + \frac{1}{r}\frac{\partial u_1}{\partial \phi}\cos\phi, \nonumber \\
 \frac{\partial u_1}{\partial x_3} &amp;=&amp; \frac{\partial u_1}{\partial z}. \nonumber
 \end{eqnarray*}"/></p>
-</div><p>Using <a href="#equation-2">(12)</a> and the fact that <img class="math" src="../../_images/math/59ca6d8c556ddbab115d04ad997cc7ded5fa478c.png" alt="u_r"/> does not depend on <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>, this yields</p>
+</div><p>Using <a href="#equation-2">(14)</a> and the fact that <img class="math" src="../../_images/math/59ca6d8c556ddbab115d04ad997cc7ded5fa478c.png" alt="u_r"/> does not depend on <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>, this yields</p>
 <div class="math">
 <p><img src="../../_images/math/eb934e9a12182917c787c0d5aa1795df16b355a3.png" alt="\begin{eqnarray*}
 \frac{\partial u_1}{\partial x_1} &amp;=&amp; \frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi,\nonumber \\
@@ -1339,11 +1439,11 @@ coordinates</p>
 <div class="section" id="axisymmetric-formulation">
 <h4>Axisymmetric formulation<a class="headerlink" href="#axisymmetric-formulation" title="Permalink to this headline">¶</a></h4>
 <p>Assuming that the domain <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> is axisymmetric,
-we can begin to transform the integrals in <a href="#equation-weak">(10)</a> to cylindrical coordinates.
-Recall that the Jacobian of the transformation is <img class="math" src="../../_images/math/ef2a6e5ac0eeba2ea546cfc882e51055564133c0.png" alt="J(r, \phi, z) = r"/>. The first equation in <a href="#equation-weak">(10)</a> has the form:</p>
+we can begin to transform the integrals in <a href="#equation-weak">(12)</a> to cylindrical coordinates.
+Recall that the Jacobian of the transformation is <img class="math" src="../../_images/math/ef2a6e5ac0eeba2ea546cfc882e51055564133c0.png" alt="J(r, \phi, z) = r"/>. The first equation in <a href="#equation-weak">(12)</a> has the form:</p>
 <div class="math">
 <p><img src="../../_images/math/8f4c3c83c1f58a88675c241860d639c4ea5bacc7.png" alt="\begin{eqnarray*} &amp;&amp;\int_{\Omega} r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi)\right] (\frac{\partial v_r}{\partial r}\cos^2\phi + \frac{1}{r} v_r\sin^2\phi) + \\ &amp;&amp;r 2 \mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) + \\ &amp;&amp;r \mu \left(\frac{\partial u_r}{\partial z}\cos\phi + \frac{\partial u_z}{\partial r}\cos\phi\right)\frac{\partial v_r}{\partial z}\cos\phi - \int_{\Gamma_2} r g_r v_r {\cos}^2 \phi = \int_{\Omega} r f_r\ v_r \cos^2 \phi, \end{eqnarray*}"/></p>
-</div><p>The second equation in <a href="#equation-weak">(10)</a> has the form:</p>
+</div><p>The second equation in <a href="#equation-weak">(12)</a> has the form:</p>
 <div class="math">
 <p><img src="../../_images/math/429554da8cce51abf005b30717dcf453d97049eb.png" alt="\begin{eqnarray*} &amp;&amp;\int_{\Omega} r 2\mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) +\\ &amp;&amp; r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\sin^2\phi + \frac{1}{r} u_r\cos^2\phi)\right] (\frac{\partial v_r}{\partial r}\sin^2\phi + \frac{1}{r} v_r\cos^2\phi) + \\ &amp;&amp; r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)(\frac{\partial v_r}{\partial z}\sin\phi)  - \int_{\Gamma_2}r g_r v_r \sin^2 \phi = \int_{\Omega}r f_r\ v_r \sin^2 \phi,\\ \end{eqnarray*}"/></p>
 </div><p>Adding these two equations together we get</p>
@@ -1354,7 +1454,7 @@ Recall that the Jacobian of the transformation is <img class="math" src="../../_
 <p><img src="../../_images/math/01684fd99a3744058a7cf3695e197adb71350704.png" alt="\int_{\Omega} r \lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) (\frac{\partial v_r}{\partial r} + \frac{1}{r} v_r) + \int_{\Omega} r \mu \left[ 2 \left(\frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r} + \frac{1}{r^2} u_r v_r\right) +  \left(\frac{\partial u_r}{\partial z}\frac{\partial v_r}{\partial z} + \frac{\partial u_z}{\partial r}\frac{\partial v_r}{\partial z}\right)\right]"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/b53c24b61dbcb36fdc4bd4310618a305478e9cc8.png" alt="- \int_{\Gamma_2} g_r v_r r = \int_{\Omega}f_r\ v_r r"/></p>
-</div><p>Finally, the third equation in <a href="#equation-weak">(10)</a> has the form</p>
+</div><p>Finally, the third equation in <a href="#equation-weak">(12)</a> has the form</p>
 <div class="math">
 <p><img src="../../_images/math/2dfe4705fb5a690fc4ad1699b8d852df0b4bc777.png" alt="\begin{eqnarray*} &amp;&amp; \int_{\Omega} r \mu \left(\frac{\partial u_r}{\partial z}\cos\phi + \frac{\partial u_z}{\partial r}\cos\phi\right)\frac{\partial v_z}{\partial r}\cos\phi + r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)\frac{\partial v_z}{\partial r}\sin\phi  + \\ &amp;&amp; r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z} ) + 2 \mu \frac{\partial u_z}{\partial z}\right] \frac{\partial v_z}{\partial z} - \int_{\Gamma_2} g_z v_z  r = \int_{\Omega}f_z\ v_z r. \end{eqnarray*}"/></p>
 </div><p>This gives us</p>
@@ -1496,6 +1596,12 @@ g^{zj}\nabla_j v^z = g^{zz}\nabla_z v^z =
 </ul>
 </li>
 <li><a class="reference internal" href="#symmetries-killing-vectors">Symmetries, Killing vectors</a></li>
+<li><a class="reference internal" href="#symmetry-and-antisymmetry">Symmetry and Antisymmetry</a><ul>
+<li><a class="reference internal" href="#example-i">Example I</a></li>
+<li><a class="reference internal" href="#example-ii">Example II</a></li>
+<li><a class="reference internal" href="#example-iii">Example III</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#divergence-operator">Divergence Operator</a></li>
 <li><a class="reference internal" href="#laplace-operator">Laplace Operator</a></li>
 <li><a class="reference internal" href="#covariant-integration">Covariant integration</a></li>
