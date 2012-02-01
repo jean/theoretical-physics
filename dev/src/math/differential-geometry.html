@@ -1093,12 +1093,12 @@ z &amp;= \rho\cos\theta         \\"/></p>
 </div><p>The transformation matrix (Jacobian) is calculated by differentiating
 <a href="#equation-spherical_coord">(6)</a>:</p>
 <div class="math" id="equation-jacobian_spherical">
-<p><span class="eqno">(7)</span><img src="../../_images/math/ec888dc46fdfa5fd1feefac6a96620a42f5db02f.png" alt="{\partial \hat x\over\partial x}
+<p><span class="eqno">(7)</span><img src="../../_images/math/99e7a3a844224d2a1389c8874df005e0c7cef108.png" alt="{\partial \hat x\over\partial x}
     = {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}
     = \mat{
 \sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr
 \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp;  \rho\sin\theta\cos\phi \cr
-\cos\phi           &amp; -\rho\sin\theta        &amp;  0                      \cr}"/></p>
+\cos\theta         &amp; -\rho\sin\theta        &amp;  0                      \cr}"/></p>
 </div><p>The inverse Jacobian is calculated by inverting the matrix
 <a href="#equation-jacobian_spherical">(7)</a>:</p>
 <div class="math">
@@ -1149,12 +1149,12 @@ J^{-1} = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi 
 so by transformation we get the metric tensor <img class="math" src="../../_images/math/30c428f767fb15a0d07910e81bcbbf449419345e.png" alt="g_{ij}"/> in the spherical
 coordinates <img class="math" src="../../_images/math/c65a6467332273f4d68d2b564d2019cf94b42104.png" alt="x^i"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/201bc346e261260b83171332a6499b5f050dec3d.png" alt="g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} =
+<p><img src="../../_images/math/165ecb5de89886ce8cd83d5b3169a1a35f9c5a00.png" alt="g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} =
 
 
  = \left({\partial (x, y, z)\over\partial(\rho, \theta, \phi)}\right)^T \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}=
 
-= \mat{ \sin\theta\cos\phi &amp; \sin\theta\sin\phi &amp; \cos\theta \cr \rho\cos\theta\cos\phi &amp; \rho\cos\theta\sin\phi &amp; -\rho\sin\theta \cr -\rho\sin\theta\sin\phi &amp; \rho\sin\theta\cos\phi &amp; 0 \cr } \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} \mat{\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp; \rho\sin\theta\cos\phi \cr \cos\phi &amp; -\rho\sin\theta &amp; 0 \cr} =
+= \mat{ \sin\theta\cos\phi &amp; \sin\theta\sin\phi &amp; \cos\theta \cr \rho\cos\theta\cos\phi &amp; \rho\cos\theta\sin\phi &amp; -\rho\sin\theta \cr -\rho\sin\theta\sin\phi &amp; \rho\sin\theta\cos\phi &amp; 0 \cr } \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} \mat{\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp; \rho\sin\theta\cos\phi \cr \cos\theta &amp; -\rho\sin\theta &amp; 0 \cr} =
 
  = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; \rho^2 &amp; 0\cr 0 &amp; 0 &amp; \rho^2\sin^2\theta\cr}
 
