@@ -1084,29 +1084,82 @@ diagonal metric:</p>
 </div></div>
 <div class="section" id="spherical-coordinates">
 <span id="diff-geom-spherical-coordinates"></span><h3>Spherical Coordinates<a class="headerlink" href="#spherical-coordinates" title="Permalink to this headline">¶</a></h3>
+<p>The relation between cartesian coordinates <img class="math" src="../../_images/math/9415e57adba5582edec2ca81ac6f945ad9783c32.png" alt="\hat x^a=(x, y, z)"/>
+and spherical coordinates <img class="math" src="../../_images/math/6c4eff268d77966257a1be2041bb807ffd1a2c32.png" alt="x^i=(\rho, \theta, \phi)"/> is:</p>
+<div class="math" id="equation-spherical_coord">
+<p><span class="eqno">(6)</span><img src="../../_images/math/ab2c04f20d916db217e3b5b1b7b3c8caa74f332a.png" alt="x &amp;= \rho\sin\theta\cos\phi \\
+y &amp;= \rho\sin\theta\sin\phi \\
+z &amp;= \rho\cos\theta         \\"/></p>
+</div><p>The transformation matrix (Jacobian) is calculated by differentiating
+<a href="#equation-spherical_coord">(6)</a>:</p>
+<div class="math" id="equation-jacobian_spherical">
+<p><span class="eqno">(7)</span><img src="../../_images/math/ec888dc46fdfa5fd1feefac6a96620a42f5db02f.png" alt="{\partial \hat x\over\partial x}
+    = {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}
+    = \mat{
+\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr
+\sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp;  \rho\sin\theta\cos\phi \cr
+\cos\phi           &amp; -\rho\sin\theta        &amp;  0                      \cr}"/></p>
+</div><p>The inverse Jacobian is calculated by inverting the matrix
+<a href="#equation-jacobian_spherical">(7)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/e33581aa5fb9cd0ba8d657da2551b6af9263ac31.png" alt="x = \rho\sin\theta\cos\phi"/></p>
-</div><div class="math">
-<p><img src="../../_images/math/192e8d9e1a0429060f5f1b6772e3a7a8ea129e25.png" alt="y = \rho\sin\theta\sin\phi"/></p>
-</div><div class="math">
-<p><img src="../../_images/math/75200d3f3f40d69d9410e61eea4412576d197751.png" alt="z = \rho\cos\theta"/></p>
-</div><p>The transformation matrix is</p>
+<p><img src="../../_images/math/a599ce353ec9b8cfbb6a859d4e29febf4f03e7dd.png" alt="{\partial x\over\partial \hat x}
+    = {\partial(\rho, \theta, \phi)\over\partial(x, y, z)}
+    = \mat{
+\sin\theta\cos\phi             &amp; \sin\theta\sin\phi
+        &amp; \cos\theta             \cr
+{\cos\theta\cos\phi\over\rho}  &amp; {\cos\theta\sin\phi\over\rho}
+        &amp; -{\sin\theta\over\rho} \cr
+-{\sin\phi\over\rho\sin\theta} &amp; {\cos\phi\over\rho\sin\theta}
+        &amp; 0                      \cr }"/></p>
+</div><p>We expressed the above Jacobians using <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/>, <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> and we can
+use <a href="#equation-spherical_coord">(6)</a> to express them using <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>, <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>. Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">simplify</span><span class="p">,</span> <span class="n">latex</span>
+<span class="n">var</span><span class="p">(</span><span class="s">&quot;rho theta phi&quot;</span><span class="p">)</span>
+<span class="n">x_hat</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span>
+    <span class="n">rho</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
+    <span class="n">rho</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
+    <span class="n">rho</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="n">rho</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">])</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_hat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s">&quot;ADJ&quot;</span><span class="p">)</span>
+<span class="n">one</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> \
+        <span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">one_simple</span> <span class="o">=</span> <span class="n">one</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+<span class="n">N</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+<span class="c"># one_simple is equal to 1, but simplify() can&#39;t do this automatically yet:</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">one_simple</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;J =&quot;</span><span class="p">,</span> <span class="n">latex</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;J^{-1} =&quot;</span><span class="p">,</span> <span class="n">latex</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
 <div class="math">
-<p><img src="../../_images/math/9d4d8c7d1239db9efe1d1d374f8e190ae2708bfc.png" alt="{\partial (x, y, z)\over\partial(\rho, \theta, \phi)} = \mat{\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp; \rho\sin\theta\cos\phi \cr \cos\phi &amp; -\rho\sin\theta &amp; 0 \cr}"/></p>
-</div><p>The metric tensor of the cartesian coordinate system <img class="math" src="../../_images/math/9415e57adba5582edec2ca81ac6f945ad9783c32.png" alt="\hat x^a=(x, y, z)"/> is
+<p><img src="../../_images/math/7bbf3b8e194adcbe6db0636bd5b556ff5068d4a1.png" alt="J = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} &amp; \rho \cos{\left (\phi \right )} \cos{\left (\theta \right )} &amp; - \rho \sin{\left (\phi \right )} \sin{\left (\theta \right )}\\\sin{\left (\phi \right )} \sin{\left (\theta \right )} &amp; \rho \sin{\left (\phi \right )} \cos{\left (\theta \right )} &amp; \rho \sin{\left (\theta \right )} \cos{\left (\phi \right )}\\\cos{\left (\theta \right )} &amp; - \rho \sin{\left (\theta \right )} &amp; 0\end{smallmatrix}\right]
+
+J^{-1} = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} &amp; \sin{\left (\phi \right )} \sin{\left (\theta \right )} &amp; \cos{\left (\theta \right )}\\\frac{\cos{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} &amp; \frac{\sin{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} &amp; - \frac{\sin{\left (\theta \right )}}{\rho}\\- \frac{\sin{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} &amp; \frac{\cos{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} &amp; 0\end{smallmatrix}\right]"/></p>
+</div><p>The metric tensor of the cartesian coordinate system <img class="math" src="../../_images/math/434d7880cd365539571cde90d7ff9384783c4ced.png" alt="\hat x^a"/> is
 <img class="math" src="../../_images/math/34fec4404c4e052f460ee5c9be86a6179a4bceb8.png" alt="\hat g_{ab}={\rm diag}(1, 1, 1)"/>,
 so by transformation we get the metric tensor <img class="math" src="../../_images/math/30c428f767fb15a0d07910e81bcbbf449419345e.png" alt="g_{ij}"/> in the spherical
-coordinates <img class="math" src="../../_images/math/6c4eff268d77966257a1be2041bb807ffd1a2c32.png" alt="x^i=(\rho, \theta, \phi)"/>:</p>
+coordinates <img class="math" src="../../_images/math/c65a6467332273f4d68d2b564d2019cf94b42104.png" alt="x^i"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/b60fd778365efc0fba37fc5b120a42dbd3cf91b5.png" alt="g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} ="/></p>
-</div><div class="math">
-<p><img src="../../_images/math/da8b854b1a7a4cfc878f7d4b3275eb84d8e9c123.png" alt="= \left({\partial (x, y, z)\over\partial(\rho, \theta, \phi)}\right)^T \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}="/></p>
-</div><div class="math">
-<p><img src="../../_images/math/474eb97f44ae7cb8b799ae3e424422a98cfce2c1.png" alt="= \mat{ \sin\theta\cos\phi &amp; \sin\theta\sin\phi &amp; \cos\theta \cr \rho\cos\theta\cos\phi &amp; \rho\cos\theta\sin\phi &amp; -\rho\sin\theta \cr -\rho\sin\theta\sin\phi &amp; \rho\sin\theta\cos\phi &amp; 0 \cr } \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} \mat{\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp; \rho\sin\theta\cos\phi \cr \cos\phi &amp; -\rho\sin\theta &amp; 0 \cr} ="/></p>
-</div><div class="math">
-<p><img src="../../_images/math/0babd14637bc1ced91ebbd7378353cedb1baddc9.png" alt="= \mat{1 &amp; 0 &amp; 0\cr 0 &amp; \rho^2 &amp; 0\cr 0 &amp; 0 &amp; \rho^2\sin^2\theta\cr}"/></p>
-</div><div class="math">
-<p><img src="../../_images/math/5919620c790cd9d61019574fbade8fc60b87f8fe.png" alt="g^{ij} = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1\over\rho^2 &amp; 0\cr 0 &amp; 0 &amp; 1\over\rho^2\sin^2\theta\cr}"/></p>
+<p><img src="../../_images/math/201bc346e261260b83171332a6499b5f050dec3d.png" alt="g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} =
+
+
+ = \left({\partial (x, y, z)\over\partial(\rho, \theta, \phi)}\right)^T \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}=
+
+= \mat{ \sin\theta\cos\phi &amp; \sin\theta\sin\phi &amp; \cos\theta \cr \rho\cos\theta\cos\phi &amp; \rho\cos\theta\sin\phi &amp; -\rho\sin\theta \cr -\rho\sin\theta\sin\phi &amp; \rho\sin\theta\cos\phi &amp; 0 \cr } \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} \mat{\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp; \rho\sin\theta\cos\phi \cr \cos\phi &amp; -\rho\sin\theta &amp; 0 \cr} =
+
+ = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; \rho^2 &amp; 0\cr 0 &amp; 0 &amp; \rho^2\sin^2\theta\cr}
+
+
+ g^{ij} = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1\over\rho^2 &amp; 0\cr 0 &amp; 0 &amp; 1\over\rho^2\sin^2\theta\cr}"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/1bc3a2653614b44d2d42abb6a19f5fc35792ba3a.png" alt="\det g = \det g_{ij} = \rho^4\sin^2\theta"/></p>
 </div><div class="math">
@@ -1249,7 +1302,7 @@ coordinate systems):</p>
 </div><div class="math">
 <p><img src="../../_images/math/e69f9efcd565348a8bcd315002cd5c0de2e5a7eb.png" alt="\nabla_0 \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr} = \mat{\partial_0V'^0\cr \partial_0V'^1 +\Gamma^1_{00}V'^0+\Gamma^1_{02}V'^2\cr \partial_0V'^2 +\Gamma^2_{00}V'^0+\Gamma^2_{01}V'^1\cr \partial_0V'^3\cr} = \mat{\partial_0V'^0\cr \partial_0V'^1 -x'\omega^2V'^0-\omega V'^2\cr \partial_0V'^2 -y'\omega^2V'^0+\omega V'^1\cr \partial_0V'^3\cr}="/></p>
 </div><div class="math" id="equation-vcovar">
-<p><span class="eqno">(6)</span><img src="../../_images/math/b0c0ec58eddd6ff0fe85234a987f545c1f261808.png" alt="=
+<p><span class="eqno">(8)</span><img src="../../_images/math/b0c0ec58eddd6ff0fe85234a987f545c1f261808.png" alt="=
 \partial_0
 \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr}
 +
@@ -1281,7 +1334,7 @@ Let&#8217;s imagine a static vector in the <img class="math" src="../../_images/
 <p><img src="../../_images/math/102ea7f835ce35f466e71e59c1309492e80c1cf7.png" alt="\nabla_0\nabla_0W^\mu= = \mat{0\cr -\omega^2\cos\omega t\cr -\omega^2\sin\omega t\cr 0\cr}"/></p>
 </div><p>How can one prove the relation:</p>
 <div class="math" id="equation-vrot">
-<p><span class="eqno">(7)</span><img src="../../_images/math/eb0b979422227fe7970e6e6bb1b8c1ad7f7e1a06.png" alt="{\d{\bf A}\over\d t} = \boldsymbol\omega \times {\bf A} + {\d'{\bf A}\over\d t}"/></p>
+<p><span class="eqno">(9)</span><img src="../../_images/math/eb0b979422227fe7970e6e6bb1b8c1ad7f7e1a06.png" alt="{\d{\bf A}\over\d t} = \boldsymbol\omega \times {\bf A} + {\d'{\bf A}\over\d t}"/></p>
 </div><p>that is used for example to derive the Coriolis acceleration etc.?
 We need to write it components to understand what it really means:</p>
 <div class="math">
@@ -1333,7 +1386,7 @@ for the finite element discretization of axisymmetric 3D problems.</p>
 <p><img src="../../_images/math/6d8982f71e59d0e0747fe9bb8a5f4392689ba2d7.png" alt="\epsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}   \right),\ \ \ \ 1 \le i,j \le 3."/></p>
 </div><p>The stress tensor <img class="math" src="../../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/> has the form</p>
 <div class="math" id="equation-0a">
-<p><span class="eqno">(8)</span><img src="../../_images/math/5a50a08874c1832617c972ae28a696b3c770d0f1.png" alt="\sigma_{ij} = \lambda \delta_{ij}\mbox{div}\bfu + 2\mu \epsilon_{ij},\ \ \ \ 1 \le i,j \le 3,"/></p>
+<p><span class="eqno">(10)</span><img src="../../_images/math/5a50a08874c1832617c972ae28a696b3c770d0f1.png" alt="\sigma_{ij} = \lambda \delta_{ij}\mbox{div}\bfu + 2\mu \epsilon_{ij},\ \ \ \ 1 \le i,j \le 3,"/></p>
 </div><p>where</p>
 <div class="math">
 <p><img src="../../_images/math/19af175f2b8188a943d9215e44ca3b6985aa21b0.png" alt="\mbox{div}\bfu = \sum_{k=1}^3 \frac{\partial u_k}{\partial x_k} = \sum_{k=1}^3 \epsilon_{kk} = \mbox{Tr}(\epsilon)."/></p>
@@ -1341,7 +1394,7 @@ for the finite element discretization of axisymmetric 3D problems.</p>
 symbol (<img class="math" src="../../_images/math/a9c662e8228d8c6ebc51bc78e181d37aea4baa00.png" alt="\delta_{ij} = 1"/> if <img class="math" src="../../_images/math/3799ffcebc202623d060cc962304a9b0d851e15e.png" alt="i = j"/> and <img class="math" src="../../_images/math/79f621114df6eca16b05ec37978cb9bcf189deda.png" alt="\delta_{ij} = 0"/> otherwise).
 The equilibrium equations have the form</p>
 <div class="math" id="equation-0b">
-<p><span class="eqno">(9)</span><img src="../../_images/math/cbbdeff2e549a244754758c255ada52f8d39b593.png" alt="\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j} + f_i = 0,\ \ \ \ 1 \le i \le 3,"/></p>
+<p><span class="eqno">(11)</span><img src="../../_images/math/cbbdeff2e549a244754758c255ada52f8d39b593.png" alt="\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j} + f_i = 0,\ \ \ \ 1 \le i \le 3,"/></p>
 </div><p>where <img class="math" src="../../_images/math/70c27f4a347f5b6bccef52d7de416ef18edbd36c.png" alt="(f_1, f_2, f_3)^T"/> is the vector of internal forces (such as gravity).</p>
 <p>The boundary conditions for linear elasticity are given by</p>
 <div class="math">
@@ -1352,16 +1405,16 @@ The equilibrium equations have the form</p>
 <h4>Weak formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this headline">¶</a></h4>
 <p>Multiplying by test functions and integrating over the domain <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> we obtain</p>
 <div class="math" id="equation-1a">
-<p><span class="eqno">(10)</span><img src="../../_images/math/5475f4586eb8264efcd57d26cc6e4b8aff9c2847.png" alt="- \int_{\Omega}\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j}v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
+<p><span class="eqno">(12)</span><img src="../../_images/math/5475f4586eb8264efcd57d26cc6e4b8aff9c2847.png" alt="- \int_{\Omega}\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j}v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
 </div><p>Using Green&#8217;s theorem and the boundary conditions</p>
 <div class="math">
 <p><img src="../../_images/math/691d1dd3a49e362f94beeaed5b175de438464e3b.png" alt="\int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\partial \Omega} \sum_{j=1}^3 \sigma_{ij} n_j v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
 </div><p>Thus</p>
 <div class="math" id="equation-1b">
-<p><span class="eqno">(11)</span><img src="../../_images/math/e209718cef4a9586b2f9f8a7863d58ab75510e5f.png" alt="\int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\Gamma_2} g_i v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
-</div><p>Let us write the equations <a href="#equation-1b">(11)</a> in detail using relation <a href="#equation-0a">(8)</a></p>
+<p><span class="eqno">(13)</span><img src="../../_images/math/e209718cef4a9586b2f9f8a7863d58ab75510e5f.png" alt="\int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\Gamma_2} g_i v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3."/></p>
+</div><p>Let us write the equations <a href="#equation-1b">(13)</a> in detail using relation <a href="#equation-0a">(10)</a></p>
 <div class="math" id="equation-weak">
-<p><span class="eqno">(12)</span><img src="../../_images/math/0b77882aca2c10d5218be959780c7dd18ef18d8c.png" alt="\begin{eqnarray*}
+<p><span class="eqno">(14)</span><img src="../../_images/math/0b77882aca2c10d5218be959780c7dd18ef18d8c.png" alt="\begin{eqnarray*}
 \int_{\Omega} \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_1}{\partial x_1}\right] \frac{\partial v_1}{\partial x_1} + \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_1}{\partial x_2} + \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_1}{\partial x_3}
 - \int_{\Gamma_2} g_1 v_1 &amp;=&amp; \int_{\Omega}f_1\ v_1,\nonumber\\
 \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_2}{\partial x_1} + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_2}{\partial x_2}\right] \frac{\partial v_2}{\partial x_2} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_2}{\partial x_3}
@@ -1389,7 +1442,7 @@ Note that</p>
 \end{eqnarray*}"/></p>
 </div><p>From here we obtain</p>
 <div class="math" id="equation-1">
-<p><span class="eqno">(13)</span><img src="../../_images/math/21662265519ea59bb488308a8631902b8bee79ed.png" alt="\begin{eqnarray*}
+<p><span class="eqno">(15)</span><img src="../../_images/math/21662265519ea59bb488308a8631902b8bee79ed.png" alt="\begin{eqnarray*}
 \frac{\partial g}{\partial x_1} &amp;=&amp; \frac{\partial g}{\partial r}\cos\phi - \frac{1}{r}\frac{\partial g}{\partial \phi}\sin\phi,\nonumber \\
 \frac{\partial g}{\partial x_2} &amp;=&amp; \frac{\partial g}{\partial r}\sin\phi + \frac{1}{r}\frac{\partial g}{\partial \phi}\cos\phi, \\
 \frac{\partial g}{\partial x_3} &amp;=&amp; \frac{\partial g}{\partial z}. \nonumber
@@ -1397,20 +1450,20 @@ Note that</p>
 </div><p>The relations between displacement components in Cartesian and cylindrical
 coordinates are</p>
 <div class="math" id="equation-2">
-<p><span class="eqno">(14)</span><img src="../../_images/math/aa2626c0b3530a3cc5f090ee99e8419cf6953845.png" alt="\begin{eqnarray*}
+<p><span class="eqno">(16)</span><img src="../../_images/math/aa2626c0b3530a3cc5f090ee99e8419cf6953845.png" alt="\begin{eqnarray*}
 u_1 &amp;=&amp; u_r \cos \phi, \nonumber \\
 u_2 &amp;=&amp; u_r \sin \phi, \nonumber \\
 u_3 &amp;=&amp; u_z. \nonumber
 \end{eqnarray*}"/></p>
 </div><p>The same relations hold for surface forces <img class="math" src="../../_images/math/a19cce4fbe92afdfac314bb1f9762a3846ddf4e0.png" alt="g_i"/> and volume forces <img class="math" src="../../_images/math/61c594c97b61f72af93af4e61894b3f16a3bbb30.png" alt="f_i"/>.</p>
-<p>Applying <a href="#equation-1">(13)</a> to <img class="math" src="../../_images/math/0559ffc8c62a08ff533f3fcd1a5c1713a520755d.png" alt="u_1"/>, we obtain</p>
+<p>Applying <a href="#equation-1">(15)</a> to <img class="math" src="../../_images/math/0559ffc8c62a08ff533f3fcd1a5c1713a520755d.png" alt="u_1"/>, we obtain</p>
 <div class="math">
 <p><img src="../../_images/math/24b9db8d4b65826d601f2b837b50b96b5a457137.png" alt="\begin{eqnarray*}
 \frac{\partial u_1}{\partial x_1} &amp;=&amp; \frac{\partial u_1}{\partial r}\cos\phi - \frac{1}{r}\frac{\partial u_1}{\partial \phi}\sin\phi,\nonumber \\
 \frac{\partial u_1}{\partial x_2} &amp;=&amp; \frac{\partial u_1}{\partial r}\sin\phi + \frac{1}{r}\frac{\partial u_1}{\partial \phi}\cos\phi, \nonumber \\
 \frac{\partial u_1}{\partial x_3} &amp;=&amp; \frac{\partial u_1}{\partial z}. \nonumber
 \end{eqnarray*}"/></p>
-</div><p>Using <a href="#equation-2">(14)</a> and the fact that <img class="math" src="../../_images/math/59ca6d8c556ddbab115d04ad997cc7ded5fa478c.png" alt="u_r"/> does not depend on <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>, this yields</p>
+</div><p>Using <a href="#equation-2">(16)</a> and the fact that <img class="math" src="../../_images/math/59ca6d8c556ddbab115d04ad997cc7ded5fa478c.png" alt="u_r"/> does not depend on <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>, this yields</p>
 <div class="math">
 <p><img src="../../_images/math/eb934e9a12182917c787c0d5aa1795df16b355a3.png" alt="\begin{eqnarray*}
 \frac{\partial u_1}{\partial x_1} &amp;=&amp; \frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi,\nonumber \\
@@ -1439,11 +1492,11 @@ coordinates</p>
 <div class="section" id="axisymmetric-formulation">
 <h4>Axisymmetric formulation<a class="headerlink" href="#axisymmetric-formulation" title="Permalink to this headline">¶</a></h4>
 <p>Assuming that the domain <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> is axisymmetric,
-we can begin to transform the integrals in <a href="#equation-weak">(12)</a> to cylindrical coordinates.
-Recall that the Jacobian of the transformation is <img class="math" src="../../_images/math/ef2a6e5ac0eeba2ea546cfc882e51055564133c0.png" alt="J(r, \phi, z) = r"/>. The first equation in <a href="#equation-weak">(12)</a> has the form:</p>
+we can begin to transform the integrals in <a href="#equation-weak">(14)</a> to cylindrical coordinates.
+Recall that the Jacobian of the transformation is <img class="math" src="../../_images/math/ef2a6e5ac0eeba2ea546cfc882e51055564133c0.png" alt="J(r, \phi, z) = r"/>. The first equation in <a href="#equation-weak">(14)</a> has the form:</p>
 <div class="math">
 <p><img src="../../_images/math/8f4c3c83c1f58a88675c241860d639c4ea5bacc7.png" alt="\begin{eqnarray*} &amp;&amp;\int_{\Omega} r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi)\right] (\frac{\partial v_r}{\partial r}\cos^2\phi + \frac{1}{r} v_r\sin^2\phi) + \\ &amp;&amp;r 2 \mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) + \\ &amp;&amp;r \mu \left(\frac{\partial u_r}{\partial z}\cos\phi + \frac{\partial u_z}{\partial r}\cos\phi\right)\frac{\partial v_r}{\partial z}\cos\phi - \int_{\Gamma_2} r g_r v_r {\cos}^2 \phi = \int_{\Omega} r f_r\ v_r \cos^2 \phi, \end{eqnarray*}"/></p>
-</div><p>The second equation in <a href="#equation-weak">(12)</a> has the form:</p>
+</div><p>The second equation in <a href="#equation-weak">(14)</a> has the form:</p>
 <div class="math">
 <p><img src="../../_images/math/429554da8cce51abf005b30717dcf453d97049eb.png" alt="\begin{eqnarray*} &amp;&amp;\int_{\Omega} r 2\mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) +\\ &amp;&amp; r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\sin^2\phi + \frac{1}{r} u_r\cos^2\phi)\right] (\frac{\partial v_r}{\partial r}\sin^2\phi + \frac{1}{r} v_r\cos^2\phi) + \\ &amp;&amp; r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)(\frac{\partial v_r}{\partial z}\sin\phi)  - \int_{\Gamma_2}r g_r v_r \sin^2 \phi = \int_{\Omega}r f_r\ v_r \sin^2 \phi,\\ \end{eqnarray*}"/></p>
 </div><p>Adding these two equations together we get</p>
@@ -1454,7 +1507,7 @@ Recall that the Jacobian of the transformation is <img class="math" src="../../_
 <p><img src="../../_images/math/01684fd99a3744058a7cf3695e197adb71350704.png" alt="\int_{\Omega} r \lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) (\frac{\partial v_r}{\partial r} + \frac{1}{r} v_r) + \int_{\Omega} r \mu \left[ 2 \left(\frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r} + \frac{1}{r^2} u_r v_r\right) +  \left(\frac{\partial u_r}{\partial z}\frac{\partial v_r}{\partial z} + \frac{\partial u_z}{\partial r}\frac{\partial v_r}{\partial z}\right)\right]"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/b53c24b61dbcb36fdc4bd4310618a305478e9cc8.png" alt="- \int_{\Gamma_2} g_r v_r r = \int_{\Omega}f_r\ v_r r"/></p>
-</div><p>Finally, the third equation in <a href="#equation-weak">(12)</a> has the form</p>
+</div><p>Finally, the third equation in <a href="#equation-weak">(14)</a> has the form</p>
 <div class="math">
 <p><img src="../../_images/math/2dfe4705fb5a690fc4ad1699b8d852df0b4bc777.png" alt="\begin{eqnarray*} &amp;&amp; \int_{\Omega} r \mu \left(\frac{\partial u_r}{\partial z}\cos\phi + \frac{\partial u_z}{\partial r}\cos\phi\right)\frac{\partial v_z}{\partial r}\cos\phi + r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)\frac{\partial v_z}{\partial r}\sin\phi  + \\ &amp;&amp; r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z} ) + 2 \mu \frac{\partial u_z}{\partial z}\right] \frac{\partial v_z}{\partial z} - \int_{\Gamma_2} g_z v_z  r = \int_{\Omega}f_z\ v_z r. \end{eqnarray*}"/></p>
 </div><p>This gives us</p>
