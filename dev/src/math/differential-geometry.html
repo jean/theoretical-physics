@@ -1144,22 +1144,59 @@ use <a href="#equation-spherical_coord">(6)</a> to express them using <img class
 <p><img src="../../_images/math/7bbf3b8e194adcbe6db0636bd5b556ff5068d4a1.png" alt="J = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} &amp; \rho \cos{\left (\phi \right )} \cos{\left (\theta \right )} &amp; - \rho \sin{\left (\phi \right )} \sin{\left (\theta \right )}\\\sin{\left (\phi \right )} \sin{\left (\theta \right )} &amp; \rho \sin{\left (\phi \right )} \cos{\left (\theta \right )} &amp; \rho \sin{\left (\theta \right )} \cos{\left (\phi \right )}\\\cos{\left (\theta \right )} &amp; - \rho \sin{\left (\theta \right )} &amp; 0\end{smallmatrix}\right]
 
 J^{-1} = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} &amp; \sin{\left (\phi \right )} \sin{\left (\theta \right )} &amp; \cos{\left (\theta \right )}\\\frac{\cos{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} &amp; \frac{\sin{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} &amp; - \frac{\sin{\left (\theta \right )}}{\rho}\\- \frac{\sin{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} &amp; \frac{\cos{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} &amp; 0\end{smallmatrix}\right]"/></p>
-</div><p>The metric tensor of the cartesian coordinate system <img class="math" src="../../_images/math/434d7880cd365539571cde90d7ff9384783c4ced.png" alt="\hat x^a"/> is
+</div><p>The transformation matrices (Jacobians) are then used to convert vectors</p>
+<div class="math">
+<p><img src="../../_images/math/0b823523cd80b49057bec87abf7f45fcbf2bdb33.png" alt="V_i =  {\partial \hat x^a\over\partial x^i} \hat V_a"/></p>
+</div><p>and tensors</p>
+<div class="math">
+<p><img src="../../_images/math/34dc03b67538a58587356ab490c889711e1890fe.png" alt="T_{ij} =  {\partial \hat x^a\over\partial x^i}
+    {\partial \hat x^b\over\partial x^j} \hat T_{ab}"/></p>
+</div><p>between spherical and cartesian coordinates. For example the partial
+derivatives from cartesian to spherical coordinates transform as:</p>
+<div class="math">
+<p><img src="../../_images/math/87aab38b4d292d9b037243eebd02fdd88a695692.png" alt="\partial_i =  {\partial \hat x^a\over\partial x^i} \hat \partial_a
+
+\mat{ \partial_\rho   &amp; \partial_\theta &amp; \partial_\phi   \cr }
+=
+\mat{ \partial_x &amp; \partial_y &amp; \partial_z \cr }
+\mat{
+\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr
+\sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp;  \rho\sin\theta\cos\phi \cr
+\cos\theta         &amp; -\rho\sin\theta        &amp;  0                      \cr}"/></p>
+</div><p>and from spherical to cartesian as:</p>
+<div class="math">
+<p><img src="../../_images/math/d092e60d3e35e6b5025143647cd9dace6abaf25a.png" alt="\hat \partial_a =  {\partial x^i\over\partial \hat x^a} \partial_i
+
+\mat{ \partial_x &amp; \partial_y &amp; \partial_z \cr }
+=
+\mat{ \partial_\rho   &amp; \partial_\theta &amp; \partial_\phi   \cr }
+\mat{
+\sin\theta\cos\phi             &amp; \sin\theta\sin\phi
+        &amp; \cos\theta             \cr
+{\cos\theta\cos\phi\over\rho}  &amp; {\cos\theta\sin\phi\over\rho}
+        &amp; -{\sin\theta\over\rho} \cr
+-{\sin\phi\over\rho\sin\theta} &amp; {\cos\phi\over\rho\sin\theta}
+        &amp; 0                      \cr }"/></p>
+</div><p>Care must be taken when rewriting the index expression into matrices &#8211; the top
+index of the Jacobian is the row index, the bottom index is the column index.</p>
+<p>The metric tensor of the cartesian coordinate system <img class="math" src="../../_images/math/434d7880cd365539571cde90d7ff9384783c4ced.png" alt="\hat x^a"/> is
 <img class="math" src="../../_images/math/34fec4404c4e052f460ee5c9be86a6179a4bceb8.png" alt="\hat g_{ab}={\rm diag}(1, 1, 1)"/>,
 so by transformation we get the metric tensor <img class="math" src="../../_images/math/30c428f767fb15a0d07910e81bcbbf449419345e.png" alt="g_{ij}"/> in the spherical
 coordinates <img class="math" src="../../_images/math/c65a6467332273f4d68d2b564d2019cf94b42104.png" alt="x^i"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/165ecb5de89886ce8cd83d5b3169a1a35f9c5a00.png" alt="g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} =
+<p><img src="../../_images/math/d789c0109663f07027b6ce5ec547b2bb37adcfa1.png" alt="g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} =
 
 
  = \left({\partial (x, y, z)\over\partial(\rho, \theta, \phi)}\right)^T \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}=
 
 = \mat{ \sin\theta\cos\phi &amp; \sin\theta\sin\phi &amp; \cos\theta \cr \rho\cos\theta\cos\phi &amp; \rho\cos\theta\sin\phi &amp; -\rho\sin\theta \cr -\rho\sin\theta\sin\phi &amp; \rho\sin\theta\cos\phi &amp; 0 \cr } \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 1\cr} \mat{\sin\theta\cos\phi &amp; \rho\cos\theta\cos\phi &amp; -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi &amp; \rho\cos\theta\sin\phi &amp; \rho\sin\theta\cos\phi \cr \cos\theta &amp; -\rho\sin\theta &amp; 0 \cr} =
 
- = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; \rho^2 &amp; 0\cr 0 &amp; 0 &amp; \rho^2\sin^2\theta\cr}
-
-
- g^{ij} = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1\over\rho^2 &amp; 0\cr 0 &amp; 0 &amp; 1\over\rho^2\sin^2\theta\cr}"/></p>
+ = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; \rho^2 &amp; 0\cr 0 &amp; 0 &amp; \rho^2\sin^2\theta\cr}"/></p>
+</div><p>Once we have the metric tensor expressed in spherical coordinates,
+we don&#8217;t need the cartesian coordinates anymore. All formulas
+only contain the spherical coordinates and the metric tensor.</p>
+<div class="math">
+<p><img src="../../_images/math/5919620c790cd9d61019574fbade8fc60b87f8fe.png" alt="g^{ij} = \mat{1 &amp; 0 &amp; 0\cr 0 &amp; 1\over\rho^2 &amp; 0\cr 0 &amp; 0 &amp; 1\over\rho^2\sin^2\theta\cr}"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/1bc3a2653614b44d2d42abb6a19f5fc35792ba3a.png" alt="\det g = \det g_{ij} = \rho^4\sin^2\theta"/></p>
 </div><div class="math">
