@@ -214,34 +214,145 @@ c}\right)\d x
 </div></div>
 <div class="section" id="variations-and-functional-derivatives">
 <span id="index-0"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
-<p>Functional derivatives are a common source of confusion and especially the
-notation. The reason is similar to the delta function &#8212; the definition is
-operational, i.e. it tells you what operations you need to do to get a
-mathematically precise formula. The notation below is commonly used in physics
-and in our opinion it is perfectly precise and exact, but some mathematicians
-may not like it.</p>
-<p>Let&#8217;s have <img class="math" src="../../_images/math/ab3e643c4d399e6999d2f7b4ce9a2a766eda80bc.png" alt="\x=(x_1,x_2,\dots,x_N)"/>. The function <img class="math" src="../../_images/math/56e8ab6bf81262934ed1d47271d748ca823f8705.png" alt="f(\x)"/> assigns a number to each <img class="math" src="../../_images/math/23a296aacd97e7c94f7dbb18d3b0e24bd474e3f9.png" alt="\x"/>. We define a differential of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> as</p>
+<p>Variations and functional derivatives are generalization of differentials and
+partial derivatives to functionals. It is important to master this subject just
+like regular differentials/derivatives in calculus.</p>
+<div class="section" id="functions-of-one-variable">
+<h2>Functions of One Variable<a class="headerlink" href="#functions-of-one-variable" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s first review differentials and derivatives of functions of one variable.
+We will use an approach that directly generalizes to multivariable functions
+and functionals.
+The differential <img class="math" src="../../_images/math/f09888b5da88ed35d47158b7d3efd29f87ee05d5.png" alt="\d f"/> is defined as:</p>
 <div class="math">
-<p><img src="../../_images/math/fdb0f085be4892f6326badb3c1023d6d42b53fa9.png" alt="\d f\equiv \left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0} =\lim_{\varepsilon\to0} {f(\x+\varepsilon\h)-f(\x)\over\varepsilon}=\a\cdot\h"/></p>
-</div><p>The last equality follows from the fact, that <img class="math" src="../../_images/math/6516e75b4b64fe028dba91dd52f1b9c647fc6311.png" alt="\left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0}"/> is a linear function of <img class="math" src="../../_images/math/077c14927538d8f1a0a52edb45aa52d108bd2359.png" alt="\h"/>. We define <img class="math" src="../../_images/math/1f5cd0fa6802be5440f542dbaa74c462236887ab.png" alt="{\partial f\over\partial x_i}"/> as</p>
+<p><img src="../../_images/math/7d707aa7d0c895362285c29e0ea9d94fc06f734e.png" alt="\d f
+    \equiv \lim_{\varepsilon\to0} {f(x+\varepsilon h)
+        -f(x)\over\varepsilon}
+    = a h"/></p>
+</div><p>Last equality follows from the fact, that the limit is a linear function of
+<img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/f0ae6346151ee126d1e42ceae02ed38297885559.png" alt="\a\equiv\left({\partial f\over\partial x_1},{\partial f\over\partial x_2}, \dots,{\partial f\over\partial x_N}\right)"/></p>
+<p><img src="../../_images/math/4f4e695631fe974c6977e24928481a582b4b44fb.png" alt="\lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}
+    = \lim_{\eta\to0} {f(x+\eta) -f(x)\over\left(\eta\over h\right)}
+    = \left(\lim_{\eta\to0} {f(x+\eta) -f(x)\over\eta}\right) h"/></p>
+</div><p>Where we used the substitution <img class="math" src="../../_images/math/55f446a63187d0ec959abd4099491bf2da862352.png" alt="\eta = \varepsilon h"/>.
+We define the derivative <img class="math" src="../../_images/math/a3c386ffc8278cbbafa50083467affefff28d6ec.png" alt="\d f\over \d x"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/43704b86e65280dfa246d1dd9af09931bc341f1c.png" alt="{\d f\over \d x} = a"/></p>
+</div><p>To get a formula for <img class="math" src="../../_images/math/30cc76ecc1c1bf64541bdcb8c86648e387fa969f.png" alt="{\d f\over \d x}"/>, we set <img class="math" src="../../_images/math/f0b2d4c8f33e34b6675b8e392a77c6656a27d21d.png" alt="h=1"/> and get:</p>
+<div class="math">
+<p><img src="../../_images/math/d0feb62d2e560dd9cedb6e1a7c78d1b3b1fd13fa.png" alt="{\d f\over \d x} = a = a \cdot 1
+    = \lim_{\varepsilon\to0} {f(x+\varepsilon \cdot 1)-f(x)\over\varepsilon}
+    = \lim_{\varepsilon\to0} {f(x+\varepsilon)-f(x)\over\varepsilon}"/></p>
+</div><p>Using the formulas above we get an equivalent expression for the
+differential:</p>
+<div class="math">
+<p><img src="../../_images/math/72aad5694ed272956125d56a80cd3259eaf4bba3.png" alt="\left.{\d\over\d\varepsilon}f(x+\varepsilon h) \right|_{\varepsilon=0}
+    = \left.\lim_{\eta\to0} {f(x+(\varepsilon+\eta) h)
+        -f(x+\varepsilon h)\over\eta}\right|_{\varepsilon=0} =
+
+    = \lim_{\eta\to0} {f(x+\eta h) -f(x)\over\eta} =
+
+    = \lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}"/></p>
+</div><p>So we get a general formula (the analogy of which we will use later):</p>
+<div class="math">
+<p><img src="../../_images/math/67550155cbc18c278c1820534e6a6227b59d1338.png" alt="\d f
+    \equiv\left.{\d\over\d\varepsilon}f(x+\varepsilon h)
+        \right|_{\varepsilon=0}
+    = \lim_{\varepsilon\to0} {f(x+\varepsilon h)
+        -f(x)\over\varepsilon}
+    = a h"/></p>
+</div><p>The variable <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> can be treated as a function (a very simple one):</p>
+<div class="math">
+<p><img src="../../_images/math/1fd17e8bdd8f777c3dd9068df8ad61e50383d0eb.png" alt="x = g(x)"/></p>
+</div><p>So we define <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/74c5ef592775f52d589328c018a5b4dcd729578e.png" alt="\d x \equiv \d g = {\d g\over\d x} h = h"/></p>
+</div><p>As such, <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> can have two meanings: either <img class="math" src="../../_images/math/65f0bb824ca5c4c4a47513af549fe5b5e38a95a0.png" alt="\d x = h = x-x_0"/> (a finite
+change in the variable <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>) or a differential (if <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> depends on another
+variable, thanks to the chain rule everything will work).
+With this understanding,
+for all calculations, we only need the following two formulas &#8212;
+the definition of the differential (using a limit):</p>
+<div class="math">
+<p><img src="../../_images/math/27e1517f7b80103400d955360eaed76a02fe1b10.png" alt="\d f = \lim_{\varepsilon\to0} {f(x+\varepsilon \d x) -f(x)\over\varepsilon}"/></p>
+</div><p>and the definition of the derivative (using the differential):</p>
+<div class="math">
+<p><img src="../../_images/math/0242850b80d428fe11c6e12d15ce39305bae607d.png" alt="\d f = {\d f\over \d x} \d x"/></p>
+</div><p>where <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> is either a differential or a finite change in the variable <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>.</p>
+<p>If for example <img class="math" src="../../_images/math/aef732a0008303ac3ff6de605f5e95ea7989670f.png" alt="x=p(y)"/> is a function of <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> then in the above <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> is a
+differential and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8531d19f975cc89ca0adf4815b0ed1ea2c7418ca.png" alt="\d f = {\d f\over \d x} \d x = {\d f\over \d x}{\d x\over \d y} \d y"/></p>
+</div><p>Thanks to the chain rule, this can also be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/66524e3fb9a18bdedb776684508d17f17d272615.png" alt="\d f = {\d f\over \d y} \d y"/></p>
+</div><p>and so the notation is consistent.</p>
+</div>
+<div class="section" id="functions-of-several-variables">
+<h2>Functions of several variables<a class="headerlink" href="#functions-of-several-variables" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s have <img class="math" src="../../_images/math/ab3e643c4d399e6999d2f7b4ce9a2a766eda80bc.png" alt="\x=(x_1,x_2,\dots,x_N)"/>. The function <img class="math" src="../../_images/math/56e8ab6bf81262934ed1d47271d748ca823f8705.png" alt="f(\x)"/> assigns a number to
+each <img class="math" src="../../_images/math/23a296aacd97e7c94f7dbb18d3b0e24bd474e3f9.png" alt="\x"/>. We define a differential of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> in the direction of <img class="math" src="../../_images/math/94485ae319e0b105fde1a55fa21fbe6ceea4f1d7.png" alt="{\bf h}"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/06379ea33b56aa5e9118427791a726d7d60c18b7.png" alt="\d f
+    \equiv\left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon{\bf h})
+        \right|_{\varepsilon=0}
+    = \lim_{\varepsilon\to0} {f({\bf x}+\varepsilon{\bf h})
+        -f(\x)\over\varepsilon}
+    = {\bf a} \cdot {\bf h}"/></p>
+</div><p>The last equality follows from the fact, that
+<img class="math" src="../../_images/math/3e34972ebbf7ebd0ef9c75b9999985f79f1ce6e9.png" alt="\left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon{\bf h}) \right|_{\varepsilon=0}"/> is a
+linear function of <img class="math" src="../../_images/math/94485ae319e0b105fde1a55fa21fbe6ceea4f1d7.png" alt="{\bf h}"/>. We define the partial derivative <img class="math" src="../../_images/math/684a0848ba03fc3e5c87a1707e2e1a54c9dc516b.png" alt="{\partial
+f\over\partial x_i}"/> of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> with respect to <img class="math" src="../../_images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i"/> as the <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>-th component of
+the vector <img class="math" src="../../_images/math/ccddf954eec352c62c56fb902fbc887ec139e191.png" alt="{\bf a}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/7201b9ac4f3c63e06d3ad2c9dc210775ec08f8af.png" alt="{\bf a}
+    \equiv \left({\partial f\over\partial x_1},
+        {\partial f\over\partial x_2}, \dots,
+        {\partial f\over\partial x_N}\right)
+    \equiv \nabla f"/></p>
 </div><p>This also gives a formula for computing <img class="math" src="../../_images/math/1f5cd0fa6802be5440f542dbaa74c462236887ab.png" alt="{\partial f\over\partial x_i}"/>: we set <img class="math" src="../../_images/math/d76e65126033fa334e9f11e8a8522a82e1500019.png" alt="h_j=\delta_{ij}h_i"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/a66f9104584ca47d1aa6ee30e1a755786e136dc8.png" alt="{\partial f\over\partial x_i}=a_i=\a\cdot\h=\left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))\right|_{\varepsilon=0}="/></p>
-</div><div class="math">
-<p><img src="../../_images/math/9e26e8f96e2104ff48c5979c7ee57b0a95a5ff39.png" alt="=\lim_{\varepsilon\to0} {f(x_1,x_2,\dots,x_i+\varepsilon,\dots,x_N)-f(x_1,x_2,\dots,x_i,\dots,x_N) \over\varepsilon}"/></p>
-</div><p>But this is just the way the partial derivative is usually defined. Every variable can be treated as a function (very simple one):</p>
+<p><img src="../../_images/math/7192f7b27cf103ae0b060c451f98d5b2ec8a51d2.png" alt="{\partial f\over\partial x_i}
+    = a_i
+    = {\bf a}\cdot{\bf h}
+    = \left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))
+        \right|_{\varepsilon=0} =
+
+    = \lim_{\varepsilon\to0} {f(x_1,x_2,\dots,x_i+\varepsilon,\dots,x_N)
+        -f(x_1,x_2,\dots,x_i,\dots,x_N) \over\varepsilon}"/></p>
+</div><p>The usual way to define partial derivatives is to use the last formula as the
+definition, but here this formula is a consequence of our definition in terms
+of the components of <img class="math" src="../../_images/math/ccddf954eec352c62c56fb902fbc887ec139e191.png" alt="{\bf a}"/>.
+Every variable can be treated as a function (very simple one):</p>
 <div class="math">
 <p><img src="../../_images/math/b8748530915578741c04d2bb927915bf280bbcff.png" alt="x_i=g(x_1,\dots,x_N)=\delta_{ij}x_j"/></p>
 </div><p>and so we define</p>
 <div class="math">
 <p><img src="../../_images/math/be46039ad27faef134674ae2ccb882902e97d945.png" alt="\d x_i\equiv\d g=\d(\delta_{ij}x_j)=h_i"/></p>
-</div><p>and thus we write <img class="math" src="../../_images/math/265019391ff9de74ec4e9afe3c0ac90757a451bc.png" alt="h_i=\d x_i"/> and <img class="math" src="../../_images/math/2abb7e69c818feff1a52d1f3c2452fc74e173533.png" alt="\h=\d\x"/> and</p>
+</div><p>and thus we write <img class="math" src="../../_images/math/265019391ff9de74ec4e9afe3c0ac90757a451bc.png" alt="h_i=\d x_i"/> and <img class="math" src="../../_images/math/237159f803bd86ef88a97f9586df4bd4308d68aa.png" alt="{\bf h}=\d\x"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/90e3d3f50dbf694c1205ad5560bc18ea930d042f.png" alt="\d f={\d f\over\d x_i}\d x_i"/></p>
-</div><p>So <img class="math" src="../../_images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/> has two meanings &#8212; it&#8217;s either <img class="math" src="../../_images/math/a2a6a1b476955c28de827c7bf6f241f48fb60652.png" alt="\h=\x-\x_0"/> (a finite change in the independent variable <img class="math" src="../../_images/math/23a296aacd97e7c94f7dbb18d3b0e24bd474e3f9.png" alt="\x"/>) or a differential, depending on the context. Even mathematicians use this notation.</p>
-<p>Functional <img class="math" src="../../_images/math/d5efc0eec270c88592417add1233cfeaa51564e3.png" alt="F[f]"/> assigns a number to each function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. The variation is defined as</p>
+<p><img src="../../_images/math/b62e1affa0f41a26188b61f56d3795671623a571.png" alt="\d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}"/></p>
+</div><p>So <img class="math" src="../../_images/math/19509b51e805f2e9ba812355d9e9cc32f653d6e8.png" alt="\d{\bf x}"/> has two meanings &#8212; it&#8217;s either <img class="math" src="../../_images/math/c17ded8948d4b38bcd41462d690257d0e750f7a9.png" alt="{\bf h}={\bf x}-{\bf x}_0"/> (a
+finite change in the independent variable <img class="math" src="../../_images/math/81be9c56d3b198d87b4049cff4e32bb5c187c52d.png" alt="{\bf x}"/>) or a differential,
+depending on the context. The above is a detailed explanation why things
+are defined the way they are and what the exact meaning is. With this
+understanding, the only things that are actually needed for any calculations
+are the following &#8211; the definition of a differential:</p>
+<div class="math">
+<p><img src="../../_images/math/520d10df810194c66682f335078090a711570c9c.png" alt="\d f = \left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon\d {\bf x})
+        \right|_{\varepsilon=0}"/></p>
+</div><p>Only a regular derivative (defined in the previous section) is needed for this
+definition. The definition of a partial derivative (and a gradient):</p>
+<div class="math">
+<p><img src="../../_images/math/b62e1affa0f41a26188b61f56d3795671623a571.png" alt="\d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}"/></p>
+</div><p>And finally the understanding that <img class="math" src="../../_images/math/19509b51e805f2e9ba812355d9e9cc32f653d6e8.png" alt="\d{\bf x}"/> means
+either <img class="math" src="../../_images/math/c17ded8948d4b38bcd41462d690257d0e750f7a9.png" alt="{\bf h}={\bf x}-{\bf x}_0"/> or a differential depending on the context.
+That&#8217;s all there is to it.</p>
+</div>
+<div class="section" id="functionals">
+<h2>Functionals<a class="headerlink" href="#functionals" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s now define functional derivatives and variations.
+Functional <img class="math" src="../../_images/math/d5efc0eec270c88592417add1233cfeaa51564e3.png" alt="F[f]"/> assigns a number to each function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. The variation is defined as</p>
 <div class="math">
 <p><img src="../../_images/math/07dd13ee0b73980dd443e90f846d99b53b9b41ea.png" alt="\delta F[f]\equiv\left.{\d\over\d\varepsilon}F[f+\varepsilon h] \right|_{\varepsilon=0}=\lim_{\epsilon\to0}{F[f+\epsilon h]-F[f]\over\epsilon}= \int a(x)h(x)\d x"/></p>
 </div><p>We define <img class="math" src="../../_images/math/ce175f5b25609ca01080967f4d6f7be64dbb2328.png" alt="{\delta F\over\delta f(x)}"/> as</p>
@@ -249,10 +360,12 @@ may not like it.</p>
 <p><img src="../../_images/math/71c7d3cbbf600ebf38f78d6689eb7304cd92c575.png" alt="a(x)\equiv{\delta F\over\delta f(x)}"/></p>
 </div><p>This also gives a formula for computing <img class="math" src="../../_images/math/ce175f5b25609ca01080967f4d6f7be64dbb2328.png" alt="{\delta F\over\delta f(x)}"/>: we set <img class="math" src="../../_images/math/3e5c24ab82805fe21c0e0fa20da3efd4dcf39972.png" alt="h(y)=\delta(x-y)"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/40341c13ce31d8100306c3056db74b3762a8f1ae.png" alt="{\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}="/></p>
-</div><div class="math">
-<p><img src="../../_images/math/0afc916533d2ef2008af1831413045e6a0693131.png" alt="=\lim_{\varepsilon\to0} {F[f(y)+\varepsilon\delta(x-y)]-F[f(y)]\over\varepsilon}"/></p>
-</div><p>Every function can be treated as a functional (although a very simple one):</p>
+<p><img src="../../_images/math/ba48f6268c624bac2ad8ef20f325709c95e53e88.png" alt="{\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=
+
+=\lim_{\varepsilon\to0} {F[f(y)+\varepsilon\delta(x-y)]-F[f(y)]\over\varepsilon}"/></p>
+</div><p>Sometimes the functional derivative is defined using the last formula, here
+this formula just follows from our definition.
+Every function can be treated as a functional (although a very simple one):</p>
 <div class="math">
 <p><img src="../../_images/math/387f075e6d71f2a505dac776f7e17e0c76da8f10.png" alt="f(x)=G[f]=\int f(y)\delta(x-y)\d y"/></p>
 </div><p>and so we define</p>
@@ -262,11 +375,19 @@ may not like it.</p>
 <div class="math">
 <p><img src="../../_images/math/fa073632306ec146fbbaab3afd4d93610653f6e3.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x"/></p>
 </div><p>so <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> have two meanings &#8212; it&#8217;s either
-<img class="math" src="../../_images/math/d7f9a2f06922cdbc376c69a53a356b660a89d134.png" alt="h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x))
-\right|_{\varepsilon=0}"/> (a finite change in the function <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>) or a variation
-of a functional, depending on the context. Some mathematicians don&#8217;t like to
-write <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> in the meaning of <img class="math" src="../../_images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)"/>, they prefer to write the latter, but
-it is in fact perfectly fine to use <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/>, because it is completely analogous to <img class="math" src="../../_images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/>.</p>
+<img class="math" src="../../_images/math/ea24093e786193699dab8e4702890acf9b24cbe1.png" alt="h(x)=f(x) - f_0(x)"/> (a finite change in the function <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>) or a variation
+of a functional, depending on the context.
+It is completely analogous to <img class="math" src="../../_images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/>. Let&#8217;s summarize the only formulas needed
+in actual calculations &#8211; the definition of a variation (using a regular
+derivative):</p>
+<div class="math">
+<p><img src="../../_images/math/2f84e4f82f284e7893935401be4b974bb8707d14.png" alt="\delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
+    \right|_{\varepsilon=0}"/></p>
+</div><p>the definition of the functional derivative:</p>
+<div class="math">
+<p><img src="../../_images/math/aca9a01e7da7a50611a335ad9fda59410460a6aa.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)} \delta f(x) \d x"/></p>
+</div><p>and the understanding that <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> means either
+<img class="math" src="../../_images/math/ea24093e786193699dab8e4702890acf9b24cbe1.png" alt="h(x)=f(x) - f_0(x)"/> or a variation.</p>
 <p>The correspondence between the finite and infinite dimensional case can be summarized as:</p>
 <div class="math">
 <p><img src="../../_images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}"/></p>
@@ -285,17 +406,36 @@ it is in fact perfectly fine to use <img class="math" src="../../_images/math/49
 </div><div class="math">
 <p><img src="../../_images/math/fbc410e58805cf509b6ace25b69fd9e9c015f9fa.png" alt="=\int\delta(K(x) f(x))\d x"/></p>
 </div><p>In the expression <img class="math" src="../../_images/math/ed5a5d9abb8c74605f021d6fdb0ff6d83b9b4496.png" alt="\delta(K(x) f(x))"/> we must understand from the context if we are treating it as a functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> or <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>. In our case it&#8217;s a functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>, so we have <img class="math" src="../../_images/math/a3023f177197f430d1b04f78ae944c56f37b0ec7.png" alt="\delta(K f)=K\delta f"/>.</p>
-<p>A few more examples:</p>
+<p>A few more examples (notice that one can do each calculation either in terms of
+the functional derivative or the variation, and the variation version is usually
+simpler):</p>
 <div class="math">
-<p><img src="../../_images/math/3572f4133542eab6b21ea466da64b75902c764d2.png" alt="{\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)"/></p>
+<p><img src="../../_images/math/ff65a4ca9f2242c322a5c79026416d5adbfa540d.png" alt="{\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)
+
+\delta \int \d t f(t)g(t) = \left.{\d\over\d\varepsilon}\int\d
+    t(f(t)+\varepsilon \delta f(t))g(t) \right|_{\varepsilon=0}
+ = \int g(t) (\delta f(t)) \d t"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/b8636d15e8aa10eb777a1857e0917bb71b1e8431.png" alt="{\delta f(t')\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t')+\varepsilon\delta(t-t')) \right|_{\varepsilon=0}=\delta(t-t')"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/396bfffeee98b01eafa45a0f646a8cafbbe232a4.png" alt="{\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/4c824a7f62e33f2ef79116092f13f64123679205.png" alt="{\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}="/></p>
+<p><img src="../../_images/math/2f38f7dc3d9bb2f1aa158596756c51c51fbe3fda.png" alt="\delta (f(t_1)f(t_2))
+    = \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta f(t_1))
+        (f(t_2)+\varepsilon\delta f(t_2)) \right|_{\varepsilon=0}
+    =(\delta f(t_1))f(t_2)+f(t_1)(\delta f(t_2))"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/8357125b34ce9cacedbeb896051c04f1359a5f20.png" alt="=\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)"/></p>
+<p><img src="../../_images/math/d8c3faf62a3e42c83b94db40e7c22c014bb34954.png" alt="{\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}=
+
+=\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)"/></p>
+</div><div class="math">
+<p><img src="../../_images/math/ad85c33bd867391b6194173af9cc1a80613dfb5e.png" alt="\delta \half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d
+t_2K(t_1,t_2)(\delta f(t_1)f(t_2))=
+
+= \half\int\d t_1\d t_2K(t_1,t_2) ((\delta f(t_1))f(t_2)
+    +f(t_1)(\delta f(t_2))=
+
+= \int\d t_1\d t_2 K(t_1,t_2) f(t_2) (\delta f(t_1))"/></p>
 </div><p>The last equality follows from <img class="math" src="../../_images/math/254200367124546e9177667d1eef5980bf070b09.png" alt="K(t_1,t_2)=K(t_2,t_1)"/> (any antisymmetrical part of a <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> would not contribute to the symmetrical integration).</p>
 <p>Another example is the derivation of Euler-Lagrange equations for the
 Lagrangian density <img class="math" src="../../_images/math/5dde232e7d98a7e226092bf4cc8886441e4f0a26.png" alt="\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)"/>:</p>
@@ -343,8 +483,8 @@ Lagrangian density <img class="math" src="../../_images/math/5dde232e7d98a7e2260
 <p><img src="../../_images/math/7fda5810cd5b225833196609574ddeff17492eb1.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}="/></p>
 </div><div class="math">
 <p><img src="../../_images/math/577aa4fdba4bbdbfbfb835af2096c522859d5ab7.png" alt="=\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)"/></p>
-</div><p>Some mathematicians would say the above calculation is incorrect, because
-<img class="math" src="../../_images/math/c955fcd1c55ca1e65d9cf198d394293ad902f46c.png" alt="\delta^2(x-t)"/> is undefined. But that&#8217;s not exactly true, because in case of
+</div><p>One might thing that the above calculation is incorrect, because
+<img class="math" src="../../_images/math/c955fcd1c55ca1e65d9cf198d394293ad902f46c.png" alt="\delta^2(x-t)"/> is undefined. In case of
 such problems the above notation automatically implies working with some
 sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144dca3e5c08f31.png" alt="\delta_\alpha(x) \to \delta(x)"/> (for example <img class="math" src="../../_images/math/766e2be522002f4a969d89a59aa611633242b363.png" alt="\delta_\alpha(x) =
 {1\over\pi x}\sin(\alpha x)"/>) and taking the limit <img class="math" src="../../_images/math/67d0ab153257a7d8933eaa2870be9bb2aeb55ff6.png" alt="\alpha\to\infty"/>:</p>
@@ -379,7 +519,58 @@ sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144d
     =\half \sqrt{ |\det g_{\mu\nu}| }\, g^{\mu\nu} \delta g_{\mu\nu} =
 
     =-\half \sqrt{ |\det g_{\mu\nu}| }\, g_{\mu\nu} \delta g^{\mu\nu}"/></p>
+</div><p>Another example (varying energy functional):</p>
+<div class="math">
+<p><img src="../../_images/math/26010e32cd7922e1e8f4d5ce2a3b46f0ec95b739.png" alt="E[\rho] = 4\pi\int {a \rho(r)\over b + r_s(r)} r^2 \d r
+
+r_s(r) = \left(3\over 4\pi (-\rho)\right)^{1\over 3}
+
+{\d r_s\over\d \rho} =
+        {1\over 3}\left(3\over 4\pi (-\rho)\right)^{-{2\over 3}}
+        {3\over 4\pi \rho^2}
+    =
+        -{1\over 3\rho}\left(3\over 4\pi (-\rho)\right)^{1\over 3}
+    =
+        -{r_s\over 3\rho}
+
+\delta E[\rho] = 4\pi \delta \int {a \rho\over b + r_s} r^2 \d r =
+
+    = 4\pi \int\left({a \delta \rho\over b + r_s}
+        - {a \rho\over (b + r_s)^2 }\delta r_s\right) r^2 \d r =
+
+    = 4\pi \int\left({a \delta \rho\over b + r_s}
+        - {a \rho\over (b + r_s)^2 }\left(-{r_s\over 3\rho}\right)
+          \delta\rho\right)
+          r^2 \d r =
+
+    = 4\pi \int\left({a \over b + r_s}
+        +{1\over3} {a r_s\over (b + r_s)^2 }\right) (\delta\rho) r^2 \d r
+
+{\delta E[\rho]\over\delta\rho}
+    = 4\pi r^2 \left({a \over b + r_s}
+        +{1\over3} {a r_s\over (b + r_s)^2 }\right)"/></p>
+</div><p>Another example (Hartree energy):</p>
+<div class="math">
+<p><img src="../../_images/math/171de532d2c5b24b9589de2930343b615997fc9b.png" alt="E[n] = \half \int {n({\bf r}') n({\bf r}'')\over
+    | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r''
+
+\delta E[n] = \half \delta \int {n({\bf r}') n({\bf r}'')\over
+    | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r'' =
+
+    = \half \int { (\delta n({\bf r}')) n({\bf r}'')
+        + n({\bf r}') (\delta n({\bf r}''))\over
+    | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r'' =
+
+    = \int { n({\bf r}') \over | {\bf r}' - {\bf r}''| }
+        (\delta n({\bf r}'')) \d^3 r' \d^3 r'' =
+
+    = \int { n({\bf r}') \over | {\bf r} - {\bf r}'| }
+        (\delta n({\bf r})) \d^3 r' \d^3 r
+
+{\delta E[n]\over \delta n({\bf r})}
+    = \int { n({\bf r}') \over | {\bf r} - {\bf r}'| } \d^3 r'"/></p>
 </div></div>
+</div>
 <div class="section" id="dirac-notation">
 <span id="index-1"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
 <p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
@@ -1077,7 +1268,12 @@ B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
   <ul>
 <li><a class="reference internal" href="#">Delta Function</a></li>
 <li><a class="reference internal" href="#distributions">Distributions</a></li>
-<li><a class="reference internal" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a></li>
+<li><a class="reference internal" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a><ul>
+<li><a class="reference internal" href="#functions-of-one-variable">Functions of One Variable</a></li>
+<li><a class="reference internal" href="#functions-of-several-variables">Functions of several variables</a></li>
+<li><a class="reference internal" href="#functionals">Functionals</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#dirac-notation">Dirac Notation</a></li>
 <li><a class="reference internal" href="#homogeneous-functions">Homogeneous functions</a><ul>
 <li><a class="reference internal" href="#example-1">Example 1</a></li>
