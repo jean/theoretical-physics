@@ -1162,40 +1162,53 @@ c + a \ge b"/></p>
 </div>
 <div class="section" id="gamma-function">
 <h1>Gamma Function<a class="headerlink" href="#gamma-function" title="Permalink to this headline">¶</a></h1>
-<p>Gamma function <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> is defined as:</p>
+<p>The Gamma function <img class="math" src="../../_images/math/36edacaf2ec3d06fb117f981d12f42cdee6cf940.png" alt="\Gamma(x)"/> is defined by the following properties
+for <img class="math" src="../../_images/math/cae4fd68f44ac9b909f8d91f9d498de5759bb45b.png" alt="x &gt; 0"/>:</p>
+<div class="math" id="equation-gamma1">
+<p><span class="eqno">(14)</span><img src="../../_images/math/269006932a9e644a750249893630fba613acd509.png" alt="\Gamma(1) = 1"/></p>
+</div><div class="math" id="equation-gamma2">
+<p><span class="eqno">(15)</span><img src="../../_images/math/b5bddd5093001356e5e14333d46ace5485a37a17.png" alt="\Gamma(x+1) = x \Gamma(x)"/></p>
+</div><div class="math" id="equation-gamma3">
+<p><span class="eqno">(16)</span><img src="../../_images/math/44de5beb0385b7926addf706d610d0722e2312c6.png" alt="\log\Gamma(x) \quad\mbox{is convex}"/></p>
+</div><p>It can be shown that this determines the function uniquely for <img class="math" src="../../_images/math/cae4fd68f44ac9b909f8d91f9d498de5759bb45b.png" alt="x &gt; 0"/> (this is
+called the Bohr-Mollerup theorem) and then it can be extended analytically to
+the whole complex plane.</p>
+<p>The most common formula for <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> that satisfies <a href="#equation-gamma1">(14)</a>,
+<a href="#equation-gamma2">(15)</a> and <a href="#equation-gamma3">(16)</a>
+is:</p>
+<div class="math" id="equation-gamma_int">
+<p><span class="eqno">(17)</span><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t"/></p>
+</div><p>It satisfies <a href="#equation-gamma1">(14)</a> because:</p>
 <div class="math">
-<p><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t"/></p>
-</div><p>Integrating by parts we get:</p>
+<p><img src="../../_images/math/2b4bfe80d6879c06ddcbd31976503ca67c2807d1.png" alt="\Gamma(1)
+    = \int_0^\infty t^{1-1} e^{-t} \d t
+    = \int_0^\infty e^{-t} \d t
+    = [-e^{-t}]_0^\infty
+    = 1"/></p>
+</div><p>It satisfies <a href="#equation-gamma2">(15)</a> by integrating by parts:</p>
 <div class="math">
 <p><img src="../../_images/math/6578ff5f0fccbfb26ce613f0a8e971f010d2e406.png" alt="\Gamma(z)
     = \int_0^\infty t^{z-1} e^{-t} \d t
     = (z-1)\int_0^\infty t^{z-2} e^{-t} \d t-[t^{z-1}e^{-t}]_0^\infty
     = (z-1)\Gamma(z-1)"/></p>
-</div><p>So for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> we get:</p>
-<div class="math" id="equation-gamma_fact">
-<p><span class="eqno">(14)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
-    = n(n-1)(n-2)\cdots 2\cdot1\cdot\Gamma(1) =
-
-    = n(n-1)(n-2)\cdots 1
-    = n!"/></p>
-</div><p>and</p>
-<div class="math" id="equation-gamma_double_fact">
-<p><span class="eqno">(15)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
-    = (n-\half)(n-1-\half)\Gamma(n-1-\half)
-    = (n-\half)(n-1-\half)\cdots\half\Gamma(\half) =
-
-    = {2n-1\over2}{2n-3\over2}{2n-5\over2}\cdots{1\over2}\Gamma(\half)
-    = {(2n-1)!!\over 2^n}\Gamma(\half)
-    = {(2n-1)!!\over 2^n}\sqrt\pi"/></p>
-</div><p>Where we used:</p>
+</div><p>Finally it satisfies <a href="#equation-gamma3">(16)</a> by verifying the convex condition
+directly (<img class="math" src="../../_images/math/4523f34b2de94e387dd238429086654ba71cd69a.png" alt="x, y &gt; 0"/> and <img class="math" src="../../_images/math/73d6d29984816d60f4497fd1f18725778060fea7.png" alt="0\le \lambda \le 1"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/de2e79c735421b0177001c04d18b65035ab34ebf.png" alt="\Gamma(1)
-    = \int_0^\infty t^{1-1} e^{-t} \d t
-    = \int_0^\infty e^{-t} \d t
-    = [-e^{-t}]_0^\infty
-    = 1
+<p><img src="../../_images/math/e79e22b65ddae8140d0c2538e8110a1cc918ba91.png" alt="\log\Gamma(\lambda x + (1-\lambda) y)
+    = \log\int_0^\infty t^{\lambda x + (1-\lambda) y - 1} e^{-t} \d t =
 
-\Gamma(\half)
+    = \log \int_0^\infty (t^{x-1} e^{-t})^\lambda
+        (t^{y-1} e^{-t})^{1-\lambda} \d t \le
+
+    \le \log \left(
+        \left(\int_0^\infty t^{x-1} e^{-t} \d t\right)^\lambda
+        \left(\int_0^\infty t^{y-1} e^{-t} \d t\right)^{1-\lambda}\right) =
+
+    = \lambda \log\Gamma(x) + (1-\lambda) \log \Gamma(y)"/></p>
+</div><p>And thus <a href="#equation-gamma_int">(17)</a> uniquely determines the Gamma function.
+We can use <a href="#equation-gamma_int">(17)</a> to calculate <img class="math" src="../../_images/math/df26fbadfec877df085cc3296518f68b3beae03a.png" alt="\Gamma(\half)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/849d6f89c18c8cb7b87a82ff86cc25273d52bec4.png" alt="\Gamma(\half)
     = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
     = \int_0^\infty {e^{-t}\over\sqrt t} \d t
     = \int_0^\infty {e^{-x^2}\over x} 2x\, \d x
@@ -1210,13 +1223,30 @@ c + a \ge b"/></p>
 
     = \sqrt{2\pi \int_0^\infty e^{-u} \half\d u}
     = \sqrt\pi"/></p>
+</div><p>From this and the definition of the Gamma function we get
+for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>:</p>
+<div class="math" id="equation-gamma_fact">
+<p><span class="eqno">(18)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
+    = n(n-1)(n-2)\cdots 2\cdot1\cdot\Gamma(1) =
+
+    = n(n-1)(n-2)\cdots 1
+    = n!"/></p>
+</div><p>and</p>
+<div class="math" id="equation-gamma_double_fact">
+<p><span class="eqno">(19)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
+    = (n-\half)(n-1-\half)\Gamma(n-1-\half)
+    = (n-\half)(n-1-\half)\cdots\half\Gamma(\half) =
+
+    = {2n-1\over2}{2n-3\over2}{2n-5\over2}\cdots{1\over2}\Gamma(\half)
+    = {(2n-1)!!\over 2^n}\Gamma(\half)
+    = {(2n-1)!!\over 2^n}\sqrt\pi"/></p>
 </div></div>
 <div class="section" id="factorial">
 <h1>Factorial<a class="headerlink" href="#factorial" title="Permalink to this headline">¶</a></h1>
 <p>The factorial <img class="math" src="../../_images/math/63f344e7d8b14a7886fc7fb72da53cd0a3271dcc.png" alt="n!"/> is defined as</p>
 <div class="math">
 <p><img src="../../_images/math/d6c12d6ee30c8fd297ca8456a4b57a41c37656e7.png" alt="n! = n(n-1)(n-2)\cdots 3\cdot2\cdot 1"/></p>
-</div><p>By <a href="#equation-gamma_fact">(14)</a> it can be written using the Gamma function as:</p>
+</div><p>By <a href="#equation-gamma_fact">(18)</a> it can be written using the Gamma function as:</p>
 <div class="math">
 <p><img src="../../_images/math/75c06ec67b40d1419bf500bec5dce6cc65be2a01.png" alt="n! = \Gamma(n+1)"/></p>
 </div></div>
@@ -1238,7 +1268,7 @@ c + a \ge b"/></p>
     = 1\cdot3\cdot5\cdots(2k-1)
     = {1\cdot2\cdot3\cdot4\cdot5\cdots(2k) \over 2\cdot4\cdot6\cdots (2k)}
     = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}"/></p>
-</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(15)</a>:</p>
+</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(19)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/6410fa87f077a0af590956eaf7c948eb22138906.png" alt="(2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)"/></p>
 </div><div class="section" id="example">
