@@ -72,12 +72,24 @@
 <h1>Hartree-Fock (HF) Method<a class="headerlink" href="#hartree-fock-hf-method" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="derivation">
 <h2>Derivation<a class="headerlink" href="#derivation" title="Permalink to this headline">¶</a></h2>
-<p>The interacting Hamiltonian is (see the general QFT notes for derivation):</p>
+<p>The interacting Hamiltonian for many body Schrödinger equation
+is (see the general QFT notes for derivation):</p>
 <div class="math">
 <p><img src="../../_images/math/eb749ec01c1ec41d6a9cae52c70704d38a764254.png" alt="i\hbar\partial_t\ket{\Psi(t)} = \hat H\ket{\Psi(t)}
 
 \hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
     \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k"/></p>
+</div><p>where <img class="math" src="../../_images/math/5861cbe652445add30a118f6151c776de33242c4.png" alt="\ket{i}"/> are spin orbitals (thus the integration over <img class="math" src="../../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> below)
+and:</p>
+<div class="math">
+<p><img src="../../_images/math/4015f6a0532680e219c3a70f4c24f69b6f4d8b97.png" alt="\braket{i|T|j} = \int \chi_i^*({\bf x}) \left(
+    -\half\nabla^2 - \sum_n {Z_n\over | {\bf x} -{\bf R}_n | }\right)
+        \chi_j({\bf x})\d^3 x\, \d\omega
+
+\braket{ij|V|kl} = \int \chi_i^*({\bf x}) \chi_j^*({\bf y})
+    {1\over | {\bf x} - {\bf y} | } \chi_k({\bf x}) \chi_l({\bf y})
+        \d^3 x\, \d\omega_x\,
+        \d^3 y\, \d\omega_y"/></p>
 </div><p>We would like to minimize the energy <img class="math" src="../../_images/math/273bf72a66beb46b49afaf4acc5b94b084a64beb.png" alt="E = \braket{\Psi | \hat H | \Psi }"/> using
 the following basis for <img class="math" src="../../_images/math/3ead47fb9fb4a4c273feee398f72ff2a09702b84.png" alt="Z"/> electrons:</p>
 <div class="math">
@@ -114,12 +126,14 @@ the following basis for <img class="math" src="../../_images/math/3ead47fb9fb4a4
     + \sum_{j=1}^Z \left(\braket{j{\bf x}|V|ij}-
         \braket{j{\bf x}|V|ji}\right)
     = \epsilon_i \braket{{\bf x} | i}"/></p>
-</div><p>And writing the individual terms explicitly:</p>
+</div><p>And writing the individual terms explicitly (in this section, all orbitals are
+<em>spin</em> orbitals):</p>
 <div class="math">
-<p><img src="../../_images/math/16a3022e56278f21fb1753943d9276f2a03a9ef6.png" alt="\braket{{\bf x} | i} = \psi_i({\bf x})
+<p><img src="../../_images/math/11df2c4c47fbacd38b0d0dff8f3864d19430a42c.png" alt="\braket{{\bf x} | i} = \psi_i({\bf x})
 
 \braket{{\bf x} | T | i}
-    = \left(-\half \nabla^2 -{Z\over |{\bf x}|}\right)\psi_i({\bf x})
+    = \left(-\half \nabla^2 -\sum_n {Z_n\over | {\bf x} -{\bf R}_n | }
+        \right)\psi_i({\bf x})
 
 \braket{j{\bf x}|V|ij}
     = \int \psi_j^*({\bf y}){1\over|{\bf x}-{\bf y}|}
@@ -195,7 +209,8 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
 <div class="math" id="equation-hfeq01">
 <p><span class="eqno">(3)</span><img src="../../_images/math/d52d4c3ffa5bf54ec023f7dc88e5d61dd4f93c37.png" alt="T \ket{i} + \sum_{k=1}^{N/2}
     \left(2\braket{k|V|ik}-\braket{k|V|ki}\right) = \epsilon_i \ket{i}"/></p>
-</div><p>We introduce basis functions <img class="math" src="../../_images/math/20c002efef22f020cd3dc4c988ee2ea1b614b7b0.png" alt="\ket{\mu}"/> by:</p>
+</div><p>We introduce basis functions <img class="math" src="../../_images/math/20c002efef22f020cd3dc4c988ee2ea1b614b7b0.png" alt="\ket{\mu}"/> by (below the greek letters are basis
+functions, latin letters are spatial orbitals):</p>
 <div class="math">
 <p><img src="../../_images/math/ccf02f145a01719e1351c5fc9b294ab16d043a17.png" alt="\ket{i} = \sum_\nu C_{\nu i} \ket{\nu}"/></p>
 </div><p>substitute into <a href="#equation-hfeq01">(3)</a> and multiply by <img class="math" src="../../_images/math/a9e46037d837f6d70af560823f5b1e4677924435.png" alt="\bra{\mu}"/> from the left:</p>
@@ -214,7 +229,13 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
     = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}"/></p>
 </div><p>we introduce the density matrix:</p>
 <div class="math">
-<p><img src="../../_images/math/fbc70f5e5eebca53a2e973c8fcae34bb02bee3a6.png" alt="P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*"/></p>
+<p><img src="../../_images/math/752815db55d5610661f7d36ff2f86a866a8c6908.png" alt="\hat\rho
+    = 2 \sum_{k=1}^{N/2} \ket{k}\bra{k}
+    = \sum_{\alpha\beta} \ket{\alpha} 2 \sum_{k=1}^{N/2}
+        C_{\alpha k} C_{\beta k}^*\bra{\beta}
+    = \sum_{\alpha\beta} \ket{\alpha}P_{\alpha\beta}\bra{\beta}
+
+P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*"/></p>
 </div><p>and get:</p>
 <div class="math" id="equation-hfeq04">
 <p><span class="eqno">(6)</span><img src="../../_images/math/bf66c6972218b4276f2514052728142680129ad4.png" alt="\sum_\nu \left( \braket{\mu | T | \nu}
@@ -304,6 +325,16 @@ G_{\mu\nu} =
 
 
 S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x"/></p>
+</div><p>Introducing the density matrix:</p>
+<div class="math">
+<p><img src="../../_images/math/c04f467a1c3d1aac76f76015da866f3a4c3dd2f2.png" alt="\rho({\bf x}, {\bf y}) = \braket{{\bf x} | \hat \rho | {\bf y}}
+= \sum_{\alpha\beta} \braket{{\bf x}|\alpha}P_{\alpha\beta}
+    \braket{\beta|{\bf y}}
+= \sum_{\alpha\beta} \phi_\alpha({\bf x}) P_{\alpha\beta}
+    \phi_\beta^*({\bf y})
+
+
+P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*"/></p>
 </div><p>Expanding the <img class="math" src="../../_images/math/2deaf2ac13e64fefa38f4757390941118ae088cf.png" alt="\psi_k"/> functions and using the density matrix we get for
 <img class="math" src="../../_images/math/1fff12672b560c23c97a366733590f8ec5e4a578.png" alt="G_{\mu\nu}"/>:</p>
 <div class="math">
