@@ -100,8 +100,8 @@ the following basis for <img class="math" src="../../_images/math/3ead47fb9fb4a4
 <div class="math">
 <p><img src="../../_images/math/6289865d3a69a850cd8e9d081723651247b16fdc.png" alt="\delta \left(E - \sum_{i,j=1}^Z \epsilon_{ij} \braket{i|j}\right) = 0"/></p>
 </div><p>We obtain:</p>
-<div class="math">
-<p><img src="../../_images/math/62154828796e69b45b7f6cabe3c901253c6f8736.png" alt="T \ket{i} + \sum_{j=1}^Z \left(\braket{j|V|ij}-\braket{j|V|ji}\right)
+<div class="math" id="equation-hfeq0">
+<p><span class="eqno">(1)</span><img src="../../_images/math/62154828796e69b45b7f6cabe3c901253c6f8736.png" alt="T \ket{i} + \sum_{j=1}^Z \left(\braket{j|V|ij}-\braket{j|V|ji}\right)
     = \epsilon_i \ket{i}"/></p>
 </div><p>in the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-representation:</p>
 <div class="math">
@@ -133,8 +133,8 @@ the following basis for <img class="math" src="../../_images/math/3ead47fb9fb4a4
     = \int {\psi_i({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
         \d^3 y\,\,\psi_j({\bf x})"/></p>
 </div><p>we get the Hartree-Fock equations:</p>
-<div class="math">
-<p><img src="../../_images/math/a5bdf22279384d7d4b8167e82a0955068f300dd3.png" alt="\left(-\half \nabla^2 -{Z\over |{\bf x}|}
+<div class="math" id="equation-hfeq">
+<p><span class="eqno">(2)</span><img src="../../_images/math/a5bdf22279384d7d4b8167e82a0955068f300dd3.png" alt="\left(-\half \nabla^2 -{Z\over |{\bf x}|}
 +
 \int {\sum_{j=1}^Z|\psi_j({\bf y})|^2\over|{\bf x}-{\bf y}|}
         \d^3 y\right)\psi_i({\bf x})
@@ -188,6 +188,585 @@ W_{fj}({\bf x}) = \int {f({\bf y})\psi_j^*({\bf y})\over|{\bf x}-{\bf y}|}
 
 \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})"/></p>
 </div></div>
+<div class="section" id="roothaan-equations-for-closed-shell-systems">
+<h2>Roothaan Equations For Closed Shell Systems<a class="headerlink" href="#roothaan-equations-for-closed-shell-systems" title="Permalink to this headline">¶</a></h2>
+<p>Starting from <a href="#equation-hfeq0">(1)</a> and integrating over spins we get (here
+<img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>, <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> are spatial orbitals, not spin orbitals):</p>
+<div class="math" id="equation-hfeq01">
+<p><span class="eqno">(3)</span><img src="../../_images/math/d52d4c3ffa5bf54ec023f7dc88e5d61dd4f93c37.png" alt="T \ket{i} + \sum_{k=1}^{N/2}
+    \left(2\braket{k|V|ik}-\braket{k|V|ki}\right) = \epsilon_i \ket{i}"/></p>
+</div><p>We introduce basis functions <img class="math" src="../../_images/math/20c002efef22f020cd3dc4c988ee2ea1b614b7b0.png" alt="\ket{\mu}"/> by:</p>
+<div class="math">
+<p><img src="../../_images/math/ccf02f145a01719e1351c5fc9b294ab16d043a17.png" alt="\ket{i} = \sum_\nu C_{\nu i} \ket{\nu}"/></p>
+</div><p>substitute into <a href="#equation-hfeq01">(3)</a> and multiply by <img class="math" src="../../_images/math/a9e46037d837f6d70af560823f5b1e4677924435.png" alt="\bra{\mu}"/> from the left:</p>
+<div class="math" id="equation-hfeq02">
+<p><span class="eqno">(4)</span><img src="../../_images/math/d6022c4582b6ea83016c4d808e496274f5ec7b12.png" alt="\sum_\nu \braket{\mu | T | \nu} C_{\nu i}
+    + \sum_\nu\sum_{k=1}^{N/2} \left(2\braket{\mu k|V|\nu k}
+        -\braket{\mu k|V|k\nu}\right) C_{\nu i}
+    = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}"/></p>
+</div><p>Now we expand the functions <img class="math" src="../../_images/math/e887edec7a4633a122d23577eeea9f7bf89300e5.png" alt="\ket{k}"/>:</p>
+<div class="math" id="equation-hfeq03">
+<p><span class="eqno">(5)</span><img src="../../_images/math/3b6fbb7720ef7c535ee0a49f9742fa838a035f42.png" alt="\sum_\nu \braket{\mu | T | \nu} C_{\nu i}
+    + \sum_\nu \sum_{\alpha\beta}
+        \left(2\sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^* \right)
+        \left(\braket{\mu \beta|V|\nu \alpha}
+            -\half\braket{\mu \beta|V|\alpha \nu}\right) C_{\nu i}
+    = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}"/></p>
+</div><p>we introduce the density matrix:</p>
+<div class="math">
+<p><img src="../../_images/math/fbc70f5e5eebca53a2e973c8fcae34bb02bee3a6.png" alt="P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*"/></p>
+</div><p>and get:</p>
+<div class="math" id="equation-hfeq04">
+<p><span class="eqno">(6)</span><img src="../../_images/math/bf66c6972218b4276f2514052728142680129ad4.png" alt="\sum_\nu \left( \braket{\mu | T | \nu}
+    + \sum_{\alpha\beta}
+        P_{\alpha\beta}
+        \left(\braket{\mu \beta|V|\nu \alpha}
+            -\half \braket{\mu \beta|V|\alpha \nu}\right) \right) C_{\nu i}
+    = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}"/></p>
+</div><p>introducing:</p>
+<div class="math">
+<p><img src="../../_images/math/d6a9bf903c8ce98b6f4c74c878dc8119d783c1e1.png" alt="F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+
+H_{\mu\nu}^{\mbox{core}} = \braket{\mu | T | \nu}
+
+G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+        \left(\braket{\mu \beta|V|\nu \alpha}
+            -\half \braket{\mu \beta|V|\alpha \nu}\right)
+
+S_{\mu\nu} = \braket{\mu | \nu}"/></p>
+</div><p>the equation <a href="#equation-hfeq04">(6)</a> is:</p>
+<div class="math" id="equation-roothaan1">
+<p><span class="eqno">(7)</span><img src="../../_images/math/bfae2fcd2d31958ac5d16ffba153a892329b9647.png" alt="\sum_\nu F_{\mu\nu} C_{\nu i}
+    = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}"/></p>
+</div><p>These are the Roothaan equations. It is a generalized eigenvalue problem.</p>
+<p>The same thing can be derived in <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-representation
+starting from <a href="#equation-hfeq">(2)</a> and introducing spatial orbitals:</p>
+<div class="math" id="equation-hfeq2">
+<p><span class="eqno">(8)</span><img src="../../_images/math/c4069405df1f3d6a09120266ba8f02d0244969a9.png" alt="\left(-\half \nabla^2 -{Z\over |{\bf x}|}
++
+\int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y\right)\psi_i({\bf x})
+- \sum_{k=1}^{N/2}\int {\psi_i({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_k({\bf x})
+=
+\epsilon_i \psi_i({\bf x})"/></p>
+</div><p>We introduce basis functions <img class="math" src="../../_images/math/8f360c3d8a545ee4680c86ace44c26da6c74a40c.png" alt="\phi_\mu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/9123094d44e16641d02787632420e7ad9469d29e.png" alt="\psi_i({\bf x}) = \sum_\nu C_{\nu i} \phi_\nu({\bf x})"/></p>
+</div><p>substitute into <a href="#equation-hfeq2">(8)</a> and also multiply the whole equation by
+<img class="math" src="../../_images/math/f38720789d49fb8bad894046190b838721a26be8.png" alt="\phi_\mu^*"/> and integrate over <img class="math" src="../../_images/math/81be9c56d3b198d87b4049cff4e32bb5c187c52d.png" alt="{\bf x}"/>:</p>
+<div class="math" id="equation-hfeq3">
+<p><span class="eqno">(9)</span><img src="../../_images/math/9c92ce5964222290cbadbbeaf843aef37cb5bd1a.png" alt="\sum_\nu
+\int
+\phi_\mu^*({\bf x})
+\left(-\half \nabla^2 -{Z\over |{\bf x}|}
++
+\int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y\right)\phi_\nu({\bf x}) \d^3 x\, C_{\nu i}
+
+-\sum_\nu
+\int
+\phi_\mu^*({\bf x})
+\sum_{k=1}^{N/2}\int {\phi_\nu({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_k({\bf x})\d^3 x\, C_{\nu i}
+=
+\epsilon_i
+\sum_\nu
+\int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
+\, C_{\nu i}"/></p>
+</div><p>This can be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/7f4b5cd1c837f2eeab933850131ffa44a63ba6b5.png" alt="\sum_\nu F_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+
+F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+    = T_{\mu\nu} + V_{\mu\nu} + G_{\mu\nu}"/></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/ebc730ae8fba5d759c780eeb712bf673faebd88d.png" alt="T_{\mu\nu} =
+        \int \phi_\mu^*({\bf x}) \left(-\half \nabla^2 \right)
+        \phi_\nu({\bf x}) \d^3 x
+    =
+        \half \int \nabla \phi_\mu^*({\bf x}) \cdot
+            \nabla \phi_\nu({\bf x}) \d^3 x
+
+V_{\mu\nu} =
+    \int \phi_\mu^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+    \phi_\nu({\bf x}) \d^3 x
+
+G_{\mu\nu} =
+    \int \phi_\mu^*({\bf x}) \left(
+\int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+        \d^3 y\right)\phi_\nu({\bf x}) \d^3 x
+-\int
+\phi_\mu^*({\bf x})
+\sum_{k=1}^{N/2}\int {\phi_\nu({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\psi_k({\bf x})\d^3 x
+
+
+S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x"/></p>
+</div><p>Expanding the <img class="math" src="../../_images/math/2deaf2ac13e64fefa38f4757390941118ae088cf.png" alt="\psi_k"/> functions and using the density matrix we get for
+<img class="math" src="../../_images/math/1fff12672b560c23c97a366733590f8ec5e4a578.png" alt="G_{\mu\nu}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/23ba5b829df0d84a46d095e87d3e090c1a86d625.png" alt="G_{\mu\nu} =
+    \sum_{\alpha\beta} P_{\alpha\beta}
+    \int \phi_\mu^*({\bf x}) \left(
+\int {\phi_\beta^*({\bf y})\phi_\alpha({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\right)\phi_\nu({\bf x}) \d^3 x
+-\half \sum_{\alpha\beta} P_{\alpha\beta}
+\int
+\phi_\mu^*({\bf x})
+\int {\phi_\nu({\bf y})\phi_\beta^*({\bf y})\over|{\bf x}-{\bf y}|}
+        \d^3 y\,\,\phi_\alpha({\bf x})\d^3 x"/></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/5b3b1580709b78140dcad61799db20a2939e3f20.png" alt="G_{\mu\nu} =
+    \sum_{\alpha\beta} P_{\alpha\beta}
+    \int {\phi_\mu^*({\bf x}) \phi_\nu({\bf x}) \phi_\beta^*({\bf y})
+            \phi_\alpha({\bf y})
+        -\half
+        \phi_\mu^*({\bf x}) \phi_\alpha({\bf x}) \phi_\beta^*({\bf y})
+            \phi_\nu({\bf y}) \over
+                    | {\bf x}-{\bf y}|}
+        \d^3 x\, \d^3 y
+
+    \equiv \sum_{\alpha\beta} P_{\alpha\beta}
+        \left(\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}
+            -\half \braket{\mu \beta|{1\over r_{12}}|\alpha \nu}\right)"/></p>
+</div><p>In physical and chemistry notation this is written as:</p>
+<div class="math">
+<p><img src="../../_images/math/853077829e0d4278ab29ed26c1a93b3f2725e88e.png" alt="G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+        \left(\braket{\mu \beta|\nu \alpha}
+            -\half \braket{\mu \beta|\alpha \nu}\right)
+    = \sum_{\alpha\beta} P_{\alpha\beta}
+        \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)"/></p>
+</div></div>
+<div class="section" id="general-matrix-elements-in-spherical-symmetry">
+<h2>General Matrix Elements in Spherical Symmetry<a class="headerlink" href="#general-matrix-elements-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overlap">
+<h3>Overlap<a class="headerlink" href="#overlap" title="Permalink to this headline">¶</a></h3>
+<p>The overlap matrix element is:</p>
+<div class="math">
+<p><img src="../../_images/math/14a3720d57f474dc9edb1a403bc5adbe84809ec8.png" alt="S_{ij} = \int \phi_i^*({\bf x}) \phi_j({\bf x})\d^3 x"/></p>
+</div><p>We will use the following functions:</p>
+<div class="math">
+<p><img src="../../_images/math/fb81306b0efbfe82fb8b0be2f89d8f0328cbc7b5.png" alt="\phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+\phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/518ca753ef3877675008132166f9baaa80b76d0a.png" alt="S_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+    {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+
+= \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r) P_{n_2l_2}(r) \d r"/></p>
+</div></div>
+<div class="section" id="potential">
+<h3>Potential<a class="headerlink" href="#potential" title="Permalink to this headline">¶</a></h3>
+<p>The potential matrix element is:</p>
+<div class="math">
+<p><img src="../../_images/math/bec2a42ed3deb9b0d45091134a66072cfac4d292.png" alt="V_{ij} =
+    \int \phi_i^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+    \phi_j({\bf x}) \d^3 x"/></p>
+</div><p>We will use the following functions:</p>
+<div class="math">
+<p><img src="../../_images/math/fb81306b0efbfe82fb8b0be2f89d8f0328cbc7b5.png" alt="\phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+\phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/aceb9680550300fa2d2e4af279b571bbd1f02e5c.png" alt="V_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+    \left(-{Z\over r}\right)
+    {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+
+= \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r)
+    \left(-{Z\over r}\right) P_{n_2l_2}(r) \d r"/></p>
+</div></div>
+<div class="section" id="kinetic">
+<h3>Kinetic<a class="headerlink" href="#kinetic" title="Permalink to this headline">¶</a></h3>
+<p>The kinetic matrix element is:</p>
+<div class="math">
+<p><img src="../../_images/math/853c33f462106325514d7de728f346666fb8ceb2.png" alt="T_{ij} =
+        \int \phi_i^*({\bf x}) \left(-\half \nabla^2 \right)
+        \phi_j({\bf x}) \d^3 x"/></p>
+</div><p>We will use the following functions:</p>
+<div class="math">
+<p><img src="../../_images/math/fb81306b0efbfe82fb8b0be2f89d8f0328cbc7b5.png" alt="\phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+\phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8895c4ec9fce4dcc5742a9636e475ce0907baa63.png" alt="T_{ij}
+    = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        \left(\left(-\half \nabla^2\right)
+        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d
+        \Omega =
+
+    = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        \left(\left(-\half {\partial^2\over\partial r^2}
+            -{1\over r}{\partial\over\partial r}
+            +{l_2 (l_2+1)\over 2r^2}\right)
+        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d
+        \Omega =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2}
+    \int {P_{n_1l_1}(r)\over r}
+        \left(\left(-\half {\partial^2\over\partial r^2}
+            -{1\over r}{\partial\over\partial r}
+            +{l_2 (l_2+1)\over 2r^2}\right)
+        {P_{n_2l_2}(r)\over r} \right) r^2 \d r =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2}
+    \int {P_{n_1l_1}(r)\over r}
+        \left(\left(-{1\over 2r} {\partial^2\over\partial r^2}r
+            +{l_2 (l_2+1)\over 2 r^2}\right)
+        {P_{n_2l_2}(r)\over r} \right) r^2 \d r =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2}
+    \int P_{n_1l_1}(r)
+        \left(-\half {\partial^2\over\partial r^2}
+            +{l_2 (l_2+1)\over 2 r^2}\right)
+        P_{n_2l_2}(r) \d r =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2}
+    \int \left( -\half P_{n_1l_1}(r) P_{n_2l_2}''(r)
+            +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+        \d r =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2}
+    \int \left( \half P_{n_1l_1}'(r) P_{n_2l_2}'(r)
+            +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+        \d r"/></p>
+</div></div>
+<div class="section" id="two-particle">
+<h3>Two particle<a class="headerlink" href="#two-particle" title="Permalink to this headline">¶</a></h3>
+<p>The two particle matrix element is:</p>
+<div class="math" id="equation-twoint">
+<p><span class="eqno">(10)</span><img src="../../_images/math/4fb41159bc01262312d85f07a6da404dde619f20.png" alt="(ij|kl) = \braket{ik|jl} =
+    \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'"/></p>
+</div><p>The <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> is called the physicists&#8217; notation because
+the <img class="math" src="../../_images/math/eb056c43a2c2ae7c01c3a8fcedfa03f4f1025076.png" alt="\ket{jl}"/> and <img class="math" src="../../_images/math/dbe6c3b6fb1a5b8bee0e412d36159bb7719007cc.png" alt="\ket{ik}"/> kets are:</p>
+<div class="math">
+<p><img src="../../_images/math/c3f0fa0fc4d7331489ee7138c37f69157db29b98.png" alt="\ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
+
+\ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')"/></p>
+</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(10)</a> the
+symmetries of <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> are exchange of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> with <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> or the
+<img class="math" src="../../_images/math/c26aadb390865e9669bcb79c4e6af904a2dea7cc.png" alt="ij"/> and <img class="math" src="../../_images/math/9877f8f461d8617a227b3299a84354190b9e347c.png" alt="kl"/> pairs:</p>
+<div class="math">
+<p><img src="../../_images/math/9c5d9bba1183a5aac163f5e96bc9f2abf75fdfe2.png" alt="(ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
+
+= (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)"/></p>
+</div><p>So if we view <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> as two boxes <img class="math" src="../../_images/math/79f2cb353cd4292c8f99b97d303314b1c1eee624.png" alt="(\cdot | \cdot )"/> then we can permute the
+labels in the given box &#8220;<img class="math" src="../../_images/math/8f1fb66751f2ee2626c75303485dba473c39a2f2.png" alt="\cdot"/>&#8221;, as well as exchange the boxes (the only
+thing we cannot do is to take one particle from one box and put it into the
+other). As such the box &#8220;<img class="math" src="../../_images/math/8f1fb66751f2ee2626c75303485dba473c39a2f2.png" alt="\cdot"/>&#8221; is a pair of two electrons (in any order) and
+the two electron integral assigns a unique number to a pair of such boxes (in
+any order). The symmetries of the <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> symbol are:</p>
+<div class="math">
+<p><img src="../../_images/math/40be5548e6e3033baae706b796d68c1c0d83f13b.png" alt="\braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
+
+= \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}"/></p>
+</div><p>We use the following functions for <img class="math" src="../../_images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/2c04fef849e4162b2647830e1551a764ed863539.png" alt="\psi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+\psi_j({\bf x}) = {P_{n_1'l_1'}(r)\over r} Y_{l_1'm_1'}(\Omega)
+
+\psi_k({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+\psi_l({\bf x}) = {P_{n_2'l_2'}(r)\over r} Y_{l_2'm_2'}(\Omega)"/></p>
+</div><p>And the multipole expansion:</p>
+<div class="math">
+<p><img src="../../_images/math/f96732b9d7107641a88454692ab19f5df7b0fc3c.png" alt="{1\over |{\bf x}-{\bf x}'|}
+    = \sum_{k,q}{r_{&lt;}^k\over r_{&gt;}^{k+1}}
+        {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')"/></p>
+</div><p>And we get:</p>
+<div class="math">
+<p><img src="../../_images/math/786d297fcc2d9cd3ee98098dd52dbda3a03c42ce.png" alt="(ij|kl) = \braket{ik|jl} = \braket{l_1 m_1 l_2 m_2 |
+    {1\over |{\bf x} - {\bf x}'|} | l_1' m_1' l_2' m_2'} =
+
+=\int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+    \over |{\bf x} - {\bf x}'|} \d^3 x \d^3 x' =
+
+= \int
+    {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+    {P_{n_1'l_1'}(r)\over r} Y_{l_1'm_1'}(\Omega)
+    {P_{n_2l_2}(r')\over r'} Y_{l_2m_2}^*(\Omega')
+    {P_{n_2'l_2'}(r')\over r'} Y_{l_2'm_2'}(\Omega')
+
+    \sum_{k,q}{r_{&lt;}^k\over r_{&gt;}^{k+1}}
+        {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+    r^2 r'^2 \d r \d r' \d \Omega \d \Omega' =
+
+=
+\sum_{k,q}
+\int
+    Y_{l_1m_1}^*(\Omega)
+    Y_{l_1'm_1'}(\Omega)
+    Y_{kq}(\Omega)
+    \d \Omega
+  \int
+    Y_{l_2m_2}^*(\Omega')
+    Y_{l_2'm_2'}(\Omega')
+    Y_{kq}^*(\Omega')
+    \d \Omega'
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+        {4\pi\over 2k+1}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+=
+\sum_{k,q}
+(-1)^{m_1+m_2+q}
+\int
+    Y_{l_1,-m_1}(\Omega)
+    Y_{l_1'm_1'}(\Omega)
+    Y_{kq}(\Omega)
+    \d \Omega
+  \int
+    Y_{l_2,-m_2}(\Omega')
+    Y_{l_2'm_2'}(\Omega')
+    Y_{k,-q}(\Omega')
+    \d \Omega'
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+        {4\pi\over 2k+1}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+=
+\sum_{k,q}
+(-1)^{m_1+m_2+q}
+\sqrt{(2l_1+1)(2l_1'+1)(2k+1)\over 4\pi}
+        \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+                \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q
+                \end{pmatrix}
+
+\sqrt{(2l_2+1)(2l_2'+1)(2k+1)\over 4\pi}
+        \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+                \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; m_2' &amp; -q
+                \end{pmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+        {4\pi\over 2k+1}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+=
+\sum_k
+\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+
+\sum_{q=-k}^k (-1)^{m_1+m_2+q}
+    \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q \end{pmatrix}
+    \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; m_2' &amp; -q \end{pmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+=
+\sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+    \min(l_1+l_1', l_2+l_2')
+}\!\!\!\!\!\!\!\!\!\!\!\!
+\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+(-1)^{m_1+m_2'} \delta_{m_1+m_2- m_1'-m_2', 0}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+
+    \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; m_1-m_1' \end{pmatrix}
+    \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; m_2' &amp; m_2-m_2' \end{pmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r'"/></p>
+</div><p>In the last step we used the fact that the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols are zero unless
+<img class="math" src="../../_images/math/3e77e2df3126f5b1cc318d4449cc56ca45641a00.png" alt="-m_1+m_1'+q=0"/>
+and <img class="math" src="../../_images/math/a0d07462b3e690febfa4abe387f1bebdefa1b821.png" alt="-m_2+m_2'-q=0"/>, from which it follows
+that <img class="math" src="../../_images/math/27707daf6afc8f0fd5624f1b62870ac4035aa90d.png" alt="q=m_1-m_1'=-m_2+m_2'"/> and so one of the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols is zero
+unless <img class="math" src="../../_images/math/54e0468d2ac834d04177da846d930d3915fecb98.png" alt="m_1+m_2-m_1'-m_2'=0"/>, which is expressed by
+<img class="math" src="../../_images/math/98253a169a8114f15cfd81187f0f7849bfb5d463.png" alt="\delta_{m_1+m_2- m_1'-m_2', 0}"/>.
+Given this condition, the sum over <img class="math" src="../../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/> must be such
+that one <img class="math" src="../../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/> is equal to <img class="math" src="../../_images/math/9eac8bbc98713466430e4503eefd9b95a1c5b5b6.png" alt="m_1-m_1'=-m_2+m_2'"/>, which means that
+<img class="math" src="../../_images/math/14369acb1f5424fa89e0fbf1199d14db91357ae0.png" alt="k \ge |m_1 - m_1'| = |m_2 - m_2'|"/> otherwise the <img class="math" src="../../_images/math/c5352adeaf45930e862095579670a9c9605bce54.png" alt="3j"/> symbols will be zero.
+Finally, <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> must also satisfy the conditions
+<img class="math" src="../../_images/math/28a1d2602081cf02f81a371dd3e222fe484547ff.png" alt="|l_1-l_1'| \le k \le l_1+l_1'"/> and <img class="math" src="../../_images/math/04498cacb380c6e0e78b983a3acb6da93c094406.png" alt="|l_2-l_2'| \le k \le l_2+l_2'"/>.
+The sign factor
+<img class="math" src="../../_images/math/3aa6c9cdb6643913227388eba0e60ee4627ee4f4.png" alt="(-1)^{m_1+m_2+q} = (-1)^{m_1+m_2+m_1-m_1'} =(-1)^{m_1+m_2-m_2+m_2'}"/>
+is equal to both <img class="math" src="../../_images/math/6ee83c2278a9446dd75c2cd1951cd9ae98a9e3f1.png" alt="(-1)^{m_1+m_2'}"/> and <img class="math" src="../../_images/math/e48062a080f2b145c4f857fc68096e400880ae5c.png" alt="(-1)^{m_2-m_1'}"/> so we just used the
+former.</p>
+<p>We can also couple the angular momenta as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/7cf70edd6565a0abd564614be1f6b53929708739.png" alt="\ket{l_1 l_2 LM} = \sum_{m_1 m_2} (l_1 m_1 l_2 m_2 | LM)
+    \ket{l_1 m_1} \ket{l_2 m_2} =
+
+= \sum_{m_1 m_2} (-1)^{l_1-l_2+M}\sqrt{2L+1}
+    \begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+    \ket{l_1 m_1} \ket{l_2 m_2}"/></p>
+</div><p>and we get for the matrix elements:</p>
+<div class="math">
+<p><img src="../../_images/math/158a6359325f323ffd8fa6e6c7ce372b57ddba9a.png" alt="\braket{l_1 l_2 LM  | {1\over |{\bf x} - {\bf x}'|} | l_1' l_2' L' M'} =
+
+= \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+    \sqrt{(2L+1)(2L'+1)}
+
+    \begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+    \begin{pmatrix} l_1' &amp; l_2' &amp; L' \\ m_1' &amp; m_2' &amp; -M' \end{pmatrix}
+
+    \bra{l_1 m_1} \bra{l_2 m_2}
+    {1\over |{\bf x} - {\bf x}'|}
+    \ket{l_1' m_1'} \ket{l_2 m_2'} =
+
+= \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+    \sqrt{(2L+1)(2L'+1)}
+
+    \begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+    \begin{pmatrix} l_1' &amp; l_2' &amp; L' \\ m_1' &amp; m_2' &amp; -M' \end{pmatrix}
+
+    (ij|kl) =
+
+= \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+    \sqrt{(2L+1)(2L'+1)}
+
+    \begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+    \begin{pmatrix} l_1' &amp; l_2' &amp; L' \\ m_1' &amp; m_2' &amp; -M' \end{pmatrix}
+
+\sum_k
+\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+
+\sum_{q=-k}^k (-1)^{m_1+m_2+q}
+    \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q \end{pmatrix}
+    \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; m_2' &amp; -q \end{pmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+= \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'}
+    (2L+1)
+
+    \delta_{MM'}\delta_{LL'}
+    \begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+    \begin{pmatrix} l_1' &amp; l_2' &amp; L \\ m_1' &amp; m_2' &amp; -M \end{pmatrix}
+
+\sum_k
+\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+
+\sum_{q=-k}^k (-1)^{m_1+m_2+q}
+    \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q \end{pmatrix}
+    \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; m_2' &amp; -q \end{pmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+= (-1)^{l_1-l_2+l_1'-l_2'} (2L+1)
+
+\sum_k
+\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+
+    \delta_{MM'}\delta_{LL'} (-1)^{l_1+l_1'+L}
+\begin{Bmatrix} l_1 &amp; l_2 &amp; L \\ l_2' &amp; l_1' &amp; k \end{Bmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+= \sum_k
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r'
+
+    (-1)^{L-l_2-l_2'} (2L+1)
+    \delta_{MM'}\delta_{LL'}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{Bmatrix} l_1 &amp; l_2 &amp; L \\ l_2' &amp; l_1' &amp; k \end{Bmatrix} =
+
+= \sum_k
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r'
+
+    (-1)^{l_1 + l_1' + L} (2L+1)
+
+    \delta_{LL'}\delta_{MM'}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+\begin{pmatrix} l_1 &amp; k &amp; l_1' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; k &amp; l_2' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{Bmatrix} l_1 &amp; l_2 &amp; L \\ l_2' &amp; l_1' &amp; k \end{Bmatrix}"/></p>
+</div><p>Where we used the <img class="math" src="../../_images/math/f1792b5821280d81c79ec72cdde33f542f5e444b.png" alt="6j"/> symbol:</p>
+<div class="math">
+<p><img src="../../_images/math/dba072f0dfadb9c990774eea126bc17d9e2e9f28.png" alt="\begin{Bmatrix} l_1 &amp; l_2 &amp; L \\ l_2' &amp; l_1' &amp; k \end{Bmatrix}
+=\sum_{m_1 m_2 m_1' m_2' M q} (-1)^{l_1+l_2+l_1'+l_2'+L+k
+    -m_1-m_2-m_1'-m_2'-M-q}
+
+\begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q \end{pmatrix}
+\begin{pmatrix} l_2' &amp; l_1' &amp; L \\ m_2' &amp; -m_1' &amp; M \end{pmatrix}
+\begin{pmatrix} l_2' &amp; l_2 &amp; k \\ -m_2' &amp; -m_2 &amp; -q \end{pmatrix}
+=
+
+=\sum_{m_1 m_2 m_1' m_2' M q} (-1)^{l_1+l_2+l_1'+l_2'+L+k
+    -m_1-m_2-m_1'-m_2'-M-q}
+
+\begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q \end{pmatrix}
+\begin{pmatrix} l_1' &amp; l_2' &amp; L \\ m_1' &amp; -m_2' &amp; -M \end{pmatrix}
+(-1)^{l_2+l_2'+k}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; -m_2' &amp; -q \end{pmatrix}
+=
+
+=\sum_{m_1 m_2 m_1' m_2' q} \delta_{M, m_1' + m_2'}
+    (-1)^{l_1+l_1'+L} (-1)^{m_1+m_2+q}
+
+\begin{pmatrix} l_1 &amp; l_2 &amp; L \\ m_1 &amp; m_2 &amp; -M \end{pmatrix}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; q \end{pmatrix}
+\begin{pmatrix} l_1' &amp; l_2' &amp; L \\ m_1' &amp; +m_2' &amp; -M \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; +m_2' &amp; -q \end{pmatrix}"/></p>
+</div><p>Where we have renamed <img class="math" src="../../_images/math/2a36a738d8cbcd28aaf0190a1de8e7d22fbf5d97.png" alt="-m_2'"/> to <img class="math" src="../../_images/math/349f859efc2f2d8098824bdcacfb0506100d92cb.png" alt="m_2'"/>.</p>
+</div>
+</div>
 <div class="section" id="exchange-integral-in-spherical-symmetry">
 <h2>Exchange Integral in Spherical Symmetry<a class="headerlink" href="#exchange-integral-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s calculate the exchange integral</p>
@@ -737,7 +1316,7 @@ multiplication by 2. We assumed closed shells atoms (we summed over all <img cla
 the above). We used the result of the integral in
 <a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a> and also:</p>
 <div class="math" id="equation-using3j">
-<p><span class="eqno">(1)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+<p><span class="eqno">(11)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
     = \sqrt{2l'+1\over 2l+1}
         \sqrt{(2l'+1)(2l+1)}
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
@@ -895,6 +1474,14 @@ the above). We used the result of the integral in
   <ul>
 <li><a class="reference internal" href="#">Hartree-Fock (HF) Method</a><ul>
 <li><a class="reference internal" href="#derivation">Derivation</a></li>
+<li><a class="reference internal" href="#roothaan-equations-for-closed-shell-systems">Roothaan Equations For Closed Shell Systems</a></li>
+<li><a class="reference internal" href="#general-matrix-elements-in-spherical-symmetry">General Matrix Elements in Spherical Symmetry</a><ul>
+<li><a class="reference internal" href="#overlap">Overlap</a></li>
+<li><a class="reference internal" href="#potential">Potential</a></li>
+<li><a class="reference internal" href="#kinetic">Kinetic</a></li>
+<li><a class="reference internal" href="#two-particle">Two particle</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#exchange-integral-in-spherical-symmetry">Exchange Integral in Spherical Symmetry</a></li>
 <li><a class="reference internal" href="#occupation-numbers">Occupation Numbers</a><ul>
 <li><a class="reference internal" href="#example-i">Example I</a></li>

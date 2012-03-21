@@ -46,6 +46,7 @@ We minimize it with the constrain $\braket{i|j} = \delta_{ij}$:
 We obtain:
 
 .. math::
+    :label: hfeq0
 
     T \ket{i} + \sum_{j=1}^Z \left(\braket{j|V|ij}-\braket{j|V|ji}\right)
         = \epsilon_i \ket{i}
@@ -88,6 +89,7 @@ And writing the individual terms explicitly:
 we get the Hartree-Fock equations:
 
 .. math::
+    :label: hfeq
 
     \left(-\half \nabla^2 -{Z\over |{\bf x}|}
     +
@@ -157,6 +159,707 @@ $f({\bf x})$ can be calculated by:
             \d^3 y
 
     \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})
+
+Roothaan Equations For Closed Shell Systems
+-------------------------------------------
+
+Starting from :eq:`hfeq0` and integrating over spins we get (here
+$i$, $k$ are spatial orbitals, not spin orbitals):
+
+.. math::
+    :label: hfeq01
+
+    T \ket{i} + \sum_{k=1}^{N/2}
+        \left(2\braket{k|V|ik}-\braket{k|V|ki}\right) = \epsilon_i \ket{i}
+
+We introduce basis functions $\ket{\mu}$ by:
+
+.. math::
+
+    \ket{i} = \sum_\nu C_{\nu i} \ket{\nu}
+
+substitute into :eq:`hfeq01` and multiply by $\bra{\mu}$ from the left:
+
+.. math::
+    :label: hfeq02
+
+    \sum_\nu \braket{\mu | T | \nu} C_{\nu i}
+        + \sum_\nu\sum_{k=1}^{N/2} \left(2\braket{\mu k|V|\nu k}
+            -\braket{\mu k|V|k\nu}\right) C_{\nu i}
+        = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}
+
+Now we expand the functions $\ket{k}$:
+
+.. math::
+    :label: hfeq03
+
+    \sum_\nu \braket{\mu | T | \nu} C_{\nu i}
+        + \sum_\nu \sum_{\alpha\beta}
+            \left(2\sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^* \right)
+            \left(\braket{\mu \beta|V|\nu \alpha}
+                -\half\braket{\mu \beta|V|\alpha \nu}\right) C_{\nu i}
+        = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}
+
+we introduce the density matrix:
+
+.. math::
+
+    P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
+
+and get:
+
+.. math::
+    :label: hfeq04
+
+    \sum_\nu \left( \braket{\mu | T | \nu}
+        + \sum_{\alpha\beta}
+            P_{\alpha\beta}
+            \left(\braket{\mu \beta|V|\nu \alpha}
+                -\half \braket{\mu \beta|V|\alpha \nu}\right) \right) C_{\nu i}
+        = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}
+
+introducing:
+
+.. math::
+
+    F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+
+    H_{\mu\nu}^{\mbox{core}} = \braket{\mu | T | \nu}
+
+    G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|V|\nu \alpha}
+                -\half \braket{\mu \beta|V|\alpha \nu}\right)
+
+    S_{\mu\nu} = \braket{\mu | \nu}
+
+the equation :eq:`hfeq04` is:
+
+.. math::
+    :label: roothaan1
+
+    \sum_\nu F_{\mu\nu} C_{\nu i}
+        = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+
+These are the Roothaan equations. It is a generalized eigenvalue problem.
+
+The same thing can be derived in $x$-representation
+starting from :eq:`hfeq` and introducing spatial orbitals:
+
+.. math::
+    :label: hfeq2
+
+    \left(-\half \nabla^2 -{Z\over |{\bf x}|}
+    +
+    \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\psi_i({\bf x})
+    - \sum_{k=1}^{N/2}\int {\psi_i({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\psi_k({\bf x})
+    =
+    \epsilon_i \psi_i({\bf x})
+
+We introduce basis functions $\phi_\mu$:
+
+.. math::
+
+    \psi_i({\bf x}) = \sum_\nu C_{\nu i} \phi_\nu({\bf x})
+
+substitute into :eq:`hfeq2` and also multiply the whole equation by
+$\phi_\mu^*$ and integrate over ${\bf x}$:
+
+.. math::
+    :label: hfeq3
+
+    \sum_\nu
+    \int
+    \phi_\mu^*({\bf x})
+    \left(-\half \nabla^2 -{Z\over |{\bf x}|}
+    +
+    \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\phi_\nu({\bf x}) \d^3 x\, C_{\nu i}
+
+    -\sum_\nu
+    \int
+    \phi_\mu^*({\bf x})
+    \sum_{k=1}^{N/2}\int {\phi_\nu({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\psi_k({\bf x})\d^3 x\, C_{\nu i}
+    =
+    \epsilon_i
+    \sum_\nu
+    \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
+    \, C_{\nu i}
+
+This can be written as:
+
+.. math::
+
+    \sum_\nu F_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+
+    F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+        = T_{\mu\nu} + V_{\mu\nu} + G_{\mu\nu}
+
+where:
+
+.. math::
+
+    T_{\mu\nu} =
+            \int \phi_\mu^*({\bf x}) \left(-\half \nabla^2 \right)
+            \phi_\nu({\bf x}) \d^3 x
+        =
+            \half \int \nabla \phi_\mu^*({\bf x}) \cdot
+                \nabla \phi_\nu({\bf x}) \d^3 x
+
+    V_{\mu\nu} =
+        \int \phi_\mu^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+        \phi_\nu({\bf x}) \d^3 x
+
+    G_{\mu\nu} =
+        \int \phi_\mu^*({\bf x}) \left(
+    \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\phi_\nu({\bf x}) \d^3 x
+    -\int
+    \phi_\mu^*({\bf x})
+    \sum_{k=1}^{N/2}\int {\phi_\nu({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\psi_k({\bf x})\d^3 x
+
+
+    S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
+
+Expanding the $\psi_k$ functions and using the density matrix we get for
+$G_{\mu\nu}$:
+
+.. math::
+
+    G_{\mu\nu} =
+        \sum_{\alpha\beta} P_{\alpha\beta}
+        \int \phi_\mu^*({\bf x}) \left(
+    \int {\phi_\beta^*({\bf y})\phi_\alpha({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\phi_\nu({\bf x}) \d^3 x
+    -\half \sum_{\alpha\beta} P_{\alpha\beta}
+    \int
+    \phi_\mu^*({\bf x})
+    \int {\phi_\nu({\bf y})\phi_\beta^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\phi_\alpha({\bf x})\d^3 x
+
+or
+
+.. math::
+
+    G_{\mu\nu} =
+        \sum_{\alpha\beta} P_{\alpha\beta}
+        \int {\phi_\mu^*({\bf x}) \phi_\nu({\bf x}) \phi_\beta^*({\bf y})
+                \phi_\alpha({\bf y})
+            -\half
+            \phi_\mu^*({\bf x}) \phi_\alpha({\bf x}) \phi_\beta^*({\bf y})
+                \phi_\nu({\bf y}) \over
+                        | {\bf x}-{\bf y}|}
+            \d^3 x\, \d^3 y
+
+        \equiv \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}
+                -\half \braket{\mu \beta|{1\over r_{12}}|\alpha \nu}\right)
+
+In physical and chemistry notation this is written as:
+
+.. math::
+
+    G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|\nu \alpha}
+                -\half \braket{\mu \beta|\alpha \nu}\right)
+        = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)
+
+
+General Matrix Elements in Spherical Symmetry
+---------------------------------------------
+
+Overlap
+~~~~~~~
+
+The overlap matrix element is:
+
+.. math::
+
+    S_{ij} = \int \phi_i^*({\bf x}) \phi_j({\bf x})\d^3 x
+
+We will use the following functions:
+
+.. math::
+
+    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+and we get:
+
+.. math::
+
+    S_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r) P_{n_2l_2}(r) \d r
+
+Potential
+~~~~~~~~~
+
+The potential matrix element is:
+
+.. math::
+
+    V_{ij} =
+        \int \phi_i^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+        \phi_j({\bf x}) \d^3 x
+
+We will use the following functions:
+
+.. math::
+
+    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+and we get:
+
+.. math::
+
+    V_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        \left(-{Z\over r}\right)
+        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r)
+        \left(-{Z\over r}\right) P_{n_2l_2}(r) \d r
+
+Kinetic
+~~~~~~~
+
+The kinetic matrix element is:
+
+.. math::
+
+    T_{ij} =
+            \int \phi_i^*({\bf x}) \left(-\half \nabla^2 \right)
+            \phi_j({\bf x}) \d^3 x
+
+We will use the following functions:
+
+.. math::
+
+    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+and we get:
+
+.. math::
+
+    T_{ij}
+        = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+            \left(\left(-\half \nabla^2\right)
+            {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d
+            \Omega =
+
+        = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+            \left(\left(-\half {\partial^2\over\partial r^2}
+                -{1\over r}{\partial\over\partial r}
+                +{l_2 (l_2+1)\over 2r^2}\right)
+            {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d
+            \Omega =
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int {P_{n_1l_1}(r)\over r}
+            \left(\left(-\half {\partial^2\over\partial r^2}
+                -{1\over r}{\partial\over\partial r}
+                +{l_2 (l_2+1)\over 2r^2}\right)
+            {P_{n_2l_2}(r)\over r} \right) r^2 \d r =
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int {P_{n_1l_1}(r)\over r}
+            \left(\left(-{1\over 2r} {\partial^2\over\partial r^2}r
+                +{l_2 (l_2+1)\over 2 r^2}\right)
+            {P_{n_2l_2}(r)\over r} \right) r^2 \d r =
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int P_{n_1l_1}(r)
+            \left(-\half {\partial^2\over\partial r^2}
+                +{l_2 (l_2+1)\over 2 r^2}\right)
+            P_{n_2l_2}(r) \d r =
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int \left( -\half P_{n_1l_1}(r) P_{n_2l_2}''(r)
+                +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+            \d r =
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int \left( \half P_{n_1l_1}'(r) P_{n_2l_2}'(r)
+                +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+            \d r
+
+
+Two particle
+~~~~~~~~~~~~
+
+The two particle matrix element is:
+
+.. math::
+    :label: twoint
+
+    (ij|kl) = \braket{ik|jl} =
+        \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'
+
+The $\braket{ik|jl}$ is called the physicists' notation because
+the $\ket{jl}$ and $\ket{ik}$ kets are:
+
+.. math::
+
+    \ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
+
+    \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')
+
+The $(ij|kl)$ is called the chemists' notation. From :eq:`twoint` the
+symmetries of $(ij|kl)$ are exchange of $i$ with $j$ or $k$ with $l$ or the
+$ij$ and $kl$ pairs:
+
+.. math::
+
+    (ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
+
+    = (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)
+
+So if we view $(ij|kl)$ as two boxes $(\cdot | \cdot )$ then we can permute the
+labels in the given box "$\cdot$", as well as exchange the boxes (the only
+thing we cannot do is to take one particle from one box and put it into the
+other). As such the box "$\cdot$" is a pair of two electrons (in any order) and
+the two electron integral assigns a unique number to a pair of such boxes (in
+any order). The symmetries of the $\braket{ik|jl}$ symbol are:
+
+.. math::
+
+    \braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
+
+    = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}
+
+
+We use the following functions for $\psi$:
+
+.. math::
+
+    \psi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \psi_j({\bf x}) = {P_{n_1'l_1'}(r)\over r} Y_{l_1'm_1'}(\Omega)
+
+    \psi_k({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+    \psi_l({\bf x}) = {P_{n_2'l_2'}(r)\over r} Y_{l_2'm_2'}(\Omega)
+
+And the multipole expansion:
+
+.. math::
+
+    {1\over |{\bf x}-{\bf x}'|}
+        = \sum_{k,q}{r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+
+And we get:
+
+.. math::
+
+    (ij|kl) = \braket{ik|jl} = \braket{l_1 m_1 l_2 m_2 |
+        {1\over |{\bf x} - {\bf x}'|} | l_1' m_1' l_2' m_2'} =
+
+    =\int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+        \over |{\bf x} - {\bf x}'|} \d^3 x \d^3 x' =
+
+    = \int
+        {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        {P_{n_1'l_1'}(r)\over r} Y_{l_1'm_1'}(\Omega)
+        {P_{n_2l_2}(r')\over r'} Y_{l_2m_2}^*(\Omega')
+        {P_{n_2'l_2'}(r')\over r'} Y_{l_2'm_2'}(\Omega')
+
+        \sum_{k,q}{r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+        r^2 r'^2 \d r \d r' \d \Omega \d \Omega' =
+
+    =
+    \sum_{k,q}
+    \int
+        Y_{l_1m_1}^*(\Omega)
+        Y_{l_1'm_1'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega
+      \int
+        Y_{l_2m_2}^*(\Omega')
+        Y_{l_2'm_2'}(\Omega')
+        Y_{kq}^*(\Omega')
+        \d \Omega'
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k,q}
+    (-1)^{m_1+m_2+q}
+    \int
+        Y_{l_1,-m_1}(\Omega)
+        Y_{l_1'm_1'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega
+      \int
+        Y_{l_2,-m_2}(\Omega')
+        Y_{l_2'm_2'}(\Omega')
+        Y_{k,-q}(\Omega')
+        \d \Omega'
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k,q}
+    (-1)^{m_1+m_2+q}
+    \sqrt{(2l_1+1)(2l_1'+1)(2k+1)\over 4\pi}
+            \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+                    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q
+                    \end{pmatrix}
+
+    \sqrt{(2l_2+1)(2l_2'+1)(2k+1)\over 4\pi}
+            \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+                    \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q
+                    \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+    \sum_{q=-k}^k (-1)^{m_1+m_2+q}
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+        \min(l_1+l_1', l_2+l_2')
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    (-1)^{m_1+m_2'} \delta_{m_1+m_2- m_1'-m_2', 0}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & m_1-m_1' \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & m_2-m_2' \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
+In the last step we used the fact that the $3j$ symbols are zero unless
+$-m_1+m_1'+q=0$
+and $-m_2+m_2'-q=0$, from which it follows
+that $q=m_1-m_1'=-m_2+m_2'$ and so one of the $3j$ symbols is zero
+unless $m_1+m_2-m_1'-m_2'=0$, which is expressed by
+$\delta_{m_1+m_2- m_1'-m_2', 0}$.
+Given this condition, the sum over $q$ must be such
+that one $q$ is equal to $m_1-m_1'=-m_2+m_2'$, which means that
+$k \ge |m_1 - m_1'| = |m_2 - m_2'|$ otherwise the $3j$ symbols will be zero.
+Finally, $k$ must also satisfy the conditions
+$|l_1-l_1'| \le k \le l_1+l_1'$ and $|l_2-l_2'| \le k \le l_2+l_2'$.
+The sign factor
+$(-1)^{m_1+m_2+q} = (-1)^{m_1+m_2+m_1-m_1'} =(-1)^{m_1+m_2-m_2+m_2'}$
+is equal to both $(-1)^{m_1+m_2'}$ and $(-1)^{m_2-m_1'}$ so we just used the
+former.
+
+We can also couple the angular momenta as follows:
+
+.. math::
+
+    \ket{l_1 l_2 LM} = \sum_{m_1 m_2} (l_1 m_1 l_2 m_2 | LM)
+        \ket{l_1 m_1} \ket{l_2 m_2} =
+
+    = \sum_{m_1 m_2} (-1)^{l_1-l_2+M}\sqrt{2L+1}
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \ket{l_1 m_1} \ket{l_2 m_2}
+
+and we get for the matrix elements:
+
+.. math::
+
+    \braket{l_1 l_2 LM  | {1\over |{\bf x} - {\bf x}'|} | l_1' l_2' L' M'} =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+        \sqrt{(2L+1)(2L'+1)}
+
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L' \\ m_1' & m_2' & -M' \end{pmatrix}
+
+        \bra{l_1 m_1} \bra{l_2 m_2}
+        {1\over |{\bf x} - {\bf x}'|}
+        \ket{l_1' m_1'} \ket{l_2 m_2'} =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+        \sqrt{(2L+1)(2L'+1)}
+
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L' \\ m_1' & m_2' & -M' \end{pmatrix}
+
+        (ij|kl) =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+        \sqrt{(2L+1)(2L'+1)}
+
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L' \\ m_1' & m_2' & -M' \end{pmatrix}
+
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+    \sum_{q=-k}^k (-1)^{m_1+m_2+q}
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'}
+        (2L+1)
+
+        \delta_{MM'}\delta_{LL'}
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L \\ m_1' & m_2' & -M \end{pmatrix}
+
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+    \sum_{q=-k}^k (-1)^{m_1+m_2+q}
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    = (-1)^{l_1-l_2+l_1'-l_2'} (2L+1)
+
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+        \delta_{MM'}\delta_{LL'} (-1)^{l_1+l_1'+L}
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    = \sum_k
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
+        (-1)^{L-l_2-l_2'} (2L+1)
+        \delta_{MM'}\delta_{LL'}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix} =
+
+    = \sum_k
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
+        (-1)^{l_1 + l_1' + L} (2L+1)
+
+        \delta_{LL'}\delta_{MM'}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    \begin{pmatrix} l_1 & k & l_1' \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & k & l_2' \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix}
+
+
+
+
+Where we used the $6j$ symbol:
+
+.. math::
+
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix}
+    =\sum_{m_1 m_2 m_1' m_2' M q} (-1)^{l_1+l_2+l_1'+l_2'+L+k
+        -m_1-m_2-m_1'-m_2'-M-q}
+
+    \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+    \begin{pmatrix} l_2' & l_1' & L \\ m_2' & -m_1' & M \end{pmatrix}
+    \begin{pmatrix} l_2' & l_2 & k \\ -m_2' & -m_2 & -q \end{pmatrix}
+    =
+
+    =\sum_{m_1 m_2 m_1' m_2' M q} (-1)^{l_1+l_2+l_1'+l_2'+L+k
+        -m_1-m_2-m_1'-m_2'-M-q}
+
+    \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+    \begin{pmatrix} l_1' & l_2' & L \\ m_1' & -m_2' & -M \end{pmatrix}
+    (-1)^{l_2+l_2'+k}
+    \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & -m_2' & -q \end{pmatrix}
+    =
+
+    =\sum_{m_1 m_2 m_1' m_2' q} \delta_{M, m_1' + m_2'}
+        (-1)^{l_1+l_1'+L} (-1)^{m_1+m_2+q}
+
+    \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+    \begin{pmatrix} l_1' & l_2' & L \\ m_1' & +m_2' & -M \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & +m_2' & -q \end{pmatrix}
+
+Where we have renamed $-m_2'$ to $m_2'$.
 
 Exchange Integral in Spherical Symmetry
 ---------------------------------------
@@ -291,7 +994,6 @@ And we get:
         P_{n'l'}(r')
         P_{nl}(r')
         \d r \d r'
-
 
 Occupation Numbers
 ------------------
