@@ -474,11 +474,46 @@ P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
             +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
         \d r"/></p>
 </div></div>
+<div class="section" id="hartree-potential-direct-term">
+<h3>Hartree Potential (Direct Term)<a class="headerlink" href="#hartree-potential-direct-term" title="Permalink to this headline">¶</a></h3>
+<p>The direct (Hartree) term is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/2f2e9bfa6736648c4b51f8ecc3a67c88a77611f3.png" alt="J_{\mu\nu} = \int \phi_\mu^*({\bf x}) V_H({\bf x}) \phi_\nu({\bf x}) \d^3 x"/></p>
+</div><p>where the Hartree potential <img class="math" src="../../_images/math/a8111dd2d358d22ade2790b71ee730c79ff0dfdc.png" alt="V_H({\bf x})"/> is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/3c5cdab3a0b56222c6f0cd7079f1dc13a5c167ad.png" alt="V_H({\bf x}) = \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over
+        |{\bf x}-{\bf y}|} \d^3 y
+    = \int {n({\bf y})\over
+        |{\bf x}-{\bf y}|} \d^3 y"/></p>
+</div><p>where the number density <img class="math" src="../../_images/math/f10e663a3514899631dbd824742529f30025fb21.png" alt="n({\bf x})"/> is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/5dcb699accf958218a4868bc7cdf55775dc3b6ac.png" alt="n({\bf x}) = 2 \sum_{k=1}^{N/2} | \psi_k({\bf x})|^2
+    = \sum_{\alpha\beta} \phi_\alpha({\bf x}) P_{\alpha\beta}
+        \phi_\beta^*({\bf x})"/></p>
+</div><p>All together we get:</p>
+<div class="math" id="equation-hartree1">
+<p><span class="eqno">(10)</span><img src="../../_images/math/c1313534a2e9c9ab2cdce7a9ce04bf25fd0567b1.png" alt="J_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+    \int {\phi_\mu^*({\bf x}) \phi_\alpha({\bf y})
+            \phi_\beta^*({\bf y}) \phi_\nu({\bf x}) \over
+            |{\bf x}-{\bf y}| } \d^3 x \d^3 y
+    = \sum_{\alpha\beta} P_{\alpha\beta}
+        \braket{\mu \beta|\nu \alpha}
+    = \sum_{\alpha\beta} P_{\alpha\beta}
+        (\mu \nu|\beta \alpha)"/></p>
+</div><p>In spherical symmetry, we get (see <a class="reference internal" href="#hartree-spherical"><em>Hartree Potential in Spherical Symmetry</em></a> for derivation):</p>
+<div class="math" id="equation-hartree2">
+<p><span class="eqno">(11)</span><img src="../../_images/math/79de321d59958640acc033ac8eb277958abaf809.png" alt="J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  = \sum_{k} 2(2l_k+1)
+    R^0(\mu, k, \nu, k)"/></p>
+</div><p>Here we sum over the occupied radial orbitals <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>. This sum is already carried
+out in <img class="math" src="../../_images/math/99829326e0f2d53d7516a439d86c1c6e6c04f6a5.png" alt="P_{\alpha\beta}"/> in <a href="#equation-hartree1">(10)</a>. On the other hand, <a href="#equation-hartree2">(11)</a>
+has the sum over the magnetic number <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> carried out (thus the <img class="math" src="../../_images/math/9e059613efd4f51fd6b17b56122d31e8f5cfd64f.png" alt="2l+1"/> term),
+while in <a href="#equation-hartree1">(10)</a> this sum is part of the sum over <img class="math" src="../../_images/math/13b53457b887ee32b7fcfda72a8bb5f28decfe22.png" alt="\alpha=(n, l, m)"/>.</p>
+</div>
 <div class="section" id="two-particle">
 <h3>Two particle<a class="headerlink" href="#two-particle" title="Permalink to this headline">¶</a></h3>
 <p>The two particle matrix element is:</p>
 <div class="math" id="equation-twoint">
-<p><span class="eqno">(10)</span><img src="../../_images/math/4fb41159bc01262312d85f07a6da404dde619f20.png" alt="(ij|kl) = \braket{ik|jl} =
+<p><span class="eqno">(12)</span><img src="../../_images/math/4fb41159bc01262312d85f07a6da404dde619f20.png" alt="(ij|kl) = \braket{ik|jl} =
     \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
         \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'"/></p>
 </div><p>The <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> is called the physicists&#8217; notation because
@@ -487,7 +522,7 @@ the <img class="math" src="../../_images/math/eb056c43a2c2ae7c01c3a8fcedfa03f4f1
 <p><img src="../../_images/math/c3f0fa0fc4d7331489ee7138c37f69157db29b98.png" alt="\ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
 
 \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')"/></p>
-</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(10)</a> the
+</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(12)</a> the
 symmetries of <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> are exchange of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> with <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> or the
 <img class="math" src="../../_images/math/c26aadb390865e9669bcb79c4e6af904a2dea7cc.png" alt="ij"/> and <img class="math" src="../../_images/math/9877f8f461d8617a227b3299a84354190b9e347c.png" alt="kl"/> pairs:</p>
 <div class="math">
@@ -1183,7 +1218,7 @@ weak formulation is:</p>
 boundary and no constrain on the right.</p>
 </div>
 <div class="section" id="hartree-potential-in-spherical-symmetry">
-<h2>Hartree Potential in Spherical Symmetry<a class="headerlink" href="#hartree-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
+<span id="hartree-spherical"></span><h2>Hartree Potential in Spherical Symmetry<a class="headerlink" href="#hartree-potential-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>For both open and closed shell atoms we get exactly:</p>
 <div class="math">
 <p><img src="../../_images/math/67f678af58593f565e7a092ed83fc18143264381.png" alt="V_H({\bf x})
@@ -1354,7 +1389,7 @@ multiplication by 2. We assumed closed shells atoms (we summed over all <img cla
 the above). We used the result of the integral in
 <a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a> and also:</p>
 <div class="math" id="equation-using3j">
-<p><span class="eqno">(11)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+<p><span class="eqno">(13)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
     = \sqrt{2l'+1\over 2l+1}
         \sqrt{(2l'+1)(2l+1)}
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
@@ -1517,6 +1552,7 @@ the above). We used the result of the integral in
 <li><a class="reference internal" href="#overlap">Overlap</a></li>
 <li><a class="reference internal" href="#potential">Potential</a></li>
 <li><a class="reference internal" href="#kinetic">Kinetic</a></li>
+<li><a class="reference internal" href="#hartree-potential-direct-term">Hartree Potential (Direct Term)</a></li>
 <li><a class="reference internal" href="#two-particle">Two particle</a></li>
 </ul>
 </li>
