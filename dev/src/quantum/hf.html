@@ -883,7 +883,109 @@ value of the following integral for <img class="math" src="../../_images/math/50
    -{(n_1 \zeta_2+n_2\zeta_1) (n_1+n_2-1)!
         \over (\zeta_1+\zeta_2)^{n_1+n_2}}
    +{\zeta_1 \zeta_2 (n_1+n_2)! \over (\zeta_1+\zeta_2)^{n_1+n_2+1}}"/></p>
+</div><p>The STO basis function for the radial Schrödinger equation for <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/> is:</p>
+<div class="math" id="equation-sto_P">
+<p><span class="eqno">(14)</span><img src="../../_images/math/9478b1f9557c9267f6720743e43793d07a2cbb62.png" alt="P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r}"/></p>
+</div><p>Where the normalization constant <img class="math" src="../../_images/math/4a8dbfda5f6199c266c2bc0d0775109778c50aa3.png" alt="N_{n\zeta}"/> is such that the STO orbital is
+normalized as the radial wavefunction <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/8560de6444c5e7c04bd9ea1856e9f5c4bb2c6528.png" alt="1 = \int_0^\infty P_{n\zeta}^2(r) \d r
+    = N_{n\zeta}^2 \int_0^\infty r^{2n} e^{-2\zeta r} \d r
+    = N_{n\zeta}^2 {(2n)!\over (2\zeta)^{2n+1}}"/></p>
+</div><p>from which we get:</p>
+<div class="math">
+<p><img src="../../_images/math/22e00381b62cec217cfe4f4f879c76d1ac545853.png" alt="N_{n\zeta} = \sqrt{(2\zeta)^{2n+1}\over (2n)!}"/></p>
+</div><p>Note that for <img class="math" src="../../_images/math/74a66b8dc4c6d8982328bbd7333ddc469f748c51.png" alt="R(r)={P(r)\over r}"/> we get the following STO basis function:</p>
+<div class="math" id="equation-sto_R">
+<p><span class="eqno">(15)</span><img src="../../_images/math/852c89974f0bbfd7516aec3e02da3ef1b4cb4093.png" alt="R_{n\zeta}(r) = {P_{n\zeta}(r)\over r} = N_{n\zeta} r^{n-1} e^{-\zeta r}"/></p>
+</div><p>One uses either <a href="#equation-sto_P">(14)</a> or <a href="#equation-sto_R">(15)</a> depending on whether one solves the
+radial Schrödinger equation for <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> or for <img class="math" src="../../_images/math/39f1dc1f28cc1e49befa9458b06421182e347ee3.png" alt="R={P\over r}"/>.</p>
+<div class="section" id="id1">
+<h3>Overlap<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/48e51331cf14edaea3c80b726572aa447a4f8036.png" alt="\int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
+
+    = \int
+        N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r}
+        N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r}
+     \d r =
+
+    = N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+         r^{n_i + n_j} e^{-(\zeta_i+\zeta_j) r}
+     \d r =
+
+    = N_{n_i\zeta_i} N_{n_j\zeta_j}
+        {(n_i + n_j)! \over  (\zeta_i+\zeta_j)^{n_i+n_j+1}}"/></p>
 </div></div>
+<div class="section" id="id2">
+<h3>Potential<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/8c86e107c8821eaa7fd2578fb6c065a23bfffe4e.png" alt="\int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
+
+= \int
+    N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r}
+    \left(-{Z\over r}\right)
+    N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r}
+    \d r =
+
+= -Z N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+     r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r}
+    \d r =
+
+= -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
+    {(n_i + n_j - 1)! \over  (\zeta_i+\zeta_j)^{n_i+n_j}}"/></p>
+</div></div>
+<div class="section" id="id3">
+<h3>Kinetic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/ce9621184fac8ed68b7b503693ae08751cfa7a22.png" alt="\int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
+        +P_{n_i\zeta_i}(r) {l (l+1)\over 2 r^2} P_{n_j\zeta_j}(r) \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        {\d\over\d r}(r^{n_i} e^{-\zeta_i r})
+        {\d\over\d r}(r^{n_j} e^{-\zeta_j r})
+        +r^{n_i} e^{-\zeta_i r} {l (l+1)\over r^2}
+            r^{n_j} e^{-\zeta_j r}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        (n_i r^{n_i-1} e^{-\zeta_i r}
+                        -\zeta_i r^{n_i} e^{-\zeta_i r})
+                    (n_j r^{n_j-1} e^{-\zeta_j r}
+                        -\zeta_j r^{n_j} e^{-\zeta_j r})
+        +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+    \left(
+                {n_i n_j\over r^2}
+               -{n_i \zeta_j+n_j\zeta_i \over r}
+               +\zeta_i \zeta_j
+            \right) r^{n_i+n_j} e^{-(\zeta_i+\zeta_j) r}
+        +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+    (n_i n_j + l(l+1))       r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r}
+   -(n_i \zeta_j+n_j\zeta_i) r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r}
+   +\zeta_i \zeta_j          r^{n_i+n_j  } e^{-(\zeta_i+\zeta_j) r}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\left(
+    (n_i n_j + l(l+1))
+        {(n_i + n_j - 2)! \over  (\zeta_i+\zeta_j)^{n_i +n_j - 1}}
+   -(n_i \zeta_j+n_j\zeta_i)
+        {(n_i + n_j - 1)! \over  (\zeta_i+\zeta_j)^{n_i +n_j    }}
+   +\zeta_i \zeta_j
+        {(n_i + n_j    )! \over  (\zeta_i+\zeta_j)^{n_i +n_j + 1}}
+        \right)"/></p>
+</div></div>
+</div>
 <div class="section" id="exchange-integral-in-spherical-symmetry">
 <h2>Exchange Integral in Spherical Symmetry<a class="headerlink" href="#exchange-integral-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s calculate the exchange integral</p>
@@ -1433,7 +1535,7 @@ multiplication by 2. We assumed closed shells atoms (we summed over all <img cla
 the above). We used the result of the integral in
 <a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a> and also:</p>
 <div class="math" id="equation-using3j">
-<p><span class="eqno">(14)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+<p><span class="eqno">(16)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
     = \sqrt{2l'+1\over 2l+1}
         \sqrt{(2l'+1)(2l+1)}
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
@@ -1600,7 +1702,12 @@ the above). We used the result of the integral in
 <li><a class="reference internal" href="#two-particle">Two particle</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#slater-type-orbitals-sto">Slater Type Orbitals (STO)</a></li>
+<li><a class="reference internal" href="#slater-type-orbitals-sto">Slater Type Orbitals (STO)</a><ul>
+<li><a class="reference internal" href="#id1">Overlap</a></li>
+<li><a class="reference internal" href="#id2">Potential</a></li>
+<li><a class="reference internal" href="#id3">Kinetic</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#exchange-integral-in-spherical-symmetry">Exchange Integral in Spherical Symmetry</a></li>
 <li><a class="reference internal" href="#occupation-numbers">Occupation Numbers</a><ul>
 <li><a class="reference internal" href="#example-i">Example I</a></li>
