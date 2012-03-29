@@ -842,47 +842,15 @@ former.</p>
 </div>
 <div class="section" id="slater-type-orbitals-sto">
 <h2>Slater Type Orbitals (STO)<a class="headerlink" href="#slater-type-orbitals-sto" title="Permalink to this headline">¶</a></h2>
-<p>In this section we express the matrix elements in the STO basis. We need the
-value of the following integral for <img class="math" src="../../_images/math/5000e45201013497f6bbcdf11a5c2ae1f85dfec8.png" alt="n,\zeta \ge 0"/>:</p>
+<p>In this section we express the matrix elements in the STO basis.
+It turns out that all integrals that we need can be expressed in terms
+of the following simple integral (where <img class="math" src="../../_images/math/5000e45201013497f6bbcdf11a5c2ae1f85dfec8.png" alt="n,\zeta \ge 0"/>):</p>
 <div class="math" id="equation-slater_basic">
 <p><span class="eqno">(13)</span><img src="../../_images/math/7d06583d0d197f25048a616f01418f9103454873.png" alt="\int_0^\infty r^n e^{-\zeta r} \d r
     =\int_0^\infty \left(x\over\zeta\right)^n e^{-r} {\d r\over\zeta}
     ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-r} \d r
     ={\Gamma(n+1)\over\zeta^{n+1}}
     ={n!\over\zeta^{n+1}}"/></p>
-</div><p>Using <a href="#equation-slater_basic">(13)</a> we immediately get:</p>
-<div class="math">
-<p><img src="../../_images/math/d041021d5a4a0dcba0d398b416794eba1c8a1f08.png" alt="\int_0^\infty r^{n_1} e^{-\zeta_1 r} r^{n_2} e^{-\zeta_2 r} \d r
-    ={(n_1+n_2)!\over(\zeta_1+\zeta_2)^{n_1+n_2+1}}
-
-\int_0^\infty {1\over r} r^{n_1} e^{-\zeta_1 r} r^{n_2} e^{-\zeta_2 r} \d r
-    ={(n_1+n_2-1)!\over(\zeta_1+\zeta_2)^{n_1+n_2}}
-
-\int_0^\infty {1\over r^2} r^{n_1} e^{-\zeta_1 r}
-    r^{n_2} e^{-\zeta_2 r} \d r
-    ={(n_1+n_2-2)!\over(\zeta_1+\zeta_2)^{n_1+n_2-1}}"/></p>
-</div><p>and</p>
-<div class="math">
-<p><img src="../../_images/math/ad8f7a9a94249a816b64cfdbca3d310217461054.png" alt="\int_0^\infty {\d\over\d r}(r^{n_1} e^{-\zeta_1 r})
-    {\d\over\d r}(r^{n_2} e^{-\zeta_2 r}) \d r =
-
-    = \int_0^\infty (n_1 r^{n_1-1} e^{-\zeta_1 r}
-            -\zeta_1 r^{n_1} e^{-\zeta_1 r})
-        (n_2 r^{n_2-1} e^{-\zeta_2 r}
-            -\zeta_2 r^{n_2} e^{-\zeta_2 r}) \d r
-    =
-
-= \int_0^\infty \left(
-        {n_1 n_2\over r^2}
-       -{n_1 \zeta_2+n_2\zeta_1 \over r}
-       +\zeta_1 \zeta_2
-    \right) r^{n_1+n_2} e^{-(\zeta_1+\zeta_2) r} \d r
-
-=
-    {n_1 n_2 (n_1+n_2-2)! \over (\zeta_1+\zeta_2)^{n_1+n_2-1}}
-   -{(n_1 \zeta_2+n_2\zeta_1) (n_1+n_2-1)!
-        \over (\zeta_1+\zeta_2)^{n_1+n_2}}
-   +{\zeta_1 \zeta_2 (n_1+n_2)! \over (\zeta_1+\zeta_2)^{n_1+n_2+1}}"/></p>
 </div><p>The STO basis function for the radial Schrödinger equation for <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/> is:</p>
 <div class="math" id="equation-sto_P">
 <p><span class="eqno">(14)</span><img src="../../_images/math/9478b1f9557c9267f6720743e43793d07a2cbb62.png" alt="P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r}"/></p>
