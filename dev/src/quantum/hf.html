@@ -1011,7 +1011,7 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
             \sum_{\nu=0}^{n_j+n_l-k-1}{r^\nu(\zeta_j+\zeta_l)^\nu\over \nu!}"/></p>
 </div><p>Putting everything together we get:</p>
 <div class="math">
-<p><img src="../../_images/math/b8ba76caf82a113b5e63826e9a6e8b59369bdc81.png" alt="R^k(i, j, k, l)
+<p><img src="../../_images/math/b4f930772a611c4777cdbfab458555aa7d3caa78.png" alt="R^k(i, j, k, l)
     = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
         \int_0^\infty
         r^{n_i}e^{-\zeta_i r}
@@ -1076,6 +1076,15 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
             \right) + \right.
 
     \left.  +
+            {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+            H^k_{jilk}
+        \right) =
+
+    = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+        \left(
+            {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+            H^k_{ijkl}
+        +
             {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
             H^k_{jilk}
         \right)"/></p>
