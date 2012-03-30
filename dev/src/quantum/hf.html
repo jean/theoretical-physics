@@ -957,6 +957,135 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
         {(n_i + n_j    )! \over  (\zeta_i+\zeta_j)^{n_i +n_j + 1}}
         \right)"/></p>
 </div></div>
+<div class="section" id="id4">
+<h3>Two particle<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>In this section we also need the following integrals:</p>
+<div class="math">
+<p><img src="../../_images/math/3649cb5c9cb1257b050385bb9a32341cd8c97f29.png" alt="\int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
+    e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}
+
+\int_0^u r^n e^{-\zeta r} \d r = \int_0^\infty r^n e^{-\zeta r} \d r
+    -\int_u^\infty r^n e^{-\zeta r} \d r =
+{n!\over \zeta^{n+1}}\left(1-
+    e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}\right)"/></p>
+</div><p>The Slater integral is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/495ad90f965a432336543e3df4c3f0e573c047a9.png" alt="R^k(i, j, k, l) = \int_0^\infty {r_&lt;^k\over r_&gt;^{k+1}} P_i(r) P_k(r)
+    P_j(r') P_l(r') \d r \d r' =
+
+    = \int_0^\infty P_i(r) P_k(r) {Y^k(P_j P_l, r)\over r} \d r"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/00d34b2831c101810db4e7434cc4c32fa041bd94.png" alt="Y^k(f(r), r) = r \int_0^\infty {r_&lt;^k\over r_&gt;^{k+1}} f(r') \d r'
+    = {1\over r^k} \int_0^r r'^k f(r') \d r' + r^{k+1} \int_r^\infty
+        {1\over r'^{k+1}} f(r') \d r'"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/0c08b4586a08756a1445e73a507bd95526c37170.png" alt="Y^k(P_j(r) P_l(r), r)
+    = {1\over r^k} \int_0^r r'^k P_j(r') P_l(r') \d r'
+        + r^{k+1} \int_r^\infty {1\over r'^{k+1}} P_j(r') P_l(r') \d r' =
+
+    = {N_{n_j \zeta_j}N_{n_l \zeta_l}\over r^k} \int_0^r r'^k
+            r'^{n_j}e^{-\zeta_j r'}
+            r'^{n_l}e^{-\zeta_l r'} \d r'
+        + N_{n_j \zeta_j}N_{n_l \zeta_l} r^{k+1}
+            \int_r^\infty {1\over r'^{k+1}}
+            r'^{n_j}e^{-\zeta_j r'}
+            r'^{n_l}e^{-\zeta_l r'} \d r' =
+
+    = {N_{n_j \zeta_j}N_{n_l \zeta_l}\over r^k} \int_0^r
+            r'^{n_j+n_l+k}e^{-(\zeta_j+\zeta_l) r'} \d r'
+        + N_{n_j \zeta_j}N_{n_l \zeta_l} r^{k+1}
+            \int_r^\infty
+            r'^{n_j+n_l-k-1}e^{-(\zeta_j+\zeta_l) r'} \d r' =
+
+    = {N_{n_j \zeta_j}N_{n_l \zeta_l}\over r^k}
+        {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}} \left(
+            1 - e^{-(\zeta_j+\zeta_l)r} \sum_{\nu=0}^{n_j+n_l+k}
+                { r^\nu(\zeta_j+\zeta_l)^\nu \over \nu! }
+            \right) +
+
+        + N_{n_j \zeta_j}N_{n_l \zeta_l} r^{k+1}
+            {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                e^{-(\zeta_j+\zeta_l)r}
+            \sum_{\nu=0}^{n_j+n_l-k-1}{r^\nu(\zeta_j+\zeta_l)^\nu\over \nu!}"/></p>
+</div><p>Putting everything together we get:</p>
+<div class="math">
+<p><img src="../../_images/math/b8ba76caf82a113b5e63826e9a6e8b59369bdc81.png" alt="R^k(i, j, k, l)
+    = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+        \int_0^\infty
+        r^{n_i}e^{-\zeta_i r}
+        r^{n_k}e^{-\zeta_k r}
+        {1\over r}
+        \left(
+    {1\over r^k}
+        {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}} \left(
+            1 - e^{-(\zeta_j+\zeta_l)r} \sum_{\nu=0}^{n_j+n_l+k}
+                { r^\nu(\zeta_j+\zeta_l)^\nu \over \nu! }
+            \right) + \right.
+
+    \left.  + r^{k+1}
+            {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                e^{-(\zeta_j+\zeta_l)r}
+            \sum_{\nu=0}^{n_j+n_l-k-1}{r^\nu(\zeta_j+\zeta_l)^\nu\over \nu!}
+        \right)
+        \d r =
+
+    = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+        \left(
+        {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}}
+        \int_0^\infty
+        r^{n_i+n_k-k-1}e^{-(\zeta_i+\zeta_k) r}
+        \left(
+            1 - e^{-(\zeta_j+\zeta_l)r} \sum_{\nu=0}^{n_j+n_l+k}
+                { r^\nu(\zeta_j+\zeta_l)^\nu \over \nu! }
+            \right) \d r + \right.
+
+    \left.  +
+        \int_0^\infty
+        e^{-(\zeta_i+\zeta_j+\zeta_k+\zeta_l) r}
+            {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+            \sum_{\nu=0}^{n_j+n_l-k-1}{
+                r^{n_i+n_k+k+\nu}(\zeta_j+\zeta_l)^\nu\over \nu!}
+        \d r
+        \right) =
+
+    = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+        \left(
+        {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}}
+        \left(
+            {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+            - \sum_{\nu=0}^{n_j+n_l+k}
+                {(\zeta_j+\zeta_l)^\nu (n_i+n_k-k+\nu-1)! \over \nu!
+                (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_i+n_k-k+\nu}}
+            \right) + \right.
+
+    \left.  +
+            {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+            \sum_{\nu=0}^{n_j+n_l-k-1}{
+                (n_i+n_k+k+\nu)! (\zeta_j+\zeta_l)^\nu\over
+                \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_i+n_k+k+\nu+1}}
+        \right) =
+
+    = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+        \left(
+        {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}}
+        \left(
+            {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+            - H^{-k-1}_{jilk}
+            \right) + \right.
+
+    \left.  +
+            {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+            H^k_{jilk}
+        \right)"/></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/7e49da94fdcd2d45247a77b36afa03484fe4b3c5.png" alt="H^k_{ijkl} =
+            \sum_{\nu=0}^{n_i+n_k-k-1}{
+                (n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu\over
+                \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}}"/></p>
+</div></div>
 </div>
 <div class="section" id="exchange-integral-in-spherical-symmetry">
 <h2>Exchange Integral in Spherical Symmetry<a class="headerlink" href="#exchange-integral-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
@@ -1678,6 +1807,7 @@ the above). We used the result of the integral in
 <li><a class="reference internal" href="#id1">Overlap</a></li>
 <li><a class="reference internal" href="#id2">Potential</a></li>
 <li><a class="reference internal" href="#id3">Kinetic</a></li>
+<li><a class="reference internal" href="#id4">Two particle</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#exchange-integral-in-spherical-symmetry">Exchange Integral in Spherical Symmetry</a></li>
