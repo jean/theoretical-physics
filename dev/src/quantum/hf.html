@@ -690,7 +690,60 @@ The sign factor
 <img class="math" src="../../_images/math/3aa6c9cdb6643913227388eba0e60ee4627ee4f4.png" alt="(-1)^{m_1+m_2+q} = (-1)^{m_1+m_2+m_1-m_1'} =(-1)^{m_1+m_2-m_2+m_2'}"/>
 is equal to both <img class="math" src="../../_images/math/6ee83c2278a9446dd75c2cd1951cd9ae98a9e3f1.png" alt="(-1)^{m_1+m_2'}"/> and <img class="math" src="../../_images/math/e48062a080f2b145c4f857fc68096e400880ae5c.png" alt="(-1)^{m_2-m_1'}"/> so we just used the
 former.</p>
-<p>We can also couple the angular momenta as follows:</p>
+<p>We can write this using the <img class="math" src="../../_images/math/310746dd13a807fb847da174a52034f2059b17b0.png" alt="c^k"/> symbols as:</p>
+<div class="math">
+<p><img src="../../_images/math/9fd0734506eef30fb525a5d64519db5a9f828196.png" alt="(ij|kl) =
+\sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+    \min(l_1+l_1', l_2+l_2')
+}\!\!\!\!\!\!\!\!\!\!\!\!
+\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+(-1)^{m_2-m_2'} (-1)^{-m_1} (-1)^{-m_2} \delta_{m_1+m_2- m_1'-m_2', 0}
+\begin{pmatrix} l_1 &amp; l_1' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+\begin{pmatrix} l_2 &amp; l_2' &amp; k \\ 0 &amp; 0 &amp; 0 \end{pmatrix}
+
+    \begin{pmatrix} l_1 &amp; l_1' &amp; k \\ -m_1 &amp; m_1' &amp; m_1-m_1' \end{pmatrix}
+    \begin{pmatrix} l_2 &amp; l_2' &amp; k \\ -m_2 &amp; m_2' &amp; m_2-m_2' \end{pmatrix}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r' =
+
+=
+\sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+    \min(l_1+l_1', l_2+l_2')
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_1, m_1, l_1', m_1')
+c^k(l_2, m_2, l_2', m_2')
+
+(-1)^{m_2-m_2'} \delta_{m_1+m_2- m_1'-m_2', 0}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r'
+
+=
+\sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+    \min(l_1+l_1', l_2+l_2')
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_1, m_1, l_1', m_1')
+c^k(l_2', m_2', l_2, m_2)
+
+\delta_{m_1+m_2- m_1'-m_2', 0}
+
+  \int {r_{&lt;}^k\over r_{&gt;}^{k+1}}
+    P_{n_1l_1}(r)
+    P_{n_1'l_1'}(r)
+    P_{n_2l_2}(r')
+    P_{n_2'l_2'}(r')
+    \d r \d r'"/></p>
+</div><p>We can also couple the angular momenta as follows:</p>
 <div class="math">
 <p><img src="../../_images/math/7cf70edd6565a0abd564614be1f6b53929708739.png" alt="\ket{l_1 l_2 LM} = \sum_{m_1 m_2} (l_1 m_1 l_2 m_2 | LM)
     \ket{l_1 m_1} \ket{l_2 m_2} =

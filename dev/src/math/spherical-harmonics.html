@@ -70,7 +70,7 @@
             
   <div class="section" id="legendre-polynomials">
 <span id="index-0"></span><h1>Legendre Polynomials<a class="headerlink" href="#legendre-polynomials" title="Permalink to this headline">¶</a></h1>
-<p>Legendre polynomials <img class="math" src="../../_images/math/01db28aedd2b3dc45cf8622fee217c3c644bea82.png" alt="P_l(x)"/> defined by the Rodrigues&#8217;s formula</p>
+<p>Legendre polynomials <img class="math" src="../../_images/math/01db28aedd2b3dc45cf8622fee217c3c644bea82.png" alt="P_l(x)"/> defined by the Rodrigues&#8217; formula</p>
 <div class="math">
 <p><img src="../../_images/math/9d4375f23c92f4a73c90f97bbc1430f727daae3a.png" alt="P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]"/></p>
 </div><p>they also obey the completeness relation</p>
@@ -378,20 +378,27 @@ V_1(r_1, r_2) =
 </div>
 <div class="section" id="spherical-harmonics">
 <span id="index-1"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
-<p>Are defined by</p>
+<p>Are defined for <img class="math" src="../../_images/math/cec8d8345a476b8ca52d2e4c32d712dd5ed7169f.png" alt="m \ge 0"/> by</p>
 <div class="math">
 <p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}"/></p>
 </div><p>where <img class="math" src="../../_images/math/d8a3014951eb2ea04abd44b40541cac5a0fa4925.png" alt="P_l^m"/> are associated Legendre polynomials defined by</p>
 <div class="math">
 <p><img src="../../_images/math/649165b371ffd4e944838db3687106b5969d8f94.png" alt="P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)"/></p>
-</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials. Sometimes the spherical harmonics are
+</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials. For <img class="math" src="../../_images/math/faff6ed3dfd43ddbdcefe376cb63d2e8c7cff628.png" alt="m &lt; 0"/> they are defined by:</p>
+<div class="math">
+<p><img src="../../_images/math/0eb5d4cc977a097d1358e323498cde742d595e48.png" alt="Y_{lm}(\Omega) = (-1)^m Y_{l,-m}^*(\Omega)"/></p>
+</div><p>Sometimes the spherical harmonics are
 written as:</p>
 <div class="math">
 <p><img src="../../_images/math/add334c84329c2f00bfbe58192097051128fcf26.png" alt="Y_{lm}(\theta,\phi) = \Theta_{lm}(\theta) \Phi_m(\phi)"/></p>
 </div><p>where:</p>
 <div class="math">
-<p><img src="../../_images/math/56067d88c052d0513849a7f38038daf88de11a9e.png" alt="\Phi_m(\phi) &amp;= {1\over\sqrt{2\pi}} e^{im\phi} \\
-\Theta_{lm}(\theta) &amp;= \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)"/></p>
+<p><img src="../../_images/math/4e7d1f23f1b468db281b3150fa5062bd9467ecde.png" alt="\Phi_m(\phi) &amp;= {1\over\sqrt{2\pi}} e^{im\phi} \\
+\Theta_{lm}(\theta) &amp;= \begin{cases}
+    \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta) &amp;
+        \mbox{for } m \ge 0 \\
+    (-1)^m \Theta_{l,-m}(\theta) &amp; \mbox{for } m &lt; 0 \\
+    \end{cases}"/></p>
 </div><p>The spherical harmonics are ortonormal:</p>
 <div class="math" id="equation-Yorto">
 <p><span class="eqno">(4)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}"/></p>
