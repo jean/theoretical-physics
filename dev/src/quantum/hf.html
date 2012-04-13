@@ -1938,9 +1938,13 @@ Introducing density:</p>
 </div><p>Using density matrix we can write <img class="math" src="../../_images/math/80fa4544c8c02c8156306df524451bacaf608c03.png" alt="n(r)"/> as (<img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> runs over all occupied
 orbitals <img class="math" src="../../_images/math/cecf9f734bb73ff23397f4a9a1e2d2d160e21dc6.png" alt="nl"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/fb44c4dd8de7225dbcc6a61cdf05ba3393ab143e.png" alt="P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
-    = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm}
+<p><img src="../../_images/math/853abc0e6b05e746debac3e9c23cccaca85b05e9.png" alt="P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
+    = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm} =
+
     = \sum_{nl} 2(2l+1) C_{\alpha nl} C_{\beta nl}
+    = \sum_{l} (2l+1) P^l_{\alpha \beta}
+
+P^l_{\alpha\beta} = \sum_n 2 C_{\alpha nl} C_{\beta nl}
 
 P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_\alpha(r)
 
@@ -1964,7 +1968,7 @@ n(r) = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
  = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/28d7c8646e3b0fb7aabd4a60d7ec72f39803758b.png" alt="-\sum_{n'l'}
+<p><img src="../../_images/math/bd2f37c58ff9b4c008ef0daf660fefa6157b525c.png" alt="-\sum_{n'l'}
     \sum_{k=|l-l'|}^{k=l+l'}
     \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
     \int_0^\infty
@@ -1988,27 +1992,29 @@ n(r) = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
 
 = -\half
     \sum_{\alpha\beta}
-    \sum_{n'l'}
-    2(2l'+1)
-    C_{\alpha n'l'}
-    C_{\beta n'l'}
+    \sum_{l'}
+    (2l'+1)
+    P^{l'}_{\alpha\beta}
     \sum_{k=|l-l'|}^{k=l+l'}
      \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
     R^k(\mu, \beta, \alpha, \nu)"/></p>
 </div><p>So we get:</p>
 <div class="math">
-<p><img src="../../_images/math/88f9999eba5d0d2b30134c0fb50d3622739cf844.png" alt="G_{\mu\nu}
- = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha) +
-
-    -\half
-            \sum_{\alpha\beta}
-            \sum_{n'l'}
-            2(2l'+1)
-            C_{\alpha n'l'}
-            C_{\beta n'l'}
+<p><img src="../../_images/math/96a5dc83b63dbed0bf5ddd864d3afe26cb0a87dc.png" alt="G_{\mu\nu}
+ = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)
+    -\half \sum_{\alpha\beta}
+            \sum_{l'}
+            (2l'+1)
+            P^{l'}_{\alpha\beta}
             \sum_{k=|l-l'|}^{k=l+l'}
              \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-            R^k(\mu, \beta, \alpha, \nu)"/></p>
+            R^k(\mu, \beta, \alpha, \nu) =
+
+ = \sum_{l'} (2l'+1) \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
+        R^0(\mu, \beta, \nu, \alpha)
+            -\half \sum_{k=|l-l'|}^{k=l+l'}
+             \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            R^k(\mu, \beta, \alpha, \nu) \right)"/></p>
 </div></div>
 </div>
 
