@@ -260,7 +260,44 @@ S_{\mu\nu} = \braket{\mu | \nu}"/></p>
 <p><span class="eqno">(7)</span><img src="../../_images/math/bfae2fcd2d31958ac5d16ffba153a892329b9647.png" alt="\sum_\nu F_{\mu\nu} C_{\nu i}
     = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}"/></p>
 </div><p>These are the Roothaan equations. It is a generalized eigenvalue problem.</p>
-<p>The same thing can be derived in <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-representation
+<p>Total energy is given by (the <img class="math" src="../../_images/math/01d9dbe8588e6243350fc642973b9365304100da.png" alt="i,j"/> in the first equation are spin orbitals,
+in the other equations <img class="math" src="../../_images/math/01d9dbe8588e6243350fc642973b9365304100da.png" alt="i,j"/> are spatial orbitals):</p>
+<div class="math">
+<p><img src="../../_images/math/4cd23f16a2bfb2cf41454c37756389f0f7bbb713.png" alt="E = \sum_{i} \braket{i|T|i} +
+    \half \sum_{i,j} \left(\braket{ij|V|ij}-\braket{ij|V|ji}\right) =
+
+= \sum_{i} 2 I(i) + \sum_{i,j} \left(2 J(i, j) - K(i, j)\right) =
+
+= \sum_{i} 2 \braket{i|T|i} +
+    \sum_{i,j} \left(2\braket{ij|V|ij}- \braket{ij|V|ji}\right) =
+
+= \sum_{i} 2 \braket{i|T|i} +
+    2\sum_{i,j} \left(\braket{ij|V|ij}-\half \braket{ij|V|ji}\right) =
+
+= \sum_{\mu\nu} \sum_{i} 2 \braket{\mu|T|\nu} C_{\nu i} C_{\mu i}^* +
+    2\sum_{\mu\nu}\sum_{\alpha\beta}
+    \sum_{i,j}
+    C_{\nu i} C_{\mu i}^*
+    C_{\alpha j} C_{\beta j}^*
+    \left(\braket{\mu\beta|V|\nu\alpha}-
+        \half \braket{\mu\beta|V|\alpha\nu}\right) =
+
+= \sum_{\mu\nu} \braket{\mu|T|\nu} P_{\nu\mu} +
+    \half \sum_{\mu\nu}\sum_{\alpha\beta}
+    P_{\nu\mu}
+    P_{\alpha\beta}
+    \left(\braket{\mu\beta|V|\nu\alpha}-
+        \half \braket{\mu\beta|V|\alpha\nu}\right) =
+
+= \sum_{\mu\nu} P_{\nu\mu} (H_{\mu\nu}^{\mbox{core}}
+    +\half G_{\mu\nu}) =
+
+= \sum_{\mu\nu} P_{\nu\mu} (\half H_{\mu\nu}^{\mbox{core}}
+    +\half (H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu})) =
+
+= \half \sum_{\mu\nu} P_{\nu\mu} (H_{\mu\nu}^{\mbox{core}}
+    +F_{\mu\nu})"/></p>
+</div><p>The same thing can be derived in <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-representation
 starting from <a href="#equation-hfeq">(2)</a> and introducing spatial orbitals:</p>
 <div class="math" id="equation-hfeq2">
 <p><span class="eqno">(8)</span><img src="../../_images/math/c4069405df1f3d6a09120266ba8f02d0244969a9.png" alt="\left(-\half \nabla^2 -{Z\over |{\bf x}|}
@@ -1859,70 +1896,72 @@ the above). We used the result of the integral in
             {Y^k(u(r) P_{n'l'}(r), r)\over r}
             \d r
     = \epsilon \int_0^\infty u(r)v(r)\d r"/></p>
-</div><p>or (here <img class="math" src="../../_images/math/01d9dbe8588e6243350fc642973b9365304100da.png" alt="i,j"/> runs over all spatial orbitals <img class="math" src="../../_images/math/cecf9f734bb73ff23397f4a9a1e2d2d160e21dc6.png" alt="nl"/>, but for the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>, only
-a subset of <img class="math" src="../../_images/math/3b1be2340079411dac99664d3857725babacc96e.png" alt="i, j"/> corresponding to this <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> is varied below)</p>
+</div><p>or (here we use the <img class="math" src="../../_images/math/adb2bfb22c752312232a3f7edcec33751165b269.png" alt="il"/> index to label all functions <img class="math" src="../../_images/math/5afd2dd74b7100b3d32eaff06aec8cb1178eeea6.png" alt="u_i"/> for the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>)</p>
 <div class="math">
-<p><img src="../../_images/math/1b2934ab74389c3afcb4db43cd89db1daafcec3c.png" alt="\int_0^\infty \left( \half u_i'(r) v_j'(r) +
-    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u_i(r)v_j(r)
+<p><img src="../../_images/math/43021a599e083eab4821802e5e643de9a8cb6503.png" alt="\int_0^\infty \left( \half u_{il}'(r) v'(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u_{il}(r)v(r)
         \right) \d r+
 
         -\sum_{n'l'}
             \sum_{k=|l-l'|}^{k=l+l'}
             \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
             \int_0^\infty
-            v_j(r)
+            v(r)
             P_{n'l'}(r)
-            {Y^k(u_i(r) P_{n'l'}(r), r)\over r}
+            {Y^k(u_{il}(r) P_{n'l'}(r), r)\over r}
             \d r
-    = \epsilon \int_0^\infty u_i(r)v_j(r)\d r"/></p>
-</div><p>Introducing radial basis <img class="math" src="../../_images/math/e1612aebb7842b06b732a21121a3490ae7b497cf.png" alt="\phi_\mu(r)"/> (here <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> runs over all <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>):</p>
+    = \epsilon \int_0^\infty u_{il}(r)v(r)\d r"/></p>
+</div><p>Introducing radial basis <img class="math" src="../../_images/math/b6622aea7790e2128b55ecfa93b8fd0845dd748a.png" alt="\phi_{\mu l}(r)"/> (where
+<img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/>, <img class="math" src="../../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu"/> labels all basis functions for the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/49bc67c2fd1c0f3ea28dfadea3de0e60836a56af.png" alt="u_i(r) = \sum_\nu C_{\nu i} \phi_\nu(r)"/></p>
+<p><img src="../../_images/math/b95922bf736ca2b8257691aadaf8375c2fbf30f4.png" alt="u_{il}(r) = \sum_\nu C_{\nu i l} \phi_{\nu l}(r)
+
+v(r) = \phi_{\mu l}(r)"/></p>
 </div><p>we get (here <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> is again restricted for the subset corresponding to the given
 <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/6d3c6e405f2b633cf6efcbe23592a39b52382c2b.png" alt="\sum_\nu \int_0^\infty \left( \half \phi_\mu'(r) \phi_\nu'(r) +
-    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)\phi_\mu(r)
-        \phi_\nu(r)
-        \right) \d r\,C_{\nu i}+
+<p><img src="../../_images/math/353d45b8d3f5f6667b89407145ce7c7e199af779.png" alt="\sum_\nu \int_0^\infty \left( \half \phi_{\mu l}'(r) \phi_{\nu l}'(r) +
+    \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)
+        \phi_{\mu l}(r) \phi_{\nu l}(r)
+        \right) \d r\,C_{\nu i l}+
 
         -\sum_\nu \sum_{n'l'}
             \sum_{k=|l-l'|}^{k=l+l'}
             \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
             \int_0^\infty
-            \phi_\mu(r)
+            \phi_{\mu l}(r)
             P_{n'l'}(r)
-            {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
-            \d r\,C_{\nu i}
-    = \epsilon \sum_\nu \int_0^\infty \phi_\mu(r)\phi_\nu(r) \d r\,C_{\nu i}"/></p>
-</div><p>This can be written as (<img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> is restricted to the subset corresponding to the
-given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> and these equations are solved separately for all <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> to obtain
-orbitals <img class="math" src="../../_images/math/4134a5615c22646af2007120773505f5b6968a7b.png" alt="C_{\nu i}"/> for all <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>):</p>
+            {Y^k(\phi_{\nu l}(r) P_{n'l'}(r), r)\over r}
+            \d r\,C_{\nu i l}
+    = \epsilon \sum_\nu \int_0^\infty
+        \phi_{\mu l}(r)\phi_{\nu l}(r) \d r\,C_{\nu i l}"/></p>
+</div><p>This can be written as</p>
 <div class="math">
-<p><img src="../../_images/math/7f4b5cd1c837f2eeab933850131ffa44a63ba6b5.png" alt="\sum_\nu F_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+<p><img src="../../_images/math/3521b81ed932aad5818370101581f4dd405ccf65.png" alt="\sum_\nu F_{\mu\nu}^l C_{\nu i l} = \epsilon_i \sum_\nu S_{\mu\nu}^l
+    C_{\nu i l}
 
-F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
-    = T_{\mu\nu} + V_{\mu\nu} + G_{\mu\nu}"/></p>
+F_{\mu\nu}^l = H_{\mu\nu}^{l \mbox{core}} + G_{\mu\nu}^l
+    = T_{\mu\nu}^l + V_{\mu\nu}^l + G_{\mu\nu}^l"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/58ba106555b4e7b7216fea055fa9504e3696ed81.png" alt="T_{\mu\nu} = \int_0^\infty \half \phi_\mu'(r) \phi_\nu'(r)
-    + \phi_\mu(r){l(l+1)\over 2r^2} \phi_\nu(r) \d r
+<p><img src="../../_images/math/17d4e3f440eb74c650d4a7ca89d8fb3db9f8e9ac.png" alt="T_{\mu\nu}^l = \int_0^\infty \half \phi_{\mu l}'(r) \phi_{\nu l}'(r)
+    + \phi_{\mu l}(r){l(l+1)\over 2r^2} \phi_{\nu l}(r) \d r
 
-V_{\mu\nu} = \int_0^\infty \phi_\mu(r)\left(-{Z\over r}\right)
-    \phi_\nu(r) \d r
+V_{\mu\nu}^l = \int_0^\infty \phi_{\mu l}(r)\left(-{Z\over r}\right)
+    \phi_{\nu l}(r) \d r
 
-G_{\mu\nu} = \int_0^\infty \phi_\mu(r) V_H(r) \phi_\nu(r) \d r +
+G_{\mu\nu}^l = \int_0^\infty \phi_{\mu l}(r) V_H(r) \phi_{\nu l}(r) \d r +
 
         -\sum_{n'l'}
             \sum_{k=|l-l'|}^{k=l+l'}
             \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
             \int_0^\infty
-            \phi_\mu(r)
+            \phi_{\mu l}(r)
             P_{n'l'}(r)
-            {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
+            {Y^k(\phi_{\nu l}(r) P_{n'l'}(r), r)\over r}
             \d r
 
-S_{\mu\nu} = \int_0^\infty \phi_\mu(r)\phi_\nu(r) \d r
+S_{\mu\nu}^l = \int_0^\infty \phi_{\mu l}(r)\phi_{\nu l}(r) \d r
 
 V_H(r) = \sum_{n'l'} 2(2l'+1) {Y^0(P_{n'l'}^2(r), r) \over r}"/></p>
 </div><p>The indices <img class="math" src="../../_images/math/2dd59f1fec61765eef532413f0782c2121a60b75.png" alt="n' l'"/> go over all occupied orbitals <img class="math" src="../../_images/math/3db00ecde96d6587d804ec7e7bd0cd7e8896ba49.png" alt="P_{n' l'}"/>.
@@ -1935,46 +1974,46 @@ Introducing density:</p>
     = 2 \sum_{nl} {P_{nl}^2(r)\over r^2} {2l+1\over 4\pi}
     = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
     = n(r)"/></p>
-</div><p>Using density matrix we can write <img class="math" src="../../_images/math/80fa4544c8c02c8156306df524451bacaf608c03.png" alt="n(r)"/> as (<img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> runs over all occupied
-orbitals <img class="math" src="../../_images/math/cecf9f734bb73ff23397f4a9a1e2d2d160e21dc6.png" alt="nl"/>):</p>
+</div><p>We introduce the density matrix <img class="math" src="../../_images/math/77e9ae44f32eeb06d7dfa4c340e9a975503c5d3a.png" alt="P_{\alpha\beta}^l"/> (where as before <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/>,
+<img class="math" src="../../_images/math/fdb63b9e51abe6bbb16acfb5d7b773ddbb5bf4a8.png" alt="\beta"/> run over basis functions for the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> only):</p>
 <div class="math">
-<p><img src="../../_images/math/853abc0e6b05e746debac3e9c23cccaca85b05e9.png" alt="P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
-    = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm} =
-
-    = \sum_{nl} 2(2l+1) C_{\alpha nl} C_{\beta nl}
-    = \sum_{l} (2l+1) P^l_{\alpha \beta}
-
-P^l_{\alpha\beta} = \sum_n 2 C_{\alpha nl} C_{\beta nl}
-
-P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_\alpha(r)
+<p><img src="../../_images/math/7f9fb048416b9290672d5820ab52966ea2b5ae1f.png" alt="P_{\alpha\beta}^l = 2 \sum_{nm} C_{\alpha nlm} C_{\beta nlm}
+    = \sum_{n} 2(2l+1) C_{\alpha nl} C_{\beta nl}"/></p>
+</div><p>where the <img class="math" src="../../_images/math/3464b7319e8605b95062e798f5aec7e99973f701.png" alt="C_{\alpha nl}"/> coefficients are the same for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> corresponding
+to the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>. The index <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> runs over all occupied states for the given
+<img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>. We can write <img class="math" src="../../_images/math/80fa4544c8c02c8156306df524451bacaf608c03.png" alt="n(r)"/> as</p>
+<div class="math">
+<p><img src="../../_images/math/c6c0f3097cac103e9a170fd3ea64e4b91488c1ea.png" alt="P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_{\alpha l}(r)
 
 n(r) = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
-    = {1\over 4\pi} \sum_{\alpha\beta}\sum_{nl} 2(2l+1)
-        C_{\alpha nl}C_{\beta nl}{\phi_\alpha(r)\phi_\beta(r)\over r^2} =
+    = {1\over 4\pi} \sum_{nl} 2(2l+1) \sum_{\alpha\beta}
+        C_{\alpha nl}C_{\beta nl}
+        {\phi_{\alpha l}(r)\phi_{\beta l}(r)\over r^2} =
 
-    = {1\over 4\pi} \sum_{\alpha\beta}
-        {\phi_\alpha(r) P_{\alpha\beta} \phi_\beta(r)\over r^2}"/></p>
+    = {1\over 4\pi} \sum_l \sum_{\alpha\beta}
+        {\phi_{\alpha l}(r) P_{\alpha\beta}^l \phi_{\beta l}(r)\over r^2}"/></p>
 </div><p>Finally we get:</p>
 <div class="math">
-<p><img src="../../_images/math/c157ede136ae9140b7721a397e27ad0a91e86a16.png" alt="V_H(r) = \sum_{nl} 2(2l+1) {Y^0(P_{nl}^2(r), r) \over r}
+<p><img src="../../_images/math/8a8237c81d133e47be0ed9a402b0a5294cc58baf.png" alt="V_H(r) = \sum_{nl} 2(2l+1) {Y^0(P_{nl}^2(r), r) \over r}
     = {Y^0(4\pi n(r) r^2, r) \over r}
-    = \sum_{\alpha\beta} P_{\alpha\beta}
-        {Y^0(\phi_\alpha(r) \phi_\beta(r), r) \over r}
+    = \sum_l \sum_{\alpha\beta} P_{\alpha\beta}^l
+        {Y^0(\phi_{\alpha l}(r) \phi_{\beta l}(r), r) \over r}
 
-\int_0^\infty \phi_\mu(r) V_H(r) \phi_\nu(r) \d r
- = \sum_{\alpha\beta} P_{\alpha\beta}
-    \int_0^\infty \phi_\mu(r) \phi_\nu(r)
-        {Y^0(\phi_\alpha(r) \phi_\beta(r), r) \over r}\d r
- = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)"/></p>
+\int_0^\infty \phi_{\mu l}(r) V_H(r) \phi_{\nu l}(r) \d r
+ = \sum_{l'} \sum_{\alpha\beta} P_{\alpha\beta}^{l'}
+    \int_0^\infty \phi_{\mu l}(r) \phi_{\nu l}(r)
+        {Y^0(\phi_{\alpha l'}(r) \phi_{\beta l'}(r), r) \over r}\d r
+ = \sum_{l'} \sum_{\alpha\beta} P_{\alpha\beta}^{l'}
+    R^0(\mu l, \beta l', \nu l, \alpha l')"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/bd2f37c58ff9b4c008ef0daf660fefa6157b525c.png" alt="-\sum_{n'l'}
+<p><img src="../../_images/math/53e0793ec628874b6cdc14989540a757a97c6704.png" alt="-\sum_{n'l'}
     \sum_{k=|l-l'|}^{k=l+l'}
     \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
     \int_0^\infty
-    \phi_\mu(r)
+    \phi_{\mu l}(r)
     P_{n'l'}(r)
-    {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
+    {Y^k(\phi_{\nu l}(r) P_{n'l'}(r), r)\over r}
     \d r =
 
 = -\sum_{n'l'}
@@ -1985,36 +2024,90 @@ n(r) = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
     C_{\alpha n'l'}
     C_{\beta n'l'}
     \int_0^\infty
-    \phi_\mu(r)
-    \phi_\alpha(r)
-    {Y^k(\phi_\nu(r) \phi_\beta(r), r)\over r}
+    \phi_{\mu l}(r)
+    \phi_{\alpha l'}(r)
+    {Y^k(\phi_{\nu l}(r) \phi_{\beta l'}(r), r)\over r}
     \d r =
 
 = -\half
-    \sum_{\alpha\beta}
     \sum_{l'}
-    (2l'+1)
+    \sum_{\alpha\beta}
     P^{l'}_{\alpha\beta}
     \sum_{k=|l-l'|}^{k=l+l'}
      \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-    R^k(\mu, \beta, \alpha, \nu)"/></p>
+    R^k(\mu l, \beta l', \alpha l', \nu l)"/></p>
 </div><p>So we get:</p>
 <div class="math">
-<p><img src="../../_images/math/96a5dc83b63dbed0bf5ddd864d3afe26cb0a87dc.png" alt="G_{\mu\nu}
- = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)
-    -\half \sum_{\alpha\beta}
-            \sum_{l'}
-            (2l'+1)
+<p><img src="../../_images/math/9840c073cd25fca7bfd07d98e2196e437b0e51ec.png" alt="G_{\mu\nu}^l
+ = \sum_{l'} \sum_{\alpha\beta}
+    P_{\alpha\beta}^{l'} R^0(\mu l, \beta l', \nu l, \alpha l')
+    -\half \sum_{l'}
+            \sum_{\alpha\beta}
             P^{l'}_{\alpha\beta}
             \sum_{k=|l-l'|}^{k=l+l'}
              \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-            R^k(\mu, \beta, \alpha, \nu) =
+            R^k(\mu l, \beta l', \alpha l', \nu l) =
 
- = \sum_{l'} (2l'+1) \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
-        R^0(\mu, \beta, \nu, \alpha)
+ = \sum_{l'=0}^\infty \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
+        R^0(\mu l, \beta l', \nu l, \alpha l')
             -\half \sum_{k=|l-l'|}^{k=l+l'}
              \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
-            R^k(\mu, \beta, \alpha, \nu) \right)"/></p>
+            R^k(\mu l, \beta l', \alpha l', \nu l) \right)"/></p>
+</div><p>The density matrix is zero if there are no occupied orbitals for the given
+<img class="math" src="../../_images/math/75ba80b42c7e6cdc9d9471b9fe8abeb578e67eb3.png" alt="l'"/>.</p>
+<p>The total energy is:</p>
+<div class="math">
+<p><img src="../../_images/math/30182d388fc8143f7bb4227c0e93151020c772df.png" alt="E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
+    (H^l_{\mu\nu} + F^l_{\mu\nu}) =
+
+= \sum_l \sum_{\mu\nu} P^l_{\mu\nu} (F^l_{\mu\nu} - \half G^l_{\mu\nu}) =
+
+= \sum_l \sum_n 2(2l+1) \left( \epsilon_{n l}
+    -\sum_{l'} \sum_{n'} (2l'+1)
+    \left(
+        R^0(n l, n' l', n l, n' l')
+            -\half \sum_{k=|l-l'|}^{k=l+l'}
+             \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            R^k(n l, n' l', n' l', n l) \right)
+    \right)"/></p>
+</div><p>where we used:</p>
+<div class="math">
+<p><img src="../../_images/math/71f865d0d5f04b13697a7f0cbb9c70431ebf59eb.png" alt="\sum_l \sum_{\mu\nu} P^l_{\mu\nu} F^l_{\mu\nu} =
+
+= \sum_l \sum_{\mu\nu} \sum_n 2(2l+1) C_{\mu nl}C_{\nu nl} F^l_{\mu\nu} =
+
+= \sum_l \sum_{\mu\nu} \sum_n 2(2l+1) C_{\mu nl}\epsilon_{n l}
+    S^l_{\mu\nu} C_{\nu n l} =
+
+= \sum_l \sum_n 2(2l+1) \epsilon_{n l}"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/7c428b2a98b3b381dab971d5cfcaa1d7af3d8c2c.png" alt="\half \sum_l \sum_{\mu\nu} P^l_{\mu\nu} G^l_{\mu\nu} =
+
+= \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
+ \sum_{l'} \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
+        R^0(\mu l, \beta l', \nu l, \alpha l')
+            -\half \sum_{k=|l-l'|}^{k=l+l'}
+             \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            R^k(\mu l, \beta l', \alpha l', \nu l) \right) =
+
+= \half \sum_l \sum_{\mu\nu} \sum_n 2(2l+1) C_{\mu nl}C_{\nu nl}
+ \sum_{l'} \sum_{\alpha\beta} \sum_{n'} 2(2l'+1)
+    C_{\alpha n'l'}C_{\beta n'l'}
+
+    \left(
+        R^0(\mu l, \beta l', \nu l, \alpha l')
+            -\half \sum_{k=|l-l'|}^{k=l+l'}
+             \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            R^k(\mu l, \beta l', \alpha l', \nu l) \right) =
+
+= \sum_l \sum_n 2(2l+1) \sum_{l'} \sum_{n'} (2l'+1)
+
+    \left(
+        R^0(n l, n' l', n l, n' l')
+            -\half \sum_{k=|l-l'|}^{k=l+l'}
+             \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            R^k(n l, n' l', n' l', n l) \right)"/></p>
 </div></div>
 </div>
 
