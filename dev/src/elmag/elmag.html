@@ -735,7 +735,7 @@ the formula:</p>
 </div></div>
 <div class="section" id="example-circular-loop">
 <h4>Example: Circular Loop<a class="headerlink" href="#example-circular-loop" title="Permalink to this headline">¶</a></h4>
-<p>Let&#8217;s assume a circular:</p>
+<p>Let&#8217;s assume a circular loop:</p>
 <div class="math">
 <p><img src="../../_images/math/f02598e0315168a35ed5952c6843e58cef35f173.png" alt="{\bf l} = (r\cos\phi, r\sin\phi, 0)
 
@@ -928,6 +928,15 @@ we get:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
 <span class="go">9.109382795192204e-31</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;</span><span class="si">%e</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">e</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
+<span class="go">&#39;1.758820e+11&#39;</span>
+</pre></div>
+</div>
+<p>or even simpler (we do not actually need the value of the electron charge
+<img class="math" src="../../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">KeV</span> <span class="o">=</span> <span class="mf">1e3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="mf">510.998910</span> <span class="o">*</span> <span class="n">KeV</span> <span class="o">/</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;</span><span class="si">%e</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
 <span class="go">&#39;1.758820e+11&#39;</span>
 </pre></div>
 </div>
