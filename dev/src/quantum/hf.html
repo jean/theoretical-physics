@@ -417,105 +417,224 @@ P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
 </div><p>Note that this notation implicitly assumes the <img class="math" src="../../_images/math/a5b53617712b1000eeecd9722cfdc9bc1ad732fe.png" alt="{1\over r_{12}}"/> factor, so
 for example <img class="math" src="../../_images/math/7c6f36f4c59d356935cb5510a1c4904d3540ac99.png" alt="\braket{\mu \beta|\nu \alpha}"/> actually means
 <img class="math" src="../../_images/math/ae147b802c2fa8e3c75f12c35847c28e338cbb07.png" alt="\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}"/> and one has to understand this
-from the context.</p>
-</div>
+from the context. The two particle matrix element is:</p>
+<div class="math" id="equation-twoint">
+<p><span class="eqno">(10)</span><img src="../../_images/math/4fb41159bc01262312d85f07a6da404dde619f20.png" alt="(ij|kl) = \braket{ik|jl} =
+    \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'"/></p>
+</div><p>The <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> is called the physicists&#8217; notation because
+the <img class="math" src="../../_images/math/eb056c43a2c2ae7c01c3a8fcedfa03f4f1025076.png" alt="\ket{jl}"/> and <img class="math" src="../../_images/math/dbe6c3b6fb1a5b8bee0e412d36159bb7719007cc.png" alt="\ket{ik}"/> kets are:</p>
+<div class="math">
+<p><img src="../../_images/math/c3f0fa0fc4d7331489ee7138c37f69157db29b98.png" alt="\ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
+
+\ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')"/></p>
+</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(10)</a> the
+symmetries of <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> are exchange of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> with <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> or the
+<img class="math" src="../../_images/math/c26aadb390865e9669bcb79c4e6af904a2dea7cc.png" alt="ij"/> and <img class="math" src="../../_images/math/9877f8f461d8617a227b3299a84354190b9e347c.png" alt="kl"/> pairs:</p>
+<div class="math">
+<p><img src="../../_images/math/9c5d9bba1183a5aac163f5e96bc9f2abf75fdfe2.png" alt="(ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
+
+= (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)"/></p>
+</div><p>So if we view <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> as two boxes <img class="math" src="../../_images/math/79f2cb353cd4292c8f99b97d303314b1c1eee624.png" alt="(\cdot | \cdot )"/> then we can permute the
+labels in the given box &#8220;<img class="math" src="../../_images/math/8f1fb66751f2ee2626c75303485dba473c39a2f2.png" alt="\cdot"/>&#8221;, as well as exchange the boxes (the only
+thing we cannot do is to take one particle from one box and put it into the
+other). As such the box &#8220;<img class="math" src="../../_images/math/8f1fb66751f2ee2626c75303485dba473c39a2f2.png" alt="\cdot"/>&#8221; is a pair of two electrons (in any order) and
+the two electron integral assigns a unique number to a pair of such boxes (in
+any order). The symmetries of the <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> symbol are:</p>
+<div class="math">
+<p><img src="../../_images/math/40be5548e6e3033baae706b796d68c1c0d83f13b.png" alt="\braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
+
+= \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}"/></p>
+</div></div>
 <div class="section" id="general-matrix-elements-in-spherical-symmetry">
 <h2>General Matrix Elements in Spherical Symmetry<a class="headerlink" href="#general-matrix-elements-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
+<p>Spherical symmetry is this particular choice of a basis:</p>
+<div class="math">
+<p><img src="../../_images/math/431a902f846ae19ba14dc41c81096294e2428629.png" alt="\phi_\mu({\bf x}) = {\phi_{\mu l}(r)\over r} Y_{l m}(\Omega)"/></p>
+</div><p>Where the <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> index on the left hand side is equal to the
+<img class="math" src="../../_images/math/bc3b6478e7c294bd139a05bb8401cce38594f99a.png" alt="\mu l m"/> index. In particular, here is an example of one possible way to index
+the basis of 12 radial functions for each <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/392716cf6d08b5cdd8271919d67ee0e7c7dcffce.png" alt="\begin{array}{r|rrr}
+    \mu &amp; \mu &amp; l &amp; m \\
+    \hline
+    1 &amp; 1 &amp; 0 &amp; 0 \\
+    2 &amp; 2 &amp; 0 &amp; 0 \\
+    3 &amp; 3 &amp; 0 &amp; 0 \\
+    \cdots &amp; \cdots &amp; &amp;  \\
+    12 &amp; 12 &amp; 0 &amp; 0 \\
+    13 &amp; 1 &amp; 1 &amp; -1 \\
+    14 &amp; 2 &amp; 1 &amp; -1 \\
+    15 &amp; 3 &amp; 1 &amp; -1 \\
+    \cdots &amp; \cdots &amp; &amp;  \\
+    24 &amp; 12 &amp; 1 &amp; -1 \\
+    25 &amp; 1 &amp; 1 &amp; 0 \\
+    26 &amp; 2 &amp; 1 &amp; 0 \\
+    27 &amp; 3 &amp; 1 &amp; 0 \\
+    \cdots &amp; \cdots &amp; &amp;  \\
+    36 &amp; 12 &amp; 1 &amp; 0 \\
+    37 &amp; 1 &amp; 1 &amp; 1 \\
+    38 &amp; 2 &amp; 1 &amp; 1 \\
+    39 &amp; 3 &amp; 1 &amp; 1 \\
+    \cdots &amp; \cdots &amp; &amp;  \\
+    48 &amp; 12 &amp; 1 &amp; 1 \\
+    49 &amp; 1 &amp; 2 &amp; -2 \\
+    50 &amp; 2 &amp; 2 &amp; -2 \\
+    51 &amp; 3 &amp; 2 &amp; -2 \\
+    \cdots &amp; \cdots &amp; &amp;  \\
+\end{array}"/></p>
+</div><p>So the radial index <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> always starts from 1 for each <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>. From the context
+it will be clear whether <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> means the radial or global (3D) index.</p>
 <div class="section" id="overlap">
 <h3>Overlap<a class="headerlink" href="#overlap" title="Permalink to this headline">¶</a></h3>
-<p>The overlap matrix element is:</p>
+<p>The overlap matrix element</p>
 <div class="math">
-<p><img src="../../_images/math/14a3720d57f474dc9edb1a403bc5adbe84809ec8.png" alt="S_{ij} = \int \phi_i^*({\bf x}) \phi_j({\bf x})\d^3 x"/></p>
-</div><p>We will use the following functions:</p>
+<p><img src="../../_images/math/234d2d09f968c51bbe33f2f4265ca2d94babc460.png" alt="S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x"/></p>
+</div><p>becomes</p>
 <div class="math">
-<p><img src="../../_images/math/fb81306b0efbfe82fb8b0be2f89d8f0328cbc7b5.png" alt="\phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+<p><img src="../../_images/math/f3fb33c3ce54bbdeac04d4780e1d154f30fcf99a.png" alt="S_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+    Y_{l_\mu m_\mu}^*(\Omega)
+    {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
 
-\phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)"/></p>
-</div><p>and we get:</p>
-<div class="math">
-<p><img src="../../_images/math/518ca753ef3877675008132166f9baaa80b76d0a.png" alt="S_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
-    {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+    \phi_{\mu l_\mu}(r) \phi_{\nu l_\nu}(r) \d r =
 
-= \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r) P_{n_2l_2}(r) \d r"/></p>
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+    \phi_{\mu l_\mu}(r) \phi_{\nu l_\mu}(r) \d r =
+
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} S^{l_\mu}_{\mu\nu}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/5ac5b36eab88fc88194a27fea145c41059350b97.png" alt="S^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r) \phi_{\nu l}(r) \d r"/></p>
 </div></div>
 <div class="section" id="potential">
 <h3>Potential<a class="headerlink" href="#potential" title="Permalink to this headline">¶</a></h3>
-<p>The potential matrix element is:</p>
+<p>The potential matrix element</p>
 <div class="math">
-<p><img src="../../_images/math/bec2a42ed3deb9b0d45091134a66072cfac4d292.png" alt="V_{ij} =
-    \int \phi_i^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
-    \phi_j({\bf x}) \d^3 x"/></p>
-</div><p>We will use the following functions:</p>
+<p><img src="../../_images/math/51c81ccaa6d72a5ba45cb8a3fa92a2dc6e95035d.png" alt="V_{\mu\nu} = \int \phi_\mu^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+    \phi_\nu({\bf x})\d^3 x"/></p>
+</div><p>becomes</p>
 <div class="math">
-<p><img src="../../_images/math/fb81306b0efbfe82fb8b0be2f89d8f0328cbc7b5.png" alt="\phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
-
-\phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)"/></p>
-</div><p>and we get:</p>
-<div class="math">
-<p><img src="../../_images/math/aceb9680550300fa2d2e4af279b571bbd1f02e5c.png" alt="V_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+<p><img src="../../_images/math/a58820b3f4799f897ba32f6143539df9f24e72c6.png" alt="V_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+    Y_{l_\mu m_\mu}^*(\Omega)
     \left(-{Z\over r}\right)
-    {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+    {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
 
-= \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r)
-    \left(-{Z\over r}\right) P_{n_2l_2}(r) \d r"/></p>
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+    \phi_{\mu l_\mu}(r)
+    \left(-{Z\over r}\right)
+    \phi_{\nu l_\nu}(r) \d r =
+
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+    \phi_{\mu l_\mu}(r)
+    \left(-{Z\over r}\right)
+    \phi_{\nu l_\mu}(r) \d r =
+
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} V^{l_\mu}_{\mu\nu}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/8260081e6ab42caeaa65de1fc3bd069830982ded.png" alt="V^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r)
+    \left(-{Z\over r}\right) \phi_{\nu l}(r) \d r"/></p>
 </div></div>
 <div class="section" id="kinetic">
 <h3>Kinetic<a class="headerlink" href="#kinetic" title="Permalink to this headline">¶</a></h3>
-<p>The kinetic matrix element is:</p>
+<p>The kinetic matrix element</p>
 <div class="math">
-<p><img src="../../_images/math/853c33f462106325514d7de728f346666fb8ceb2.png" alt="T_{ij} =
-        \int \phi_i^*({\bf x}) \left(-\half \nabla^2 \right)
-        \phi_j({\bf x}) \d^3 x"/></p>
-</div><p>We will use the following functions:</p>
+<p><img src="../../_images/math/249b911d518d02a46246e1af992e359b1d4a8cc1.png" alt="T_{\mu\nu} =
+        \int \phi_\mu^*({\bf x}) \left(-\half \nabla^2 \right)
+        \phi_\nu({\bf x}) \d^3 x"/></p>
+</div><p>becomes</p>
 <div class="math">
-<p><img src="../../_images/math/fb81306b0efbfe82fb8b0be2f89d8f0328cbc7b5.png" alt="\phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
-
-\phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)"/></p>
-</div><p>and we get:</p>
-<div class="math">
-<p><img src="../../_images/math/8895c4ec9fce4dcc5742a9636e475ce0907baa63.png" alt="T_{ij}
-    = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+<p><img src="../../_images/math/0fae1311f8b1edb5b64453204b250bad7b150310.png" alt="T_{\mu l_\mu m_\mu \nu l_\nu m_\nu}
+    = \int {\phi_{\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
         \left(\left(-\half \nabla^2\right)
-        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d
-        \Omega =
+        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+        \right) r^2 \d r \d \Omega =
 
-    = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+    = \int {\phi_{\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
         \left(\left(-\half {\partial^2\over\partial r^2}
             -{1\over r}{\partial\over\partial r}
-            +{l_2 (l_2+1)\over 2r^2}\right)
-        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d
-        \Omega =
+            +{l_\nu (l_\nu+1)\over 2r^2}\right)
+        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) \right)
+        r^2 \d r \d \Omega =
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2}
-    \int {P_{n_1l_1}(r)\over r}
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \int_0^\infty {\phi_{\mu l_\mu}(r)\over r}
         \left(\left(-\half {\partial^2\over\partial r^2}
             -{1\over r}{\partial\over\partial r}
-            +{l_2 (l_2+1)\over 2r^2}\right)
-        {P_{n_2l_2}(r)\over r} \right) r^2 \d r =
+            +{l_\mu (l_\mu+1)\over 2r^2}\right)
+        {\phi_{\nu l_\nu}(r)\over r} \right) r^2 \d r =
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2}
-    \int {P_{n_1l_1}(r)\over r}
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} T^{l_\mu}_{\mu\nu}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/4c559cef0d97ef8764bcea34eab781978a5fe85a.png" alt="T^l_{\mu\nu} =
+    \int_0^\infty {\phi_{\mu l}(r)\over r}
+        \left(\left(-\half {\partial^2\over\partial r^2}
+            -{1\over r}{\partial\over\partial r}
+            +{l (l+1)\over 2r^2}\right)
+        {\phi_{\nu l}(r)\over r} \right) r^2 \d r =
+
+    = \int_0^\infty {\phi_{\mu l}(r)\over r}
         \left(\left(-{1\over 2r} {\partial^2\over\partial r^2}r
-            +{l_2 (l_2+1)\over 2 r^2}\right)
-        {P_{n_2l_2}(r)\over r} \right) r^2 \d r =
+            +{l (l+1)\over 2 r^2}\right)
+        {\phi_{\nu l}(r)\over r} \right) r^2 \d r =
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2}
-    \int P_{n_1l_1}(r)
+    = \int_0^\infty \phi_{\mu l}(r)
         \left(-\half {\partial^2\over\partial r^2}
-            +{l_2 (l_2+1)\over 2 r^2}\right)
-        P_{n_2l_2}(r) \d r =
+            +{l (l+1)\over 2 r^2}\right)
+        \phi_{\nu l}(r) \d r =
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2}
-    \int \left( -\half P_{n_1l_1}(r) P_{n_2l_2}''(r)
-            +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+    = \int_0^\infty \left( -\half \phi_{\mu l}(r) \phi_{\nu l}''(r)
+            +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
         \d r =
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2}
-    \int \left( \half P_{n_1l_1}'(r) P_{n_2l_2}'(r)
-            +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+    = \int_0^\infty \left( \half \phi_{\mu l}'(r) \phi_{\nu l}'(r)
+            +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
         \d r"/></p>
 </div></div>
-<div class="section" id="hartree-potential-direct-term">
+</div>
+<div class="section" id="g-matrix">
+<h2>G Matrix<a class="headerlink" href="#g-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The G matrix is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/853077829e0d4278ab29ed26c1a93b3f2725e88e.png" alt="G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+        \left(\braket{\mu \beta|\nu \alpha}
+            -\half \braket{\mu \beta|\alpha \nu}\right)
+    = \sum_{\alpha\beta} P_{\alpha\beta}
+        \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)"/></p>
+</div><p>Now we use:</p>
+<div class="math">
+<p><img src="../../_images/math/0e6bae45d5be39c432c51bc5918129e65e740eb0.png" alt="\braket{\alpha \beta | \gamma \delta}
+=
+\braket{\alpha l_\alpha m_\alpha \ \beta l_\beta m_\beta |
+\gamma l_\gamma m_\gamma \ \delta l_\delta m_\delta}
+= (\alpha  l_\alpha m_\alpha \ \gamma l_\gamma m_\gamma |
+\beta l_\beta m_\beta \ \delta l_\delta m_\delta) =
+
+=
+\sum_{k=\max(| l_\alpha-l_\gamma| ,| l_\beta-l_\delta| , | m_\alpha-m_\gamma| )}^{
+    \min(l_\alpha+l_\gamma, l_\beta+l_\delta)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\alpha, m_\alpha, l_\gamma, m_\gamma)
+c^k(l_\delta, m_\delta, l_\beta, m_\beta)
+
+\delta_{m_\alpha+m_\beta- m_\gamma-m_\delta, 0}
+
+R^k(\alpha l_\alpha, \beta l_\beta, \gamma l_\gamma, \delta l_\delta)"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/130e9d7458c5735e91163ea24a7dff2a928c9bb5.png" alt="P_{\alpha\beta} = 2 \sum_{nml} C_{\alpha n l m} C_{\beta n l m}
+    = \sum_l 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}"/></p>
+</div><p>We get:</p>
+<div class="math">
+<p><img src="../../_images/math/ed03f5f62da0de958bc9a7e2e2912d6bdb2d1fec.png" alt="G_{\mu\nu} =
+G_{\mu l_\mu m_\mu \nu l_\nu m_\nu} =
+        \sum_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
+        P_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
+        \left(\braket{\mu \beta|\nu \alpha}
+            -\half \braket{\mu \beta|\alpha \nu}\right)"/></p>
+</div><div class="section" id="hartree-potential-direct-term">
 <h3>Hartree Potential (Direct Term)<a class="headerlink" href="#hartree-potential-direct-term" title="Permalink to this headline">¶</a></h3>
 <p>The direct (Hartree) term is given by:</p>
 <div class="math">
@@ -533,7 +652,7 @@ from the context.</p>
         \phi_\beta^*({\bf x})"/></p>
 </div><p>All together we get:</p>
 <div class="math" id="equation-hartree1">
-<p><span class="eqno">(10)</span><img src="../../_images/math/c1313534a2e9c9ab2cdce7a9ce04bf25fd0567b1.png" alt="J_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+<p><span class="eqno">(11)</span><img src="../../_images/math/c1313534a2e9c9ab2cdce7a9ce04bf25fd0567b1.png" alt="J_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
     \int {\phi_\mu^*({\bf x}) \phi_\alpha({\bf y})
             \phi_\beta^*({\bf y}) \phi_\nu({\bf x}) \over
             |{\bf x}-{\bf y}| } \d^3 x \d^3 y
@@ -543,44 +662,16 @@ from the context.</p>
         (\mu \nu|\beta \alpha)"/></p>
 </div><p>In spherical symmetry, we get (see <a class="reference internal" href="#hartree-spherical"><em>Hartree Potential in Spherical Symmetry</em></a> for derivation):</p>
 <div class="math" id="equation-hartree2">
-<p><span class="eqno">(11)</span><img src="../../_images/math/79de321d59958640acc033ac8eb277958abaf809.png" alt="J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  = \sum_{k} 2(2l_k+1)
+<p><span class="eqno">(12)</span><img src="../../_images/math/79de321d59958640acc033ac8eb277958abaf809.png" alt="J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  = \sum_{k} 2(2l_k+1)
     R^0(\mu, k, \nu, k)"/></p>
 </div><p>Here we sum over the occupied radial orbitals <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>. This sum is already carried
-out in <img class="math" src="../../_images/math/99829326e0f2d53d7516a439d86c1c6e6c04f6a5.png" alt="P_{\alpha\beta}"/> in <a href="#equation-hartree1">(10)</a>. On the other hand, <a href="#equation-hartree2">(11)</a>
+out in <img class="math" src="../../_images/math/99829326e0f2d53d7516a439d86c1c6e6c04f6a5.png" alt="P_{\alpha\beta}"/> in <a href="#equation-hartree1">(11)</a>. On the other hand, <a href="#equation-hartree2">(12)</a>
 has the sum over the magnetic number <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> carried out (thus the <img class="math" src="../../_images/math/9e059613efd4f51fd6b17b56122d31e8f5cfd64f.png" alt="2l+1"/> term),
-while in <a href="#equation-hartree1">(10)</a> this sum is part of the sum over <img class="math" src="../../_images/math/13b53457b887ee32b7fcfda72a8bb5f28decfe22.png" alt="\alpha=(n, l, m)"/>.</p>
+while in <a href="#equation-hartree1">(11)</a> this sum is part of the sum over <img class="math" src="../../_images/math/13b53457b887ee32b7fcfda72a8bb5f28decfe22.png" alt="\alpha=(n, l, m)"/>.</p>
 </div>
 <div class="section" id="two-particle">
 <h3>Two particle<a class="headerlink" href="#two-particle" title="Permalink to this headline">¶</a></h3>
-<p>The two particle matrix element is:</p>
-<div class="math" id="equation-twoint">
-<p><span class="eqno">(12)</span><img src="../../_images/math/4fb41159bc01262312d85f07a6da404dde619f20.png" alt="(ij|kl) = \braket{ik|jl} =
-    \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
-        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'"/></p>
-</div><p>The <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> is called the physicists&#8217; notation because
-the <img class="math" src="../../_images/math/eb056c43a2c2ae7c01c3a8fcedfa03f4f1025076.png" alt="\ket{jl}"/> and <img class="math" src="../../_images/math/dbe6c3b6fb1a5b8bee0e412d36159bb7719007cc.png" alt="\ket{ik}"/> kets are:</p>
-<div class="math">
-<p><img src="../../_images/math/c3f0fa0fc4d7331489ee7138c37f69157db29b98.png" alt="\ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
-
-\ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')"/></p>
-</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(12)</a> the
-symmetries of <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> are exchange of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> with <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> or the
-<img class="math" src="../../_images/math/c26aadb390865e9669bcb79c4e6af904a2dea7cc.png" alt="ij"/> and <img class="math" src="../../_images/math/9877f8f461d8617a227b3299a84354190b9e347c.png" alt="kl"/> pairs:</p>
-<div class="math">
-<p><img src="../../_images/math/9c5d9bba1183a5aac163f5e96bc9f2abf75fdfe2.png" alt="(ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
-
-= (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)"/></p>
-</div><p>So if we view <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> as two boxes <img class="math" src="../../_images/math/79f2cb353cd4292c8f99b97d303314b1c1eee624.png" alt="(\cdot | \cdot )"/> then we can permute the
-labels in the given box &#8220;<img class="math" src="../../_images/math/8f1fb66751f2ee2626c75303485dba473c39a2f2.png" alt="\cdot"/>&#8221;, as well as exchange the boxes (the only
-thing we cannot do is to take one particle from one box and put it into the
-other). As such the box &#8220;<img class="math" src="../../_images/math/8f1fb66751f2ee2626c75303485dba473c39a2f2.png" alt="\cdot"/>&#8221; is a pair of two electrons (in any order) and
-the two electron integral assigns a unique number to a pair of such boxes (in
-any order). The symmetries of the <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> symbol are:</p>
-<div class="math">
-<p><img src="../../_images/math/40be5548e6e3033baae706b796d68c1c0d83f13b.png" alt="\braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
-
-= \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}"/></p>
-</div><p>We use the following functions for <img class="math" src="../../_images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/>:</p>
+<p>We use the following functions for <img class="math" src="../../_images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/2c04fef849e4162b2647830e1551a764ed863539.png" alt="\psi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
 
@@ -596,7 +687,9 @@ any order). The symmetries of the <img class="math" src="../../_images/math/7d15
         {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')"/></p>
 </div><p>And we get:</p>
 <div class="math">
-<p><img src="../../_images/math/786d297fcc2d9cd3ee98098dd52dbda3a03c42ce.png" alt="(ij|kl) = \braket{ik|jl} = \braket{l_1 m_1 l_2 m_2 |
+<p><img src="../../_images/math/fa537a399b8cccfa41e6fd8069c22bc40de32554.png" alt="(ij|kl) = \braket{ik|jl} = (1 1' | 2 2') = \braket{1 2 | 1' 2'} =
+
+= \braket{l_1 m_1 l_2 m_2 |
     {1\over |{\bf x} - {\bf x}'|} | l_1' m_1' l_2' m_2'} =
 
 =\int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
@@ -729,7 +822,7 @@ is equal to both <img class="math" src="../../_images/math/6ee83c2278a9446dd75c2
 former.</p>
 <p>We can write this using the <img class="math" src="../../_images/math/310746dd13a807fb847da174a52034f2059b17b0.png" alt="c^k"/> symbols as:</p>
 <div class="math">
-<p><img src="../../_images/math/9fd0734506eef30fb525a5d64519db5a9f828196.png" alt="(ij|kl) =
+<p><img src="../../_images/math/fb21bdf388a8d6677a58d8e5775b391446b9d240.png" alt="(ij|kl) =
 \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
     \min(l_1+l_1', l_2+l_2')
 }\!\!\!\!\!\!\!\!\!\!\!\!
@@ -763,7 +856,7 @@ c^k(l_2, m_2, l_2', m_2')
     P_{n_1'l_1'}(r)
     P_{n_2l_2}(r')
     P_{n_2'l_2'}(r')
-    \d r \d r'
+    \d r \d r' =
 
 =
 \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
@@ -779,7 +872,18 @@ c^k(l_2', m_2', l_2, m_2)
     P_{n_1'l_1'}(r)
     P_{n_2l_2}(r')
     P_{n_2'l_2'}(r')
-    \d r \d r'"/></p>
+    \d r \d r' =
+
+=
+\sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+    \min(l_1+l_1', l_2+l_2')
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_1, m_1, l_1', m_1')
+c^k(l_2', m_2', l_2, m_2)
+
+\delta_{m_1+m_2- m_1'-m_2', 0}
+
+R^k(n_1 l_1, n_2 l_2, n_1' l_1', n_2' l_2')"/></p>
 </div><p>We can also couple the angular momenta as follows:</p>
 <div class="math">
 <p><img src="../../_images/math/7cf70edd6565a0abd564614be1f6b53929708739.png" alt="\ket{l_1 l_2 LM} = \sum_{m_1 m_2} (l_1 m_1 l_2 m_2 | LM)
@@ -2128,6 +2232,9 @@ E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
 <li><a class="reference internal" href="#overlap">Overlap</a></li>
 <li><a class="reference internal" href="#potential">Potential</a></li>
 <li><a class="reference internal" href="#kinetic">Kinetic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#g-matrix">G Matrix</a><ul>
 <li><a class="reference internal" href="#hartree-potential-direct-term">Hartree Potential (Direct Term)</a></li>
 <li><a class="reference internal" href="#two-particle">Two particle</a></li>
 </ul>
