@@ -676,9 +676,8 @@ T_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
             +\phi_{n_\mu l}(r) {l (l+1)\over 2 r^2} \phi_{n_\nu l}(r)\right)
         \d r"/></p>
 </div></div>
-</div>
 <div class="section" id="g-matrix">
-<h2>G Matrix<a class="headerlink" href="#g-matrix" title="Permalink to this headline">¶</a></h2>
+<h3>G Matrix<a class="headerlink" href="#g-matrix" title="Permalink to this headline">¶</a></h3>
 <p>The G matrix is given by:</p>
 <div class="math">
 <p><img src="../../_images/math/853077829e0d4278ab29ed26c1a93b3f2725e88e.png" alt="G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
@@ -949,7 +948,8 @@ R^k(n_\mu l, n_\beta l', n_\alpha l', n_\nu l) \right) =
 \half
 \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
 R^k(n_\mu l, n' l', n' l', n_\nu l) \right)"/></p>
-</div><div class="section" id="radial-roothaan-equations">
+</div></div>
+<div class="section" id="radial-roothaan-equations">
 <h3>Radial Roothaan Equations<a class="headerlink" href="#radial-roothaan-equations" title="Permalink to this headline">¶</a></h3>
 <p>The Roothaan equations are:</p>
 <div class="math">
@@ -1048,42 +1048,6 @@ R^k(n_\mu l, n' l', n' l', n_\nu l) \right) \right) =
             R^k(n l, n' l', n' l', n l) \right)
     \right)"/></p>
 </div></div>
-<div class="section" id="hartree-potential-direct-term">
-<h3>Hartree Potential (Direct Term)<a class="headerlink" href="#hartree-potential-direct-term" title="Permalink to this headline">¶</a></h3>
-<p>The direct (Hartree) term is given by:</p>
-<div class="math">
-<p><img src="../../_images/math/2f2e9bfa6736648c4b51f8ecc3a67c88a77611f3.png" alt="J_{\mu\nu} = \int \phi_\mu^*({\bf x}) V_H({\bf x}) \phi_\nu({\bf x}) \d^3 x"/></p>
-</div><p>where the Hartree potential <img class="math" src="../../_images/math/a8111dd2d358d22ade2790b71ee730c79ff0dfdc.png" alt="V_H({\bf x})"/> is given by:</p>
-<div class="math">
-<p><img src="../../_images/math/3c5cdab3a0b56222c6f0cd7079f1dc13a5c167ad.png" alt="V_H({\bf x}) = \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over
-        |{\bf x}-{\bf y}|} \d^3 y
-    = \int {n({\bf y})\over
-        |{\bf x}-{\bf y}|} \d^3 y"/></p>
-</div><p>where the number density <img class="math" src="../../_images/math/f10e663a3514899631dbd824742529f30025fb21.png" alt="n({\bf x})"/> is given by:</p>
-<div class="math">
-<p><img src="../../_images/math/5dcb699accf958218a4868bc7cdf55775dc3b6ac.png" alt="n({\bf x}) = 2 \sum_{k=1}^{N/2} | \psi_k({\bf x})|^2
-    = \sum_{\alpha\beta} \phi_\alpha({\bf x}) P_{\alpha\beta}
-        \phi_\beta^*({\bf x})"/></p>
-</div><p>All together we get:</p>
-<div class="math" id="equation-hartree1">
-<p><span class="eqno">(11)</span><img src="../../_images/math/c1313534a2e9c9ab2cdce7a9ce04bf25fd0567b1.png" alt="J_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
-    \int {\phi_\mu^*({\bf x}) \phi_\alpha({\bf y})
-            \phi_\beta^*({\bf y}) \phi_\nu({\bf x}) \over
-            |{\bf x}-{\bf y}| } \d^3 x \d^3 y
-    = \sum_{\alpha\beta} P_{\alpha\beta}
-        \braket{\mu \beta|\nu \alpha}
-    = \sum_{\alpha\beta} P_{\alpha\beta}
-        (\mu \nu|\beta \alpha)"/></p>
-</div><p>In spherical symmetry, we get (see <a class="reference internal" href="#hartree-spherical"><em>Hartree Potential in Spherical Symmetry</em></a> for derivation):</p>
-<div class="math" id="equation-hartree2">
-<p><span class="eqno">(12)</span><img src="../../_images/math/b54b112f33825a2243a5c413e448fcec4b04df13.png" alt="J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  =
-    \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu} \sum_{k} 2(2l_k+1)
-    R^0(\mu, k, \nu, k)"/></p>
-</div><p>Here we sum over the occupied radial orbitals <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>. This sum is already carried
-out in <img class="math" src="../../_images/math/99829326e0f2d53d7516a439d86c1c6e6c04f6a5.png" alt="P_{\alpha\beta}"/> in <a href="#equation-hartree1">(11)</a>. On the other hand, <a href="#equation-hartree2">(12)</a>
-has the sum over the magnetic number <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> carried out (thus the <img class="math" src="../../_images/math/9e059613efd4f51fd6b17b56122d31e8f5cfd64f.png" alt="2l+1"/> term),
-while in <a href="#equation-hartree1">(11)</a> this sum is part of the sum over <img class="math" src="../../_images/math/13b53457b887ee32b7fcfda72a8bb5f28decfe22.png" alt="\alpha=(n, l, m)"/>.</p>
-</div>
 <div class="section" id="two-particle">
 <h3>Two particle<a class="headerlink" href="#two-particle" title="Permalink to this headline">¶</a></h3>
 <p>We use the following functions for <img class="math" src="../../_images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/>:</p>
@@ -1459,14 +1423,14 @@ R^k(n_1 l_1, n_2 l_2, n_1' l_1', n_2' l_2')"/></p>
 It turns out that all integrals that we need can be expressed in terms
 of the following simple integral (where <img class="math" src="../../_images/math/5000e45201013497f6bbcdf11a5c2ae1f85dfec8.png" alt="n,\zeta \ge 0"/>):</p>
 <div class="math" id="equation-slater_basic">
-<p><span class="eqno">(13)</span><img src="../../_images/math/7d06583d0d197f25048a616f01418f9103454873.png" alt="\int_0^\infty r^n e^{-\zeta r} \d r
+<p><span class="eqno">(11)</span><img src="../../_images/math/7d06583d0d197f25048a616f01418f9103454873.png" alt="\int_0^\infty r^n e^{-\zeta r} \d r
     =\int_0^\infty \left(x\over\zeta\right)^n e^{-r} {\d r\over\zeta}
     ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-r} \d r
     ={\Gamma(n+1)\over\zeta^{n+1}}
     ={n!\over\zeta^{n+1}}"/></p>
 </div><p>The STO basis function for the radial Schrödinger equation for <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/> is:</p>
 <div class="math" id="equation-sto_P">
-<p><span class="eqno">(14)</span><img src="../../_images/math/9478b1f9557c9267f6720743e43793d07a2cbb62.png" alt="P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r}"/></p>
+<p><span class="eqno">(12)</span><img src="../../_images/math/9478b1f9557c9267f6720743e43793d07a2cbb62.png" alt="P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r}"/></p>
 </div><p>Where the normalization constant <img class="math" src="../../_images/math/4a8dbfda5f6199c266c2bc0d0775109778c50aa3.png" alt="N_{n\zeta}"/> is such that the STO orbital is
 normalized as the radial wavefunction <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/>:</p>
 <div class="math">
@@ -1478,8 +1442,8 @@ normalized as the radial wavefunction <img class="math" src="../../_images/math/
 <p><img src="../../_images/math/22e00381b62cec217cfe4f4f879c76d1ac545853.png" alt="N_{n\zeta} = \sqrt{(2\zeta)^{2n+1}\over (2n)!}"/></p>
 </div><p>Note that for <img class="math" src="../../_images/math/74a66b8dc4c6d8982328bbd7333ddc469f748c51.png" alt="R(r)={P(r)\over r}"/> we get the following STO basis function:</p>
 <div class="math" id="equation-sto_R">
-<p><span class="eqno">(15)</span><img src="../../_images/math/852c89974f0bbfd7516aec3e02da3ef1b4cb4093.png" alt="R_{n\zeta}(r) = {P_{n\zeta}(r)\over r} = N_{n\zeta} r^{n-1} e^{-\zeta r}"/></p>
-</div><p>One uses either <a href="#equation-sto_P">(14)</a> or <a href="#equation-sto_R">(15)</a> depending on whether one solves the
+<p><span class="eqno">(13)</span><img src="../../_images/math/852c89974f0bbfd7516aec3e02da3ef1b4cb4093.png" alt="R_{n\zeta}(r) = {P_{n\zeta}(r)\over r} = N_{n\zeta} r^{n-1} e^{-\zeta r}"/></p>
+</div><p>One uses either <a href="#equation-sto_P">(12)</a> or <a href="#equation-sto_R">(13)</a> depending on whether one solves the
 radial Schrödinger equation for <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> or for <img class="math" src="../../_images/math/39f1dc1f28cc1e49befa9458b06421182e347ee3.png" alt="R={P\over r}"/>.</p>
 <div class="section" id="id1">
 <h3>Overlap<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -2254,7 +2218,7 @@ multiplication by 2. We assumed closed shells atoms (we summed over all <img cla
 the above). We used the result of the integral in
 <a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a> and also:</p>
 <div class="math" id="equation-using3j">
-<p><span class="eqno">(16)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+<p><span class="eqno">(14)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
     = \sqrt{2l'+1\over 2l+1}
         \sqrt{(2l'+1)(2l+1)}
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
@@ -2647,11 +2611,8 @@ E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
 <li><a class="reference internal" href="#overlap">Overlap</a></li>
 <li><a class="reference internal" href="#potential">Potential</a></li>
 <li><a class="reference internal" href="#kinetic">Kinetic</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#g-matrix">G Matrix</a><ul>
+<li><a class="reference internal" href="#g-matrix">G Matrix</a></li>
 <li><a class="reference internal" href="#radial-roothaan-equations">Radial Roothaan Equations</a></li>
-<li><a class="reference internal" href="#hartree-potential-direct-term">Hartree Potential (Direct Term)</a></li>
 <li><a class="reference internal" href="#two-particle">Two particle</a></li>
 </ul>
 </li>
