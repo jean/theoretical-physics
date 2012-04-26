@@ -450,13 +450,91 @@ any order). The symmetries of the <img class="math" src="../../_images/math/7d15
 <h2>General Matrix Elements in Spherical Symmetry<a class="headerlink" href="#general-matrix-elements-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>Spherical symmetry is this particular choice of a basis:</p>
 <div class="math">
-<p><img src="../../_images/math/431a902f846ae19ba14dc41c81096294e2428629.png" alt="\phi_\mu({\bf x}) = {\phi_{\mu l}(r)\over r} Y_{l m}(\Omega)"/></p>
-</div><p>Where the <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> index on the left hand side is equal to the
-<img class="math" src="../../_images/math/bc3b6478e7c294bd139a05bb8401cce38594f99a.png" alt="\mu l m"/> index. In particular, here is an example of one possible way to index
-the basis of 12 radial functions for each <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
+<p><img src="../../_images/math/dfdcd2b79c52c86d1bca42260939b2bb90348c0a.png" alt="\phi_\mu({\bf x}) =
+\phi_{n_\mu l_\mu m_\mu}({\bf x}) =
+    {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}(\Omega)"/></p>
+</div><p>It can be shown that the solutions are of the form:</p>
 <div class="math">
-<p><img src="../../_images/math/392716cf6d08b5cdd8271919d67ee0e7c7dcffce.png" alt="\begin{array}{r|rrr}
-    \mu &amp; \mu &amp; l &amp; m \\
+<p><img src="../../_images/math/57602a6a339abc4466cd60fd471e77c772939c71.png" alt="\psi_i({\bf x}) = \psi_{nlm}({\bf x}) = {P_{n l}(r)\over r} Y_{l m}(\Omega)"/></p>
+</div><p>We can now write:</p>
+<div class="math">
+<p><img src="../../_images/math/a558e881e1254996175118dd90a8406e7d6617e4.png" alt="\psi_i({\bf x}) = \sum_\nu C_{\nu i} \phi_\nu({\bf x})
+
+\int \phi_\mu({\bf x})\psi_i({\bf x}) \d^3 x
+    = \sum_\nu S_{\mu\nu} C_{\nu i}
+
+\sum_{\mu} S_{\mu\nu}^{-1} \int \phi_\mu({\bf x})\psi_i({\bf x}) \d^3 x
+    = C_{\nu i}
+
+\sum_{\mu}
+    \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \left(S_{n_\mu n_\nu}^{l_\mu}\right)^{-1}
+    \int \phi_{n_\mu l_\mu m_\mu}({\bf x})
+    \psi_{nlm}({\bf x}) \d^3 x
+    = C_{n_\nu l_\nu m_\nu; n l m}
+
+\sum_{\mu}
+    \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \left(S_{n_\mu n_\nu}^{l_\mu}\right)^{-1}
+    \int
+        {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}(\Omega)
+        {P_{n l}(r)\over r} Y_{l m}(\Omega)
+    r^2 \d r \d \Omega
+    = C_{n_\nu l_\nu m_\nu; n l m}
+
+\sum_{\mu}
+    \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \left(S_{n_\mu n_\nu}^{l_\mu}\right)^{-1}
+    \int
+        \phi_{n_\mu l_\mu}(r)
+        P_{n l}(r) \d r \delta_{l l_\mu} \delta_{m m_\mu}
+    = C_{n_\nu l_\nu m_\nu; n l m}
+
+    \delta_{l l_\nu} \delta_{m m_\nu}
+\sum_{n_\mu}
+    \left(S_{n_\mu n_\nu}^{l}\right)^{-1}
+    \int
+        \phi_{n_\mu l}(r)
+        P_{n l}(r) \d r
+    = C_{n_\nu l_\nu m_\nu; n l m}
+
+    \delta_{l l_\nu} \delta_{m m_\nu}
+    C_{n_\nu n}^l
+    = C_{n_\nu l_\nu m_\nu; n l m}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/e928621c2e2299db841fe1dc0a1bcb5900b0b0aa.png" alt="C_{n_\nu n}^l =
+\sum_{n_\mu}
+    \left(S_{n_\mu n_\nu}^{l}\right)^{-1}
+    \int
+        \phi_{n_\mu l}(r)
+        P_{n l}(r) \d r"/></p>
+</div><p>Also we get:</p>
+<div class="math">
+<p><img src="../../_images/math/402541ffdef80a8fbb1b924925319e7ababde651.png" alt="\psi_{nlm}({\bf x}) = \sum_\nu
+    C_{n_\nu l_\nu m_\nu; n l m} \phi_{n_\nu l_\nu m_\nu}({\bf x})
+
+{P_{n l}(r)\over r} Y_{l m}(\Omega) = \sum_\nu
+    C_{n_\nu l_\nu m_\nu; n l m}
+        {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) =
+
+= \sum_\nu
+    \delta_{l l_\nu} \delta_{m m_\nu}
+    C_{n_\nu n}^l
+        {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) =
+
+= \sum_{n_\nu}
+    C_{n_\nu n}^l
+        {\phi_{n_\nu l}(r)\over r} Y_{l m}(\Omega)"/></p>
+</div><p>From which it follows:</p>
+<div class="math">
+<p><img src="../../_images/math/5f1664ae5c87df362717f48e9bf2a1c3627e4d9d.png" alt="P_{n l}(r) = \sum_{n_\nu} C_{n_\nu n}^l \phi_{n_\nu l}(r)"/></p>
+</div><p>The <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> index runs over all combinations of <img class="math" src="../../_images/math/7c9f0048bfd4461491430c031abd1b5a0e96c218.png" alt="n l m"/>.
+In particular, here is an example of one possible way to index the
+basis of 12 radial functions for each <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/4735ad117df2501199ea51f4ede06543fecf8ea6.png" alt="\begin{array}{r|rrr}
+    \mu &amp; n_\mu &amp; l_\mu &amp; m_\mu \\
     \hline
     1 &amp; 1 &amp; 0 &amp; 0 \\
     2 &amp; 2 &amp; 0 &amp; 0 \\
@@ -483,8 +561,7 @@ the basis of 12 radial functions for each <img class="math" src="../../_images/m
     51 &amp; 3 &amp; 2 &amp; -2 \\
     \cdots &amp; \cdots &amp; &amp;  \\
 \end{array}"/></p>
-</div><p>So the radial index <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> always starts from 1 for each <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>. From the context
-it will be clear whether <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> means the radial or global (3D) index.</p>
+</div><p>So the radial index <img class="math" src="../../_images/math/8a058b707d3bbff6059f47de67b523366de8ac10.png" alt="n_\mu"/> always starts from 1 for each <img class="math" src="../../_images/math/a9ec3026ed06676b0d5bd662cc43076bca5afdc9.png" alt="l_\mu"/>.</p>
 <div class="section" id="overlap">
 <h3>Overlap<a class="headerlink" href="#overlap" title="Permalink to this headline">¶</a></h3>
 <p>The overlap matrix element</p>
@@ -492,20 +569,22 @@ it will be clear whether <img class="math" src="../../_images/math/2d8c833ed8008
 <p><img src="../../_images/math/234d2d09f968c51bbe33f2f4265ca2d94babc460.png" alt="S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x"/></p>
 </div><p>becomes</p>
 <div class="math">
-<p><img src="../../_images/math/f3fb33c3ce54bbdeac04d4780e1d154f30fcf99a.png" alt="S_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+<p><img src="../../_images/math/aa8728794b008306e937bc5d1abdcab1cb577817.png" alt="S_{\mu\nu} = S_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+    = \int {\phi_{n_\mu l_\mu}(r)\over r}
     Y_{l_\mu m_\mu}^*(\Omega)
-    {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
+    {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+        r^2 \d r \d \Omega=
 
 = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-    \phi_{\mu l_\mu}(r) \phi_{\nu l_\nu}(r) \d r =
+    \phi_{n_\mu l_\mu}(r) \phi_{n_\nu l_\nu}(r) \d r =
 
 = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-    \phi_{\mu l_\mu}(r) \phi_{\nu l_\mu}(r) \d r =
+    \phi_{n_\mu l_\mu}(r) \phi_{n_\nu l_\mu}(r) \d r =
 
-= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} S^{l_\mu}_{\mu\nu}"/></p>
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} S^{l_\mu}_{n_\mu n_\nu}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/5ac5b36eab88fc88194a27fea145c41059350b97.png" alt="S^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r) \phi_{\nu l}(r) \d r"/></p>
+<p><img src="../../_images/math/582efcb9e6feb723b1b85940eae9ac05e175f232.png" alt="S^l_{n_\mu n_\nu} = \int_0^\infty \phi_{n_\mu l}(r) \phi_{n_\nu l}(r) \d r"/></p>
 </div></div>
 <div class="section" id="potential">
 <h3>Potential<a class="headerlink" href="#potential" title="Permalink to this headline">¶</a></h3>
@@ -515,26 +594,29 @@ it will be clear whether <img class="math" src="../../_images/math/2d8c833ed8008
     \phi_\nu({\bf x})\d^3 x"/></p>
 </div><p>becomes</p>
 <div class="math">
-<p><img src="../../_images/math/a58820b3f4799f897ba32f6143539df9f24e72c6.png" alt="V_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+<p><img src="../../_images/math/08a8de1fb1cc27f86c29645c773dfd0dffa2a119.png" alt="V_{\mu\nu} =
+V_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu} = \int {\phi_{n_\mu l_\mu}(r)
+    \over r}
     Y_{l_\mu m_\mu}^*(\Omega)
     \left(-{Z\over r}\right)
-    {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
+    {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+        r^2 \d r \d \Omega=
 
 = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-    \phi_{\mu l_\mu}(r)
+    \phi_{n_\mu l_\mu}(r)
     \left(-{Z\over r}\right)
-    \phi_{\nu l_\nu}(r) \d r =
+    \phi_{n_\nu l_\nu}(r) \d r =
 
 = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-    \phi_{\mu l_\mu}(r)
+    \phi_{n_\mu l_\mu}(r)
     \left(-{Z\over r}\right)
-    \phi_{\nu l_\mu}(r) \d r =
+    \phi_{n_\nu l_\mu}(r) \d r =
 
-= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} V^{l_\mu}_{\mu\nu}"/></p>
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} V^{l_\mu}_{n_\mu n_\nu}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/8260081e6ab42caeaa65de1fc3bd069830982ded.png" alt="V^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r)
-    \left(-{Z\over r}\right) \phi_{\nu l}(r) \d r"/></p>
+<p><img src="../../_images/math/65c6aa0d0d24b2bba09c0b1903a8a890fc5a76ca.png" alt="V^l_{n_\mu n_\nu} = \int_0^\infty \phi_{n_\mu l}(r)
+    \left(-{Z\over r}\right) \phi_{n_\nu l}(r) \d r"/></p>
 </div></div>
 <div class="section" id="kinetic">
 <h3>Kinetic<a class="headerlink" href="#kinetic" title="Permalink to this headline">¶</a></h3>
@@ -545,52 +627,53 @@ it will be clear whether <img class="math" src="../../_images/math/2d8c833ed8008
         \phi_\nu({\bf x}) \d^3 x"/></p>
 </div><p>becomes</p>
 <div class="math">
-<p><img src="../../_images/math/0fae1311f8b1edb5b64453204b250bad7b150310.png" alt="T_{\mu l_\mu m_\mu \nu l_\nu m_\nu}
-    = \int {\phi_{\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
+<p><img src="../../_images/math/371bb5069f31764a5c1e33d8e21896ed8fad5f32.png" alt="T_{\mu\nu} =
+T_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+    = \int {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
         \left(\left(-\half \nabla^2\right)
-        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+        {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
         \right) r^2 \d r \d \Omega =
 
-    = \int {\phi_{\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
+    = \int {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
         \left(\left(-\half {\partial^2\over\partial r^2}
             -{1\over r}{\partial\over\partial r}
             +{l_\nu (l_\nu+1)\over 2r^2}\right)
-        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) \right)
+        {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) \right)
         r^2 \d r \d \Omega =
 
     = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
-    \int_0^\infty {\phi_{\mu l_\mu}(r)\over r}
+    \int_0^\infty {\phi_{n_\mu l_\mu}(r)\over r}
         \left(\left(-\half {\partial^2\over\partial r^2}
             -{1\over r}{\partial\over\partial r}
             +{l_\mu (l_\mu+1)\over 2r^2}\right)
-        {\phi_{\nu l_\nu}(r)\over r} \right) r^2 \d r =
+        {\phi_{n_\nu l_\nu}(r)\over r} \right) r^2 \d r =
 
     = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} T^{l_\mu}_{\mu\nu}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/4c559cef0d97ef8764bcea34eab781978a5fe85a.png" alt="T^l_{\mu\nu} =
-    \int_0^\infty {\phi_{\mu l}(r)\over r}
+<p><img src="../../_images/math/3ea42b8547c3a19b728ae805606f6d5fbb5f80ea.png" alt="T^l_{n_\mu n_\nu} =
+    \int_0^\infty {\phi_{n_\mu l}(r)\over r}
         \left(\left(-\half {\partial^2\over\partial r^2}
             -{1\over r}{\partial\over\partial r}
             +{l (l+1)\over 2r^2}\right)
-        {\phi_{\nu l}(r)\over r} \right) r^2 \d r =
+        {\phi_{n_\nu l}(r)\over r} \right) r^2 \d r =
 
-    = \int_0^\infty {\phi_{\mu l}(r)\over r}
+    = \int_0^\infty {\phi_{n_\mu l}(r)\over r}
         \left(\left(-{1\over 2r} {\partial^2\over\partial r^2}r
             +{l (l+1)\over 2 r^2}\right)
-        {\phi_{\nu l}(r)\over r} \right) r^2 \d r =
+        {\phi_{n_\nu l}(r)\over r} \right) r^2 \d r =
 
-    = \int_0^\infty \phi_{\mu l}(r)
+    = \int_0^\infty \phi_{n_\mu l}(r)
         \left(-\half {\partial^2\over\partial r^2}
             +{l (l+1)\over 2 r^2}\right)
-        \phi_{\nu l}(r) \d r =
+        \phi_{n_\nu l}(r) \d r =
 
-    = \int_0^\infty \left( -\half \phi_{\mu l}(r) \phi_{\nu l}''(r)
-            +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
+    = \int_0^\infty \left( -\half \phi_{n_\mu l}(r) \phi_{n_\nu l}''(r)
+            +\phi_{n_\mu l}(r) {l (l+1)\over 2 r^2} \phi_{n_\nu l}(r)\right)
         \d r =
 
-    = \int_0^\infty \left( \half \phi_{\mu l}'(r) \phi_{\nu l}'(r)
-            +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
+    = \int_0^\infty \left( \half \phi_{n_\mu l}'(r) \phi_{n_\nu l}'(r)
+            +\phi_{n_\mu l}(r) {l (l+1)\over 2 r^2} \phi_{n_\nu l}(r)\right)
         \d r"/></p>
 </div></div>
 </div>
@@ -605,12 +688,12 @@ it will be clear whether <img class="math" src="../../_images/math/2d8c833ed8008
         \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)"/></p>
 </div><p>Now we use:</p>
 <div class="math">
-<p><img src="../../_images/math/0e6bae45d5be39c432c51bc5918129e65e740eb0.png" alt="\braket{\alpha \beta | \gamma \delta}
+<p><img src="../../_images/math/dc0299ce1bec8795294d8e14e7d25d98fbeb45a8.png" alt="\braket{\alpha \beta | \gamma \delta}
 =
-\braket{\alpha l_\alpha m_\alpha \ \beta l_\beta m_\beta |
-\gamma l_\gamma m_\gamma \ \delta l_\delta m_\delta}
-= (\alpha  l_\alpha m_\alpha \ \gamma l_\gamma m_\gamma |
-\beta l_\beta m_\beta \ \delta l_\delta m_\delta) =
+\braket{n_\alpha l_\alpha m_\alpha \ n_\beta l_\beta m_\beta |
+n_\gamma l_\gamma m_\gamma \ n_\delta l_\delta m_\delta}
+= (n_\alpha  l_\alpha m_\alpha \ n_\gamma l_\gamma m_\gamma |
+n_\beta l_\beta m_\beta \ n_\delta l_\delta m_\delta) =
 
 =
 \sum_{k=\max(| l_\alpha-l_\gamma| ,| l_\beta-l_\delta| , | m_\alpha-m_\gamma| )}^{
@@ -621,20 +704,351 @@ c^k(l_\delta, m_\delta, l_\beta, m_\beta)
 
 \delta_{m_\alpha+m_\beta- m_\gamma-m_\delta, 0}
 
-R^k(\alpha l_\alpha, \beta l_\beta, \gamma l_\gamma, \delta l_\delta)"/></p>
+R^k(n_\alpha l_\alpha, n_\beta l_\beta, n_\gamma l_\gamma,
+    n_\delta l_\delta)"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/130e9d7458c5735e91163ea24a7dff2a928c9bb5.png" alt="P_{\alpha\beta} = 2 \sum_{nml} C_{\alpha n l m} C_{\beta n l m}
-    = \sum_l 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}"/></p>
-</div><p>We get:</p>
+<p><img src="../../_images/math/45bc145b874359ee9c185ebe3983e0bc8891f721.png" alt="P_{\alpha\beta} = 2 \sum_{i} C_{\alpha i} C_{\beta i}
+
+P_{n_\alpha l_\alpha m_\alpha; n_\beta l_\beta m_\beta}
+    = 2 \sum_{i}
+        C_{n_\alpha l_\alpha m_\alpha; n_i l_i m_i}
+        C_{n_\beta l_\beta m_\beta; n_i l_i m_i} =
+
+    = 2 \sum_{i}
+        \delta_{l_i l_\alpha} \delta_{m_i m_\alpha}
+        \delta_{l_i l_\beta} \delta_{m_i m_\beta}
+        C_{n_\alpha n_i}^{l_i}
+        C_{n_\beta n_i}^{l_i} =
+
+    = 2 \delta_{l_\alpha l_\beta}\delta_{m_\alpha m_\beta}
+        \sum_{n_i}
+        C_{n_\alpha n_i}^{l_\alpha}
+        C_{n_\beta n_i}^{l_\alpha} =
+
+    = \delta_{l_\alpha l_\beta}\delta_{m_\alpha m_\beta}
+        P^{l_\alpha}_{n_\alpha n_\beta}"/></p>
+</div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/ed03f5f62da0de958bc9a7e2e2912d6bdb2d1fec.png" alt="G_{\mu\nu} =
-G_{\mu l_\mu m_\mu \nu l_\nu m_\nu} =
-        \sum_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
-        P_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
+<p><img src="../../_images/math/c049607cd5bb1d95b2ffe6fea4094040faf7d248.png" alt="P^l_{n_\alpha n_\beta} = 2 \sum_{n_i} C_{n_\alpha n_i}^l C_{n_\beta n_i}^l"/></p>
+</div><p>Where the sum over all occupied orbitals <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> can be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/4809281f6180b8cdbe6f36236e07849e54ce865d.png" alt="\sum_i = \sum_{n_i l_i m_i} = \sum_{l=0}^\infty \sum_{m_l=-l}^l
+    \sum_{n_l=1}^\infty"/></p>
+</div><p>Where the sum over <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> is the outer sum, both <img class="math" src="../../_images/math/17ceba0f38f8765f698fe6a37281e47816dfd186.png" alt="m=m_l"/> and <img class="math" src="../../_images/math/80c8548c1045ea2bdf025091730475a4ff57a2a1.png" alt="n=n_l"/> depend on <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>.
+We get:</p>
+<div class="math">
+<p><img src="../../_images/math/cea22d03095e791ec9cdd1cc813520d8832b699b.png" alt="G_{\mu\nu} =
+G_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu} =
+        \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
         \left(\braket{\mu \beta|\nu \alpha}
-            -\half \braket{\mu \beta|\alpha \nu}\right)"/></p>
-</div><div class="section" id="hartree-potential-direct-term">
+            -\half \braket{\mu \beta|\alpha \nu}\right)
+= J_{\mu\nu} - K_{\mu\nu}"/></p>
+</div><p>The first part is the direct term, the second part the exchange term.
+Let&#8217;s treat the direct term first:</p>
+<div class="math">
+<p><img src="../../_images/math/ea836a4a94ce28420a50cf1a6ef0cca3ca23d556.png" alt="J_{\mu\nu} = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        \braket{\mu \beta|\nu \alpha} =
+
+= \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+\sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
+    | m_\mu-m_\nu| )}^{
+    \min(l_\mu+l_\nu, l_\beta+l_\alpha)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+c^k(l_\alpha, m_\alpha, l_\beta, m_\beta)
+
+\delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
+
+R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
+
+= \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+    \delta_{l_\alpha l_\beta} \delta_{m_\alpha m_\beta}
+    P^{l_\alpha}_{n_\alpha n_\beta}
+\sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
+    | m_\mu-m_\nu| )}^{
+    \min(l_\mu+l_\nu, l_\beta+l_\alpha)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+c^k(l_\alpha, m_\alpha, l_\beta, m_\beta)
+
+\delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
+
+R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
+
+= \sum_{n_\alpha n_\beta} \sum_{l m}
+    P^{l}_{n_\alpha n_\beta}
+\sum_{k=\max(| l_\mu-l_\nu| , | m_\mu-m_\nu| )}^{
+    \min(l_\mu+l_\nu, 2l)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+c^k(l, m, l, m)
+
+\delta_{m_\mu- m_\nu, 0}
+
+R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+= \delta_{m_\mu  m_\nu}
+\sum_{n_\alpha n_\beta} \sum_{l}
+    P^{l}_{n_\alpha n_\beta}
+c^0(l_\mu, m_\mu, l_\nu, m_\nu)
+(2l+1)
+R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+= \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+ \sum_{l}
+(2l+1)\sum_{n_\alpha n_\beta}
+    P^{l}_{n_\alpha n_\beta}
+R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\mu, n_\alpha l)"/></p>
+</div><p>For the exchange term we get:</p>
+<div class="math">
+<p><img src="../../_images/math/581b7df4d82f2c0958f3b74e7452eb1b8eda9131.png" alt="K_{\mu\nu} = \half \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        \braket{\mu \beta|\alpha \nu} =
+
+= \half \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+\sum_{k=\max(| l_\mu-l_\alpha| ,| l_\beta-l_\nu|,
+    | m_\mu-m_\alpha| )}^{
+    \min(l_\mu+l_\alpha, l_\beta+l_\nu)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l_\alpha, m_\alpha)
+c^k(l_\nu, m_\nu, l_\beta, m_\beta)
+
+\delta_{m_\mu+m_\beta- m_\alpha-m_\nu, 0}
+
+R^k(n_\mu l_\mu, n_\beta l_\beta, n_\alpha l_\alpha, n_\nu l_\nu) =
+
+
+= \half \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+    \delta_{l_\alpha l_\beta} \delta_{m_\alpha m_\beta}
+    P^{l_\alpha}_{n_\alpha n_\beta}
+\sum_{k=\max(| l_\mu-l_\alpha| ,| l_\beta-l_\nu|,
+    | m_\mu-m_\alpha| )}^{
+    \min(l_\mu+l_\alpha, l_\beta+l_\nu)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l_\alpha, m_\alpha)
+c^k(l_\nu, m_\nu, l_\beta, m_\beta)
+
+\delta_{m_\mu+m_\beta- m_\alpha-m_\nu, 0}
+
+R^k(n_\mu l_\mu, n_\beta l_\beta, n_\alpha l_\alpha, n_\nu l_\nu) =
+
+
+= \half \delta_{m_\mu m_\nu}
+\sum_{n_\alpha n_\beta} \sum_{l m}
+    P^l_{n_\alpha n_\beta}
+\sum_{k=\max(| l_\mu-l| ,| l-l_\nu|,
+    | m_\mu-m| )}^{
+    \min(l_\mu+l, l+l_\nu)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l, m)
+c^k(l_\nu, m_\nu, l, m)
+
+R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\nu) =
+
+= \half \delta_{m_\mu m_\nu}
+\sum_{n_\alpha n_\beta} \sum_{l m}
+    P^l_{n_\alpha n_\beta}
+\sum_{k=\max(| l_\mu-l| ,| l-l_\nu|,
+    | m_\mu-m| )}^{
+    \min(l_\mu+l, l+l_\nu)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l, m)
+c^k(l_\nu, m_\mu, l, m)
+
+R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\nu)"/></p>
+</div><p>For <img class="math" src="../../_images/math/0d26003e13d5b8abed15daee22a23965be224270.png" alt="l_\mu = l_\nu"/> this can be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/ee8f390f912aee937174f47f29424ed4bc373990.png" alt="K_{\mu\nu} = \half \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+\sum_{n_\alpha n_\beta} \sum_{l m}
+    P^l_{n_\alpha n_\beta}
+\sum_{k=\max(| l_\mu-l|,
+    | m_\mu-m| )}^{l_\mu+l}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\mu, m_\mu, l, m)
+c^k(l_\mu, m_\mu, l, m)
+
+R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu) =
+
+= \half \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+\sum_{n_\alpha n_\beta} \sum_{l}
+    P^l_{n_\alpha n_\beta}
+\sum_{k=| l_\mu-l|}^{l_\mu+l}
+\sqrt{2l+1 \over 2l_\mu +1}
+c^k(l_\mu, 0, l, 0)
+
+R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu) =
+
+= \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+\sum_{l}
+(2l+1)
+\sum_{n_\alpha n_\beta}
+    P^l_{n_\alpha n_\beta}
+\sum_{k=| l_\mu-l|}^{l_\mu+l}
+\half
+\begin{pmatrix} l_\mu &amp; k &amp; l \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+
+R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu)"/></p>
+</div><p>All together we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ced2f8362738995a3a3977c20bc13fdd6b26dabd.png" alt="G_{\mu\nu}
+= \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+ \sum_{l}
+(2l+1)\sum_{n_\alpha n_\beta}
+    P^{l}_{n_\alpha n_\beta}
+
+\left(
+    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\mu, n_\alpha l)
+-
+\sum_{k=| l_\mu-l|}^{l_\mu+l}
+\half
+\begin{pmatrix} l_\mu &amp; k &amp; l \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu) \right) =
+
+= \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu} G^{l_\mu}_{n_\mu n_\nu}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/82ac0b559eb249782455f4aace97cda19ae7ec5e.png" alt="G^{l}_{n_\mu n_\nu} =
+ \sum_{l'}
+(2l'+1)\sum_{n_\alpha n_\beta}
+    P^{l'}_{n_\alpha n_\beta}
+
+\left(
+    R^0(n_\mu l, n_\beta l', n_\nu l, n_\alpha l')
+-
+\sum_{k=| l-l'| }^{l+l'}
+\half
+\begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+R^k(n_\mu l, n_\beta l', n_\alpha l', n_\nu l) \right)"/></p>
+</div><p>Note: performing the sum over <img class="math" src="../../_images/math/8eb27d8f3d3e5ea2bb7159d68915b259934467cb.png" alt="n_\alpha"/> and <img class="math" src="../../_images/math/df233bb860e897704be448daeebc0687a91e3955.png" alt="n_\beta"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ffa13f33f7e38808bdb805bc89072743e31e792a.png" alt="G^{l}_{n_\mu n_\nu} =
+ \sum_{l'}
+2(2l'+1)\sum_{n'}\sum_{n_\alpha n_\beta}
+    C^{l'}_{n_\alpha n'}C^{l'}_{n_\beta n'}
+
+\left(
+    R^0(n_\mu l, n_\beta l', n_\nu l, n_\alpha l')
+-
+\sum_{k=| l-l'| }^{l+l'}
+\half
+\begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+R^k(n_\mu l, n_\beta l', n_\alpha l', n_\nu l) \right) =
+
+=
+ \sum_{l'}
+2(2l'+1)\sum_{n'}
+
+\left(
+    R^0(n_\mu l, n' l', n_\nu l, n' l')
+-
+\sum_{k=| l-l'| }^{l+l'}
+\half
+\begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+R^k(n_\mu l, n' l', n' l', n_\nu l) \right)"/></p>
+</div><div class="section" id="radial-roothaan-equations">
+<h3>Radial Roothaan Equations<a class="headerlink" href="#radial-roothaan-equations" title="Permalink to this headline">¶</a></h3>
+<p>The Roothaan equations are:</p>
+<div class="math">
+<p><img src="../../_images/math/d411c4e920defb4b64896d538b43d3b79d22d3b8.png" alt="\sum_\nu (T + V + G)_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu}
+    C_{\nu i}
+
+\sum_\nu (T + V + G)_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+    C_{n_\nu l_\nu m_\nu n_i l_i m_i} = \epsilon_{n_i l_i m_i}
+        \sum_\nu S_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+    C_{n_\nu l_\nu m_\nu n_i l_i m_i}
+
+\sum_\nu (T + V + G)_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+    \delta_{l_i l_\nu} \delta_{m_i m_\nu}
+    C_{n_\nu n_i}^{l_i} = \epsilon_{n_i l_i m_i}
+        \sum_\nu S_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+    \delta_{l_i l_\nu} \delta_{m_i m_\nu}
+    C_{n_\nu n_i}^{l_i}
+
+\sum_{n_\nu} (T + V + G)_{n_\mu l_\mu m_\mu n_\nu l_i m_i}
+    C_{n_\nu n_i}^{l_i} = \epsilon_{n_i l_i m_i}
+        \sum_{n_\nu} S_{n_\mu l_\mu m_\mu n_\nu l_i m_i}
+    C_{n_\nu n_i}^{l_i}
+
+\delta_{l_\mu l_i} \delta_{m_\mu m_i}
+\sum_{n_\nu}
+    (T + V + G)_{n_\mu n_\nu}^{l_i}
+    C_{n_\nu n_i}^{l_i} =
+        \delta_{l_\mu l_i} \delta_{m_\mu m_i}
+    \epsilon_{n_i l_i m_i}
+        \sum_{n_\nu}
+        S_{n_\mu n_\nu}^{l_i}
+    C_{n_\nu n_i}^{l_i}"/></p>
+</div><p>The eigenvalues will be degenerate with respect to <img class="math" src="../../_images/math/796159ab6e186e3675497b6d219b5389ea56175c.png" alt="m_i"/>
+and so the radial Roothaan equations are to be solved for each <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/d0e47159ff7aeabd4dae28028ee1d06c8ba2811e.png" alt="\sum_{n_\nu}
+    (T + V + G)_{n_\mu n_\nu}^l
+    C_{n_\nu n_i}^l =
+    \epsilon_{n_i l}
+        \sum_{n_\nu}
+        S_{n_\mu n_\nu}^l
+    C_{n_\nu n_i}^l"/></p>
+</div><p>The total energy is:</p>
+<div class="math">
+<p><img src="../../_images/math/5692ad584faafd333fc33ce3bf4a507686a61465.png" alt="E = \half \sum_{\mu\nu} P_{\nu\mu} (H_{\mu\nu}^{\mbox{core}}
+    +F_{\mu\nu}) =
+
+= \sum_{\mu\nu} P_{\nu\mu} (F_{\mu\nu} - \half G_{\mu\nu}) =
+
+= \sum_{\mu\nu}
+    \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} P_{n_\mu n_\nu}^{l_\mu}
+    \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    (F - \half G)^{l_\mu}_{n_\mu n_\nu} =
+
+= \sum_{l_\mu}\sum_{m_\mu}\sum_{n_\mu n_\nu}
+    P_{n_\mu n_\nu}^{l_\mu}
+    (F - \half G)^{l_\mu}_{n_\mu n_\nu} =
+
+= \sum_{l_\mu} \sum_{n_\mu n_\nu}
+    (2l_\mu+1)
+    P_{n_\mu n_\nu}^{l_\mu}
+    (F - \half G)^{l_\mu}_{n_\mu n_\nu} =
+
+= \sum_l \sum_{n_\mu n_\nu}
+    (2l+1)
+    P_{n_\mu n_\nu}^l
+    (F - \half G)^l_{n_\mu n_\nu} =
+
+= \sum_l \sum_{n_\mu n_\nu}
+    (2l+1)
+    \sum_n 2 C^l_{n_\mu n} C^l_{n_\nu n}
+    (F^l_{n_\mu n_\nu} - \half G^l_{n_\mu n_\nu}) =
+
+= \sum_l \sum_{n_\mu n_\nu}
+    (2l+1)
+    \sum_n 2 C^l_{n_\mu n} C^l_{n_\nu n}
+    \left(\epsilon_{n l} S^l_{n_\mu n_\nu} - \half
+ \sum_{l'}
+2(2l'+1)\sum_{n'} \right.
+
+\left.
+\left(
+    R^0(n_\mu l, n' l', n_\nu l, n' l')
+-
+\sum_{k=| l-l'| }^{l+l'}
+\half
+\begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+R^k(n_\mu l, n' l', n' l', n_\nu l) \right) \right) =
+
+= \sum_l \sum_n 2(2l+1) \left( \epsilon_{n l}
+    -\sum_{l'} \sum_{n'} (2l'+1)
+    \left(
+        R^0(n l, n' l', n l, n' l')
+            -\half \sum_{k=|l-l'|}^{k=l+l'}
+             \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
+            R^k(n l, n' l', n' l', n l) \right)
+    \right)"/></p>
+</div></div>
+<div class="section" id="hartree-potential-direct-term">
 <h3>Hartree Potential (Direct Term)<a class="headerlink" href="#hartree-potential-direct-term" title="Permalink to this headline">¶</a></h3>
 <p>The direct (Hartree) term is given by:</p>
 <div class="math">
@@ -662,7 +1076,8 @@ G_{\mu l_\mu m_\mu \nu l_\nu m_\nu} =
         (\mu \nu|\beta \alpha)"/></p>
 </div><p>In spherical symmetry, we get (see <a class="reference internal" href="#hartree-spherical"><em>Hartree Potential in Spherical Symmetry</em></a> for derivation):</p>
 <div class="math" id="equation-hartree2">
-<p><span class="eqno">(12)</span><img src="../../_images/math/79de321d59958640acc033ac8eb277958abaf809.png" alt="J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  = \sum_{k} 2(2l_k+1)
+<p><span class="eqno">(12)</span><img src="../../_images/math/b54b112f33825a2243a5c413e448fcec4b04df13.png" alt="J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  =
+    \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu} \sum_{k} 2(2l_k+1)
     R^0(\mu, k, \nu, k)"/></p>
 </div><p>Here we sum over the occupied radial orbitals <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>. This sum is already carried
 out in <img class="math" src="../../_images/math/99829326e0f2d53d7516a439d86c1c6e6c04f6a5.png" alt="P_{\alpha\beta}"/> in <a href="#equation-hartree1">(11)</a>. On the other hand, <a href="#equation-hartree2">(12)</a>
@@ -2235,6 +2650,7 @@ E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
 </ul>
 </li>
 <li><a class="reference internal" href="#g-matrix">G Matrix</a><ul>
+<li><a class="reference internal" href="#radial-roothaan-equations">Radial Roothaan Equations</a></li>
 <li><a class="reference internal" href="#hartree-potential-direct-term">Hartree Potential (Direct Term)</a></li>
 <li><a class="reference internal" href="#two-particle">Two particle</a></li>
 </ul>
