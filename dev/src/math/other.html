@@ -1061,12 +1061,22 @@ analytically).</p>
 </div><p>For <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> real, one just uses the second formula as a definition:</p>
 <div class="math">
 <p><img src="../../_images/math/9bbdc4748fc749ec59c9c9565e77ffdc84e0d098.png" alt="\binom{r}{k} = {r (r-1) \cdots (r-k+1)\over k!}"/></p>
-</div><p>Example:</p>
+</div><p>Example I:</p>
 <div class="math">
 <p><img src="../../_images/math/9cda2b102210117b1abe355d869c95ac6d9a69a2.png" alt="\binom{-n}{k}
     = {(-n) (-n-1) \cdots (-n-k+1)\over k!}
     = (-1)^{k} {n (n+1) \cdots (n+k-1)\over k!}
     = (-1)^{k}\binom{n+k-1}{k}"/></p>
+</div><p>Example II:</p>
+<div class="math">
+<p><img src="../../_images/math/cdbacd96a48e5ee9fd706403e2303d903bff1c39.png" alt="\binom{k-\half}{k}
+    = {(k-\half) (k-\half-1) \cdots (k-\half-k+1)\over k!}
+    = {(k-\half) (k-\half-1) \cdots \half\over k!} =
+
+    = {(2k-1) (2k-3) \cdots 1\over 2^k k!}
+    = {(2k-1)!!\over 2^k k!}
+    = {(2k)!\over (2^k k!)^2}
+    = {1\over 4^k}\binom{2k}{k}"/></p>
 </div><p>The binomial formula is for <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> integer:</p>
 <div class="math">
 <p><img src="../../_images/math/30f1025587b5179ab4c3a145f44ba09e0e38eaee.png" alt="(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}"/></p>
@@ -1080,12 +1090,73 @@ analytically).</p>
     = \sum_{k=0}^\infty \binom{n+k-1}{k} (-x)^k"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/659af3f919fa183968a5813de027425b1aebefe9.png" alt="(1 - x)^{-n} = \sum_{k=0}^\infty \binom{n+k-1}{k} x^k
+<p><img src="../../_images/math/176ff719b93c06390cdf74c5c5bd80e33cae64d0.png" alt="(1 - x)^{-n} = \sum_{k=0}^\infty \binom{n+k-1}{k} x^k
 
 (1 - x)^{-1} = \sum_{k=0}^\infty \binom{1+k-1}{k} x^k
     = \sum_{k=0}^\infty \binom{k}{k} x^k
-    = \sum_{k=0}^\infty x^k"/></p>
-</div></div>
+    = \sum_{k=0}^\infty x^k
+
+(1 - x)^{-\half} = \sum_{k=0}^\infty \binom{\half+k-1}{k} x^k
+= \sum_{k=0}^\infty \binom{k-\half}{k} x^k
+= \sum_{k=0}^\infty {1\over 4^k}\binom{2k}{k} x^k"/></p>
+</div><p>Another example:</p>
+<div class="math">
+<p><img src="../../_images/math/cfb5d74dac906768fe35babf335a94370c6c4d31.png" alt="{1\over\sqrt{1-2xt+t^2}} = \left(1-(2xt-t^2)\right)^{-\half}
+    = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} (2xt-t^2)^n =
+
+    = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
+        \binom{n}{k} (-t^2)^k (2xt)^{n-k} =
+
+    = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
+        \binom{n}{k} (-1)^k t^{2k} (2x)^{n-k} t^{n-k} =
+
+    = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
+        \binom{n}{k} (-1)^k t^{n+k} (2x)^{n-k} =
+
+    = \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+        {1\over 4^{n-k}}\binom{2n-2k}{n-k}
+        \binom{n-k}{k} (-1)^k t^{n} (2x)^{n-2k} =
+
+    = \sum_{n=0}^\infty \left(
+        {1\over 2^n}
+        \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+        (-1)^k
+        \binom{n}{k}
+        \binom{2n-2k}{n}
+        x^{n-2k} \right) t^{n} =
+
+    = \sum_{n=0}^\infty \left(
+        {1\over 2^n}
+        \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+        (-1)^k
+        \binom{n}{k}
+        {1\over n!}{\d^n \over \d x^n} x^{2n-2k}
+        \right) t^{n} =
+
+    = \sum_{n=0}^\infty \left(
+        {1\over 2^n}
+        \sum_{k=0}^n
+        (-1)^k
+        \binom{n}{k}
+        {1\over n!}{\d^n \over \d x^n} x^{2n-2k}
+        \right) t^{n} =
+
+    = \sum_{n=0}^\infty \left(
+        {1\over 2^n n!}
+        {\d^n \over \d x^n} (x^2 - 1)^n
+        \right) t^{n} =
+
+    = \sum_{n=0}^\infty P_n(x) t^{n}"/></p>
+</div><p>where we used:</p>
+<div class="math">
+<p><img src="../../_images/math/64aa84a09cd270d9fb8684f8cbff83dfde2e3614.png" alt="\sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
+    \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+        a_{n-k, k}"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/c061241a78f999b6f9affc0deef00af036a7cf8b.png" alt="\binom{2n-2k}{n-k} \binom{n-k}{k} = \binom{2n-2k}{n} \binom{n}{k}"/></p>
+</div><p>The <img class="math" src="../../_images/math/9f7ba371de1369bc2066fe2ef779dd977b4cbdf6.png" alt="P_n(x)"/> are <a class="reference internal" href="spherical-harmonics.html#legendre-polynomials"><em>Legendre Polynomials</em></a>.</p>
+</div>
 <div class="section" id="triangle-inequality">
 <h1>Triangle Inequality<a class="headerlink" href="#triangle-inequality" title="Permalink to this headline">¶</a></h1>
 <p>Triangle inequality (condition) means that none of the three
