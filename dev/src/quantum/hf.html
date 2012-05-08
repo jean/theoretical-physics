@@ -2634,6 +2634,29 @@ E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
              \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
             R^k(n l, n' l', n' l', n l) \right)"/></p>
 </div></div>
+<div class="section" id="index-transformation">
+<h2>4-Index Transformation<a class="headerlink" href="#index-transformation" title="Permalink to this headline">¶</a></h2>
+<p>The 4-index transformation is a way to convert the two particle
+integrals over basis functions <img class="math" src="../../_images/math/9d71e6c31b23969c8045c087f04a9ce21274b327.png" alt="(\alpha \beta | \gamma \delta)"/> into
+two particle integrals over atomic (or molecular) orbitals <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/4491f9a18f6bbacfc433f4f98ed6d9d08ed1ef46.png" alt="(ij | kl) = \sum_{\alpha \beta \gamma \delta}
+    C_{\alpha i}
+    C_{\beta j}
+    C_{\gamma k}
+    C_{\delta l} (\alpha \beta | \gamma \delta)"/></p>
+</div></div>
+<div class="section" id="green-s-functions">
+<h2>Green&#8217;s Functions<a class="headerlink" href="#green-s-functions" title="Permalink to this headline">¶</a></h2>
+<p>The self energy up to a second order is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/689a8073cf2a4a5acbb20459366f4aa8163a852c.png" alt="\Sigma_{ij}(E) =
+    \sum_{ars} {(ir|as) (2(jr|as)-(js|ar))\over E + \epsilon_a
+        -\epsilon_r - \epsilon_s} +
+    \sum_{abr} {(ia|br) (2(ja|br)-(jb|ar))\over E + \epsilon_r
+        -\epsilon_a - \epsilon_b}"/></p>
+</div><p>The <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/> are occupied orbitals, <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>, <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> are virtual orbitals.</p>
+</div>
 </div>
 
 
@@ -2679,6 +2702,8 @@ E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
 </ul>
 </li>
 <li><a class="reference internal" href="#fem">FEM</a></li>
+<li><a class="reference internal" href="#index-transformation">4-Index Transformation</a></li>
+<li><a class="reference internal" href="#green-s-functions">Green&#8217;s Functions</a></li>
 </ul>
 </li>
 </ul>
