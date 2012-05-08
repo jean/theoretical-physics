@@ -417,10 +417,18 @@ P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
 </div><p>Note that this notation implicitly assumes the <img class="math" src="../../_images/math/a5b53617712b1000eeecd9722cfdc9bc1ad732fe.png" alt="{1\over r_{12}}"/> factor, so
 for example <img class="math" src="../../_images/math/7c6f36f4c59d356935cb5510a1c4904d3540ac99.png" alt="\braket{\mu \beta|\nu \alpha}"/> actually means
 <img class="math" src="../../_images/math/ae147b802c2fa8e3c75f12c35847c28e338cbb07.png" alt="\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}"/> and one has to understand this
-from the context. The two particle matrix element is:</p>
+from the context.</p>
+</div>
+<div class="section" id="two-particle-matrix-element">
+<h2>Two Particle Matrix Element<a class="headerlink" href="#two-particle-matrix-element" title="Permalink to this headline">¶</a></h2>
+<p>The two particle matrix element is:</p>
 <div class="math" id="equation-twoint">
-<p><span class="eqno">(10)</span><img src="../../_images/math/4fb41159bc01262312d85f07a6da404dde619f20.png" alt="(ij|kl) = \braket{ik|jl} =
+<p><span class="eqno">(10)</span><img src="../../_images/math/8903efda6422645716dae3841efac2fa42034256.png" alt="(ij|kl) =
     \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x' =
+
+= \braket{ik|jl} =
+    \int {\psi_i^*({\bf x})\psi_k^*({\bf x}')\psi_j({\bf x})\psi_l({\bf x}')
         \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'"/></p>
 </div><p>The <img class="math" src="../../_images/math/7d15ba812195ebfc9bf8619bd423e188fa67ae14.png" alt="\braket{ik|jl}"/> is called the physicists&#8217; notation because
 the <img class="math" src="../../_images/math/eb056c43a2c2ae7c01c3a8fcedfa03f4f1025076.png" alt="\ket{jl}"/> and <img class="math" src="../../_images/math/dbe6c3b6fb1a5b8bee0e412d36159bb7719007cc.png" alt="\ket{ik}"/> kets are:</p>
@@ -428,9 +436,39 @@ the <img class="math" src="../../_images/math/eb056c43a2c2ae7c01c3a8fcedfa03f4f1
 <p><img src="../../_images/math/c3f0fa0fc4d7331489ee7138c37f69157db29b98.png" alt="\ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
 
 \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')"/></p>
-</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(10)</a> the
-symmetries of <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> are exchange of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> with <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> or the
-<img class="math" src="../../_images/math/c26aadb390865e9669bcb79c4e6af904a2dea7cc.png" alt="ij"/> and <img class="math" src="../../_images/math/9877f8f461d8617a227b3299a84354190b9e347c.png" alt="kl"/> pairs:</p>
+</div><p>The <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> is called the chemists&#8217; notation. From <a href="#equation-twoint">(10)</a> there
+are two types of symmetries &#8212; interchanging of the dummy variables:</p>
+<div class="math">
+<p><img src="../../_images/math/15e373a6b6be4bb27f58459ccc4a2943522ddb46.png" alt="(ij|kl) = \braket{ik|jl} =
+    \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x' =
+
+    = \int {\psi_i^*({\bf x}')\psi_j({\bf x}')
+        \psi_k^*({\bf x})\psi_l({\bf x})
+        \over | {\bf x}' - {\bf x} |} \d^3 x' \d^3 x
+    = (kl|ij) = \braket{ki|lj}"/></p>
+</div><p>and taking complex conjugate:</p>
+<div class="math">
+<p><img src="../../_images/math/4a55dc5413477f94695df996d815f4dcb1f6ff66.png" alt="(ij|kl)^*
+= \braket{ik|jl}^* =
+    \left(
+    \int {\psi_i^*({\bf x})\psi_k^*({\bf x}')\psi_j({\bf x})\psi_l({\bf x}')
+        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'\right)^* =
+
+    =
+    \int {\psi_i({\bf x})\psi_k({\bf x}')\psi_j^*({\bf x})\psi_l^*({\bf x}')
+        \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x' =
+    \braket{jl|ik} = (ji|lk)"/></p>
+</div><p>If the matrix elements are real, then:</p>
+<div class="math">
+<p><img src="../../_images/math/64da99998bfdf68f32ffaf8b2fdf3bc20408f514.png" alt="(ij|kl) = \braket{ik|jl} =
+    \braket{jl|ik} = (ji|lk)"/></p>
+</div><p>In general those are the only symmetries (4 total).</p>
+<p>If however,
+the <img class="math" src="../../_images/math/bfef0abbaa6234b8e80d1bee37b64721ee4b5a6c.png" alt="\psi_i({\bf x})"/> functions are real, then there are additional symmetries:
+an exchange <img class="math" src="../../_images/math/5b030654ca7d14aace028ac42326ced4d7b6378b.png" alt="i \leftrightarrow j"/> and <img class="math" src="../../_images/math/878a41dc41f78009416896d77f944ced3391be6a.png" alt="k \leftrightarrow l"/>.
+The symmetries of <img class="math" src="../../_images/math/6d0cf5a685b50f413c16ec2d32e0791ad8c735e0.png" alt="(ij|kl)"/> are exchange of <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> with <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/> or <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> or the
+<img class="math" src="../../_images/math/c26aadb390865e9669bcb79c4e6af904a2dea7cc.png" alt="ij"/> and <img class="math" src="../../_images/math/9877f8f461d8617a227b3299a84354190b9e347c.png" alt="kl"/> pairs (8 total):</p>
 <div class="math">
 <p><img src="../../_images/math/9c5d9bba1183a5aac163f5e96bc9f2abf75fdfe2.png" alt="(ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
 
@@ -445,7 +483,9 @@ any order). The symmetries of the <img class="math" src="../../_images/math/7d15
 <p><img src="../../_images/math/40be5548e6e3033baae706b796d68c1c0d83f13b.png" alt="\braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
 
 = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}"/></p>
-</div></div>
+</div><p>For example the Slater integral <img class="math" src="../../_images/math/6ae619e66a76b52e9d939837a68a883f163d8c71.png" alt="R^k(i, j, k, l)"/> has all 8 symmetries (Slater
+integral uses physical notation).</p>
+</div>
 <div class="section" id="general-matrix-elements-in-spherical-symmetry">
 <h2>General Matrix Elements in Spherical Symmetry<a class="headerlink" href="#general-matrix-elements-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
 <p>Spherical symmetry is this particular choice of a basis:</p>
@@ -2607,6 +2647,7 @@ E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
 <li><a class="reference internal" href="#">Hartree-Fock (HF) Method</a><ul>
 <li><a class="reference internal" href="#derivation">Derivation</a></li>
 <li><a class="reference internal" href="#roothaan-equations-for-closed-shell-systems">Roothaan Equations For Closed Shell Systems</a></li>
+<li><a class="reference internal" href="#two-particle-matrix-element">Two Particle Matrix Element</a></li>
 <li><a class="reference internal" href="#general-matrix-elements-in-spherical-symmetry">General Matrix Elements in Spherical Symmetry</a><ul>
 <li><a class="reference internal" href="#overlap">Overlap</a></li>
 <li><a class="reference internal" href="#potential">Potential</a></li>
