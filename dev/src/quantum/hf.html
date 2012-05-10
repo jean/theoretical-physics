@@ -483,8 +483,88 @@ any order). The symmetries of the <img class="math" src="../../_images/math/7d15
 <p><img src="../../_images/math/40be5548e6e3033baae706b796d68c1c0d83f13b.png" alt="\braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
 
 = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}"/></p>
-</div><p>For example the Slater integral <img class="math" src="../../_images/math/6ae619e66a76b52e9d939837a68a883f163d8c71.png" alt="R^k(i, j, k, l)"/> has all 8 symmetries (Slater
+</div><p>Example I: the Slater integral <img class="math" src="../../_images/math/6ae619e66a76b52e9d939837a68a883f163d8c71.png" alt="R^k(i, j, k, l)"/> has all 8 symmetries (Slater
 integral uses physical notation).</p>
+<p>Example II: In spherical symmetry, the 2-particle integrals can be written as
+(see below for derivation):</p>
+<div class="math">
+<p><img src="../../_images/math/dc0299ce1bec8795294d8e14e7d25d98fbeb45a8.png" alt="\braket{\alpha \beta | \gamma \delta}
+=
+\braket{n_\alpha l_\alpha m_\alpha \ n_\beta l_\beta m_\beta |
+n_\gamma l_\gamma m_\gamma \ n_\delta l_\delta m_\delta}
+= (n_\alpha  l_\alpha m_\alpha \ n_\gamma l_\gamma m_\gamma |
+n_\beta l_\beta m_\beta \ n_\delta l_\delta m_\delta) =
+
+=
+\sum_{k=\max(| l_\alpha-l_\gamma| ,| l_\beta-l_\delta| , | m_\alpha-m_\gamma| )}^{
+    \min(l_\alpha+l_\gamma, l_\beta+l_\delta)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\alpha, m_\alpha, l_\gamma, m_\gamma)
+c^k(l_\delta, m_\delta, l_\beta, m_\beta)
+
+\delta_{m_\alpha+m_\beta- m_\gamma-m_\delta, 0}
+
+R^k(n_\alpha l_\alpha, n_\beta l_\beta, n_\gamma l_\gamma,
+    n_\delta l_\delta)"/></p>
+</div><p>They only have 4 symmetries, because spherical harmonics are complex. In
+particular:</p>
+<div class="math">
+<p><img src="../../_images/math/812375ad61ebd918b9fd9ef8297764991af84ee4.png" alt="\braket{\beta \alpha | \delta \gamma}
+=
+\sum_{k=\max(| l_\beta-l_\delta| ,| l_\alpha-l_\gamma| , | m_\beta-m_\delta| )}^{
+    \min(l_\beta+l_\delta, l_\alpha+l_\gamma)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\beta, m_\beta, l_\delta, m_\delta)
+c^k(l_\gamma, m_\gamma, l_\alpha, m_\alpha)
+
+\delta_{m_\beta+m_\alpha- m_\delta-m_\gamma, 0}
+
+R^k(n_\beta l_\beta, n_\alpha l_\alpha, n_\delta l_\delta,
+    n_\gamma l_\gamma) =
+
+= \sum_{k=\max(| l_\beta-l_\delta|, | l_\alpha-l_\gamma|,
+    | m_\beta-m_\delta| )}^{\min(l_\beta+l_\delta, l_\alpha+l_\gamma)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\alpha, m_\alpha, l_\gamma, m_\gamma)
+c^k(l_\delta, m_\delta, l_\beta, m_\beta)
+(-1)^{m_\alpha-m_\gamma + m_\beta-m_\delta}
+
+\delta_{m_\beta+m_\alpha- m_\delta-m_\gamma, 0}
+
+R^k(n_\alpha l_\alpha, n_\beta l_\beta, n_\gamma l_\gamma,
+    n_\delta l_\delta) = \braket{\alpha \beta | \gamma \delta}"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/1cf25cc21396dc623c1395da072d60d9fc9883b4.png" alt="\braket{\gamma \delta | \alpha \beta}
+=
+\braket{n_\gamma l_\gamma m_\gamma \ n_\delta l_\delta m_\delta |
+n_\alpha l_\alpha m_\alpha \ n_\beta l_\beta m_\beta}
+= (n_\gamma  l_\gamma m_\gamma \ n_\alpha l_\alpha m_\alpha |
+n_\delta l_\delta m_\delta \ n_\beta l_\beta m_\beta) =
+
+=
+\sum_{k=\max(| l_\gamma-l_\alpha| ,| l_\delta-l_\beta| , |
+m_\gamma-m_\alpha| )}^{
+    \min(l_\gamma+l_\alpha, l_\delta+l_\beta)
+}\!\!\!\!\!\!\!\!\!\!\!\!
+c^k(l_\gamma, m_\gamma, l_\alpha, m_\alpha)
+c^k(l_\beta, m_\beta, l_\delta, m_\delta)
+
+\delta_{m_\gamma+m_\delta- m_\alpha-m_\beta, 0}
+
+R^k(n_\gamma l_\gamma, n_\delta l_\delta, n_\alpha l_\alpha,
+    n_\beta l_\beta)
+
+=
+\braket{\alpha \beta | \gamma \delta}"/></p>
+</div><p>We used the symmetries of the Slater integrals as well as the <img class="math" src="../../_images/math/310746dd13a807fb847da174a52034f2059b17b0.png" alt="c^k"/>
+coefficients that change a sign, but thanks to the <img class="math" src="../../_images/math/f14edf10ff125c2a569ed8db14187f6ddaaadf7d.png" alt="\delta_{m_\gamma+m_\delta-
+m_\alpha-m_\beta, 0}"/>, the overall sign does not change. The other two
+symmetries are missing, i.e.
+<img class="math" src="../../_images/math/81e5e837203733fa39dc197028bf3f8840b5c8b8.png" alt="\braket{\gamma \beta | \alpha \delta} \ne
+\braket{\alpha \beta | \gamma \delta}"/> and
+<img class="math" src="../../_images/math/591293fc1947aeb5423e563de630809d3dbb6f69.png" alt="\braket{\alpha \delta | \gamma \beta} \ne
+\braket{\alpha \beta | \gamma \delta}"/>.</p>
 </div>
 <div class="section" id="general-matrix-elements-in-spherical-symmetry">
 <h2>General Matrix Elements in Spherical Symmetry<a class="headerlink" href="#general-matrix-elements-in-spherical-symmetry" title="Permalink to this headline">¶</a></h2>
