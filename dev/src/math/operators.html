@@ -161,7 +161,7 @@ sum over <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54
     \to 0"/></p>
 </div></div>
 <div class="section" id="derivative-operator">
-<h2>Derivative Operator<a class="headerlink" href="#derivative-operator" title="Permalink to this headline">¶</a></h2>
+<span id="deriv-operator"></span><h2>Derivative Operator<a class="headerlink" href="#derivative-operator" title="Permalink to this headline">¶</a></h2>
 <p>We have the eigenvalue problem</p>
 <div class="math">
 <p><img src="../../_images/math/cf9ab471c8498cd51826f8cc2ff634746d548a12.png" alt="A u = \lambda u"/></p>
@@ -478,6 +478,256 @@ f_n = f_n' \sqrt{2n+1\over 2}
     = {2n+1\over 2} \int_{-1}^1 P_n(x) f(x)"/></p>
 </div></div>
 </div>
+<div class="section" id="angular-momentum-operator">
+<h2>Angular Momentum Operator<a class="headerlink" href="#angular-momentum-operator" title="Permalink to this headline">¶</a></h2>
+<p>The angular momentum operators <img class="math" src="../../_images/math/3f22b669e4803ae525cf8120ca251e2eab025872.png" alt="L_1"/>, <img class="math" src="../../_images/math/e13a902eb6a24cf493a2732badd0d151fb4f7672.png" alt="L_2"/> and <img class="math" src="../../_images/math/199064ab269e28abf76e7f8f9947f2a4b536da3d.png" alt="L_3"/> are given by:</p>
+<div class="math">
+<p><img src="../../_images/math/391ec6584e13f8351e089886f16f9b04f46eebd7.png" alt="L_j = -i \epsilon_{jkl} x_k \partial_l"/></p>
+</div><p>in spherical coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/e5229d43c42db12c5fd23d33789d7767ebd1b3b0.png" alt="L_1 &amp;= i \left(\sin \phi \ \partial_\theta
+     + \cot \theta \cos \phi \ \partial_\phi\right) \\
+L_2 &amp;= i \left(-\cos\phi \ \partial_\theta
+    + \cot \theta \sin \phi \ \partial_\phi\right) \\
+L_3 &amp;= -i \partial_\phi"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/3fe330894f1d53b65922fe8f1827512846890961.png" alt="L^2 = L_1^2 + L_2^2 + L_3^2 =
+     - \left( {1\over\sin\theta} \partial_\theta
+            \left(\sin\theta \ \partial_\theta \right)
+     + {1\over \sin^2\theta}\partial_\phi^2\right)"/></p>
+</div><p>The eigenproblem is:</p>
+<div class="math" id="equation-Ylm_eig">
+<p><span class="eqno">(1)</span><img src="../../_images/math/4f7a4d1f7028a901e215b9e2b334b4296cc0bb29.png" alt="L^2 \ket{lm} &amp;= l(l+1) \ket{lm} \\
+L_3 \ket{lm} &amp;= m \ket{lm}"/></p>
+</div><p>Using Condon &amp; Shortley phase convention, it can be shown that:</p>
+<div class="math" id="equation-ladder">
+<p><span class="eqno">(2)</span><img src="../../_images/math/6d1032b97c84028eeb1446a661be7dafcdf707f3.png" alt="(L_1 \pm i L_2) \ket{l, m} = \sqrt{(l \mp m)(l\pm m + 1)} \ket{l,m \pm 1}"/></p>
+</div><p>and by repeated application:</p>
+<div class="math">
+<p><img src="../../_images/math/b11360bcc20d711a2468e6835afe148e014fb84d.png" alt="(L_1 \pm i L_2)^k \ket{l, m} =
+
+    = \sqrt{(l \mp m)(l \mp m-1)\cdots(l\mp m -k+1)
+        (l\pm m + 1)(l\pm m + 2)\cdots(l\mp m + k)} \ket{l,m \pm k} =
+
+    = \sqrt{{(l\mp m)!\over (l\pm m)!} {(l\pm m + k)!\over (l\mp m - k)!}}
+        \ket{l,m \pm k}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/67b7a6b4ba49718269b689afecc5f50c97c4b5f1.png" alt="L_1 + i L_2 = i \sin \phi \ \partial_\theta
+     + i \cot \theta \cos \phi \ \partial_\phi
+    \pm \left(\cos\phi \ \partial_\theta
+    - \cot \theta \sin \phi \ \partial_\phi\right) =
+
+= e^{\pm i\phi} \left(\pm \partial_\theta + i \cot\theta \partial_\phi
+    \right)"/></p>
+</div><p>The solution of <a href="#equation-Ylm_eig">(1)</a> is of the form:</p>
+<div class="math" id="equation-Ylm_form">
+<p><span class="eqno">(3)</span><img src="../../_images/math/6ad7529f219051343b6e9ff9f4d0bfc6f9690426.png" alt="\braket{\theta \phi | l m} = Y_{lm}(\theta, \phi)
+    = \Theta_{lm}(\theta) \Phi_m(\phi)"/></p>
+</div><p>and we get from <a href="#equation-Ylm_eig">(1)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/3de91ddcec8d4f93955662e23867da065143fd82.png" alt="-i {\d\over\d\phi} \Phi_m(\phi) = m \Phi_m(\phi)"/></p>
+</div><p>on the interval <img class="math" src="../../_images/math/700a646698acb6df3a6d32beed152ac60bd3f685.png" alt="[0, 2 \pi]"/> with the boundary condition <img class="math" src="../../_images/math/d7b3a4a49cb9893adf6c7d3c03c34a149e92322d.png" alt="\Phi_m(0) =
+\Phi_m(2\pi)"/>. From
+<a class="reference internal" href="#deriv-operator"><em>Derivative Operator</em></a> the eigenvalues are all integer <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>
+and the normalized eigenvector is:</p>
+<div class="math" id="equation-Phi_sol">
+<p><span class="eqno">(4)</span><img src="../../_images/math/4d2b8db6a0fda603de41737c8b7009e6428c4a6c.png" alt="\Phi_m(\phi) = {1\over\sqrt{2\pi}} e^{im\phi}"/></p>
+</div><p>Substituting <a href="#equation-Phi_sol">(4)</a> into <a href="#equation-Ylm_form">(3)</a> we get from
+<a href="#equation-Ylm_eig">(1)</a> an ordinary second order differential equation for
+<img class="math" src="../../_images/math/b5d8f2bf8a09d5aef874541c85744c196ca99f8f.png" alt="\Theta_{lm}(\theta)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/96e7a9cccd3ad55752ba3a7a6d01ce605d8aa864.png" alt="L^2 \ket{lm} = l(l+1) \ket{lm}
+
+- \left( {1\over\sin\theta} \partial_\theta
+            \left(\sin\theta \ \partial_\theta \right)
+     + {1\over \sin^2\theta}\partial_\phi^2\right)
+    {1\over\sqrt{2\pi}} e^{im\phi} \Theta_{lm}
+    = l(l+1) {1\over\sqrt{2\pi}} e^{im\phi} \Theta_{lm}
+
+{1\over\sin\theta} {\d\over\d \theta}
+            \left(\sin\theta {\d\over\d \theta} \Theta_{lm}\right)
+            +
+        \left( l(l+1) - {m^2\over \sin^2\theta} \right) \Theta_{lm} = 0
+
+{\d\over\d \cos\theta} \left((1-\cos^2\theta)
+    {\d\over\d \cos \theta} \Theta_{lm}\right)
+            +
+        \left( l(l+1) - {m^2\over 1-\cos^2\theta} \right) \Theta_{lm} = 0
+
+{\d\over\d z} \left((1-z^2) {\d \Theta_{lm}\over\d z}\right)
+    + \left(l (l+1) - {m^2\over 1-z^2}\right)\Theta_{lm} = 0"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/6561dfcfe19b0240c797957955329e0a5143b496.png" alt="z = \cos\theta"/></p>
+</div><p>This equation can be solved using the following approach.
+From <a href="#equation-ladder">(2)</a> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/64016ccc484b240dfb80fd04a3c234eff94a560c.png" alt="(L_1\pm iL_2)Y_{lm}(\theta, \phi)
+= (L_1\pm iL_2)\Theta_{lm}(\theta)\Phi_m(\phi) =
+
+= e^{\pm i\phi} \left(\pm \partial_\theta + i \cot\theta \partial_\phi
+    \right) \Theta_{lm}(\theta) {1\over\sqrt{2\pi}} e^{im\phi} =
+
+= {1\over\sqrt{2\pi}} e^{i(m\pm1)\phi}
+    \left(\pm {\d\over\d \theta} -m \cot\theta \right) \Theta_{lm}(\theta) =
+
+= \mp {1\over\sqrt{2\pi}} e^{i(m\pm1)\phi}
+    \left(\sin\theta {\d\over\d \cos \theta} \mp m
+        {\d\sin\theta\over\d \cos\theta} \right) \Theta_{lm}(\theta) =
+
+= \mp {1\over\sqrt{2\pi}} e^{i(m\pm1)\phi}
+    \sin^{1\pm m}\theta \left({\d\over\d \cos \theta}
+    \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right) =
+
+= \mp \Phi_{m\pm 1}(\phi)
+    \sin^{1\pm m}\theta \left({\d\over\d \cos \theta}
+    \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right)"/></p>
+</div><p>and by repeated application we get:</p>
+<div class="math">
+<p><img src="../../_images/math/5de886c123e846944d27003c0caa809f5cd7fbda.png" alt="(L_1\pm iL_2)^k Y_{lm}(\theta, \phi)
+= (\mp 1)^k \Phi_{m\pm k}(\phi)
+    \sin^{k\pm m}\theta \left({\d^k\over(\d \cos \theta)^k}
+    \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right) =
+
+= \sqrt{{(l\mp m)!\over (l\pm m)!} {(l\pm m + k)!\over (l\mp m - k)!}}
+    \Phi_{m \pm k}(\phi) \Theta_{l,m\pm k}(\theta)"/></p>
+</div><p>from which we obtain:</p>
+<div class="math" id="equation-Theta_lmpmk">
+<p><span class="eqno">(5)</span><img src="../../_images/math/b075a362cdf8871e8c8df5ac25706f2c296d0ecf.png" alt="\Theta_{l,m\pm k}(\theta) =
+    \sqrt{{(l\pm m)!\over (l\mp m)!} {(l\mp m - k)!\over (l\pm m + k)!}}
+        (\mp 1)^k
+    \sin^{k\pm m}\theta \left({\d^k\over(\d \cos \theta)^k}
+    \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right)"/></p>
+</div><p>As a special case for <img class="math" src="../../_images/math/2e275495e7e44d279fb3e5051b3a63115e79ead5.png" alt="m=0"/> and <img class="math" src="../../_images/math/ec2f38a7d062082c08e4d192494d961eaa2bc0e2.png" alt="k=m&gt;0"/> we get:</p>
+<div class="math" id="equation-Theta_lpmm">
+<p><span class="eqno">(6)</span><img src="../../_images/math/906cf49bc6e2ce0137721493c722e4dace0ebe7f.png" alt="\Theta_{l,\pm m}(\theta) =
+        (\mp 1)^m
+    \sqrt{{(l - m)!\over (l + m)!}}
+    \sin^{m}\theta \left({\d^m\over(\d \cos \theta)^m}
+    \Theta_{l0}(\theta) \right)"/></p>
+</div><p>and for <img class="math" src="../../_images/math/50008ac2f954f964a7fd2f6a40d0fc8d29cd7710.png" alt="m=l"/> and <img class="math" src="../../_images/math/3665de1ea0e4e57219da6b5f751887654cee3cf7.png" alt="k=l-m"/> we get (we only use the <img class="math" src="../../_images/math/368b0180d5b5f6370fab3d36c03cd80ca4fa7cec.png" alt="\Theta_{l,m- k}"/> branch):</p>
+<div class="math" id="equation-Theta_ll">
+<p><span class="eqno">(7)</span><img src="../../_images/math/350e438c86e8a4c80588b91c571da148bf04c7f1.png" alt="\Theta_{lm}(\theta) =
+\Theta_{l,l-(l-m)}(\theta) =
+
+    = \sqrt{{(l- l)!\over (l+ l)!} {(l+ l - (l-m))!\over (l- l +
+    l-m)!}}
+        (+ 1)^{l-m}
+    \sin^{l-m- l}\theta \left({\d^{l-m}\over(\d \cos \theta)^{l-m}}
+    \sin^{+ l}\theta\ \Theta_{ll}(\theta) \right) =
+
+    = \sqrt{{1\over (2l)!} {(l+m)!\over (l-m)!}}
+    {1\over\sin^m\theta} \left({\d^{l-m}\over(\d \cos \theta)^{l-m}}
+    \sin^l\theta\ \Theta_{ll}(\theta) \right)"/></p>
+</div><p>From
+<a href="#equation-ladder">(2)</a> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8178f57ccefa81fa8ecbd026d527d6de23473293.png" alt="(L_1 + i L_2) Y_{ll}
+    = \sqrt{(l - l)(l + l + 1)} Y_{ll} = 0"/></p>
+</div><p>Using <a href="#equation-Phi_sol">(4)</a> this gives us a first order differential equation:</p>
+<div class="math">
+<p><img src="../../_images/math/1985c580d59aef867bc43912616c60741c500707.png" alt="(L_1 + i L_2) \Theta_{ll} \Phi_l = 0
+
+e^{i\phi} \left(\partial_\theta + i \cot\theta \partial_\phi
+    \right) \Theta_{ll} {1\over\sqrt{2\pi}} e^{i l\phi} = 0
+
+{\partial \Theta_{ll}\over\partial \theta} - l \cot \theta \ \Theta_{ll} = 0"/></p>
+</div><p>from which</p>
+<div class="math" id="equation-Theta_ll_form">
+<p><span class="eqno">(8)</span><img src="../../_images/math/aa6122e7ce64209d1a244159d7d76e9b5c7c38b8.png" alt="\Theta_{ll}(\theta) = (-1)^l \sqrt{(2l+1)!\over 2} {1\over 2^l l!}
+    \sin^l \theta"/></p>
+</div><p>It is normalized as:</p>
+<div class="math">
+<p><img src="../../_images/math/5fbfc76d5b4280413ed59babf31e1bd3bcd996bc.png" alt="\int_0^\pi \Theta_{ll}^2 \sin\theta\ \d\theta = 1"/></p>
+</div><p>We used the value of the integral:</p>
+<div class="math">
+<p><img src="../../_images/math/ba4e8071dad393f2fa7ce41367814fb106a862b6.png" alt="\int_0^\pi \sin^{2l+1}\theta\ \d\theta = {\sqrt\pi\ \Gamma(l+1)
+    \over \Gamma(l+{3\over2})}
+ = {\sqrt\pi\  2^{l+1} l! \over (2l+1)!! \sqrt\pi}
+ = {2^{l+1} l! \over (2l+1)!!}
+ = {2^{2l+2} (l+1)! l! \over (2l+2)!} =
+
+ = {(2^{l+1} l!)^2 (l+1) \over (2l+2)!}
+ = {4 (2^l l!)^2 (l+1) \over (2l+1)! 2 (l+1)}
+ = {2 (2^l l!)^2 \over (2l+1)!}"/></p>
+</div><p>Using <a href="#equation-Theta_ll_form">(8)</a> in <a href="#equation-Theta_ll">(7)</a> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/14418770fe865205d55b218827ccc6285616a954.png" alt="\Theta_{lm}(\theta)
+    = (-1)^l \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}}
+    {1\over 2^l l!}
+    {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
+    \sin^{2l}\theta"/></p>
+</div><p>for <img class="math" src="../../_images/math/2e275495e7e44d279fb3e5051b3a63115e79ead5.png" alt="m=0"/> we obtain:</p>
+<div class="math">
+<p><img src="../../_images/math/e9472ff05583ed9e19c151832d040da4c8961ef4.png" alt="\Theta_{l0}(\theta)
+    = (-1)^l \sqrt{{2l+1\over 2}}
+    {1\over 2^l l!}
+    {\d^l\over(\d \cos \theta)^l}
+    \sin^{2l}\theta =
+
+    = \sqrt{{2l+1\over 2}}
+    {1\over 2^l l!}
+    {\d^l\over(\d \cos \theta)^l}
+    (\cos^2\theta-1)^l =
+
+    = \sqrt{{2l+1\over 2}} P_l(\cos\theta)"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/bf47d40422980f5d8f434b7c910af4c64e3e3557.png" alt="P_l(z) = {1\over 2^l l!} {\d^l\over\d z^l} (z^2-1)^l"/></p>
+</div><p>is the Rodrigues&#8217; formula for Legendre polynomials.
+We substitute <img class="math" src="../../_images/math/0acdcffdf9a37fba7321c4c89e8a3aa0e31257e3.png" alt="\Theta_{l0}"/> into <a href="#equation-Theta_lpmm">(6)</a> and get:</p>
+<div class="math">
+<p><img src="../../_images/math/da2a3f319ee2ec95b66f240e17ef0a332d47b51b.png" alt="\Theta_{l,\pm m}(\theta) =
+        (\mp 1)^m
+    \sqrt{{2l+1\over 2}{(l - m)!\over (l + m)!}}
+    \sin^{m}\theta \left({\d^m\over(\d \cos \theta)^m}
+    P_l(\cos\theta) \right)"/></p>
+</div><p>Hence <img class="math" src="../../_images/math/5a8d62e3a14f816d7463e311431016db029b25af.png" alt="\Theta_{lm} = (-1)^m \Theta_{l,-m}"/>.
+Using associated Legendre polynomials, we can write:</p>
+<div class="math">
+<p><img src="../../_images/math/fb87c99a606bd1e412846ce001ad589457e6afb7.png" alt="\Theta_{lm}(\theta) = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}}
+    P_l^m(\theta)"/></p>
+</div><p>where (for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/e86c37ecb784f8dc2c94337c38d3f0e031a0c199.png" alt="P_l^m(\theta)
+= (-1)^l {(l+m)!\over (l-m)!} {1\over 2^l l!}
+{1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
+\sin^{2l}\theta =
+
+= {(l+m)!\over (l-m)!} {1\over 2^l l!}
+{1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
+(\cos^2\theta-1)^l =
+
+= (-1)^m {1\over 2^l l!}
+{(1-\cos^2)^m\theta\over\sin^m\theta}
+    {\d^{l+m}\over(\d \cos \theta)^{l+m}}
+(\cos^2\theta-1)^l =
+
+= (-1)^m {1\over 2^l l!}
+\sin^m\theta {\d^{l+m}\over(\d \cos \theta)^{l+m}}
+(\cos^2\theta-1)^l =
+
+= (-1)^m {1\over 2^l l!}
+(1-z^2)^{m\over 2} {\d^{l+m}\over \d z^{l+m}} (z^2-1)^l"/></p>
+</div><p>hence <img class="math" src="../../_images/math/a27ea6ccf618ccd934b021b1e6e74de2cc631a39.png" alt="P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)"/>.
+For <img class="math" src="../../_images/math/cec8d8345a476b8ca52d2e4c32d712dd5ed7169f.png" alt="m \ge 0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/327dff730ad4359baaae640132d31de44702e80a.png" alt="P_l^{\pm m}(\cos \theta) =
+    (\mp 1)^m
+\sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
+
+P_l^{\pm m}(z) =
+    (\mp 1)^m
+(1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)"/></p>
+</div><p>Finally, we get (for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/1809645d5a1d1787b3f971464d220a6b14b11e46.png" alt="Y_{lm}(\theta, \phi)
+    = \Theta_{lm}(\theta) \Phi_m(\phi)
+    = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
+    P_l^m(\theta) e^{im\phi}"/></p>
+</div></div>
 </div>
 
 
@@ -500,6 +750,7 @@ f_n = f_n' \sqrt{2n+1\over 2}
 <li><a class="reference internal" href="#legendre-polynomials">Legendre Polynomials</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#angular-momentum-operator">Angular Momentum Operator</a></li>
 </ul>
 </li>
 </ul>
