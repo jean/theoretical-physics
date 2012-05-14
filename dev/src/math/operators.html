@@ -678,8 +678,8 @@ e^{i\phi} \left(\partial_\theta + i \cot\theta \partial_\phi
 <p><img src="../../_images/math/bf47d40422980f5d8f434b7c910af4c64e3e3557.png" alt="P_l(z) = {1\over 2^l l!} {\d^l\over\d z^l} (z^2-1)^l"/></p>
 </div><p>is the Rodrigues&#8217; formula for Legendre polynomials.
 We substitute <img class="math" src="../../_images/math/0acdcffdf9a37fba7321c4c89e8a3aa0e31257e3.png" alt="\Theta_{l0}"/> into <a href="#equation-Theta_lpmm">(6)</a> and get:</p>
-<div class="math">
-<p><img src="../../_images/math/da2a3f319ee2ec95b66f240e17ef0a332d47b51b.png" alt="\Theta_{l,\pm m}(\theta) =
+<div class="math" id="equation-Theta3">
+<p><span class="eqno">(9)</span><img src="../../_images/math/da2a3f319ee2ec95b66f240e17ef0a332d47b51b.png" alt="\Theta_{l,\pm m}(\theta) =
         (\mp 1)^m
     \sqrt{{2l+1\over 2}{(l - m)!\over (l + m)!}}
     \sin^{m}\theta \left({\d^m\over(\d \cos \theta)^m}
@@ -711,23 +711,195 @@ Using associated Legendre polynomials, we can write:</p>
 
 = (-1)^m {1\over 2^l l!}
 (1-z^2)^{m\over 2} {\d^{l+m}\over \d z^{l+m}} (z^2-1)^l"/></p>
-</div><p>hence <img class="math" src="../../_images/math/a27ea6ccf618ccd934b021b1e6e74de2cc631a39.png" alt="P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)"/>.
-For <img class="math" src="../../_images/math/cec8d8345a476b8ca52d2e4c32d712dd5ed7169f.png" alt="m \ge 0"/>:</p>
+</div><p>hence (comparing the second and fourth equation above):</p>
 <div class="math">
-<p><img src="../../_images/math/327dff730ad4359baaae640132d31de44702e80a.png" alt="P_l^{\pm m}(\cos \theta) =
-    (\mp 1)^m
+<p><img src="../../_images/math/8e4fdbd66ed3640f8d78b670abcd54a89088360b.png" alt="P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)"/></p>
+</div><p>This is valid for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> (positive or negative).
+For <img class="math" src="../../_images/math/cec8d8345a476b8ca52d2e4c32d712dd5ed7169f.png" alt="m \ge 0"/> we get from <a href="#equation-Theta3">(9)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/58fa3e7255aba1a1db9e882521886642d840c7dc.png" alt="P_l^{m}(\cos \theta) =
+    (-1)^m
 \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
 
-P_l^{\pm m}(z) =
-    (\mp 1)^m
+P_l^{m}(z) =
+    (-1)^m
 (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)"/></p>
+</div><p>The normalization of associated Legendre polynomials is:</p>
+<div class="math">
+<p><img src="../../_images/math/2859ee6a42f0b29f088354cfe88114721a3a55ee.png" alt="\int_{-1}^1 \Theta_{lm}(\theta) \Theta_{l' m}(\theta)
+    \sin\theta \d \theta
+    = \delta_{l l'}
+
+\int_{-1}^1 P_l^m(x) P_{l'}^m(x) \d x = {2\over 2l+1} {(l+m)!\over(l-m)!}
+    \delta_{l l'}"/></p>
 </div><p>Finally, we get (for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>):</p>
 <div class="math">
 <p><img src="../../_images/math/1809645d5a1d1787b3f971464d220a6b14b11e46.png" alt="Y_{lm}(\theta, \phi)
     = \Theta_{lm}(\theta) \Phi_m(\phi)
     = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
     P_l^m(\theta) e^{im\phi}"/></p>
+</div><p>Any function on the sphere can be expanded as:</p>
+<div class="math">
+<p><img src="../../_images/math/f0d240a3d054589a994b9ea79b2a526853313a42.png" alt="f(\theta, \phi) = \braket{\theta \phi | f}
+= \sum_{l=0}^\infty \sum_{m=-l}^l \braket{\theta \phi|l m}
+    \braket{l m | f}
+= \sum_{l=0}^\infty \sum_{m=-l}^l Y_{lm}(\theta, \phi)
+    f_{l m}
+
+f_{lm} = \braket{l m | f}
+= \int \braket{l m | \Omega} \braket{\Omega | f} \d\Omega =
+
+= \int_0^{2\pi}\d\phi \int_0^\pi \d\theta
+    \braket{l m | \theta \phi} \braket{\theta \phi | f} \sin \theta
+= \int_0^{2\pi}\d\phi \int_0^\pi \d\theta \
+    Y_{lm}^*(\theta, \phi) f(\theta, \phi)  \sin \theta"/></p>
+</div><div class="section" id="real-spherical-harmonics">
+<h3>Real Spherical Harmonics<a class="headerlink" href="#real-spherical-harmonics" title="Permalink to this headline">¶</a></h3>
+<p>We rearrange the sum:</p>
+<div class="math">
+<p><img src="../../_images/math/d18152054f81c9b29be10774b53d0cc8f2ecdb99.png" alt="f(\theta, \phi)
+= \sum_{l=0}^\infty \sum_{m=-l}^l Y_{lm}(\theta, \phi)
+    f_{l m}
+= \sum_{l=0}^\infty \sum_{m=-l}^l \Theta_{lm}(\theta, \phi)
+    {1\over\sqrt {2\pi}} e^{im\phi}
+    f_{l m} =
+
+= {1\over\sqrt {2\pi}}
+\sum_{l=0}^\infty \sum_{m=-l}^l
+    \left(
+        \Theta_{lm}(\theta, \phi)
+        \cos m \phi
+        f_{l m}
+    +
+        \Theta_{lm}(\theta, \phi)
+        i \sin m \phi
+    f_{l m} \right) =
+
+= {1\over\sqrt {2\pi}}
+\sum_{l=0}^\infty
+    \left(
+    \Theta_{l0}(\theta, \phi) f_{l 0}
+    +
+    \sum_{m=1}^l \left(
+        (
+        \Theta_{lm}(\theta, \phi)
+        f_{l m}
+        +
+        \Theta_{l,-m}(\theta, \phi)
+        f_{l, -m})
+        \cos m \phi
+    +
+        i(
+        \Theta_{lm}(\theta, \phi)
+        f_{l m}
+        -
+        \Theta_{l,-m}(\theta, \phi)
+        f_{l, -m})
+         \sin m \phi
+     \right)\right) =
+
+= {1\over\sqrt {2\pi}}
+\sum_{l=0}^\infty
+    \left(
+    \Theta_{l0}(\theta, \phi) f_{l 0}
+    +
+    \sum_{m=1}^l  \left(
+        \Theta_{lm}(\theta, \phi)
+        ( f_{l m} + (-1)^m f_{l, -m}) \cos m \phi
+    +
+        \Theta_{l,-m}(\theta, \phi)
+        i(f_{l, -m} - (-1)^m f_{l m}) \sin (-m) \phi
+     \right)\right) =
+
+= {1\over\sqrt {2\pi}}
+\sum_{l=0}^\infty
+    \left(
+    \Theta_{l0}(\theta, \phi) f_{l 0}
+    +
+    \sum_{m=1}^l  \left(
+        \Theta_{lm}(\theta, \phi)
+        {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \cos m \phi
+    +
+        \Theta_{l,-m}(\theta, \phi)
+        i{ f_{l, -m} - (-1)^m f_{l m}\over \sqrt 2} \sqrt 2 \sin (-m) \phi
+     \right)\right) =
+
+= {1\over\sqrt {2\pi}}
+\sum_{l=0}^\infty
+    \left(
+    \Theta_{l0}(\theta, \phi) \tilde f_{l 0}
+    +
+    \sum_{m=1}^l  \left(
+        \Theta_{lm}(\theta, \phi)
+        \tilde f_{l m} \sqrt 2 \cos m \phi
+    +
+        \Theta_{l,-m}(\theta, \phi)
+        \tilde f_{l, -m} \sqrt 2 \sin (-m) \phi
+     \right)\right) =
+
+= {1\over\sqrt {2\pi}}
+\sum_{l=0}^\infty
+    \left(
+    \Theta_{l0}(\theta, \phi) \tilde f_{l 0}
+    +
+    \sum_{m=1}^l
+        \Theta_{lm}(\theta, \phi)
+        \tilde f_{l m} \sqrt 2 \cos m \phi
+    +\sum_{m=-l}^{-1}
+        \Theta_{lm}(\theta, \phi)
+        \tilde f_{lm} \sqrt 2 \sin m \phi
+     \right) =
+
+= \sum_{l=0}^\infty \sum_{m=-l}^l Z_{lm}(\theta, \phi)
+    \tilde f_{l m}"/></p>
+</div><p>Where the real spherical harmonics <img class="math" src="../../_images/math/eb4c32d2068c95137e388ad7950ad1da577291e8.png" alt="Z_{lm}"/> are:</p>
+<div class="math">
+<p><img src="../../_images/math/7bdd6d6d9fc9baf87b5461d510066d3adbcf9a6d.png" alt="Z_{lm}(\theta, \phi) = \begin{cases}
+    \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \cos m \phi &amp; \mbox{for } m &gt; 0\\
+    {\Theta_{l0}\over\sqrt{2\pi}} &amp; \mbox{for } m = 0\\
+    \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \sin m \phi &amp; \mbox{for } m &lt; 0\\
+  \end{cases}
+=
+\begin{cases}
+    \sqrt{2} \Re(Y_{lm}(\theta, \phi))\\
+    Y_{l0}(\theta, \phi) \\
+    \sqrt{2} \Im(Y_{lm}(\theta, \phi))\\
+  \end{cases}
+=
+\begin{cases}
+    {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+    Y_{l0}(\theta, \phi) \\
+    {1\over i\sqrt{2}} (Y_{lm}(\theta, \phi) - Y_{lm}^*(\theta, \phi))\\
+  \end{cases}"/></p>
+</div><p>and the coefficients <img class="math" src="../../_images/math/024c0e5b3ad2ea6689794d0b9779d3bcf7681b7a.png" alt="\tilde f_{lm}"/> are:</p>
+<div class="math">
+<p><img src="../../_images/math/b3eed9658bd1905210434e789d85b617ac54d943.png" alt="\tilde f_{lm} = \begin{cases}
+    {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} &amp; \mbox{for } m &gt; 0\\
+    f_{l0} &amp; \mbox{for } m = 0\\
+    i{ f_{l m} - (-1)^m f_{l, -m}\over \sqrt 2} &amp; \mbox{for } m &lt; 0\\
+  \end{cases}
+=
+\tilde f_{lm} = \begin{cases}
+    \int {Y_{lm}^*+(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+    \int Y_{l0}^* f \d\Omega \\
+    \int i{Y_{lm}^*-(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+  \end{cases}
+
+=
+\tilde f_{lm} = \begin{cases}
+    \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
+    \int Y_{l0} f \d\Omega \\
+    \int {Y_{lm}-Y_{lm}^*\over i\sqrt2} f \d\Omega \\
+  \end{cases}
+=
+    \int Z_{lm} f \d\Omega"/></p>
+</div><p>The factor <img class="math" src="../../_images/math/2c4dc1409208ff6a3039f4871d85c16763334983.png" alt="\sqrt{2}"/> in the definition makes the real spherical harmonics
+properly normalized:</p>
+<div class="math">
+<p><img src="../../_images/math/a67de0d306bd9e17a5b514ba6e27d58fa87d3051.png" alt="\int Z_{l m}(\theta, \phi) Z_{l' m'}(\theta, \phi) \d \Omega
+    =\delta_{l l'} \delta_{m m'}"/></p>
 </div></div>
+</div>
 </div>
 
 
@@ -750,7 +922,10 @@ P_l^{\pm m}(z) =
 <li><a class="reference internal" href="#legendre-polynomials">Legendre Polynomials</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#angular-momentum-operator">Angular Momentum Operator</a></li>
+<li><a class="reference internal" href="#angular-momentum-operator">Angular Momentum Operator</a><ul>
+<li><a class="reference internal" href="#real-spherical-harmonics">Real Spherical Harmonics</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
