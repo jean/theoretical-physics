@@ -324,6 +324,125 @@ b_n = i(c_n - c_{-n})
         f(x) \d x
     = {2\over b-a} \int_a^b \sin \left({2\pi n\over b-a} x\right)
         f(x) \d x"/></p>
+</div><p>Conceptually, we are taking the complex orthonormal basis
+<img class="math" src="../../_images/math/2bd384ffc43f6cebe3479c89d44e9125a3b36dee.png" alt="u_n(x) = {1\over\sqrt{b-a}} e^{i {2\pi n\over b-a} x}"/> and creating
+a real orthonormal basis <img class="math" src="../../_images/math/80f3c003b8a34f1fe6911f31a8470a64f20f1248.png" alt="v_n(x)"/> composed of
+<img class="math" src="../../_images/math/4da05a286595094186f139b1a2ed6a0840b09e5a.png" alt="u_0"/>, <img class="math" src="../../_images/math/10d886a953135dc6eebb1a12286084c647e656d9.png" alt="\Re u_1"/>, <img class="math" src="../../_images/math/b7ec09d63fdbda2b7945e9512d319fe813c4935f.png" alt="\Re u_2"/>, ..., <img class="math" src="../../_images/math/104cbcaea2aa23fa24a6c53d50f20c13c3998222.png" alt="\Im u_1"/>, <img class="math" src="../../_images/math/c65ba48f7ebecb2effab5bd0bdf1be52b9ee1b69.png" alt="\Im u_2"/>, ... as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/3a4c5bf18623e16b802f233f8b8990b30e9977b5.png" alt="v_n(x) = \begin{cases}
+    \sqrt{2} \Re u_n =  {\sqrt 2\over\sqrt{b-a}}\cos {2\pi\over b-a} n x
+        &amp; \mbox{for } n &gt; 0\\
+    u_0  = {1\over\sqrt{b-a}}                     &amp; \mbox{for } n = 0\\
+    \sqrt{2} \Im u_{|n|} = {\sqrt 2\over\sqrt{b-a}}
+        \sin {2\pi\over b-a} |n| x     &amp; \mbox{for } n &lt; 0\\
+    \end{cases}"/></p>
+</div><p>We are only summing over the positive arguments in <img class="math" src="../../_images/math/6fb300dacfcde1b57ad070409262b1743e0cd966.png" alt="\sin"/> and <img class="math" src="../../_images/math/bb5e108fdc4bf4fb6151cb922992f23bc6c35985.png" alt="\cos"/>, thus the
+absolute value for <img class="math" src="../../_images/math/55f454e4ea0c4440992e860d2d18ac610b471e07.png" alt="n &lt; 0"/>. The basis <img class="math" src="../../_images/math/e967fada3170ecae135227d4b5d2703e0417349e.png" alt="v_n"/> is orthonormal:</p>
+<div class="math">
+<p><img src="../../_images/math/7dbb689112b476f025c38cbb877db51a885b10f5.png" alt="\int_a^b v_n(x) v_m(x) \d x = \delta_{n m}"/></p>
+</div><p>and complete:</p>
+<div class="math">
+<p><img src="../../_images/math/a2b50a63a4104858df733461c7ab1bd1a3f62f71.png" alt="\sum_{n=-\infty}^\infty v_n(x) v_n(x') \d x = \delta(x-x')"/></p>
+</div><p>This is not the only way to create the real orthonormal basis. In general:</p>
+<div class="math">
+<p><img src="../../_images/math/dd6f7a4975a87d18d61d704db9419d22a86209db.png" alt="u_n(x) = \braket{x|n}
+
+v_n(x) = \braket{x|n}_R
+
+\ket{n}_R = \sum_m U_{n m} \ket{m}"/></p>
+</div><p>We require the new basis <img class="math" src="../../_images/math/0d4a92cf45eb044cdf41ec5956b1da53ccda0e93.png" alt="\ket{n}_R"/> to be orthonormal:</p>
+<div class="math">
+<p><img src="../../_images/math/abb845399986c74996ee07a408185f7aa9cf4770.png" alt="\braket{n|m}_R = \delta_{n m}
+
+\sum_{kl} \braket{k|U^*_{nk} U_{ml} | l} = \delta_{n m}
+
+\sum_{kl} U^*_{nk} U_{ml} \delta_{kl} = \delta_{n m}
+
+\sum_k U^*_{nk} U_{mk} = \delta_{n m}"/></p>
+</div><p>This restricts the <img class="math" src="../../_images/math/f77c7ad060d1f72cac1c33813633e118508f1e12.png" alt="U_{nm}"/> matrices to be unitary (<img class="math" src="../../_images/math/eedf9e9d1498eb54bb4dfa20ad1c6b1790211c5e.png" alt="U^{-1} = U^\dag"/>),
+because:</p>
+<div class="math">
+<p><img src="../../_images/math/c8bb0a76fc0612382fabcf19ebb4c9d1183b751b.png" alt="U U^\dag = \one
+
+(U U^\dag)_{mn} = (\one)_{mn} = \delta_{mn}
+
+\sum_k (U)_{mk} (U^\dag)_{kn} = \delta_{mn}
+
+\sum_k U_{mk} U^*_{nk} = \delta_{mn}"/></p>
+</div><p>The unitarity condition also makes sure, that the real basis is complete:</p>
+<div class="math">
+<p><img src="../../_images/math/2cd459915a055c6c0b72c9d547d5dffb23ffb4ef.png" alt="\sum_n \ket{n}_R \bra{n}_R
+    = \sum_n \sum_{kl} U_{nk} \ket{k}\bra{l} U_{nl}^*
+    = \sum_{kl} \delta_{kl} \ket{k}\bra{l}
+    = \sum_k \ket{k}\bra{k}
+    = \one"/></p>
+</div><p>Requiring <img class="math" src="../../_images/math/0d4a92cf45eb044cdf41ec5956b1da53ccda0e93.png" alt="\ket{n}_R"/> to be real and using <img class="math" src="../../_images/math/477c0fc02530e5445213580461f3e8788d135833.png" alt="\ket{m}^* = \ket{-m}"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/cd543e44dc61fb0b2619249a4894179752dfb5cc.png" alt="\ket{n}_R^* = \ket{n}_R
+
+\sum_m U_{nm}^* \ket{m}^* = \sum_m U_{nm} \ket{m}
+
+\sum_m U_{nm}^* \ket{-m} = \sum_m U_{nm} \ket{m}
+
+\sum_m U_{n,-m}^* \ket{m} = \sum_m U_{nm} \ket{m}
+
+\sum_m (U_{nm} -U_{n,-m}^*) \ket{m} = 0
+
+U_{nm} = U_{n,-m}^*
+
+U_{nm}^* = U_{n,-m}"/></p>
+</div><p>Because the basis <img class="math" src="../../_images/math/3b99618f5dbbf283cd8450728a4c7b59340cddb2.png" alt="\ket{m}"/> is complete. So the only conditions on the matrices
+<img class="math" src="../../_images/math/60d6a289232bc1382921a6497f5689e599e2330f.png" alt="U_{mn}"/> are:</p>
+<div class="math">
+<p><img src="../../_images/math/9e99dc4a3a9c3b377bb48119125f352a2a249a20.png" alt="U^{-1} = U^\dag
+
+U_{nm}^* = U_{n,-m}"/></p>
+</div><p>They imply that the new basis will be real, orthonormal and complete.
+Our final restriction is that we want each real basis element to correspond to
+the same frequency <img class="math" src="../../_images/math/4c30377886cf75f91bd1a333c5417f170edc062b.png" alt="\pm m"/> (possible sign change is ok): this means that
+we can only mix the same frequencies, i.e.:</p>
+<div class="math">
+<p><img src="../../_images/math/2b92b3a7676b335629f271341fd1bd6b88fb114e.png" alt="U_{nm} = 0\quad\mbox{for } |n| \ne |m|"/></p>
+</div><p>and also that the nonzero matrix elements can only be of the form
+<img class="math" src="../../_images/math/a3bc03d2cf5bcd0ba6655743c6384f98151198c7.png" alt="R e^{i{\pi\over 2} n}"/> for <img class="math" src="../../_images/math/196e8d2666c373905a9b34eb222c9e39c37bc997.png" alt="n=0, 1, 2, 3"/> (i.e. <img class="math" src="../../_images/math/55012628ca53153843d5c54ff098ca45015043c0.png" alt="\pm R"/> or <img class="math" src="../../_images/math/f91e2086539339b1cf61e4024c09a28198f50bdb.png" alt="\pm iR"/> for some
+positive <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>).</p>
+<p>Up to possible sign changes and permutations, this determines the matrix
+uniquely. Our choice above is:</p>
+<div class="math">
+<p><img src="../../_images/math/f6f1482e0b0c1b4826d4bca504c0aee8c3a0d6cb.png" alt="U_{nm} = \begin{cases}
+    {\delta_{nm} + \delta_{n,-m}\over\sqrt{2}}   &amp; \mbox{for } n &gt; 0\\
+    \delta_{0m}                                  &amp; \mbox{for } n = 0\\
+    {\delta_{nm} - \delta_{n,-m}\over i\sqrt{2}} &amp; \mbox{for } n &lt; 0\\
+    \end{cases}"/></p>
+</div><p>In other words, we get (except that the matrix is infinite):</p>
+<div class="math">
+<p><img src="../../_images/math/945322d746166bb0edc5563da4eaa50ef9ef8340.png" alt="\begin{pmatrix}
+v_3 \\
+v_2 \\
+v_1 \\
+v_0 \\
+v_{-1} \\
+v_{-2} \\
+v_{-3} \\
+\end{pmatrix} =
+\begin{pmatrix}
+{1\over  \sqrt 2} &amp; &amp; &amp; &amp; &amp; &amp;  {1\over  \sqrt2} \\
+&amp; {1\over  \sqrt 2} &amp; &amp; &amp; &amp;  {1\over  \sqrt2} &amp; \\
+&amp; &amp; {1\over  \sqrt 2} &amp; &amp;  {1\over  \sqrt2} &amp; &amp; \\
+&amp; &amp; &amp;                  1                  &amp; &amp; &amp; \\
+&amp; &amp; {1\over i\sqrt 2} &amp; &amp; -{1\over i\sqrt2} &amp; &amp; \\
+&amp; {1\over i\sqrt 2} &amp; &amp; &amp; &amp; -{1\over i\sqrt2} &amp; \\
+{1\over i\sqrt 2} &amp; &amp; &amp; &amp; &amp; &amp; -{1\over i\sqrt2} \\
+\end{pmatrix}
+    \begin{pmatrix}
+    u_3 \\
+    u_2 \\
+    u_1 \\
+    u_0 \\
+    u_{-1} \\
+    u_{-2} \\
+    u_{-3} \\
+    \end{pmatrix}"/></p>
 </div></div>
 <div class="section" id="fourier-transform">
 <h3>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this headline">¶</a></h3>
@@ -686,12 +805,12 @@ We substitute <img class="math" src="../../_images/math/0acdcffdf9a37fba7321c4c8
     P_l(\cos\theta) \right)"/></p>
 </div><p>Hence <img class="math" src="../../_images/math/5a8d62e3a14f816d7463e311431016db029b25af.png" alt="\Theta_{lm} = (-1)^m \Theta_{l,-m}"/>.
 Using associated Legendre polynomials, we can write:</p>
-<div class="math">
-<p><img src="../../_images/math/fb87c99a606bd1e412846ce001ad589457e6afb7.png" alt="\Theta_{lm}(\theta) = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}}
-    P_l^m(\theta)"/></p>
+<div class="math" id="equation-thetaPlm">
+<p><span class="eqno">(10)</span><img src="../../_images/math/de7a0f282037f06cacc9653156f4bfd23c9e856d.png" alt="\Theta_{lm}(\theta) = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}}
+    P_l^m(\cos \theta)"/></p>
 </div><p>where (for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/e86c37ecb784f8dc2c94337c38d3f0e031a0c199.png" alt="P_l^m(\theta)
+<p><img src="../../_images/math/c91914fe83982b9c3737b03a8b74cc74123697a0.png" alt="P_l^m(\cos \theta)
 = (-1)^l {(l+m)!\over (l-m)!} {1\over 2^l l!}
 {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
 \sin^{2l}\theta =
@@ -712,18 +831,49 @@ Using associated Legendre polynomials, we can write:</p>
 = (-1)^m {1\over 2^l l!}
 (1-z^2)^{m\over 2} {\d^{l+m}\over \d z^{l+m}} (z^2-1)^l"/></p>
 </div><p>hence (comparing the second and fourth equation above):</p>
-<div class="math">
-<p><img src="../../_images/math/8e4fdbd66ed3640f8d78b670abcd54a89088360b.png" alt="P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)"/></p>
+<div class="math" id="equation-Pmm">
+<p><span class="eqno">(11)</span><img src="../../_images/math/8e4fdbd66ed3640f8d78b670abcd54a89088360b.png" alt="P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)"/></p>
 </div><p>This is valid for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> (positive or negative).
-For <img class="math" src="../../_images/math/cec8d8345a476b8ca52d2e4c32d712dd5ed7169f.png" alt="m \ge 0"/> we get from <a href="#equation-Theta3">(9)</a>:</p>
+For <img class="math" src="../../_images/math/cec8d8345a476b8ca52d2e4c32d712dd5ed7169f.png" alt="m \ge 0"/> we get from <a href="#equation-Theta3">(9)</a> and <a href="#equation-Pmm">(11)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/58fa3e7255aba1a1db9e882521886642d840c7dc.png" alt="P_l^{m}(\cos \theta) =
+<p><img src="../../_images/math/fc132d796636f12f2941e969494a8e8dcb5b1a95.png" alt="P_l^{m}(\cos \theta) =
     (-1)^m
+\sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
+
+P_l^{-m}(\cos \theta) = {(l-m)!\over (l+m)!}
 \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
 
 P_l^{m}(z) =
     (-1)^m
+(1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+P_l^{-m}(z) = {(l-m)!\over (l+m)!}
 (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)"/></p>
+</div><p>This is usually used as the definition of the associated Legendre polynomials.
+They include the Condon &amp; Shortley phase factor <img class="math" src="../../_images/math/f9437217dcd1cca1eccdf2d80ab4c9f6fb53a0e3.png" alt="(-1)^m"/> (only for positive
+<img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>). Some authors omit it (then it needs to be included in the equation
+<a href="#equation-thetaPlm">(10)</a>). Note that <a href="#equation-thetaPlm">(10)</a> for <img class="math" src="../../_images/math/e59db779ed2f04135988f9e9885f08e4f8fc4f3d.png" alt="m&lt;0"/> can be also written as:</p>
+<div class="math">
+<p><img src="../../_images/math/4b2217cc9ebfba445a0bcb00f4b02839f2960f98.png" alt="\Theta_{lm}(\theta)
+    = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}} P_l^m(\cos \theta)
+    = \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}} {(l-m)!\over (l+m)!}
+        P_l^m(\cos \theta) =
+
+    = (-1)^m \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}} P_l^{-m}(\cos \theta)
+    = (-1)^m \sqrt{{2l+1\over 2}{(l-|m|)!\over (l+|m|)!}} P_l^{|m|}
+        (\cos \theta)"/></p>
+</div><p>Thanks to</p>
+<div class="math">
+<p><img src="../../_images/math/36711d8f56de78ed44ed52309b4b62980945282c.png" alt="i^{m-|m|} = \begin{cases}
+    1      &amp; \mbox{for } m \ge 0\\
+    (-1)^m &amp; \mbox{for } m &lt; 0\\
+    \end{cases}"/></p>
+</div><p>we can write for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/458411ab649ba7e90676fc1926125bcea611eedf.png" alt="\Theta_{lm}(\theta)
+    = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}} P_l^m(\cos \theta)
+    = i^{m-|m|} \sqrt{{2l+1\over 2}{(l-|m|)!\over (l+|m|)!}}
+        P_l^{|m|}(\cos \theta)"/></p>
 </div><p>The normalization of associated Legendre polynomials is:</p>
 <div class="math">
 <p><img src="../../_images/math/2859ee6a42f0b29f088354cfe88114721a3a55ee.png" alt="\int_{-1}^1 \Theta_{lm}(\theta) \Theta_{l' m}(\theta)
@@ -734,10 +884,16 @@ P_l^{m}(z) =
     \delta_{l l'}"/></p>
 </div><p>Finally, we get (for all <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/1809645d5a1d1787b3f971464d220a6b14b11e46.png" alt="Y_{lm}(\theta, \phi)
+<p><img src="../../_images/math/8b53591022df55ddb075af41e7e69990e0bc4a30.png" alt="Y_{lm}(\theta, \phi)
     = \Theta_{lm}(\theta) \Phi_m(\phi)
     = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
-    P_l^m(\theta) e^{im\phi}"/></p>
+    P_l^m(\cos \theta) e^{im\phi} =
+
+    = i^{m-|m|} \sqrt{{2l+1\over 4\pi}{(l-|m|)!\over (l+|m|)!}}
+    P_l^{|m|}(\cos \theta) e^{im\phi} =
+
+    = (-1)^m i^{m+|m|} \sqrt{{2l+1\over 4\pi}{(l-|m|)!\over (l+|m|)!}}
+    P_l^{|m|}(\cos \theta) e^{im\phi}"/></p>
 </div><p>Any function on the sphere can be expanded as:</p>
 <div class="math">
 <p><img src="../../_images/math/f0d240a3d054589a994b9ea79b2a526853313a42.png" alt="f(\theta, \phi) = \braket{\theta \phi | f}
@@ -755,9 +911,10 @@ f_{lm} = \braket{l m | f}
     Y_{lm}^*(\theta, \phi) f(\theta, \phi)  \sin \theta"/></p>
 </div><div class="section" id="real-spherical-harmonics">
 <h3>Real Spherical Harmonics<a class="headerlink" href="#real-spherical-harmonics" title="Permalink to this headline">¶</a></h3>
-<p>We rearrange the sum:</p>
+<p>The most obvious approach is to use a similar way as for Fourier series.
+We rearrange the sum:</p>
 <div class="math">
-<p><img src="../../_images/math/d18152054f81c9b29be10774b53d0cc8f2ecdb99.png" alt="f(\theta, \phi)
+<p><img src="../../_images/math/c0060d70acda40b30673bfa92165086016a60f24.png" alt="f(\theta, \phi)
 = \sum_{l=0}^\infty \sum_{m=-l}^l Y_{lm}(\theta, \phi)
     f_{l m}
 = \sum_{l=0}^\infty \sum_{m=-l}^l \Theta_{lm}(\theta, \phi)
@@ -807,8 +964,8 @@ f_{lm} = \braket{l m | f}
         \Theta_{lm}(\theta, \phi)
         ( f_{l m} + (-1)^m f_{l, -m}) \cos m \phi
     +
-        \Theta_{l,-m}(\theta, \phi)
-        i(f_{l, -m} - (-1)^m f_{l m}) \sin (-m) \phi
+        \Theta_{lm}(\theta, \phi)
+        i(f_{lm} - (-1)^m f_{l, -m}) \sin m \phi
      \right)\right) =
 
 = {1\over\sqrt {2\pi}}
@@ -820,8 +977,8 @@ f_{lm} = \braket{l m | f}
         \Theta_{lm}(\theta, \phi)
         {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \cos m \phi
     +
-        \Theta_{l,-m}(\theta, \phi)
-        i{ f_{l, -m} - (-1)^m f_{l m}\over \sqrt 2} \sqrt 2 \sin (-m) \phi
+        \Theta_{lm}(\theta, \phi)
+        i{ f_{lm} - (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \sin m \phi
      \right)\right) =
 
 = {1\over\sqrt {2\pi}}
@@ -833,8 +990,8 @@ f_{lm} = \braket{l m | f}
         \Theta_{lm}(\theta, \phi)
         \tilde f_{l m} \sqrt 2 \cos m \phi
     +
-        \Theta_{l,-m}(\theta, \phi)
-        \tilde f_{l, -m} \sqrt 2 \sin (-m) \phi
+        \Theta_{lm}(\theta, \phi)
+        \tilde f_{l, -m} \sqrt 2 \sin m \phi
      \right)\right) =
 
 = {1\over\sqrt {2\pi}}
@@ -846,50 +1003,57 @@ f_{lm} = \braket{l m | f}
         \Theta_{lm}(\theta, \phi)
         \tilde f_{l m} \sqrt 2 \cos m \phi
     +\sum_{m=-l}^{-1}
-        \Theta_{lm}(\theta, \phi)
-        \tilde f_{lm} \sqrt 2 \sin m \phi
+        \Theta_{l|m|}(\theta, \phi)
+        \tilde f_{lm} \sqrt 2 \sin |m| \phi
      \right) =
 
 = \sum_{l=0}^\infty \sum_{m=-l}^l Z_{lm}(\theta, \phi)
     \tilde f_{l m}"/></p>
 </div><p>Where the real spherical harmonics <img class="math" src="../../_images/math/eb4c32d2068c95137e388ad7950ad1da577291e8.png" alt="Z_{lm}"/> are:</p>
 <div class="math">
-<p><img src="../../_images/math/7bdd6d6d9fc9baf87b5461d510066d3adbcf9a6d.png" alt="Z_{lm}(\theta, \phi) = \begin{cases}
+<p><img src="../../_images/math/bc9716ba4669db9f1cfdcd736b0bf56d04990fe9.png" alt="Z_{lm}(\theta, \phi) = \begin{cases}
     \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \cos m \phi &amp; \mbox{for } m &gt; 0\\
     {\Theta_{l0}\over\sqrt{2\pi}} &amp; \mbox{for } m = 0\\
-    \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \sin m \phi &amp; \mbox{for } m &lt; 0\\
+    \sqrt{2} {\Theta_{l |m|}\over\sqrt{2\pi}} \sin |m| \phi
+        &amp; \mbox{for } m &lt; 0\\
   \end{cases}
 =
 \begin{cases}
     \sqrt{2} \Re(Y_{lm}(\theta, \phi))\\
     Y_{l0}(\theta, \phi) \\
-    \sqrt{2} \Im(Y_{lm}(\theta, \phi))\\
+    \sqrt{2} \Im(Y_{l |m|}(\theta, \phi))\\
   \end{cases}
 =
 \begin{cases}
     {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
     Y_{l0}(\theta, \phi) \\
-    {1\over i\sqrt{2}} (Y_{lm}(\theta, \phi) - Y_{lm}^*(\theta, \phi))\\
+    {1\over i\sqrt{2}} (Y_{l |m|}(\theta, \phi) -Y_{l|m|}^*(\theta, \phi))\\
   \end{cases}"/></p>
 </div><p>and the coefficients <img class="math" src="../../_images/math/024c0e5b3ad2ea6689794d0b9779d3bcf7681b7a.png" alt="\tilde f_{lm}"/> are:</p>
 <div class="math">
-<p><img src="../../_images/math/b3eed9658bd1905210434e789d85b617ac54d943.png" alt="\tilde f_{lm} = \begin{cases}
+<p><img src="../../_images/math/7e9af26f8d660491c64e79491899148365cb436b.png" alt="\tilde f_{lm} = \begin{cases}
     {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} &amp; \mbox{for } m &gt; 0\\
     f_{l0} &amp; \mbox{for } m = 0\\
-    i{ f_{l m} - (-1)^m f_{l, -m}\over \sqrt 2} &amp; \mbox{for } m &lt; 0\\
+    i{ f_{l,-m} - (-1)^m f_{lm}\over \sqrt 2} &amp; \mbox{for } m &lt; 0\\
   \end{cases}
 =
-\tilde f_{lm} = \begin{cases}
+\begin{cases}
     \int {Y_{lm}^*+(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
     \int Y_{l0}^* f \d\Omega \\
-    \int i{Y_{lm}^*-(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+    \int i{Y_{l,-m}^*-(-1)^m Y_{lm}^*\over\sqrt2} f \d\Omega \\
   \end{cases}
 
 =
-\tilde f_{lm} = \begin{cases}
+\begin{cases}
     \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
     \int Y_{l0} f \d\Omega \\
-    \int {Y_{lm}-Y_{lm}^*\over i\sqrt2} f \d\Omega \\
+    \int {Y_{l, -m}-Y_{l, -m}^*\over i\sqrt2} f \d\Omega \\
+  \end{cases}
+=
+\begin{cases}
+    \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
+    \int Y_{l0} f \d\Omega \\
+    \int {Y_{l |m|}-Y_{l |m|}^*\over i\sqrt2} f \d\Omega \\
   \end{cases}
 =
     \int Z_{lm} f \d\Omega"/></p>
@@ -898,7 +1062,364 @@ properly normalized:</p>
 <div class="math">
 <p><img src="../../_images/math/a67de0d306bd9e17a5b514ba6e27d58fa87d3051.png" alt="\int Z_{l m}(\theta, \phi) Z_{l' m'}(\theta, \phi) \d \Omega
     =\delta_{l l'} \delta_{m m'}"/></p>
+</div><p>From the above derivation, it is not immediately clear how to obtain other
+parametrizations of real spherical harmonics. And also what identities they
+obey. More systematic approach is to use the transformation matrices just like
+for the Fourier series:</p>
+<div class="math">
+<p><img src="../../_images/math/845b6fd12e4ce5c075c19fedeac5ea46ad5af5cf.png" alt="Z_{l\mu}(\theta, \phi) = \braket{\theta\phi|l\mu}_R
+    = \sum_{m=-l}^l U^l_{\mu m} Y_{lm}(\theta, \phi)
+    = \sum_{m=-l}^l U^l_{\mu m} \braket{\theta \phi | lm}
+
+\ket{l\mu}_R = \sum_{m=-l}^l U^l_{\mu m} \ket{lm}"/></p>
+</div><p>We require orthonormality:</p>
+<div class="math">
+<p><img src="../../_images/math/2735ab7938de6d854e1e335e17605c9fc62be905.png" alt="\braket{l\mu | l\mu'}_R = \delta_{\mu \mu'}"/></p>
+</div><p>This implies unitarity of the <img class="math" src="../../_images/math/e2eaab533fe4cb55ef2faec1d59801e7fcdebbe1.png" alt="U^l"/> matrices for the given <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>.
+Requiring <img class="math" src="../../_images/math/d33c855bbc594db60d7e10f50ee5105a5c50e0e0.png" alt="\ket{l\mu}_R"/> to be real and using
+<img class="math" src="../../_images/math/692002267139e065bf4b9616e1f191b07db0ba03.png" alt="\ket{lm}^* = (-1)^m \ket{l,-m}"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3d7c6bca49c43a5e73408ed2e150aaa53ceba823.png" alt="\ket{l\mu}_R^* = \ket{l\mu}_R
+
+\sum_m (U^l_{\mu m})^* \ket{lm}^* = \sum_m U^l_{\mu m} \ket{m}
+
+\sum_m (U^l_{\mu m})^* (-1)^m \ket{l,-m} = \sum_m U^l_{\mu m} \ket{m}
+
+\sum_m (U^l_{\mu, -m})^* (-1)^m \ket{lm} = \sum_m U^l_{\mu m} \ket{m}
+
+\sum_m (U^l_{\mu m} - (U^l_{\mu, -m})^*) (-1)^m) \ket{m}
+
+U^l_{\mu m} = (-1)^m (U^l_{\mu, -m})^*
+
+(U^l_{\mu m})^* = (-1)^m U^l_{\mu, -m}"/></p>
+</div><p>As for Fourier series, we require not to mix frequencies and phases, so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/b0ed5b71708378c216eeb01267619f5c23142b1c.png" alt="U_{nm}^l = 0\quad\mbox{for } |n| \ne |m|"/></p>
+</div><p>and also that the nonzero matrix elements can only be of the form
+<img class="math" src="../../_images/math/a3bc03d2cf5bcd0ba6655743c6384f98151198c7.png" alt="R e^{i{\pi\over 2} n}"/> for <img class="math" src="../../_images/math/196e8d2666c373905a9b34eb222c9e39c37bc997.png" alt="n=0, 1, 2, 3"/> (i.e. <img class="math" src="../../_images/math/55012628ca53153843d5c54ff098ca45015043c0.png" alt="\pm R"/> or <img class="math" src="../../_images/math/f91e2086539339b1cf61e4024c09a28198f50bdb.png" alt="\pm iR"/> for some
+positive <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>). Up to signs and permutations, this determines the matrices
+uniquely. As for Fourier series, this implies orthonormality and completeness
+of the real spherical harmonics:</p>
+<div class="math">
+<p><img src="../../_images/math/fe0a0b0cb84b8f0b8a9355230c56f3af97122235.png" alt="\braket{l' m' | l m}_R = \delta_{ll'} \delta_{mm'}
+
+\sum_{l=0}^\infty \sum_{m=-l}^l \ket{lm}_R \bra{lm}_R = \one"/></p>
+</div><p>Also, thanks to unitarity we get:</p>
+<div class="math">
+<p><img src="../../_images/math/e5af2c6b421e0ba9d21b4bfd0c7a8fd324f0535a.png" alt="\sum_{m=-l}^l Z_{lm}(\Omega) Z_{lm}(\Omega')
+= \sum_{m=-l}^l \sum_{m' m''} U^l_{m m'} Y_{lm'}(\Omega)
+    (U^l_{m m''})^* Y_{lm''}^*(\Omega')
+= \sum_{m' m''} \delta_{m' m''} Y_{lm'}(\Omega) Y_{lm''}^*(\Omega') =
+
+= \sum_{m=-l}^l Y_{lm}(\Omega) Y^*_{lm}(\Omega')
+= {2l+1\over 4\pi} P_l(\cos \gamma)"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/e38b611e544914d4d7a14620e084036b92a97881.png" alt="{1\over |{\bf r}-{\bf r'}|}
+    =\sum_{l=0}^\infty{r_{&lt;}^l\over r_{&gt;}^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})
+    = \sum_{lm}{r_{&lt;}^l\over r_{&gt;}^{l+1}}
+        {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
+    = \sum_{lm}{r_{&lt;}^l\over r_{&gt;}^{l+1}}
+        {4\pi\over 2l+1}Z_{lm}({\bf\hat r})Z_{lm}({\bf\hat r}')"/></p>
+</div><p>Following the Fourier series, the most natural way to choose the signs in the
+<img class="math" src="../../_images/math/e2eaab533fe4cb55ef2faec1d59801e7fcdebbe1.png" alt="U^l"/> matrices is such so as to keep <img class="math" src="../../_images/math/6fb300dacfcde1b57ad070409262b1743e0cd966.png" alt="\sin"/> and <img class="math" src="../../_images/math/bb5e108fdc4bf4fb6151cb922992f23bc6c35985.png" alt="\cos"/> in the basis with
+positive frequencies (thus the absolute value for <img class="math" src="../../_images/math/e59db779ed2f04135988f9e9885f08e4f8fc4f3d.png" alt="m&lt;0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/d7d4c129740a5b3752e660aea0ac21fb16a70115.png" alt="Z_{lm}(\theta, \phi)
+=
+\begin{cases}
+    \sqrt{2} \Re(Y_{lm}(\theta, \phi)) &amp; \mbox{for } m &gt; 0\\
+    Y_{l0}(\theta, \phi) &amp; \mbox{for } m = 0\\
+    \sqrt{2} \Im(Y_{l|m|}(\theta, \phi)) &amp; \mbox{for } m &lt; 0\\
+  \end{cases}
+=
+\begin{cases}
+    {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+    Y_{l0}(\theta, \phi) \\
+    {1\over i\sqrt{2}} (Y_{l|m|}(\theta, \phi) - Y_{l|m|}^*(\theta, \phi))\\
+  \end{cases}
+=
+
+=
+\begin{cases}
+    {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+    Y_{l0}(\theta, \phi) \\
+    {-(-1)^m\over i\sqrt{2}} (Y_{lm}(\theta, \phi)
+        - Y_{lm}^*(\theta, \phi))\\
+  \end{cases}
+=
+\begin{cases}
+    {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + (-1)^m Y_{l,-m}(\theta, \phi))\\
+    Y_{l0}(\theta, \phi) \\
+    {1\over i\sqrt{2}} (Y_{l,-m}(\theta, \phi)
+        - (-1)^m Y_{lm}(\theta, \phi))\\
+  \end{cases}
+=
+
+=
+\begin{cases}
+    \sqrt{{2l+1\over 2\pi}{(l-m)!\over (l+m)!}} P_l^m(\cos\theta)
+        \cos m\phi \\
+    \sqrt{2l+1\over 4\pi} P_l(\cos\theta) \\
+    \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}} P_l^{|m|}(\cos\theta)
+        \sin |m| \phi \\
+  \end{cases}"/></p>
+</div><p>This gives:</p>
+<div class="math">
+<p><img src="../../_images/math/b74d58b0becbcf407b57f3509ff89bb7eacda22f.png" alt="U_{\mu m}^l = \begin{cases}
+    {\delta_{\mu m} + (-1)^m \delta_{\mu,-m}\over\sqrt{2}}
+        &amp; \mbox{for } \mu &gt; 0\\
+    \delta_{0m}                                  &amp; \mbox{for } \mu = 0\\
+    {\delta_{\mu,-m} - (-1)^m \delta_{\mu m}\over i\sqrt{2}}
+        &amp; \mbox{for } \mu &lt; 0\\
+    \end{cases}"/></p>
+</div><div class="section" id="other-convention">
+<h4>Other convention<a class="headerlink" href="#other-convention" title="Permalink to this headline">¶</a></h4>
+<p>Some people use the following convention:</p>
+<div class="math">
+<p><img src="../../_images/math/ec1e9796c00e823da5b8e1c5bc3ef54534f0582b.png" alt="Z_{lm}(\theta, \phi)
+=
+\begin{cases}
+    (-1)^m \sqrt{2} \Re(Y_{lm}(\theta, \phi)) &amp; \mbox{for } m &gt; 0\\
+    Y_{l0}(\theta, \phi) &amp; \mbox{for } m = 0\\
+    (-1)^m \sqrt{2} \Im(Y_{l|m|}(\theta, \phi)) &amp; \mbox{for } m &lt; 0\\
+  \end{cases}
+=
+\begin{cases}
+    {1\over\sqrt{2}}((-1)^m Y_{lm}(\theta, \phi) + Y_{l,-m}(\theta, \phi))\\
+    Y_{l0}(\theta, \phi) \\
+    {1\over i\sqrt{2}} ((-1)^m Y_{l,-m}(\theta, \phi)
+        - Y_{lm}(\theta, \phi))\\
+  \end{cases}
+=
+
+=
+\begin{cases}
+    (-1)^m \sqrt{{2l+1\over 2\pi}{(l-m)!\over (l+m)!}} P_l^m(\cos\theta)
+        \cos m\phi \\
+    \sqrt{2l+1\over 4\pi} P_l(\cos\theta) \\
+    (-1)^m \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}}
+        P_l^{|m|}(\cos\theta) \sin |m| \phi \\
+  \end{cases}"/></p>
 </div></div>
+</div>
+<div class="section" id="tables">
+<h3>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h3>
+<p>Spherical harmonics:</p>
+<div class="math">
+<p><img src="../../_images/math/5de069780a330b0c842e66b4530672548833bc42.png" alt="Y_{0,0}(\theta, \phi) = \frac{1}{2 \sqrt{\pi}}
+
+Y_{1,-1}(\theta, \phi) = \frac{\sqrt{6} e^{- \mathbf{\imath} \phi} \sin{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Y_{1,0}(\theta, \phi) = \frac{\sqrt{3} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+Y_{1,1}(\theta, \phi) = - \frac{\sqrt{6} e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Y_{2,-2}(\theta, \phi) = \frac{\sqrt{30} e^{- 2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+Y_{2,-1}(\theta, \phi) = \frac{\sqrt{30} e^{- \mathbf{\imath} \phi} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Y_{2,0}(\theta, \phi) = \frac{\sqrt{5} \left(\frac{3}{2} \cos^{2}{\left (\theta \right )} - \frac{1}{2}\right)}{2 \sqrt{\pi}}
+
+Y_{2,1}(\theta, \phi) = - \frac{\sqrt{30} e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Y_{2,2}(\theta, \phi) = \frac{\sqrt{30} e^{2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+Y_{3,-3}(\theta, \phi) = \frac{\sqrt{35} e^{- 3 \mathbf{\imath} \phi} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+Y_{3,-2}(\theta, \phi) = \frac{\sqrt{210} e^{- 2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+Y_{3,-1}(\theta, \phi) = - \frac{\sqrt{21} \left(6 \sin^{4}{\left (\theta \right )} - 24 \sin^{2}{\left (\theta \right )} \cos^{2}{\left (\theta \right )}\right) e^{- \mathbf{\imath} \phi}}{48 \sqrt{\pi} \sin{\left (\theta \right )}}
+
+Y_{3,0}(\theta, \phi) = \frac{\sqrt{7} \left(- \frac{3}{2} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )} + \cos^{3}{\left (\theta \right )}\right)}{2 \sqrt{\pi}}
+
+Y_{3,1}(\theta, \phi) = - \frac{\sqrt{21} \left(360 \cos^{2}{\left (\theta \right )} -72\right) e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )}}{576 \sqrt{\pi}}
+
+Y_{3,2}(\theta, \phi) = \frac{\sqrt{210} e^{2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+Y_{3,3}(\theta, \phi) = - \frac{\sqrt{35} e^{3 \mathbf{\imath} \phi} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}"/></p>
+</div><p>Real spherical harmonics:</p>
+<div class="math">
+<p><img src="../../_images/math/66a3f308553483499a39f2772113e968ad5246da.png" alt="Z_{0,0}(\theta, \phi) = \frac{1}{2 \sqrt{\pi}}
+
+Z_{1,-1}(\theta, \phi) = - \frac{\sqrt{3} \sin{\left (\phi \right )} \sin{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+Z_{1,0}(\theta, \phi) = \frac{\sqrt{3} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+Z_{1,1}(\theta, \phi) = - \frac{\sqrt{3} \sin{\left (\theta \right )} \cos{\left (\phi \right )}}{2 \sqrt{\pi}}
+
+Z_{2,-2}(\theta, \phi) = \frac{\sqrt{15} \sin{\left (2 \phi \right )} \sin^{2}{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Z_{2,-1}(\theta, \phi) = - \frac{\sqrt{15} \sin{\left (\phi \right )} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+Z_{2,0}(\theta, \phi) = \frac{\sqrt{5} \left(\frac{3}{2} \cos^{2}{\left (\theta \right )} - \frac{1}{2}\right)}{2 \sqrt{\pi}}
+
+Z_{2,1}(\theta, \phi) = - \frac{\sqrt{15} \sin{\left (\theta \right )} \cos{\left (\phi \right )} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+Z_{2,2}(\theta, \phi) = \frac{\sqrt{15} \sin^{2}{\left (\theta \right )} \cos{\left (2 \phi \right )}}{4 \sqrt{\pi}}
+
+Z_{3,-3}(\theta, \phi) = - \frac{\sqrt{70} \sin{\left (3 \phi \right )} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+Z_{3,-2}(\theta, \phi) = \frac{\sqrt{105} \sin{\left (2 \phi \right )} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Z_{3,-1}(\theta, \phi) = - \frac{\sqrt{42} \left(360 \cos^{2}{\left (\theta \right )} -72\right) \sin{\left (\phi \right )} \sin{\left (\theta \right )}}{576 \sqrt{\pi}}
+
+Z_{3,0}(\theta, \phi) = \frac{\sqrt{7} \left(- \frac{3}{2} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )} + \cos^{3}{\left (\theta \right )}\right)}{2 \sqrt{\pi}}
+
+Z_{3,1}(\theta, \phi) = - \frac{\sqrt{42} \left(360 \cos^{2}{\left (\theta \right )} -72\right) \sin{\left (\theta \right )} \cos{\left (\phi \right )}}{576 \sqrt{\pi}}
+
+Z_{3,2}(\theta, \phi) = \frac{\sqrt{105} \sin^{2}{\left (\theta \right )} \cos{\left (2 \phi \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+Z_{3,3}(\theta, \phi) = - \frac{\sqrt{70} \sin^{3}{\left (\theta \right )} \cos{\left (3 \phi \right )}}{8 \sqrt{\pi}}"/></p>
+</div><p>Real spherical harmonics (using <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> and <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>, assuming <img class="math" src="../../_images/math/527333c04658f5921acbfc853eb7351c1b097e7e.png" alt="x^2 + y^2 + z^2 = 1"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/af814b79b8fd16a0e5921328292883ee7226c55e.png" alt="Z_{0,0}(x, y, z) = \frac{1}{2 \sqrt{\pi}}
+
+Z_{1,-1}(x, y, z) = - \frac{\sqrt{3} y}{2 \sqrt{\pi}}
+
+Z_{1,0}(x, y, z) = \frac{\sqrt{3} z}{2 \sqrt{\pi}}
+
+Z_{1,1}(x, y, z) = - \frac{\sqrt{3} x}{2 \sqrt{\pi}}
+
+Z_{2,-2}(x, y, z) = \frac{\sqrt{15} x y}{2 \sqrt{\pi}}
+
+Z_{2,-1}(x, y, z) = - \frac{\sqrt{15} y z}{2 \sqrt{\pi}}
+
+Z_{2,0}(x, y, z) = \frac{\sqrt{5} \left(3 z^{2} -1\right)}{4 \sqrt{\pi}}
+
+Z_{2,1}(x, y, z) = - \frac{\sqrt{15} x z}{2 \sqrt{\pi}}
+
+Z_{2,2}(x, y, z) = \frac{\sqrt{15} \left(x^{2} - y^{2}\right)}{4 \sqrt{\pi}}
+
+Z_{3,-3}(x, y, z) = \frac{\sqrt{70} y \left(- 3 x^{2} + y^{2}\right)}{8 \sqrt{\pi}}
+
+Z_{3,-2}(x, y, z) = \frac{\sqrt{105} x y z}{2 \sqrt{\pi}}
+
+Z_{3,-1}(x, y, z) = \frac{\sqrt{42} y \left(- 5 z^{2} + 1\right)}{8 \sqrt{\pi}}
+
+Z_{3,0}(x, y, z) = \frac{\sqrt{7} z \left(5 z^{2} -3\right)}{4 \sqrt{\pi}}
+
+Z_{3,1}(x, y, z) = \frac{\sqrt{42} x \left(- 5 z^{2} + 1\right)}{8 \sqrt{\pi}}
+
+Z_{3,2}(x, y, z) = \frac{\sqrt{105} z \left(x^{2} - y^{2}\right)}{4 \sqrt{\pi}}
+
+Z_{3,3}(x, y, z) = \frac{\sqrt{70} x \left(- x^{2} + 3 y^{2}\right)}{8 \sqrt{\pi}}"/></p>
+</div><p>These tables were generated using
+<a class="reference download internal" href="../../_downloads/spherical_harmonics.py"><tt class="xref download docutils literal"><span class="pre">spherical_harmonics.py</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="p">(</span><span class="n">sympify</span><span class="p">,</span> <span class="n">factorial</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">Dummy</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span>
+        <span class="n">I</span><span class="p">,</span> <span class="n">latex</span><span class="p">,</span> <span class="n">symbols</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Plm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the associated Legendre polynomial P_{lm}(z).</span>
+
+<span class="sd">    The Condon &amp; Shortley (-1)^m factor is included.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">((</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">l</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">m</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">l</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">m</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">((</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">l</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">l</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">Plm_cos</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the associated Legendre polynomial P_{lm}(cos(theta)).</span>
+
+<span class="sd">    The Condon &amp; Shortley (-1)^m factor is included.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">((</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">l</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">m</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="n">m</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">l</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">Ylm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the spherical harmonics Y_{lm}(theta, phi) using the Condon &amp; Shortley convention.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm_cos</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Zlm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the real spherical harmonics Z_{lm}(theta, phi).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm_cos</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">m</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm_cos</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm_cos</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Invalid m.&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Zlm_xyz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the real spherical harmonics Z_{lm}(x, y, z).</span>
+
+<span class="sd">    It is assumed x**2 + y**2 + z**2 == 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">sympify</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">sympify</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="n">m</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">as_real_imag</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="n">m</span>
+    <span class="k">elif</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">m</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="n">m</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">as_real_imag</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="n">m</span>
+    <span class="k">elif</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">Plm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Invalid m.&quot;</span><span class="p">)</span>
+
+
+<span class="n">var</span><span class="p">(</span><span class="s">&quot;theta phi&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;x y z&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Spherical harmonics:&quot;</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;.. math::&quot;</span>
+<span class="k">print</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">r&quot;    Y_{</span><span class="si">%d</span><span class="s">,</span><span class="si">%d</span><span class="s">}(\theta, \phi) =&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> \
+            <span class="n">latex</span><span class="p">(</span><span class="n">Ylm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">))</span>
+        <span class="k">print</span>
+
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;Real spherical harmonics:&quot;</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;.. math::&quot;</span>
+<span class="k">print</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">r&quot;    Z_{</span><span class="si">%d</span><span class="s">,</span><span class="si">%d</span><span class="s">}(\theta, \phi) =&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> \
+            <span class="n">latex</span><span class="p">(</span><span class="n">Zlm</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">))</span>
+        <span class="k">print</span>
+
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;Real spherical harmonics (using $x$, $y$ and $z$, assuming $x^2 + y^2 + z^2 = 1$):&quot;</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;.. math::&quot;</span>
+<span class="k">print</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">r&quot;    Z_{</span><span class="si">%d</span><span class="s">,</span><span class="si">%d</span><span class="s">}(x, y, z) =&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> \
+            <span class="n">latex</span><span class="p">(</span><span class="n">Zlm_xyz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">())</span>
+        <span class="k">print</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -923,7 +1444,11 @@ properly normalized:</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#angular-momentum-operator">Angular Momentum Operator</a><ul>
-<li><a class="reference internal" href="#real-spherical-harmonics">Real Spherical Harmonics</a></li>
+<li><a class="reference internal" href="#real-spherical-harmonics">Real Spherical Harmonics</a><ul>
+<li><a class="reference internal" href="#other-convention">Other convention</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tables">Tables</a></li>
 </ul>
 </li>
 </ul>

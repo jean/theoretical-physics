@@ -361,6 +361,162 @@ we get:
         = {2\over b-a} \int_a^b \sin \left({2\pi n\over b-a} x\right)
             f(x) \d x
 
+Conceptually, we are taking the complex orthonormal basis
+$u_n(x) = {1\over\sqrt{b-a}} e^{i {2\pi n\over b-a} x}$ and creating
+a real orthonormal basis $v_n(x)$ composed of
+$u_0$, $\Re u_1$, $\Re u_2$, ..., $\Im u_1$, $\Im u_2$, ... as follows:
+
+.. math::
+
+    v_n(x) = \begin{cases}
+        \sqrt{2} \Re u_n =  {\sqrt 2\over\sqrt{b-a}}\cos {2\pi\over b-a} n x
+            & \mbox{for } n > 0\\
+        u_0  = {1\over\sqrt{b-a}}                     & \mbox{for } n = 0\\
+        \sqrt{2} \Im u_{|n|} = {\sqrt 2\over\sqrt{b-a}}
+            \sin {2\pi\over b-a} |n| x     & \mbox{for } n < 0\\
+        \end{cases}
+
+We are only summing over the positive arguments in $\sin$ and $\cos$, thus the
+absolute value for $n < 0$. The basis $v_n$ is orthonormal:
+
+.. math::
+
+    \int_a^b v_n(x) v_m(x) \d x = \delta_{n m}
+
+and complete:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty v_n(x) v_n(x') \d x = \delta(x-x')
+
+This is not the only way to create the real orthonormal basis. In general:
+
+.. math::
+
+    u_n(x) = \braket{x|n}
+
+    v_n(x) = \braket{x|n}_R
+
+    \ket{n}_R = \sum_m U_{n m} \ket{m}
+
+We require the new basis $\ket{n}_R$ to be orthonormal:
+
+.. math::
+
+    \braket{n|m}_R = \delta_{n m}
+
+    \sum_{kl} \braket{k|U^*_{nk} U_{ml} | l} = \delta_{n m}
+
+    \sum_{kl} U^*_{nk} U_{ml} \delta_{kl} = \delta_{n m}
+
+    \sum_k U^*_{nk} U_{mk} = \delta_{n m}
+
+This restricts the $U_{nm}$ matrices to be unitary ($U^{-1} = U^\dag$),
+because:
+
+.. math::
+
+    U U^\dag = \one
+
+    (U U^\dag)_{mn} = (\one)_{mn} = \delta_{mn}
+
+    \sum_k (U)_{mk} (U^\dag)_{kn} = \delta_{mn}
+
+    \sum_k U_{mk} U^*_{nk} = \delta_{mn}
+
+The unitarity condition also makes sure, that the real basis is complete:
+
+.. math::
+
+    \sum_n \ket{n}_R \bra{n}_R
+        = \sum_n \sum_{kl} U_{nk} \ket{k}\bra{l} U_{nl}^*
+        = \sum_{kl} \delta_{kl} \ket{k}\bra{l}
+        = \sum_k \ket{k}\bra{k}
+        = \one
+
+Requiring $\ket{n}_R$ to be real and using $\ket{m}^* = \ket{-m}$ we get:
+
+.. math::
+
+    \ket{n}_R^* = \ket{n}_R
+
+    \sum_m U_{nm}^* \ket{m}^* = \sum_m U_{nm} \ket{m}
+
+    \sum_m U_{nm}^* \ket{-m} = \sum_m U_{nm} \ket{m}
+
+    \sum_m U_{n,-m}^* \ket{m} = \sum_m U_{nm} \ket{m}
+
+    \sum_m (U_{nm} -U_{n,-m}^*) \ket{m} = 0
+
+    U_{nm} = U_{n,-m}^*
+
+    U_{nm}^* = U_{n,-m}
+
+Because the basis $\ket{m}$ is complete. So the only conditions on the matrices
+$U_{mn}$ are:
+
+.. math::
+
+    U^{-1} = U^\dag
+
+    U_{nm}^* = U_{n,-m}
+
+They imply that the new basis will be real, orthonormal and complete.
+Our final restriction is that we want each real basis element to correspond to
+the same frequency $\pm m$ (possible sign change is ok): this means that
+we can only mix the same frequencies, i.e.:
+
+.. math::
+
+    U_{nm} = 0\quad\mbox{for } |n| \ne |m|
+
+and also that the nonzero matrix elements can only be of the form
+$R e^{i{\pi\over 2} n}$ for $n=0, 1, 2, 3$ (i.e. $\pm R$ or $\pm iR$ for some
+positive $R$).
+
+Up to possible sign changes and permutations, this determines the matrix
+uniquely. Our choice above is:
+
+.. math::
+
+    U_{nm} = \begin{cases}
+        {\delta_{nm} + \delta_{n,-m}\over\sqrt{2}}   & \mbox{for } n > 0\\
+        \delta_{0m}                                  & \mbox{for } n = 0\\
+        {\delta_{nm} - \delta_{n,-m}\over i\sqrt{2}} & \mbox{for } n < 0\\
+        \end{cases}
+
+In other words, we get (except that the matrix is infinite):
+
+.. math::
+
+    \begin{pmatrix}
+    v_3 \\
+    v_2 \\
+    v_1 \\
+    v_0 \\
+    v_{-1} \\
+    v_{-2} \\
+    v_{-3} \\
+    \end{pmatrix} =
+    \begin{pmatrix}
+    {1\over  \sqrt 2} & & & & & &  {1\over  \sqrt2} \\
+    & {1\over  \sqrt 2} & & & &  {1\over  \sqrt2} & \\
+    & & {1\over  \sqrt 2} & &  {1\over  \sqrt2} & & \\
+    & & &                  1                  & & & \\
+    & & {1\over i\sqrt 2} & & -{1\over i\sqrt2} & & \\
+    & {1\over i\sqrt 2} & & & & -{1\over i\sqrt2} & \\
+    {1\over i\sqrt 2} & & & & & & -{1\over i\sqrt2} \\
+    \end{pmatrix}
+        \begin{pmatrix}
+        u_3 \\
+        u_2 \\
+        u_1 \\
+        u_0 \\
+        u_{-1} \\
+        u_{-2} \\
+        u_{-3} \\
+        \end{pmatrix}
+
 Fourier Transform
 -----------------
 
@@ -863,15 +1019,16 @@ Hence $\Theta_{lm} = (-1)^m \Theta_{l,-m}$.
 Using associated Legendre polynomials, we can write:
 
 .. math::
+    :label: thetaPlm
 
     \Theta_{lm}(\theta) = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}}
-        P_l^m(\theta)
+        P_l^m(\cos \theta)
 
 where (for all $m$):
 
 .. math::
 
-        P_l^m(\theta)
+        P_l^m(\cos \theta)
         = (-1)^l {(l+m)!\over (l-m)!} {1\over 2^l l!}
         {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
         \sin^{2l}\theta =
@@ -895,11 +1052,12 @@ where (for all $m$):
 hence (comparing the second and fourth equation above):
 
 .. math::
+    :label: Pmm
 
     P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)
 
 This is valid for all $m$ (positive or negative).
-For $m \ge 0$ we get from :eq:`Theta3`:
+For $m \ge 0$ we get from :eq:`Theta3` and :eq:`Pmm`:
 
 .. math::
 
@@ -907,9 +1065,49 @@ For $m \ge 0$ we get from :eq:`Theta3`:
             (-1)^m
         \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
 
+        P_l^{-m}(\cos \theta) = {(l-m)!\over (l+m)!}
+        \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
+
         P_l^{m}(z) =
             (-1)^m
         (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+        P_l^{-m}(z) = {(l-m)!\over (l+m)!}
+        (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+This is usually used as the definition of the associated Legendre polynomials.
+They include the Condon & Shortley phase factor $(-1)^m$ (only for positive
+$m$). Some authors omit it (then it needs to be included in the equation
+:eq:`thetaPlm`). Note that :eq:`thetaPlm` for $m<0$ can be also written as:
+
+.. math::
+
+    \Theta_{lm}(\theta)
+        = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}} P_l^m(\cos \theta)
+        = \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}} {(l-m)!\over (l+m)!}
+            P_l^m(\cos \theta) =
+
+        = (-1)^m \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}} P_l^{-m}(\cos \theta)
+        = (-1)^m \sqrt{{2l+1\over 2}{(l-|m|)!\over (l+|m|)!}} P_l^{|m|}
+            (\cos \theta)
+
+Thanks to
+
+.. math::
+
+    i^{m-|m|} = \begin{cases}
+        1      & \mbox{for } m \ge 0\\
+        (-1)^m & \mbox{for } m < 0\\
+        \end{cases}
+
+we can write for all $m$:
+
+.. math::
+
+    \Theta_{lm}(\theta)
+        = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}} P_l^m(\cos \theta)
+        = i^{m-|m|} \sqrt{{2l+1\over 2}{(l-|m|)!\over (l+|m|)!}}
+            P_l^{|m|}(\cos \theta)
 
 The normalization of associated Legendre polynomials is:
 
@@ -929,7 +1127,13 @@ Finally, we get (for all $m$):
     Y_{lm}(\theta, \phi)
         = \Theta_{lm}(\theta) \Phi_m(\phi)
         = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
-        P_l^m(\theta) e^{im\phi}
+        P_l^m(\cos \theta) e^{im\phi} =
+
+        = i^{m-|m|} \sqrt{{2l+1\over 4\pi}{(l-|m|)!\over (l+|m|)!}}
+        P_l^{|m|}(\cos \theta) e^{im\phi} =
+
+        = (-1)^m i^{m+|m|} \sqrt{{2l+1\over 4\pi}{(l-|m|)!\over (l+|m|)!}}
+        P_l^{|m|}(\cos \theta) e^{im\phi}
 
 Any function on the sphere can be expanded as:
 
@@ -952,6 +1156,7 @@ Any function on the sphere can be expanded as:
 Real Spherical Harmonics
 ------------------------
 
+The most obvious approach is to use a similar way as for Fourier series.
 We rearrange the sum:
 
 .. math::
@@ -1006,8 +1211,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             ( f_{l m} + (-1)^m f_{l, -m}) \cos m \phi
         +
-            \Theta_{l,-m}(\theta, \phi)
-            i(f_{l, -m} - (-1)^m f_{l m}) \sin (-m) \phi
+            \Theta_{lm}(\theta, \phi)
+            i(f_{lm} - (-1)^m f_{l, -m}) \sin m \phi
          \right)\right) =
 
     = {1\over\sqrt {2\pi}}
@@ -1019,8 +1224,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \cos m \phi
         +
-            \Theta_{l,-m}(\theta, \phi)
-            i{ f_{l, -m} - (-1)^m f_{l m}\over \sqrt 2} \sqrt 2 \sin (-m) \phi
+            \Theta_{lm}(\theta, \phi)
+            i{ f_{lm} - (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \sin m \phi
          \right)\right) =
 
     = {1\over\sqrt {2\pi}}
@@ -1032,8 +1237,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             \tilde f_{l m} \sqrt 2 \cos m \phi
         +
-            \Theta_{l,-m}(\theta, \phi)
-            \tilde f_{l, -m} \sqrt 2 \sin (-m) \phi
+            \Theta_{lm}(\theta, \phi)
+            \tilde f_{l, -m} \sqrt 2 \sin m \phi
          \right)\right) =
 
     = {1\over\sqrt {2\pi}}
@@ -1045,8 +1250,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             \tilde f_{l m} \sqrt 2 \cos m \phi
         +\sum_{m=-l}^{-1}
-            \Theta_{lm}(\theta, \phi)
-            \tilde f_{lm} \sqrt 2 \sin m \phi
+            \Theta_{l|m|}(\theta, \phi)
+            \tilde f_{lm} \sqrt 2 \sin |m| \phi
          \right) =
 
     = \sum_{l=0}^\infty \sum_{m=-l}^l Z_{lm}(\theta, \phi)
@@ -1059,19 +1264,20 @@ Where the real spherical harmonics $Z_{lm}$ are:
     Z_{lm}(\theta, \phi) = \begin{cases}
         \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \cos m \phi & \mbox{for } m > 0\\
         {\Theta_{l0}\over\sqrt{2\pi}} & \mbox{for } m = 0\\
-        \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \sin m \phi & \mbox{for } m < 0\\
+        \sqrt{2} {\Theta_{l |m|}\over\sqrt{2\pi}} \sin |m| \phi
+            & \mbox{for } m < 0\\
       \end{cases}
     =
     \begin{cases}
         \sqrt{2} \Re(Y_{lm}(\theta, \phi))\\
         Y_{l0}(\theta, \phi) \\
-        \sqrt{2} \Im(Y_{lm}(\theta, \phi))\\
+        \sqrt{2} \Im(Y_{l |m|}(\theta, \phi))\\
       \end{cases}
     =
     \begin{cases}
         {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
         Y_{l0}(\theta, \phi) \\
-        {1\over i\sqrt{2}} (Y_{lm}(\theta, \phi) - Y_{lm}^*(\theta, \phi))\\
+        {1\over i\sqrt{2}} (Y_{l |m|}(\theta, \phi) -Y_{l|m|}^*(\theta, \phi))\\
       \end{cases}
 
 and the coefficients $\tilde f_{lm}$ are:
@@ -1082,20 +1288,26 @@ and the coefficients $\tilde f_{lm}$ are:
     \tilde f_{lm} = \begin{cases}
         {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} & \mbox{for } m > 0\\
         f_{l0} & \mbox{for } m = 0\\
-        i{ f_{l m} - (-1)^m f_{l, -m}\over \sqrt 2} & \mbox{for } m < 0\\
+        i{ f_{l,-m} - (-1)^m f_{lm}\over \sqrt 2} & \mbox{for } m < 0\\
       \end{cases}
     =
-    \tilde f_{lm} = \begin{cases}
+    \begin{cases}
         \int {Y_{lm}^*+(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
         \int Y_{l0}^* f \d\Omega \\
-        \int i{Y_{lm}^*-(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+        \int i{Y_{l,-m}^*-(-1)^m Y_{lm}^*\over\sqrt2} f \d\Omega \\
       \end{cases}
 
     =
-    \tilde f_{lm} = \begin{cases}
+    \begin{cases}
         \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
         \int Y_{l0} f \d\Omega \\
-        \int {Y_{lm}-Y_{lm}^*\over i\sqrt2} f \d\Omega \\
+        \int {Y_{l, -m}-Y_{l, -m}^*\over i\sqrt2} f \d\Omega \\
+      \end{cases}
+    =
+    \begin{cases}
+        \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
+        \int Y_{l0} f \d\Omega \\
+        \int {Y_{l |m|}-Y_{l |m|}^*\over i\sqrt2} f \d\Omega \\
       \end{cases}
     =
         \int Z_{lm} f \d\Omega
@@ -1107,3 +1319,294 @@ properly normalized:
 
     \int Z_{l m}(\theta, \phi) Z_{l' m'}(\theta, \phi) \d \Omega
         =\delta_{l l'} \delta_{m m'}
+
+From the above derivation, it is not immediately clear how to obtain other
+parametrizations of real spherical harmonics. And also what identities they
+obey. More systematic approach is to use the transformation matrices just like
+for the Fourier series:
+
+.. math::
+
+    Z_{l\mu}(\theta, \phi) = \braket{\theta\phi|l\mu}_R
+        = \sum_{m=-l}^l U^l_{\mu m} Y_{lm}(\theta, \phi)
+        = \sum_{m=-l}^l U^l_{\mu m} \braket{\theta \phi | lm}
+
+    \ket{l\mu}_R = \sum_{m=-l}^l U^l_{\mu m} \ket{lm}
+
+We require orthonormality:
+
+.. math::
+
+    \braket{l\mu | l\mu'}_R = \delta_{\mu \mu'}
+
+This implies unitarity of the $U^l$ matrices for the given $l$.
+Requiring $\ket{l\mu}_R$ to be real and using
+$\ket{lm}^* = (-1)^m \ket{l,-m}$ we get:
+
+.. math::
+
+    \ket{l\mu}_R^* = \ket{l\mu}_R
+
+    \sum_m (U^l_{\mu m})^* \ket{lm}^* = \sum_m U^l_{\mu m} \ket{m}
+
+    \sum_m (U^l_{\mu m})^* (-1)^m \ket{l,-m} = \sum_m U^l_{\mu m} \ket{m}
+
+    \sum_m (U^l_{\mu, -m})^* (-1)^m \ket{lm} = \sum_m U^l_{\mu m} \ket{m}
+
+    \sum_m (U^l_{\mu m} - (U^l_{\mu, -m})^*) (-1)^m) \ket{m}
+
+    U^l_{\mu m} = (-1)^m (U^l_{\mu, -m})^*
+
+    (U^l_{\mu m})^* = (-1)^m U^l_{\mu, -m}
+
+As for Fourier series, we require not to mix frequencies and phases, so we get:
+
+.. math::
+
+    U_{nm}^l = 0\quad\mbox{for } |n| \ne |m|
+
+and also that the nonzero matrix elements can only be of the form
+$R e^{i{\pi\over 2} n}$ for $n=0, 1, 2, 3$ (i.e. $\pm R$ or $\pm iR$ for some
+positive $R$). Up to signs and permutations, this determines the matrices
+uniquely. As for Fourier series, this implies orthonormality and completeness
+of the real spherical harmonics:
+
+.. math::
+
+    \braket{l' m' | l m}_R = \delta_{ll'} \delta_{mm'}
+
+    \sum_{l=0}^\infty \sum_{m=-l}^l \ket{lm}_R \bra{lm}_R = \one
+
+Also, thanks to unitarity we get:
+
+.. math::
+
+    \sum_{m=-l}^l Z_{lm}(\Omega) Z_{lm}(\Omega')
+    = \sum_{m=-l}^l \sum_{m' m''} U^l_{m m'} Y_{lm'}(\Omega)
+        (U^l_{m m''})^* Y_{lm''}^*(\Omega')
+    = \sum_{m' m''} \delta_{m' m''} Y_{lm'}(\Omega) Y_{lm''}^*(\Omega') =
+
+    = \sum_{m=-l}^l Y_{lm}(\Omega) Y^*_{lm}(\Omega')
+    = {2l+1\over 4\pi} P_l(\cos \gamma)
+
+and
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|}
+        =\sum_{l=0}^\infty{r_{<}^l\over r_{>}^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})
+        = \sum_{lm}{r_{<}^l\over r_{>}^{l+1}}
+            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
+        = \sum_{lm}{r_{<}^l\over r_{>}^{l+1}}
+            {4\pi\over 2l+1}Z_{lm}({\bf\hat r})Z_{lm}({\bf\hat r}')
+
+
+Following the Fourier series, the most natural way to choose the signs in the
+$U^l$ matrices is such so as to keep $\sin$ and $\cos$ in the basis with
+positive frequencies (thus the absolute value for $m<0$):
+
+.. math::
+
+    Z_{lm}(\theta, \phi)
+    =
+    \begin{cases}
+        \sqrt{2} \Re(Y_{lm}(\theta, \phi)) & \mbox{for } m > 0\\
+        Y_{l0}(\theta, \phi) & \mbox{for } m = 0\\
+        \sqrt{2} \Im(Y_{l|m|}(\theta, \phi)) & \mbox{for } m < 0\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} (Y_{l|m|}(\theta, \phi) - Y_{l|m|}^*(\theta, \phi))\\
+      \end{cases}
+    =
+
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {-(-1)^m\over i\sqrt{2}} (Y_{lm}(\theta, \phi)
+            - Y_{lm}^*(\theta, \phi))\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + (-1)^m Y_{l,-m}(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} (Y_{l,-m}(\theta, \phi)
+            - (-1)^m Y_{lm}(\theta, \phi))\\
+      \end{cases}
+    =
+
+    =
+    \begin{cases}
+        \sqrt{{2l+1\over 2\pi}{(l-m)!\over (l+m)!}} P_l^m(\cos\theta)
+            \cos m\phi \\
+        \sqrt{2l+1\over 4\pi} P_l(\cos\theta) \\
+        \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}} P_l^{|m|}(\cos\theta)
+            \sin |m| \phi \\
+      \end{cases}
+
+This gives:
+
+.. math::
+
+    U_{\mu m}^l = \begin{cases}
+        {\delta_{\mu m} + (-1)^m \delta_{\mu,-m}\over\sqrt{2}}
+            & \mbox{for } \mu > 0\\
+        \delta_{0m}                                  & \mbox{for } \mu = 0\\
+        {\delta_{\mu,-m} - (-1)^m \delta_{\mu m}\over i\sqrt{2}}
+            & \mbox{for } \mu < 0\\
+        \end{cases}
+
+Other convention
+~~~~~~~~~~~~~~~~
+
+Some people use the following convention:
+
+.. math::
+
+    Z_{lm}(\theta, \phi)
+    =
+    \begin{cases}
+        (-1)^m \sqrt{2} \Re(Y_{lm}(\theta, \phi)) & \mbox{for } m > 0\\
+        Y_{l0}(\theta, \phi) & \mbox{for } m = 0\\
+        (-1)^m \sqrt{2} \Im(Y_{l|m|}(\theta, \phi)) & \mbox{for } m < 0\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}((-1)^m Y_{lm}(\theta, \phi) + Y_{l,-m}(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} ((-1)^m Y_{l,-m}(\theta, \phi)
+            - Y_{lm}(\theta, \phi))\\
+      \end{cases}
+    =
+
+    =
+    \begin{cases}
+        (-1)^m \sqrt{{2l+1\over 2\pi}{(l-m)!\over (l+m)!}} P_l^m(\cos\theta)
+            \cos m\phi \\
+        \sqrt{2l+1\over 4\pi} P_l(\cos\theta) \\
+        (-1)^m \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}}
+            P_l^{|m|}(\cos\theta) \sin |m| \phi \\
+      \end{cases}
+
+Tables
+------
+
+Spherical harmonics:
+
+.. math::
+
+    Y_{0,0}(\theta, \phi) = \frac{1}{2 \sqrt{\pi}}
+
+    Y_{1,-1}(\theta, \phi) = \frac{\sqrt{6} e^{- \mathbf{\imath} \phi} \sin{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{1,0}(\theta, \phi) = \frac{\sqrt{3} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Y_{1,1}(\theta, \phi) = - \frac{\sqrt{6} e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{2,-2}(\theta, \phi) = \frac{\sqrt{30} e^{- 2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{2,-1}(\theta, \phi) = \frac{\sqrt{30} e^{- \mathbf{\imath} \phi} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{2,0}(\theta, \phi) = \frac{\sqrt{5} \left(\frac{3}{2} \cos^{2}{\left (\theta \right )} - \frac{1}{2}\right)}{2 \sqrt{\pi}}
+
+    Y_{2,1}(\theta, \phi) = - \frac{\sqrt{30} e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{2,2}(\theta, \phi) = \frac{\sqrt{30} e^{2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,-3}(\theta, \phi) = \frac{\sqrt{35} e^{- 3 \mathbf{\imath} \phi} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,-2}(\theta, \phi) = \frac{\sqrt{210} e^{- 2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,-1}(\theta, \phi) = - \frac{\sqrt{21} \left(6 \sin^{4}{\left (\theta \right )} - 24 \sin^{2}{\left (\theta \right )} \cos^{2}{\left (\theta \right )}\right) e^{- \mathbf{\imath} \phi}}{48 \sqrt{\pi} \sin{\left (\theta \right )}}
+
+    Y_{3,0}(\theta, \phi) = \frac{\sqrt{7} \left(- \frac{3}{2} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )} + \cos^{3}{\left (\theta \right )}\right)}{2 \sqrt{\pi}}
+
+    Y_{3,1}(\theta, \phi) = - \frac{\sqrt{21} \left(360 \cos^{2}{\left (\theta \right )} -72\right) e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )}}{576 \sqrt{\pi}}
+
+    Y_{3,2}(\theta, \phi) = \frac{\sqrt{210} e^{2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,3}(\theta, \phi) = - \frac{\sqrt{35} e^{3 \mathbf{\imath} \phi} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+
+Real spherical harmonics:
+
+.. math::
+
+    Z_{0,0}(\theta, \phi) = \frac{1}{2 \sqrt{\pi}}
+
+    Z_{1,-1}(\theta, \phi) = - \frac{\sqrt{3} \sin{\left (\phi \right )} \sin{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{1,0}(\theta, \phi) = \frac{\sqrt{3} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{1,1}(\theta, \phi) = - \frac{\sqrt{3} \sin{\left (\theta \right )} \cos{\left (\phi \right )}}{2 \sqrt{\pi}}
+
+    Z_{2,-2}(\theta, \phi) = \frac{\sqrt{15} \sin{\left (2 \phi \right )} \sin^{2}{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Z_{2,-1}(\theta, \phi) = - \frac{\sqrt{15} \sin{\left (\phi \right )} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{2,0}(\theta, \phi) = \frac{\sqrt{5} \left(\frac{3}{2} \cos^{2}{\left (\theta \right )} - \frac{1}{2}\right)}{2 \sqrt{\pi}}
+
+    Z_{2,1}(\theta, \phi) = - \frac{\sqrt{15} \sin{\left (\theta \right )} \cos{\left (\phi \right )} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{2,2}(\theta, \phi) = \frac{\sqrt{15} \sin^{2}{\left (\theta \right )} \cos{\left (2 \phi \right )}}{4 \sqrt{\pi}}
+
+    Z_{3,-3}(\theta, \phi) = - \frac{\sqrt{70} \sin{\left (3 \phi \right )} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Z_{3,-2}(\theta, \phi) = \frac{\sqrt{105} \sin{\left (2 \phi \right )} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Z_{3,-1}(\theta, \phi) = - \frac{\sqrt{42} \left(360 \cos^{2}{\left (\theta \right )} -72\right) \sin{\left (\phi \right )} \sin{\left (\theta \right )}}{576 \sqrt{\pi}}
+
+    Z_{3,0}(\theta, \phi) = \frac{\sqrt{7} \left(- \frac{3}{2} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )} + \cos^{3}{\left (\theta \right )}\right)}{2 \sqrt{\pi}}
+
+    Z_{3,1}(\theta, \phi) = - \frac{\sqrt{42} \left(360 \cos^{2}{\left (\theta \right )} -72\right) \sin{\left (\theta \right )} \cos{\left (\phi \right )}}{576 \sqrt{\pi}}
+
+    Z_{3,2}(\theta, \phi) = \frac{\sqrt{105} \sin^{2}{\left (\theta \right )} \cos{\left (2 \phi \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Z_{3,3}(\theta, \phi) = - \frac{\sqrt{70} \sin^{3}{\left (\theta \right )} \cos{\left (3 \phi \right )}}{8 \sqrt{\pi}}
+
+
+Real spherical harmonics (using $x$, $y$ and $z$, assuming $x^2 + y^2 + z^2 = 1$):
+
+.. math::
+
+    Z_{0,0}(x, y, z) = \frac{1}{2 \sqrt{\pi}}
+
+    Z_{1,-1}(x, y, z) = - \frac{\sqrt{3} y}{2 \sqrt{\pi}}
+
+    Z_{1,0}(x, y, z) = \frac{\sqrt{3} z}{2 \sqrt{\pi}}
+
+    Z_{1,1}(x, y, z) = - \frac{\sqrt{3} x}{2 \sqrt{\pi}}
+
+    Z_{2,-2}(x, y, z) = \frac{\sqrt{15} x y}{2 \sqrt{\pi}}
+
+    Z_{2,-1}(x, y, z) = - \frac{\sqrt{15} y z}{2 \sqrt{\pi}}
+
+    Z_{2,0}(x, y, z) = \frac{\sqrt{5} \left(3 z^{2} -1\right)}{4 \sqrt{\pi}}
+
+    Z_{2,1}(x, y, z) = - \frac{\sqrt{15} x z}{2 \sqrt{\pi}}
+
+    Z_{2,2}(x, y, z) = \frac{\sqrt{15} \left(x^{2} - y^{2}\right)}{4 \sqrt{\pi}}
+
+    Z_{3,-3}(x, y, z) = \frac{\sqrt{70} y \left(- 3 x^{2} + y^{2}\right)}{8 \sqrt{\pi}}
+
+    Z_{3,-2}(x, y, z) = \frac{\sqrt{105} x y z}{2 \sqrt{\pi}}
+
+    Z_{3,-1}(x, y, z) = \frac{\sqrt{42} y \left(- 5 z^{2} + 1\right)}{8 \sqrt{\pi}}
+
+    Z_{3,0}(x, y, z) = \frac{\sqrt{7} z \left(5 z^{2} -3\right)}{4 \sqrt{\pi}}
+
+    Z_{3,1}(x, y, z) = \frac{\sqrt{42} x \left(- 5 z^{2} + 1\right)}{8 \sqrt{\pi}}
+
+    Z_{3,2}(x, y, z) = \frac{\sqrt{105} z \left(x^{2} - y^{2}\right)}{4 \sqrt{\pi}}
+
+    Z_{3,3}(x, y, z) = \frac{\sqrt{70} x \left(- x^{2} + 3 y^{2}\right)}{8 \sqrt{\pi}}
+
+
+These tables were generated using
+:download:`spherical_harmonics.py <code/spherical_harmonics.py>`:
+
+.. literalinclude:: code/spherical_harmonics.py
+
