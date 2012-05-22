@@ -2735,7 +2735,107 @@ two particle integrals over atomic (or molecular) orbitals <img class="math" src
         -\epsilon_r - \epsilon_s} +
     \sum_{abr} {(ia|br) (2(ja|br)-(jb|ar))\over E + \epsilon_r
         -\epsilon_a - \epsilon_b}"/></p>
-</div><p>The <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/> are occupied orbitals, <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>, <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> are virtual orbitals.</p>
+</div><p>The <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/> are occupied orbitals, <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>, <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> are virtual orbitals.
+The Dyson equation is:</p>
+<div class="math" id="equation-Dyson">
+<p><span class="eqno">(15)</span><img src="../../_images/math/6f95f8be3ac3ee0ae1a506dc3197d0f76c928cd5.png" alt="{\bf G}(E) = {\bf G}_0(E) + {\bf G}_0(E) {\boldsymbol\Sigma}(E) {\bf G}(E)"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/e70b6725b47fc12f4e5f79c0d951b72eb61958d8.png" alt="{\bf G}_0(E) = {1\over E - {\boldsymbol \epsilon}}
+    = \sum_k {\ket{k}\bra{k}\over E - \epsilon_k}
+
+{\bf G}(E) = {1\over E - {\bf E}}
+    = \sum_k {\ket{k_{int}}\bra{k_{int}}\over E - E_k}"/></p>
+</div><p>The <img class="math" src="../../_images/math/cae188df8014729f1ced0b341a1e469b748b70d2.png" alt="\epsilon_k"/> and <img class="math" src="../../_images/math/e887edec7a4633a122d23577eeea9f7bf89300e5.png" alt="\ket{k}"/> are HF energies and eigenvectors, <img class="math" src="../../_images/math/916a2c2a72c7a444e30aad3c3ca025517887bf00.png" alt="E_k"/>
+and <img class="math" src="../../_images/math/0544157c45da3a01d000d29a192d0ac7a1ccf84a.png" alt="\ket{k_{int}}"/> are
+interacting energies and eigenvectors.
+The matrix <img class="math" src="../../_images/math/c0ec0a8c2ae77c49773f83ea2251a291fe90f258.png" alt="\boldsymbol\epsilon"/> is a diagonal matrix of the <img class="math" src="../../_images/math/cae188df8014729f1ced0b341a1e469b748b70d2.png" alt="\epsilon_k"/>
+eigenvalues, <img class="math" src="../../_images/math/d5d96cf1654a892505e76002c55130995667376e.png" alt="\bf E"/> is a diagonal matrix of the <img class="math" src="../../_images/math/916a2c2a72c7a444e30aad3c3ca025517887bf00.png" alt="E_k"/> eigenvalues.
+Any Green&#8217;s function <img class="math" src="../../_images/math/a9dc31814413c1617f0b28a2ca43184ae83d6607.png" alt="{\bf G}(E)"/> (interacting or not) can be written using the
+spectral density function <img class="math" src="../../_images/math/329e7946593ac0585cd6ccf3f349358d650c4189.png" alt="{\bf A}(z)"/> as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/1aff3efd5f670fac36e1853cc6a4172e0caf95c7.png" alt="{\bf G}(E) = {1\over E - {\boldsymbol \epsilon}}
+    = \sum_k {\ket{k}\bra{k}\over E - \epsilon_k} =
+
+    = \sum_k \int_{-\infty}^{\infty}
+        {\ket{k}\bra{k}\over E - z} \delta(z-\epsilon_k) \d z =
+
+    = \int_{-\infty}^{\infty} {{\bf A}(z)\over E-z} \d z"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/7f44b22c1277ac3b548f299bad4691249b909f44.png" alt="{\bf A}(z) = \sum_k \ket{k}\bra{k} \delta(z-\epsilon_k) =
+
+= \sum_k \ket{k}\bra{k} \lim_{\eta\to0} {\eta\over\pi}
+    {1\over (z-\epsilon_k)^2 + \eta^2} =
+
+= \sum_k \ket{k}\bra{k} \lim_{\eta\to0} {i\over 2\pi}
+    \left({1\over z-\epsilon_k+i\eta} -{1\over z-\epsilon_k-i\eta}\right) =
+
+= \lim_{\eta\to0} {i\over 2\pi}
+    \left({\bf G}(z+i\eta) - {\bf G}(z-i\eta)\right)"/></p>
+</div><p>From <a href="#equation-Dyson">(15)</a> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/29a063ade71d4e0619d05eb8d43b6cfc5396b992.png" alt="{1\over {\bf G}_0(E)} {\bf G}(E) = 1 + {\boldsymbol \Sigma}(E) {\bf G}(E)
+
+{1\over {\bf G}_0(E)} = {1\over {\bf G}(E)} + {\boldsymbol\Sigma}(E)
+
+{\bf G}(E) = {1\over {1\over {\bf G}_0(E)} - {\boldsymbol \Sigma}(E)}
+    = {1\over E - {\boldsymbol \epsilon} - {\boldsymbol \Sigma}(E)}"/></p>
+</div><p>The poles <img class="math" src="../../_images/math/916a2c2a72c7a444e30aad3c3ca025517887bf00.png" alt="E_k"/> of the Green&#8217;s function <img class="math" src="../../_images/math/a9dc31814413c1617f0b28a2ca43184ae83d6607.png" alt="{\bf G}(E)"/> are then given by:</p>
+<div class="math">
+<p><img src="../../_images/math/dc2b394a085f4496b84461a1675debf677affc8d.png" alt="D(E) =
+\det (E - {\boldsymbol \epsilon} - {\boldsymbol \Sigma}(E)) = 0"/></p>
+</div><p>or equivalently:</p>
+<div class="math">
+<p><img src="../../_images/math/a24848aef364a1c79465c6e5cec7bc0accb97201.png" alt="({\boldsymbol \Sigma}(E_k) + {\boldsymbol \epsilon})\ket{v} = E_k\ket{v}"/></p>
+</div><p>and from the theory of matrices:</p>
+<div class="math">
+<p><img src="../../_images/math/5fb034323f837e36c3203a05d28653ed5b968a7a.png" alt="\Tr {1\over E-{\bf h}}
+= \Tr {{\partial\over\partial E} (E-{\bf h})\over E-{\bf h}}
+= \Tr {\partial\over\partial E}\log(E-{\bf h})
+= {\partial\over\partial E} \Tr \log(E-{\bf h}) =
+
+= {\partial\over\partial E} \log | \det(E-{\bf h}) |
+= {1\over\det(E-{\bf h})} {\partial \det(E-{\bf h}) \over\partial E}"/></p>
+</div><p>one obtains that</p>
+<div class="math">
+<p><img src="../../_images/math/1d7a68a40512be040eb368242ff9319fa90cf5b7.png" alt="G_{ij}(E) = (-1)^{i+j+1} {\partial \log D(E) \over \partial
+  ({\boldsymbol \Sigma}(E_k) + {\boldsymbol \epsilon})_{ji}}"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/fa74f214e4973f8afa0cbefb1f63e138e3f4d2bb.png" alt="\Tr {\bf G}(E) = \sum_{k} G_{kk}(E)
+    = {\partial \log | D(E) | \over\partial E}"/></p>
+</div><p>The number of particles <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/> can be calculated as follows
+(<img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> are occupied orbitals, <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> are all orbitals):</p>
+<div class="math">
+<p><img src="../../_images/math/3758a907736ff0c364ac8a057ffeae95f4a12caa.png" alt="N = \sum_a | \braket{{\bf r} | a}|^2 =
+
+= \sum_a \braket{{\bf r} | a}\braket{a | {\bf r}} =
+
+= \Tr \sum_a \ket{a}\bra{a} =
+
+= {1\over 2\pi i} \Tr \int_C \sum_k {\ket{k}\bra{k}\over E-E_k}\d E =
+
+= {1\over 2\pi i} \int_C \Tr {\bf G}(E) \,\d E =
+
+= {1\over 2\pi i} \int_C {\partial \log | D(E) | \over\partial E} \,\d E"/></p>
+</div><p>The countour <img class="math" src="../../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> only encloses poles <img class="math" src="../../_images/math/56a82f7785e24c275a5c85ce43d56fa4c2b49b1c.png" alt="E_a"/> corresponding to occupied orbitals
+<img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>.
+Similarly for the total energy <img class="math" src="../../_images/math/2cb6214c374308f0d0e52fb4991e0f0c45985255.png" alt="E_{tot}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/bd93aa9b0d3b711fb6639b878c0d27c760f3351e.png" alt="E_{tot} = \sum_a E_a | \braket{{\bf r} | a}|^2 =
+
+= \sum_a \braket{{\bf r} | a} E_a \braket{a | {\bf r}} =
+
+= \Tr \sum_a \ket{a} E_a \bra{a} =
+
+= {1\over 2\pi i} \Tr \int_C \sum_k {\ket{k}\bra{k}\over E-E_k}
+    E\,\d E =
+
+= {1\over 2\pi i} \int_C \Tr {\bf G}(E) E\,\d E =
+
+= {1\over 2\pi i} \int_C {\partial \log | D(E) | \over\partial E} E\,\d E"/></p>
+</div><p>For doubly filled orbitals we multiply the expressions by 2.</p>
 </div>
 </div>
 
