@@ -791,6 +791,127 @@ Q = \rho f"/></p>
 </div><p>Example IV is just a special case for <img class="math" src="../../_images/math/1d96ecc15129c5631ba4a2c6578e91e3d13e3baf.png" alt="n=1"/>, <img class="math" src="../../_images/math/5ed8470bc717a49aafe4556c7e2c2e11ddc7b687.png" alt="k=1"/>.</p>
 </div>
 </div>
+<div class="section" id="asymptotic">
+<h2>Asymptotic<a class="headerlink" href="#asymptotic" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="schrodinger">
+<h3>Schrödinger<a class="headerlink" href="#schrodinger" title="Permalink to this headline">¶</a></h3>
+<p>The radial Schrödinger equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/ff2a6cb08615b5fa1b5bd6414b01672e22b3f6d2.png" alt="P''(r) + 2\left(E-V(r)-{l(l+1)\over 2r^2}\right) P(r) = 0
+
+Q(r) = P'(r)"/></p>
+</div><p>For <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/>, assuming <img class="math" src="../../_images/math/94b11b5cac7a7da6247523a7427cb8728e26addc.png" alt="V(r)\to0"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/06566051c6ca9d30a34bda98486f83dfb51c0fae.png" alt="P''(r) + 2E P(r) = 0"/></p>
+</div><p>And the asymptotic is:</p>
+<div class="math">
+<p><img src="../../_images/math/e31fc87ab51b01d1bf279e2dd06e9f19c0085423.png" alt="P(r) = e^{-\sqrt{-2E} r}
+
+Q(r) = P'(r) = -\sqrt{-2E} e^{-\sqrt{-2E} r}"/></p>
+</div><p>For <img class="math" src="../../_images/math/aa7b115bc10ced52207e4eb06252e46cf6d58ca8.png" alt="r\to0"/> and assuming that <img class="math" src="../../_images/math/4bb5bea4e0d4233b1b83f94c4db7d760e9323451.png" alt="V(r)"/> can be neglected compared to the
+<img class="math" src="../../_images/math/1ef2a5ed2ecf7fa220a8e202eddbd2d2bb3030ae.png" alt="{l(l+1)\over 2r^2}"/> term (for example <img class="math" src="../../_images/math/e842e2790034b356f4d908ca5637a316aa4b9b68.png" alt="V(r) = -Z/r + O(1)"/> is ok) we get:</p>
+<div class="math">
+<p><img src="../../_images/math/ee6c86e400669a370158833f2d96d5585acc8a7f.png" alt="P''(r) -{l(l+1)\over r^2} P(r) = 0"/></p>
+</div><p>And the asymptotic is:</p>
+<div class="math">
+<p><img src="../../_images/math/c92ff58deb8d31c40cd8d72ce89c0354cf9403bf.png" alt="P(r) = r^{l+1}
+
+Q(r) = (l+1) r^l"/></p>
+</div></div>
+<div class="section" id="dirac">
+<h3>Dirac<a class="headerlink" href="#dirac" title="Permalink to this headline">¶</a></h3>
+<p>The Dirac equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/dd304eaf2316752b11ff9072a44d94c5685c27ad.png" alt="H = \left(\begin{array}{cc}
+    V(r) + c^2 &amp; c\left(-{\d\over\d r}+{\kappa\over r}\right) \\
+    c \left({\d\over\d r}+{\kappa\over r}\right) &amp; V(r) - c^2 \\
+    \end{array}\right)
+
+H\left(\begin{array}{c}
+    P(r) \\
+    Q(r) \\
+    \end{array}\right) =
+W\left(\begin{array}{c}
+    P(r) \\
+    Q(r) \\
+    \end{array}\right)"/></p>
+</div><p>Where the relativistic energy <img class="math" src="../../_images/math/f4ecb8a74add728a3ff71c24d91e9bc70e662e98.png" alt="W = E + c^2"/>. In terms of the nonrelativistic
+energy it becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/211a5e7332deacd5e6b63b30437d20f9622a68a1.png" alt="H_{nonrel} = \left(\begin{array}{cc}
+    V(r) &amp; c\left(-{\d\over\d r}+{\kappa\over r}\right) \\
+    c \left({\d\over\d r}+{\kappa\over r}\right) &amp; V(r) - 2c^2 \\
+    \end{array}\right)
+
+H_{nonrel}\left(\begin{array}{c}
+    P(r) \\
+    Q(r) \\
+    \end{array}\right) =
+E\left(\begin{array}{c}
+    P(r) \\
+    Q(r) \\
+    \end{array}\right)"/></p>
+</div><p>For <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/>, assuming <img class="math" src="../../_images/math/2d1dd95f0d7ee7ae9c4abce6ece9187d45a4e94b.png" alt="V(r)\to 0"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/e33e9f630a6ebc91a0810d09d8a8ff7b3bebb06b.png" alt="H = \left(\begin{array}{cc}
+    c^2 &amp; -c{\d\over\d r} \\
+    c {\d\over\d r} &amp; - c^2 \\
+    \end{array}\right)"/></p>
+</div><p>and in terms of <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/> and <img class="math" src="../../_images/math/906d163dcbeb451ea5c7d62e9faab154b0914c11.png" alt="Q(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/1cda272a2ee56f1f8c9e84dfc1b4385dac26a970.png" alt="c^2 P - c Q' = W P
+
+c P' - c^2 Q = W Q"/></p>
+</div><p>let&#8217;s put the derivatives on the left hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/7bfa3398c6c5ef774b81595027dd2ddc3cd35d9d.png" alt="c P' =  (W + c^2) Q
+
+c Q' = -(W - c^2) P"/></p>
+</div><p>write a second order equation:</p>
+<div class="math">
+<p><img src="../../_images/math/60ccca4aed58425b8f1b3db6f08551430b05d375.png" alt="c^2 P'' =  (W + c^2) c Q' = - (W + c^2)(W - c^2) P
+    = - (W^2 - c^4) P"/></p>
+</div><p>and finally we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3664a37f34eb55a8b8232fbd4c35da2f68cd0d2e.png" alt="P'' + {W^2 - c^4 \over c^2} P = 0
+
+Q = {c\over W + c^2} P'"/></p>
+</div><p>The asymptotic is:</p>
+<div class="math">
+<p><img src="../../_images/math/0ed33fdd87f47bd22328a60a4db0ca348c74c77a.png" alt="P(r) = e^{-\sqrt{c^4-W^2\over c^2} r}
+
+Q(r) = {c\over W + c^2} \left(-\sqrt{c^4-W^2\over c^2}\right)
+    e^{-\sqrt{c^4-W^2\over c^2} r}
+  = -\sqrt{c^2-W\over c^2+W} e^{-\sqrt{c^4-W^2\over c^2} r}"/></p>
+</div><p>For <img class="math" src="../../_images/math/357f7505b3876771468a037a970a4458e31fb87b.png" alt="r\to 0"/> we write the full equations:</p>
+<div class="math">
+<p><img src="../../_images/math/6b3762aa6cb26837f8c6b067da17344caf93465a.png" alt="(V+c^2) P - c Q' + c{\kappa\over r} Q = W P
+
+c P' + c{\kappa\over r} P + (V-c^2) Q = W Q"/></p>
+</div><p>The we assume <img class="math" src="../../_images/math/5eb0c954915fdd27d5a7a60f30834a04c5f4e4c9.png" alt="P(r) = r^\beta"/> and use the second equation to express <img class="math" src="../../_images/math/906d163dcbeb451ea5c7d62e9faab154b0914c11.png" alt="Q(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/99ab0d38a883f64ce24ca5ddbce0765e46e020b9.png" alt="Q(r) = {c P' + c{\kappa\over r} P \over W - V + c^2}
+    ={c \beta r^{\beta-1} + c{\kappa\over r} r^\beta \over W - V + c^2}
+    =r^{\beta-1} {c(\beta + \kappa)\over W - V + c^2}"/></p>
+</div><p>We can always write any potential as <img class="math" src="../../_images/math/757d65a12dd0a685dcda222ae4c1d2b4d2e08dc3.png" alt="V(r) = -{Z(r)\over r}"/> and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/23ce1576ae6b5678976fca4187855f4f9db7fdfc.png" alt="Q(r)
+    =r^{\beta-1} {c(\beta + \kappa)\over W + {Z(r)\over r} + c^2}
+    =r^\beta {c(\beta + \kappa)\over Z(r) + (W + c^2)r}"/></p>
+</div><p>If <img class="math" src="../../_images/math/9b3aeafe621c564e8df1677729598ab5f6d05764.png" alt="Z(r)\to Z"/> as <img class="math" src="../../_images/math/357f7505b3876771468a037a970a4458e31fb87b.png" alt="r\to 0"/> then the term <img class="math" src="../../_images/math/82986e79cc2b5b47cb175ec5b29bd1e313649b20.png" alt="(W + c^2)r"/> goes to zero and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/eb80de29156c62a64740a3d377ed15c560788d06.png" alt="Q(r) =r^\beta {c(\beta + \kappa)\over Z}"/></p>
+</div><p>If <img class="math" src="../../_images/math/30812e4007852d1256d990e51cd76b6193d87f98.png" alt="Z(r) \to Z_1 r"/>, then we get:</p>
+<div class="math">
+<p><img src="../../_images/math/b066ad445d1f8cba0b70fa312e3a0178d09f8c41.png" alt="Q(r)
+    =r^\beta {c(\beta + \kappa)\over Z_1 r + (W + c^2)r}
+    =r^{\beta-1} {c(\beta + \kappa)\over Z_1 + W + c^2}"/></p>
+</div><p>If <img class="math" src="../../_images/math/c8e4890003d2cc201531b9471f7aede503d8bb52.png" alt="Z(r) \sim r^3"/> (harmonic oscillator) or <img class="math" src="../../_images/math/7f28f0ad33d674358bada40d9e3309bd7fc0a9b7.png" alt="Z(r) \sim r^2"/>, then the <img class="math" src="../../_images/math/07357c3c4e2399692ab2dc99dc93d066f72627c3.png" alt="Z(r)"/>
+term goes to zero and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/e9a585b9a8edb97bb146c6acc2ca889899fee4d4.png" alt="Q(r) =r^{\beta-1} {c(\beta + \kappa)\over W + c^2}"/></p>
+</div></div>
+</div>
 </div>
 
 
@@ -831,6 +952,11 @@ Q = \rho f"/></p>
 <li><a class="reference internal" href="#example-iii">Example III</a></li>
 <li><a class="reference internal" href="#example-iv">Example IV</a></li>
 <li><a class="reference internal" href="#example-v">Example V</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#asymptotic">Asymptotic</a><ul>
+<li><a class="reference internal" href="#schrodinger">Schrödinger</a></li>
+<li><a class="reference internal" href="#dirac">Dirac</a></li>
 </ul>
 </li>
 </ul>
